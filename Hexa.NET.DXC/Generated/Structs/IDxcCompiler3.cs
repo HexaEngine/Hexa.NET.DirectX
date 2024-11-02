@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcCompiler3")]
 	public partial struct IDxcCompiler3 : IComObject, IComObject<IDxcCompiler3>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -115,12 +102,10 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, riid, ppResult);
+			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, riid, ppResult);
 			return ret;
 		}
 
@@ -130,14 +115,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, pIncludeHandler, riid, ppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, riid, ppResult);
 				return ret;
 			}
 		}
@@ -148,14 +131,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, riid, ppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, riid, ppResult);
 				return ret;
 			}
 		}
@@ -166,16 +147,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, riid, ppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, riid, ppResult);
 					return ret;
 				}
 			}
@@ -187,14 +166,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
 				return ret;
 			}
 		}
@@ -205,12 +182,10 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
+			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
 			return ret;
 		}
 
@@ -220,16 +195,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
 					return ret;
 				}
 			}
@@ -241,14 +214,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
 				return ret;
 			}
 		}
@@ -259,16 +230,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
 					return ret;
 				}
 			}
@@ -280,14 +249,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
 				return ret;
 			}
 		}
@@ -298,18 +265,16 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
 					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, ppResult);
 						return ret;
 					}
 				}
@@ -322,16 +287,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, ppResult);
 					return ret;
 				}
 			}
@@ -343,14 +306,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
 				return ret;
 			}
 		}
@@ -361,16 +322,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -382,16 +341,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -403,18 +360,16 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, ppResult);
 						return ret;
 					}
 				}
@@ -427,16 +382,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -448,14 +401,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
 				return ret;
 			}
 		}
@@ -466,18 +417,16 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
 						return ret;
 					}
 				}
@@ -490,16 +439,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -511,9 +458,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -522,7 +467,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
 						return ret;
 					}
 				}
@@ -535,16 +480,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -556,12 +499,10 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
@@ -569,7 +510,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, ppResult);
 							return ret;
 						}
 					}
@@ -583,18 +524,16 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, ppResult);
 						return ret;
 					}
 				}
@@ -607,14 +546,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
 				return ret;
 			}
 		}
@@ -625,16 +562,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -646,16 +581,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -667,18 +600,16 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, riid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -691,16 +622,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -712,14 +641,12 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
 				return ret;
 			}
 		}
@@ -730,18 +657,16 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -754,16 +679,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -775,9 +698,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -786,7 +707,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -799,16 +720,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -820,12 +739,10 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
@@ -833,7 +750,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (void** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, riid, (void**)pppResult);
 							return ret;
 						}
 					}
@@ -847,18 +764,16 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, riid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -871,16 +786,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -892,18 +805,16 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -916,9 +827,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -927,7 +836,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -940,12 +849,10 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, IDxcIncludeHandler* pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
@@ -953,7 +860,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (void** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, pIncludeHandler, (Guid*)priid, (void**)pppResult);
 							return ret;
 						}
 					}
@@ -967,9 +874,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
@@ -978,7 +883,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -991,16 +896,14 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -1012,12 +915,10 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
@@ -1025,7 +926,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (void** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
 							return ret;
 						}
 					}
@@ -1039,18 +940,16 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, char** pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, pArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -1063,9 +962,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -1076,7 +973,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (void** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
 							return ret;
 						}
 					}
@@ -1090,9 +987,7 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(Buffer* pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -1101,7 +996,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, pSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}
@@ -1114,12 +1009,10 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ref IDxcIncludeHandler pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
@@ -1129,7 +1022,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (void** pppResult = &ppResult)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)ppIncludeHandler, (Guid*)priid, (void**)pppResult);
 								return ret;
 							}
 						}
@@ -1144,12 +1037,10 @@ namespace Hexa.NET.DXC
 		/// Compile a root signature (-T rootsig_*), or<br/>
 		/// Preprocess HLSL source (-P)<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Compile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Compile([NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pSource, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Compile(ref Buffer pSource, ref char* pArguments, uint argCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppSource = &pSource)
+			fixed (Buffer* ppSource = &pSource)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
@@ -1157,7 +1048,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (void** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (DxcBuffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, char**, uint, IDxcIncludeHandler*, Guid*, void**, int>)(LpVtbl[3]))(ptr, (Buffer*)ppSource, (char**)ppArguments, argCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (Guid*)priid, (void**)pppResult);
 							return ret;
 						}
 					}
@@ -1168,26 +1059,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Disassemble")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Disassemble([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pObject, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Disassemble(Buffer* pObject, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, riid, ppResult);
+			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, riid, ppResult);
 			return ret;
 		}
 
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Disassemble")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Disassemble([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pObject, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Disassemble(ref Buffer pObject, Guid* riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppObject = &pObject)
+			fixed (Buffer* ppObject = &pObject)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (DxcBuffer*)ppObject, riid, ppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, riid, ppResult);
 				return ret;
 			}
 		}
@@ -1195,14 +1082,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Disassemble")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Disassemble([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pObject, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Disassemble(Buffer* pObject, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, (Guid*)priid, ppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, (Guid*)priid, ppResult);
 				return ret;
 			}
 		}
@@ -1210,16 +1095,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Disassemble")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Disassemble([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pObject, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppResult) 
+		public readonly unsafe int Disassemble(ref Buffer pObject, ref Guid riid, void** ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppObject = &pObject)
+			fixed (Buffer* ppObject = &pObject)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (DxcBuffer*)ppObject, (Guid*)priid, ppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, (Guid*)priid, ppResult);
 					return ret;
 				}
 			}
@@ -1228,14 +1111,12 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Disassemble")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Disassemble([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pObject, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Disassemble(Buffer* pObject, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppResult = &ppResult)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, riid, (void**)pppResult);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, riid, (void**)pppResult);
 				return ret;
 			}
 		}
@@ -1243,16 +1124,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Disassemble")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Disassemble([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pObject, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Disassemble(ref Buffer pObject, Guid* riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppObject = &pObject)
+			fixed (Buffer* ppObject = &pObject)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (DxcBuffer*)ppObject, riid, (void**)pppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, riid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -1261,16 +1140,14 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Disassemble")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Disassemble([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] DxcBuffer* pObject, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Disassemble(Buffer* pObject, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				fixed (void** pppResult = &ppResult)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, (Guid*)priid, (void**)pppResult);
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pObject, (Guid*)priid, (void**)pppResult);
 					return ret;
 				}
 			}
@@ -1279,18 +1156,16 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Disassemble a program.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Disassemble")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Disassemble([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "const DxcBuffer*")] ref DxcBuffer pObject, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppResult) 
+		public readonly unsafe int Disassemble(ref Buffer pObject, ref Guid riid, ref void* ppResult) 
 		{
 			IDxcCompiler3* ptr = (IDxcCompiler3*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcBuffer* ppObject = &pObject)
+			fixed (Buffer* ppObject = &pObject)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					fixed (void** pppResult = &ppResult)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, DxcBuffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (DxcBuffer*)ppObject, (Guid*)priid, (void**)pppResult);
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler3*, Buffer*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (Buffer*)ppObject, (Guid*)priid, (void**)pppResult);
 						return ret;
 					}
 				}

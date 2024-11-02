@@ -21,10 +21,8 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateDXGIFactoryNative([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] void** ppFactory)
+		internal static int CreateDXGIFactoryNative(Guid* riid, void** ppFactory)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<Guid*, void**, int>)funcTable[0])(riid, ppFactory);
@@ -36,9 +34,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] void** ppFactory) 
+		public static int CreateDXGIFactory(Guid* riid, void** ppFactory)
 		{
 			int ret = CreateDXGIFactoryNative(riid, ppFactory);
 			return ret;
@@ -47,9 +43,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] void** ppFactory) 
+		public static int CreateDXGIFactory(ref Guid riid, void** ppFactory)
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -61,9 +55,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory<T>([NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateDXGIFactory<T>(out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppFactory = default;
 			int ret = CreateDXGIFactoryNative((Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppFactory.GetAddressOf());
@@ -73,9 +65,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateDXGIFactory<T>(ref Guid riid, out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -88,10 +78,8 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateDXGIFactory1Native([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] void** ppFactory)
+		internal static int CreateDXGIFactory1Native(Guid* riid, void** ppFactory)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<Guid*, void**, int>)funcTable[1])(riid, ppFactory);
@@ -103,9 +91,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory1([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] void** ppFactory) 
+		public static int CreateDXGIFactory1(Guid* riid, void** ppFactory)
 		{
 			int ret = CreateDXGIFactory1Native(riid, ppFactory);
 			return ret;
@@ -114,9 +100,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory1([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] void** ppFactory) 
+		public static int CreateDXGIFactory1(ref Guid riid, void** ppFactory)
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -128,9 +112,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory1<T>([NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateDXGIFactory1<T>(out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppFactory = default;
 			int ret = CreateDXGIFactory1Native((Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppFactory.GetAddressOf());
@@ -140,9 +122,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory1<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateDXGIFactory1<T>(ref Guid riid, out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -155,10 +135,8 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateDXGIFactory2Native([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] void** ppFactory)
+		internal static int CreateDXGIFactory2Native(uint flags, Guid* riid, void** ppFactory)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint, Guid*, void**, int>)funcTable[2])(flags, riid, ppFactory);
@@ -170,9 +148,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory2([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] void** ppFactory) 
+		public static int CreateDXGIFactory2(uint flags, Guid* riid, void** ppFactory)
 		{
 			int ret = CreateDXGIFactory2Native(flags, riid, ppFactory);
 			return ret;
@@ -181,9 +157,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory2([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] void** ppFactory) 
+		public static int CreateDXGIFactory2(uint flags, ref Guid riid, void** ppFactory)
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -195,9 +169,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory2<T>([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateDXGIFactory2<T>(uint flags, out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppFactory = default;
 			int ret = CreateDXGIFactory2Native(flags, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppFactory.GetAddressOf());
@@ -207,9 +179,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDXGIFactory2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDXGIFactory2<T>([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppFactory")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateDXGIFactory2<T>(uint flags, ref Guid riid, out ComPtr<T> ppFactory) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -222,10 +192,8 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIGetDebugInterface1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int DXGIGetDebugInterface1Native([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "pDebug")] [NativeName(NativeNameType.Type, "void**")] void** pDebug)
+		internal static int GetDebugInterface1Native(uint flags, Guid* riid, void** pDebug)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint, Guid*, void**, int>)funcTable[3])(flags, riid, pDebug);
@@ -237,24 +205,20 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIGetDebugInterface1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DXGIGetDebugInterface1([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "pDebug")] [NativeName(NativeNameType.Type, "void**")] void** pDebug) 
+		public static int GetDebugInterface1(uint flags, Guid* riid, void** pDebug)
 		{
-			int ret = DXGIGetDebugInterface1Native(flags, riid, pDebug);
+			int ret = GetDebugInterface1Native(flags, riid, pDebug);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIGetDebugInterface1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DXGIGetDebugInterface1([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "pDebug")] [NativeName(NativeNameType.Type, "void**")] void** pDebug) 
+		public static int GetDebugInterface1(uint flags, ref Guid riid, void** pDebug)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = DXGIGetDebugInterface1Native(flags, (Guid*)priid, pDebug);
+				int ret = GetDebugInterface1Native(flags, (Guid*)priid, pDebug);
 				return ret;
 			}
 		}
@@ -262,26 +226,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIGetDebugInterface1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DXGIGetDebugInterface1<T>([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pDebug")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> pDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDebugInterface1<T>(uint flags, out ComPtr<T> pDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			pDebug = default;
-			int ret = DXGIGetDebugInterface1Native(flags, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pDebug.GetAddressOf());
+			int ret = GetDebugInterface1Native(flags, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)pDebug.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIGetDebugInterface1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DXGIGetDebugInterface1<T>([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "pDebug")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> pDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDebugInterface1<T>(uint flags, ref Guid riid, out ComPtr<T> pDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
 				pDebug = default;
-				int ret = DXGIGetDebugInterface1Native(flags, (Guid*)priid, (void**)pDebug.GetAddressOf());
+				int ret = GetDebugInterface1Native(flags, (Guid*)priid, (void**)pDebug.GetAddressOf());
 				return ret;
 			}
 		}
@@ -289,10 +249,8 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIDeclareAdapterRemovalSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int DXGIDeclareAdapterRemovalSupportNative()
+		internal static int DeclareAdapterRemovalSupportNative()
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int>)funcTable[4])();
@@ -304,21 +262,17 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIDeclareAdapterRemovalSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DXGIDeclareAdapterRemovalSupport() 
+		public static int DeclareAdapterRemovalSupport()
 		{
-			int ret = DXGIDeclareAdapterRemovalSupportNative();
+			int ret = DeclareAdapterRemovalSupportNative();
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIDisableVBlankVirtualization")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int DXGIDisableVBlankVirtualizationNative()
+		internal static int DisableVBlankVirtualizationNative()
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<int>)funcTable[5])();
@@ -330,21 +284,17 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIDisableVBlankVirtualization")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DXGIDisableVBlankVirtualization() 
+		public static int DisableVBlankVirtualization()
 		{
-			int ret = DXGIDisableVBlankVirtualizationNative();
+			int ret = DisableVBlankVirtualizationNative();
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIGetDebugInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int DXGIGetDebugInterfaceNative([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDebug")] [NativeName(NativeNameType.Type, "void**")] void** ppDebug)
+		internal static int GetDebugInterfaceNative(Guid* riid, void** ppDebug)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<Guid*, void**, int>)funcTable[6])(riid, ppDebug);
@@ -356,24 +306,20 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIGetDebugInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DXGIGetDebugInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDebug")] [NativeName(NativeNameType.Type, "void**")] void** ppDebug) 
+		public static int GetDebugInterface(Guid* riid, void** ppDebug)
 		{
-			int ret = DXGIGetDebugInterfaceNative(riid, ppDebug);
+			int ret = GetDebugInterfaceNative(riid, ppDebug);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIGetDebugInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DXGIGetDebugInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDebug")] [NativeName(NativeNameType.Type, "void**")] void** ppDebug) 
+		public static int GetDebugInterface(ref Guid riid, void** ppDebug)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = DXGIGetDebugInterfaceNative((Guid*)priid, ppDebug);
+				int ret = GetDebugInterfaceNative((Guid*)priid, ppDebug);
 				return ret;
 			}
 		}
@@ -381,26 +327,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIGetDebugInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DXGIGetDebugInterface<T>([NativeName(NativeNameType.Param, "ppDebug")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDebugInterface<T>(out ComPtr<T> ppDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppDebug = default;
-			int ret = DXGIGetDebugInterfaceNative((Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppDebug.GetAddressOf());
+			int ret = GetDebugInterfaceNative((Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppDebug.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DXGIGetDebugInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DXGIGetDebugInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDebug")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDebugInterface<T>(ref Guid riid, out ComPtr<T> ppDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
 				ppDebug = default;
-				int ret = DXGIGetDebugInterfaceNative((Guid*)priid, (void**)ppDebug.GetAddressOf());
+				int ret = GetDebugInterfaceNative((Guid*)priid, (void**)ppDebug.GetAddressOf());
 				return ret;
 			}
 		}

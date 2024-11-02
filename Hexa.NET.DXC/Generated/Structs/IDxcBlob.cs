@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// IDxcBlob is an alias of ID3D10Blob and ID3DBlob<br/>
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcBlob")]
 	public partial struct IDxcBlob : IComObject, IComObject<IDxcBlob>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcBlob* ptr = (IDxcBlob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcBlob*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcBlob* ptr = (IDxcBlob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlob* ptr = (IDxcBlob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcBlob* ptr = (IDxcBlob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcBlob* ptr = (IDxcBlob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcBlob* ptr = (IDxcBlob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,8 +99,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBufferPointer")]
-		[return: NativeName(NativeNameType.Type, "LPVOID")]
 		public readonly unsafe void* GetBufferPointer() 
 		{
 			IDxcBlob* ptr = (IDxcBlob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -124,8 +109,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBufferSize")]
-		[return: NativeName(NativeNameType.Type, "SIZE_T")]
 		public readonly unsafe nuint GetBufferSize() 
 		{
 			IDxcBlob* ptr = (IDxcBlob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));

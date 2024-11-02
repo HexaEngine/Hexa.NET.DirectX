@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcOptimizerPass")]
 	public partial struct IDxcOptimizerPass : IComObject, IComObject<IDxcOptimizerPass>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,9 +99,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOptionName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOptionName([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPWSTR*")] char** ppResult) 
+		public readonly unsafe int GetOptionName(char** ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, char**, int>)(LpVtbl[3]))(ptr, ppResult);
@@ -124,9 +109,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOptionName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOptionName([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppResult) 
+		public readonly unsafe int GetOptionName(ref char* ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppResult = &ppResult)
@@ -139,9 +122,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDescription")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDescription([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPWSTR*")] char** ppResult) 
+		public readonly unsafe int GetDescription(char** ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, char**, int>)(LpVtbl[4]))(ptr, ppResult);
@@ -151,9 +132,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDescription")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDescription([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppResult) 
+		public readonly unsafe int GetDescription(ref char* ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppResult = &ppResult)
@@ -166,9 +145,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOptionArgCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOptionArgCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pCount) 
+		public readonly unsafe int GetOptionArgCount(uint* pCount) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint*, int>)(LpVtbl[5]))(ptr, pCount);
@@ -178,9 +155,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOptionArgCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOptionArgCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pCount) 
+		public readonly unsafe int GetOptionArgCount(ref uint pCount) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCount = &pCount)
@@ -193,9 +168,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOptionArgName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOptionArgName([NativeName(NativeNameType.Param, "argIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint argIndex, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPWSTR*")] char** ppResult) 
+		public readonly unsafe int GetOptionArgName(uint argIndex, char** ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint, char**, int>)(LpVtbl[6]))(ptr, argIndex, ppResult);
@@ -205,9 +178,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOptionArgName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOptionArgName([NativeName(NativeNameType.Param, "argIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint argIndex, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppResult) 
+		public readonly unsafe int GetOptionArgName(uint argIndex, ref char* ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppResult = &ppResult)
@@ -220,9 +191,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOptionArgDescription")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOptionArgDescription([NativeName(NativeNameType.Param, "argIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint argIndex, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPWSTR*")] char** ppResult) 
+		public readonly unsafe int GetOptionArgDescription(uint argIndex, char** ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizerPass*, uint, char**, int>)(LpVtbl[7]))(ptr, argIndex, ppResult);
@@ -232,9 +201,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOptionArgDescription")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOptionArgDescription([NativeName(NativeNameType.Param, "argIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint argIndex, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppResult) 
+		public readonly unsafe int GetOptionArgDescription(uint argIndex, ref char* ppResult) 
 		{
 			IDxcOptimizerPass* ptr = (IDxcOptimizerPass*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppResult = &ppResult)

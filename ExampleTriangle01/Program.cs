@@ -34,13 +34,13 @@ unsafe IDXGIAdapter1* GetHardwareAdapter(ComPtr<IDXGIFactory2> dxgiFactory)
     if (factory6.Handle != null)
     {
         for (uint adapterIndex = 0;
-            (ResultCode)factory6.EnumAdapterByGpuPreference(adapterIndex, DxgiGpuPreference.HighPerformance, out adapter) !=
+            (ResultCode)factory6.EnumAdapterByGpuPreference(adapterIndex, GpuPreference.HighPerformance, out adapter) !=
             ResultCode.DXGI_ERROR_NOT_FOUND;
             adapterIndex++)
         {
-            DxgiAdapterDesc1 desc;
+            AdapterDesc1 desc;
             adapter.GetDesc1(&desc);
-            if (((DxgiAdapterFlag)desc.Flags & DxgiAdapterFlag.Software) != DxgiAdapterFlag.None)
+            if (((AdapterFlag)desc.Flags & AdapterFlag.Software) != AdapterFlag.None)
             {
                 // Don't select the Basic Render Driver adapter.
                 adapter.Release();
@@ -59,13 +59,13 @@ unsafe IDXGIAdapter1* GetHardwareAdapter(ComPtr<IDXGIFactory2> dxgiFactory)
             (ResultCode)dxgiFactory.EnumAdapters1(adapterIndex, &adapter.Handle) != ResultCode.DXGI_ERROR_NOT_FOUND;
             adapterIndex++)
         {
-            DxgiAdapterDesc1 desc;
+            AdapterDesc1 desc;
             adapter.GetDesc1(&desc);
             string name = new(&desc.Description_0);
 
             Console.WriteLine($"Found Adapter {name}");
 
-            if (((DxgiAdapterFlag)desc.Flags & DxgiAdapterFlag.Software) != DxgiAdapterFlag.None)
+            if (((AdapterFlag)desc.Flags & AdapterFlag.Software) != AdapterFlag.None)
             {
                 // Don't select the Basic Render Driver adapter.
                 adapter.Release();
@@ -87,80 +87,78 @@ unsafe
     ComPtr<ID3D11Device1> device;
     ComPtr<ID3D11DeviceContext1> deviceContext;
 
-    D3DFeatureLevel level;
+    FeatureLevel level;
 
     DXGI.CreateDXGIFactory2(0, out dxgiFactory);
 
     dxgiAdapter = GetHardwareAdapter(dxgiFactory);
 
-    D3DFeatureLevel[] levelsArr =
+    FeatureLevel[] levelsArr =
     [
-        D3DFeatureLevel.Level111,
-                D3DFeatureLevel.Level110
+        FeatureLevel.Level111,
+        FeatureLevel.Level110
     ];
 
-    D3D11CreateDeviceFlag flags = D3D11CreateDeviceFlag.BgraSupport;
+    CreateDeviceFlag flags = CreateDeviceFlag.BgraSupport;
     bool debug = true;
     if (debug)
     {
-        flags |= D3D11CreateDeviceFlag.Debug;
+        flags |= CreateDeviceFlag.Debug;
     }
 
-    ID3D11Device* tempDevice;
-    ID3D11DeviceContext* tempContext;
+    ComPtr<ID3D11Device> tempDevice = default;
 
-    D3DFeatureLevel* levels = (D3DFeatureLevel*)Unsafe.AsPointer(ref levelsArr[0]);
+    FeatureLevel* levels = (FeatureLevel*)Unsafe.AsPointer(ref levelsArr[0]);
 
-    D3D11.CreateDevice((IDXGIAdapter*)dxgiAdapter.Handle, D3DDriverType.Unknown, nint.Zero, (uint)flags, levels, (uint)levelsArr.Length, D3D11.D3D11_SDK_VERSION, &tempDevice, &level, &tempContext);
+    D3D11.CreateDevice(dxgiAdapter.As<IDXGIAdapter>(), DriverType.Unknown, nint.Zero, (uint)flags, levels, (uint)levelsArr.Length, D3D11.D3D11_SDK_VERSION, ref tempDevice, &level, out ComPtr<ID3D11DeviceContext> tempContext);
 
-    tempDevice->QueryInterface(out device);
-    tempContext->QueryInterface(out deviceContext);
+    tempDevice.QueryInterface(out device);
+    tempContext.QueryInterface(out deviceContext);
 
-    tempDevice->Release();
-    tempContext->Release();
+    tempDevice.Release();
+    tempContext.Release();
 
-    ComPtr<IDXGISwapChain1> swapChain = default;
-    DxgiSwapChainDesc1 swapChainDesc;
+    SwapChainDesc1 swapChainDesc;
 
     ComPtr<ID3D11RenderTargetView> swapChainRTV;
 
     int width = 0;
     int height = 0;
-    D3D11Viewport Viewport;
+    Viewport Viewport;
 
     GLFW.GetWindowSize(window, ref width, ref height);
 
     var Hwnd = GLFW.GetWin32Window(window);
 
-    DxgiSwapChainDesc1 desc = new()
+    SwapChainDesc1 desc = new()
     {
         Width = (uint)width,
         Height = (uint)height,
-        Format = DxgiFormat.B8G8R8A8Unorm,
+        Format = Format.B8G8R8A8Unorm,
         BufferCount = 3,
         BufferUsage = (uint)DXGI.DXGI_USAGE_RENDER_TARGET_OUTPUT,
         SampleDesc = new(1, 0),
-        Scaling = DxgiScaling.Stretch,
-        SwapEffect = DxgiSwapEffect.FlipSequential,
-        Flags = (uint)(DxgiSwapChainFlag.AllowModeSwitch | DxgiSwapChainFlag.AllowTearing)
+        Scaling = Scaling.Stretch,
+        SwapEffect = SwapEffect.FlipSequential,
+        Flags = (uint)(SwapChainFlag.AllowModeSwitch | SwapChainFlag.AllowTearing)
     };
 
-    DxgiSwapChainFullscreenDesc fullscreenDesc = new()
+    SwapChainFullscreenDesc fullscreenDesc = new()
     {
         Windowed = 1,
-        RefreshRate = new DxgiRational(0, 1),
-        Scaling = DxgiModeScaling.Unspecified,
-        ScanlineOrdering = DxgiModeScanlineOrder.Unspecified,
+        RefreshRate = new Rational(0, 1),
+        Scaling = ModeScaling.Unspecified,
+        ScanlineOrdering = ModeScanlineOrder.Unspecified,
     };
 
-    dxgiFactory.CreateSwapChainForHwnd((IUnknown*)device.Handle, Hwnd, &desc, &fullscreenDesc, (IDXGIOutput*)null, out swapChain);
+    dxgiFactory.CreateSwapChainForHwnd((IUnknown*)device.Handle, Hwnd, &desc, &fullscreenDesc, (IDXGIOutput*)null, out ComPtr<IDXGISwapChain1> swapChain);
     // IDXGIFactory.MakeWindowAssociation(Hwnd, 1 << 0);
 
     {
         swapChainDesc = desc;
         swapChain.GetBuffer(0, out ComPtr<ID3D11Texture2D> swapChainBackbuffer);
         ID3D11RenderTargetView* rtv;
-        device.CreateRenderTargetView((ID3D11Resource*)swapChainBackbuffer.Handle, (D3D11RenderTargetViewDesc*)null, &rtv);
+        device.CreateRenderTargetView((ID3D11Resource*)swapChainBackbuffer.Handle, (RenderTargetViewDesc*)null, &rtv);
         swapChainRTV.Handle = rtv;
         swapChainBackbuffer.Release();
     }
@@ -212,7 +210,7 @@ unsafe
         byte* pData = Utils.StringToUTF8Ptr(vertexShaderSource);
         byte* pProfile = Utils.StringToUTF8Ptr(profile);
         byte* pEntrypoint = Utils.StringToUTF8Ptr(entrypoint);
-        int pixelShaderBlob = D3DCompiler.Compile(pData, size, (byte*)null, (D3DShaderMacro*)null, (ID3DInclude*)null, pEntrypoint, pProfile, 0, 0, blob.GetAddressOf(), null);
+        int pixelShaderBlob = D3DCompiler.Compile(pData, size, (byte*)null, (ShaderMacro*)null, (ID3DInclude*)null, pEntrypoint, pProfile, 0, 0, blob.GetAddressOf(), null);
         Utils.Free(pEntrypoint);
         Utils.Free(pProfile);
         Utils.Free(pData);
@@ -220,26 +218,26 @@ unsafe
 
     ComPtr<ID3D11InputLayout> inputLayout;
 
-    D3D11InputElementDesc[] inputLayoutDesc =
+    InputElementDesc[] inputLayoutDesc =
     [
-        new D3D11InputElementDesc
+        new InputElementDesc
         {
             SemanticName = Utils.StringToUTF8Ptr("POSITION"),
             SemanticIndex = 0,
-            Format = DxgiFormat.R32G32B32Float,
+            Format = Format.R32G32B32Float,
             InputSlot = 0,
             AlignedByteOffset = 0,
-            InputSlotClass = D3D11InputClassification.PerVertexData,
+            InputSlotClass = InputClassification.PerVertexData,
             InstanceDataStepRate = 0
         },
-         new D3D11InputElementDesc
+         new InputElementDesc
         {
             SemanticName = Utils.StringToUTF8Ptr("COLOR"),
             SemanticIndex = 0,
-            Format = DxgiFormat.R32G32B32A32Float,
+            Format = Format.R32G32B32A32Float,
             InputSlot = 0,
             AlignedByteOffset = 12,
-            InputSlotClass = D3D11InputClassification.PerVertexData,
+            InputSlotClass = InputClassification.PerVertexData,
             InstanceDataStepRate = 0
         }
     ];
@@ -257,17 +255,17 @@ unsafe
     ];
     ComPtr<ID3D11Buffer> vertexBuffer;
 
-    D3D11BufferDesc bufferDesc = new()
+    BufferDesc bufferDesc = new()
     {
-        BindFlags = (uint)(D3D11BindFlag.VertexBuffer),
+        BindFlags = (uint)(BindFlag.VertexBuffer),
         CPUAccessFlags = 0,
         ByteWidth = (uint)(sizeof(Vertex) * vertices.Length),
-        Usage = D3D11Usage.Immutable,
+        Usage = Usage.Immutable,
     };
 
     fixed (Vertex* pVerts = vertices)
     {
-        D3D11SubresourceData subresourceData = new(pVerts, (uint)sizeof(Vertex));
+        SubresourceData subresourceData = new(pVerts, (uint)sizeof(Vertex));
         device.CreateBuffer(&bufferDesc, &subresourceData, out vertexBuffer);
     }
 
@@ -285,7 +283,7 @@ unsafe
         swapChain.GetBuffer(0, out ComPtr<ID3D11Texture2D> swapChainBackbuffer);
 
         ID3D11RenderTargetView* rtv;
-        device.CreateRenderTargetView((ID3D11Resource*)swapChainBackbuffer.Handle, (D3D11RenderTargetViewDesc*)null, &rtv);
+        device.CreateRenderTargetView((ID3D11Resource*)swapChainBackbuffer.Handle, (RenderTargetViewDesc*)null, &rtv);
         swapChainRTV.Handle = rtv;
         swapChainBackbuffer.Release();
     }
@@ -306,14 +304,14 @@ unsafe
 
         ID3D11RenderTargetView* rtv = swapChainRTV.Handle;
         deviceContext.OMSetRenderTargets(1, &rtv, (ID3D11DepthStencilView*)null);
-        D3D11Viewport viewport = Viewport;
+        Viewport viewport = Viewport;
         deviceContext.RSSetViewports(1, &viewport);
 
         deviceContext.IASetInputLayout(inputLayout);
         uint stride = (uint)sizeof(Vertex);
         uint offset = 0;
         deviceContext.IASetVertexBuffers(0, 1, &vertexBuffer.Handle, &stride, &offset);
-        deviceContext.IASetPrimitiveTopology(D3D11PrimitiveTopology.Trianglelist);
+        deviceContext.IASetPrimitiveTopology(PrimitiveTopology.Trianglelist);
 
         deviceContext.VSSetShader(vertexShader, (ID3D11ClassInstance**)null, 0);
         deviceContext.PSSetShader(pixelShader, (ID3D11ClassInstance**)null, 0);

@@ -21,7 +21,6 @@ namespace Hexa.NET.D3DCompiler
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "ID3D10Effect")]
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct ID3D10Effect
 	{

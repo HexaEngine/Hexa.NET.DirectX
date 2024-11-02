@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcVersionInfo2")]
 	public partial struct IDxcVersionInfo2 : IComObject, IComObject<IDxcVersionInfo2>, IComObject<IDxcVersionInfo>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,9 +99,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVersion")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVersion([NativeName(NativeNameType.Param, "pMajor")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pMajor, [NativeName(NativeNameType.Param, "pMinor")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pMinor) 
+		public readonly unsafe int GetVersion(uint* pMajor, uint* pMinor) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, uint*, int>)(LpVtbl[3]))(ptr, pMajor, pMinor);
@@ -124,9 +109,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVersion")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVersion([NativeName(NativeNameType.Param, "pMajor")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pMajor, [NativeName(NativeNameType.Param, "pMinor")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pMinor) 
+		public readonly unsafe int GetVersion(ref uint pMajor, uint* pMinor) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppMajor = &pMajor)
@@ -139,9 +122,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVersion")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVersion([NativeName(NativeNameType.Param, "pMajor")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pMajor, [NativeName(NativeNameType.Param, "pMinor")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pMinor) 
+		public readonly unsafe int GetVersion(uint* pMajor, ref uint pMinor) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppMinor = &pMinor)
@@ -154,9 +135,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVersion")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVersion([NativeName(NativeNameType.Param, "pMajor")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pMajor, [NativeName(NativeNameType.Param, "pMinor")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pMinor) 
+		public readonly unsafe int GetVersion(ref uint pMajor, ref uint pMinor) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppMajor = &pMajor)
@@ -172,9 +151,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFlags")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFlags([NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pFlags) 
+		public readonly unsafe int GetFlags(uint* pFlags) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, int>)(LpVtbl[4]))(ptr, pFlags);
@@ -184,9 +161,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFlags")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFlags([NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pFlags) 
+		public readonly unsafe int GetFlags(ref uint pFlags) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFlags = &pFlags)
@@ -199,9 +174,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCommitInfo")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCommitInfo([NativeName(NativeNameType.Param, "pCommitCount")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pCommitCount, [NativeName(NativeNameType.Param, "pCommitHash")] [NativeName(NativeNameType.Type, "char**")] byte** pCommitHash) 
+		public readonly unsafe int GetCommitInfo(uint* pCommitCount, byte** pCommitHash) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcVersionInfo2*, uint*, byte**, int>)(LpVtbl[5]))(ptr, pCommitCount, pCommitHash);
@@ -211,9 +184,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCommitInfo")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCommitInfo([NativeName(NativeNameType.Param, "pCommitCount")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pCommitCount, [NativeName(NativeNameType.Param, "pCommitHash")] [NativeName(NativeNameType.Type, "char**")] byte** pCommitHash) 
+		public readonly unsafe int GetCommitInfo(ref uint pCommitCount, byte** pCommitHash) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCommitCount = &pCommitCount)
@@ -226,9 +197,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCommitInfo")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCommitInfo([NativeName(NativeNameType.Param, "pCommitCount")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pCommitCount, [NativeName(NativeNameType.Param, "pCommitHash")] [NativeName(NativeNameType.Type, "char**")] ref byte* pCommitHash) 
+		public readonly unsafe int GetCommitInfo(uint* pCommitCount, ref byte* pCommitHash) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte** ppCommitHash = &pCommitHash)
@@ -241,9 +210,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCommitInfo")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCommitInfo([NativeName(NativeNameType.Param, "pCommitCount")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pCommitCount, [NativeName(NativeNameType.Param, "pCommitHash")] [NativeName(NativeNameType.Type, "char**")] ref byte* pCommitHash) 
+		public readonly unsafe int GetCommitInfo(ref uint pCommitCount, ref byte* pCommitHash) 
 		{
 			IDxcVersionInfo2* ptr = (IDxcVersionInfo2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCommitCount = &pCommitCount)

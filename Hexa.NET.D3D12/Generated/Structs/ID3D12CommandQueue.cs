@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("0ec870a6-5d7e-4c22-8cfc-5baae07616ed")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12CommandQueue")]
 	public partial struct ID3D12CommandQueue : IComObject, IComObject<ID3D12CommandQueue>, IComObject<ID3D12Pageable>, IComObject<ID3D12DeviceChild>, IComObject<ID3D12Object>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, pData);
@@ -129,9 +114,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -144,9 +127,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -159,9 +140,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -177,9 +156,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, (void*)pData.Handle);
@@ -189,9 +166,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -204,9 +179,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -219,9 +192,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -237,9 +208,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, Guid*, uint, void*, int>)(LpVtbl[4]))(ptr, guid, dataSize, pData);
@@ -249,9 +218,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -264,9 +231,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, pData);
@@ -276,9 +241,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -291,9 +254,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
@@ -306,9 +267,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, (IUnknown*)pData.Handle);
@@ -318,9 +277,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -336,9 +293,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -351,9 +306,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name) 
+		public readonly unsafe int SetName(char* name) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, char*, int>)(LpVtbl[6]))(ptr, name);
@@ -363,9 +316,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name) 
+		public readonly unsafe int SetName(ReadOnlySpan<char> name) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* pname = name)
@@ -378,9 +329,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name) 
+		public readonly unsafe int SetName(string name) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -411,9 +360,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppvDevice) 
+		public readonly unsafe int GetDevice(Guid* riid, void** ppvDevice) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, Guid*, void**, int>)(LpVtbl[7]))(ptr, riid, ppvDevice);
@@ -423,9 +370,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppvDevice) 
+		public readonly unsafe int GetDevice(ref Guid riid, void** ppvDevice) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -438,9 +383,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice<T>([NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetDevice<T>(out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvDevice = default;
@@ -451,9 +394,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetDevice<T>(ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -467,66 +408,56 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -534,44 +465,38 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -579,30 +504,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -610,18 +531,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -630,16 +549,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -647,41 +564,35 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Heap* ppHeap = &pHeap)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -689,27 +600,23 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -717,32 +624,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -751,30 +654,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -782,32 +681,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -816,32 +711,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -850,16 +741,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -867,20 +756,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (ID3D12Heap* ppHeap = &pHeap)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -890,16 +777,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -907,30 +792,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -938,30 +819,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -969,18 +846,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -989,16 +864,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1006,16 +879,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1023,18 +894,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1043,16 +912,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1060,18 +927,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1080,20 +945,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -1103,18 +966,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1123,16 +984,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Heap* ppHeap = &pHeap)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1140,32 +999,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1174,32 +1029,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1208,16 +1059,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1225,20 +1074,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -1248,16 +1095,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1265,18 +1110,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1285,16 +1128,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1302,20 +1143,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -1325,16 +1164,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1342,20 +1179,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -1365,18 +1200,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1385,22 +1218,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (ID3D12Heap* ppHeap = &pHeap)
 						{
-							fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+							fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 							}
 						}
 					}
@@ -1411,18 +1242,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1431,30 +1260,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1462,30 +1287,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1493,18 +1314,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1513,16 +1332,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1530,16 +1347,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1547,18 +1362,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1567,16 +1380,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1584,18 +1395,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1604,20 +1413,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -1627,18 +1434,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1647,16 +1452,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Heap* ppHeap = &pHeap)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1664,23 +1467,19 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
@@ -1689,7 +1488,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1698,32 +1497,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1732,16 +1527,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1749,20 +1542,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -1772,16 +1563,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1789,18 +1578,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1809,16 +1596,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1826,20 +1611,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -1849,16 +1632,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1866,20 +1647,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -1889,18 +1668,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1909,22 +1686,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (ID3D12Heap* ppHeap = &pHeap)
 						{
 							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 							}
 						}
 					}
@@ -1935,18 +1710,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1955,16 +1728,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -1972,18 +1743,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -1992,16 +1761,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2009,18 +1776,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2029,20 +1794,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2052,18 +1815,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2072,18 +1833,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2092,20 +1851,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2115,18 +1872,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2135,20 +1890,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2158,22 +1911,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 							}
 						}
 					}
@@ -2184,20 +1935,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2207,18 +1956,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Heap* ppHeap = &pHeap)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2227,16 +1974,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2244,20 +1989,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2267,16 +2010,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2284,20 +2025,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2307,18 +2046,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2327,22 +2064,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 							}
 						}
 					}
@@ -2353,18 +2088,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2373,20 +2106,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2396,18 +2127,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2416,22 +2145,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 							}
 						}
 					}
@@ -2442,18 +2169,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2462,22 +2187,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 							}
 						}
 					}
@@ -2488,20 +2211,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2511,24 +2232,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (ID3D12Heap* ppHeap = &pHeap)
 						{
-							fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+							fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 							{
 								fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 								}
 							}
 						}
@@ -2540,20 +2259,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, uint* pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2563,30 +2280,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2594,30 +2307,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2625,18 +2334,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2645,16 +2352,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2662,16 +2367,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2679,18 +2382,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2699,16 +2400,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2716,18 +2415,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2736,20 +2433,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2759,18 +2454,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2779,16 +2472,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Heap* ppHeap = &pHeap)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2796,23 +2487,19 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
@@ -2821,7 +2508,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2830,32 +2517,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2864,16 +2547,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2881,20 +2562,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2904,16 +2583,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2921,18 +2598,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -2941,16 +2616,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2958,20 +2631,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2981,16 +2652,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -2998,20 +2667,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3021,18 +2688,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3041,22 +2706,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (ID3D12Heap* ppHeap = &pHeap)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -3067,18 +2730,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3087,16 +2748,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -3104,18 +2763,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3124,16 +2781,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -3141,18 +2796,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3161,20 +2814,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3184,18 +2835,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3204,18 +2853,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3224,20 +2871,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3247,18 +2892,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3267,20 +2910,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3290,22 +2931,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -3316,20 +2955,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3339,18 +2976,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Heap* ppHeap = &pHeap)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3359,16 +2994,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -3376,20 +3009,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3399,16 +3030,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -3416,20 +3045,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3439,18 +3066,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3459,22 +3084,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -3485,18 +3108,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3505,20 +3126,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3528,18 +3147,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3548,22 +3165,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -3574,18 +3189,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3594,22 +3207,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -3620,20 +3231,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3643,24 +3252,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (ID3D12Heap* ppHeap = &pHeap)
 						{
-							fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+							fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 								}
 							}
 						}
@@ -3672,20 +3279,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, uint* pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3695,16 +3300,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -3712,9 +3315,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
@@ -3723,7 +3324,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3732,16 +3333,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -3749,18 +3348,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3769,20 +3366,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3792,18 +3387,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3812,18 +3405,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3832,20 +3423,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3855,18 +3444,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3875,20 +3462,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3898,22 +3483,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -3924,20 +3507,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -3947,9 +3528,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Heap* ppHeap = &pHeap)
@@ -3958,7 +3537,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -3967,16 +3546,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -3984,9 +3561,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
@@ -3997,7 +3572,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4007,16 +3582,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 			{
 				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 				}
 			}
 		}
@@ -4024,12 +3597,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
@@ -4037,7 +3608,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4047,18 +3618,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -4067,14 +3636,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
@@ -4082,7 +3649,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4093,18 +3660,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -4113,12 +3678,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
@@ -4126,7 +3689,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4136,18 +3699,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -4156,14 +3717,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
@@ -4171,7 +3730,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4182,18 +3741,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -4202,14 +3759,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
@@ -4217,7 +3772,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4228,20 +3783,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4251,16 +3804,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (ID3D12Heap* ppHeap = &pHeap)
 						{
@@ -4268,7 +3819,7 @@ namespace Hexa.NET.D3D12
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 								}
 							}
 						}
@@ -4280,20 +3831,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, TileRangeFlags* pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4303,18 +3852,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -4323,20 +3870,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4346,18 +3891,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -4366,20 +3909,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4389,22 +3930,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4415,20 +3954,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4438,20 +3975,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4461,22 +3996,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4487,20 +4020,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4510,22 +4041,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4536,24 +4065,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 								}
 							}
 						}
@@ -4565,22 +4092,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ID3D12Heap* pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4591,20 +4116,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Heap* ppHeap = &pHeap)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4614,18 +4137,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -4634,22 +4155,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4660,18 +4179,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 			{
 				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 				{
 					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 					}
 				}
 			}
@@ -4680,22 +4197,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4706,20 +4221,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4729,24 +4242,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 								}
 							}
 						}
@@ -4758,20 +4269,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, TileRegionSize* pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4781,22 +4290,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
 				fixed (ID3D12Heap* ppHeap = &pHeap)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4807,20 +4314,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4830,24 +4335,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 								}
 							}
 						}
@@ -4859,20 +4362,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -4882,24 +4383,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 								}
 							}
 						}
@@ -4911,22 +4410,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4937,26 +4434,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (ID3D12Heap* ppHeap = &pHeap)
 						{
-							fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+							fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 							{
 								fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 								{
 									fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 									{
-										((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+										((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 									}
 								}
 							}
@@ -4969,22 +4464,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateTileMappings([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void UpdateTileMappings(ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(LpVtbl[8]))(ptr, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -4995,66 +4488,56 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -5062,55 +4545,47 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -5118,27 +4593,23 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -5146,32 +4617,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
 					fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 					}
 				}
 			}
@@ -5180,44 +4647,38 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -5225,30 +4686,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -5256,18 +4713,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 					}
 				}
 			}
@@ -5276,16 +4731,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -5293,16 +4746,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -5310,32 +4761,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 					}
 				}
 			}
@@ -5344,32 +4791,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 					}
 				}
 			}
@@ -5378,16 +4821,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -5395,20 +4836,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
 					fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 					{
-						fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+						fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 						}
 					}
 				}
@@ -5418,16 +4857,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -5435,30 +4872,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+			fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -5466,30 +4899,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+			fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -5497,18 +4926,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -5517,16 +4944,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -5534,16 +4959,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -5551,32 +4974,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+			fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -5585,32 +5004,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+			fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -5619,16 +5034,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -5636,20 +5049,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
 					fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 					{
-						fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+						fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 						}
 					}
 				}
@@ -5659,16 +5070,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -5676,16 +5085,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -5693,18 +5100,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -5713,16 +5118,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -5730,18 +5133,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -5750,20 +5151,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+						fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 						}
 					}
 				}
@@ -5773,18 +5172,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -5793,18 +5190,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -5813,16 +5208,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -5830,20 +5223,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+						fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 						}
 					}
 				}
@@ -5853,16 +5244,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -5870,20 +5259,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+						fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 						}
 					}
 				}
@@ -5893,18 +5280,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -5913,22 +5298,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
 					fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 					{
-						fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+						fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 						{
-							fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+							fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 							}
 						}
 					}
@@ -5939,18 +5322,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyTileMappings([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public readonly unsafe void CopyTileMappings(ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(LpVtbl[9]))(ptr, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -5959,9 +5340,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteCommandLists")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ExecuteCommandLists([NativeName(NativeNameType.Param, "NumCommandLists")] [NativeName(NativeNameType.Type, "UINT")] uint numCommandLists, [NativeName(NativeNameType.Param, "ppCommandLists")] [NativeName(NativeNameType.Type, "const ID3D12CommandList**")] ID3D12CommandList** ppCommandLists) 
+		public readonly unsafe void ExecuteCommandLists(uint numCommandLists, ID3D12CommandList** ppCommandLists) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, uint, ID3D12CommandList**, void>)(LpVtbl[10]))(ptr, numCommandLists, ppCommandLists);
@@ -5970,9 +5349,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteCommandLists")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ExecuteCommandLists([NativeName(NativeNameType.Param, "NumCommandLists")] [NativeName(NativeNameType.Type, "UINT")] uint numCommandLists, [NativeName(NativeNameType.Param, "ppCommandLists")] [NativeName(NativeNameType.Type, "const ID3D12CommandList**")] ref ID3D12CommandList* ppCommandLists) 
+		public readonly unsafe void ExecuteCommandLists(uint numCommandLists, ref ID3D12CommandList* ppCommandLists) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12CommandList** pppCommandLists = &ppCommandLists)
@@ -5984,9 +5361,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteCommandLists")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ExecuteCommandLists([NativeName(NativeNameType.Param, "NumCommandLists")] [NativeName(NativeNameType.Type, "UINT")] uint numCommandLists, [NativeName(NativeNameType.Param, "ppCommandLists")] [NativeName(NativeNameType.Type, "const ID3D12CommandList**")] ComPtr<ID3D12CommandList> ppCommandLists) 
+		public readonly unsafe void ExecuteCommandLists(uint numCommandLists, ComPtr<ID3D12CommandList> ppCommandLists) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, uint, ID3D12CommandList**, void>)(LpVtbl[10]))(ptr, numCommandLists, (ID3D12CommandList**)ppCommandLists.Handle);
@@ -5995,9 +5370,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetMarker")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetMarker([NativeName(NativeNameType.Param, "Metadata")] [NativeName(NativeNameType.Type, "UINT")] uint metadata, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData, [NativeName(NativeNameType.Param, "Size")] [NativeName(NativeNameType.Type, "UINT")] uint size) 
+		public readonly unsafe void SetMarker(uint metadata, void* pData, uint size) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, uint, void*, uint, void>)(LpVtbl[11]))(ptr, metadata, pData, size);
@@ -6006,9 +5379,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BeginEvent")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void BeginEvent([NativeName(NativeNameType.Param, "Metadata")] [NativeName(NativeNameType.Type, "UINT")] uint metadata, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData, [NativeName(NativeNameType.Param, "Size")] [NativeName(NativeNameType.Type, "UINT")] uint size) 
+		public readonly unsafe void BeginEvent(uint metadata, void* pData, uint size) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, uint, void*, uint, void>)(LpVtbl[12]))(ptr, metadata, pData, size);
@@ -6017,8 +5388,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EndEvent")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void EndEvent() 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -6028,9 +5397,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Signal")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Signal([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ID3D12Fence* pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public readonly unsafe int Signal(ID3D12Fence* pFence, ulong value) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Fence*, ulong, int>)(LpVtbl[14]))(ptr, pFence, value);
@@ -6040,9 +5407,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Signal")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Signal([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ref ID3D12Fence pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public readonly unsafe int Signal(ref ID3D12Fence pFence, ulong value) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Fence* ppFence = &pFence)
@@ -6055,9 +5420,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Signal")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Signal([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ComPtr<ID3D12Fence> pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public readonly unsafe int Signal(ComPtr<ID3D12Fence> pFence, ulong value) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Fence*, ulong, int>)(LpVtbl[14]))(ptr, (ID3D12Fence*)pFence.Handle, value);
@@ -6067,9 +5430,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Wait")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Wait([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ID3D12Fence* pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public readonly unsafe int Wait(ID3D12Fence* pFence, ulong value) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Fence*, ulong, int>)(LpVtbl[15]))(ptr, pFence, value);
@@ -6079,9 +5440,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Wait")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Wait([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ref ID3D12Fence pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public readonly unsafe int Wait(ref ID3D12Fence pFence, ulong value) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Fence* ppFence = &pFence)
@@ -6094,9 +5453,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Wait")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Wait([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ComPtr<ID3D12Fence> pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public readonly unsafe int Wait(ComPtr<ID3D12Fence> pFence, ulong value) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Fence*, ulong, int>)(LpVtbl[15]))(ptr, (ID3D12Fence*)pFence.Handle, value);
@@ -6106,9 +5463,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetTimestampFrequency")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetTimestampFrequency([NativeName(NativeNameType.Param, "pFrequency")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pFrequency) 
+		public readonly unsafe int GetTimestampFrequency(ulong* pFrequency) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ulong*, int>)(LpVtbl[16]))(ptr, pFrequency);
@@ -6118,9 +5473,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetTimestampFrequency")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetTimestampFrequency([NativeName(NativeNameType.Param, "pFrequency")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pFrequency) 
+		public readonly unsafe int GetTimestampFrequency(ref ulong pFrequency) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ulong* ppFrequency = &pFrequency)
@@ -6133,9 +5486,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetClockCalibration")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetClockCalibration([NativeName(NativeNameType.Param, "pGpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pGpuTimestamp, [NativeName(NativeNameType.Param, "pCpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pCpuTimestamp) 
+		public readonly unsafe int GetClockCalibration(ulong* pGpuTimestamp, ulong* pCpuTimestamp) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ulong*, ulong*, int>)(LpVtbl[17]))(ptr, pGpuTimestamp, pCpuTimestamp);
@@ -6145,9 +5496,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetClockCalibration")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetClockCalibration([NativeName(NativeNameType.Param, "pGpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pGpuTimestamp, [NativeName(NativeNameType.Param, "pCpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pCpuTimestamp) 
+		public readonly unsafe int GetClockCalibration(ref ulong pGpuTimestamp, ulong* pCpuTimestamp) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ulong* ppGpuTimestamp = &pGpuTimestamp)
@@ -6160,9 +5509,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetClockCalibration")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetClockCalibration([NativeName(NativeNameType.Param, "pGpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pGpuTimestamp, [NativeName(NativeNameType.Param, "pCpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pCpuTimestamp) 
+		public readonly unsafe int GetClockCalibration(ulong* pGpuTimestamp, ref ulong pCpuTimestamp) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ulong* ppCpuTimestamp = &pCpuTimestamp)
@@ -6175,9 +5522,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetClockCalibration")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetClockCalibration([NativeName(NativeNameType.Param, "pGpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pGpuTimestamp, [NativeName(NativeNameType.Param, "pCpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pCpuTimestamp) 
+		public readonly unsafe int GetClockCalibration(ref ulong pGpuTimestamp, ref ulong pCpuTimestamp) 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ulong* ppGpuTimestamp = &pGpuTimestamp)
@@ -6193,12 +5538,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "D3D12_COMMAND_QUEUE_DESC")]
-		public readonly unsafe D3D12CommandQueueDesc GetDesc() 
+		public readonly unsafe CommandQueueDesc GetDesc() 
 		{
 			ID3D12CommandQueue* ptr = (ID3D12CommandQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			D3D12CommandQueueDesc ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, D3D12CommandQueueDesc>)(LpVtbl[18]))(ptr);
+			CommandQueueDesc ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, CommandQueueDesc>)(LpVtbl[18]))(ptr);
 			return ret;
 		}
 

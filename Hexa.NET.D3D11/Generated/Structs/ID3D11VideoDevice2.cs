@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// To be documented.
 	/// </summary>
 	[Guid("59c0cb01-35f0-4a70-8f67-87905c906a53")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D11VideoDevice2")]
 	public partial struct ID3D11VideoDevice2 : IComObject, IComObject<ID3D11VideoDevice2>, IComObject<ID3D11VideoDevice1>, IComObject<ID3D11VideoDevice>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,26 +104,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ID3D11VideoDecoder** ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, ID3D11VideoDecoder** ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, ppDecoder);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, ppDecoder);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ID3D11VideoDecoder** ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, ID3D11VideoDecoder** ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (D3D11VideoDecoderDesc*)ppVideoDesc, pConfig, ppDecoder);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, pConfig, ppDecoder);
 				return ret;
 			}
 		}
@@ -144,14 +127,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ID3D11VideoDecoder** ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, ID3D11VideoDecoder** ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
+			fixed (VideoDecoderConfig* ppConfig = &pConfig)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, ppDecoder);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, (VideoDecoderConfig*)ppConfig, ppDecoder);
 				return ret;
 			}
 		}
@@ -159,16 +140,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ID3D11VideoDecoder** ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, ID3D11VideoDecoder** ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
+				fixed (VideoDecoderConfig* ppConfig = &pConfig)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (D3D11VideoDecoderDesc*)ppVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, ppDecoder);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, ppDecoder);
 					return ret;
 				}
 			}
@@ -177,14 +156,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ref ID3D11VideoDecoder* ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, ref ID3D11VideoDecoder* ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
 				return ret;
 			}
 		}
@@ -192,29 +169,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppDecoder = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ref ID3D11VideoDecoder* ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, ref ID3D11VideoDecoder* ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
 			{
 				fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (D3D11VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
 					return ret;
 				}
 			}
@@ -223,15 +196,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
 			{
 				ppDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (D3D11VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
 				return ret;
 			}
 		}
@@ -239,16 +210,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ref ID3D11VideoDecoder* ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, ref ID3D11VideoDecoder* ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
+			fixed (VideoDecoderConfig* ppConfig = &pConfig)
 			{
 				fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
 					return ret;
 				}
 			}
@@ -257,15 +226,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
+			fixed (VideoDecoderConfig* ppConfig = &pConfig)
 			{
 				ppDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, pVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
 				return ret;
 			}
 		}
@@ -273,18 +240,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ref ID3D11VideoDecoder* ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, ref ID3D11VideoDecoder* ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
+				fixed (VideoDecoderConfig* ppConfig = &pConfig)
 				{
 					fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (D3D11VideoDecoderDesc*)ppVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
 						return ret;
 					}
 				}
@@ -294,17 +259,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
+				fixed (VideoDecoderConfig* ppConfig = &pConfig)
 				{
 					ppDecoder = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (D3D11VideoDecoderDesc*)ppVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(LpVtbl[3]))(ptr, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
 					return ret;
 				}
 			}
@@ -313,9 +276,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] ID3D11VideoProcessor** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(LpVtbl[4]))(ptr, pEnum, rateConversionIndex, ppVideoProcessor);
@@ -325,9 +286,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] ID3D11VideoProcessor** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(ref ID3D11VideoProcessorEnumerator pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
@@ -340,9 +299,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] ID3D11VideoProcessor** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(ComPtr<ID3D11VideoProcessorEnumerator> pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(LpVtbl[4]))(ptr, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, rateConversionIndex, ppVideoProcessor);
@@ -352,9 +309,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] ref ID3D11VideoProcessor* ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, ref ID3D11VideoProcessor* ppVideoProcessor) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessor** pppVideoProcessor = &ppVideoProcessor)
@@ -367,9 +322,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoProcessor = default;
@@ -380,9 +333,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] ref ID3D11VideoProcessor* ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(ref ID3D11VideoProcessorEnumerator pEnum, uint rateConversionIndex, ref ID3D11VideoProcessor* ppVideoProcessor) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
@@ -398,9 +349,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(ComPtr<ID3D11VideoProcessorEnumerator> pEnum, uint rateConversionIndex, out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoProcessor = default;
@@ -411,26 +360,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateAuthenticatedChannel([NativeName(NativeNameType.Param, "ChannelType")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CHANNEL_TYPE")] D3D11AuthenticatedChannelType channelType, [NativeName(NativeNameType.Param, "ppAuthenticatedChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel**")] ID3D11AuthenticatedChannel** ppAuthenticatedChannel) 
+		public readonly unsafe int CreateAuthenticatedChannel(AuthenticatedChannelType channelType, ID3D11AuthenticatedChannel** ppAuthenticatedChannel) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(LpVtbl[5]))(ptr, channelType, ppAuthenticatedChannel);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(LpVtbl[5]))(ptr, channelType, ppAuthenticatedChannel);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateAuthenticatedChannel([NativeName(NativeNameType.Param, "ChannelType")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CHANNEL_TYPE")] D3D11AuthenticatedChannelType channelType, [NativeName(NativeNameType.Param, "ppAuthenticatedChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel**")] ref ID3D11AuthenticatedChannel* ppAuthenticatedChannel) 
+		public readonly unsafe int CreateAuthenticatedChannel(AuthenticatedChannelType channelType, ref ID3D11AuthenticatedChannel* ppAuthenticatedChannel) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11AuthenticatedChannel** pppAuthenticatedChannel = &ppAuthenticatedChannel)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(LpVtbl[5]))(ptr, channelType, (ID3D11AuthenticatedChannel**)pppAuthenticatedChannel);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(LpVtbl[5]))(ptr, channelType, (ID3D11AuthenticatedChannel**)pppAuthenticatedChannel);
 				return ret;
 			}
 		}
@@ -438,22 +383,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateAuthenticatedChannel([NativeName(NativeNameType.Param, "ChannelType")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CHANNEL_TYPE")] D3D11AuthenticatedChannelType channelType, [NativeName(NativeNameType.Param, "ppAuthenticatedChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel**")] out ComPtr<ID3D11AuthenticatedChannel> ppAuthenticatedChannel) 
+		public readonly unsafe int CreateAuthenticatedChannel(AuthenticatedChannelType channelType, out ComPtr<ID3D11AuthenticatedChannel> ppAuthenticatedChannel) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppAuthenticatedChannel = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(LpVtbl[5]))(ptr, channelType, (ID3D11AuthenticatedChannel**)ppAuthenticatedChannel.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(LpVtbl[5]))(ptr, channelType, (ID3D11AuthenticatedChannel**)ppAuthenticatedChannel.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(LpVtbl[6]))(ptr, pCryptoType, pDecoderProfile, pKeyExchangeType, ppCryptoSession);
@@ -463,9 +404,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -478,9 +417,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -493,9 +430,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -511,9 +446,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
@@ -526,9 +459,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -544,9 +475,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -562,9 +491,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -583,9 +510,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
@@ -598,9 +523,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppCryptoSession = default;
@@ -611,9 +534,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -629,9 +550,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -645,9 +564,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -663,9 +580,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -679,9 +594,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -700,9 +613,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -719,9 +630,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
@@ -737,9 +646,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
@@ -753,9 +660,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -774,9 +679,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -793,9 +696,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -814,9 +715,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -833,9 +732,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -857,9 +754,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateCryptoSession([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public readonly unsafe int CreateCryptoSession(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -879,26 +774,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, VideoDecoderOutputViewDesc* pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, pDesc, ppVDOVView);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, pDesc, ppVDOVView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ref ID3D11Resource pResource, VideoDecoderOutputViewDesc* pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, pDesc, ppVDOVView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, pDesc, ppVDOVView);
 				return ret;
 			}
 		}
@@ -906,26 +797,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, VideoDecoderOutputViewDesc* pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, pDesc, ppVDOVView);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, pDesc, ppVDOVView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, ref VideoDecoderOutputViewDesc pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, (D3D11VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, (VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
 				return ret;
 			}
 		}
@@ -933,16 +820,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ref ID3D11Resource pResource, ref VideoDecoderOutputViewDesc pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
+				fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, (D3D11VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, (VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
 					return ret;
 				}
 			}
@@ -951,14 +836,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, ref VideoDecoderOutputViewDesc pDesc, ID3D11VideoDecoderOutputView** ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, (D3D11VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, (VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
 				return ret;
 			}
 		}
@@ -966,14 +849,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ref ID3D11VideoDecoderOutputView* ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, VideoDecoderOutputViewDesc* pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, pDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, pDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
 				return ret;
 			}
 		}
@@ -981,29 +862,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, VideoDecoderOutputViewDesc* pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVDOVView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, pDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, pDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ref ID3D11VideoDecoderOutputView* ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ref ID3D11Resource pResource, VideoDecoderOutputViewDesc* pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, pDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, pDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
 					return ret;
 				}
 			}
@@ -1012,29 +889,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, VideoDecoderOutputViewDesc* pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVDOVView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, pDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, pDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ref ID3D11VideoDecoderOutputView* ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, ref VideoDecoderOutputViewDesc pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, (D3D11VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
 					return ret;
 				}
 			}
@@ -1043,15 +916,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ID3D11Resource* pResource, ref VideoDecoderOutputViewDesc pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVDOVView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, (D3D11VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, pResource, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1059,18 +930,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ref ID3D11VideoDecoderOutputView* ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ref ID3D11Resource pResource, ref VideoDecoderOutputViewDesc pDesc, ref ID3D11VideoDecoderOutputView* ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
+				fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 				{
 					fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, (D3D11VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)ppResource, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
 						return ret;
 					}
 				}
@@ -1080,15 +949,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
+		public readonly unsafe int CreateVideoDecoderOutputView(ComPtr<ID3D11Resource> pResource, ref VideoDecoderOutputViewDesc pDesc, out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVDOVView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, (D3D11VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(LpVtbl[7]))(ptr, (ID3D11Resource*)pResource.Handle, (VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1096,26 +963,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, ppVPIView);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, ppVPIView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, ppVPIView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -1123,26 +986,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, ppVPIView);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, ppVPIView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPIView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -1150,28 +1009,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPIView);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPIView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPIView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPIView);
 					return ret;
 				}
 			}
@@ -1180,26 +1035,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPIView);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPIView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -1207,16 +1058,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+				fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 					return ret;
 				}
 			}
@@ -1225,14 +1074,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -1240,16 +1087,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
-				fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+				fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 					return ret;
 				}
 			}
@@ -1258,14 +1103,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -1273,18 +1116,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 				{
-					fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+					fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 						return ret;
 					}
 				}
@@ -1294,14 +1135,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, ID3D11VideoProcessorInputView** ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
 				return ret;
 			}
 		}
@@ -1309,14 +1148,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 				return ret;
 			}
 		}
@@ -1324,29 +1161,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 					return ret;
 				}
 			}
@@ -1355,29 +1188,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
 				fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 					return ret;
 				}
 			}
@@ -1386,22 +1215,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorInputViewDesc* pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -1410,7 +1235,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 						return ret;
 					}
 				}
@@ -1420,29 +1245,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorInputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 					return ret;
 				}
 			}
@@ -1451,15 +1272,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1467,18 +1286,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+				fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 				{
 					fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 						return ret;
 					}
 				}
@@ -1488,15 +1305,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1504,18 +1319,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
-				fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+				fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 				{
 					fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 						return ret;
 					}
 				}
@@ -1525,15 +1338,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1541,20 +1352,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorInputViewDesc pDesc, ref ID3D11VideoProcessorInputView* ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 				{
-					fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+					fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 					{
 						fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
 							return ret;
 						}
 					}
@@ -1565,15 +1374,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorInputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public readonly unsafe int CreateVideoProcessorInputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorInputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorInputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(LpVtbl[8]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1581,26 +1388,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, ppVPOView);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, ppVPOView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, ppVPOView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1608,26 +1411,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, ppVPOView);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, ppVPOView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPOView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1635,28 +1434,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPOView);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPOView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPOView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPOView);
 					return ret;
 				}
 			}
@@ -1665,26 +1460,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPOView);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPOView);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1692,16 +1483,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+				fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 					return ret;
 				}
 			}
@@ -1710,14 +1499,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1725,16 +1512,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
-				fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+				fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 					return ret;
 				}
 			}
@@ -1743,14 +1528,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1758,18 +1541,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 				{
-					fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+					fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 						return ret;
 					}
 				}
@@ -1779,14 +1560,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, ID3D11VideoProcessorOutputView** ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
 				return ret;
 			}
 		}
@@ -1794,14 +1573,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 				return ret;
 			}
 		}
@@ -1809,29 +1586,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 					return ret;
 				}
 			}
@@ -1840,29 +1613,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
 				fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 					return ret;
 				}
 			}
@@ -1871,22 +1640,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, VideoProcessorOutputViewDesc* pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -1895,7 +1660,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 						return ret;
 					}
 				}
@@ -1905,29 +1670,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, VideoProcessorOutputViewDesc* pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 					return ret;
 				}
 			}
@@ -1936,15 +1697,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1952,18 +1711,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+				fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 				{
 					fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 						return ret;
 					}
 				}
@@ -1973,15 +1730,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ID3D11VideoProcessorEnumerator* pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, pEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1989,18 +1744,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 			{
-				fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+				fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 				{
 					fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 						return ret;
 					}
 				}
@@ -2010,15 +1763,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ID3D11Resource* pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2026,20 +1777,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ref ID3D11Resource pResource, ref ID3D11VideoProcessorEnumerator pEnum, ref VideoProcessorOutputViewDesc pDesc, ref ID3D11VideoProcessorOutputView* ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
 				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
 				{
-					fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+					fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 					{
 						fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
 							return ret;
 						}
 					}
@@ -2050,15 +1799,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorOutputView([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public readonly unsafe int CreateVideoProcessorOutputView(ComPtr<ID3D11Resource> pResource, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, ref VideoProcessorOutputViewDesc pDesc, out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorOutputViewDesc* ppDesc = &pDesc)
 			{
 				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(LpVtbl[9]))(ptr, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2066,26 +1813,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorEnumerator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] D3D11VideoProcessorContentDesc* pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] ID3D11VideoProcessorEnumerator** ppEnum) 
+		public readonly unsafe int CreateVideoProcessorEnumerator(VideoProcessorContentDesc* pDesc, ID3D11VideoProcessorEnumerator** ppEnum) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, pDesc, ppEnum);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, pDesc, ppEnum);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorEnumerator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] ref D3D11VideoProcessorContentDesc pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] ID3D11VideoProcessorEnumerator** ppEnum) 
+		public readonly unsafe int CreateVideoProcessorEnumerator(ref VideoProcessorContentDesc pDesc, ID3D11VideoProcessorEnumerator** ppEnum) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorContentDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorContentDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, (D3D11VideoProcessorContentDesc*)ppDesc, ppEnum);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, (VideoProcessorContentDesc*)ppDesc, ppEnum);
 				return ret;
 			}
 		}
@@ -2093,14 +1836,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorEnumerator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] D3D11VideoProcessorContentDesc* pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] ref ID3D11VideoProcessorEnumerator* ppEnum) 
+		public readonly unsafe int CreateVideoProcessorEnumerator(VideoProcessorContentDesc* pDesc, ref ID3D11VideoProcessorEnumerator* ppEnum) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VideoProcessorEnumerator** pppEnum = &ppEnum)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, pDesc, (ID3D11VideoProcessorEnumerator**)pppEnum);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, pDesc, (ID3D11VideoProcessorEnumerator**)pppEnum);
 				return ret;
 			}
 		}
@@ -2108,29 +1849,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorEnumerator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] D3D11VideoProcessorContentDesc* pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] out ComPtr<ID3D11VideoProcessorEnumerator> ppEnum) 
+		public readonly unsafe int CreateVideoProcessorEnumerator(VideoProcessorContentDesc* pDesc, out ComPtr<ID3D11VideoProcessorEnumerator> ppEnum) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppEnum = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, pDesc, (ID3D11VideoProcessorEnumerator**)ppEnum.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, pDesc, (ID3D11VideoProcessorEnumerator**)ppEnum.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorEnumerator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] ref D3D11VideoProcessorContentDesc pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] ref ID3D11VideoProcessorEnumerator* ppEnum) 
+		public readonly unsafe int CreateVideoProcessorEnumerator(ref VideoProcessorContentDesc pDesc, ref ID3D11VideoProcessorEnumerator* ppEnum) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorContentDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorContentDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D11VideoProcessorEnumerator** pppEnum = &ppEnum)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, (D3D11VideoProcessorContentDesc*)ppDesc, (ID3D11VideoProcessorEnumerator**)pppEnum);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, (VideoProcessorContentDesc*)ppDesc, (ID3D11VideoProcessorEnumerator**)pppEnum);
 					return ret;
 				}
 			}
@@ -2139,15 +1876,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessorEnumerator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] ref D3D11VideoProcessorContentDesc pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] out ComPtr<ID3D11VideoProcessorEnumerator> ppEnum) 
+		public readonly unsafe int CreateVideoProcessorEnumerator(ref VideoProcessorContentDesc pDesc, out ComPtr<ID3D11VideoProcessorEnumerator> ppEnum) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoProcessorContentDesc* ppDesc = &pDesc)
+			fixed (VideoProcessorContentDesc* ppDesc = &pDesc)
 			{
 				ppEnum = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, (D3D11VideoProcessorContentDesc*)ppDesc, (ID3D11VideoProcessorEnumerator**)ppEnum.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(LpVtbl[10]))(ptr, (VideoProcessorContentDesc*)ppDesc, (ID3D11VideoProcessorEnumerator**)ppEnum.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2155,8 +1890,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderProfileCount")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
 		public readonly unsafe uint GetVideoDecoderProfileCount() 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -2167,9 +1900,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderProfile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderProfile([NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "GUID*")] Guid* pDecoderProfile) 
+		public readonly unsafe int GetVideoDecoderProfile(uint index, Guid* pDecoderProfile) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, uint, Guid*, int>)(LpVtbl[12]))(ptr, index, pDecoderProfile);
@@ -2179,9 +1910,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderProfile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderProfile([NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "GUID*")] ref Guid pDecoderProfile) 
+		public readonly unsafe int GetVideoDecoderProfile(uint index, ref Guid pDecoderProfile) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -2194,26 +1923,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderFormat")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderFormat([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported) 
+		public readonly unsafe int CheckVideoDecoderFormat(Guid* pDecoderProfile, Format format, int* pSupported) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, DxgiFormat, int*, int>)(LpVtbl[13]))(ptr, pDecoderProfile, format, pSupported);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Format, int*, int>)(LpVtbl[13]))(ptr, pDecoderProfile, format, pSupported);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderFormat")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderFormat([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported) 
+		public readonly unsafe int CheckVideoDecoderFormat(ref Guid pDecoderProfile, Format format, int* pSupported) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, DxgiFormat, int*, int>)(LpVtbl[13]))(ptr, (Guid*)ppDecoderProfile, format, pSupported);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Format, int*, int>)(LpVtbl[13]))(ptr, (Guid*)ppDecoderProfile, format, pSupported);
 				return ret;
 			}
 		}
@@ -2221,14 +1946,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderFormat")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderFormat([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported) 
+		public readonly unsafe int CheckVideoDecoderFormat(Guid* pDecoderProfile, Format format, ref int pSupported) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppSupported = &pSupported)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, DxgiFormat, int*, int>)(LpVtbl[13]))(ptr, pDecoderProfile, format, (int*)ppSupported);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Format, int*, int>)(LpVtbl[13]))(ptr, pDecoderProfile, format, (int*)ppSupported);
 				return ret;
 			}
 		}
@@ -2236,16 +1959,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderFormat")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderFormat([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported) 
+		public readonly unsafe int CheckVideoDecoderFormat(ref Guid pDecoderProfile, Format format, ref int pSupported) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
 				fixed (int* ppSupported = &pSupported)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, DxgiFormat, int*, int>)(LpVtbl[13]))(ptr, (Guid*)ppDecoderProfile, format, (int*)ppSupported);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Format, int*, int>)(LpVtbl[13]))(ptr, (Guid*)ppDecoderProfile, format, (int*)ppSupported);
 					return ret;
 				}
 			}
@@ -2254,26 +1975,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfigCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderConfigCount([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pCount) 
+		public readonly unsafe int GetVideoDecoderConfigCount(VideoDecoderDesc* pDesc, uint* pCount) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, pDesc, pCount);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, pDesc, pCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfigCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderConfigCount([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pCount) 
+		public readonly unsafe int GetVideoDecoderConfigCount(ref VideoDecoderDesc pDesc, uint* pCount) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, (D3D11VideoDecoderDesc*)ppDesc, pCount);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, (VideoDecoderDesc*)ppDesc, pCount);
 				return ret;
 			}
 		}
@@ -2281,14 +1998,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfigCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderConfigCount([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pCount) 
+		public readonly unsafe int GetVideoDecoderConfigCount(VideoDecoderDesc* pDesc, ref uint pCount) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCount = &pCount)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, pDesc, (uint*)ppCount);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, pDesc, (uint*)ppCount);
 				return ret;
 			}
 		}
@@ -2296,16 +2011,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfigCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderConfigCount([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pCount) 
+		public readonly unsafe int GetVideoDecoderConfigCount(ref VideoDecoderDesc pDesc, ref uint pCount) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				fixed (uint* ppCount = &pCount)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, (D3D11VideoDecoderDesc*)ppDesc, (uint*)ppCount);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, uint*, int>)(LpVtbl[14]))(ptr, (VideoDecoderDesc*)ppDesc, (uint*)ppCount);
 					return ret;
 				}
 			}
@@ -2314,26 +2027,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfig")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderConfig([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig) 
+		public readonly unsafe int GetVideoDecoderConfig(VideoDecoderDesc* pDesc, uint index, VideoDecoderConfig* pConfig) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, uint, D3D11VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, pDesc, index, pConfig);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, uint, VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, pDesc, index, pConfig);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfig")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderConfig([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig) 
+		public readonly unsafe int GetVideoDecoderConfig(ref VideoDecoderDesc pDesc, uint index, VideoDecoderConfig* pConfig) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, uint, D3D11VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, (D3D11VideoDecoderDesc*)ppDesc, index, pConfig);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, uint, VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, (VideoDecoderDesc*)ppDesc, index, pConfig);
 				return ret;
 			}
 		}
@@ -2341,14 +2050,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfig")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderConfig([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig) 
+		public readonly unsafe int GetVideoDecoderConfig(VideoDecoderDesc* pDesc, uint index, ref VideoDecoderConfig pConfig) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
+			fixed (VideoDecoderConfig* ppConfig = &pConfig)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, uint, D3D11VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, pDesc, index, (D3D11VideoDecoderConfig*)ppConfig);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, uint, VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, pDesc, index, (VideoDecoderConfig*)ppConfig);
 				return ret;
 			}
 		}
@@ -2356,16 +2063,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfig")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderConfig([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig) 
+		public readonly unsafe int GetVideoDecoderConfig(ref VideoDecoderDesc pDesc, uint index, ref VideoDecoderConfig pConfig) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
+				fixed (VideoDecoderConfig* ppConfig = &pConfig)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, uint, D3D11VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, (D3D11VideoDecoderDesc*)ppDesc, index, (D3D11VideoDecoderConfig*)ppConfig);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, uint, VideoDecoderConfig*, int>)(LpVtbl[15]))(ptr, (VideoDecoderDesc*)ppDesc, index, (VideoDecoderConfig*)ppConfig);
 					return ret;
 				}
 			}
@@ -2374,26 +2079,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetContentProtectionCaps([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] D3D11VideoContentProtectionCaps* pCaps) 
+		public readonly unsafe int GetContentProtectionCaps(Guid* pCryptoType, Guid* pDecoderProfile, VideoContentProtectionCaps* pCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, pDecoderProfile, pCaps);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, pDecoderProfile, pCaps);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetContentProtectionCaps([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] D3D11VideoContentProtectionCaps* pCaps) 
+		public readonly unsafe int GetContentProtectionCaps(ref Guid pCryptoType, Guid* pDecoderProfile, VideoContentProtectionCaps* pCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, pCaps);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, pCaps);
 				return ret;
 			}
 		}
@@ -2401,14 +2102,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetContentProtectionCaps([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] D3D11VideoContentProtectionCaps* pCaps) 
+		public readonly unsafe int GetContentProtectionCaps(Guid* pCryptoType, ref Guid pDecoderProfile, VideoContentProtectionCaps* pCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, pCaps);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, pCaps);
 				return ret;
 			}
 		}
@@ -2416,16 +2115,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetContentProtectionCaps([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] D3D11VideoContentProtectionCaps* pCaps) 
+		public readonly unsafe int GetContentProtectionCaps(ref Guid pCryptoType, ref Guid pDecoderProfile, VideoContentProtectionCaps* pCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
 				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pCaps);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pCaps);
 					return ret;
 				}
 			}
@@ -2434,14 +2131,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetContentProtectionCaps([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] ref D3D11VideoContentProtectionCaps pCaps) 
+		public readonly unsafe int GetContentProtectionCaps(Guid* pCryptoType, Guid* pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoContentProtectionCaps* ppCaps = &pCaps)
+			fixed (VideoContentProtectionCaps* ppCaps = &pCaps)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, pDecoderProfile, (D3D11VideoContentProtectionCaps*)ppCaps);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, pDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
 				return ret;
 			}
 		}
@@ -2449,16 +2144,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetContentProtectionCaps([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] ref D3D11VideoContentProtectionCaps pCaps) 
+		public readonly unsafe int GetContentProtectionCaps(ref Guid pCryptoType, Guid* pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
-				fixed (D3D11VideoContentProtectionCaps* ppCaps = &pCaps)
+				fixed (VideoContentProtectionCaps* ppCaps = &pCaps)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, (D3D11VideoContentProtectionCaps*)ppCaps);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, pDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
 					return ret;
 				}
 			}
@@ -2467,16 +2160,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetContentProtectionCaps([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] ref D3D11VideoContentProtectionCaps pCaps) 
+		public readonly unsafe int GetContentProtectionCaps(Guid* pCryptoType, ref Guid pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				fixed (D3D11VideoContentProtectionCaps* ppCaps = &pCaps)
+				fixed (VideoContentProtectionCaps* ppCaps = &pCaps)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, (D3D11VideoContentProtectionCaps*)ppCaps);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, pCryptoType, (Guid*)ppDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
 					return ret;
 				}
 			}
@@ -2485,18 +2176,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetContentProtectionCaps([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] ref D3D11VideoContentProtectionCaps pCaps) 
+		public readonly unsafe int GetContentProtectionCaps(ref Guid pCryptoType, ref Guid pDecoderProfile, ref VideoContentProtectionCaps pCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
 				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 				{
-					fixed (D3D11VideoContentProtectionCaps* ppCaps = &pCaps)
+					fixed (VideoContentProtectionCaps* ppCaps = &pCaps)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (D3D11VideoContentProtectionCaps*)ppCaps);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, VideoContentProtectionCaps*, int>)(LpVtbl[16]))(ptr, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (VideoContentProtectionCaps*)ppCaps);
 						return ret;
 					}
 				}
@@ -2506,9 +2195,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckCryptoKeyExchange([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] Guid* pKeyExchangeType) 
+		public readonly unsafe int CheckCryptoKeyExchange(Guid* pCryptoType, Guid* pDecoderProfile, uint index, Guid* pKeyExchangeType) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, uint, Guid*, int>)(LpVtbl[17]))(ptr, pCryptoType, pDecoderProfile, index, pKeyExchangeType);
@@ -2518,9 +2205,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckCryptoKeyExchange([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] Guid* pKeyExchangeType) 
+		public readonly unsafe int CheckCryptoKeyExchange(ref Guid pCryptoType, Guid* pDecoderProfile, uint index, Guid* pKeyExchangeType) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2533,9 +2218,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckCryptoKeyExchange([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] Guid* pKeyExchangeType) 
+		public readonly unsafe int CheckCryptoKeyExchange(Guid* pCryptoType, ref Guid pDecoderProfile, uint index, Guid* pKeyExchangeType) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -2548,9 +2231,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckCryptoKeyExchange([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] Guid* pKeyExchangeType) 
+		public readonly unsafe int CheckCryptoKeyExchange(ref Guid pCryptoType, ref Guid pDecoderProfile, uint index, Guid* pKeyExchangeType) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2566,9 +2247,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckCryptoKeyExchange([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] ref Guid pKeyExchangeType) 
+		public readonly unsafe int CheckCryptoKeyExchange(Guid* pCryptoType, Guid* pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
@@ -2581,9 +2260,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckCryptoKeyExchange([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] ref Guid pKeyExchangeType) 
+		public readonly unsafe int CheckCryptoKeyExchange(ref Guid pCryptoType, Guid* pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2599,9 +2276,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckCryptoKeyExchange([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] ref Guid pKeyExchangeType) 
+		public readonly unsafe int CheckCryptoKeyExchange(Guid* pCryptoType, ref Guid pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -2617,9 +2292,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckCryptoKeyExchange([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] ref Guid pKeyExchangeType) 
+		public readonly unsafe int CheckCryptoKeyExchange(ref Guid pCryptoType, ref Guid pDecoderProfile, uint index, ref Guid pKeyExchangeType) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2638,9 +2311,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, void*, int>)(LpVtbl[18]))(ptr, guid, dataSize, pData);
@@ -2650,9 +2321,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -2665,9 +2334,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, IUnknown*, int>)(LpVtbl[19]))(ptr, guid, pData);
@@ -2677,9 +2344,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -2692,9 +2357,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
@@ -2707,9 +2370,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, IUnknown*, int>)(LpVtbl[19]))(ptr, guid, (IUnknown*)pData.Handle);
@@ -2719,9 +2380,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -2737,9 +2396,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -2752,9 +2409,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, uint* pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, Guid*, Guid*, uint*, uint*, int>)(LpVtbl[20]))(ptr, pCryptoType, pDecoderProfile, pKeyExchangeType, pPrivateInputSize, pPrivateOutputSize);
@@ -2764,9 +2419,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, uint* pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2779,9 +2432,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, uint* pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -2794,9 +2445,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, uint* pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2812,9 +2461,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, uint* pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
@@ -2827,9 +2474,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, uint* pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2845,9 +2490,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, uint* pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -2863,9 +2506,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, uint* pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2884,9 +2525,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref uint pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppPrivateInputSize = &pPrivateInputSize)
@@ -2899,9 +2538,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref uint pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2917,9 +2554,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref uint pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -2935,9 +2570,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref uint pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2956,9 +2589,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref uint pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
@@ -2974,9 +2605,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref uint pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -2995,9 +2624,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ref uint pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -3016,9 +2643,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ref uint pPrivateInputSize, uint* pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -3040,9 +2665,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, uint* pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppPrivateOutputSize = &pPrivateOutputSize)
@@ -3055,9 +2678,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, uint* pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -3073,9 +2694,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, uint* pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -3091,9 +2710,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, uint* pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -3112,9 +2729,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, uint* pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
@@ -3130,9 +2745,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, uint* pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -3151,9 +2764,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, uint* pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -3172,9 +2783,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, uint* pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -3196,9 +2805,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref uint pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppPrivateInputSize = &pPrivateInputSize)
@@ -3214,9 +2821,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref uint pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -3235,9 +2840,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref uint pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -3256,9 +2859,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref uint pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -3280,9 +2881,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref uint pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
@@ -3301,9 +2900,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref uint pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -3325,9 +2922,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ref uint pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -3349,9 +2944,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCryptoSessionPrivateDataSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCryptoSessionPrivateDataSize([NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "pPrivateInputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateInputSize, [NativeName(NativeNameType.Param, "pPrivateOutputSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pPrivateOutputSize) 
+		public readonly unsafe int GetCryptoSessionPrivateDataSize(ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ref uint pPrivateInputSize, ref uint pPrivateOutputSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
@@ -3376,26 +2969,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(Guid* pDecoderProfile, uint sampleWidth, uint sampleHeight, Rational* pFrameRate, uint bitRate, Guid* pCryptoType, uint* pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, pCryptoType, pDecoderCaps);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, pCryptoType, pDecoderCaps);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(ref Guid pDecoderProfile, uint sampleWidth, uint sampleHeight, Rational* pFrameRate, uint bitRate, Guid* pCryptoType, uint* pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, pCryptoType, pDecoderCaps);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, pCryptoType, pDecoderCaps);
 				return ret;
 			}
 		}
@@ -3403,14 +2992,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(Guid* pDecoderProfile, uint sampleWidth, uint sampleHeight, ref Rational pFrameRate, uint bitRate, Guid* pCryptoType, uint* pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, (DxgiRational*)ppFrameRate, bitRate, pCryptoType, pDecoderCaps);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, (Rational*)ppFrameRate, bitRate, pCryptoType, pDecoderCaps);
 				return ret;
 			}
 		}
@@ -3418,16 +3005,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(ref Guid pDecoderProfile, uint sampleWidth, uint sampleHeight, ref Rational pFrameRate, uint bitRate, Guid* pCryptoType, uint* pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, (DxgiRational*)ppFrameRate, bitRate, pCryptoType, pDecoderCaps);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, (Rational*)ppFrameRate, bitRate, pCryptoType, pDecoderCaps);
 					return ret;
 				}
 			}
@@ -3436,14 +3021,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(Guid* pDecoderProfile, uint sampleWidth, uint sampleHeight, Rational* pFrameRate, uint bitRate, ref Guid pCryptoType, uint* pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, (Guid*)ppCryptoType, pDecoderCaps);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, (Guid*)ppCryptoType, pDecoderCaps);
 				return ret;
 			}
 		}
@@ -3451,16 +3034,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(ref Guid pDecoderProfile, uint sampleWidth, uint sampleHeight, Rational* pFrameRate, uint bitRate, ref Guid pCryptoType, uint* pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
 				fixed (Guid* ppCryptoType = &pCryptoType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, (Guid*)ppCryptoType, pDecoderCaps);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, (Guid*)ppCryptoType, pDecoderCaps);
 					return ret;
 				}
 			}
@@ -3469,16 +3050,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(Guid* pDecoderProfile, uint sampleWidth, uint sampleHeight, ref Rational pFrameRate, uint bitRate, ref Guid pCryptoType, uint* pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
 				fixed (Guid* ppCryptoType = &pCryptoType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, (DxgiRational*)ppFrameRate, bitRate, (Guid*)ppCryptoType, pDecoderCaps);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, (Rational*)ppFrameRate, bitRate, (Guid*)ppCryptoType, pDecoderCaps);
 					return ret;
 				}
 			}
@@ -3487,18 +3066,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(ref Guid pDecoderProfile, uint sampleWidth, uint sampleHeight, ref Rational pFrameRate, uint bitRate, ref Guid pCryptoType, uint* pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
 					fixed (Guid* ppCryptoType = &pCryptoType)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, (DxgiRational*)ppFrameRate, bitRate, (Guid*)ppCryptoType, pDecoderCaps);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, (Rational*)ppFrameRate, bitRate, (Guid*)ppCryptoType, pDecoderCaps);
 						return ret;
 					}
 				}
@@ -3508,14 +3085,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(Guid* pDecoderProfile, uint sampleWidth, uint sampleHeight, Rational* pFrameRate, uint bitRate, Guid* pCryptoType, ref uint pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDecoderCaps = &pDecoderCaps)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, pCryptoType, (uint*)ppDecoderCaps);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, pCryptoType, (uint*)ppDecoderCaps);
 				return ret;
 			}
 		}
@@ -3523,16 +3098,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(ref Guid pDecoderProfile, uint sampleWidth, uint sampleHeight, Rational* pFrameRate, uint bitRate, Guid* pCryptoType, ref uint pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
 				fixed (uint* ppDecoderCaps = &pDecoderCaps)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, pCryptoType, (uint*)ppDecoderCaps);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, pCryptoType, (uint*)ppDecoderCaps);
 					return ret;
 				}
 			}
@@ -3541,16 +3114,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(Guid* pDecoderProfile, uint sampleWidth, uint sampleHeight, ref Rational pFrameRate, uint bitRate, Guid* pCryptoType, ref uint pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
 				fixed (uint* ppDecoderCaps = &pDecoderCaps)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, (DxgiRational*)ppFrameRate, bitRate, pCryptoType, (uint*)ppDecoderCaps);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, (Rational*)ppFrameRate, bitRate, pCryptoType, (uint*)ppDecoderCaps);
 					return ret;
 				}
 			}
@@ -3559,18 +3130,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(ref Guid pDecoderProfile, uint sampleWidth, uint sampleHeight, ref Rational pFrameRate, uint bitRate, Guid* pCryptoType, ref uint pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
 					fixed (uint* ppDecoderCaps = &pDecoderCaps)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, (DxgiRational*)ppFrameRate, bitRate, pCryptoType, (uint*)ppDecoderCaps);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, (Rational*)ppFrameRate, bitRate, pCryptoType, (uint*)ppDecoderCaps);
 						return ret;
 					}
 				}
@@ -3580,16 +3149,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(Guid* pDecoderProfile, uint sampleWidth, uint sampleHeight, Rational* pFrameRate, uint bitRate, ref Guid pCryptoType, ref uint pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppCryptoType = &pCryptoType)
 			{
 				fixed (uint* ppDecoderCaps = &pDecoderCaps)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, (Guid*)ppCryptoType, (uint*)ppDecoderCaps);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, (Guid*)ppCryptoType, (uint*)ppDecoderCaps);
 					return ret;
 				}
 			}
@@ -3598,9 +3165,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(ref Guid pDecoderProfile, uint sampleWidth, uint sampleHeight, Rational* pFrameRate, uint bitRate, ref Guid pCryptoType, ref uint pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
@@ -3609,7 +3174,7 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (uint* ppDecoderCaps = &pDecoderCaps)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, (Guid*)ppCryptoType, (uint*)ppDecoderCaps);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, pFrameRate, bitRate, (Guid*)ppCryptoType, (uint*)ppDecoderCaps);
 						return ret;
 					}
 				}
@@ -3619,18 +3184,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(Guid* pDecoderProfile, uint sampleWidth, uint sampleHeight, ref Rational pFrameRate, uint bitRate, ref Guid pCryptoType, ref uint pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
 				fixed (Guid* ppCryptoType = &pCryptoType)
 				{
 					fixed (uint* ppDecoderCaps = &pDecoderCaps)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, (DxgiRational*)ppFrameRate, bitRate, (Guid*)ppCryptoType, (uint*)ppDecoderCaps);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, pDecoderProfile, sampleWidth, sampleHeight, (Rational*)ppFrameRate, bitRate, (Guid*)ppCryptoType, (uint*)ppDecoderCaps);
 						return ret;
 					}
 				}
@@ -3640,20 +3203,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVideoDecoderCaps([NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "SampleWidth")] [NativeName(NativeNameType.Type, "UINT")] uint sampleWidth, [NativeName(NativeNameType.Param, "SampleHeight")] [NativeName(NativeNameType.Type, "UINT")] uint sampleHeight, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "BitRate")] [NativeName(NativeNameType.Type, "UINT")] uint bitRate, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderCaps")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDecoderCaps) 
+		public readonly unsafe int GetVideoDecoderCaps(ref Guid pDecoderProfile, uint sampleWidth, uint sampleHeight, ref Rational pFrameRate, uint bitRate, ref Guid pCryptoType, ref uint pDecoderCaps) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
 					fixed (Guid* ppCryptoType = &pCryptoType)
 					{
 						fixed (uint* ppDecoderCaps = &pDecoderCaps)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, DxgiRational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, (DxgiRational*)ppFrameRate, bitRate, (Guid*)ppCryptoType, (uint*)ppDecoderCaps);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, Guid*, uint, uint, Rational*, uint, Guid*, uint*, int>)(LpVtbl[21]))(ptr, (Guid*)ppDecoderProfile, sampleWidth, sampleHeight, (Rational*)ppFrameRate, bitRate, (Guid*)ppCryptoType, (uint*)ppDecoderCaps);
 							return ret;
 						}
 					}
@@ -3664,26 +3225,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, pSupported, pRealTimeHint);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, pSupported, pRealTimeHint);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, pSupported, pRealTimeHint);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, pSupported, pRealTimeHint);
 				return ret;
 			}
 		}
@@ -3691,14 +3248,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, pSupported, pRealTimeHint);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, pSupported, pRealTimeHint);
 				return ret;
 			}
 		}
@@ -3706,16 +3261,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, pSupported, pRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, pSupported, pRealTimeHint);
 					return ret;
 				}
 			}
@@ -3724,14 +3277,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, pSupported, pRealTimeHint);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, pOutputDesc, pSupported, pRealTimeHint);
 				return ret;
 			}
 		}
@@ -3739,16 +3290,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, pSupported, pRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, pOutputDesc, pSupported, pRealTimeHint);
 					return ret;
 				}
 			}
@@ -3757,16 +3306,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, pSupported, pRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, pOutputDesc, pSupported, pRealTimeHint);
 					return ret;
 				}
 			}
@@ -3775,18 +3322,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (DxgiRational* ppFrameRate = &pFrameRate)
+					fixed (Rational* ppFrameRate = &pFrameRate)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, pSupported, pRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, pOutputDesc, pSupported, pRealTimeHint);
 						return ret;
 					}
 				}
@@ -3796,14 +3341,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+			fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
 				return ret;
 			}
 		}
@@ -3811,16 +3354,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
 					return ret;
 				}
 			}
@@ -3829,16 +3370,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
 					return ret;
 				}
 			}
@@ -3847,18 +3386,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
 						return ret;
 					}
 				}
@@ -3868,16 +3405,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
 					return ret;
 				}
 			}
@@ -3886,18 +3421,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
 						return ret;
 					}
 				}
@@ -3907,18 +3440,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
 						return ret;
 					}
 				}
@@ -3928,20 +3459,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (DxgiRational* ppFrameRate = &pFrameRate)
+					fixed (Rational* ppFrameRate = &pFrameRate)
 					{
-						fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+						fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, pRealTimeHint);
 							return ret;
 						}
 					}
@@ -3952,14 +3481,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppSupported = &pSupported)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
 				return ret;
 			}
 		}
@@ -3967,16 +3494,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
 				fixed (int* ppSupported = &pSupported)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
 					return ret;
 				}
 			}
@@ -3985,16 +3510,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
 				fixed (int* ppSupported = &pSupported)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
 					return ret;
 				}
 			}
@@ -4003,18 +3526,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
 						return ret;
 					}
 				}
@@ -4024,16 +3545,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
 				fixed (int* ppSupported = &pSupported)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
 					return ret;
 				}
 			}
@@ -4042,18 +3561,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
 						return ret;
 					}
 				}
@@ -4063,18 +3580,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
 						return ret;
 					}
 				}
@@ -4084,20 +3599,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (DxgiRational* ppFrameRate = &pFrameRate)
+					fixed (Rational* ppFrameRate = &pFrameRate)
 					{
 						fixed (int* ppSupported = &pSupported)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, pOutputDesc, (int*)ppSupported, pRealTimeHint);
 							return ret;
 						}
 					}
@@ -4108,16 +3621,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+			fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 			{
 				fixed (int* ppSupported = &pSupported)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
 					return ret;
 				}
 			}
@@ -4126,18 +3637,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
 						return ret;
 					}
 				}
@@ -4147,18 +3656,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
 						return ret;
 					}
 				}
@@ -4168,20 +3675,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
 						fixed (int* ppSupported = &pSupported)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
 							return ret;
 						}
 					}
@@ -4192,18 +3697,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
 						return ret;
 					}
 				}
@@ -4213,20 +3716,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
 						fixed (int* ppSupported = &pSupported)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
 							return ret;
 						}
 					}
@@ -4237,20 +3738,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
 						fixed (int* ppSupported = &pSupported)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
 							return ret;
 						}
 					}
@@ -4261,22 +3760,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, int* pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (DxgiRational* ppFrameRate = &pFrameRate)
+					fixed (Rational* ppFrameRate = &pFrameRate)
 					{
-						fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+						fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 						{
 							fixed (int* ppSupported = &pSupported)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, pRealTimeHint);
 								return ret;
 							}
 						}
@@ -4288,14 +3785,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppRealTimeHint = &pRealTimeHint)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
 				return ret;
 			}
 		}
@@ -4303,16 +3798,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
 				fixed (int* ppRealTimeHint = &pRealTimeHint)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
 					return ret;
 				}
 			}
@@ -4321,16 +3814,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
 				fixed (int* ppRealTimeHint = &pRealTimeHint)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
 					return ret;
 				}
 			}
@@ -4339,18 +3830,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
 					fixed (int* ppRealTimeHint = &pRealTimeHint)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
 						return ret;
 					}
 				}
@@ -4360,16 +3849,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
 				fixed (int* ppRealTimeHint = &pRealTimeHint)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
 					return ret;
 				}
 			}
@@ -4378,18 +3865,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
 					fixed (int* ppRealTimeHint = &pRealTimeHint)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
 						return ret;
 					}
 				}
@@ -4399,18 +3884,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
 					fixed (int* ppRealTimeHint = &pRealTimeHint)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
 						return ret;
 					}
 				}
@@ -4420,20 +3903,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (DxgiRational* ppFrameRate = &pFrameRate)
+					fixed (Rational* ppFrameRate = &pFrameRate)
 					{
 						fixed (int* ppRealTimeHint = &pRealTimeHint)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, pOutputDesc, pSupported, (int*)ppRealTimeHint);
 							return ret;
 						}
 					}
@@ -4444,16 +3925,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+			fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 			{
 				fixed (int* ppRealTimeHint = &pRealTimeHint)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
 					return ret;
 				}
 			}
@@ -4462,18 +3941,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
 					fixed (int* ppRealTimeHint = &pRealTimeHint)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
 						return ret;
 					}
 				}
@@ -4483,18 +3960,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
 					fixed (int* ppRealTimeHint = &pRealTimeHint)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
 						return ret;
 					}
 				}
@@ -4504,20 +3979,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
 						fixed (int* ppRealTimeHint = &pRealTimeHint)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
 							return ret;
 						}
 					}
@@ -4528,18 +4001,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
 					fixed (int* ppRealTimeHint = &pRealTimeHint)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
 						return ret;
 					}
 				}
@@ -4549,20 +4020,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
 						fixed (int* ppRealTimeHint = &pRealTimeHint)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
 							return ret;
 						}
 					}
@@ -4573,20 +4042,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
 						fixed (int* ppRealTimeHint = &pRealTimeHint)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
 							return ret;
 						}
 					}
@@ -4597,22 +4064,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, int* pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (DxgiRational* ppFrameRate = &pFrameRate)
+					fixed (Rational* ppFrameRate = &pFrameRate)
 					{
-						fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+						fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 						{
 							fixed (int* ppRealTimeHint = &pRealTimeHint)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, pSupported, (int*)ppRealTimeHint);
 								return ret;
 							}
 						}
@@ -4624,16 +4089,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppSupported = &pSupported)
 			{
 				fixed (int* ppRealTimeHint = &pRealTimeHint)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 					return ret;
 				}
 			}
@@ -4642,18 +4105,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
 				fixed (int* ppSupported = &pSupported)
 				{
 					fixed (int* ppRealTimeHint = &pRealTimeHint)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 						return ret;
 					}
 				}
@@ -4663,18 +4124,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
 				fixed (int* ppSupported = &pSupported)
 				{
 					fixed (int* ppRealTimeHint = &pRealTimeHint)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 						return ret;
 					}
 				}
@@ -4684,20 +4143,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
 						fixed (int* ppRealTimeHint = &pRealTimeHint)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 							return ret;
 						}
 					}
@@ -4708,18 +4165,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
 				fixed (int* ppSupported = &pSupported)
 				{
 					fixed (int* ppRealTimeHint = &pRealTimeHint)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 						return ret;
 					}
 				}
@@ -4729,20 +4184,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
 						fixed (int* ppRealTimeHint = &pRealTimeHint)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 							return ret;
 						}
 					}
@@ -4753,20 +4206,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
 						fixed (int* ppRealTimeHint = &pRealTimeHint)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 							return ret;
 						}
 					}
@@ -4777,22 +4228,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (DxgiRational* ppFrameRate = &pFrameRate)
+					fixed (Rational* ppFrameRate = &pFrameRate)
 					{
 						fixed (int* ppSupported = &pSupported)
 						{
 							fixed (int* ppRealTimeHint = &pRealTimeHint)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, pOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 								return ret;
 							}
 						}
@@ -4804,18 +4253,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+			fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 			{
 				fixed (int* ppSupported = &pSupported)
 				{
 					fixed (int* ppRealTimeHint = &pRealTimeHint)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 						return ret;
 					}
 				}
@@ -4825,20 +4272,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
 						fixed (int* ppRealTimeHint = &pRealTimeHint)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 							return ret;
 						}
 					}
@@ -4849,20 +4294,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
 						fixed (int* ppRealTimeHint = &pRealTimeHint)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 							return ret;
 						}
 					}
@@ -4873,22 +4316,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
 						fixed (int* ppSupported = &pSupported)
 						{
 							fixed (int* ppRealTimeHint = &pRealTimeHint)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 								return ret;
 							}
 						}
@@ -4900,20 +4341,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+				fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 				{
 					fixed (int* ppSupported = &pSupported)
 					{
 						fixed (int* ppRealTimeHint = &pRealTimeHint)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 							return ret;
 						}
 					}
@@ -4924,22 +4363,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
 						fixed (int* ppSupported = &pSupported)
 						{
 							fixed (int* ppRealTimeHint = &pRealTimeHint)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 								return ret;
 							}
 						}
@@ -4951,22 +4388,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+					fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 					{
 						fixed (int* ppSupported = &pSupported)
 						{
 							fixed (int* ppRealTimeHint = &pRealTimeHint)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 								return ret;
 							}
 						}
@@ -4978,24 +4413,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckVideoDecoderDownsampling([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported, [NativeName(NativeNameType.Param, "pRealTimeHint")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRealTimeHint) 
+		public readonly unsafe int CheckVideoDecoderDownsampling(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pOutputDesc, ref int pSupported, ref int pRealTimeHint) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (DxgiRational* ppFrameRate = &pFrameRate)
+					fixed (Rational* ppFrameRate = &pFrameRate)
 					{
-						fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
+						fixed (VideoSampleDesc* ppOutputDesc = &pOutputDesc)
 						{
 							fixed (int* ppSupported = &pSupported)
 							{
 								fixed (int* ppRealTimeHint = &pRealTimeHint)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int*, int*, int>)(LpVtbl[22]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppOutputDesc, (int*)ppSupported, (int*)ppRealTimeHint);
 									return ret;
 								}
 							}
@@ -5008,26 +4441,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, VideoSampleDesc* pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, pRecommendedOutputDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, pRecommendedOutputDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, VideoSampleDesc* pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, pRecommendedOutputDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, pRecommendedOutputDesc);
 				return ret;
 			}
 		}
@@ -5035,14 +4464,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, VideoSampleDesc* pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, pRecommendedOutputDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, pRecommendedOutputDesc);
 				return ret;
 			}
 		}
@@ -5050,16 +4477,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, VideoSampleDesc* pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, pRecommendedOutputDesc);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, pRecommendedOutputDesc);
 					return ret;
 				}
 			}
@@ -5068,14 +4493,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, pRecommendedOutputDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, pRecommendedOutputDesc);
 				return ret;
 			}
 		}
@@ -5083,16 +4506,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, pRecommendedOutputDesc);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, pRecommendedOutputDesc);
 					return ret;
 				}
 			}
@@ -5101,16 +4522,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, pRecommendedOutputDesc);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, pRecommendedOutputDesc);
 					return ret;
 				}
 			}
@@ -5119,18 +4538,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, VideoSampleDesc* pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (DxgiRational* ppFrameRate = &pFrameRate)
+					fixed (Rational* ppFrameRate = &pFrameRate)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, pRecommendedOutputDesc);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, pRecommendedOutputDesc);
 						return ret;
 					}
 				}
@@ -5140,14 +4557,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
+			fixed (VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppRecommendedOutputDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, pInputConfig, pFrameRate, (VideoSampleDesc*)ppRecommendedOutputDesc);
 				return ret;
 			}
 		}
@@ -5155,16 +4570,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
+				fixed (VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppRecommendedOutputDesc);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, pFrameRate, (VideoSampleDesc*)ppRecommendedOutputDesc);
 					return ret;
 				}
 			}
@@ -5173,16 +4586,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (D3D11VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
+				fixed (VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppRecommendedOutputDesc);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, (VideoSampleDesc*)ppRecommendedOutputDesc);
 					return ret;
 				}
 			}
@@ -5191,18 +4602,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, Rational* pFrameRate, ref VideoSampleDesc pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (D3D11VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
+					fixed (VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, pFrameRate, (D3D11VideoSampleDesc*)ppRecommendedOutputDesc);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, pFrameRate, (VideoSampleDesc*)ppRecommendedOutputDesc);
 						return ret;
 					}
 				}
@@ -5212,16 +4621,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiRational* ppFrameRate = &pFrameRate)
+			fixed (Rational* ppFrameRate = &pFrameRate)
 			{
-				fixed (D3D11VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
+				fixed (VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppRecommendedOutputDesc);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppRecommendedOutputDesc);
 					return ret;
 				}
 			}
@@ -5230,18 +4637,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, VideoDecoderConfig* pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					fixed (D3D11VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
+					fixed (VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppRecommendedOutputDesc);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, pInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppRecommendedOutputDesc);
 						return ret;
 					}
 				}
@@ -5251,18 +4656,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(VideoDecoderDesc* pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+			fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 			{
-				fixed (DxgiRational* ppFrameRate = &pFrameRate)
+				fixed (Rational* ppFrameRate = &pFrameRate)
 				{
-					fixed (D3D11VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
+					fixed (VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppRecommendedOutputDesc);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, pInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppRecommendedOutputDesc);
 						return ret;
 					}
 				}
@@ -5272,20 +4675,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RecommendVideoDecoderDownsampleParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RecommendVideoDecoderDownsampleParameters([NativeName(NativeNameType.Param, "pInputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pInputDesc, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pInputConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pInputConfig, [NativeName(NativeNameType.Param, "pFrameRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pFrameRate, [NativeName(NativeNameType.Param, "pRecommendedOutputDesc")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pRecommendedOutputDesc) 
+		public readonly unsafe int RecommendVideoDecoderDownsampleParameters(ref VideoDecoderDesc pInputDesc, ColorSpaceType inputColorSpace, ref VideoDecoderConfig pInputConfig, ref Rational pFrameRate, ref VideoSampleDesc pRecommendedOutputDesc) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11VideoDecoderDesc* ppInputDesc = &pInputDesc)
+			fixed (VideoDecoderDesc* ppInputDesc = &pInputDesc)
 			{
-				fixed (D3D11VideoDecoderConfig* ppInputConfig = &pInputConfig)
+				fixed (VideoDecoderConfig* ppInputConfig = &pInputConfig)
 				{
-					fixed (DxgiRational* ppFrameRate = &pFrameRate)
+					fixed (Rational* ppFrameRate = &pFrameRate)
 					{
-						fixed (D3D11VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
+						fixed (VideoSampleDesc* ppRecommendedOutputDesc = &pRecommendedOutputDesc)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11VideoDecoderDesc*, DxgiColorSpaceType, D3D11VideoDecoderConfig*, DxgiRational*, D3D11VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (D3D11VideoDecoderDesc*)ppInputDesc, inputColorSpace, (D3D11VideoDecoderConfig*)ppInputConfig, (DxgiRational*)ppFrameRate, (D3D11VideoSampleDesc*)ppRecommendedOutputDesc);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, VideoDecoderDesc*, ColorSpaceType, VideoDecoderConfig*, Rational*, VideoSampleDesc*, int>)(LpVtbl[23]))(ptr, (VideoDecoderDesc*)ppInputDesc, inputColorSpace, (VideoDecoderConfig*)ppInputConfig, (Rational*)ppFrameRate, (VideoSampleDesc*)ppRecommendedOutputDesc);
 							return ret;
 						}
 					}
@@ -5296,50 +4697,42 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckFeatureSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckFeatureSupport([NativeName(NativeNameType.Param, "Feature")] [NativeName(NativeNameType.Type, "D3D11_FEATURE_VIDEO")] D3D11FeatureVideo feature, [NativeName(NativeNameType.Param, "pFeatureSupportData")] [NativeName(NativeNameType.Type, "void*")] void* pFeatureSupportData, [NativeName(NativeNameType.Param, "FeatureSupportDataSize")] [NativeName(NativeNameType.Type, "UINT")] uint featureSupportDataSize) 
+		public readonly unsafe int CheckFeatureSupport(FeatureVideo feature, void* pFeatureSupportData, uint featureSupportDataSize) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11FeatureVideo, void*, uint, int>)(LpVtbl[24]))(ptr, feature, pFeatureSupportData, featureSupportDataSize);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, FeatureVideo, void*, uint, int>)(LpVtbl[24]))(ptr, feature, pFeatureSupportData, featureSupportDataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckFeatureSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckFeatureSupport<T>([NativeName(NativeNameType.Param, "Feature")] [NativeName(NativeNameType.Type, "D3D11_FEATURE_VIDEO")] D3D11FeatureVideo feature, [NativeName(NativeNameType.Param, "pFeatureSupportData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pFeatureSupportData, [NativeName(NativeNameType.Param, "FeatureSupportDataSize")] [NativeName(NativeNameType.Type, "UINT")] uint featureSupportDataSize) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CheckFeatureSupport<T>(FeatureVideo feature, ComPtr<T> pFeatureSupportData, uint featureSupportDataSize) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, D3D11FeatureVideo, void*, uint, int>)(LpVtbl[24]))(ptr, feature, (void*)pFeatureSupportData.Handle, featureSupportDataSize);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, FeatureVideo, void*, uint, int>)(LpVtbl[24]))(ptr, feature, (void*)pFeatureSupportData.Handle, featureSupportDataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "NegotiateCryptoSessionKeyExchangeMT")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int NegotiateCryptoSessionKeyExchangeMT([NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "flags")] [NativeName(NativeNameType.Type, "D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS")] D3D11CryptoSessionKeyExchangeFlags flags, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int NegotiateCryptoSessionKeyExchangeMT(ID3D11CryptoSession* pCryptoSession, CryptoSessionKeyExchangeFlags flags, uint dataSize, void* pData) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11CryptoSession*, D3D11CryptoSessionKeyExchangeFlags, uint, void*, int>)(LpVtbl[25]))(ptr, pCryptoSession, flags, dataSize, pData);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11CryptoSession*, CryptoSessionKeyExchangeFlags, uint, void*, int>)(LpVtbl[25]))(ptr, pCryptoSession, flags, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "NegotiateCryptoSessionKeyExchangeMT")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int NegotiateCryptoSessionKeyExchangeMT([NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ref ID3D11CryptoSession pCryptoSession, [NativeName(NativeNameType.Param, "flags")] [NativeName(NativeNameType.Type, "D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS")] D3D11CryptoSessionKeyExchangeFlags flags, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int NegotiateCryptoSessionKeyExchangeMT(ref ID3D11CryptoSession pCryptoSession, CryptoSessionKeyExchangeFlags flags, uint dataSize, void* pData) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11CryptoSession*, D3D11CryptoSessionKeyExchangeFlags, uint, void*, int>)(LpVtbl[25]))(ptr, (ID3D11CryptoSession*)ppCryptoSession, flags, dataSize, pData);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11CryptoSession*, CryptoSessionKeyExchangeFlags, uint, void*, int>)(LpVtbl[25]))(ptr, (ID3D11CryptoSession*)ppCryptoSession, flags, dataSize, pData);
 				return ret;
 			}
 		}
@@ -5347,36 +4740,30 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "NegotiateCryptoSessionKeyExchangeMT")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int NegotiateCryptoSessionKeyExchangeMT([NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "flags")] [NativeName(NativeNameType.Type, "D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS")] D3D11CryptoSessionKeyExchangeFlags flags, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int NegotiateCryptoSessionKeyExchangeMT(ComPtr<ID3D11CryptoSession> pCryptoSession, CryptoSessionKeyExchangeFlags flags, uint dataSize, void* pData) 
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11CryptoSession*, D3D11CryptoSessionKeyExchangeFlags, uint, void*, int>)(LpVtbl[25]))(ptr, (ID3D11CryptoSession*)pCryptoSession.Handle, flags, dataSize, pData);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11CryptoSession*, CryptoSessionKeyExchangeFlags, uint, void*, int>)(LpVtbl[25]))(ptr, (ID3D11CryptoSession*)pCryptoSession.Handle, flags, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "NegotiateCryptoSessionKeyExchangeMT")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int NegotiateCryptoSessionKeyExchangeMT<T>([NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "flags")] [NativeName(NativeNameType.Type, "D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS")] D3D11CryptoSessionKeyExchangeFlags flags, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int NegotiateCryptoSessionKeyExchangeMT<T>(ID3D11CryptoSession* pCryptoSession, CryptoSessionKeyExchangeFlags flags, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11CryptoSession*, D3D11CryptoSessionKeyExchangeFlags, uint, void*, int>)(LpVtbl[25]))(ptr, pCryptoSession, flags, dataSize, (void*)pData.Handle);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11CryptoSession*, CryptoSessionKeyExchangeFlags, uint, void*, int>)(LpVtbl[25]))(ptr, pCryptoSession, flags, dataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "NegotiateCryptoSessionKeyExchangeMT")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int NegotiateCryptoSessionKeyExchangeMT<T>([NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "flags")] [NativeName(NativeNameType.Type, "D3D11_CRYPTO_SESSION_KEY_EXCHANGE_FLAGS")] D3D11CryptoSessionKeyExchangeFlags flags, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int NegotiateCryptoSessionKeyExchangeMT<T>(ComPtr<ID3D11CryptoSession> pCryptoSession, CryptoSessionKeyExchangeFlags flags, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11VideoDevice2* ptr = (ID3D11VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11CryptoSession*, D3D11CryptoSessionKeyExchangeFlags, uint, void*, int>)(LpVtbl[25]))(ptr, (ID3D11CryptoSession*)pCryptoSession.Handle, flags, dataSize, (void*)pData.Handle);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice2*, ID3D11CryptoSession*, CryptoSessionKeyExchangeFlags, uint, void*, int>)(LpVtbl[25]))(ptr, (ID3D11CryptoSession*)pCryptoSession.Handle, flags, dataSize, (void*)pData.Handle);
 			return ret;
 		}
 

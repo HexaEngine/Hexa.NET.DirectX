@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// To be documented.
 	/// </summary>
 	[Guid("6543dbb6-1b48-42f5-ab82-e97ec74326f6")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D11InfoQueue")]
 	public partial struct ID3D11InfoQueue : IComObject, IComObject<ID3D11InfoQueue>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetMessageCountLimit")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetMessageCountLimit([NativeName(NativeNameType.Param, "MessageCountLimit")] [NativeName(NativeNameType.Type, "UINT64")] ulong messageCountLimit) 
+		public readonly unsafe int SetMessageCountLimit(ulong messageCountLimit) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, ulong, int>)(LpVtbl[3]))(ptr, messageCountLimit);
@@ -129,8 +114,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearStoredMessages")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void ClearStoredMessages() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -140,26 +123,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMessageA")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetMessageA([NativeName(NativeNameType.Param, "MessageIndex")] [NativeName(NativeNameType.Type, "UINT64")] ulong messageIndex, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE*")] D3D11Message* pMessage, [NativeName(NativeNameType.Param, "pMessageByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pMessageByteLength) 
+		public readonly unsafe int GetMessageA(ulong messageIndex, Message* pMessage, nuint* pMessageByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, ulong, D3D11Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, pMessage, pMessageByteLength);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, ulong, Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, pMessage, pMessageByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMessageA")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetMessageA([NativeName(NativeNameType.Param, "MessageIndex")] [NativeName(NativeNameType.Type, "UINT64")] ulong messageIndex, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE*")] ref D3D11Message pMessage, [NativeName(NativeNameType.Param, "pMessageByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pMessageByteLength) 
+		public readonly unsafe int GetMessageA(ulong messageIndex, ref Message pMessage, nuint* pMessageByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Message* ppMessage = &pMessage)
+			fixed (Message* ppMessage = &pMessage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, ulong, D3D11Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, (D3D11Message*)ppMessage, pMessageByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, ulong, Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, (Message*)ppMessage, pMessageByteLength);
 				return ret;
 			}
 		}
@@ -167,14 +146,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMessageA")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetMessageA([NativeName(NativeNameType.Param, "MessageIndex")] [NativeName(NativeNameType.Type, "UINT64")] ulong messageIndex, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE*")] D3D11Message* pMessage, [NativeName(NativeNameType.Param, "pMessageByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pMessageByteLength) 
+		public readonly unsafe int GetMessageA(ulong messageIndex, Message* pMessage, ref nuint pMessageByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, ulong, D3D11Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, pMessage, (nuint*)ppMessageByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, ulong, Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, pMessage, (nuint*)ppMessageByteLength);
 				return ret;
 			}
 		}
@@ -182,16 +159,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMessageA")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetMessageA([NativeName(NativeNameType.Param, "MessageIndex")] [NativeName(NativeNameType.Type, "UINT64")] ulong messageIndex, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE*")] ref D3D11Message pMessage, [NativeName(NativeNameType.Param, "pMessageByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pMessageByteLength) 
+		public readonly unsafe int GetMessageA(ulong messageIndex, ref Message pMessage, ref nuint pMessageByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Message* ppMessage = &pMessage)
+			fixed (Message* ppMessage = &pMessage)
 			{
 				fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, ulong, D3D11Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, (D3D11Message*)ppMessage, (nuint*)ppMessageByteLength);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, ulong, Message*, nuint*, int>)(LpVtbl[5]))(ptr, messageIndex, (Message*)ppMessage, (nuint*)ppMessageByteLength);
 					return ret;
 				}
 			}
@@ -200,8 +175,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumMessagesAllowedByStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
 		public readonly unsafe ulong GetNumMessagesAllowedByStorageFilter() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -212,8 +185,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumMessagesDeniedByStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
 		public readonly unsafe ulong GetNumMessagesDeniedByStorageFilter() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -224,8 +195,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumStoredMessages")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
 		public readonly unsafe ulong GetNumStoredMessages() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -236,8 +205,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumStoredMessagesAllowedByRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
 		public readonly unsafe ulong GetNumStoredMessagesAllowedByRetrievalFilter() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -248,8 +215,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumMessagesDiscardedByMessageCountLimit")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
 		public readonly unsafe ulong GetNumMessagesDiscardedByMessageCountLimit() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -260,8 +225,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMessageCountLimit")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
 		public readonly unsafe ulong GetMessageCountLimit() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -272,26 +235,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddStorageFilterEntries")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddStorageFilterEntries([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter) 
+		public readonly unsafe int AddStorageFilterEntries(InfoQueueFilter* pFilter) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(LpVtbl[12]))(ptr, pFilter);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[12]))(ptr, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddStorageFilterEntries")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddStorageFilterEntries([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter) 
+		public readonly unsafe int AddStorageFilterEntries(ref InfoQueueFilter pFilter) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(LpVtbl[12]))(ptr, (D3D11InfoQueueFilter*)ppFilter);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[12]))(ptr, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -299,26 +258,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetStorageFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
+		public readonly unsafe int GetStorageFilter(InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, pFilter, pFilterByteLength);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetStorageFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
+		public readonly unsafe int GetStorageFilter(ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, (D3D11InfoQueueFilter*)ppFilter, pFilterByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -326,14 +281,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetStorageFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
+		public readonly unsafe int GetStorageFilter(InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, pFilter, (nuint*)ppFilterByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -341,16 +294,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetStorageFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
+		public readonly unsafe int GetStorageFilter(ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, (D3D11InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -359,8 +310,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void ClearStorageFilter() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -370,8 +319,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushEmptyStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		public readonly unsafe int PushEmptyStorageFilter() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -382,8 +329,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushCopyOfStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		public readonly unsafe int PushCopyOfStorageFilter() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -394,26 +339,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushStorageFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter) 
+		public readonly unsafe int PushStorageFilter(InfoQueueFilter* pFilter) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(LpVtbl[17]))(ptr, pFilter);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[17]))(ptr, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushStorageFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter) 
+		public readonly unsafe int PushStorageFilter(ref InfoQueueFilter pFilter) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(LpVtbl[17]))(ptr, (D3D11InfoQueueFilter*)ppFilter);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[17]))(ptr, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -421,8 +362,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PopStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void PopStorageFilter() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -432,8 +371,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilterStackSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
 		public readonly unsafe uint GetStorageFilterStackSize() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -444,26 +381,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRetrievalFilterEntries")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddRetrievalFilterEntries([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter) 
+		public readonly unsafe int AddRetrievalFilterEntries(InfoQueueFilter* pFilter) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(LpVtbl[20]))(ptr, pFilter);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[20]))(ptr, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRetrievalFilterEntries")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddRetrievalFilterEntries([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter) 
+		public readonly unsafe int AddRetrievalFilterEntries(ref InfoQueueFilter pFilter) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(LpVtbl[20]))(ptr, (D3D11InfoQueueFilter*)ppFilter);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[20]))(ptr, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -471,26 +404,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetRetrievalFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
+		public readonly unsafe int GetRetrievalFilter(InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, pFilter, pFilterByteLength);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetRetrievalFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
+		public readonly unsafe int GetRetrievalFilter(ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, (D3D11InfoQueueFilter*)ppFilter, pFilterByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -498,14 +427,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetRetrievalFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
+		public readonly unsafe int GetRetrievalFilter(InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, pFilter, (nuint*)ppFilterByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -513,16 +440,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetRetrievalFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
+		public readonly unsafe int GetRetrievalFilter(ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, (D3D11InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, nuint*, int>)(LpVtbl[21]))(ptr, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -531,8 +456,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void ClearRetrievalFilter() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -542,8 +465,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushEmptyRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		public readonly unsafe int PushEmptyRetrievalFilter() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -554,8 +475,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushCopyOfRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		public readonly unsafe int PushCopyOfRetrievalFilter() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -566,26 +485,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushRetrievalFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter) 
+		public readonly unsafe int PushRetrievalFilter(InfoQueueFilter* pFilter) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(LpVtbl[25]))(ptr, pFilter);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[25]))(ptr, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushRetrievalFilter([NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter) 
+		public readonly unsafe int PushRetrievalFilter(ref InfoQueueFilter pFilter) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(LpVtbl[25]))(ptr, (D3D11InfoQueueFilter*)ppFilter);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, InfoQueueFilter*, int>)(LpVtbl[25]))(ptr, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -593,8 +508,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PopRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void PopRetrievalFilter() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -604,8 +517,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilterStackSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
 		public readonly unsafe uint GetRetrievalFilterStackSize() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -616,26 +527,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddMessage([NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_CATEGORY")] D3D11MessageCategory category, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_ID")] D3D11MessageId id, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDescription) 
+		public readonly unsafe int AddMessage(MessageCategory category, MessageSeverity severity, MessageId id, byte* pDescription) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageCategory, D3D11MessageSeverity, D3D11MessageId, byte*, int>)(LpVtbl[28]))(ptr, category, severity, id, pDescription);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(LpVtbl[28]))(ptr, category, severity, id, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddMessage([NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_CATEGORY")] D3D11MessageCategory category, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_ID")] D3D11MessageId id, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDescription) 
+		public readonly unsafe int AddMessage(MessageCategory category, MessageSeverity severity, MessageId id, ReadOnlySpan<byte> pDescription) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageCategory, D3D11MessageSeverity, D3D11MessageId, byte*, int>)(LpVtbl[28]))(ptr, category, severity, id, (byte*)ppDescription);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(LpVtbl[28]))(ptr, category, severity, id, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -643,9 +550,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddMessage([NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_CATEGORY")] D3D11MessageCategory category, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_ID")] D3D11MessageId id, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDescription) 
+		public readonly unsafe int AddMessage(MessageCategory category, MessageSeverity severity, MessageId id, string pDescription) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -665,7 +570,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageCategory, D3D11MessageSeverity, D3D11MessageId, byte*, int>)(LpVtbl[28]))(ptr, category, severity, id, pStr0);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageCategory, MessageSeverity, MessageId, byte*, int>)(LpVtbl[28]))(ptr, category, severity, id, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -676,26 +581,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddApplicationMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddApplicationMessage([NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDescription) 
+		public readonly unsafe int AddApplicationMessage(MessageSeverity severity, byte* pDescription) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageSeverity, byte*, int>)(LpVtbl[29]))(ptr, severity, pDescription);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageSeverity, byte*, int>)(LpVtbl[29]))(ptr, severity, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddApplicationMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddApplicationMessage([NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDescription) 
+		public readonly unsafe int AddApplicationMessage(MessageSeverity severity, ReadOnlySpan<byte> pDescription) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageSeverity, byte*, int>)(LpVtbl[29]))(ptr, severity, (byte*)ppDescription);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageSeverity, byte*, int>)(LpVtbl[29]))(ptr, severity, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -703,9 +604,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddApplicationMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddApplicationMessage([NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDescription) 
+		public readonly unsafe int AddApplicationMessage(MessageSeverity severity, string pDescription) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -725,7 +624,7 @@ namespace Hexa.NET.D3D11
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageSeverity, byte*, int>)(LpVtbl[29]))(ptr, severity, pStr0);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageSeverity, byte*, int>)(LpVtbl[29]))(ptr, severity, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -736,81 +635,67 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBreakOnCategory")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetBreakOnCategory([NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_CATEGORY")] D3D11MessageCategory category, [NativeName(NativeNameType.Param, "bEnable")] [NativeName(NativeNameType.Type, "BOOL")] int bEnable) 
+		public readonly unsafe int SetBreakOnCategory(MessageCategory category, int bEnable) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageCategory, int, int>)(LpVtbl[30]))(ptr, category, bEnable);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageCategory, int, int>)(LpVtbl[30]))(ptr, category, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBreakOnSeverity")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetBreakOnSeverity([NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "bEnable")] [NativeName(NativeNameType.Type, "BOOL")] int bEnable) 
+		public readonly unsafe int SetBreakOnSeverity(MessageSeverity severity, int bEnable) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageSeverity, int, int>)(LpVtbl[31]))(ptr, severity, bEnable);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageSeverity, int, int>)(LpVtbl[31]))(ptr, severity, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBreakOnID")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetBreakOnID([NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_ID")] D3D11MessageId id, [NativeName(NativeNameType.Param, "bEnable")] [NativeName(NativeNameType.Type, "BOOL")] int bEnable) 
+		public readonly unsafe int SetBreakOnID(MessageId id, int bEnable) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageId, int, int>)(LpVtbl[32]))(ptr, id, bEnable);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageId, int, int>)(LpVtbl[32]))(ptr, id, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBreakOnCategory")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public readonly unsafe int GetBreakOnCategory([NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_CATEGORY")] D3D11MessageCategory category) 
+		public readonly unsafe int GetBreakOnCategory(MessageCategory category) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageCategory, int>)(LpVtbl[33]))(ptr, category);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageCategory, int>)(LpVtbl[33]))(ptr, category);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBreakOnSeverity")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public readonly unsafe int GetBreakOnSeverity([NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity) 
+		public readonly unsafe int GetBreakOnSeverity(MessageSeverity severity) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageSeverity, int>)(LpVtbl[34]))(ptr, severity);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageSeverity, int>)(LpVtbl[34]))(ptr, severity);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBreakOnID")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public readonly unsafe int GetBreakOnID([NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_ID")] D3D11MessageId id) 
+		public readonly unsafe int GetBreakOnID(MessageId id) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageId, int>)(LpVtbl[35]))(ptr, id);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, MessageId, int>)(LpVtbl[35]))(ptr, id);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetMuteDebugOutput")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetMuteDebugOutput([NativeName(NativeNameType.Param, "bMute")] [NativeName(NativeNameType.Type, "BOOL")] int bMute) 
+		public readonly unsafe void SetMuteDebugOutput(int bMute) 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, int, void>)(LpVtbl[36]))(ptr, bMute);
@@ -819,8 +704,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMuteDebugOutput")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
 		public readonly unsafe int GetMuteDebugOutput() 
 		{
 			ID3D11InfoQueue* ptr = (ID3D11InfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));

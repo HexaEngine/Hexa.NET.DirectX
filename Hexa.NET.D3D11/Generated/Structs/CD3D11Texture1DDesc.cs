@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// interface __MIDL_itf_d3d11_0000_0006 <br/>
 	/// [local] <br/>
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "CD3D11_TEXTURE1D_DESC")]
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct CD3D11Texture1DDesc
 	{

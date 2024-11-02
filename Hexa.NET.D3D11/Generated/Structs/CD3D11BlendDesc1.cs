@@ -21,7 +21,6 @@ namespace Hexa.NET.D3D11
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "CD3D11_BLEND_DESC1")]
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct CD3D11BlendDesc1
 	{

@@ -20,17 +20,15 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.Delegate, "DxcCreateInstanceProc")]
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate int DxcCreateInstanceProc([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv);
+	public unsafe delegate int CreateInstanceProc([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv);
 
 	#else
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.Delegate, "DxcCreateInstanceProc")]
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate int DxcCreateInstanceProc([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] nint rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] nint riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] nint ppv);
+	public unsafe delegate int CreateInstanceProc([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] nint rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] nint riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] nint ppv);
 
 	#endif
 
@@ -38,17 +36,15 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.Delegate, "DxcCreateInstance2Proc")]
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate int DxcCreateInstance2Proc([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv);
+	public unsafe delegate int CreateInstance2Proc([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv);
 
 	#else
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.Delegate, "DxcCreateInstance2Proc")]
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
-	public unsafe delegate int DxcCreateInstance2Proc([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] nint pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] nint rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] nint riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] nint ppv);
+	public unsafe delegate int CreateInstance2Proc([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] nint pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] nint rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] nint riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] nint ppv);
 
 	#endif
 

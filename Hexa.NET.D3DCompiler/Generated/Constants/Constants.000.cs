@@ -17,76 +17,40 @@ namespace Hexa.NET.D3DCompiler
 {
 	public unsafe partial class D3DCompiler
 	{
-		[NativeName(NativeNameType.Const, "D3DCOMPILER_DLL_W")]
-		[NativeName(NativeNameType.Value, "L\"d3dcompiler_47.dll\"")]
 		public const string D3DCOMPILER_DLL_W = "d3dcompiler_47.dll";
 
-		[NativeName(NativeNameType.Const, "D3DCOMPILER_DLL_A")]
-		[NativeName(NativeNameType.Value, "\"d3dcompiler_47.dll\"")]
 		public const string D3DCOMPILER_DLL_A = "d3dcompiler_47.dll";
 
-		[NativeName(NativeNameType.Const, "D3D_COMPILER_VERSION")]
-		[NativeName(NativeNameType.Value, "47")]
 		public const int D3D_COMPILER_VERSION = 47;
 
-		[NativeName(NativeNameType.Const, "D3DCOMPILE_OPTIMIZATION_LEVEL1")]
-		[NativeName(NativeNameType.Value, "0")]
 		public const int D3DCOMPILE_OPTIMIZATION_LEVEL1 = 0;
 
-		[NativeName(NativeNameType.Const, "D3DCOMPILE_FLAGS2_FORCE_ROOT_SIGNATURE_LATEST")]
-		[NativeName(NativeNameType.Value, "0")]
 		public const int D3DCOMPILE_FLAGS2_FORCE_ROOT_SIGNATURE_LATEST = 0;
 
-		[NativeName(NativeNameType.Const, "D3DCOMPILE_SECDATA_MERGE_UAV_SLOTS")]
-		[NativeName(NativeNameType.Value, "0x00000001")]
 		public const int D3DCOMPILE_SECDATA_MERGE_UAV_SLOTS = 0x00000001;
 
-		[NativeName(NativeNameType.Const, "D3DCOMPILE_SECDATA_PRESERVE_TEMPLATE_SLOTS")]
-		[NativeName(NativeNameType.Value, "0x00000002")]
 		public const int D3DCOMPILE_SECDATA_PRESERVE_TEMPLATE_SLOTS = 0x00000002;
 
-		[NativeName(NativeNameType.Const, "D3DCOMPILE_SECDATA_REQUIRE_TEMPLATE_MATCH")]
-		[NativeName(NativeNameType.Value, "0x00000004")]
 		public const int D3DCOMPILE_SECDATA_REQUIRE_TEMPLATE_MATCH = 0x00000004;
 
-		[NativeName(NativeNameType.Const, "D3D_DISASM_ENABLE_COLOR_CODE")]
-		[NativeName(NativeNameType.Value, "0x00000001")]
 		public const int D3D_DISASM_ENABLE_COLOR_CODE = 0x00000001;
 
-		[NativeName(NativeNameType.Const, "D3D_DISASM_ENABLE_DEFAULT_VALUE_PRINTS")]
-		[NativeName(NativeNameType.Value, "0x00000002")]
 		public const int D3D_DISASM_ENABLE_DEFAULT_VALUE_PRINTS = 0x00000002;
 
-		[NativeName(NativeNameType.Const, "D3D_DISASM_ENABLE_INSTRUCTION_NUMBERING")]
-		[NativeName(NativeNameType.Value, "0x00000004")]
 		public const int D3D_DISASM_ENABLE_INSTRUCTION_NUMBERING = 0x00000004;
 
-		[NativeName(NativeNameType.Const, "D3D_DISASM_ENABLE_INSTRUCTION_CYCLE")]
-		[NativeName(NativeNameType.Value, "0x00000008")]
 		public const int D3D_DISASM_ENABLE_INSTRUCTION_CYCLE = 0x00000008;
 
-		[NativeName(NativeNameType.Const, "D3D_DISASM_DISABLE_DEBUG_INFO")]
-		[NativeName(NativeNameType.Value, "0x00000010")]
 		public const int D3D_DISASM_DISABLE_DEBUG_INFO = 0x00000010;
 
-		[NativeName(NativeNameType.Const, "D3D_DISASM_ENABLE_INSTRUCTION_OFFSET")]
-		[NativeName(NativeNameType.Value, "0x00000020")]
 		public const int D3D_DISASM_ENABLE_INSTRUCTION_OFFSET = 0x00000020;
 
-		[NativeName(NativeNameType.Const, "D3D_DISASM_INSTRUCTION_ONLY")]
-		[NativeName(NativeNameType.Value, "0x00000040")]
 		public const int D3D_DISASM_INSTRUCTION_ONLY = 0x00000040;
 
-		[NativeName(NativeNameType.Const, "D3D_DISASM_PRINT_HEX_LITERALS")]
-		[NativeName(NativeNameType.Value, "0x00000080")]
 		public const int D3D_DISASM_PRINT_HEX_LITERALS = 0x00000080;
 
-		[NativeName(NativeNameType.Const, "D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE")]
-		[NativeName(NativeNameType.Value, "0x00000001")]
 		public const int D3D_GET_INST_OFFSETS_INCLUDE_NON_EXECUTABLE = 0x00000001;
 
-		[NativeName(NativeNameType.Const, "D3D_COMPRESS_SHADER_KEEP_ALL_PARTS")]
-		[NativeName(NativeNameType.Value, "0x00000001")]
 		public const int D3D_COMPRESS_SHADER_KEEP_ALL_PARTS = 0x00000001;
 
 	}

@@ -23,577 +23,56 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
 			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
 					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
+					else
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
 					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
 				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
+				fixed (uint* ppUnitsLength = &pUnitsLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szDescription != null)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (ID3D11Buffer* ppTilePool = &pTilePool)
+						pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
 						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
+						else
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
 						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
 					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
+						Utils.Free(pStr1);
 					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
 					return ret;
 				}
 			}
@@ -602,280 +81,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
+				fixed (uint* ppActiveCounters = &pActiveCounters)
 				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
+					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
+						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-						{
-							fixed (uint* ppRangeFlags = &pRangeFlags)
+							fixed (byte* pszDescription = szDescription)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -887,547 +106,81 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+				fixed (uint* ppActiveCounters = &pActiveCounters)
 				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
 						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+						else
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
 						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
 					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szDescription != null)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-						{
-							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+							pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							fixed (byte* pszDescription = szDescription)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -1439,456 +192,58 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
 			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+				fixed (uint* ppActiveCounters = &pActiveCounters)
 				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
 						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+						else
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
 						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
 					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+					fixed (uint* ppUnitsLength = &pUnitsLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szDescription != null)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+							pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-								return ret;
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
 							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+							else
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-								return ret;
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
 							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
 						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
 						return ret;
 					}
 				}
@@ -1898,168 +253,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
+				fixed (CounterType* ppType = &pType)
 				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
+					fixed (uint* ppActiveCounters = &pActiveCounters)
 					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+							fixed (uint* ppUnitsLength = &pUnitsLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-						{
-							fixed (uint* ppRangeFlags = &pRangeFlags)
-							{
-								fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+								fixed (byte* pszDescription = szDescription)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
 									return ret;
 								}
 							}
@@ -2072,20 +281,60 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+				fixed (CounterType* ppType = &pType)
 				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
+					fixed (uint* ppActiveCounters = &pActiveCounters)
 					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szUnits != null)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, pRangeTileCounts, flags);
+							pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							byte* pStr1 = null;
+							int pStrSize1 = 0;
+							if (szDescription != null)
+							{
+								pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+								}
+								else
+								{
+									byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+									pStr1 = pStrStack1;
+								}
+								int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+								pStr1[pStrOffset1] = 0;
+							}
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
 							return ret;
 						}
 					}
@@ -2096,14 +345,97 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (byte* pszName = szName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+				fixed (byte* pszUnits = szUnits)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						fixed (byte* pszDescription = szDescription)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			byte* pStr1 = null;
+			int pStrSize1 = 0;
+			if (szUnits != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = 0;
+			}
+			fixed (uint* ppUnitsLength = &pUnitsLength)
+			{
+				byte* pStr2 = null;
+				int pStrSize2 = 0;
+				if (szDescription != null)
+				{
+					pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+					if (pStrSize2 >= Utils.MaxStackallocSize)
+					{
+						pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+					}
+					else
+					{
+						byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+						pStr2 = pStrStack2;
+					}
+					int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+					pStr2[pStrOffset2] = 0;
+				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+				if (pStrSize2 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr2);
+				}
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr1);
+				}
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
 				return ret;
 			}
 		}
@@ -2111,511 +443,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+				fixed (byte* pszName = szName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+							fixed (byte* pszDescription = szDescription)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -2627,37 +468,77 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
 				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
 					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
 				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					byte* pStr2 = null;
+					int pStrSize2 = 0;
+					if (szDescription != null)
+					{
+						pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+						if (pStrSize2 >= Utils.MaxStackallocSize)
+						{
+							pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+						}
+						else
+						{
+							byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+							pStr2 = pStrStack2;
+						}
+						int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+						pStr2[pStrOffset2] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+					if (pStrSize2 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr2);
+					}
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
 					return ret;
 				}
 			}
@@ -2666,217 +547,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
 			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
+				fixed (byte* pszName = szName)
 				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						fixed (uint* ppUnitsLength = &pUnitsLength)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+							fixed (byte* pszDescription = szDescription)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -2888,61 +572,77 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
 			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
 				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					byte* pStr2 = null;
+					int pStrSize2 = 0;
+					if (szDescription != null)
+					{
+						pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+						if (pStrSize2 >= Utils.MaxStackallocSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
+							pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
 						}
+						else
+						{
+							byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+							pStr2 = pStrStack2;
+						}
+						int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+						pStr2[pStrOffset2] = 0;
 					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+					if (pStrSize2 >= Utils.MaxStackallocSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
+						Utils.Free(pStr2);
 					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
 					return ret;
 				}
 			}
@@ -2951,303 +651,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
+				fixed (CounterType* ppType = &pType)
 				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
+					fixed (byte* pszName = szName)
 					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+							fixed (uint* ppUnitsLength = &pUnitsLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-						{
-							fixed (uint* ppRangeFlags = &pRangeFlags)
-							{
-								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+								fixed (byte* pszDescription = szDescription)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
 									return ret;
 								}
 							}
@@ -3260,21 +679,104 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+				fixed (CounterType* ppType = &pType)
 				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
 					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, pTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						byte* pStr2 = null;
+						int pStrSize2 = 0;
+						if (szDescription != null)
+						{
+							pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+							if (pStrSize2 >= Utils.MaxStackallocSize)
+							{
+								pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+							}
+							else
+							{
+								byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+								pStr2 = pStrStack2;
+							}
+							int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+							pStr2[pStrOffset2] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+						if (pStrSize2 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr2);
+						}
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							fixed (byte* pszDescription = szDescription)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+								return ret;
+							}
 						}
 					}
 				}
@@ -3284,16 +786,77 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
 			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					byte* pStr2 = null;
+					int pStrSize2 = 0;
+					if (szDescription != null)
+					{
+						pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+						if (pStrSize2 >= Utils.MaxStackallocSize)
+						{
+							pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+						}
+						else
+						{
+							byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+							pStr2 = pStrStack2;
+						}
+						int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+						pStr2[pStrOffset2] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+					if (pStrSize2 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr2);
+					}
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
 					return ret;
 				}
 			}
@@ -3302,588 +865,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+				fixed (uint* ppActiveCounters = &pActiveCounters)
 				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+					fixed (byte* pszName = szName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+							fixed (uint* ppUnitsLength = &pUnitsLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-						{
-							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-							{
-								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+								fixed (byte* pszDescription = szDescription)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
 									return ret;
 								}
 							}
@@ -3896,42 +893,79 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+				fixed (uint* ppActiveCounters = &pActiveCounters)
 				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
 					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, pRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
 						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
 					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						byte* pStr2 = null;
+						int pStrSize2 = 0;
+						if (szDescription != null)
+						{
+							pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+							if (pStrSize2 >= Utils.MaxStackallocSize)
+							{
+								pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+							}
+							else
+							{
+								byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+								pStr2 = pStrStack2;
+							}
+							int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+							pStr2[pStrOffset2] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+						if (pStrSize2 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr2);
+						}
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
 						return ret;
 					}
 				}
@@ -3941,246 +975,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
 			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
+				fixed (uint* ppActiveCounters = &pActiveCounters)
 				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+					fixed (byte* pszName = szName)
 					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						fixed (byte* pszUnits = szUnits)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+							fixed (uint* ppUnitsLength = &pUnitsLength)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-							{
-								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+								fixed (byte* pszDescription = szDescription)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
 									return ret;
 								}
 							}
@@ -4193,69 +1003,79 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
 			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+				fixed (uint* ppActiveCounters = &pActiveCounters)
 				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
 					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						byte* pStr2 = null;
+						int pStrSize2 = 0;
+						if (szDescription != null)
+						{
+							pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+							if (pStrSize2 >= Utils.MaxStackallocSize)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, pTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
+								pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
 							}
+							else
+							{
+								byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+								pStr2 = pStrStack2;
+							}
+							int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+							pStr2[pStrOffset2] = 0;
 						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+						if (pStrSize2 >= Utils.MaxStackallocSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
+							Utils.Free(pStr2);
 						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
 						return ret;
 					}
 				}
@@ -4265,341 +1085,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
+				fixed (CounterType* ppType = &pType)
 				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
+					fixed (uint* ppActiveCounters = &pActiveCounters)
 					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+						fixed (byte* pszName = szName)
 						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+							fixed (byte* pszUnits = szUnits)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (uint* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-							{
-								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+								fixed (uint* ppUnitsLength = &pUnitsLength)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, pTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-							{
-								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-			{
-				fixed (uint* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, pTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-					{
-						fixed (uint* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-							{
-								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, pTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppTiledResource = &pTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
-				{
-					fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
-					{
-						fixed (ID3D11Buffer* ppTilePool = &pTilePool)
-						{
-							fixed (uint* ppRangeFlags = &pRangeFlags)
-							{
-								fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
-								{
-									fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+									fixed (byte* pszDescription = szDescription)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)ppTiledResource, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)ppTilePool, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+										int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
 										return ret;
 									}
 								}
@@ -4613,22 +1116,185 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UpdateTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pTiledResource, [NativeName(NativeNameType.Param, "NumTiledResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numTiledResourceRegions, [NativeName(NativeNameType.Param, "pTiledResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pTiledResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pTiledResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] ref D3D11TileRegionSize pTiledResourceRegionSizes, [NativeName(NativeNameType.Param, "pTilePool")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pTilePool, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeFlags, [NativeName(NativeNameType.Param, "pTilePoolStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pTilePoolStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppTiledResourceRegionStartCoordinates = &pTiledResourceRegionStartCoordinates)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (D3D11TileRegionSize* ppTiledResourceRegionSizes = &pTiledResourceRegionSizes)
+				fixed (CounterType* ppType = &pType)
 				{
-					fixed (uint* ppRangeFlags = &pRangeFlags)
+					fixed (uint* ppActiveCounters = &pActiveCounters)
 					{
-						fixed (uint* ppTilePoolStartOffsets = &pTilePoolStartOffsets)
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szName != null)
 						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+							pStrSize0 = Utils.GetByteCountUTF8(szName);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, uint, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, ID3D11Buffer*, uint, uint*, uint*, uint*, uint, int>)(handle->LpVtbl[134]))(handle, (ID3D11Resource*)pTiledResource.Handle, numTiledResourceRegions, (D3D11TiledResourceCoordinate*)ppTiledResourceRegionStartCoordinates, (D3D11TileRegionSize*)ppTiledResourceRegionSizes, (ID3D11Buffer*)pTilePool.Handle, numRanges, (uint*)ppRangeFlags, (uint*)ppTilePoolStartOffsets, (uint*)ppRangeTileCounts, flags);
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szUnits != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							byte* pStr2 = null;
+							int pStrSize2 = 0;
+							if (szDescription != null)
+							{
+								pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+								if (pStrSize2 >= Utils.MaxStackallocSize)
+								{
+									pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+								}
+								else
+								{
+									byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+									pStr2 = pStrStack2;
+								}
+								int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+								pStr2[pStrOffset2] = 0;
+							}
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+							if (pStrSize2 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr2);
+							}
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						fixed (byte* pszDescription = szDescription)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szDescription != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							fixed (byte* pszDescription = szDescription)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
 								return ret;
 							}
 						}
@@ -4640,195 +1306,58 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, pDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, pDestTiledResource, (D3D11TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
+				fixed (uint* ppNameLength = &pNameLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)ppDestTiledResource, (D3D11TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)pDestTiledResource.Handle, (D3D11TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
-			{
-				fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
-			{
-				fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, pDestTiledResource, (D3D11TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, pDestTiledResource, (D3D11TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
-				{
-					fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)ppDestTiledResource, (D3D11TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, pSourceRegionStartCoordinate, pTileRegionSize, flags);
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szDescription != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
 						return ret;
 					}
 				}
@@ -4838,99 +1367,83 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)pDestTiledResource.Handle, (D3D11TiledResourceCoordinate*)ppDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, pSourceRegionStartCoordinate, pTileRegionSize, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, pDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, (D3D11TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
+				fixed (uint* ppNameLength = &pNameLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, pSourceTiledResource, (D3D11TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, pSourceTiledResource, (D3D11TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, pDestTiledResource, (D3D11TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (D3D11TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
-				{
-					fixed (D3D11TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
+					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)ppDestTiledResource, (D3D11TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (D3D11TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							fixed (byte* pszDescription = szDescription)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szDescription != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
 						return ret;
 					}
 				}
@@ -4940,69 +1453,175 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppDestRegionStartCoordinate = &pDestRegionStartCoordinate)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				fixed (D3D11TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
+				fixed (CounterType* ppType = &pType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)pDestTiledResource.Handle, (D3D11TiledResourceCoordinate*)ppDestRegionStartCoordinate, pSourceTiledResource, (D3D11TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
-			{
-				fixed (D3D11TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (D3D11TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, pDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (D3D11TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppDestTiledResource = &pDestTiledResource)
-			{
-				fixed (ID3D11Resource* ppSourceTiledResource = &pSourceTiledResource)
-				{
-					fixed (D3D11TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
+					fixed (uint* ppNameLength = &pNameLength)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)ppDestTiledResource, pDestRegionStartCoordinate, (ID3D11Resource*)ppSourceTiledResource, (D3D11TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								fixed (byte* pszDescription = szDescription)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szUnits != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							byte* pStr1 = null;
+							int pStrSize1 = 0;
+							if (szDescription != null)
+							{
+								pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+								}
+								else
+								{
+									byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+									pStr1 = pStrStack1;
+								}
+								int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+								pStr1[pStrOffset1] = 0;
+							}
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							fixed (byte* pszDescription = szDescription)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szDescription != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
 						return ret;
 					}
 				}
@@ -5012,15 +1631,3440 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CopyTileMappings(this ComPtr<ID3D11DeviceContext4> comObj, [NativeName(NativeNameType.Param, "pDestTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDestTiledResource, [NativeName(NativeNameType.Param, "pDestRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] D3D11TiledResourceCoordinate* pDestRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSourceTiledResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSourceTiledResource, [NativeName(NativeNameType.Param, "pSourceRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D11_TILED_RESOURCE_COORDINATE*")] ref D3D11TiledResourceCoordinate pSourceRegionStartCoordinate, [NativeName(NativeNameType.Param, "pTileRegionSize")] [NativeName(NativeNameType.Type, "const D3D11_TILE_REGION_SIZE*")] D3D11TileRegionSize* pTileRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11DeviceContext4* handle = comObj.Handle;
-			fixed (D3D11TiledResourceCoordinate* ppSourceRegionStartCoordinate = &pSourceRegionStartCoordinate)
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext4*, ID3D11Resource*, D3D11TiledResourceCoordinate*, ID3D11Resource*, D3D11TiledResourceCoordinate*, D3D11TileRegionSize*, uint, int>)(handle->LpVtbl[135]))(handle, (ID3D11Resource*)pDestTiledResource.Handle, pDestRegionStartCoordinate, (ID3D11Resource*)pSourceTiledResource.Handle, (D3D11TiledResourceCoordinate*)ppSourceRegionStartCoordinate, pTileRegionSize, flags);
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								fixed (byte* pszDescription = szDescription)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szUnits != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							byte* pStr1 = null;
+							int pStrSize1 = 0;
+							if (szDescription != null)
+							{
+								pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+								}
+								else
+								{
+									byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+									pStr1 = pStrStack1;
+								}
+								int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+								pStr1[pStrOffset1] = 0;
+							}
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								fixed (byte* pszDescription = szDescription)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szUnits != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							byte* pStr1 = null;
+							int pStrSize1 = 0;
+							if (szDescription != null)
+							{
+								pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+								}
+								else
+								{
+									byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+									pStr1 = pStrStack1;
+								}
+								int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+								pStr1[pStrOffset1] = 0;
+							}
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (byte* pszUnits = szUnits)
+							{
+								fixed (uint* ppUnitsLength = &pUnitsLength)
+								{
+									fixed (byte* pszDescription = szDescription)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							byte* pStr0 = null;
+							int pStrSize0 = 0;
+							if (szUnits != null)
+							{
+								pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+								}
+								else
+								{
+									byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+									pStr0 = pStrStack0;
+								}
+								int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+								pStr0[pStrOffset0] = 0;
+							}
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								byte* pStr1 = null;
+								int pStrSize1 = 0;
+								if (szDescription != null)
+								{
+									pStrSize1 = Utils.GetByteCountUTF8(szDescription);
+									if (pStrSize1 >= Utils.MaxStackallocSize)
+									{
+										pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+									}
+									else
+									{
+										byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+										pStr1 = pStrStack1;
+									}
+									int pStrOffset1 = Utils.EncodeStringUTF8(szDescription, pStr1, pStrSize1);
+									pStr1[pStrOffset1] = 0;
+								}
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, pStr1, pDescriptionLength);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (byte* pszName = szName)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							fixed (byte* pszDescription = szDescription)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					byte* pStr2 = null;
+					int pStrSize2 = 0;
+					if (szDescription != null)
+					{
+						pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+						if (pStrSize2 >= Utils.MaxStackallocSize)
+						{
+							pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+						}
+						else
+						{
+							byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+							pStr2 = pStrStack2;
+						}
+						int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+						pStr2[pStrOffset2] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+					if (pStrSize2 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr2);
+					}
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								fixed (byte* pszDescription = szDescription)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						byte* pStr2 = null;
+						int pStrSize2 = 0;
+						if (szDescription != null)
+						{
+							pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+							if (pStrSize2 >= Utils.MaxStackallocSize)
+							{
+								pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+							}
+							else
+							{
+								byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+								pStr2 = pStrStack2;
+							}
+							int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+							pStr2[pStrOffset2] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+						if (pStrSize2 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr2);
+						}
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								fixed (byte* pszDescription = szDescription)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						byte* pStr2 = null;
+						int pStrSize2 = 0;
+						if (szDescription != null)
+						{
+							pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+							if (pStrSize2 >= Utils.MaxStackallocSize)
+							{
+								pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+							}
+							else
+							{
+								byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+								pStr2 = pStrStack2;
+							}
+							int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+							pStr2[pStrOffset2] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+						if (pStrSize2 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr2);
+						}
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (byte* pszUnits = szUnits)
+							{
+								fixed (uint* ppUnitsLength = &pUnitsLength)
+								{
+									fixed (byte* pszDescription = szDescription)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szUnits != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							byte* pStr2 = null;
+							int pStrSize2 = 0;
+							if (szDescription != null)
+							{
+								pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+								if (pStrSize2 >= Utils.MaxStackallocSize)
+								{
+									pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+								}
+								else
+								{
+									byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+									pStr2 = pStrStack2;
+								}
+								int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+								pStr2[pStrOffset2] = 0;
+							}
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+							if (pStrSize2 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr2);
+							}
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								fixed (byte* pszDescription = szDescription)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						byte* pStr2 = null;
+						int pStrSize2 = 0;
+						if (szDescription != null)
+						{
+							pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+							if (pStrSize2 >= Utils.MaxStackallocSize)
+							{
+								pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+							}
+							else
+							{
+								byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+								pStr2 = pStrStack2;
+							}
+							int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+							pStr2[pStrOffset2] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+						if (pStrSize2 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr2);
+						}
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (byte* pszUnits = szUnits)
+							{
+								fixed (uint* ppUnitsLength = &pUnitsLength)
+								{
+									fixed (byte* pszDescription = szDescription)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szUnits != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							byte* pStr2 = null;
+							int pStrSize2 = 0;
+							if (szDescription != null)
+							{
+								pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+								if (pStrSize2 >= Utils.MaxStackallocSize)
+								{
+									pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+								}
+								else
+								{
+									byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+									pStr2 = pStrStack2;
+								}
+								int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+								pStr2[pStrOffset2] = 0;
+							}
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+							if (pStrSize2 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr2);
+							}
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (byte* pszUnits = szUnits)
+							{
+								fixed (uint* ppUnitsLength = &pUnitsLength)
+								{
+									fixed (byte* pszDescription = szDescription)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szUnits != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							byte* pStr2 = null;
+							int pStrSize2 = 0;
+							if (szDescription != null)
+							{
+								pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+								if (pStrSize2 >= Utils.MaxStackallocSize)
+								{
+									pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+								}
+								else
+								{
+									byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+									pStr2 = pStrStack2;
+								}
+								int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+								pStr2[pStrOffset2] = 0;
+							}
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+							if (pStrSize2 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr2);
+							}
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, ReadOnlySpan<byte> szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszName = szName)
+						{
+							fixed (uint* ppNameLength = &pNameLength)
+							{
+								fixed (byte* pszUnits = szUnits)
+								{
+									fixed (uint* ppUnitsLength = &pUnitsLength)
+									{
+										fixed (byte* pszDescription = szDescription)
+										{
+											int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, (byte*)pszDescription, pDescriptionLength);
+											return ret;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, string szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szName != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szName);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							byte* pStr1 = null;
+							int pStrSize1 = 0;
+							if (szUnits != null)
+							{
+								pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+								}
+								else
+								{
+									byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+									pStr1 = pStrStack1;
+								}
+								int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+								pStr1[pStrOffset1] = 0;
+							}
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								byte* pStr2 = null;
+								int pStrSize2 = 0;
+								if (szDescription != null)
+								{
+									pStrSize2 = Utils.GetByteCountUTF8(szDescription);
+									if (pStrSize2 >= Utils.MaxStackallocSize)
+									{
+										pStr2 = Utils.Alloc<byte>(pStrSize2 + 1);
+									}
+									else
+									{
+										byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+										pStr2 = pStrStack2;
+									}
+									int pStrOffset2 = Utils.EncodeStringUTF8(szDescription, pStr2, pStrSize2);
+									pStr2[pStrOffset2] = 0;
+								}
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, (uint*)ppUnitsLength, pStr2, pDescriptionLength);
+								if (pStrSize2 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr2);
+								}
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppDescriptionLength = &pDescriptionLength)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
 				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (byte* pszName = szName)
+			{
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			fixed (uint* ppDescriptionLength = &pDescriptionLength)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszName = szName)
+						{
+							fixed (uint* ppDescriptionLength = &pDescriptionLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szName != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szName);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (uint* ppDescriptionLength = &pDescriptionLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (byte* pszName = szName)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (uint* ppDescriptionLength = &pDescriptionLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (uint* ppDescriptionLength = &pDescriptionLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (uint* ppDescriptionLength = &pDescriptionLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszName = szName)
+						{
+							fixed (uint* ppNameLength = &pNameLength)
+							{
+								fixed (uint* ppDescriptionLength = &pDescriptionLength)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szName != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szName);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (uint* ppDescriptionLength = &pDescriptionLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (byte* pszUnits = szUnits)
+			{
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szUnits != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			fixed (uint* ppDescriptionLength = &pDescriptionLength)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppDescriptionLength = &pDescriptionLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szUnits != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (byte* pszName = szName)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			byte* pStr1 = null;
+			int pStrSize1 = 0;
+			if (szUnits != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = 0;
+			}
+			fixed (uint* ppDescriptionLength = &pDescriptionLength)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr1);
+				}
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppDescriptionLength = &pDescriptionLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppDescriptionLength = &pDescriptionLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				fixed (uint* ppDescriptionLength = &pDescriptionLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppDescriptionLength = &pDescriptionLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device3> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, ref uint pDescriptionLength) 
+		{
+			ID3D11Device3* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					fixed (uint* ppDescriptionLength = &pDescriptionLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device3*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, (uint*)ppDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
 			}
 		}
 	}

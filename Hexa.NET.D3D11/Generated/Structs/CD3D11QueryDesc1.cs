@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// interface __MIDL_itf_d3d11_3_0000_0006 <br/>
 	/// [local] <br/>
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "CD3D11_QUERY_DESC1")]
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct CD3D11QueryDesc1
 	{

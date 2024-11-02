@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// {54384F1B-5B3E-4BB7-AE01-60BA3097CBB6}<br/>
 	/// </summary>
 	[Guid("54384f1b-5b3e-4bb7-ae01-60ba3097cbb6")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D11LibraryReflection")]
 	public partial struct ID3D11LibraryReflection : IComObject, IComObject<ID3D11LibraryReflection>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11LibraryReflection* ptr = (ID3D11LibraryReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11LibraryReflection* ptr = (ID3D11LibraryReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11LibraryReflection* ptr = (ID3D11LibraryReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11LibraryReflection* ptr = (ID3D11LibraryReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D11LibraryReflection* ptr = (ID3D11LibraryReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D11LibraryReflection* ptr = (ID3D11LibraryReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public readonly unsafe int QueryInterface(Guid* iid, ref void* ppv) 
 		{
 			ID3D11LibraryReflection* ptr = (ID3D11LibraryReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppv = &ppv)
@@ -132,9 +117,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public readonly unsafe int QueryInterface(ref Guid iid, ref void* ppv) 
 		{
 			ID3D11LibraryReflection* ptr = (ID3D11LibraryReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -150,26 +133,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_LIBRARY_DESC*")] D3D11LibraryDesc* pDesc) 
+		public readonly unsafe int GetDesc(LibraryDesc* pDesc) 
 		{
 			ID3D11LibraryReflection* ptr = (ID3D11LibraryReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, D3D11LibraryDesc*, int>)(LpVtbl[4]))(ptr, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, LibraryDesc*, int>)(LpVtbl[4]))(ptr, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_LIBRARY_DESC*")] ref D3D11LibraryDesc pDesc) 
+		public readonly unsafe int GetDesc(ref LibraryDesc pDesc) 
 		{
 			ID3D11LibraryReflection* ptr = (ID3D11LibraryReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11LibraryDesc* ppDesc = &pDesc)
+			fixed (LibraryDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, D3D11LibraryDesc*, int>)(LpVtbl[4]))(ptr, (D3D11LibraryDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, LibraryDesc*, int>)(LpVtbl[4]))(ptr, (LibraryDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -177,9 +156,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFunctionByIndex")]
-		[return: NativeName(NativeNameType.Type, "ID3D11FunctionReflection*")]
-		public readonly unsafe ID3D11FunctionReflection* GetFunctionByIndex([NativeName(NativeNameType.Param, "FunctionIndex")] [NativeName(NativeNameType.Type, "INT")] int functionIndex) 
+		public readonly unsafe ID3D11FunctionReflection* GetFunctionByIndex(int functionIndex) 
 		{
 			ID3D11LibraryReflection* ptr = (ID3D11LibraryReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ID3D11FunctionReflection* ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, int, ID3D11FunctionReflection*>)(LpVtbl[5]))(ptr, functionIndex);

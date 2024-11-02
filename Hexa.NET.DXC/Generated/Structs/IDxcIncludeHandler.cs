@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcIncludeHandler")]
 	public partial struct IDxcIncludeHandler : IComObject, IComObject<IDxcIncludeHandler>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,9 +99,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadSource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadSource([NativeName(NativeNameType.Param, "pFilename")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pFilename, [NativeName(NativeNameType.Param, "ppIncludeSource")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** ppIncludeSource) 
+		public readonly unsafe int LoadSource(char* pFilename, IDxcBlob** ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcIncludeHandler*, char*, IDxcBlob**, int>)(LpVtbl[3]))(ptr, pFilename, ppIncludeSource);
@@ -124,9 +109,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadSource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadSource([NativeName(NativeNameType.Param, "pFilename")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pFilename, [NativeName(NativeNameType.Param, "ppIncludeSource")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** ppIncludeSource) 
+		public readonly unsafe int LoadSource(ReadOnlySpan<char> pFilename, IDxcBlob** ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFilename = pFilename)
@@ -139,9 +122,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadSource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadSource([NativeName(NativeNameType.Param, "pFilename")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pFilename, [NativeName(NativeNameType.Param, "ppIncludeSource")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** ppIncludeSource) 
+		public readonly unsafe int LoadSource(string pFilename, IDxcBlob** ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -172,9 +153,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadSource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadSource([NativeName(NativeNameType.Param, "pFilename")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pFilename, [NativeName(NativeNameType.Param, "ppIncludeSource")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppIncludeSource) 
+		public readonly unsafe int LoadSource(char* pFilename, ref IDxcBlob* ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** pppIncludeSource = &ppIncludeSource)
@@ -187,9 +166,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadSource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadSource([NativeName(NativeNameType.Param, "pFilename")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pFilename, [NativeName(NativeNameType.Param, "ppIncludeSource")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppIncludeSource) 
+		public readonly unsafe int LoadSource(char* pFilename, out ComPtr<IDxcBlob> ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppIncludeSource = default;
@@ -200,9 +177,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadSource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadSource([NativeName(NativeNameType.Param, "pFilename")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pFilename, [NativeName(NativeNameType.Param, "ppIncludeSource")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppIncludeSource) 
+		public readonly unsafe int LoadSource(ReadOnlySpan<char> pFilename, ref IDxcBlob* ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFilename = pFilename)
@@ -218,9 +193,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadSource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadSource([NativeName(NativeNameType.Param, "pFilename")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pFilename, [NativeName(NativeNameType.Param, "ppIncludeSource")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppIncludeSource) 
+		public readonly unsafe int LoadSource(string pFilename, ref IDxcBlob* ppIncludeSource) 
 		{
 			IDxcIncludeHandler* ptr = (IDxcIncludeHandler*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;

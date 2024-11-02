@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("de5fa827-9bf9-4f26-89ff-d7f56fde3860")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12StateObjectProperties")]
 	public partial struct ID3D12StateObjectProperties : IComObject, IComObject<ID3D12StateObjectProperties>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12StateObjectProperties*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetShaderIdentifier")]
-		[return: NativeName(NativeNameType.Type, "void*")]
-		public readonly unsafe void* GetShaderIdentifier([NativeName(NativeNameType.Param, "pExportName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pExportName) 
+		public readonly unsafe void* GetShaderIdentifier(char* pExportName) 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			void* ret = ((delegate* unmanaged[Stdcall]<ID3D12StateObjectProperties*, char*, void*>)(LpVtbl[3]))(ptr, pExportName);
@@ -129,9 +114,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetShaderIdentifier")]
-		[return: NativeName(NativeNameType.Type, "void*")]
-		public readonly unsafe void* GetShaderIdentifier([NativeName(NativeNameType.Param, "pExportName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pExportName) 
+		public readonly unsafe void* GetShaderIdentifier(ReadOnlySpan<char> pExportName) 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppExportName = pExportName)
@@ -144,9 +127,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetShaderIdentifier")]
-		[return: NativeName(NativeNameType.Type, "void*")]
-		public readonly unsafe void* GetShaderIdentifier([NativeName(NativeNameType.Param, "pExportName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pExportName) 
+		public readonly unsafe void* GetShaderIdentifier(string pExportName) 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -177,9 +158,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetShaderStackSize")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
-		public readonly unsafe ulong GetShaderStackSize([NativeName(NativeNameType.Param, "pExportName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pExportName) 
+		public readonly unsafe ulong GetShaderStackSize(char* pExportName) 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ulong ret = ((delegate* unmanaged[Stdcall]<ID3D12StateObjectProperties*, char*, ulong>)(LpVtbl[4]))(ptr, pExportName);
@@ -189,9 +168,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetShaderStackSize")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
-		public readonly unsafe ulong GetShaderStackSize([NativeName(NativeNameType.Param, "pExportName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pExportName) 
+		public readonly unsafe ulong GetShaderStackSize(ReadOnlySpan<char> pExportName) 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppExportName = pExportName)
@@ -204,9 +181,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetShaderStackSize")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
-		public readonly unsafe ulong GetShaderStackSize([NativeName(NativeNameType.Param, "pExportName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pExportName) 
+		public readonly unsafe ulong GetShaderStackSize(string pExportName) 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -237,8 +212,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPipelineStackSize")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
 		public readonly unsafe ulong GetPipelineStackSize() 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -249,9 +222,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPipelineStackSize")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetPipelineStackSize([NativeName(NativeNameType.Param, "PipelineStackSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64")] ulong pipelineStackSizeInBytes) 
+		public readonly unsafe void SetPipelineStackSize(ulong pipelineStackSizeInBytes) 
 		{
 			ID3D12StateObjectProperties* ptr = (ID3D12StateObjectProperties*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12StateObjectProperties*, ulong, void>)(LpVtbl[6]))(ptr, pipelineStackSizeInBytes);

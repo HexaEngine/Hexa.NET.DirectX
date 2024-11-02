@@ -19,7 +19,6 @@ namespace Hexa.NET.D3DCommon
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "ID3DDestructionNotifier")]
 	public partial struct ID3DDestructionNotifier : IComObject, IComObject<ID3DDestructionNotifier>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,9 +99,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterDestructionCallback")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RegisterDestructionCallback([NativeName(NativeNameType.Param, "callbackFn")] [NativeName(NativeNameType.Type, "PFN_DESTRUCTION_CALLBACK")] PfnDestructionCallback callbackFn, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData, [NativeName(NativeNameType.Param, "pCallbackID")] [NativeName(NativeNameType.Type, "UINT*")] uint* pCallbackID) 
+		public readonly unsafe int RegisterDestructionCallback(PfnDestructionCallback callbackFn, void* pData, uint* pCallbackID) 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, int>)(LpVtbl[3]))(ptr, callbackFn, pData, pCallbackID);
@@ -124,9 +109,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterDestructionCallback")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RegisterDestructionCallback<T>([NativeName(NativeNameType.Param, "callbackFn")] [NativeName(NativeNameType.Type, "PFN_DESTRUCTION_CALLBACK")] PfnDestructionCallback callbackFn, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData, [NativeName(NativeNameType.Param, "pCallbackID")] [NativeName(NativeNameType.Type, "UINT*")] uint* pCallbackID) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int RegisterDestructionCallback<T>(PfnDestructionCallback callbackFn, ComPtr<T> pData, uint* pCallbackID) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, PfnDestructionCallback, void*, uint*, int>)(LpVtbl[3]))(ptr, callbackFn, (void*)pData.Handle, pCallbackID);
@@ -136,9 +119,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterDestructionCallback")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RegisterDestructionCallback([NativeName(NativeNameType.Param, "callbackFn")] [NativeName(NativeNameType.Type, "PFN_DESTRUCTION_CALLBACK")] PfnDestructionCallback callbackFn, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData, [NativeName(NativeNameType.Param, "pCallbackID")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pCallbackID) 
+		public readonly unsafe int RegisterDestructionCallback(PfnDestructionCallback callbackFn, void* pData, ref uint pCallbackID) 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCallbackID = &pCallbackID)
@@ -151,9 +132,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterDestructionCallback")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RegisterDestructionCallback<T>([NativeName(NativeNameType.Param, "callbackFn")] [NativeName(NativeNameType.Type, "PFN_DESTRUCTION_CALLBACK")] PfnDestructionCallback callbackFn, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData, [NativeName(NativeNameType.Param, "pCallbackID")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pCallbackID) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int RegisterDestructionCallback<T>(PfnDestructionCallback callbackFn, ComPtr<T> pData, ref uint pCallbackID) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCallbackID = &pCallbackID)
@@ -166,9 +145,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UnregisterDestructionCallback")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int UnregisterDestructionCallback([NativeName(NativeNameType.Param, "callbackID")] [NativeName(NativeNameType.Type, "UINT")] uint callbackID) 
+		public readonly unsafe int UnregisterDestructionCallback(uint callbackID) 
 		{
 			ID3DDestructionNotifier* ptr = (ID3DDestructionNotifier*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3DDestructionNotifier*, uint, int>)(LpVtbl[4]))(ptr, callbackID);

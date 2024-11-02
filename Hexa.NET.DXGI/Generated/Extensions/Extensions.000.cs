@@ -21,9 +21,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIObject> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
@@ -33,9 +31,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIObject> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -48,9 +44,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIObject> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* handle = comObj.Handle;
 			ppvObject = default;
@@ -61,9 +55,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIObject> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -77,8 +69,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint AddRef(this ComPtr<IDXGIObject> comObj) 
 		{
 			IDXGIObject* handle = comObj.Handle;
@@ -89,8 +79,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint Release(this ComPtr<IDXGIObject> comObj) 
 		{
 			IDXGIObject* handle = comObj.Handle;
@@ -101,9 +89,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIObject> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
@@ -113,9 +99,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIObject> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -128,9 +112,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
@@ -140,9 +122,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -155,9 +135,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -170,9 +148,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
@@ -182,9 +158,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -200,9 +174,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIObject> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -215,9 +187,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIObject> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
@@ -227,9 +197,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIObject> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -242,9 +210,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIObject> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -257,9 +223,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIObject> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -275,9 +239,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIObject> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
@@ -287,9 +249,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIObject> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -302,9 +262,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIObject> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -317,9 +275,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIObject> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -335,9 +291,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIObject> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIObject*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
@@ -347,9 +301,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIObject> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -362,9 +314,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIObject> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* handle = comObj.Handle;
 			ppParent = default;
@@ -375,9 +325,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIObject> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIObject* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -391,9 +339,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIDeviceSubObject> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDeviceSubObject*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
@@ -403,9 +349,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -418,9 +362,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIDeviceSubObject> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			ppvObject = default;
@@ -431,9 +373,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -447,8 +387,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint AddRef(this ComPtr<IDXGIDeviceSubObject> comObj) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
@@ -459,8 +397,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint Release(this ComPtr<IDXGIDeviceSubObject> comObj) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
@@ -471,9 +407,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDeviceSubObject*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
@@ -483,9 +417,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -498,9 +430,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDeviceSubObject*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
@@ -510,9 +440,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -525,9 +453,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -540,9 +466,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDeviceSubObject*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
@@ -552,9 +476,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -570,9 +492,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -585,9 +505,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDeviceSubObject*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
@@ -597,9 +515,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -612,9 +528,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -627,9 +541,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -645,9 +557,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIDeviceSubObject> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDeviceSubObject*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
@@ -657,9 +567,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -672,9 +580,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIDeviceSubObject> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -687,9 +593,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -705,9 +609,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIDeviceSubObject> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDeviceSubObject*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
@@ -717,9 +619,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -732,9 +632,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIDeviceSubObject> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			ppParent = default;
@@ -745,9 +643,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -761,9 +657,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGIDeviceSubObject> comObj, Guid* riid, void** ppDevice) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDeviceSubObject*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, riid, ppDevice);
@@ -773,9 +667,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid riid, void** ppDevice) 
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -788,9 +680,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGIDeviceSubObject> comObj, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			ppDevice = default;
@@ -801,9 +691,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGIDeviceSubObject> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGIDeviceSubObject> comObj, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDeviceSubObject* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -817,9 +705,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIResource> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
@@ -829,9 +715,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIResource> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -844,9 +728,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIResource> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIResource* handle = comObj.Handle;
 			ppvObject = default;
@@ -857,9 +739,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIResource> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -873,8 +753,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint AddRef(this ComPtr<IDXGIResource> comObj) 
 		{
 			IDXGIResource* handle = comObj.Handle;
@@ -885,8 +763,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint Release(this ComPtr<IDXGIResource> comObj) 
 		{
 			IDXGIResource* handle = comObj.Handle;
@@ -897,9 +773,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIResource> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
@@ -909,9 +783,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIResource> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -924,9 +796,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
@@ -936,9 +806,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -951,9 +819,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -966,9 +832,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
@@ -978,9 +842,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -996,9 +858,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIResource> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1011,9 +871,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIResource> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
@@ -1023,9 +881,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIResource> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1038,9 +894,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIResource> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -1053,9 +907,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIResource> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1071,9 +923,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIResource> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
@@ -1083,9 +933,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIResource> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1098,9 +946,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIResource> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -1113,9 +959,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIResource> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1131,9 +975,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIResource> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
@@ -1143,9 +985,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIResource> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1158,9 +998,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIResource> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIResource* handle = comObj.Handle;
 			ppParent = default;
@@ -1171,9 +1009,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIResource> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1187,9 +1023,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGIResource> comObj, Guid* riid, void** ppDevice) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, riid, ppDevice);
@@ -1199,9 +1033,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGIResource> comObj, ref Guid riid, void** ppDevice) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1214,9 +1046,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGIResource> comObj, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIResource* handle = comObj.Handle;
 			ppDevice = default;
@@ -1227,9 +1057,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGIResource> comObj, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1243,9 +1071,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetSharedHandle(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "pSharedHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pSharedHandle) 
+		public static int GetSharedHandle(this ComPtr<IDXGIResource> comObj, nint* pSharedHandle) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, nint*, int>)(handle->LpVtbl[8]))(handle, pSharedHandle);
@@ -1255,9 +1081,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetSharedHandle(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "pSharedHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pSharedHandle) 
+		public static int GetSharedHandle(this ComPtr<IDXGIResource> comObj, ref nint pSharedHandle) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (nint* ppSharedHandle = &pSharedHandle)
@@ -1270,9 +1094,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetUsage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetUsage(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "pUsage")] [NativeName(NativeNameType.Type, "DXGI_USAGE*")] uint* pUsage) 
+		public static int GetUsage(this ComPtr<IDXGIResource> comObj, uint* pUsage) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, uint*, int>)(handle->LpVtbl[9]))(handle, pUsage);
@@ -1282,9 +1104,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetUsage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetUsage(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "pUsage")] [NativeName(NativeNameType.Type, "DXGI_USAGE*")] ref uint pUsage) 
+		public static int GetUsage(this ComPtr<IDXGIResource> comObj, ref uint pUsage) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (uint* ppUsage = &pUsage)
@@ -1297,9 +1117,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetEvictionPriority")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetEvictionPriority(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "EvictionPriority")] [NativeName(NativeNameType.Type, "UINT")] uint evictionPriority) 
+		public static int SetEvictionPriority(this ComPtr<IDXGIResource> comObj, uint evictionPriority) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, uint, int>)(handle->LpVtbl[10]))(handle, evictionPriority);
@@ -1309,9 +1127,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetEvictionPriority")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetEvictionPriority(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "pEvictionPriority")] [NativeName(NativeNameType.Type, "UINT*")] uint* pEvictionPriority) 
+		public static int GetEvictionPriority(this ComPtr<IDXGIResource> comObj, uint* pEvictionPriority) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIResource*, uint*, int>)(handle->LpVtbl[11]))(handle, pEvictionPriority);
@@ -1321,9 +1137,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetEvictionPriority")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetEvictionPriority(this ComPtr<IDXGIResource> comObj, [NativeName(NativeNameType.Param, "pEvictionPriority")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pEvictionPriority) 
+		public static int GetEvictionPriority(this ComPtr<IDXGIResource> comObj, ref uint pEvictionPriority) 
 		{
 			IDXGIResource* handle = comObj.Handle;
 			fixed (uint* ppEvictionPriority = &pEvictionPriority)
@@ -1336,9 +1150,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIKeyedMutex> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIKeyedMutex*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
@@ -1348,9 +1160,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1363,9 +1173,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIKeyedMutex> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			ppvObject = default;
@@ -1376,9 +1184,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1392,8 +1198,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint AddRef(this ComPtr<IDXGIKeyedMutex> comObj) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
@@ -1404,8 +1208,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint Release(this ComPtr<IDXGIKeyedMutex> comObj) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
@@ -1416,9 +1218,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIKeyedMutex*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
@@ -1428,9 +1228,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1443,9 +1241,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIKeyedMutex*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
@@ -1455,9 +1251,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1470,9 +1264,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -1485,9 +1277,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIKeyedMutex*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
@@ -1497,9 +1287,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1515,9 +1303,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1530,9 +1316,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIKeyedMutex*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
@@ -1542,9 +1326,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1557,9 +1339,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -1572,9 +1352,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1590,9 +1368,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIKeyedMutex> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIKeyedMutex*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
@@ -1602,9 +1378,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1617,9 +1391,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIKeyedMutex> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -1632,9 +1404,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1650,9 +1420,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIKeyedMutex> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIKeyedMutex*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
@@ -1662,9 +1430,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1677,9 +1443,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIKeyedMutex> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			ppParent = default;
@@ -1690,9 +1454,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1706,9 +1468,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGIKeyedMutex> comObj, Guid* riid, void** ppDevice) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIKeyedMutex*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, riid, ppDevice);
@@ -1718,9 +1478,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid riid, void** ppDevice) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1733,9 +1491,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGIKeyedMutex> comObj, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			ppDevice = default;
@@ -1746,9 +1502,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGIKeyedMutex> comObj, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1762,9 +1516,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AcquireSync")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AcquireSync(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Key")] [NativeName(NativeNameType.Type, "UINT64")] ulong key, [NativeName(NativeNameType.Param, "dwMilliseconds")] [NativeName(NativeNameType.Type, "DWORD")] uint dwMilliseconds) 
+		public static int AcquireSync(this ComPtr<IDXGIKeyedMutex> comObj, ulong key, uint dwMilliseconds) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIKeyedMutex*, ulong, uint, int>)(handle->LpVtbl[8]))(handle, key, dwMilliseconds);
@@ -1774,9 +1526,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReleaseSync")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ReleaseSync(this ComPtr<IDXGIKeyedMutex> comObj, [NativeName(NativeNameType.Param, "Key")] [NativeName(NativeNameType.Type, "UINT64")] ulong key) 
+		public static int ReleaseSync(this ComPtr<IDXGIKeyedMutex> comObj, ulong key) 
 		{
 			IDXGIKeyedMutex* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIKeyedMutex*, ulong, int>)(handle->LpVtbl[9]))(handle, key);
@@ -1786,9 +1536,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGISurface> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
@@ -1798,9 +1546,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGISurface> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1813,9 +1559,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGISurface> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface* handle = comObj.Handle;
 			ppvObject = default;
@@ -1826,9 +1570,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGISurface> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -1842,8 +1584,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint AddRef(this ComPtr<IDXGISurface> comObj) 
 		{
 			IDXGISurface* handle = comObj.Handle;
@@ -1854,8 +1594,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint Release(this ComPtr<IDXGISurface> comObj) 
 		{
 			IDXGISurface* handle = comObj.Handle;
@@ -1866,9 +1604,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGISurface> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
@@ -1878,9 +1614,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGISurface> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1893,9 +1627,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
@@ -1905,9 +1637,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1920,9 +1650,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -1935,9 +1663,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
@@ -1947,9 +1673,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1965,9 +1689,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -1980,9 +1702,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISurface> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
@@ -1992,9 +1712,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISurface> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2007,9 +1725,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISurface> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -2022,9 +1738,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISurface> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2040,9 +1754,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISurface> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
@@ -2052,9 +1764,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISurface> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2067,9 +1777,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISurface> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -2082,9 +1790,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISurface> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2100,9 +1806,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGISurface> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
@@ -2112,9 +1816,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGISurface> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2127,9 +1829,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGISurface> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface* handle = comObj.Handle;
 			ppParent = default;
@@ -2140,9 +1840,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGISurface> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2156,9 +1854,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGISurface> comObj, Guid* riid, void** ppDevice) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, riid, ppDevice);
@@ -2168,9 +1864,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGISurface> comObj, ref Guid riid, void** ppDevice) 
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2183,9 +1877,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGISurface> comObj, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface* handle = comObj.Handle;
 			ppDevice = default;
@@ -2196,9 +1888,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGISurface> comObj, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2212,26 +1902,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SURFACE_DESC*")] DxgiSurfaceDesc* pDesc) 
+		public static int GetDesc(this ComPtr<IDXGISurface> comObj, SurfaceDesc* pDesc) 
 		{
 			IDXGISurface* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, DxgiSurfaceDesc*, int>)(handle->LpVtbl[8]))(handle, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, SurfaceDesc*, int>)(handle->LpVtbl[8]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SURFACE_DESC*")] ref DxgiSurfaceDesc pDesc) 
+		public static int GetDesc(this ComPtr<IDXGISurface> comObj, ref SurfaceDesc pDesc) 
 		{
 			IDXGISurface* handle = comObj.Handle;
-			fixed (DxgiSurfaceDesc* ppDesc = &pDesc)
+			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, DxgiSurfaceDesc*, int>)(handle->LpVtbl[8]))(handle, (DxgiSurfaceDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, SurfaceDesc*, int>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -2239,26 +1925,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Map(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "pLockedRect")] [NativeName(NativeNameType.Type, "DXGI_MAPPED_RECT*")] DxgiMappedRect* pLockedRect, [NativeName(NativeNameType.Param, "MapFlags")] [NativeName(NativeNameType.Type, "UINT")] uint mapFlags) 
+		public static int Map(this ComPtr<IDXGISurface> comObj, MappedRect* pLockedRect, uint mapFlags) 
 		{
 			IDXGISurface* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, DxgiMappedRect*, uint, int>)(handle->LpVtbl[9]))(handle, pLockedRect, mapFlags);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, MappedRect*, uint, int>)(handle->LpVtbl[9]))(handle, pLockedRect, mapFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Map(this ComPtr<IDXGISurface> comObj, [NativeName(NativeNameType.Param, "pLockedRect")] [NativeName(NativeNameType.Type, "DXGI_MAPPED_RECT*")] ref DxgiMappedRect pLockedRect, [NativeName(NativeNameType.Param, "MapFlags")] [NativeName(NativeNameType.Type, "UINT")] uint mapFlags) 
+		public static int Map(this ComPtr<IDXGISurface> comObj, ref MappedRect pLockedRect, uint mapFlags) 
 		{
 			IDXGISurface* handle = comObj.Handle;
-			fixed (DxgiMappedRect* ppLockedRect = &pLockedRect)
+			fixed (MappedRect* ppLockedRect = &pLockedRect)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, DxgiMappedRect*, uint, int>)(handle->LpVtbl[9]))(handle, (DxgiMappedRect*)ppLockedRect, mapFlags);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface*, MappedRect*, uint, int>)(handle->LpVtbl[9]))(handle, (MappedRect*)ppLockedRect, mapFlags);
 				return ret;
 			}
 		}
@@ -2266,8 +1948,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Unmap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		public static int Unmap(this ComPtr<IDXGISurface> comObj) 
 		{
 			IDXGISurface* handle = comObj.Handle;
@@ -2278,9 +1958,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGISurface1> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
@@ -2290,9 +1968,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGISurface1> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2305,9 +1981,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGISurface1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			ppvObject = default;
@@ -2318,9 +1992,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGISurface1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2334,8 +2006,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint AddRef(this ComPtr<IDXGISurface1> comObj) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
@@ -2346,8 +2016,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint Release(this ComPtr<IDXGISurface1> comObj) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
@@ -2358,9 +2026,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGISurface1> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
@@ -2370,9 +2036,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGISurface1> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2385,9 +2049,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
@@ -2397,9 +2059,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2412,9 +2072,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -2427,9 +2085,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
@@ -2439,9 +2095,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2457,9 +2111,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISurface1> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2472,9 +2124,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISurface1> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
@@ -2484,9 +2134,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISurface1> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2499,9 +2147,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISurface1> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -2514,9 +2160,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISurface1> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2532,9 +2176,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISurface1> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
@@ -2544,9 +2186,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISurface1> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2559,9 +2199,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISurface1> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -2574,9 +2212,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISurface1> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2592,9 +2228,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGISurface1> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
@@ -2604,9 +2238,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGISurface1> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2619,9 +2251,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGISurface1> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			ppParent = default;
@@ -2632,9 +2262,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGISurface1> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2648,9 +2276,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGISurface1> comObj, Guid* riid, void** ppDevice) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, riid, ppDevice);
@@ -2660,9 +2286,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGISurface1> comObj, ref Guid riid, void** ppDevice) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2675,9 +2299,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGISurface1> comObj, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			ppDevice = default;
@@ -2688,9 +2310,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGISurface1> comObj, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2704,26 +2324,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SURFACE_DESC*")] DxgiSurfaceDesc* pDesc) 
+		public static int GetDesc(this ComPtr<IDXGISurface1> comObj, SurfaceDesc* pDesc) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, DxgiSurfaceDesc*, int>)(handle->LpVtbl[8]))(handle, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, SurfaceDesc*, int>)(handle->LpVtbl[8]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SURFACE_DESC*")] ref DxgiSurfaceDesc pDesc) 
+		public static int GetDesc(this ComPtr<IDXGISurface1> comObj, ref SurfaceDesc pDesc) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
-			fixed (DxgiSurfaceDesc* ppDesc = &pDesc)
+			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, DxgiSurfaceDesc*, int>)(handle->LpVtbl[8]))(handle, (DxgiSurfaceDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, SurfaceDesc*, int>)(handle->LpVtbl[8]))(handle, (SurfaceDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -2731,26 +2347,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Map(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "pLockedRect")] [NativeName(NativeNameType.Type, "DXGI_MAPPED_RECT*")] DxgiMappedRect* pLockedRect, [NativeName(NativeNameType.Param, "MapFlags")] [NativeName(NativeNameType.Type, "UINT")] uint mapFlags) 
+		public static int Map(this ComPtr<IDXGISurface1> comObj, MappedRect* pLockedRect, uint mapFlags) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, DxgiMappedRect*, uint, int>)(handle->LpVtbl[9]))(handle, pLockedRect, mapFlags);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, MappedRect*, uint, int>)(handle->LpVtbl[9]))(handle, pLockedRect, mapFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Map(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "pLockedRect")] [NativeName(NativeNameType.Type, "DXGI_MAPPED_RECT*")] ref DxgiMappedRect pLockedRect, [NativeName(NativeNameType.Param, "MapFlags")] [NativeName(NativeNameType.Type, "UINT")] uint mapFlags) 
+		public static int Map(this ComPtr<IDXGISurface1> comObj, ref MappedRect pLockedRect, uint mapFlags) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
-			fixed (DxgiMappedRect* ppLockedRect = &pLockedRect)
+			fixed (MappedRect* ppLockedRect = &pLockedRect)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, DxgiMappedRect*, uint, int>)(handle->LpVtbl[9]))(handle, (DxgiMappedRect*)ppLockedRect, mapFlags);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, MappedRect*, uint, int>)(handle->LpVtbl[9]))(handle, (MappedRect*)ppLockedRect, mapFlags);
 				return ret;
 			}
 		}
@@ -2758,8 +2370,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Unmap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		public static int Unmap(this ComPtr<IDXGISurface1> comObj) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
@@ -2770,9 +2380,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDC")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDc(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Discard")] [NativeName(NativeNameType.Type, "BOOL")] int discard, [NativeName(NativeNameType.Param, "phdc")] [NativeName(NativeNameType.Type, "HDC*")] nint* phdc) 
+		public static int GetDC(this ComPtr<IDXGISurface1> comObj, int discard, nint* phdc) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, int, nint*, int>)(handle->LpVtbl[11]))(handle, discard, phdc);
@@ -2782,9 +2390,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDC")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDc(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "Discard")] [NativeName(NativeNameType.Type, "BOOL")] int discard, [NativeName(NativeNameType.Param, "phdc")] [NativeName(NativeNameType.Type, "HDC*")] ref nint phdc) 
+		public static int GetDC(this ComPtr<IDXGISurface1> comObj, int discard, ref nint phdc) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (nint* pphdc = &phdc)
@@ -2797,9 +2403,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReleaseDC")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ReleaseDc(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "pDirtyRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pDirtyRect) 
+		public static int ReleaseDC(this ComPtr<IDXGISurface1> comObj, Rect32* pDirtyRect) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISurface1*, Rect32*, int>)(handle->LpVtbl[12]))(handle, pDirtyRect);
@@ -2809,9 +2413,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReleaseDC")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ReleaseDc(this ComPtr<IDXGISurface1> comObj, [NativeName(NativeNameType.Param, "pDirtyRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pDirtyRect) 
+		public static int ReleaseDC(this ComPtr<IDXGISurface1> comObj, ref Rect32 pDirtyRect) 
 		{
 			IDXGISurface1* handle = comObj.Handle;
 			fixed (Rect32* ppDirtyRect = &pDirtyRect)
@@ -2824,9 +2426,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIAdapter> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
@@ -2836,9 +2436,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIAdapter> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2851,9 +2449,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIAdapter> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			ppvObject = default;
@@ -2864,9 +2460,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIAdapter> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -2880,8 +2474,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint AddRef(this ComPtr<IDXGIAdapter> comObj) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
@@ -2892,8 +2484,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint Release(this ComPtr<IDXGIAdapter> comObj) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
@@ -2904,9 +2494,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIAdapter> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
@@ -2916,9 +2504,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIAdapter> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2931,9 +2517,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
@@ -2943,9 +2527,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -2958,9 +2540,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -2973,9 +2553,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
@@ -2985,9 +2563,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3003,9 +2579,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIAdapter> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3018,9 +2592,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIAdapter> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
@@ -3030,9 +2602,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIAdapter> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3045,9 +2615,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIAdapter> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -3060,9 +2628,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIAdapter> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3078,9 +2644,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
@@ -3090,9 +2654,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3105,9 +2667,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -3120,9 +2680,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIAdapter> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3138,9 +2696,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIAdapter> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
@@ -3150,9 +2706,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIAdapter> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -3165,9 +2719,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIAdapter> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			ppParent = default;
@@ -3178,9 +2730,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIAdapter> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -3194,9 +2744,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumOutputs")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumOutputs(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Output")] [NativeName(NativeNameType.Type, "UINT")] uint output, [NativeName(NativeNameType.Param, "ppOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] IDXGIOutput** ppOutput) 
+		public static int EnumOutputs(this ComPtr<IDXGIAdapter> comObj, uint output, IDXGIOutput** ppOutput) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, uint, IDXGIOutput**, int>)(handle->LpVtbl[7]))(handle, output, ppOutput);
@@ -3206,9 +2754,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumOutputs")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumOutputs(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Output")] [NativeName(NativeNameType.Type, "UINT")] uint output, [NativeName(NativeNameType.Param, "ppOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] ref IDXGIOutput* ppOutput) 
+		public static int EnumOutputs(this ComPtr<IDXGIAdapter> comObj, uint output, ref IDXGIOutput* ppOutput) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (IDXGIOutput** pppOutput = &ppOutput)
@@ -3221,9 +2767,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumOutputs")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumOutputs(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "Output")] [NativeName(NativeNameType.Type, "UINT")] uint output, [NativeName(NativeNameType.Param, "ppOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] out ComPtr<IDXGIOutput> ppOutput) 
+		public static int EnumOutputs(this ComPtr<IDXGIAdapter> comObj, uint output, out ComPtr<IDXGIOutput> ppOutput) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			ppOutput = default;
@@ -3234,26 +2778,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_ADAPTER_DESC*")] DxgiAdapterDesc* pDesc) 
+		public static int GetDesc(this ComPtr<IDXGIAdapter> comObj, AdapterDesc* pDesc) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, DxgiAdapterDesc*, int>)(handle->LpVtbl[8]))(handle, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, AdapterDesc*, int>)(handle->LpVtbl[8]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_ADAPTER_DESC*")] ref DxgiAdapterDesc pDesc) 
+		public static int GetDesc(this ComPtr<IDXGIAdapter> comObj, ref AdapterDesc pDesc) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
-			fixed (DxgiAdapterDesc* ppDesc = &pDesc)
+			fixed (AdapterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, DxgiAdapterDesc*, int>)(handle->LpVtbl[8]))(handle, (DxgiAdapterDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, AdapterDesc*, int>)(handle->LpVtbl[8]))(handle, (AdapterDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -3261,9 +2801,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckInterfaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "InterfaceName")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* interfaceName, [NativeName(NativeNameType.Param, "pUMDVersion")] [NativeName(NativeNameType.Type, "LARGE_INTEGER*")] long* pUMDVersion) 
+		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter> comObj, Guid* interfaceName, long* pUMDVersion) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIAdapter*, Guid*, long*, int>)(handle->LpVtbl[9]))(handle, interfaceName, pUMDVersion);
@@ -3273,9 +2811,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckInterfaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "InterfaceName")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid interfaceName, [NativeName(NativeNameType.Param, "pUMDVersion")] [NativeName(NativeNameType.Type, "LARGE_INTEGER*")] long* pUMDVersion) 
+		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter> comObj, ref Guid interfaceName, long* pUMDVersion) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* pinterfaceName = &interfaceName)
@@ -3288,9 +2824,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckInterfaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "InterfaceName")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* interfaceName, [NativeName(NativeNameType.Param, "pUMDVersion")] [NativeName(NativeNameType.Type, "LARGE_INTEGER*")] ref long pUMDVersion) 
+		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter> comObj, Guid* interfaceName, ref long pUMDVersion) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (long* ppUMDVersion = &pUMDVersion)
@@ -3303,9 +2837,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckInterfaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter> comObj, [NativeName(NativeNameType.Param, "InterfaceName")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid interfaceName, [NativeName(NativeNameType.Param, "pUMDVersion")] [NativeName(NativeNameType.Type, "LARGE_INTEGER*")] ref long pUMDVersion) 
+		public static int CheckInterfaceSupport(this ComPtr<IDXGIAdapter> comObj, ref Guid interfaceName, ref long pUMDVersion) 
 		{
 			IDXGIAdapter* handle = comObj.Handle;
 			fixed (Guid* pinterfaceName = &interfaceName)
@@ -3321,9 +2853,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIOutput> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
@@ -3333,9 +2863,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIOutput> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -3348,9 +2876,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIOutput> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			ppvObject = default;
@@ -3361,9 +2887,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIOutput> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -3377,8 +2901,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint AddRef(this ComPtr<IDXGIOutput> comObj) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
@@ -3389,8 +2911,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint Release(this ComPtr<IDXGIOutput> comObj) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
@@ -3401,9 +2921,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIOutput> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
@@ -3413,9 +2931,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGIOutput> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3428,9 +2944,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
@@ -3440,9 +2954,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3455,9 +2967,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -3470,9 +2980,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
@@ -3482,9 +2990,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3500,9 +3006,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIOutput> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3515,9 +3019,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIOutput> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
@@ -3527,9 +3029,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIOutput> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3542,9 +3042,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIOutput> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -3557,9 +3055,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGIOutput> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3575,9 +3071,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
@@ -3587,9 +3081,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3602,9 +3094,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -3617,9 +3107,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIOutput> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -3635,9 +3123,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIOutput> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
@@ -3647,9 +3133,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGIOutput> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -3662,9 +3146,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIOutput> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			ppParent = default;
@@ -3675,9 +3157,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGIOutput> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -3691,26 +3171,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_OUTPUT_DESC*")] DxgiOutputDesc* pDesc) 
+		public static int GetDesc(this ComPtr<IDXGIOutput> comObj, OutputDesc* pDesc) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiOutputDesc*, int>)(handle->LpVtbl[7]))(handle, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, OutputDesc*, int>)(handle->LpVtbl[7]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_OUTPUT_DESC*")] ref DxgiOutputDesc pDesc) 
+		public static int GetDesc(this ComPtr<IDXGIOutput> comObj, ref OutputDesc pDesc) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiOutputDesc* ppDesc = &pDesc)
+			fixed (OutputDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiOutputDesc*, int>)(handle->LpVtbl[7]))(handle, (DxgiOutputDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, OutputDesc*, int>)(handle->LpVtbl[7]))(handle, (OutputDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -3718,26 +3194,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplayModeList(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pDesc) 
+		public static int GetDisplayModeList(this ComPtr<IDXGIOutput> comObj, Format enumFormat, uint flags, uint* pNumModes, ModeDesc* pDesc) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiFormat, uint, uint*, DxgiModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, pNumModes, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, Format, uint, uint*, ModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, pNumModes, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplayModeList(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pDesc) 
+		public static int GetDisplayModeList(this ComPtr<IDXGIOutput> comObj, Format enumFormat, uint flags, ref uint pNumModes, ModeDesc* pDesc) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (uint* ppNumModes = &pNumModes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiFormat, uint, uint*, DxgiModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, (uint*)ppNumModes, pDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, Format, uint, uint*, ModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, (uint*)ppNumModes, pDesc);
 				return ret;
 			}
 		}
@@ -3745,14 +3217,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplayModeList(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pDesc) 
+		public static int GetDisplayModeList(this ComPtr<IDXGIOutput> comObj, Format enumFormat, uint flags, uint* pNumModes, ref ModeDesc pDesc) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiModeDesc* ppDesc = &pDesc)
+			fixed (ModeDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiFormat, uint, uint*, DxgiModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, pNumModes, (DxgiModeDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, Format, uint, uint*, ModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, pNumModes, (ModeDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -3760,16 +3230,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplayModeList(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pDesc) 
+		public static int GetDisplayModeList(this ComPtr<IDXGIOutput> comObj, Format enumFormat, uint flags, ref uint pNumModes, ref ModeDesc pDesc) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (uint* ppNumModes = &pNumModes)
 			{
-				fixed (DxgiModeDesc* ppDesc = &pDesc)
+				fixed (ModeDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiFormat, uint, uint*, DxgiModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, (uint*)ppNumModes, (DxgiModeDesc*)ppDesc);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, Format, uint, uint*, ModeDesc*, int>)(handle->LpVtbl[8]))(handle, enumFormat, flags, (uint*)ppNumModes, (ModeDesc*)ppDesc);
 					return ret;
 				}
 			}
@@ -3778,26 +3246,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, pConcernedDevice);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, pConcernedDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (DxgiModeDesc*)ppModeToMatch, pClosestMatch, pConcernedDevice);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, pClosestMatch, pConcernedDevice);
 				return ret;
 			}
 		}
@@ -3805,14 +3269,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+			fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, (DxgiModeDesc*)ppClosestMatch, pConcernedDevice);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, (ModeDesc*)ppClosestMatch, pConcernedDevice);
 				return ret;
 			}
 		}
@@ -3820,16 +3282,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+				fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (DxgiModeDesc*)ppModeToMatch, (DxgiModeDesc*)ppClosestMatch, pConcernedDevice);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, pConcernedDevice);
 					return ret;
 				}
 			}
@@ -3838,14 +3298,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
 				return ret;
 			}
 		}
@@ -3853,28 +3311,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
 				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (DxgiModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
 					return ret;
 				}
 			}
@@ -3883,14 +3337,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (DxgiModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 				return ret;
 			}
 		}
@@ -3898,16 +3350,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+			fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 			{
 				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, (DxgiModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
 					return ret;
 				}
 			}
@@ -3916,14 +3366,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+			fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, (DxgiModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, pModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 				return ret;
 			}
 		}
@@ -3931,18 +3379,16 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+				fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 				{
 					fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (DxgiModeDesc*)ppModeToMatch, (DxgiModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
 						return ret;
 					}
 				}
@@ -3952,16 +3398,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public static int FindClosestMatchingMode(this ComPtr<IDXGIOutput> comObj, ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+				fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (DxgiModeDesc*)ppModeToMatch, (DxgiModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, ModeDesc*, ModeDesc*, IUnknown*, int>)(handle->LpVtbl[9]))(handle, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 					return ret;
 				}
 			}
@@ -3970,8 +3414,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "WaitForVBlank")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		public static int WaitForVBlank(this ComPtr<IDXGIOutput> comObj) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
@@ -3982,9 +3424,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "TakeOwnership")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int TakeOwnership(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Exclusive")] [NativeName(NativeNameType.Type, "BOOL")] int exclusive) 
+		public static int TakeOwnership(this ComPtr<IDXGIOutput> comObj, IUnknown* pDevice, int exclusive) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, IUnknown*, int, int>)(handle->LpVtbl[11]))(handle, pDevice, exclusive);
@@ -3994,9 +3434,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "TakeOwnership")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int TakeOwnership(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "Exclusive")] [NativeName(NativeNameType.Type, "BOOL")] int exclusive) 
+		public static int TakeOwnership(this ComPtr<IDXGIOutput> comObj, ref IUnknown pDevice, int exclusive) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -4009,9 +3447,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "TakeOwnership")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int TakeOwnership(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "Exclusive")] [NativeName(NativeNameType.Type, "BOOL")] int exclusive) 
+		public static int TakeOwnership(this ComPtr<IDXGIOutput> comObj, ComPtr<IUnknown> pDevice, int exclusive) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, IUnknown*, int, int>)(handle->LpVtbl[11]))(handle, (IUnknown*)pDevice.Handle, exclusive);
@@ -4021,8 +3457,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReleaseOwnership")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public static void ReleaseOwnership(this ComPtr<IDXGIOutput> comObj) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
@@ -4032,26 +3466,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControlCapabilities")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetGammaControlCapabilities(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pGammaCaps")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL_CAPABILITIES*")] DxgiGammaControlCapabilities* pGammaCaps) 
+		public static int GetGammaControlCapabilities(this ComPtr<IDXGIOutput> comObj, GammaControlCapabilities* pGammaCaps) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiGammaControlCapabilities*, int>)(handle->LpVtbl[13]))(handle, pGammaCaps);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, GammaControlCapabilities*, int>)(handle->LpVtbl[13]))(handle, pGammaCaps);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControlCapabilities")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetGammaControlCapabilities(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pGammaCaps")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL_CAPABILITIES*")] ref DxgiGammaControlCapabilities pGammaCaps) 
+		public static int GetGammaControlCapabilities(this ComPtr<IDXGIOutput> comObj, ref GammaControlCapabilities pGammaCaps) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiGammaControlCapabilities* ppGammaCaps = &pGammaCaps)
+			fixed (GammaControlCapabilities* ppGammaCaps = &pGammaCaps)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiGammaControlCapabilities*, int>)(handle->LpVtbl[13]))(handle, (DxgiGammaControlCapabilities*)ppGammaCaps);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, GammaControlCapabilities*, int>)(handle->LpVtbl[13]))(handle, (GammaControlCapabilities*)ppGammaCaps);
 				return ret;
 			}
 		}
@@ -4059,26 +3489,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetGammaControl(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "const DXGI_GAMMA_CONTROL*")] DxgiGammaControl* pArray) 
+		public static int SetGammaControl(this ComPtr<IDXGIOutput> comObj, GammaControl* pArray) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiGammaControl*, int>)(handle->LpVtbl[14]))(handle, pArray);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, GammaControl*, int>)(handle->LpVtbl[14]))(handle, pArray);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetGammaControl(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "const DXGI_GAMMA_CONTROL*")] ref DxgiGammaControl pArray) 
+		public static int SetGammaControl(this ComPtr<IDXGIOutput> comObj, ref GammaControl pArray) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiGammaControl* ppArray = &pArray)
+			fixed (GammaControl* ppArray = &pArray)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiGammaControl*, int>)(handle->LpVtbl[14]))(handle, (DxgiGammaControl*)ppArray);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, GammaControl*, int>)(handle->LpVtbl[14]))(handle, (GammaControl*)ppArray);
 				return ret;
 			}
 		}
@@ -4086,26 +3512,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetGammaControl(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL*")] DxgiGammaControl* pArray) 
+		public static int GetGammaControl(this ComPtr<IDXGIOutput> comObj, GammaControl* pArray) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiGammaControl*, int>)(handle->LpVtbl[15]))(handle, pArray);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, GammaControl*, int>)(handle->LpVtbl[15]))(handle, pArray);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetGammaControl(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL*")] ref DxgiGammaControl pArray) 
+		public static int GetGammaControl(this ComPtr<IDXGIOutput> comObj, ref GammaControl pArray) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiGammaControl* ppArray = &pArray)
+			fixed (GammaControl* ppArray = &pArray)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiGammaControl*, int>)(handle->LpVtbl[15]))(handle, (DxgiGammaControl*)ppArray);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, GammaControl*, int>)(handle->LpVtbl[15]))(handle, (GammaControl*)ppArray);
 				return ret;
 			}
 		}
@@ -4113,9 +3535,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetDisplaySurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetDisplaySurface(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pScanoutSurface")] [NativeName(NativeNameType.Type, "IDXGISurface*")] IDXGISurface* pScanoutSurface) 
+		public static int SetDisplaySurface(this ComPtr<IDXGIOutput> comObj, IDXGISurface* pScanoutSurface) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, IDXGISurface*, int>)(handle->LpVtbl[16]))(handle, pScanoutSurface);
@@ -4125,9 +3545,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetDisplaySurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetDisplaySurface(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pScanoutSurface")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ref IDXGISurface pScanoutSurface) 
+		public static int SetDisplaySurface(this ComPtr<IDXGIOutput> comObj, ref IDXGISurface pScanoutSurface) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (IDXGISurface* ppScanoutSurface = &pScanoutSurface)
@@ -4140,9 +3558,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetDisplaySurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetDisplaySurface(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pScanoutSurface")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ComPtr<IDXGISurface> pScanoutSurface) 
+		public static int SetDisplaySurface(this ComPtr<IDXGIOutput> comObj, ComPtr<IDXGISurface> pScanoutSurface) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, IDXGISurface*, int>)(handle->LpVtbl[16]))(handle, (IDXGISurface*)pScanoutSurface.Handle);
@@ -4152,9 +3568,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGISurface*")] IDXGISurface* pDestination) 
+		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput> comObj, IDXGISurface* pDestination) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, IDXGISurface*, int>)(handle->LpVtbl[17]))(handle, pDestination);
@@ -4164,9 +3578,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ref IDXGISurface pDestination) 
+		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput> comObj, ref IDXGISurface pDestination) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			fixed (IDXGISurface* ppDestination = &pDestination)
@@ -4179,9 +3591,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ComPtr<IDXGISurface> pDestination) 
+		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput> comObj, ComPtr<IDXGISurface> pDestination) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, IDXGISurface*, int>)(handle->LpVtbl[17]))(handle, (IDXGISurface*)pDestination.Handle);
@@ -4191,26 +3601,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatistics")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFrameStatistics(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS*")] DxgiFrameStatistics* pStats) 
+		public static int GetFrameStatistics(this ComPtr<IDXGIOutput> comObj, FrameStatistics* pStats) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiFrameStatistics*, int>)(handle->LpVtbl[18]))(handle, pStats);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, FrameStatistics*, int>)(handle->LpVtbl[18]))(handle, pStats);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatistics")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFrameStatistics(this ComPtr<IDXGIOutput> comObj, [NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS*")] ref DxgiFrameStatistics pStats) 
+		public static int GetFrameStatistics(this ComPtr<IDXGIOutput> comObj, ref FrameStatistics pStats) 
 		{
 			IDXGIOutput* handle = comObj.Handle;
-			fixed (DxgiFrameStatistics* ppStats = &pStats)
+			fixed (FrameStatistics* ppStats = &pStats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, DxgiFrameStatistics*, int>)(handle->LpVtbl[18]))(handle, (DxgiFrameStatistics*)ppStats);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput*, FrameStatistics*, int>)(handle->LpVtbl[18]))(handle, (FrameStatistics*)ppStats);
 				return ret;
 			}
 		}
@@ -4218,9 +3624,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGISwapChain> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
@@ -4230,9 +3634,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGISwapChain> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4245,9 +3647,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGISwapChain> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			ppvObject = default;
@@ -4258,9 +3658,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGISwapChain> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4274,8 +3672,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint AddRef(this ComPtr<IDXGISwapChain> comObj) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
@@ -4286,8 +3682,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint Release(this ComPtr<IDXGISwapChain> comObj) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
@@ -4298,9 +3692,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGISwapChain> comObj, Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
@@ -4310,9 +3702,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<IDXGISwapChain> comObj, ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -4325,9 +3715,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
@@ -4337,9 +3725,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -4352,9 +3738,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -4367,9 +3751,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
@@ -4379,9 +3761,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -4397,9 +3777,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static int SetPrivateDataInterface(this ComPtr<IDXGISwapChain> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -4412,9 +3790,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISwapChain> comObj, Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
@@ -4424,9 +3800,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISwapChain> comObj, ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -4439,9 +3813,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISwapChain> comObj, Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -4454,9 +3826,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<IDXGISwapChain> comObj, ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -4472,9 +3842,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
@@ -4484,9 +3852,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -4499,9 +3865,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -4514,9 +3878,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<IDXGISwapChain> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* pname = &name)
@@ -4532,9 +3894,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGISwapChain> comObj, Guid* riid, void** ppParent) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
@@ -4544,9 +3904,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public static int GetParent(this ComPtr<IDXGISwapChain> comObj, ref Guid riid, void** ppParent) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4559,9 +3917,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGISwapChain> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			ppParent = default;
@@ -4572,9 +3928,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetParent<T>(this ComPtr<IDXGISwapChain> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4588,9 +3942,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGISwapChain> comObj, Guid* riid, void** ppDevice) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, riid, ppDevice);
@@ -4600,9 +3952,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public static int GetDevice(this ComPtr<IDXGISwapChain> comObj, ref Guid riid, void** ppDevice) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4615,9 +3965,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGISwapChain> comObj, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			ppDevice = default;
@@ -4628,9 +3976,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDevice<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDevice<T>(this ComPtr<IDXGISwapChain> comObj, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4644,9 +3990,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Present")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Present(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "SyncInterval")] [NativeName(NativeNameType.Type, "UINT")] uint syncInterval, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public static int Present(this ComPtr<IDXGISwapChain> comObj, uint syncInterval, uint flags) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, uint, uint, int>)(handle->LpVtbl[8]))(handle, syncInterval, flags);
@@ -4656,9 +4000,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetBuffer(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Buffer")] [NativeName(NativeNameType.Type, "UINT")] uint buffer, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "void**")] void** ppSurface) 
+		public static int GetBuffer(this ComPtr<IDXGISwapChain> comObj, uint buffer, Guid* riid, void** ppSurface) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, uint, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, buffer, riid, ppSurface);
@@ -4668,9 +4010,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetBuffer(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Buffer")] [NativeName(NativeNameType.Type, "UINT")] uint buffer, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "void**")] void** ppSurface) 
+		public static int GetBuffer(this ComPtr<IDXGISwapChain> comObj, uint buffer, ref Guid riid, void** ppSurface) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4683,9 +4023,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetBuffer<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Buffer")] [NativeName(NativeNameType.Type, "UINT")] uint buffer, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetBuffer<T>(this ComPtr<IDXGISwapChain> comObj, uint buffer, out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			ppSurface = default;
@@ -4696,9 +4034,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetBuffer<T>(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Buffer")] [NativeName(NativeNameType.Type, "UINT")] uint buffer, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetBuffer<T>(this ComPtr<IDXGISwapChain> comObj, uint buffer, ref Guid riid, out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4712,9 +4048,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetFullscreenState(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Fullscreen")] [NativeName(NativeNameType.Type, "BOOL")] int fullscreen, [NativeName(NativeNameType.Param, "pTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pTarget) 
+		public static int SetFullscreenState(this ComPtr<IDXGISwapChain> comObj, int fullscreen, IDXGIOutput* pTarget) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, int, IDXGIOutput*, int>)(handle->LpVtbl[10]))(handle, fullscreen, pTarget);
@@ -4724,9 +4058,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetFullscreenState(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Fullscreen")] [NativeName(NativeNameType.Type, "BOOL")] int fullscreen, [NativeName(NativeNameType.Param, "pTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pTarget) 
+		public static int SetFullscreenState(this ComPtr<IDXGISwapChain> comObj, int fullscreen, ref IDXGIOutput pTarget) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (IDXGIOutput* ppTarget = &pTarget)
@@ -4739,9 +4071,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetFullscreenState(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "Fullscreen")] [NativeName(NativeNameType.Type, "BOOL")] int fullscreen, [NativeName(NativeNameType.Param, "pTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pTarget) 
+		public static int SetFullscreenState(this ComPtr<IDXGISwapChain> comObj, int fullscreen, ComPtr<IDXGIOutput> pTarget) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, int, IDXGIOutput*, int>)(handle->LpVtbl[10]))(handle, fullscreen, (IDXGIOutput*)pTarget.Handle);
@@ -4751,9 +4081,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] IDXGIOutput** ppTarget) 
+		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, int* pFullscreen, IDXGIOutput** ppTarget) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, int*, IDXGIOutput**, int>)(handle->LpVtbl[11]))(handle, pFullscreen, ppTarget);
@@ -4763,9 +4091,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] IDXGIOutput** ppTarget) 
+		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, ref int pFullscreen, IDXGIOutput** ppTarget) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (int* ppFullscreen = &pFullscreen)
@@ -4778,9 +4104,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] ref IDXGIOutput* ppTarget) 
+		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, int* pFullscreen, ref IDXGIOutput* ppTarget) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (IDXGIOutput** pppTarget = &ppTarget)
@@ -4793,9 +4117,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] out ComPtr<IDXGIOutput> ppTarget) 
+		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, int* pFullscreen, out ComPtr<IDXGIOutput> ppTarget) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			ppTarget = default;
@@ -4806,9 +4128,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] ref IDXGIOutput* ppTarget) 
+		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, ref int pFullscreen, ref IDXGIOutput* ppTarget) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (int* ppFullscreen = &pFullscreen)
@@ -4824,9 +4144,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] out ComPtr<IDXGIOutput> ppTarget) 
+		public static int GetFullscreenState(this ComPtr<IDXGISwapChain> comObj, ref int pFullscreen, out ComPtr<IDXGIOutput> ppTarget) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (int* ppFullscreen = &pFullscreen)
@@ -4840,26 +4158,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pDesc) 
+		public static int GetDesc(this ComPtr<IDXGISwapChain> comObj, SwapChainDesc* pDesc) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiSwapChainDesc*, int>)(handle->LpVtbl[12]))(handle, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, SwapChainDesc*, int>)(handle->LpVtbl[12]))(handle, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pDesc) 
+		public static int GetDesc(this ComPtr<IDXGISwapChain> comObj, ref SwapChainDesc pDesc) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc* ppDesc = &pDesc)
+			fixed (SwapChainDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiSwapChainDesc*, int>)(handle->LpVtbl[12]))(handle, (DxgiSwapChainDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, SwapChainDesc*, int>)(handle->LpVtbl[12]))(handle, (SwapChainDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -4867,38 +4181,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResizeBuffers")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ResizeBuffers(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "BufferCount")] [NativeName(NativeNameType.Type, "UINT")] uint bufferCount, [NativeName(NativeNameType.Param, "Width")] [NativeName(NativeNameType.Type, "UINT")] uint width, [NativeName(NativeNameType.Param, "Height")] [NativeName(NativeNameType.Type, "UINT")] uint height, [NativeName(NativeNameType.Param, "NewFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat newFormat, [NativeName(NativeNameType.Param, "SwapChainFlags")] [NativeName(NativeNameType.Type, "UINT")] uint swapChainFlags) 
+		public static int ResizeBuffers(this ComPtr<IDXGISwapChain> comObj, uint bufferCount, uint width, uint height, Format newFormat, uint swapChainFlags) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, uint, uint, uint, DxgiFormat, uint, int>)(handle->LpVtbl[13]))(handle, bufferCount, width, height, newFormat, swapChainFlags);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, uint, uint, uint, Format, uint, int>)(handle->LpVtbl[13]))(handle, bufferCount, width, height, newFormat, swapChainFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResizeTarget")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ResizeTarget(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pNewTargetParameters")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pNewTargetParameters) 
+		public static int ResizeTarget(this ComPtr<IDXGISwapChain> comObj, ModeDesc* pNewTargetParameters) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiModeDesc*, int>)(handle->LpVtbl[14]))(handle, pNewTargetParameters);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, ModeDesc*, int>)(handle->LpVtbl[14]))(handle, pNewTargetParameters);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResizeTarget")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ResizeTarget(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pNewTargetParameters")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pNewTargetParameters) 
+		public static int ResizeTarget(this ComPtr<IDXGISwapChain> comObj, ref ModeDesc pNewTargetParameters) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
-			fixed (DxgiModeDesc* ppNewTargetParameters = &pNewTargetParameters)
+			fixed (ModeDesc* ppNewTargetParameters = &pNewTargetParameters)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiModeDesc*, int>)(handle->LpVtbl[14]))(handle, (DxgiModeDesc*)ppNewTargetParameters);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, ModeDesc*, int>)(handle->LpVtbl[14]))(handle, (ModeDesc*)ppNewTargetParameters);
 				return ret;
 			}
 		}
@@ -4906,9 +4214,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContainingOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetContainingOutput(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "ppOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] IDXGIOutput** ppOutput) 
+		public static int GetContainingOutput(this ComPtr<IDXGISwapChain> comObj, IDXGIOutput** ppOutput) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, IDXGIOutput**, int>)(handle->LpVtbl[15]))(handle, ppOutput);
@@ -4918,9 +4224,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContainingOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetContainingOutput(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "ppOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] ref IDXGIOutput* ppOutput) 
+		public static int GetContainingOutput(this ComPtr<IDXGISwapChain> comObj, ref IDXGIOutput* ppOutput) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (IDXGIOutput** pppOutput = &ppOutput)
@@ -4933,9 +4237,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContainingOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetContainingOutput(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "ppOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] out ComPtr<IDXGIOutput> ppOutput) 
+		public static int GetContainingOutput(this ComPtr<IDXGISwapChain> comObj, out ComPtr<IDXGIOutput> ppOutput) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			ppOutput = default;
@@ -4946,26 +4248,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatistics")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFrameStatistics(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS*")] DxgiFrameStatistics* pStats) 
+		public static int GetFrameStatistics(this ComPtr<IDXGISwapChain> comObj, FrameStatistics* pStats) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiFrameStatistics*, int>)(handle->LpVtbl[16]))(handle, pStats);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, FrameStatistics*, int>)(handle->LpVtbl[16]))(handle, pStats);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatistics")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFrameStatistics(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS*")] ref DxgiFrameStatistics pStats) 
+		public static int GetFrameStatistics(this ComPtr<IDXGISwapChain> comObj, ref FrameStatistics pStats) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
-			fixed (DxgiFrameStatistics* ppStats = &pStats)
+			fixed (FrameStatistics* ppStats = &pStats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiFrameStatistics*, int>)(handle->LpVtbl[16]))(handle, (DxgiFrameStatistics*)ppStats);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, FrameStatistics*, int>)(handle->LpVtbl[16]))(handle, (FrameStatistics*)ppStats);
 				return ret;
 			}
 		}
@@ -4973,9 +4271,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetLastPresentCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetLastPresentCount(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pLastPresentCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pLastPresentCount) 
+		public static int GetLastPresentCount(this ComPtr<IDXGISwapChain> comObj, uint* pLastPresentCount) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, uint*, int>)(handle->LpVtbl[17]))(handle, pLastPresentCount);
@@ -4985,9 +4281,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetLastPresentCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetLastPresentCount(this ComPtr<IDXGISwapChain> comObj, [NativeName(NativeNameType.Param, "pLastPresentCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pLastPresentCount) 
+		public static int GetLastPresentCount(this ComPtr<IDXGISwapChain> comObj, ref uint pLastPresentCount) 
 		{
 			IDXGISwapChain* handle = comObj.Handle;
 			fixed (uint* ppLastPresentCount = &pLastPresentCount)
@@ -5000,9 +4294,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIFactory> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIFactory> comObj, Guid* riid, void** ppvObject) 
 		{
 			IDXGIFactory* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
@@ -5012,14 +4304,724 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIFactory> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<IDXGIFactory> comObj, ref Guid riid, void** ppvObject) 
 		{
 			IDXGIFactory* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<IDXGIFactory> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			ppvObject = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<IDXGIFactory> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvObject = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint AddRef(this ComPtr<IDXGIFactory> comObj) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, uint>)(handle->LpVtbl[1]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint Release(this ComPtr<IDXGIFactory> comObj) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, uint>)(handle->LpVtbl[2]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateData(this ComPtr<IDXGIFactory> comObj, Guid* name, uint dataSize, void* pData) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateData(this ComPtr<IDXGIFactory> comObj, ref Guid name, uint dataSize, void* pData) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (Guid* pname = &name)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory> comObj, Guid* name, IUnknown* pUnknown) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory> comObj, ref Guid name, IUnknown* pUnknown) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (Guid* pname = &name)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory> comObj, Guid* name, ref IUnknown pUnknown) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (IUnknown* ppUnknown = &pUnknown)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory> comObj, Guid* name, ComPtr<IUnknown> pUnknown) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory> comObj, ref Guid name, ref IUnknown pUnknown) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (Guid* pname = &name)
+			{
+				fixed (IUnknown* ppUnknown = &pUnknown)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory> comObj, ref Guid name, ComPtr<IUnknown> pUnknown) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (Guid* pname = &name)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<IDXGIFactory> comObj, Guid* name, uint* pDataSize, void* pData) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<IDXGIFactory> comObj, ref Guid name, uint* pDataSize, void* pData) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (Guid* pname = &name)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<IDXGIFactory> comObj, Guid* name, ref uint pDataSize, void* pData) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<IDXGIFactory> comObj, ref Guid name, ref uint pDataSize, void* pData) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (Guid* pname = &name)
+			{
+				fixed (uint* ppDataSize = &pDataSize)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory> comObj, Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory> comObj, ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (Guid* pname = &name)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory> comObj, Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory> comObj, ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (Guid* pname = &name)
+			{
+				fixed (uint* ppDataSize = &pDataSize)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetParent(this ComPtr<IDXGIFactory> comObj, Guid* riid, void** ppParent) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetParent(this ComPtr<IDXGIFactory> comObj, ref Guid riid, void** ppParent) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetParent<T>(this ComPtr<IDXGIFactory> comObj, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			ppParent = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetParent<T>(this ComPtr<IDXGIFactory> comObj, ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppParent = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumAdapters(this ComPtr<IDXGIFactory> comObj, uint adapter, IDXGIAdapter** ppAdapter) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, uint, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, adapter, ppAdapter);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumAdapters(this ComPtr<IDXGIFactory> comObj, uint adapter, ref IDXGIAdapter* ppAdapter) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (IDXGIAdapter** pppAdapter = &ppAdapter)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, uint, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, adapter, (IDXGIAdapter**)pppAdapter);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumAdapters(this ComPtr<IDXGIFactory> comObj, uint adapter, out ComPtr<IDXGIAdapter> ppAdapter) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			ppAdapter = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, uint, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, adapter, (IDXGIAdapter**)ppAdapter.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int MakeWindowAssociation(this ComPtr<IDXGIFactory> comObj, nint windowHandle, uint flags) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, nint, uint, int>)(handle->LpVtbl[8]))(handle, windowHandle, flags);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetWindowAssociation(this ComPtr<IDXGIFactory> comObj, nint* pWindowHandle) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, nint*, int>)(handle->LpVtbl[9]))(handle, pWindowHandle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetWindowAssociation(this ComPtr<IDXGIFactory> comObj, ref nint pWindowHandle) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (nint* ppWindowHandle = &pWindowHandle)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, nint*, int>)(handle->LpVtbl[9]))(handle, (nint*)ppWindowHandle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, IUnknown* pDevice, SwapChainDesc* pDesc, IDXGISwapChain** ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, pDesc, ppSwapChain);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, ref IUnknown pDevice, SwapChainDesc* pDesc, IDXGISwapChain** ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (IUnknown* ppDevice = &pDevice)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)ppDevice, pDesc, ppSwapChain);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc* pDesc, IDXGISwapChain** ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)pDevice.Handle, pDesc, ppSwapChain);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, IUnknown* pDevice, ref SwapChainDesc pDesc, IDXGISwapChain** ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (SwapChainDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, (SwapChainDesc*)ppDesc, ppSwapChain);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, ref IUnknown pDevice, ref SwapChainDesc pDesc, IDXGISwapChain** ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (IUnknown* ppDevice = &pDevice)
+			{
+				fixed (SwapChainDesc* ppDesc = &pDesc)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)ppDevice, (SwapChainDesc*)ppDesc, ppSwapChain);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc pDesc, IDXGISwapChain** ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (SwapChainDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc*)ppDesc, ppSwapChain);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, IUnknown* pDevice, SwapChainDesc* pDesc, ref IDXGISwapChain* ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, pDesc, (IDXGISwapChain**)pppSwapChain);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, IUnknown* pDevice, SwapChainDesc* pDesc, out ComPtr<IDXGISwapChain> ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			ppSwapChain = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, pDesc, (IDXGISwapChain**)ppSwapChain.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, ref IUnknown pDevice, SwapChainDesc* pDesc, ref IDXGISwapChain* ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (IUnknown* ppDevice = &pDevice)
+			{
+				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)ppDevice, pDesc, (IDXGISwapChain**)pppSwapChain);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc* pDesc, out ComPtr<IDXGISwapChain> ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			ppSwapChain = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)pDevice.Handle, pDesc, (IDXGISwapChain**)ppSwapChain.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, IUnknown* pDevice, ref SwapChainDesc pDesc, ref IDXGISwapChain* ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (SwapChainDesc* ppDesc = &pDesc)
+			{
+				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, (SwapChainDesc*)ppDesc, (IDXGISwapChain**)pppSwapChain);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, IUnknown* pDevice, ref SwapChainDesc pDesc, out ComPtr<IDXGISwapChain> ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (SwapChainDesc* ppDesc = &pDesc)
+			{
+				ppSwapChain = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, (SwapChainDesc*)ppDesc, (IDXGISwapChain**)ppSwapChain.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, ref IUnknown pDevice, ref SwapChainDesc pDesc, ref IDXGISwapChain* ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (IUnknown* ppDevice = &pDevice)
+			{
+				fixed (SwapChainDesc* ppDesc = &pDesc)
+				{
+					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)ppDevice, (SwapChainDesc*)ppDesc, (IDXGISwapChain**)pppSwapChain);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSwapChain(this ComPtr<IDXGIFactory> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc pDesc, out ComPtr<IDXGISwapChain> ppSwapChain) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (SwapChainDesc* ppDesc = &pDesc)
+			{
+				ppSwapChain = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, IUnknown*, SwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc*)ppDesc, (IDXGISwapChain**)ppSwapChain.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSoftwareAdapter(this ComPtr<IDXGIFactory> comObj, nint module, IDXGIAdapter** ppAdapter) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, nint, IDXGIAdapter**, int>)(handle->LpVtbl[11]))(handle, module, ppAdapter);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSoftwareAdapter(this ComPtr<IDXGIFactory> comObj, nint module, ref IDXGIAdapter* ppAdapter) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			fixed (IDXGIAdapter** pppAdapter = &ppAdapter)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, nint, IDXGIAdapter**, int>)(handle->LpVtbl[11]))(handle, module, (IDXGIAdapter**)pppAdapter);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSoftwareAdapter(this ComPtr<IDXGIFactory> comObj, nint module, out ComPtr<IDXGIAdapter> ppAdapter) 
+		{
+			IDXGIFactory* handle = comObj.Handle;
+			ppAdapter = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory*, nint, IDXGIAdapter**, int>)(handle->LpVtbl[11]))(handle, module, (IDXGIAdapter**)ppAdapter.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<IDXGIDevice> comObj, Guid* riid, void** ppvObject) 
+		{
+			IDXGIDevice* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<IDXGIDevice> comObj, ref Guid riid, void** ppvObject) 
+		{
+			IDXGIDevice* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<IDXGIDevice> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIDevice* handle = comObj.Handle;
+			ppvObject = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<IDXGIDevice> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIDevice* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvObject = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint AddRef(this ComPtr<IDXGIDevice> comObj) 
+		{
+			IDXGIDevice* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, uint>)(handle->LpVtbl[1]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint Release(this ComPtr<IDXGIDevice> comObj) 
+		{
+			IDXGIDevice* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, uint>)(handle->LpVtbl[2]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateData(this ComPtr<IDXGIDevice> comObj, Guid* name, uint dataSize, void* pData) 
+		{
+			IDXGIDevice* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateData(this ComPtr<IDXGIDevice> comObj, ref Guid name, uint dataSize, void* pData) 
+		{
+			IDXGIDevice* handle = comObj.Handle;
+			fixed (Guid* pname = &name)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIDevice> comObj, Guid* name, IUnknown* pUnknown) 
+		{
+			IDXGIDevice* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIDevice> comObj, ref Guid name, IUnknown* pUnknown) 
+		{
+			IDXGIDevice* handle = comObj.Handle;
+			fixed (Guid* pname = &name)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<IDXGIDevice> comObj, Guid* name, ref IUnknown pUnknown) 
+		{
+			IDXGIDevice* handle = comObj.Handle;
+			fixed (IUnknown* ppUnknown = &pUnknown)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
 				return ret;
 			}
 		}

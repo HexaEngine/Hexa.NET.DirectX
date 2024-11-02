@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("0adf7d52-929c-4e61-addb-ffed30de66ef")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12SharingContract")]
 	public partial struct ID3D12SharingContract : IComObject, IComObject<ID3D12SharingContract>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Present")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Present([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "window")] [NativeName(NativeNameType.Type, "HWND")] nint window) 
+		public readonly unsafe void Present(ID3D12Resource* pResource, uint subresource, nint window) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, ID3D12Resource*, uint, nint, void>)(LpVtbl[3]))(ptr, pResource, subresource, window);
@@ -128,9 +113,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Present")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Present([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "window")] [NativeName(NativeNameType.Type, "HWND")] nint window) 
+		public readonly unsafe void Present(ref ID3D12Resource pResource, uint subresource, nint window) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
@@ -142,9 +125,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Present")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Present([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "window")] [NativeName(NativeNameType.Type, "HWND")] nint window) 
+		public readonly unsafe void Present(ComPtr<ID3D12Resource> pResource, uint subresource, nint window) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, ID3D12Resource*, uint, nint, void>)(LpVtbl[3]))(ptr, (ID3D12Resource*)pResource.Handle, subresource, window);
@@ -153,9 +134,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SharedFenceSignal")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SharedFenceSignal([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ID3D12Fence* pFence, [NativeName(NativeNameType.Param, "FenceValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValue) 
+		public readonly unsafe void SharedFenceSignal(ID3D12Fence* pFence, ulong fenceValue) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, ID3D12Fence*, ulong, void>)(LpVtbl[4]))(ptr, pFence, fenceValue);
@@ -164,9 +143,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SharedFenceSignal")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SharedFenceSignal([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ref ID3D12Fence pFence, [NativeName(NativeNameType.Param, "FenceValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValue) 
+		public readonly unsafe void SharedFenceSignal(ref ID3D12Fence pFence, ulong fenceValue) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Fence* ppFence = &pFence)
@@ -178,9 +155,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SharedFenceSignal")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SharedFenceSignal([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ComPtr<ID3D12Fence> pFence, [NativeName(NativeNameType.Param, "FenceValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValue) 
+		public readonly unsafe void SharedFenceSignal(ComPtr<ID3D12Fence> pFence, ulong fenceValue) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, ID3D12Fence*, ulong, void>)(LpVtbl[4]))(ptr, (ID3D12Fence*)pFence.Handle, fenceValue);
@@ -189,9 +164,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BeginCapturableWork")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void BeginCapturableWork([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid) 
+		public readonly unsafe void BeginCapturableWork(Guid* guid) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, Guid*, void>)(LpVtbl[5]))(ptr, guid);
@@ -200,9 +173,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BeginCapturableWork")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void BeginCapturableWork([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid) 
+		public readonly unsafe void BeginCapturableWork(ref Guid guid) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -214,9 +185,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EndCapturableWork")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EndCapturableWork([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid) 
+		public readonly unsafe void EndCapturableWork(Guid* guid) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12SharingContract*, Guid*, void>)(LpVtbl[6]))(ptr, guid);
@@ -225,9 +194,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EndCapturableWork")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EndCapturableWork([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid) 
+		public readonly unsafe void EndCapturableWork(ref Guid guid) 
 		{
 			ID3D12SharingContract* ptr = (ID3D12SharingContract*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)

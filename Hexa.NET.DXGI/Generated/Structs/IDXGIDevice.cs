@@ -21,7 +21,6 @@ namespace Hexa.NET.DXGI
 	/// To be documented.
 	/// </summary>
 	[Guid("54ec77fa-1377-44e6-8c32-88fd5f44c84c")]
-	[NativeName(NativeNameType.StructOrClass, "IDXGIDevice")]
 	public partial struct IDXGIDevice : IComObject, IComObject<IDXGIDevice>, IComObject<IDXGIObject>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -36,9 +35,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -48,9 +45,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -63,9 +58,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -76,9 +69,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -92,8 +83,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -104,8 +93,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -116,9 +103,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, uint, void*, int>)(LpVtbl[3]))(ptr, name, dataSize, pData);
@@ -128,9 +113,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -143,9 +126,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, pUnknown);
@@ -155,9 +136,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -170,9 +149,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -185,9 +162,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, (IUnknown*)pUnknown.Handle);
@@ -197,9 +172,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -215,9 +188,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -230,9 +201,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, pDataSize, pData);
@@ -242,9 +211,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -257,9 +224,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -272,9 +237,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -290,9 +253,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, pDataSize, (void*)pData.Handle);
@@ -302,9 +263,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -317,9 +276,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -332,9 +289,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -350,9 +305,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public readonly unsafe int GetParent(Guid* riid, void** ppParent) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, Guid*, void**, int>)(LpVtbl[6]))(ptr, riid, ppParent);
@@ -362,9 +315,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public readonly unsafe int GetParent(ref Guid riid, void** ppParent) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -377,9 +328,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent<T>([NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetParent<T>(out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppParent = default;
@@ -390,9 +339,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetParent<T>(ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -406,9 +353,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAdapter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAdapter([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter**")] IDXGIAdapter** pAdapter) 
+		public readonly unsafe int GetAdapter(IDXGIAdapter** pAdapter) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IDXGIAdapter**, int>)(LpVtbl[7]))(ptr, pAdapter);
@@ -418,9 +363,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAdapter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAdapter([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter**")] ref IDXGIAdapter* pAdapter) 
+		public readonly unsafe int GetAdapter(ref IDXGIAdapter* pAdapter) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIAdapter** ppAdapter = &pAdapter)
@@ -433,9 +376,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAdapter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAdapter([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter**")] out ComPtr<IDXGIAdapter> pAdapter) 
+		public readonly unsafe int GetAdapter(out ComPtr<IDXGIAdapter> pAdapter) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pAdapter = default;
@@ -446,26 +387,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] DxgiSurfaceDesc* pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] DxgiSharedResource* pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] IDXGISurface** ppSurface) 
+		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, ppSurface);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, ppSurface);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] ref DxgiSurfaceDesc pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] DxgiSharedResource* pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] IDXGISurface** ppSurface) 
+		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiSurfaceDesc* ppDesc = &pDesc)
+			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (DxgiSurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, ppSurface);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, ppSurface);
 				return ret;
 			}
 		}
@@ -473,14 +410,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] DxgiSurfaceDesc* pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] ref DxgiSharedResource pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] IDXGISurface** ppSurface) 
+		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiSharedResource* ppSharedResource = &pSharedResource)
+			fixed (SharedResource* ppSharedResource = &pSharedResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (DxgiSharedResource*)ppSharedResource, ppSurface);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, ppSurface);
 				return ret;
 			}
 		}
@@ -488,16 +423,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] ref DxgiSurfaceDesc pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] ref DxgiSharedResource pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] IDXGISurface** ppSurface) 
+		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, IDXGISurface** ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiSurfaceDesc* ppDesc = &pDesc)
+			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
-				fixed (DxgiSharedResource* ppSharedResource = &pSharedResource)
+				fixed (SharedResource* ppSharedResource = &pSharedResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (DxgiSurfaceDesc*)ppDesc, numSurfaces, usage, (DxgiSharedResource*)ppSharedResource, ppSurface);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, ppSurface);
 					return ret;
 				}
 			}
@@ -506,14 +439,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] DxgiSurfaceDesc* pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] DxgiSharedResource* pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] ref IDXGISurface* ppSurface) 
+		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGISurface** pppSurface = &ppSurface)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
 				return ret;
 			}
 		}
@@ -521,29 +452,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] DxgiSurfaceDesc* pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] DxgiSharedResource* pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] out ComPtr<IDXGISurface> ppSurface) 
+		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSurface = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] ref DxgiSurfaceDesc pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] DxgiSharedResource* pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] ref IDXGISurface* ppSurface) 
+		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiSurfaceDesc* ppDesc = &pDesc)
+			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
 				fixed (IDXGISurface** pppSurface = &ppSurface)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (DxgiSurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)pppSurface);
 					return ret;
 				}
 			}
@@ -552,15 +479,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] ref DxgiSurfaceDesc pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] DxgiSharedResource* pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] out ComPtr<IDXGISurface> ppSurface) 
+		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, SharedResource* pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiSurfaceDesc* ppDesc = &pDesc)
+			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
 				ppSurface = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (DxgiSurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, pSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 				return ret;
 			}
 		}
@@ -568,16 +493,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] DxgiSurfaceDesc* pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] ref DxgiSharedResource pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] ref IDXGISurface* ppSurface) 
+		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiSharedResource* ppSharedResource = &pSharedResource)
+			fixed (SharedResource* ppSharedResource = &pSharedResource)
 			{
 				fixed (IDXGISurface** pppSurface = &ppSurface)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (DxgiSharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
 					return ret;
 				}
 			}
@@ -586,15 +509,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] DxgiSurfaceDesc* pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] ref DxgiSharedResource pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] out ComPtr<IDXGISurface> ppSurface) 
+		public readonly unsafe int CreateSurface(SurfaceDesc* pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiSharedResource* ppSharedResource = &pSharedResource)
+			fixed (SharedResource* ppSharedResource = &pSharedResource)
 			{
 				ppSurface = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (DxgiSharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, pDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 				return ret;
 			}
 		}
@@ -602,18 +523,16 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] ref DxgiSurfaceDesc pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] ref DxgiSharedResource pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] ref IDXGISurface* ppSurface) 
+		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, ref IDXGISurface* ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiSurfaceDesc* ppDesc = &pDesc)
+			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
-				fixed (DxgiSharedResource* ppSharedResource = &pSharedResource)
+				fixed (SharedResource* ppSharedResource = &pSharedResource)
 				{
 					fixed (IDXGISurface** pppSurface = &ppSurface)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (DxgiSurfaceDesc*)ppDesc, numSurfaces, usage, (DxgiSharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)pppSurface);
 						return ret;
 					}
 				}
@@ -623,17 +542,15 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateSurface([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SURFACE_DESC*")] ref DxgiSurfaceDesc pDesc, [NativeName(NativeNameType.Param, "NumSurfaces")] [NativeName(NativeNameType.Type, "UINT")] uint numSurfaces, [NativeName(NativeNameType.Param, "Usage")] [NativeName(NativeNameType.Type, "DXGI_USAGE")] uint usage, [NativeName(NativeNameType.Param, "pSharedResource")] [NativeName(NativeNameType.Type, "const DXGI_SHARED_RESOURCE*")] ref DxgiSharedResource pSharedResource, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "IDXGISurface**")] out ComPtr<IDXGISurface> ppSurface) 
+		public readonly unsafe int CreateSurface(ref SurfaceDesc pDesc, uint numSurfaces, uint usage, ref SharedResource pSharedResource, out ComPtr<IDXGISurface> ppSurface) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiSurfaceDesc* ppDesc = &pDesc)
+			fixed (SurfaceDesc* ppDesc = &pDesc)
 			{
-				fixed (DxgiSharedResource* ppSharedResource = &pSharedResource)
+				fixed (SharedResource* ppSharedResource = &pSharedResource)
 				{
 					ppSurface = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, DxgiSurfaceDesc*, uint, uint, DxgiSharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (DxgiSurfaceDesc*)ppDesc, numSurfaces, usage, (DxgiSharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, SurfaceDesc*, uint, uint, SharedResource*, IDXGISurface**, int>)(LpVtbl[8]))(ptr, (SurfaceDesc*)ppDesc, numSurfaces, usage, (SharedResource*)ppSharedResource, (IDXGISurface**)ppSurface.GetAddressOf());
 					return ret;
 				}
 			}
@@ -642,26 +559,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryResourceResidency")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryResourceResidency([NativeName(NativeNameType.Param, "ppResources")] [NativeName(NativeNameType.Type, "const IUnknown**")] IUnknown** ppResources, [NativeName(NativeNameType.Param, "pResidencyStatus")] [NativeName(NativeNameType.Type, "DXGI_RESIDENCY*")] DxgiResidency* pResidencyStatus, [NativeName(NativeNameType.Param, "NumResources")] [NativeName(NativeNameType.Type, "UINT")] uint numResources) 
+		public readonly unsafe int QueryResourceResidency(IUnknown** ppResources, Residency* pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, DxgiResidency*, uint, int>)(LpVtbl[9]))(ptr, ppResources, pResidencyStatus, numResources);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, ppResources, pResidencyStatus, numResources);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryResourceResidency")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryResourceResidency([NativeName(NativeNameType.Param, "ppResources")] [NativeName(NativeNameType.Type, "const IUnknown**")] ref IUnknown* ppResources, [NativeName(NativeNameType.Param, "pResidencyStatus")] [NativeName(NativeNameType.Type, "DXGI_RESIDENCY*")] DxgiResidency* pResidencyStatus, [NativeName(NativeNameType.Param, "NumResources")] [NativeName(NativeNameType.Type, "UINT")] uint numResources) 
+		public readonly unsafe int QueryResourceResidency(ref IUnknown* ppResources, Residency* pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown** pppResources = &ppResources)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, DxgiResidency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)pppResources, pResidencyStatus, numResources);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)pppResources, pResidencyStatus, numResources);
 				return ret;
 			}
 		}
@@ -669,26 +582,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryResourceResidency")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryResourceResidency([NativeName(NativeNameType.Param, "ppResources")] [NativeName(NativeNameType.Type, "const IUnknown**")] ComPtr<IUnknown> ppResources, [NativeName(NativeNameType.Param, "pResidencyStatus")] [NativeName(NativeNameType.Type, "DXGI_RESIDENCY*")] DxgiResidency* pResidencyStatus, [NativeName(NativeNameType.Param, "NumResources")] [NativeName(NativeNameType.Type, "UINT")] uint numResources) 
+		public readonly unsafe int QueryResourceResidency(ComPtr<IUnknown> ppResources, Residency* pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, DxgiResidency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)ppResources.Handle, pResidencyStatus, numResources);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)ppResources.Handle, pResidencyStatus, numResources);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryResourceResidency")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryResourceResidency([NativeName(NativeNameType.Param, "ppResources")] [NativeName(NativeNameType.Type, "const IUnknown**")] IUnknown** ppResources, [NativeName(NativeNameType.Param, "pResidencyStatus")] [NativeName(NativeNameType.Type, "DXGI_RESIDENCY*")] ref DxgiResidency pResidencyStatus, [NativeName(NativeNameType.Param, "NumResources")] [NativeName(NativeNameType.Type, "UINT")] uint numResources) 
+		public readonly unsafe int QueryResourceResidency(IUnknown** ppResources, ref Residency pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiResidency* ppResidencyStatus = &pResidencyStatus)
+			fixed (Residency* ppResidencyStatus = &pResidencyStatus)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, DxgiResidency*, uint, int>)(LpVtbl[9]))(ptr, ppResources, (DxgiResidency*)ppResidencyStatus, numResources);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, ppResources, (Residency*)ppResidencyStatus, numResources);
 				return ret;
 			}
 		}
@@ -696,16 +605,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryResourceResidency")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryResourceResidency([NativeName(NativeNameType.Param, "ppResources")] [NativeName(NativeNameType.Type, "const IUnknown**")] ref IUnknown* ppResources, [NativeName(NativeNameType.Param, "pResidencyStatus")] [NativeName(NativeNameType.Type, "DXGI_RESIDENCY*")] ref DxgiResidency pResidencyStatus, [NativeName(NativeNameType.Param, "NumResources")] [NativeName(NativeNameType.Type, "UINT")] uint numResources) 
+		public readonly unsafe int QueryResourceResidency(ref IUnknown* ppResources, ref Residency pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown** pppResources = &ppResources)
 			{
-				fixed (DxgiResidency* ppResidencyStatus = &pResidencyStatus)
+				fixed (Residency* ppResidencyStatus = &pResidencyStatus)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, DxgiResidency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)pppResources, (DxgiResidency*)ppResidencyStatus, numResources);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)pppResources, (Residency*)ppResidencyStatus, numResources);
 					return ret;
 				}
 			}
@@ -714,14 +621,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryResourceResidency")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryResourceResidency([NativeName(NativeNameType.Param, "ppResources")] [NativeName(NativeNameType.Type, "const IUnknown**")] ComPtr<IUnknown> ppResources, [NativeName(NativeNameType.Param, "pResidencyStatus")] [NativeName(NativeNameType.Type, "DXGI_RESIDENCY*")] ref DxgiResidency pResidencyStatus, [NativeName(NativeNameType.Param, "NumResources")] [NativeName(NativeNameType.Type, "UINT")] uint numResources) 
+		public readonly unsafe int QueryResourceResidency(ComPtr<IUnknown> ppResources, ref Residency pResidencyStatus, uint numResources) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiResidency* ppResidencyStatus = &pResidencyStatus)
+			fixed (Residency* ppResidencyStatus = &pResidencyStatus)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, DxgiResidency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)ppResources.Handle, (DxgiResidency*)ppResidencyStatus, numResources);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, IUnknown**, Residency*, uint, int>)(LpVtbl[9]))(ptr, (IUnknown**)ppResources.Handle, (Residency*)ppResidencyStatus, numResources);
 				return ret;
 			}
 		}
@@ -729,9 +634,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetGPUThreadPriority")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetGPUThreadPriority([NativeName(NativeNameType.Param, "Priority")] [NativeName(NativeNameType.Type, "INT")] int priority) 
+		public readonly unsafe int SetGPUThreadPriority(int priority) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, int, int>)(LpVtbl[10]))(ptr, priority);
@@ -741,9 +644,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGPUThreadPriority")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetGPUThreadPriority([NativeName(NativeNameType.Param, "pPriority")] [NativeName(NativeNameType.Type, "INT*")] int* pPriority) 
+		public readonly unsafe int GetGPUThreadPriority(int* pPriority) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDevice*, int*, int>)(LpVtbl[11]))(ptr, pPriority);
@@ -753,9 +654,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGPUThreadPriority")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetGPUThreadPriority([NativeName(NativeNameType.Param, "pPriority")] [NativeName(NativeNameType.Type, "INT*")] ref int pPriority) 
+		public readonly unsafe int GetGPUThreadPriority(ref int pPriority) 
 		{
 			IDXGIDevice* ptr = (IDXGIDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppPriority = &pPriority)

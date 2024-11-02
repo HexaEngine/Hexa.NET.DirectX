@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("7f91ce67-090c-4bb7-b78e-ed8ff2e31da0")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12VersionedRootSignatureDeserializer")]
 	public partial struct ID3D12VersionedRootSignatureDeserializer : IComObject, IComObject<ID3D12VersionedRootSignatureDeserializer>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12VersionedRootSignatureDeserializer* ptr = (ID3D12VersionedRootSignatureDeserializer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VersionedRootSignatureDeserializer*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12VersionedRootSignatureDeserializer* ptr = (ID3D12VersionedRootSignatureDeserializer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VersionedRootSignatureDeserializer* ptr = (ID3D12VersionedRootSignatureDeserializer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VersionedRootSignatureDeserializer* ptr = (ID3D12VersionedRootSignatureDeserializer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12VersionedRootSignatureDeserializer* ptr = (ID3D12VersionedRootSignatureDeserializer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12VersionedRootSignatureDeserializer* ptr = (ID3D12VersionedRootSignatureDeserializer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,26 +104,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRootSignatureDescAtVersion")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetRootSignatureDescAtVersion([NativeName(NativeNameType.Param, "convertToVersion")] [NativeName(NativeNameType.Type, "D3D_ROOT_SIGNATURE_VERSION")] D3DRootSignatureVersion convertToVersion, [NativeName(NativeNameType.Param, "ppDesc")] [NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC**")] D3D12VersionedRootSignatureDesc** ppDesc) 
+		public readonly unsafe int GetRootSignatureDescAtVersion(RootSignatureVersion convertToVersion, VersionedRootSignatureDesc** ppDesc) 
 		{
 			ID3D12VersionedRootSignatureDeserializer* ptr = (ID3D12VersionedRootSignatureDeserializer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VersionedRootSignatureDeserializer*, D3DRootSignatureVersion, D3D12VersionedRootSignatureDesc**, int>)(LpVtbl[3]))(ptr, convertToVersion, ppDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VersionedRootSignatureDeserializer*, RootSignatureVersion, VersionedRootSignatureDesc**, int>)(LpVtbl[3]))(ptr, convertToVersion, ppDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRootSignatureDescAtVersion")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetRootSignatureDescAtVersion([NativeName(NativeNameType.Param, "convertToVersion")] [NativeName(NativeNameType.Type, "D3D_ROOT_SIGNATURE_VERSION")] D3DRootSignatureVersion convertToVersion, [NativeName(NativeNameType.Param, "ppDesc")] [NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC**")] ref D3D12VersionedRootSignatureDesc* ppDesc) 
+		public readonly unsafe int GetRootSignatureDescAtVersion(RootSignatureVersion convertToVersion, ref VersionedRootSignatureDesc* ppDesc) 
 		{
 			ID3D12VersionedRootSignatureDeserializer* ptr = (ID3D12VersionedRootSignatureDeserializer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VersionedRootSignatureDesc** pppDesc = &ppDesc)
+			fixed (VersionedRootSignatureDesc** pppDesc = &ppDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VersionedRootSignatureDeserializer*, D3DRootSignatureVersion, D3D12VersionedRootSignatureDesc**, int>)(LpVtbl[3]))(ptr, convertToVersion, (D3D12VersionedRootSignatureDesc**)pppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VersionedRootSignatureDeserializer*, RootSignatureVersion, VersionedRootSignatureDesc**, int>)(LpVtbl[3]))(ptr, convertToVersion, (VersionedRootSignatureDesc**)pppDesc);
 				return ret;
 			}
 		}
@@ -144,12 +127,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetUnconvertedRootSignatureDesc")]
-		[return: NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC*")]
-		public readonly unsafe D3D12VersionedRootSignatureDesc* GetUnconvertedRootSignatureDesc() 
+		public readonly unsafe VersionedRootSignatureDesc* GetUnconvertedRootSignatureDesc() 
 		{
 			ID3D12VersionedRootSignatureDeserializer* ptr = (ID3D12VersionedRootSignatureDeserializer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			D3D12VersionedRootSignatureDesc* ret = ((delegate* unmanaged[Stdcall]<ID3D12VersionedRootSignatureDeserializer*, D3D12VersionedRootSignatureDesc*>)(LpVtbl[4]))(ptr);
+			VersionedRootSignatureDesc* ret = ((delegate* unmanaged[Stdcall]<ID3D12VersionedRootSignatureDeserializer*, VersionedRootSignatureDesc*>)(LpVtbl[4]))(ptr);
 			return ret;
 		}
 

@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcValidator")]
 	public partial struct IDxcValidator : IComObject, IComObject<IDxcValidator>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,9 +99,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Validate")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Validate([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pShader, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT32")] uint flags, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Validate(IDxcBlob* pShader, uint flags, IDxcOperationResult** ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, pShader, flags, ppResult);
@@ -124,9 +109,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Validate")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Validate([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pShader, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT32")] uint flags, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Validate(ref IDxcBlob pShader, uint flags, IDxcOperationResult** ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppShader = &pShader)
@@ -139,9 +122,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Validate")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Validate([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pShader, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT32")] uint flags, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Validate(ComPtr<IDxcBlob> pShader, uint flags, IDxcOperationResult** ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcValidator*, IDxcBlob*, uint, IDxcOperationResult**, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)pShader.Handle, flags, ppResult);
@@ -151,9 +132,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Validate")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Validate([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pShader, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT32")] uint flags, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Validate(IDxcBlob* pShader, uint flags, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcOperationResult** pppResult = &ppResult)
@@ -166,9 +145,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Validate")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Validate([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pShader, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT32")] uint flags, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe int Validate(IDxcBlob* pShader, uint flags, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
@@ -179,9 +156,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Validate")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Validate([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pShader, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT32")] uint flags, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Validate(ref IDxcBlob pShader, uint flags, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppShader = &pShader)
@@ -197,9 +172,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Validate a shader.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Validate")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Validate([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pShader, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT32")] uint flags, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe int Validate(ComPtr<IDxcBlob> pShader, uint flags, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcValidator* ptr = (IDxcValidator*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;

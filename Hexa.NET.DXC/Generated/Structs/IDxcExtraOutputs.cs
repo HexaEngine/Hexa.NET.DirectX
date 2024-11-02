@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcExtraOutputs")]
 	public partial struct IDxcExtraOutputs : IComObject, IComObject<IDxcExtraOutputs>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,8 +99,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutputCount")]
-		[return: NativeName(NativeNameType.Type, "UINT32")]
 		public readonly unsafe uint GetOutputCount() 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -124,9 +109,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcExtraOutputs*, uint, Guid*, void**, IDxcBlobUtf16**, IDxcBlobUtf16**, int>)(LpVtbl[4]))(ptr, uIndex, iid, ppvObject, ppOutputType, ppOutputName);
@@ -136,9 +119,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -151,9 +132,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput<T>([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvObject = &ppvObject)
@@ -166,9 +145,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput<T>([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -184,9 +161,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref IDxcBlobUtf16* ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobUtf16** pppOutputType = &ppOutputType)
@@ -199,9 +174,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref ComPtr<IDxcBlobUtf16> ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlobUtf16>* pppOutputType = &ppOutputType)
@@ -214,9 +187,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref IDxcBlobUtf16* ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -232,9 +203,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref ComPtr<IDxcBlobUtf16> ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -250,9 +219,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput<T>([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref ComPtr<IDxcBlobUtf16> ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvObject = &ppvObject)
@@ -268,9 +235,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput<T>([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref ComPtr<IDxcBlobUtf16> ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, IDxcBlobUtf16** ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -289,9 +254,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref IDxcBlobUtf16* ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobUtf16** pppOutputName = &ppOutputName)
@@ -304,9 +267,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] out ComPtr<IDxcBlobUtf16> ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputName = default;
@@ -317,9 +278,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref IDxcBlobUtf16* ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -335,9 +294,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] out ComPtr<IDxcBlobUtf16> ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -351,9 +308,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput<T>([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvObject = &ppvObject)
@@ -367,9 +322,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput<T>([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] IDxcBlobUtf16** ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, IDxcBlobUtf16** ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -386,9 +339,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref IDxcBlobUtf16* ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref IDxcBlobUtf16* ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobUtf16** pppOutputType = &ppOutputType)
@@ -404,9 +355,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref ComPtr<IDxcBlobUtf16> ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] out ComPtr<IDxcBlobUtf16> ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, Guid* iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlobUtf16>* pppOutputType = &ppOutputType)
@@ -420,9 +369,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref IDxcBlobUtf16* ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref IDxcBlobUtf16* ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref IDxcBlobUtf16* ppOutputType, ref IDxcBlobUtf16* ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -441,9 +388,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref ComPtr<IDxcBlobUtf16> ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] out ComPtr<IDxcBlobUtf16> ppOutputName) 
+		public readonly unsafe int GetOutput(uint uIndex, ref Guid iid, void** ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) 
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -460,9 +405,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput<T>([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref ComPtr<IDxcBlobUtf16> ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetOutput<T>(uint uIndex, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvObject = &ppvObject)
@@ -479,9 +422,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetOutput<T>([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvObject, [NativeName(NativeNameType.Param, "ppOutputType")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] ref ComPtr<IDxcBlobUtf16> ppOutputType, [NativeName(NativeNameType.Param, "ppOutputName")] [NativeName(NativeNameType.Type, "IDxcBlobUtf16**")] out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetOutput<T>(uint uIndex, ref Guid iid, ref ComPtr<T> ppvObject, ref ComPtr<IDxcBlobUtf16> ppOutputType, out ComPtr<IDxcBlobUtf16> ppOutputName) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcExtraOutputs* ptr = (IDxcExtraOutputs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)

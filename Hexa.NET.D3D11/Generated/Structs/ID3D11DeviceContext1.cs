@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// To be documented.
 	/// </summary>
 	[Guid("bb2c6faa-b5fb-4082-8e6b-388b8cfa90e1")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D11DeviceContext1")]
 	public partial struct ID3D11DeviceContext1 : IComObject, IComObject<ID3D11DeviceContext1>, IComObject<ID3D11DeviceContext>, IComObject<ID3D11DeviceChild>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GetDevice([NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice) 
+		public readonly unsafe void GetDevice(ID3D11Device** ppDevice) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Device**, void>)(LpVtbl[3]))(ptr, ppDevice);
@@ -128,9 +113,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GetDevice([NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice) 
+		public readonly unsafe void GetDevice(ref ID3D11Device* ppDevice) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Device** pppDevice = &ppDevice)
@@ -142,9 +125,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GetDevice([NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] out ComPtr<ID3D11Device> ppDevice) 
+		public readonly unsafe void GetDevice(out ComPtr<ID3D11Device> ppDevice) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppDevice = default;
@@ -154,9 +135,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, pDataSize, pData);
@@ -166,9 +145,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -181,9 +158,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -196,9 +171,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -214,9 +187,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint*, void*, int>)(LpVtbl[4]))(ptr, guid, pDataSize, (void*)pData.Handle);
@@ -226,9 +197,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -241,9 +210,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -256,9 +223,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -274,9 +239,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint, void*, int>)(LpVtbl[5]))(ptr, guid, dataSize, pData);
@@ -286,9 +249,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -301,9 +262,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, guid, pData);
@@ -313,9 +272,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -328,9 +285,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
@@ -343,9 +298,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, IUnknown*, int>)(LpVtbl[6]))(ptr, guid, (IUnknown*)pData.Handle);
@@ -355,9 +308,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -373,9 +324,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -388,9 +337,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void VSSetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[7]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -399,9 +346,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void VSSetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -413,9 +358,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void VSSetConstantBuffers(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[7]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
@@ -424,9 +367,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void PSSetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[8]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -435,9 +376,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void PSSetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -449,9 +388,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void PSSetShaderResources(uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[8]))(ptr, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
@@ -460,9 +397,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetShader([NativeName(NativeNameType.Param, "pPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader*")] ID3D11PixelShader* pPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void PSSetShader(ID3D11PixelShader* pPixelShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[9]))(ptr, pPixelShader, ppClassInstances, numClassInstances);
@@ -471,9 +406,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetShader([NativeName(NativeNameType.Param, "pPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader*")] ref ID3D11PixelShader pPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void PSSetShader(ref ID3D11PixelShader pPixelShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11PixelShader* ppPixelShader = &pPixelShader)
@@ -485,9 +418,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetShader([NativeName(NativeNameType.Param, "pPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader*")] ID3D11PixelShader* pPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void PSSetShader(ID3D11PixelShader* pPixelShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -499,9 +430,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetShader([NativeName(NativeNameType.Param, "pPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader*")] ID3D11PixelShader* pPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void PSSetShader(ID3D11PixelShader* pPixelShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[9]))(ptr, pPixelShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
@@ -510,9 +439,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetShader([NativeName(NativeNameType.Param, "pPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader*")] ref ID3D11PixelShader pPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void PSSetShader(ref ID3D11PixelShader pPixelShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11PixelShader* ppPixelShader = &pPixelShader)
@@ -527,9 +454,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetShader([NativeName(NativeNameType.Param, "pPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader*")] ref ID3D11PixelShader pPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void PSSetShader(ref ID3D11PixelShader pPixelShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11PixelShader* ppPixelShader = &pPixelShader)
@@ -541,9 +466,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void PSSetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[10]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -552,9 +475,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void PSSetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -566,9 +487,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void PSSetSamplers(uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[10]))(ptr, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
@@ -577,9 +496,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetShader([NativeName(NativeNameType.Param, "pVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader*")] ID3D11VertexShader* pVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void VSSetShader(ID3D11VertexShader* pVertexShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[11]))(ptr, pVertexShader, ppClassInstances, numClassInstances);
@@ -588,9 +505,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetShader([NativeName(NativeNameType.Param, "pVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader*")] ref ID3D11VertexShader pVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void VSSetShader(ref ID3D11VertexShader pVertexShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VertexShader* ppVertexShader = &pVertexShader)
@@ -602,9 +517,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetShader([NativeName(NativeNameType.Param, "pVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader*")] ID3D11VertexShader* pVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void VSSetShader(ID3D11VertexShader* pVertexShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -616,9 +529,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetShader([NativeName(NativeNameType.Param, "pVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader*")] ID3D11VertexShader* pVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void VSSetShader(ID3D11VertexShader* pVertexShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[11]))(ptr, pVertexShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
@@ -627,9 +538,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetShader([NativeName(NativeNameType.Param, "pVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader*")] ref ID3D11VertexShader pVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void VSSetShader(ref ID3D11VertexShader pVertexShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VertexShader* ppVertexShader = &pVertexShader)
@@ -644,9 +553,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetShader([NativeName(NativeNameType.Param, "pVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader*")] ref ID3D11VertexShader pVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void VSSetShader(ref ID3D11VertexShader pVertexShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VertexShader* ppVertexShader = &pVertexShader)
@@ -658,9 +565,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DrawIndexed")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DrawIndexed([NativeName(NativeNameType.Param, "IndexCount")] [NativeName(NativeNameType.Type, "UINT")] uint indexCount, [NativeName(NativeNameType.Param, "StartIndexLocation")] [NativeName(NativeNameType.Type, "UINT")] uint startIndexLocation, [NativeName(NativeNameType.Param, "BaseVertexLocation")] [NativeName(NativeNameType.Type, "INT")] int baseVertexLocation) 
+		public readonly unsafe void DrawIndexed(uint indexCount, uint startIndexLocation, int baseVertexLocation) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, int, void>)(LpVtbl[12]))(ptr, indexCount, startIndexLocation, baseVertexLocation);
@@ -669,9 +574,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Draw")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Draw([NativeName(NativeNameType.Param, "VertexCount")] [NativeName(NativeNameType.Type, "UINT")] uint vertexCount, [NativeName(NativeNameType.Param, "StartVertexLocation")] [NativeName(NativeNameType.Type, "UINT")] uint startVertexLocation) 
+		public readonly unsafe void Draw(uint vertexCount, uint startVertexLocation) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, void>)(LpVtbl[13]))(ptr, vertexCount, startVertexLocation);
@@ -680,26 +583,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Map([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "MapType")] [NativeName(NativeNameType.Type, "D3D11_MAP")] D3D11Map mapType, [NativeName(NativeNameType.Param, "MapFlags")] [NativeName(NativeNameType.Type, "UINT")] uint mapFlags, [NativeName(NativeNameType.Param, "pMappedResource")] [NativeName(NativeNameType.Type, "D3D11_MAPPED_SUBRESOURCE*")] D3D11MappedSubresource* pMappedResource) 
+		public readonly unsafe int Map(ID3D11Resource* pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Map, uint, D3D11MappedSubresource*, int>)(LpVtbl[14]))(ptr, pResource, subresource, mapType, mapFlags, pMappedResource);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, pResource, subresource, mapType, mapFlags, pMappedResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Map([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "MapType")] [NativeName(NativeNameType.Type, "D3D11_MAP")] D3D11Map mapType, [NativeName(NativeNameType.Param, "MapFlags")] [NativeName(NativeNameType.Type, "UINT")] uint mapFlags, [NativeName(NativeNameType.Param, "pMappedResource")] [NativeName(NativeNameType.Type, "D3D11_MAPPED_SUBRESOURCE*")] D3D11MappedSubresource* pMappedResource) 
+		public readonly unsafe int Map(ref ID3D11Resource pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Map, uint, D3D11MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)ppResource, subresource, mapType, mapFlags, pMappedResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)ppResource, subresource, mapType, mapFlags, pMappedResource);
 				return ret;
 			}
 		}
@@ -707,26 +606,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Map([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "MapType")] [NativeName(NativeNameType.Type, "D3D11_MAP")] D3D11Map mapType, [NativeName(NativeNameType.Param, "MapFlags")] [NativeName(NativeNameType.Type, "UINT")] uint mapFlags, [NativeName(NativeNameType.Param, "pMappedResource")] [NativeName(NativeNameType.Type, "D3D11_MAPPED_SUBRESOURCE*")] D3D11MappedSubresource* pMappedResource) 
+		public readonly unsafe int Map(ComPtr<ID3D11Resource> pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Map, uint, D3D11MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)pResource.Handle, subresource, mapType, mapFlags, pMappedResource);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)pResource.Handle, subresource, mapType, mapFlags, pMappedResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Map([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "MapType")] [NativeName(NativeNameType.Type, "D3D11_MAP")] D3D11Map mapType, [NativeName(NativeNameType.Param, "MapFlags")] [NativeName(NativeNameType.Type, "UINT")] uint mapFlags, [NativeName(NativeNameType.Param, "pMappedResource")] [NativeName(NativeNameType.Type, "D3D11_MAPPED_SUBRESOURCE*")] ref D3D11MappedSubresource pMappedResource) 
+		public readonly unsafe int Map(ID3D11Resource* pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11MappedSubresource* ppMappedResource = &pMappedResource)
+			fixed (MappedSubresource* ppMappedResource = &pMappedResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Map, uint, D3D11MappedSubresource*, int>)(LpVtbl[14]))(ptr, pResource, subresource, mapType, mapFlags, (D3D11MappedSubresource*)ppMappedResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, pResource, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
 				return ret;
 			}
 		}
@@ -734,16 +629,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Map([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "MapType")] [NativeName(NativeNameType.Type, "D3D11_MAP")] D3D11Map mapType, [NativeName(NativeNameType.Param, "MapFlags")] [NativeName(NativeNameType.Type, "UINT")] uint mapFlags, [NativeName(NativeNameType.Param, "pMappedResource")] [NativeName(NativeNameType.Type, "D3D11_MAPPED_SUBRESOURCE*")] ref D3D11MappedSubresource pMappedResource) 
+		public readonly unsafe int Map(ref ID3D11Resource pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				fixed (D3D11MappedSubresource* ppMappedResource = &pMappedResource)
+				fixed (MappedSubresource* ppMappedResource = &pMappedResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Map, uint, D3D11MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)ppResource, subresource, mapType, mapFlags, (D3D11MappedSubresource*)ppMappedResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)ppResource, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
 					return ret;
 				}
 			}
@@ -752,14 +645,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Map([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "MapType")] [NativeName(NativeNameType.Type, "D3D11_MAP")] D3D11Map mapType, [NativeName(NativeNameType.Param, "MapFlags")] [NativeName(NativeNameType.Type, "UINT")] uint mapFlags, [NativeName(NativeNameType.Param, "pMappedResource")] [NativeName(NativeNameType.Type, "D3D11_MAPPED_SUBRESOURCE*")] ref D3D11MappedSubresource pMappedResource) 
+		public readonly unsafe int Map(ComPtr<ID3D11Resource> pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11MappedSubresource* ppMappedResource = &pMappedResource)
+			fixed (MappedSubresource* ppMappedResource = &pMappedResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Map, uint, D3D11MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)pResource.Handle, subresource, mapType, mapFlags, (D3D11MappedSubresource*)ppMappedResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(LpVtbl[14]))(ptr, (ID3D11Resource*)pResource.Handle, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
 				return ret;
 			}
 		}
@@ -767,9 +658,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Unmap")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Unmap([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource) 
+		public readonly unsafe void Unmap(ID3D11Resource* pResource, uint subresource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, void>)(LpVtbl[15]))(ptr, pResource, subresource);
@@ -778,9 +667,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Unmap")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Unmap([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource) 
+		public readonly unsafe void Unmap(ref ID3D11Resource pResource, uint subresource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -792,9 +679,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Unmap")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Unmap([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource) 
+		public readonly unsafe void Unmap(ComPtr<ID3D11Resource> pResource, uint subresource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, void>)(LpVtbl[15]))(ptr, (ID3D11Resource*)pResource.Handle, subresource);
@@ -803,9 +688,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void PSSetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[16]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -814,9 +697,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void PSSetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -828,9 +709,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void PSSetConstantBuffers(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[16]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
@@ -839,9 +718,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetInputLayout")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetInputLayout([NativeName(NativeNameType.Param, "pInputLayout")] [NativeName(NativeNameType.Type, "ID3D11InputLayout*")] ID3D11InputLayout* pInputLayout) 
+		public readonly unsafe void IASetInputLayout(ID3D11InputLayout* pInputLayout) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11InputLayout*, void>)(LpVtbl[17]))(ptr, pInputLayout);
@@ -850,9 +727,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetInputLayout")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetInputLayout([NativeName(NativeNameType.Param, "pInputLayout")] [NativeName(NativeNameType.Type, "ID3D11InputLayout*")] ref ID3D11InputLayout pInputLayout) 
+		public readonly unsafe void IASetInputLayout(ref ID3D11InputLayout pInputLayout) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11InputLayout* ppInputLayout = &pInputLayout)
@@ -864,9 +739,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, uint* pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[18]))(ptr, startSlot, numBuffers, ppVertexBuffers, pStrides, pOffsets);
@@ -875,9 +748,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, uint* pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
@@ -889,9 +760,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppVertexBuffers, uint* pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[18]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppVertexBuffers.Handle, pStrides, pOffsets);
@@ -900,9 +769,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppStrides = &pStrides)
@@ -914,9 +781,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
@@ -931,9 +796,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppStrides = &pStrides)
@@ -945,9 +808,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppOffsets = &pOffsets)
@@ -959,9 +820,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
@@ -976,9 +835,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppOffsets = &pOffsets)
@@ -990,9 +847,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppStrides = &pStrides)
@@ -1007,9 +862,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
@@ -1027,9 +880,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IASetVertexBuffers(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppStrides = &pStrides)
@@ -1044,45 +895,37 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT")] uint offset) 
+		public readonly unsafe void IASetIndexBuffer(ID3D11Buffer* pIndexBuffer, Format format, uint offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, DxgiFormat, uint, void>)(LpVtbl[19]))(ptr, pIndexBuffer, format, offset);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, Format, uint, void>)(LpVtbl[19]))(ptr, pIndexBuffer, format, offset);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT")] uint offset) 
+		public readonly unsafe void IASetIndexBuffer(ref ID3D11Buffer pIndexBuffer, Format format, uint offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppIndexBuffer = &pIndexBuffer)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, DxgiFormat, uint, void>)(LpVtbl[19]))(ptr, (ID3D11Buffer*)ppIndexBuffer, format, offset);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, Format, uint, void>)(LpVtbl[19]))(ptr, (ID3D11Buffer*)ppIndexBuffer, format, offset);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT")] uint offset) 
+		public readonly unsafe void IASetIndexBuffer(ComPtr<ID3D11Buffer> pIndexBuffer, Format format, uint offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, DxgiFormat, uint, void>)(LpVtbl[19]))(ptr, (ID3D11Buffer*)pIndexBuffer.Handle, format, offset);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, Format, uint, void>)(LpVtbl[19]))(ptr, (ID3D11Buffer*)pIndexBuffer.Handle, format, offset);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DrawIndexedInstanced")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DrawIndexedInstanced([NativeName(NativeNameType.Param, "IndexCountPerInstance")] [NativeName(NativeNameType.Type, "UINT")] uint indexCountPerInstance, [NativeName(NativeNameType.Param, "InstanceCount")] [NativeName(NativeNameType.Type, "UINT")] uint instanceCount, [NativeName(NativeNameType.Param, "StartIndexLocation")] [NativeName(NativeNameType.Type, "UINT")] uint startIndexLocation, [NativeName(NativeNameType.Param, "BaseVertexLocation")] [NativeName(NativeNameType.Type, "INT")] int baseVertexLocation, [NativeName(NativeNameType.Param, "StartInstanceLocation")] [NativeName(NativeNameType.Type, "UINT")] uint startInstanceLocation) 
+		public readonly unsafe void DrawIndexedInstanced(uint indexCountPerInstance, uint instanceCount, uint startIndexLocation, int baseVertexLocation, uint startInstanceLocation) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, uint, int, uint, void>)(LpVtbl[20]))(ptr, indexCountPerInstance, instanceCount, startIndexLocation, baseVertexLocation, startInstanceLocation);
@@ -1091,9 +934,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DrawInstanced")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DrawInstanced([NativeName(NativeNameType.Param, "VertexCountPerInstance")] [NativeName(NativeNameType.Type, "UINT")] uint vertexCountPerInstance, [NativeName(NativeNameType.Param, "InstanceCount")] [NativeName(NativeNameType.Type, "UINT")] uint instanceCount, [NativeName(NativeNameType.Param, "StartVertexLocation")] [NativeName(NativeNameType.Type, "UINT")] uint startVertexLocation, [NativeName(NativeNameType.Param, "StartInstanceLocation")] [NativeName(NativeNameType.Type, "UINT")] uint startInstanceLocation) 
+		public readonly unsafe void DrawInstanced(uint vertexCountPerInstance, uint instanceCount, uint startVertexLocation, uint startInstanceLocation) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, uint, uint, void>)(LpVtbl[21]))(ptr, vertexCountPerInstance, instanceCount, startVertexLocation, startInstanceLocation);
@@ -1102,9 +943,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void GSSetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[22]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -1113,9 +952,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void GSSetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -1127,9 +964,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void GSSetConstantBuffers(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[22]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
@@ -1138,9 +973,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetShader([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader*")] ID3D11GeometryShader* pShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void GSSetShader(ID3D11GeometryShader* pShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[23]))(ptr, pShader, ppClassInstances, numClassInstances);
@@ -1149,9 +982,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetShader([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader*")] ref ID3D11GeometryShader pShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void GSSetShader(ref ID3D11GeometryShader pShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11GeometryShader* ppShader = &pShader)
@@ -1163,9 +994,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetShader([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader*")] ID3D11GeometryShader* pShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void GSSetShader(ID3D11GeometryShader* pShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -1177,9 +1006,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetShader([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader*")] ID3D11GeometryShader* pShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void GSSetShader(ID3D11GeometryShader* pShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[23]))(ptr, pShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
@@ -1188,9 +1015,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetShader([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader*")] ref ID3D11GeometryShader pShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void GSSetShader(ref ID3D11GeometryShader pShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11GeometryShader* ppShader = &pShader)
@@ -1205,9 +1030,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetShader([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader*")] ref ID3D11GeometryShader pShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void GSSetShader(ref ID3D11GeometryShader pShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11GeometryShader* ppShader = &pShader)
@@ -1219,20 +1042,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IASetPrimitiveTopology")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IASetPrimitiveTopology([NativeName(NativeNameType.Param, "Topology")] [NativeName(NativeNameType.Type, "D3D11_PRIMITIVE_TOPOLOGY")] D3D11PrimitiveTopology topology) 
+		public readonly unsafe void IASetPrimitiveTopology(PrimitiveTopology topology) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, D3D11PrimitiveTopology, void>)(LpVtbl[24]))(ptr, topology);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, PrimitiveTopology, void>)(LpVtbl[24]))(ptr, topology);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void VSSetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[25]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -1241,9 +1060,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void VSSetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -1255,9 +1072,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void VSSetShaderResources(uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[25]))(ptr, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
@@ -1266,9 +1081,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void VSSetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[26]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -1277,9 +1090,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void VSSetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -1291,9 +1102,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void VSSetSamplers(uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[26]))(ptr, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
@@ -1302,9 +1111,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Begin")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Begin([NativeName(NativeNameType.Param, "pAsync")] [NativeName(NativeNameType.Type, "ID3D11Asynchronous*")] ID3D11Asynchronous* pAsync) 
+		public readonly unsafe void Begin(ID3D11Asynchronous* pAsync) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void>)(LpVtbl[27]))(ptr, pAsync);
@@ -1313,9 +1120,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Begin")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Begin([NativeName(NativeNameType.Param, "pAsync")] [NativeName(NativeNameType.Type, "ID3D11Asynchronous*")] ref ID3D11Asynchronous pAsync) 
+		public readonly unsafe void Begin(ref ID3D11Asynchronous pAsync) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Asynchronous* ppAsync = &pAsync)
@@ -1327,9 +1132,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Begin")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Begin([NativeName(NativeNameType.Param, "pAsync")] [NativeName(NativeNameType.Type, "ID3D11Asynchronous*")] ComPtr<ID3D11Asynchronous> pAsync) 
+		public readonly unsafe void Begin(ComPtr<ID3D11Asynchronous> pAsync) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void>)(LpVtbl[27]))(ptr, (ID3D11Asynchronous*)pAsync.Handle);
@@ -1338,9 +1141,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "End")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void End([NativeName(NativeNameType.Param, "pAsync")] [NativeName(NativeNameType.Type, "ID3D11Asynchronous*")] ID3D11Asynchronous* pAsync) 
+		public readonly unsafe void End(ID3D11Asynchronous* pAsync) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void>)(LpVtbl[28]))(ptr, pAsync);
@@ -1349,9 +1150,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "End")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void End([NativeName(NativeNameType.Param, "pAsync")] [NativeName(NativeNameType.Type, "ID3D11Asynchronous*")] ref ID3D11Asynchronous pAsync) 
+		public readonly unsafe void End(ref ID3D11Asynchronous pAsync) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Asynchronous* ppAsync = &pAsync)
@@ -1363,9 +1162,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "End")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void End([NativeName(NativeNameType.Param, "pAsync")] [NativeName(NativeNameType.Type, "ID3D11Asynchronous*")] ComPtr<ID3D11Asynchronous> pAsync) 
+		public readonly unsafe void End(ComPtr<ID3D11Asynchronous> pAsync) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void>)(LpVtbl[28]))(ptr, (ID3D11Asynchronous*)pAsync.Handle);
@@ -1374,9 +1171,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetData([NativeName(NativeNameType.Param, "pAsync")] [NativeName(NativeNameType.Type, "ID3D11Asynchronous*")] ID3D11Asynchronous* pAsync, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "GetDataFlags")] [NativeName(NativeNameType.Type, "UINT")] uint getDataFlags) 
+		public readonly unsafe int GetData(ID3D11Asynchronous* pAsync, void* pData, uint dataSize, uint getDataFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void*, uint, uint, int>)(LpVtbl[29]))(ptr, pAsync, pData, dataSize, getDataFlags);
@@ -1386,9 +1181,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetData([NativeName(NativeNameType.Param, "pAsync")] [NativeName(NativeNameType.Type, "ID3D11Asynchronous*")] ref ID3D11Asynchronous pAsync, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "GetDataFlags")] [NativeName(NativeNameType.Type, "UINT")] uint getDataFlags) 
+		public readonly unsafe int GetData(ref ID3D11Asynchronous pAsync, void* pData, uint dataSize, uint getDataFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Asynchronous* ppAsync = &pAsync)
@@ -1401,9 +1194,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetData([NativeName(NativeNameType.Param, "pAsync")] [NativeName(NativeNameType.Type, "ID3D11Asynchronous*")] ComPtr<ID3D11Asynchronous> pAsync, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "GetDataFlags")] [NativeName(NativeNameType.Type, "UINT")] uint getDataFlags) 
+		public readonly unsafe int GetData(ComPtr<ID3D11Asynchronous> pAsync, void* pData, uint dataSize, uint getDataFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void*, uint, uint, int>)(LpVtbl[29]))(ptr, (ID3D11Asynchronous*)pAsync.Handle, pData, dataSize, getDataFlags);
@@ -1413,9 +1204,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetData<T>([NativeName(NativeNameType.Param, "pAsync")] [NativeName(NativeNameType.Type, "ID3D11Asynchronous*")] ID3D11Asynchronous* pAsync, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "GetDataFlags")] [NativeName(NativeNameType.Type, "UINT")] uint getDataFlags) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetData<T>(ID3D11Asynchronous* pAsync, ComPtr<T> pData, uint dataSize, uint getDataFlags) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void*, uint, uint, int>)(LpVtbl[29]))(ptr, pAsync, (void*)pData.Handle, dataSize, getDataFlags);
@@ -1425,9 +1214,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetData<T>([NativeName(NativeNameType.Param, "pAsync")] [NativeName(NativeNameType.Type, "ID3D11Asynchronous*")] ComPtr<ID3D11Asynchronous> pAsync, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "GetDataFlags")] [NativeName(NativeNameType.Type, "UINT")] uint getDataFlags) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetData<T>(ComPtr<ID3D11Asynchronous> pAsync, ComPtr<T> pData, uint dataSize, uint getDataFlags) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void*, uint, uint, int>)(LpVtbl[29]))(ptr, (ID3D11Asynchronous*)pAsync.Handle, (void*)pData.Handle, dataSize, getDataFlags);
@@ -1437,9 +1224,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPredication")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetPredication([NativeName(NativeNameType.Param, "pPredicate")] [NativeName(NativeNameType.Type, "ID3D11Predicate*")] ID3D11Predicate* pPredicate, [NativeName(NativeNameType.Param, "PredicateValue")] [NativeName(NativeNameType.Type, "BOOL")] int predicateValue) 
+		public readonly unsafe void SetPredication(ID3D11Predicate* pPredicate, int predicateValue) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Predicate*, int, void>)(LpVtbl[30]))(ptr, pPredicate, predicateValue);
@@ -1448,9 +1233,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPredication")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetPredication([NativeName(NativeNameType.Param, "pPredicate")] [NativeName(NativeNameType.Type, "ID3D11Predicate*")] ref ID3D11Predicate pPredicate, [NativeName(NativeNameType.Param, "PredicateValue")] [NativeName(NativeNameType.Type, "BOOL")] int predicateValue) 
+		public readonly unsafe void SetPredication(ref ID3D11Predicate pPredicate, int predicateValue) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Predicate* ppPredicate = &pPredicate)
@@ -1462,9 +1245,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void GSSetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[31]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -1473,9 +1254,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void GSSetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -1487,9 +1266,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void GSSetShaderResources(uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[31]))(ptr, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
@@ -1498,9 +1275,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void GSSetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[32]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -1509,9 +1284,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void GSSetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -1523,9 +1296,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void GSSetSamplers(uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[32]))(ptr, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
@@ -1534,9 +1305,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView) 
+		public readonly unsafe void OMSetRenderTargets(uint numViews, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, void>)(LpVtbl[33]))(ptr, numViews, ppRenderTargetViews, pDepthStencilView);
@@ -1545,9 +1314,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView) 
+		public readonly unsafe void OMSetRenderTargets(uint numViews, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -1559,9 +1326,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView) 
+		public readonly unsafe void OMSetRenderTargets(uint numViews, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, void>)(LpVtbl[33]))(ptr, numViews, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, pDepthStencilView);
@@ -1570,9 +1335,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ref ID3D11DepthStencilView pDepthStencilView) 
+		public readonly unsafe void OMSetRenderTargets(uint numViews, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
@@ -1584,9 +1347,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ComPtr<ID3D11DepthStencilView> pDepthStencilView) 
+		public readonly unsafe void OMSetRenderTargets(uint numViews, ID3D11RenderTargetView** ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, void>)(LpVtbl[33]))(ptr, numViews, ppRenderTargetViews, (ID3D11DepthStencilView*)pDepthStencilView.Handle);
@@ -1595,9 +1356,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ref ID3D11DepthStencilView pDepthStencilView) 
+		public readonly unsafe void OMSetRenderTargets(uint numViews, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -1612,9 +1371,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ComPtr<ID3D11DepthStencilView> pDepthStencilView) 
+		public readonly unsafe void OMSetRenderTargets(uint numViews, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, void>)(LpVtbl[33]))(ptr, numViews, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, (ID3D11DepthStencilView*)pDepthStencilView.Handle);
@@ -1623,9 +1380,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(LpVtbl[34]))(ptr, numRtVs, ppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
@@ -1634,9 +1389,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -1648,9 +1401,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(LpVtbl[34]))(ptr, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, pDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
@@ -1659,9 +1410,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ref ID3D11DepthStencilView pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
@@ -1673,9 +1422,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ComPtr<ID3D11DepthStencilView> pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(LpVtbl[34]))(ptr, numRtVs, ppRenderTargetViews, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
@@ -1684,9 +1431,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ref ID3D11DepthStencilView pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -1701,9 +1446,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ComPtr<ID3D11DepthStencilView> pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(LpVtbl[34]))(ptr, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
@@ -1712,9 +1455,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
@@ -1726,9 +1467,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(LpVtbl[34]))(ptr, numRtVs, ppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, pUAVInitialCounts);
@@ -1737,9 +1476,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -1754,9 +1491,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(LpVtbl[34]))(ptr, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, pDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, pUAVInitialCounts);
@@ -1765,9 +1500,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ref ID3D11DepthStencilView pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
@@ -1782,9 +1515,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ComPtr<ID3D11DepthStencilView> pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(LpVtbl[34]))(ptr, numRtVs, ppRenderTargetViews, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, pUAVInitialCounts);
@@ -1793,9 +1524,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ref ID3D11DepthStencilView pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -1813,9 +1542,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ComPtr<ID3D11DepthStencilView> pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(LpVtbl[34]))(ptr, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, pUAVInitialCounts);
@@ -1824,9 +1551,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
@@ -1838,9 +1563,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -1855,9 +1578,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
@@ -1869,9 +1590,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ref ID3D11DepthStencilView pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
@@ -1886,9 +1605,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ComPtr<ID3D11DepthStencilView> pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
@@ -1900,9 +1617,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ref ID3D11DepthStencilView pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -1920,9 +1635,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ComPtr<ID3D11DepthStencilView> pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
@@ -1934,9 +1647,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
@@ -1951,9 +1662,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
@@ -1965,9 +1674,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -1985,9 +1692,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
@@ -1999,9 +1704,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ref ID3D11DepthStencilView pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
@@ -2019,9 +1722,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ComPtr<ID3D11DepthStencilView> pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
@@ -2033,9 +1734,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ref ID3D11DepthStencilView pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -2056,9 +1755,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "const ID3D11RenderTargetView**")] ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ComPtr<ID3D11DepthStencilView> pDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void OMSetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
@@ -2070,9 +1767,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetBlendState([NativeName(NativeNameType.Param, "pBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState*")] ID3D11BlendState* pBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* blendFactor, [NativeName(NativeNameType.Param, "SampleMask")] [NativeName(NativeNameType.Type, "UINT")] uint sampleMask) 
+		public readonly unsafe void OMSetBlendState(ID3D11BlendState* pBlendState, float* blendFactor, uint sampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11BlendState*, float*, uint, void>)(LpVtbl[35]))(ptr, pBlendState, blendFactor, sampleMask);
@@ -2081,9 +1776,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetBlendState([NativeName(NativeNameType.Param, "pBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState*")] ref ID3D11BlendState pBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* blendFactor, [NativeName(NativeNameType.Param, "SampleMask")] [NativeName(NativeNameType.Type, "UINT")] uint sampleMask) 
+		public readonly unsafe void OMSetBlendState(ref ID3D11BlendState pBlendState, float* blendFactor, uint sampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11BlendState* ppBlendState = &pBlendState)
@@ -2095,9 +1788,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetBlendState([NativeName(NativeNameType.Param, "pBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState*")] ComPtr<ID3D11BlendState> pBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* blendFactor, [NativeName(NativeNameType.Param, "SampleMask")] [NativeName(NativeNameType.Type, "UINT")] uint sampleMask) 
+		public readonly unsafe void OMSetBlendState(ComPtr<ID3D11BlendState> pBlendState, float* blendFactor, uint sampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11BlendState*, float*, uint, void>)(LpVtbl[35]))(ptr, (ID3D11BlendState*)pBlendState.Handle, blendFactor, sampleMask);
@@ -2106,9 +1797,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetBlendState([NativeName(NativeNameType.Param, "pBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState*")] ID3D11BlendState* pBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float blendFactor, [NativeName(NativeNameType.Param, "SampleMask")] [NativeName(NativeNameType.Type, "UINT")] uint sampleMask) 
+		public readonly unsafe void OMSetBlendState(ID3D11BlendState* pBlendState, ref float blendFactor, uint sampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pblendFactor = &blendFactor)
@@ -2120,9 +1809,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetBlendState([NativeName(NativeNameType.Param, "pBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState*")] ID3D11BlendState* pBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ReadOnlySpan<float> blendFactor, [NativeName(NativeNameType.Param, "SampleMask")] [NativeName(NativeNameType.Type, "UINT")] uint sampleMask) 
+		public readonly unsafe void OMSetBlendState(ID3D11BlendState* pBlendState, ReadOnlySpan<float> blendFactor, uint sampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pblendFactor = blendFactor)
@@ -2134,9 +1821,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetBlendState([NativeName(NativeNameType.Param, "pBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState*")] ref ID3D11BlendState pBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float blendFactor, [NativeName(NativeNameType.Param, "SampleMask")] [NativeName(NativeNameType.Type, "UINT")] uint sampleMask) 
+		public readonly unsafe void OMSetBlendState(ref ID3D11BlendState pBlendState, ref float blendFactor, uint sampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11BlendState* ppBlendState = &pBlendState)
@@ -2151,9 +1836,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetBlendState([NativeName(NativeNameType.Param, "pBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState*")] ref ID3D11BlendState pBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ReadOnlySpan<float> blendFactor, [NativeName(NativeNameType.Param, "SampleMask")] [NativeName(NativeNameType.Type, "UINT")] uint sampleMask) 
+		public readonly unsafe void OMSetBlendState(ref ID3D11BlendState pBlendState, ReadOnlySpan<float> blendFactor, uint sampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11BlendState* ppBlendState = &pBlendState)
@@ -2168,9 +1851,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetBlendState([NativeName(NativeNameType.Param, "pBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState*")] ComPtr<ID3D11BlendState> pBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float blendFactor, [NativeName(NativeNameType.Param, "SampleMask")] [NativeName(NativeNameType.Type, "UINT")] uint sampleMask) 
+		public readonly unsafe void OMSetBlendState(ComPtr<ID3D11BlendState> pBlendState, ref float blendFactor, uint sampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pblendFactor = &blendFactor)
@@ -2182,9 +1863,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetDepthStencilState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetDepthStencilState([NativeName(NativeNameType.Param, "pDepthStencilState")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilState*")] ID3D11DepthStencilState* pDepthStencilState, [NativeName(NativeNameType.Param, "StencilRef")] [NativeName(NativeNameType.Type, "UINT")] uint stencilRef) 
+		public readonly unsafe void OMSetDepthStencilState(ID3D11DepthStencilState* pDepthStencilState, uint stencilRef) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DepthStencilState*, uint, void>)(LpVtbl[36]))(ptr, pDepthStencilState, stencilRef);
@@ -2193,9 +1872,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetDepthStencilState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetDepthStencilState([NativeName(NativeNameType.Param, "pDepthStencilState")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilState*")] ref ID3D11DepthStencilState pDepthStencilState, [NativeName(NativeNameType.Param, "StencilRef")] [NativeName(NativeNameType.Type, "UINT")] uint stencilRef) 
+		public readonly unsafe void OMSetDepthStencilState(ref ID3D11DepthStencilState pDepthStencilState, uint stencilRef) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilState* ppDepthStencilState = &pDepthStencilState)
@@ -2207,9 +1884,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMSetDepthStencilState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMSetDepthStencilState([NativeName(NativeNameType.Param, "pDepthStencilState")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilState*")] ComPtr<ID3D11DepthStencilState> pDepthStencilState, [NativeName(NativeNameType.Param, "StencilRef")] [NativeName(NativeNameType.Type, "UINT")] uint stencilRef) 
+		public readonly unsafe void OMSetDepthStencilState(ComPtr<ID3D11DepthStencilState> pDepthStencilState, uint stencilRef) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DepthStencilState*, uint, void>)(LpVtbl[36]))(ptr, (ID3D11DepthStencilState*)pDepthStencilState.Handle, stencilRef);
@@ -2218,9 +1893,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SOSetTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SOSetTargets([NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppSOTargets")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppSOTargets, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pOffsets) 
+		public readonly unsafe void SOSetTargets(uint numBuffers, ID3D11Buffer** ppSOTargets, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11Buffer**, uint*, void>)(LpVtbl[37]))(ptr, numBuffers, ppSOTargets, pOffsets);
@@ -2229,9 +1902,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SOSetTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SOSetTargets([NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppSOTargets")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppSOTargets, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pOffsets) 
+		public readonly unsafe void SOSetTargets(uint numBuffers, ref ID3D11Buffer* ppSOTargets, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppSOTargets = &ppSOTargets)
@@ -2243,9 +1914,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SOSetTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SOSetTargets([NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppSOTargets")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppSOTargets, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pOffsets) 
+		public readonly unsafe void SOSetTargets(uint numBuffers, ComPtr<ID3D11Buffer> ppSOTargets, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11Buffer**, uint*, void>)(LpVtbl[37]))(ptr, numBuffers, (ID3D11Buffer**)ppSOTargets.Handle, pOffsets);
@@ -2254,9 +1923,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SOSetTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SOSetTargets([NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppSOTargets")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppSOTargets, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pOffsets) 
+		public readonly unsafe void SOSetTargets(uint numBuffers, ID3D11Buffer** ppSOTargets, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppOffsets = &pOffsets)
@@ -2268,9 +1935,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SOSetTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SOSetTargets([NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppSOTargets")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppSOTargets, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pOffsets) 
+		public readonly unsafe void SOSetTargets(uint numBuffers, ref ID3D11Buffer* ppSOTargets, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppSOTargets = &ppSOTargets)
@@ -2285,9 +1950,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SOSetTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SOSetTargets([NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppSOTargets")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppSOTargets, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pOffsets) 
+		public readonly unsafe void SOSetTargets(uint numBuffers, ComPtr<ID3D11Buffer> ppSOTargets, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppOffsets = &pOffsets)
@@ -2299,8 +1962,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DrawAuto")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void DrawAuto() 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -2310,9 +1971,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DrawIndexedInstancedIndirect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DrawIndexedInstancedIndirect([NativeName(NativeNameType.Param, "pBufferForArgs")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pBufferForArgs, [NativeName(NativeNameType.Param, "AlignedByteOffsetForArgs")] [NativeName(NativeNameType.Type, "UINT")] uint alignedByteOffsetForArgs) 
+		public readonly unsafe void DrawIndexedInstancedIndirect(ID3D11Buffer* pBufferForArgs, uint alignedByteOffsetForArgs) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(LpVtbl[39]))(ptr, pBufferForArgs, alignedByteOffsetForArgs);
@@ -2321,9 +1980,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DrawIndexedInstancedIndirect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DrawIndexedInstancedIndirect([NativeName(NativeNameType.Param, "pBufferForArgs")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pBufferForArgs, [NativeName(NativeNameType.Param, "AlignedByteOffsetForArgs")] [NativeName(NativeNameType.Type, "UINT")] uint alignedByteOffsetForArgs) 
+		public readonly unsafe void DrawIndexedInstancedIndirect(ref ID3D11Buffer pBufferForArgs, uint alignedByteOffsetForArgs) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppBufferForArgs = &pBufferForArgs)
@@ -2335,9 +1992,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DrawIndexedInstancedIndirect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DrawIndexedInstancedIndirect([NativeName(NativeNameType.Param, "pBufferForArgs")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pBufferForArgs, [NativeName(NativeNameType.Param, "AlignedByteOffsetForArgs")] [NativeName(NativeNameType.Type, "UINT")] uint alignedByteOffsetForArgs) 
+		public readonly unsafe void DrawIndexedInstancedIndirect(ComPtr<ID3D11Buffer> pBufferForArgs, uint alignedByteOffsetForArgs) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(LpVtbl[39]))(ptr, (ID3D11Buffer*)pBufferForArgs.Handle, alignedByteOffsetForArgs);
@@ -2346,9 +2001,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DrawInstancedIndirect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DrawInstancedIndirect([NativeName(NativeNameType.Param, "pBufferForArgs")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pBufferForArgs, [NativeName(NativeNameType.Param, "AlignedByteOffsetForArgs")] [NativeName(NativeNameType.Type, "UINT")] uint alignedByteOffsetForArgs) 
+		public readonly unsafe void DrawInstancedIndirect(ID3D11Buffer* pBufferForArgs, uint alignedByteOffsetForArgs) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(LpVtbl[40]))(ptr, pBufferForArgs, alignedByteOffsetForArgs);
@@ -2357,9 +2010,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DrawInstancedIndirect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DrawInstancedIndirect([NativeName(NativeNameType.Param, "pBufferForArgs")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pBufferForArgs, [NativeName(NativeNameType.Param, "AlignedByteOffsetForArgs")] [NativeName(NativeNameType.Type, "UINT")] uint alignedByteOffsetForArgs) 
+		public readonly unsafe void DrawInstancedIndirect(ref ID3D11Buffer pBufferForArgs, uint alignedByteOffsetForArgs) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppBufferForArgs = &pBufferForArgs)
@@ -2371,9 +2022,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DrawInstancedIndirect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DrawInstancedIndirect([NativeName(NativeNameType.Param, "pBufferForArgs")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pBufferForArgs, [NativeName(NativeNameType.Param, "AlignedByteOffsetForArgs")] [NativeName(NativeNameType.Type, "UINT")] uint alignedByteOffsetForArgs) 
+		public readonly unsafe void DrawInstancedIndirect(ComPtr<ID3D11Buffer> pBufferForArgs, uint alignedByteOffsetForArgs) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(LpVtbl[40]))(ptr, (ID3D11Buffer*)pBufferForArgs.Handle, alignedByteOffsetForArgs);
@@ -2382,9 +2031,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Dispatch")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Dispatch([NativeName(NativeNameType.Param, "ThreadGroupCountX")] [NativeName(NativeNameType.Type, "UINT")] uint threadGroupCountX, [NativeName(NativeNameType.Param, "ThreadGroupCountY")] [NativeName(NativeNameType.Type, "UINT")] uint threadGroupCountY, [NativeName(NativeNameType.Param, "ThreadGroupCountZ")] [NativeName(NativeNameType.Type, "UINT")] uint threadGroupCountZ) 
+		public readonly unsafe void Dispatch(uint threadGroupCountX, uint threadGroupCountY, uint threadGroupCountZ) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, uint, void>)(LpVtbl[41]))(ptr, threadGroupCountX, threadGroupCountY, threadGroupCountZ);
@@ -2393,9 +2040,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DispatchIndirect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DispatchIndirect([NativeName(NativeNameType.Param, "pBufferForArgs")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pBufferForArgs, [NativeName(NativeNameType.Param, "AlignedByteOffsetForArgs")] [NativeName(NativeNameType.Type, "UINT")] uint alignedByteOffsetForArgs) 
+		public readonly unsafe void DispatchIndirect(ID3D11Buffer* pBufferForArgs, uint alignedByteOffsetForArgs) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(LpVtbl[42]))(ptr, pBufferForArgs, alignedByteOffsetForArgs);
@@ -2404,9 +2049,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DispatchIndirect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DispatchIndirect([NativeName(NativeNameType.Param, "pBufferForArgs")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pBufferForArgs, [NativeName(NativeNameType.Param, "AlignedByteOffsetForArgs")] [NativeName(NativeNameType.Type, "UINT")] uint alignedByteOffsetForArgs) 
+		public readonly unsafe void DispatchIndirect(ref ID3D11Buffer pBufferForArgs, uint alignedByteOffsetForArgs) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppBufferForArgs = &pBufferForArgs)
@@ -2418,9 +2061,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DispatchIndirect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DispatchIndirect([NativeName(NativeNameType.Param, "pBufferForArgs")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pBufferForArgs, [NativeName(NativeNameType.Param, "AlignedByteOffsetForArgs")] [NativeName(NativeNameType.Type, "UINT")] uint alignedByteOffsetForArgs) 
+		public readonly unsafe void DispatchIndirect(ComPtr<ID3D11Buffer> pBufferForArgs, uint alignedByteOffsetForArgs) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(LpVtbl[42]))(ptr, (ID3D11Buffer*)pBufferForArgs.Handle, alignedByteOffsetForArgs);
@@ -2429,9 +2070,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSSetState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSSetState([NativeName(NativeNameType.Param, "pRasterizerState")] [NativeName(NativeNameType.Type, "ID3D11RasterizerState*")] ID3D11RasterizerState* pRasterizerState) 
+		public readonly unsafe void RSSetState(ID3D11RasterizerState* pRasterizerState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RasterizerState*, void>)(LpVtbl[43]))(ptr, pRasterizerState);
@@ -2440,9 +2079,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSSetState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSSetState([NativeName(NativeNameType.Param, "pRasterizerState")] [NativeName(NativeNameType.Type, "ID3D11RasterizerState*")] ref ID3D11RasterizerState pRasterizerState) 
+		public readonly unsafe void RSSetState(ref ID3D11RasterizerState pRasterizerState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RasterizerState* ppRasterizerState = &pRasterizerState)
@@ -2454,9 +2091,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSSetState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSSetState([NativeName(NativeNameType.Param, "pRasterizerState")] [NativeName(NativeNameType.Type, "ID3D11RasterizerState*")] ComPtr<ID3D11RasterizerState> pRasterizerState) 
+		public readonly unsafe void RSSetState(ComPtr<ID3D11RasterizerState> pRasterizerState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RasterizerState*, void>)(LpVtbl[43]))(ptr, (ID3D11RasterizerState*)pRasterizerState.Handle);
@@ -2465,34 +2100,28 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSSetViewports")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSSetViewports([NativeName(NativeNameType.Param, "NumViewports")] [NativeName(NativeNameType.Type, "UINT")] uint numViewports, [NativeName(NativeNameType.Param, "pViewports")] [NativeName(NativeNameType.Type, "const D3D11_VIEWPORT*")] D3D11Viewport* pViewports) 
+		public readonly unsafe void RSSetViewports(uint numViewports, Viewport* pViewports) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, D3D11Viewport*, void>)(LpVtbl[44]))(ptr, numViewports, pViewports);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, Viewport*, void>)(LpVtbl[44]))(ptr, numViewports, pViewports);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSSetViewports")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSSetViewports([NativeName(NativeNameType.Param, "NumViewports")] [NativeName(NativeNameType.Type, "UINT")] uint numViewports, [NativeName(NativeNameType.Param, "pViewports")] [NativeName(NativeNameType.Type, "const D3D11_VIEWPORT*")] ref D3D11Viewport pViewports) 
+		public readonly unsafe void RSSetViewports(uint numViewports, ref Viewport pViewports) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Viewport* ppViewports = &pViewports)
+			fixed (Viewport* ppViewports = &pViewports)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, D3D11Viewport*, void>)(LpVtbl[44]))(ptr, numViewports, (D3D11Viewport*)ppViewports);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, Viewport*, void>)(LpVtbl[44]))(ptr, numViewports, (Viewport*)ppViewports);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSSetScissorRects")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSSetScissorRects([NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRects) 
+		public readonly unsafe void RSSetScissorRects(uint numRects, Rect32* pRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, Rect32*, void>)(LpVtbl[45]))(ptr, numRects, pRects);
@@ -2501,9 +2130,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSSetScissorRects")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSSetScissorRects([NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRects) 
+		public readonly unsafe void RSSetScissorRects(uint numRects, ref Rect32 pRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRects = &pRects)
@@ -2515,77 +2142,65 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, Box* pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, Box* pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, Box* pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, Box* pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, pSrcBox);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, pSrcBox);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, Box* pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, pSrcBox);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, pSrcBox);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, Box* pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, pSrcBox);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, pSrcBox);
 				}
 			}
 		}
@@ -2593,41 +2208,35 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, Box* pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, pSrcBox);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, pSrcBox);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppSrcBox = &pSrcBox)
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (D3D11Box*)ppSrcBox);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (Box*)ppSrcBox);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D11Box* ppSrcBox = &pSrcBox)
+				fixed (Box* ppSrcBox = &pSrcBox)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (D3D11Box*)ppSrcBox);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (Box*)ppSrcBox);
 				}
 			}
 		}
@@ -2635,30 +2244,26 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppSrcBox = &pSrcBox)
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (D3D11Box*)ppSrcBox);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (Box*)ppSrcBox);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 			{
-				fixed (D3D11Box* ppSrcBox = &pSrcBox)
+				fixed (Box* ppSrcBox = &pSrcBox)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, (D3D11Box*)ppSrcBox);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, (Box*)ppSrcBox);
 				}
 			}
 		}
@@ -2666,32 +2271,28 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppSrcBox = &pSrcBox)
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, (D3D11Box*)ppSrcBox);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, (Box*)ppSrcBox);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D11Box* ppSrcBox = &pSrcBox)
+					fixed (Box* ppSrcBox = &pSrcBox)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, (D3D11Box*)ppSrcBox);
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, (Box*)ppSrcBox);
 					}
 				}
 			}
@@ -2700,23 +2301,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox) 
+		public readonly unsafe void CopySubresourceRegion(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppSrcBox = &pSrcBox)
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, (D3D11Box*)ppSrcBox);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(LpVtbl[46]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, (Box*)ppSrcBox);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyResource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource) 
+		public readonly unsafe void CopyResource(ID3D11Resource* pDstResource, ID3D11Resource* pSrcResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, ID3D11Resource*, void>)(LpVtbl[47]))(ptr, pDstResource, pSrcResource);
@@ -2725,9 +2322,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyResource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource) 
+		public readonly unsafe void CopyResource(ref ID3D11Resource pDstResource, ID3D11Resource* pSrcResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
@@ -2739,9 +2334,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyResource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource) 
+		public readonly unsafe void CopyResource(ComPtr<ID3D11Resource> pDstResource, ID3D11Resource* pSrcResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, ID3D11Resource*, void>)(LpVtbl[47]))(ptr, (ID3D11Resource*)pDstResource.Handle, pSrcResource);
@@ -2750,9 +2343,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyResource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource) 
+		public readonly unsafe void CopyResource(ID3D11Resource* pDstResource, ref ID3D11Resource pSrcResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
@@ -2764,9 +2355,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyResource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource) 
+		public readonly unsafe void CopyResource(ID3D11Resource* pDstResource, ComPtr<ID3D11Resource> pSrcResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, ID3D11Resource*, void>)(LpVtbl[47]))(ptr, pDstResource, (ID3D11Resource*)pSrcResource.Handle);
@@ -2775,9 +2364,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyResource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource) 
+		public readonly unsafe void CopyResource(ref ID3D11Resource pDstResource, ref ID3D11Resource pSrcResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
@@ -2792,9 +2379,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyResource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource) 
+		public readonly unsafe void CopyResource(ComPtr<ID3D11Resource> pDstResource, ComPtr<ID3D11Resource> pSrcResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, ID3D11Resource*, void>)(LpVtbl[47]))(ptr, (ID3D11Resource*)pDstResource.Handle, (ID3D11Resource*)pSrcResource.Handle);
@@ -2803,66 +2388,56 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch) 
+		public readonly unsafe void UpdateSubresource(ID3D11Resource* pDstResource, uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, pDstResource, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, pDstResource, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch) 
+		public readonly unsafe void UpdateSubresource(ref ID3D11Resource pDstResource, uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch) 
+		public readonly unsafe void UpdateSubresource(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch) 
+		public readonly unsafe void UpdateSubresource(ID3D11Resource* pDstResource, uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppDstBox = &pDstBox)
+			fixed (Box* ppDstBox = &pDstBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, pDstResource, dstSubresource, (D3D11Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, pDstResource, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch) 
+		public readonly unsafe void UpdateSubresource(ref ID3D11Resource pDstResource, uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D11Box* ppDstBox = &pDstBox)
+				fixed (Box* ppDstBox = &pDstBox)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, (D3D11Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
 				}
 			}
 		}
@@ -2870,23 +2445,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch) 
+		public readonly unsafe void UpdateSubresource(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppDstBox = &pDstBox)
+			fixed (Box* ppDstBox = &pDstBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, (D3D11Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(LpVtbl[48]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyStructureCount")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyStructureCount([NativeName(NativeNameType.Param, "pDstBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pDstBuffer, [NativeName(NativeNameType.Param, "DstAlignedByteOffset")] [NativeName(NativeNameType.Type, "UINT")] uint dstAlignedByteOffset, [NativeName(NativeNameType.Param, "pSrcView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ID3D11UnorderedAccessView* pSrcView) 
+		public readonly unsafe void CopyStructureCount(ID3D11Buffer* pDstBuffer, uint dstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, ID3D11UnorderedAccessView*, void>)(LpVtbl[49]))(ptr, pDstBuffer, dstAlignedByteOffset, pSrcView);
@@ -2895,9 +2466,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyStructureCount")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyStructureCount([NativeName(NativeNameType.Param, "pDstBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pDstBuffer, [NativeName(NativeNameType.Param, "DstAlignedByteOffset")] [NativeName(NativeNameType.Type, "UINT")] uint dstAlignedByteOffset, [NativeName(NativeNameType.Param, "pSrcView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ID3D11UnorderedAccessView* pSrcView) 
+		public readonly unsafe void CopyStructureCount(ref ID3D11Buffer pDstBuffer, uint dstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppDstBuffer = &pDstBuffer)
@@ -2909,9 +2478,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyStructureCount")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyStructureCount([NativeName(NativeNameType.Param, "pDstBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pDstBuffer, [NativeName(NativeNameType.Param, "DstAlignedByteOffset")] [NativeName(NativeNameType.Type, "UINT")] uint dstAlignedByteOffset, [NativeName(NativeNameType.Param, "pSrcView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ID3D11UnorderedAccessView* pSrcView) 
+		public readonly unsafe void CopyStructureCount(ComPtr<ID3D11Buffer> pDstBuffer, uint dstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, ID3D11UnorderedAccessView*, void>)(LpVtbl[49]))(ptr, (ID3D11Buffer*)pDstBuffer.Handle, dstAlignedByteOffset, pSrcView);
@@ -2920,9 +2487,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyStructureCount")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyStructureCount([NativeName(NativeNameType.Param, "pDstBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pDstBuffer, [NativeName(NativeNameType.Param, "DstAlignedByteOffset")] [NativeName(NativeNameType.Type, "UINT")] uint dstAlignedByteOffset, [NativeName(NativeNameType.Param, "pSrcView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ref ID3D11UnorderedAccessView pSrcView) 
+		public readonly unsafe void CopyStructureCount(ID3D11Buffer* pDstBuffer, uint dstAlignedByteOffset, ref ID3D11UnorderedAccessView pSrcView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView* ppSrcView = &pSrcView)
@@ -2934,9 +2499,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyStructureCount")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyStructureCount([NativeName(NativeNameType.Param, "pDstBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ID3D11Buffer* pDstBuffer, [NativeName(NativeNameType.Param, "DstAlignedByteOffset")] [NativeName(NativeNameType.Type, "UINT")] uint dstAlignedByteOffset, [NativeName(NativeNameType.Param, "pSrcView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ComPtr<ID3D11UnorderedAccessView> pSrcView) 
+		public readonly unsafe void CopyStructureCount(ID3D11Buffer* pDstBuffer, uint dstAlignedByteOffset, ComPtr<ID3D11UnorderedAccessView> pSrcView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, ID3D11UnorderedAccessView*, void>)(LpVtbl[49]))(ptr, pDstBuffer, dstAlignedByteOffset, (ID3D11UnorderedAccessView*)pSrcView.Handle);
@@ -2945,9 +2508,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyStructureCount")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyStructureCount([NativeName(NativeNameType.Param, "pDstBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ref ID3D11Buffer pDstBuffer, [NativeName(NativeNameType.Param, "DstAlignedByteOffset")] [NativeName(NativeNameType.Type, "UINT")] uint dstAlignedByteOffset, [NativeName(NativeNameType.Param, "pSrcView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ref ID3D11UnorderedAccessView pSrcView) 
+		public readonly unsafe void CopyStructureCount(ref ID3D11Buffer pDstBuffer, uint dstAlignedByteOffset, ref ID3D11UnorderedAccessView pSrcView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer* ppDstBuffer = &pDstBuffer)
@@ -2962,9 +2523,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyStructureCount")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopyStructureCount([NativeName(NativeNameType.Param, "pDstBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer*")] ComPtr<ID3D11Buffer> pDstBuffer, [NativeName(NativeNameType.Param, "DstAlignedByteOffset")] [NativeName(NativeNameType.Type, "UINT")] uint dstAlignedByteOffset, [NativeName(NativeNameType.Param, "pSrcView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ComPtr<ID3D11UnorderedAccessView> pSrcView) 
+		public readonly unsafe void CopyStructureCount(ComPtr<ID3D11Buffer> pDstBuffer, uint dstAlignedByteOffset, ComPtr<ID3D11UnorderedAccessView> pSrcView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, ID3D11UnorderedAccessView*, void>)(LpVtbl[49]))(ptr, (ID3D11Buffer*)pDstBuffer.Handle, dstAlignedByteOffset, (ID3D11UnorderedAccessView*)pSrcView.Handle);
@@ -2973,9 +2532,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearRenderTargetView([NativeName(NativeNameType.Param, "pRenderTargetView")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView*")] ID3D11RenderTargetView* pRenderTargetView, [NativeName(NativeNameType.Param, "ColorRGBA")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* colorRgba) 
+		public readonly unsafe void ClearRenderTargetView(ID3D11RenderTargetView* pRenderTargetView, float* colorRgba) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RenderTargetView*, float*, void>)(LpVtbl[50]))(ptr, pRenderTargetView, colorRgba);
@@ -2984,9 +2541,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearRenderTargetView([NativeName(NativeNameType.Param, "pRenderTargetView")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView*")] ref ID3D11RenderTargetView pRenderTargetView, [NativeName(NativeNameType.Param, "ColorRGBA")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* colorRgba) 
+		public readonly unsafe void ClearRenderTargetView(ref ID3D11RenderTargetView pRenderTargetView, float* colorRgba) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView* ppRenderTargetView = &pRenderTargetView)
@@ -2998,9 +2553,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearRenderTargetView([NativeName(NativeNameType.Param, "pRenderTargetView")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView*")] ComPtr<ID3D11RenderTargetView> pRenderTargetView, [NativeName(NativeNameType.Param, "ColorRGBA")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* colorRgba) 
+		public readonly unsafe void ClearRenderTargetView(ComPtr<ID3D11RenderTargetView> pRenderTargetView, float* colorRgba) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RenderTargetView*, float*, void>)(LpVtbl[50]))(ptr, (ID3D11RenderTargetView*)pRenderTargetView.Handle, colorRgba);
@@ -3009,9 +2562,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearRenderTargetView([NativeName(NativeNameType.Param, "pRenderTargetView")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView*")] ID3D11RenderTargetView* pRenderTargetView, [NativeName(NativeNameType.Param, "ColorRGBA")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float colorRgba) 
+		public readonly unsafe void ClearRenderTargetView(ID3D11RenderTargetView* pRenderTargetView, ref float colorRgba) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pcolorRgba = &colorRgba)
@@ -3023,9 +2574,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearRenderTargetView([NativeName(NativeNameType.Param, "pRenderTargetView")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView*")] ID3D11RenderTargetView* pRenderTargetView, [NativeName(NativeNameType.Param, "ColorRGBA")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ReadOnlySpan<float> colorRgba) 
+		public readonly unsafe void ClearRenderTargetView(ID3D11RenderTargetView* pRenderTargetView, ReadOnlySpan<float> colorRgba) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pcolorRgba = colorRgba)
@@ -3037,9 +2586,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearRenderTargetView([NativeName(NativeNameType.Param, "pRenderTargetView")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView*")] ref ID3D11RenderTargetView pRenderTargetView, [NativeName(NativeNameType.Param, "ColorRGBA")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float colorRgba) 
+		public readonly unsafe void ClearRenderTargetView(ref ID3D11RenderTargetView pRenderTargetView, ref float colorRgba) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView* ppRenderTargetView = &pRenderTargetView)
@@ -3054,9 +2601,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearRenderTargetView([NativeName(NativeNameType.Param, "pRenderTargetView")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView*")] ref ID3D11RenderTargetView pRenderTargetView, [NativeName(NativeNameType.Param, "ColorRGBA")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ReadOnlySpan<float> colorRgba) 
+		public readonly unsafe void ClearRenderTargetView(ref ID3D11RenderTargetView pRenderTargetView, ReadOnlySpan<float> colorRgba) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView* ppRenderTargetView = &pRenderTargetView)
@@ -3071,9 +2616,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearRenderTargetView([NativeName(NativeNameType.Param, "pRenderTargetView")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView*")] ComPtr<ID3D11RenderTargetView> pRenderTargetView, [NativeName(NativeNameType.Param, "ColorRGBA")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float colorRgba) 
+		public readonly unsafe void ClearRenderTargetView(ComPtr<ID3D11RenderTargetView> pRenderTargetView, ref float colorRgba) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pcolorRgba = &colorRgba)
@@ -3085,9 +2628,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewUint")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewUint([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ID3D11UnorderedAccessView* pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const UINT[4]")] uint* values) 
+		public readonly unsafe void ClearUnorderedAccessViewUint(ID3D11UnorderedAccessView* pUnorderedAccessView, uint* values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, uint*, void>)(LpVtbl[51]))(ptr, pUnorderedAccessView, values);
@@ -3096,9 +2637,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewUint")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewUint([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ref ID3D11UnorderedAccessView pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const UINT[4]")] uint* values) 
+		public readonly unsafe void ClearUnorderedAccessViewUint(ref ID3D11UnorderedAccessView pUnorderedAccessView, uint* values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
@@ -3110,9 +2649,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewUint")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewUint([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const UINT[4]")] uint* values) 
+		public readonly unsafe void ClearUnorderedAccessViewUint(ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, uint* values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, uint*, void>)(LpVtbl[51]))(ptr, (ID3D11UnorderedAccessView*)pUnorderedAccessView.Handle, values);
@@ -3121,9 +2658,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewUint")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewUint([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ID3D11UnorderedAccessView* pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const UINT[4]")] ref uint values) 
+		public readonly unsafe void ClearUnorderedAccessViewUint(ID3D11UnorderedAccessView* pUnorderedAccessView, ref uint values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* pvalues = &values)
@@ -3135,9 +2670,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewUint")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewUint([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ID3D11UnorderedAccessView* pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const UINT[4]")] ReadOnlySpan<uint> values) 
+		public readonly unsafe void ClearUnorderedAccessViewUint(ID3D11UnorderedAccessView* pUnorderedAccessView, ReadOnlySpan<uint> values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* pvalues = values)
@@ -3149,9 +2682,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewUint")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewUint([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ref ID3D11UnorderedAccessView pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const UINT[4]")] ref uint values) 
+		public readonly unsafe void ClearUnorderedAccessViewUint(ref ID3D11UnorderedAccessView pUnorderedAccessView, ref uint values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
@@ -3166,9 +2697,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewUint")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewUint([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ref ID3D11UnorderedAccessView pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const UINT[4]")] ReadOnlySpan<uint> values) 
+		public readonly unsafe void ClearUnorderedAccessViewUint(ref ID3D11UnorderedAccessView pUnorderedAccessView, ReadOnlySpan<uint> values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
@@ -3183,9 +2712,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewUint")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewUint([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const UINT[4]")] ref uint values) 
+		public readonly unsafe void ClearUnorderedAccessViewUint(ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, ref uint values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* pvalues = &values)
@@ -3197,9 +2724,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewFloat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewFloat([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ID3D11UnorderedAccessView* pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* values) 
+		public readonly unsafe void ClearUnorderedAccessViewFloat(ID3D11UnorderedAccessView* pUnorderedAccessView, float* values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, float*, void>)(LpVtbl[52]))(ptr, pUnorderedAccessView, values);
@@ -3208,9 +2733,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewFloat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewFloat([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ref ID3D11UnorderedAccessView pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* values) 
+		public readonly unsafe void ClearUnorderedAccessViewFloat(ref ID3D11UnorderedAccessView pUnorderedAccessView, float* values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
@@ -3222,9 +2745,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewFloat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewFloat([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* values) 
+		public readonly unsafe void ClearUnorderedAccessViewFloat(ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, float* values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, float*, void>)(LpVtbl[52]))(ptr, (ID3D11UnorderedAccessView*)pUnorderedAccessView.Handle, values);
@@ -3233,9 +2754,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewFloat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewFloat([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ID3D11UnorderedAccessView* pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float values) 
+		public readonly unsafe void ClearUnorderedAccessViewFloat(ID3D11UnorderedAccessView* pUnorderedAccessView, ref float values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pvalues = &values)
@@ -3247,9 +2766,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewFloat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewFloat([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ID3D11UnorderedAccessView* pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ReadOnlySpan<float> values) 
+		public readonly unsafe void ClearUnorderedAccessViewFloat(ID3D11UnorderedAccessView* pUnorderedAccessView, ReadOnlySpan<float> values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pvalues = values)
@@ -3261,9 +2778,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewFloat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewFloat([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ref ID3D11UnorderedAccessView pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float values) 
+		public readonly unsafe void ClearUnorderedAccessViewFloat(ref ID3D11UnorderedAccessView pUnorderedAccessView, ref float values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
@@ -3278,9 +2793,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewFloat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewFloat([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ref ID3D11UnorderedAccessView pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ReadOnlySpan<float> values) 
+		public readonly unsafe void ClearUnorderedAccessViewFloat(ref ID3D11UnorderedAccessView pUnorderedAccessView, ReadOnlySpan<float> values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
@@ -3295,9 +2808,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearUnorderedAccessViewFloat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearUnorderedAccessViewFloat([NativeName(NativeNameType.Param, "pUnorderedAccessView")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView*")] ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, [NativeName(NativeNameType.Param, "Values")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float values) 
+		public readonly unsafe void ClearUnorderedAccessViewFloat(ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, ref float values) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pvalues = &values)
@@ -3309,9 +2820,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearDepthStencilView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearDepthStencilView([NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ID3D11DepthStencilView* pDepthStencilView, [NativeName(NativeNameType.Param, "ClearFlags")] [NativeName(NativeNameType.Type, "UINT")] uint clearFlags, [NativeName(NativeNameType.Param, "Depth")] [NativeName(NativeNameType.Type, "FLOAT")] float depth, [NativeName(NativeNameType.Param, "Stencil")] [NativeName(NativeNameType.Type, "UINT8")] byte stencil) 
+		public readonly unsafe void ClearDepthStencilView(ID3D11DepthStencilView* pDepthStencilView, uint clearFlags, float depth, byte stencil) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DepthStencilView*, uint, float, byte, void>)(LpVtbl[53]))(ptr, pDepthStencilView, clearFlags, depth, stencil);
@@ -3320,9 +2829,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearDepthStencilView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearDepthStencilView([NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ref ID3D11DepthStencilView pDepthStencilView, [NativeName(NativeNameType.Param, "ClearFlags")] [NativeName(NativeNameType.Type, "UINT")] uint clearFlags, [NativeName(NativeNameType.Param, "Depth")] [NativeName(NativeNameType.Type, "FLOAT")] float depth, [NativeName(NativeNameType.Param, "Stencil")] [NativeName(NativeNameType.Type, "UINT8")] byte stencil) 
+		public readonly unsafe void ClearDepthStencilView(ref ID3D11DepthStencilView pDepthStencilView, uint clearFlags, float depth, byte stencil) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
@@ -3334,9 +2841,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearDepthStencilView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearDepthStencilView([NativeName(NativeNameType.Param, "pDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView*")] ComPtr<ID3D11DepthStencilView> pDepthStencilView, [NativeName(NativeNameType.Param, "ClearFlags")] [NativeName(NativeNameType.Type, "UINT")] uint clearFlags, [NativeName(NativeNameType.Param, "Depth")] [NativeName(NativeNameType.Type, "FLOAT")] float depth, [NativeName(NativeNameType.Param, "Stencil")] [NativeName(NativeNameType.Type, "UINT8")] byte stencil) 
+		public readonly unsafe void ClearDepthStencilView(ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint clearFlags, float depth, byte stencil) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DepthStencilView*, uint, float, byte, void>)(LpVtbl[53]))(ptr, (ID3D11DepthStencilView*)pDepthStencilView.Handle, clearFlags, depth, stencil);
@@ -3345,9 +2850,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GenerateMips")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GenerateMips([NativeName(NativeNameType.Param, "pShaderResourceView")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView*")] ID3D11ShaderResourceView* pShaderResourceView) 
+		public readonly unsafe void GenerateMips(ID3D11ShaderResourceView* pShaderResourceView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ShaderResourceView*, void>)(LpVtbl[54]))(ptr, pShaderResourceView);
@@ -3356,9 +2859,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GenerateMips")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GenerateMips([NativeName(NativeNameType.Param, "pShaderResourceView")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView*")] ref ID3D11ShaderResourceView pShaderResourceView) 
+		public readonly unsafe void GenerateMips(ref ID3D11ShaderResourceView pShaderResourceView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView* ppShaderResourceView = &pShaderResourceView)
@@ -3370,9 +2871,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GenerateMips")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GenerateMips([NativeName(NativeNameType.Param, "pShaderResourceView")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView*")] ComPtr<ID3D11ShaderResourceView> pShaderResourceView) 
+		public readonly unsafe void GenerateMips(ComPtr<ID3D11ShaderResourceView> pShaderResourceView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ShaderResourceView*, void>)(LpVtbl[54]))(ptr, (ID3D11ShaderResourceView*)pShaderResourceView.Handle);
@@ -3381,9 +2880,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetResourceMinLOD")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetResourceMinLOD([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "MinLOD")] [NativeName(NativeNameType.Type, "FLOAT")] float minLod) 
+		public readonly unsafe void SetResourceMinLOD(ID3D11Resource* pResource, float minLod) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, float, void>)(LpVtbl[55]))(ptr, pResource, minLod);
@@ -3392,9 +2889,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetResourceMinLOD")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetResourceMinLOD([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "MinLOD")] [NativeName(NativeNameType.Type, "FLOAT")] float minLod) 
+		public readonly unsafe void SetResourceMinLOD(ref ID3D11Resource pResource, float minLod) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -3406,9 +2901,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetResourceMinLOD")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetResourceMinLOD([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "MinLOD")] [NativeName(NativeNameType.Type, "FLOAT")] float minLod) 
+		public readonly unsafe void SetResourceMinLOD(ComPtr<ID3D11Resource> pResource, float minLod) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, float, void>)(LpVtbl[55]))(ptr, (ID3D11Resource*)pResource.Handle, minLod);
@@ -3417,9 +2910,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceMinLOD")]
-		[return: NativeName(NativeNameType.Type, "FLOAT")]
-		public readonly unsafe float GetResourceMinLOD([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource) 
+		public readonly unsafe float GetResourceMinLOD(ID3D11Resource* pResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			float ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, float>)(LpVtbl[56]))(ptr, pResource);
@@ -3429,9 +2920,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceMinLOD")]
-		[return: NativeName(NativeNameType.Type, "FLOAT")]
-		public readonly unsafe float GetResourceMinLOD([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource) 
+		public readonly unsafe float GetResourceMinLOD(ref ID3D11Resource pResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -3444,9 +2933,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceMinLOD")]
-		[return: NativeName(NativeNameType.Type, "FLOAT")]
-		public readonly unsafe float GetResourceMinLOD([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource) 
+		public readonly unsafe float GetResourceMinLOD(ComPtr<ID3D11Resource> pResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			float ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, float>)(LpVtbl[56]))(ptr, (ID3D11Resource*)pResource.Handle);
@@ -3456,77 +2943,65 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format) 
+		public readonly unsafe void ResolveSubresource(ID3D11Resource* pDstResource, uint dstSubresource, ID3D11Resource* pSrcResource, uint srcSubresource, Format format) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, DxgiFormat, void>)(LpVtbl[57]))(ptr, pDstResource, dstSubresource, pSrcResource, srcSubresource, format);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(LpVtbl[57]))(ptr, pDstResource, dstSubresource, pSrcResource, srcSubresource, format);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format) 
+		public readonly unsafe void ResolveSubresource(ref ID3D11Resource pDstResource, uint dstSubresource, ID3D11Resource* pSrcResource, uint srcSubresource, Format format) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, DxgiFormat, void>)(LpVtbl[57]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, pSrcResource, srcSubresource, format);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(LpVtbl[57]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, pSrcResource, srcSubresource, format);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format) 
+		public readonly unsafe void ResolveSubresource(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, ID3D11Resource* pSrcResource, uint srcSubresource, Format format) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, DxgiFormat, void>)(LpVtbl[57]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, pSrcResource, srcSubresource, format);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(LpVtbl[57]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, pSrcResource, srcSubresource, format);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format) 
+		public readonly unsafe void ResolveSubresource(ID3D11Resource* pDstResource, uint dstSubresource, ref ID3D11Resource pSrcResource, uint srcSubresource, Format format) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, DxgiFormat, void>)(LpVtbl[57]))(ptr, pDstResource, dstSubresource, (ID3D11Resource*)ppSrcResource, srcSubresource, format);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(LpVtbl[57]))(ptr, pDstResource, dstSubresource, (ID3D11Resource*)ppSrcResource, srcSubresource, format);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format) 
+		public readonly unsafe void ResolveSubresource(ID3D11Resource* pDstResource, uint dstSubresource, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, Format format) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, DxgiFormat, void>)(LpVtbl[57]))(ptr, pDstResource, dstSubresource, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, format);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(LpVtbl[57]))(ptr, pDstResource, dstSubresource, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, format);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format) 
+		public readonly unsafe void ResolveSubresource(ref ID3D11Resource pDstResource, uint dstSubresource, ref ID3D11Resource pSrcResource, uint srcSubresource, Format format) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, DxgiFormat, void>)(LpVtbl[57]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, (ID3D11Resource*)ppSrcResource, srcSubresource, format);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(LpVtbl[57]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, (ID3D11Resource*)ppSrcResource, srcSubresource, format);
 				}
 			}
 		}
@@ -3534,20 +3009,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveSubresource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveSubresource([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format) 
+		public readonly unsafe void ResolveSubresource(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, Format format) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, DxgiFormat, void>)(LpVtbl[57]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, format);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(LpVtbl[57]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, format);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteCommandList")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ExecuteCommandList([NativeName(NativeNameType.Param, "pCommandList")] [NativeName(NativeNameType.Type, "ID3D11CommandList*")] ID3D11CommandList* pCommandList, [NativeName(NativeNameType.Param, "RestoreContextState")] [NativeName(NativeNameType.Type, "BOOL")] int restoreContextState) 
+		public readonly unsafe void ExecuteCommandList(ID3D11CommandList* pCommandList, int restoreContextState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11CommandList*, int, void>)(LpVtbl[58]))(ptr, pCommandList, restoreContextState);
@@ -3556,9 +3027,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteCommandList")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ExecuteCommandList([NativeName(NativeNameType.Param, "pCommandList")] [NativeName(NativeNameType.Type, "ID3D11CommandList*")] ref ID3D11CommandList pCommandList, [NativeName(NativeNameType.Param, "RestoreContextState")] [NativeName(NativeNameType.Type, "BOOL")] int restoreContextState) 
+		public readonly unsafe void ExecuteCommandList(ref ID3D11CommandList pCommandList, int restoreContextState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11CommandList* ppCommandList = &pCommandList)
@@ -3570,9 +3039,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteCommandList")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ExecuteCommandList([NativeName(NativeNameType.Param, "pCommandList")] [NativeName(NativeNameType.Type, "ID3D11CommandList*")] ComPtr<ID3D11CommandList> pCommandList, [NativeName(NativeNameType.Param, "RestoreContextState")] [NativeName(NativeNameType.Type, "BOOL")] int restoreContextState) 
+		public readonly unsafe void ExecuteCommandList(ComPtr<ID3D11CommandList> pCommandList, int restoreContextState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11CommandList*, int, void>)(LpVtbl[58]))(ptr, (ID3D11CommandList*)pCommandList.Handle, restoreContextState);
@@ -3581,9 +3048,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void HSSetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[59]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -3592,9 +3057,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void HSSetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -3606,9 +3069,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void HSSetShaderResources(uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[59]))(ptr, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
@@ -3617,9 +3078,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetShader([NativeName(NativeNameType.Param, "pHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader*")] ID3D11HullShader* pHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void HSSetShader(ID3D11HullShader* pHullShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11HullShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[60]))(ptr, pHullShader, ppClassInstances, numClassInstances);
@@ -3628,9 +3087,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetShader([NativeName(NativeNameType.Param, "pHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader*")] ref ID3D11HullShader pHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void HSSetShader(ref ID3D11HullShader pHullShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11HullShader* ppHullShader = &pHullShader)
@@ -3642,9 +3099,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetShader([NativeName(NativeNameType.Param, "pHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader*")] ID3D11HullShader* pHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void HSSetShader(ID3D11HullShader* pHullShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -3656,9 +3111,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetShader([NativeName(NativeNameType.Param, "pHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader*")] ID3D11HullShader* pHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void HSSetShader(ID3D11HullShader* pHullShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11HullShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[60]))(ptr, pHullShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
@@ -3667,9 +3120,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetShader([NativeName(NativeNameType.Param, "pHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader*")] ref ID3D11HullShader pHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void HSSetShader(ref ID3D11HullShader pHullShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11HullShader* ppHullShader = &pHullShader)
@@ -3684,9 +3135,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetShader([NativeName(NativeNameType.Param, "pHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader*")] ref ID3D11HullShader pHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void HSSetShader(ref ID3D11HullShader pHullShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11HullShader* ppHullShader = &pHullShader)
@@ -3698,9 +3147,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void HSSetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[61]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -3709,9 +3156,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void HSSetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -3723,9 +3168,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void HSSetSamplers(uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[61]))(ptr, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
@@ -3734,9 +3177,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void HSSetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[62]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -3745,9 +3186,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void HSSetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -3759,9 +3198,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void HSSetConstantBuffers(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[62]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
@@ -3770,9 +3207,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void DSSetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[63]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -3781,9 +3216,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void DSSetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -3795,9 +3228,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void DSSetShaderResources(uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[63]))(ptr, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
@@ -3806,9 +3237,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetShader([NativeName(NativeNameType.Param, "pDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader*")] ID3D11DomainShader* pDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void DSSetShader(ID3D11DomainShader* pDomainShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DomainShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[64]))(ptr, pDomainShader, ppClassInstances, numClassInstances);
@@ -3817,9 +3246,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetShader([NativeName(NativeNameType.Param, "pDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader*")] ref ID3D11DomainShader pDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void DSSetShader(ref ID3D11DomainShader pDomainShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DomainShader* ppDomainShader = &pDomainShader)
@@ -3831,9 +3258,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetShader([NativeName(NativeNameType.Param, "pDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader*")] ID3D11DomainShader* pDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void DSSetShader(ID3D11DomainShader* pDomainShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -3845,9 +3270,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetShader([NativeName(NativeNameType.Param, "pDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader*")] ID3D11DomainShader* pDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void DSSetShader(ID3D11DomainShader* pDomainShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DomainShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[64]))(ptr, pDomainShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
@@ -3856,9 +3279,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetShader([NativeName(NativeNameType.Param, "pDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader*")] ref ID3D11DomainShader pDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void DSSetShader(ref ID3D11DomainShader pDomainShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DomainShader* ppDomainShader = &pDomainShader)
@@ -3873,9 +3294,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetShader([NativeName(NativeNameType.Param, "pDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader*")] ref ID3D11DomainShader pDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void DSSetShader(ref ID3D11DomainShader pDomainShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DomainShader* ppDomainShader = &pDomainShader)
@@ -3887,9 +3306,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void DSSetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[65]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -3898,9 +3315,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void DSSetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -3912,9 +3327,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void DSSetSamplers(uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[65]))(ptr, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
@@ -3923,9 +3336,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void DSSetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[66]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -3934,9 +3345,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void DSSetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -3948,9 +3357,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void DSSetConstantBuffers(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[66]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
@@ -3959,9 +3366,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void CSSetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[67]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -3970,9 +3375,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void CSSetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -3984,9 +3387,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "const ID3D11ShaderResourceView**")] ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void CSSetShaderResources(uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[67]))(ptr, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
@@ -3995,9 +3396,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetUnorderedAccessViews([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void CSSetUnorderedAccessViews(uint startSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(LpVtbl[68]))(ptr, startSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
@@ -4006,9 +3405,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetUnorderedAccessViews([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void CSSetUnorderedAccessViews(uint startSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
@@ -4020,9 +3417,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetUnorderedAccessViews([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pUAVInitialCounts) 
+		public readonly unsafe void CSSetUnorderedAccessViews(uint startSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(LpVtbl[68]))(ptr, startSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, pUAVInitialCounts);
@@ -4031,9 +3426,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetUnorderedAccessViews([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void CSSetUnorderedAccessViews(uint startSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
@@ -4045,9 +3438,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetUnorderedAccessViews([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void CSSetUnorderedAccessViews(uint startSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
@@ -4062,9 +3453,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetUnorderedAccessViews([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "const ID3D11UnorderedAccessView**")] ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, [NativeName(NativeNameType.Param, "pUAVInitialCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pUAVInitialCounts) 
+		public readonly unsafe void CSSetUnorderedAccessViews(uint startSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
@@ -4076,9 +3465,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetShader([NativeName(NativeNameType.Param, "pComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader*")] ID3D11ComputeShader* pComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void CSSetShader(ID3D11ComputeShader* pComputeShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ComputeShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[69]))(ptr, pComputeShader, ppClassInstances, numClassInstances);
@@ -4087,9 +3474,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetShader([NativeName(NativeNameType.Param, "pComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader*")] ref ID3D11ComputeShader pComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void CSSetShader(ref ID3D11ComputeShader pComputeShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ComputeShader* ppComputeShader = &pComputeShader)
@@ -4101,9 +3486,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetShader([NativeName(NativeNameType.Param, "pComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader*")] ID3D11ComputeShader* pComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void CSSetShader(ID3D11ComputeShader* pComputeShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -4115,9 +3498,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetShader([NativeName(NativeNameType.Param, "pComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader*")] ID3D11ComputeShader* pComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void CSSetShader(ID3D11ComputeShader* pComputeShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ComputeShader*, ID3D11ClassInstance**, uint, void>)(LpVtbl[69]))(ptr, pComputeShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
@@ -4126,9 +3507,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetShader([NativeName(NativeNameType.Param, "pComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader*")] ref ID3D11ComputeShader pComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void CSSetShader(ref ID3D11ComputeShader pComputeShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ComputeShader* ppComputeShader = &pComputeShader)
@@ -4143,9 +3522,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetShader([NativeName(NativeNameType.Param, "pComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader*")] ref ID3D11ComputeShader pComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "const ID3D11ClassInstance**")] ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "NumClassInstances")] [NativeName(NativeNameType.Type, "UINT")] uint numClassInstances) 
+		public readonly unsafe void CSSetShader(ref ID3D11ComputeShader pComputeShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ComputeShader* ppComputeShader = &pComputeShader)
@@ -4157,9 +3534,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void CSSetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[70]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -4168,9 +3543,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void CSSetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -4182,9 +3555,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "const ID3D11SamplerState**")] ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void CSSetSamplers(uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[70]))(ptr, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
@@ -4193,9 +3564,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void CSSetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[71]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -4204,9 +3573,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void CSSetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -4218,9 +3585,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void CSSetConstantBuffers(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[71]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
@@ -4229,9 +3594,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void VSGetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[72]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -4240,9 +3603,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void VSGetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -4254,9 +3615,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] out ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void VSGetConstantBuffers(uint startSlot, uint numBuffers, out ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppConstantBuffers = default;
@@ -4266,9 +3625,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void PSGetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[73]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -4277,9 +3634,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void PSGetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -4291,9 +3646,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void PSGetShaderResources(uint startSlot, uint numViews, out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppShaderResourceViews = default;
@@ -4303,9 +3656,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ID3D11PixelShader** ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ID3D11PixelShader** ppPixelShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(LpVtbl[74]))(ptr, ppPixelShader, ppClassInstances, pNumClassInstances);
@@ -4314,9 +3665,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ref ID3D11PixelShader* ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ref ID3D11PixelShader* ppPixelShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
@@ -4328,9 +3677,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ID3D11PixelShader** ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ID3D11PixelShader** ppPixelShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -4342,9 +3689,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ID3D11PixelShader** ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ID3D11PixelShader** ppPixelShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -4356,9 +3701,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ref ID3D11PixelShader* ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ref ID3D11PixelShader* ppPixelShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
@@ -4373,9 +3716,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ref ID3D11PixelShader* ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ref ID3D11PixelShader* ppPixelShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
@@ -4390,9 +3731,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ID3D11PixelShader** ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ID3D11PixelShader** ppPixelShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumClassInstances = &pNumClassInstances)
@@ -4404,9 +3743,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ref ID3D11PixelShader* ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ref ID3D11PixelShader* ppPixelShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
@@ -4421,9 +3758,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ID3D11PixelShader** ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ID3D11PixelShader** ppPixelShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -4438,9 +3773,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ID3D11PixelShader** ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ID3D11PixelShader** ppPixelShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -4455,9 +3788,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ref ID3D11PixelShader* ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ref ID3D11PixelShader* ppPixelShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
@@ -4475,9 +3806,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetShader([NativeName(NativeNameType.Param, "ppPixelShader")] [NativeName(NativeNameType.Type, "ID3D11PixelShader**")] ref ID3D11PixelShader* ppPixelShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void PSGetShader(ref ID3D11PixelShader* ppPixelShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
@@ -4495,9 +3824,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void PSGetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[75]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -4506,9 +3833,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void PSGetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -4520,9 +3845,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] out ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void PSGetSamplers(uint startSlot, uint numSamplers, out ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSamplers = default;
@@ -4532,9 +3855,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ID3D11VertexShader** ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ID3D11VertexShader** ppVertexShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(LpVtbl[76]))(ptr, ppVertexShader, ppClassInstances, pNumClassInstances);
@@ -4543,9 +3864,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ref ID3D11VertexShader* ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ref ID3D11VertexShader* ppVertexShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
@@ -4557,9 +3876,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ID3D11VertexShader** ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ID3D11VertexShader** ppVertexShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -4571,9 +3888,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ID3D11VertexShader** ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ID3D11VertexShader** ppVertexShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -4585,9 +3900,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ref ID3D11VertexShader* ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ref ID3D11VertexShader* ppVertexShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
@@ -4602,9 +3915,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ref ID3D11VertexShader* ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ref ID3D11VertexShader* ppVertexShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
@@ -4619,9 +3930,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ID3D11VertexShader** ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ID3D11VertexShader** ppVertexShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumClassInstances = &pNumClassInstances)
@@ -4633,9 +3942,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ref ID3D11VertexShader* ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ref ID3D11VertexShader* ppVertexShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
@@ -4650,9 +3957,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ID3D11VertexShader** ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ID3D11VertexShader** ppVertexShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -4667,9 +3972,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ID3D11VertexShader** ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ID3D11VertexShader** ppVertexShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -4684,9 +3987,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ref ID3D11VertexShader* ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ref ID3D11VertexShader* ppVertexShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
@@ -4704,9 +4005,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShader([NativeName(NativeNameType.Param, "ppVertexShader")] [NativeName(NativeNameType.Type, "ID3D11VertexShader**")] ref ID3D11VertexShader* ppVertexShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void VSGetShader(ref ID3D11VertexShader* ppVertexShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
@@ -4724,9 +4023,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void PSGetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[77]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -4735,9 +4032,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void PSGetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -4749,9 +4044,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] out ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void PSGetConstantBuffers(uint startSlot, uint numBuffers, out ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppConstantBuffers = default;
@@ -4761,9 +4054,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetInputLayout")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetInputLayout([NativeName(NativeNameType.Param, "ppInputLayout")] [NativeName(NativeNameType.Type, "ID3D11InputLayout**")] ID3D11InputLayout** ppInputLayout) 
+		public readonly unsafe void IAGetInputLayout(ID3D11InputLayout** ppInputLayout) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11InputLayout**, void>)(LpVtbl[78]))(ptr, ppInputLayout);
@@ -4772,9 +4063,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetInputLayout")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetInputLayout([NativeName(NativeNameType.Param, "ppInputLayout")] [NativeName(NativeNameType.Type, "ID3D11InputLayout**")] ref ID3D11InputLayout* ppInputLayout) 
+		public readonly unsafe void IAGetInputLayout(ref ID3D11InputLayout* ppInputLayout) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11InputLayout** pppInputLayout = &ppInputLayout)
@@ -4786,9 +4075,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] uint* pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, uint* pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[79]))(ptr, startSlot, numBuffers, ppVertexBuffers, pStrides, pOffsets);
@@ -4797,9 +4084,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] uint* pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, uint* pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
@@ -4811,9 +4096,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] uint* pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppVertexBuffers, uint* pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppVertexBuffers = &ppVertexBuffers)
@@ -4825,9 +4108,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] uint* pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppStrides = &pStrides)
@@ -4839,9 +4120,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] uint* pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
@@ -4856,9 +4135,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] uint* pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppVertexBuffers = &ppVertexBuffers)
@@ -4873,9 +4150,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppOffsets = &pOffsets)
@@ -4887,9 +4162,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
@@ -4904,9 +4177,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppVertexBuffers = &ppVertexBuffers)
@@ -4921,9 +4192,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppStrides = &pStrides)
@@ -4938,9 +4207,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
@@ -4958,9 +4225,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetVertexBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetVertexBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppVertexBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppVertexBuffers, [NativeName(NativeNameType.Param, "pStrides")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStrides, [NativeName(NativeNameType.Param, "pOffsets")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pOffsets) 
+		public readonly unsafe void IAGetVertexBuffers(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppVertexBuffers = &ppVertexBuffers)
@@ -4978,69 +4243,59 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] DxgiFormat* format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] uint* offset) 
+		public readonly unsafe void IAGetIndexBuffer(ID3D11Buffer** pIndexBuffer, Format* format, uint* offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, pIndexBuffer, format, offset);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, pIndexBuffer, format, offset);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] DxgiFormat* format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] uint* offset) 
+		public readonly unsafe void IAGetIndexBuffer(ref ID3D11Buffer* pIndexBuffer, Format* format, uint* offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** ppIndexBuffer = &pIndexBuffer)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, format, offset);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, format, offset);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] DxgiFormat* format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] uint* offset) 
+		public readonly unsafe void IAGetIndexBuffer(ref ComPtr<ID3D11Buffer> pIndexBuffer, Format* format, uint* offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* ppIndexBuffer = &pIndexBuffer)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, format, offset);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, format, offset);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] ref DxgiFormat format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] uint* offset) 
+		public readonly unsafe void IAGetIndexBuffer(ID3D11Buffer** pIndexBuffer, ref Format format, uint* offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiFormat* pformat = &format)
+			fixed (Format* pformat = &format)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, pIndexBuffer, (DxgiFormat*)pformat, offset);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, pIndexBuffer, (Format*)pformat, offset);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] ref DxgiFormat format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] uint* offset) 
+		public readonly unsafe void IAGetIndexBuffer(ref ID3D11Buffer* pIndexBuffer, ref Format format, uint* offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** ppIndexBuffer = &pIndexBuffer)
 			{
-				fixed (DxgiFormat* pformat = &format)
+				fixed (Format* pformat = &format)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, (DxgiFormat*)pformat, offset);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, (Format*)pformat, offset);
 				}
 			}
 		}
@@ -5048,16 +4303,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] ref DxgiFormat format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] uint* offset) 
+		public readonly unsafe void IAGetIndexBuffer(ref ComPtr<ID3D11Buffer> pIndexBuffer, ref Format format, uint* offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* ppIndexBuffer = &pIndexBuffer)
 			{
-				fixed (DxgiFormat* pformat = &format)
+				fixed (Format* pformat = &format)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, (DxgiFormat*)pformat, offset);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, (Format*)pformat, offset);
 				}
 			}
 		}
@@ -5065,30 +4318,26 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] DxgiFormat* format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] ref uint offset) 
+		public readonly unsafe void IAGetIndexBuffer(ID3D11Buffer** pIndexBuffer, Format* format, ref uint offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* poffset = &offset)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, pIndexBuffer, format, (uint*)poffset);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, pIndexBuffer, format, (uint*)poffset);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] DxgiFormat* format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] ref uint offset) 
+		public readonly unsafe void IAGetIndexBuffer(ref ID3D11Buffer* pIndexBuffer, Format* format, ref uint offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** ppIndexBuffer = &pIndexBuffer)
 			{
 				fixed (uint* poffset = &offset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, format, (uint*)poffset);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, format, (uint*)poffset);
 				}
 			}
 		}
@@ -5096,16 +4345,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] DxgiFormat* format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] ref uint offset) 
+		public readonly unsafe void IAGetIndexBuffer(ref ComPtr<ID3D11Buffer> pIndexBuffer, Format* format, ref uint offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* ppIndexBuffer = &pIndexBuffer)
 			{
 				fixed (uint* poffset = &offset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, format, (uint*)poffset);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, format, (uint*)poffset);
 				}
 			}
 		}
@@ -5113,16 +4360,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] ref DxgiFormat format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] ref uint offset) 
+		public readonly unsafe void IAGetIndexBuffer(ID3D11Buffer** pIndexBuffer, ref Format format, ref uint offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiFormat* pformat = &format)
+			fixed (Format* pformat = &format)
 			{
 				fixed (uint* poffset = &offset)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, pIndexBuffer, (DxgiFormat*)pformat, (uint*)poffset);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, pIndexBuffer, (Format*)pformat, (uint*)poffset);
 				}
 			}
 		}
@@ -5130,18 +4375,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] ref DxgiFormat format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] ref uint offset) 
+		public readonly unsafe void IAGetIndexBuffer(ref ID3D11Buffer* pIndexBuffer, ref Format format, ref uint offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** ppIndexBuffer = &pIndexBuffer)
 			{
-				fixed (DxgiFormat* pformat = &format)
+				fixed (Format* pformat = &format)
 				{
 					fixed (uint* poffset = &offset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, (DxgiFormat*)pformat, (uint*)poffset);
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, (Format*)pformat, (uint*)poffset);
 					}
 				}
 			}
@@ -5150,18 +4393,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetIndexBuffer")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetIndexBuffer([NativeName(NativeNameType.Param, "pIndexBuffer")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> pIndexBuffer, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT*")] ref DxgiFormat format, [NativeName(NativeNameType.Param, "Offset")] [NativeName(NativeNameType.Type, "UINT*")] ref uint offset) 
+		public readonly unsafe void IAGetIndexBuffer(ref ComPtr<ID3D11Buffer> pIndexBuffer, ref Format format, ref uint offset) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* ppIndexBuffer = &pIndexBuffer)
 			{
-				fixed (DxgiFormat* pformat = &format)
+				fixed (Format* pformat = &format)
 				{
 					fixed (uint* poffset = &offset)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, DxgiFormat*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, (DxgiFormat*)pformat, (uint*)poffset);
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(LpVtbl[80]))(ptr, (ID3D11Buffer**)ppIndexBuffer, (Format*)pformat, (uint*)poffset);
 					}
 				}
 			}
@@ -5170,9 +4411,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void GSGetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[81]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -5181,9 +4420,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void GSGetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -5195,9 +4432,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] out ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void GSGetConstantBuffers(uint startSlot, uint numBuffers, out ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppConstantBuffers = default;
@@ -5207,9 +4442,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ID3D11GeometryShader** ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ID3D11GeometryShader** ppGeometryShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader**, ID3D11ClassInstance**, uint*, void>)(LpVtbl[82]))(ptr, ppGeometryShader, ppClassInstances, pNumClassInstances);
@@ -5218,9 +4451,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ref ID3D11GeometryShader* ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ref ID3D11GeometryShader* ppGeometryShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11GeometryShader** pppGeometryShader = &ppGeometryShader)
@@ -5232,9 +4463,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ID3D11GeometryShader** ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ID3D11GeometryShader** ppGeometryShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -5246,9 +4475,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ID3D11GeometryShader** ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ID3D11GeometryShader** ppGeometryShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -5260,9 +4487,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ref ID3D11GeometryShader* ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ref ID3D11GeometryShader* ppGeometryShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11GeometryShader** pppGeometryShader = &ppGeometryShader)
@@ -5277,9 +4502,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ref ID3D11GeometryShader* ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ref ID3D11GeometryShader* ppGeometryShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11GeometryShader** pppGeometryShader = &ppGeometryShader)
@@ -5294,9 +4517,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ID3D11GeometryShader** ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ID3D11GeometryShader** ppGeometryShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumClassInstances = &pNumClassInstances)
@@ -5308,9 +4529,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ref ID3D11GeometryShader* ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ref ID3D11GeometryShader* ppGeometryShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11GeometryShader** pppGeometryShader = &ppGeometryShader)
@@ -5325,9 +4544,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ID3D11GeometryShader** ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ID3D11GeometryShader** ppGeometryShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -5342,9 +4559,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ID3D11GeometryShader** ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ID3D11GeometryShader** ppGeometryShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -5359,9 +4574,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ref ID3D11GeometryShader* ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ref ID3D11GeometryShader* ppGeometryShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11GeometryShader** pppGeometryShader = &ppGeometryShader)
@@ -5379,9 +4592,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShader([NativeName(NativeNameType.Param, "ppGeometryShader")] [NativeName(NativeNameType.Type, "ID3D11GeometryShader**")] ref ID3D11GeometryShader* ppGeometryShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void GSGetShader(ref ID3D11GeometryShader* ppGeometryShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11GeometryShader** pppGeometryShader = &ppGeometryShader)
@@ -5399,34 +4610,28 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetPrimitiveTopology")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetPrimitiveTopology([NativeName(NativeNameType.Param, "pTopology")] [NativeName(NativeNameType.Type, "D3D11_PRIMITIVE_TOPOLOGY*")] D3D11PrimitiveTopology* pTopology) 
+		public readonly unsafe void IAGetPrimitiveTopology(PrimitiveTopology* pTopology) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, D3D11PrimitiveTopology*, void>)(LpVtbl[83]))(ptr, pTopology);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, PrimitiveTopology*, void>)(LpVtbl[83]))(ptr, pTopology);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IAGetPrimitiveTopology")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void IAGetPrimitiveTopology([NativeName(NativeNameType.Param, "pTopology")] [NativeName(NativeNameType.Type, "D3D11_PRIMITIVE_TOPOLOGY*")] ref D3D11PrimitiveTopology pTopology) 
+		public readonly unsafe void IAGetPrimitiveTopology(ref PrimitiveTopology pTopology) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11PrimitiveTopology* ppTopology = &pTopology)
+			fixed (PrimitiveTopology* ppTopology = &pTopology)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, D3D11PrimitiveTopology*, void>)(LpVtbl[83]))(ptr, (D3D11PrimitiveTopology*)ppTopology);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, PrimitiveTopology*, void>)(LpVtbl[83]))(ptr, (PrimitiveTopology*)ppTopology);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void VSGetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[84]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -5435,9 +4640,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void VSGetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -5449,9 +4652,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void VSGetShaderResources(uint startSlot, uint numViews, out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppShaderResourceViews = default;
@@ -5461,9 +4662,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void VSGetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[85]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -5472,9 +4671,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void VSGetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -5486,9 +4683,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] out ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void VSGetSamplers(uint startSlot, uint numSamplers, out ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSamplers = default;
@@ -5498,9 +4693,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPredication")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GetPredication([NativeName(NativeNameType.Param, "ppPredicate")] [NativeName(NativeNameType.Type, "ID3D11Predicate**")] ID3D11Predicate** ppPredicate, [NativeName(NativeNameType.Param, "pPredicateValue")] [NativeName(NativeNameType.Type, "BOOL*")] int* pPredicateValue) 
+		public readonly unsafe void GetPredication(ID3D11Predicate** ppPredicate, int* pPredicateValue) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Predicate**, int*, void>)(LpVtbl[86]))(ptr, ppPredicate, pPredicateValue);
@@ -5509,9 +4702,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPredication")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GetPredication([NativeName(NativeNameType.Param, "ppPredicate")] [NativeName(NativeNameType.Type, "ID3D11Predicate**")] ref ID3D11Predicate* ppPredicate, [NativeName(NativeNameType.Param, "pPredicateValue")] [NativeName(NativeNameType.Type, "BOOL*")] int* pPredicateValue) 
+		public readonly unsafe void GetPredication(ref ID3D11Predicate* ppPredicate, int* pPredicateValue) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Predicate** pppPredicate = &ppPredicate)
@@ -5523,9 +4714,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPredication")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GetPredication([NativeName(NativeNameType.Param, "ppPredicate")] [NativeName(NativeNameType.Type, "ID3D11Predicate**")] ID3D11Predicate** ppPredicate, [NativeName(NativeNameType.Param, "pPredicateValue")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pPredicateValue) 
+		public readonly unsafe void GetPredication(ID3D11Predicate** ppPredicate, ref int pPredicateValue) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppPredicateValue = &pPredicateValue)
@@ -5537,9 +4726,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPredication")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GetPredication([NativeName(NativeNameType.Param, "ppPredicate")] [NativeName(NativeNameType.Type, "ID3D11Predicate**")] ref ID3D11Predicate* ppPredicate, [NativeName(NativeNameType.Param, "pPredicateValue")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pPredicateValue) 
+		public readonly unsafe void GetPredication(ref ID3D11Predicate* ppPredicate, ref int pPredicateValue) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Predicate** pppPredicate = &ppPredicate)
@@ -5554,9 +4741,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void GSGetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[87]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -5565,9 +4750,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void GSGetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -5579,9 +4762,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void GSGetShaderResources(uint startSlot, uint numViews, out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppShaderResourceViews = default;
@@ -5591,9 +4772,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void GSGetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[88]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -5602,9 +4781,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void GSGetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -5616,9 +4793,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] out ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void GSGetSamplers(uint startSlot, uint numSamplers, out ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSamplers = default;
@@ -5628,9 +4803,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ID3D11DepthStencilView** ppDepthStencilView) 
+		public readonly unsafe void OMGetRenderTargets(uint numViews, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView** ppDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView**, void>)(LpVtbl[89]))(ptr, numViews, ppRenderTargetViews, ppDepthStencilView);
@@ -5639,9 +4812,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ID3D11DepthStencilView** ppDepthStencilView) 
+		public readonly unsafe void OMGetRenderTargets(uint numViews, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView** ppDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -5653,9 +4824,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ID3D11DepthStencilView** ppDepthStencilView) 
+		public readonly unsafe void OMGetRenderTargets(uint numViews, ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView** ppDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11RenderTargetView>* pppRenderTargetViews = &ppRenderTargetViews)
@@ -5667,9 +4836,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ref ID3D11DepthStencilView* ppDepthStencilView) 
+		public readonly unsafe void OMGetRenderTargets(uint numViews, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView* ppDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilView** pppDepthStencilView = &ppDepthStencilView)
@@ -5681,9 +4848,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] out ComPtr<ID3D11DepthStencilView> ppDepthStencilView) 
+		public readonly unsafe void OMGetRenderTargets(uint numViews, ID3D11RenderTargetView** ppRenderTargetViews, out ComPtr<ID3D11DepthStencilView> ppDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppDepthStencilView = default;
@@ -5693,9 +4858,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ref ID3D11DepthStencilView* ppDepthStencilView) 
+		public readonly unsafe void OMGetRenderTargets(uint numViews, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView* ppDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -5710,9 +4873,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargets([NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] out ComPtr<ID3D11DepthStencilView> ppDepthStencilView) 
+		public readonly unsafe void OMGetRenderTargets(uint numViews, ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, out ComPtr<ID3D11DepthStencilView> ppDepthStencilView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11RenderTargetView>* pppRenderTargetViews = &ppRenderTargetViews)
@@ -5725,9 +4886,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ID3D11DepthStencilView** ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView** ppDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView**, uint, uint, ID3D11UnorderedAccessView**, void>)(LpVtbl[90]))(ptr, numRtVs, ppRenderTargetViews, ppDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews);
@@ -5736,9 +4895,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ID3D11DepthStencilView** ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView** ppDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -5750,9 +4907,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ID3D11DepthStencilView** ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView** ppDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11RenderTargetView>* pppRenderTargetViews = &ppRenderTargetViews)
@@ -5764,9 +4919,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ref ID3D11DepthStencilView* ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView* ppDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilView** pppDepthStencilView = &ppDepthStencilView)
@@ -5778,9 +4931,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ref ComPtr<ID3D11DepthStencilView> ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ComPtr<ID3D11DepthStencilView> ppDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11DepthStencilView>* pppDepthStencilView = &ppDepthStencilView)
@@ -5792,9 +4943,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ref ID3D11DepthStencilView* ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView* ppDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -5809,9 +4958,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ref ComPtr<ID3D11DepthStencilView> ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ref ComPtr<ID3D11DepthStencilView> ppDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11RenderTargetView>* pppRenderTargetViews = &ppRenderTargetViews)
@@ -5826,9 +4973,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ID3D11DepthStencilView** ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView** ppDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
@@ -5840,9 +4985,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ID3D11DepthStencilView** ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] out ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView** ppDepthStencilView, uint uavStartSlot, uint numUaVs, out ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppUnorderedAccessViews = default;
@@ -5852,9 +4995,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ID3D11DepthStencilView** ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView** ppDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -5869,9 +5010,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ID3D11DepthStencilView** ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] out ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView** ppDepthStencilView, uint uavStartSlot, uint numUaVs, out ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11RenderTargetView>* pppRenderTargetViews = &ppRenderTargetViews)
@@ -5884,9 +5023,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ref ID3D11DepthStencilView* ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView* ppDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilView** pppDepthStencilView = &ppDepthStencilView)
@@ -5901,9 +5038,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ID3D11RenderTargetView** ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ref ComPtr<ID3D11DepthStencilView> ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] out ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ComPtr<ID3D11DepthStencilView> ppDepthStencilView, uint uavStartSlot, uint numUaVs, out ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11DepthStencilView>* pppDepthStencilView = &ppDepthStencilView)
@@ -5916,9 +5051,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ID3D11RenderTargetView* ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ref ID3D11DepthStencilView* ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView* ppDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
@@ -5936,9 +5069,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetRenderTargetsAndUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews([NativeName(NativeNameType.Param, "NumRTVs")] [NativeName(NativeNameType.Type, "UINT")] uint numRtVs, [NativeName(NativeNameType.Param, "ppRenderTargetViews")] [NativeName(NativeNameType.Type, "ID3D11RenderTargetView**")] ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, [NativeName(NativeNameType.Param, "ppDepthStencilView")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilView**")] ref ComPtr<ID3D11DepthStencilView> ppDepthStencilView, [NativeName(NativeNameType.Param, "UAVStartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uavStartSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] out ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews) 
+		public readonly unsafe void OMGetRenderTargetsAndUnorderedAccessViews(uint numRtVs, ref ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ref ComPtr<ID3D11DepthStencilView> ppDepthStencilView, uint uavStartSlot, uint numUaVs, out ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11RenderTargetView>* pppRenderTargetViews = &ppRenderTargetViews)
@@ -5954,9 +5085,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ID3D11BlendState** ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] float* blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ID3D11BlendState** ppBlendState, float* blendFactor, uint* pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11BlendState**, float*, uint*, void>)(LpVtbl[91]))(ptr, ppBlendState, blendFactor, pSampleMask);
@@ -5965,9 +5094,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ref ID3D11BlendState* ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] float* blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ref ID3D11BlendState* ppBlendState, float* blendFactor, uint* pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11BlendState** pppBlendState = &ppBlendState)
@@ -5979,9 +5106,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ref ComPtr<ID3D11BlendState> ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] float* blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ref ComPtr<ID3D11BlendState> ppBlendState, float* blendFactor, uint* pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11BlendState>* pppBlendState = &ppBlendState)
@@ -5993,9 +5118,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ID3D11BlendState** ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] ref float blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ID3D11BlendState** ppBlendState, ref float blendFactor, uint* pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pblendFactor = &blendFactor)
@@ -6007,9 +5130,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ID3D11BlendState** ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] ReadOnlySpan<float> blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ID3D11BlendState** ppBlendState, ReadOnlySpan<float> blendFactor, uint* pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pblendFactor = blendFactor)
@@ -6021,9 +5142,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ref ID3D11BlendState* ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] ref float blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ref ID3D11BlendState* ppBlendState, ref float blendFactor, uint* pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11BlendState** pppBlendState = &ppBlendState)
@@ -6038,9 +5157,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ref ID3D11BlendState* ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] ReadOnlySpan<float> blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ref ID3D11BlendState* ppBlendState, ReadOnlySpan<float> blendFactor, uint* pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11BlendState** pppBlendState = &ppBlendState)
@@ -6055,9 +5172,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ref ComPtr<ID3D11BlendState> ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] ref float blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ref ComPtr<ID3D11BlendState> ppBlendState, ref float blendFactor, uint* pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11BlendState>* pppBlendState = &ppBlendState)
@@ -6072,9 +5187,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ID3D11BlendState** ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] float* blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ID3D11BlendState** ppBlendState, float* blendFactor, ref uint pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppSampleMask = &pSampleMask)
@@ -6086,9 +5199,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ref ID3D11BlendState* ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] float* blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ref ID3D11BlendState* ppBlendState, float* blendFactor, ref uint pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11BlendState** pppBlendState = &ppBlendState)
@@ -6103,9 +5214,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ref ComPtr<ID3D11BlendState> ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] float* blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ref ComPtr<ID3D11BlendState> ppBlendState, float* blendFactor, ref uint pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11BlendState>* pppBlendState = &ppBlendState)
@@ -6120,9 +5229,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ID3D11BlendState** ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] ref float blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ID3D11BlendState** ppBlendState, ref float blendFactor, ref uint pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pblendFactor = &blendFactor)
@@ -6137,9 +5244,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ID3D11BlendState** ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] ReadOnlySpan<float> blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ID3D11BlendState** ppBlendState, ReadOnlySpan<float> blendFactor, ref uint pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pblendFactor = blendFactor)
@@ -6154,9 +5259,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ref ID3D11BlendState* ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] ref float blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ref ID3D11BlendState* ppBlendState, ref float blendFactor, ref uint pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11BlendState** pppBlendState = &ppBlendState)
@@ -6174,9 +5277,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ref ID3D11BlendState* ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] ReadOnlySpan<float> blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ref ID3D11BlendState* ppBlendState, ReadOnlySpan<float> blendFactor, ref uint pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11BlendState** pppBlendState = &ppBlendState)
@@ -6194,9 +5295,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetBlendState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetBlendState([NativeName(NativeNameType.Param, "ppBlendState")] [NativeName(NativeNameType.Type, "ID3D11BlendState**")] ref ComPtr<ID3D11BlendState> ppBlendState, [NativeName(NativeNameType.Param, "BlendFactor")] [NativeName(NativeNameType.Type, "FLOAT[4]")] ref float blendFactor, [NativeName(NativeNameType.Param, "pSampleMask")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSampleMask) 
+		public readonly unsafe void OMGetBlendState(ref ComPtr<ID3D11BlendState> ppBlendState, ref float blendFactor, ref uint pSampleMask) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11BlendState>* pppBlendState = &ppBlendState)
@@ -6214,9 +5313,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetDepthStencilState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetDepthStencilState([NativeName(NativeNameType.Param, "ppDepthStencilState")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilState**")] ID3D11DepthStencilState** ppDepthStencilState, [NativeName(NativeNameType.Param, "pStencilRef")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStencilRef) 
+		public readonly unsafe void OMGetDepthStencilState(ID3D11DepthStencilState** ppDepthStencilState, uint* pStencilRef) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DepthStencilState**, uint*, void>)(LpVtbl[92]))(ptr, ppDepthStencilState, pStencilRef);
@@ -6225,9 +5322,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetDepthStencilState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetDepthStencilState([NativeName(NativeNameType.Param, "ppDepthStencilState")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilState**")] ref ID3D11DepthStencilState* ppDepthStencilState, [NativeName(NativeNameType.Param, "pStencilRef")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStencilRef) 
+		public readonly unsafe void OMGetDepthStencilState(ref ID3D11DepthStencilState* ppDepthStencilState, uint* pStencilRef) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilState** pppDepthStencilState = &ppDepthStencilState)
@@ -6239,9 +5334,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetDepthStencilState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetDepthStencilState([NativeName(NativeNameType.Param, "ppDepthStencilState")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilState**")] ref ComPtr<ID3D11DepthStencilState> ppDepthStencilState, [NativeName(NativeNameType.Param, "pStencilRef")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStencilRef) 
+		public readonly unsafe void OMGetDepthStencilState(ref ComPtr<ID3D11DepthStencilState> ppDepthStencilState, uint* pStencilRef) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11DepthStencilState>* pppDepthStencilState = &ppDepthStencilState)
@@ -6253,9 +5346,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetDepthStencilState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetDepthStencilState([NativeName(NativeNameType.Param, "ppDepthStencilState")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilState**")] ID3D11DepthStencilState** ppDepthStencilState, [NativeName(NativeNameType.Param, "pStencilRef")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStencilRef) 
+		public readonly unsafe void OMGetDepthStencilState(ID3D11DepthStencilState** ppDepthStencilState, ref uint pStencilRef) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppStencilRef = &pStencilRef)
@@ -6267,9 +5358,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetDepthStencilState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetDepthStencilState([NativeName(NativeNameType.Param, "ppDepthStencilState")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilState**")] ref ID3D11DepthStencilState* ppDepthStencilState, [NativeName(NativeNameType.Param, "pStencilRef")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStencilRef) 
+		public readonly unsafe void OMGetDepthStencilState(ref ID3D11DepthStencilState* ppDepthStencilState, ref uint pStencilRef) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DepthStencilState** pppDepthStencilState = &ppDepthStencilState)
@@ -6284,9 +5373,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OMGetDepthStencilState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void OMGetDepthStencilState([NativeName(NativeNameType.Param, "ppDepthStencilState")] [NativeName(NativeNameType.Type, "ID3D11DepthStencilState**")] ref ComPtr<ID3D11DepthStencilState> ppDepthStencilState, [NativeName(NativeNameType.Param, "pStencilRef")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStencilRef) 
+		public readonly unsafe void OMGetDepthStencilState(ref ComPtr<ID3D11DepthStencilState> ppDepthStencilState, ref uint pStencilRef) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11DepthStencilState>* pppDepthStencilState = &ppDepthStencilState)
@@ -6301,9 +5388,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SOGetTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SOGetTargets([NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppSOTargets")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppSOTargets) 
+		public readonly unsafe void SOGetTargets(uint numBuffers, ID3D11Buffer** ppSOTargets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11Buffer**, void>)(LpVtbl[93]))(ptr, numBuffers, ppSOTargets);
@@ -6312,9 +5397,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SOGetTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SOGetTargets([NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppSOTargets")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppSOTargets) 
+		public readonly unsafe void SOGetTargets(uint numBuffers, ref ID3D11Buffer* ppSOTargets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppSOTargets = &ppSOTargets)
@@ -6326,9 +5409,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SOGetTargets")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SOGetTargets([NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppSOTargets")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] out ComPtr<ID3D11Buffer> ppSOTargets) 
+		public readonly unsafe void SOGetTargets(uint numBuffers, out ComPtr<ID3D11Buffer> ppSOTargets) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSOTargets = default;
@@ -6338,9 +5419,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSGetState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSGetState([NativeName(NativeNameType.Param, "ppRasterizerState")] [NativeName(NativeNameType.Type, "ID3D11RasterizerState**")] ID3D11RasterizerState** ppRasterizerState) 
+		public readonly unsafe void RSGetState(ID3D11RasterizerState** ppRasterizerState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RasterizerState**, void>)(LpVtbl[94]))(ptr, ppRasterizerState);
@@ -6349,9 +5428,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSGetState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSGetState([NativeName(NativeNameType.Param, "ppRasterizerState")] [NativeName(NativeNameType.Type, "ID3D11RasterizerState**")] ref ID3D11RasterizerState* ppRasterizerState) 
+		public readonly unsafe void RSGetState(ref ID3D11RasterizerState* ppRasterizerState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11RasterizerState** pppRasterizerState = &ppRasterizerState)
@@ -6363,9 +5440,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSGetState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSGetState([NativeName(NativeNameType.Param, "ppRasterizerState")] [NativeName(NativeNameType.Type, "ID3D11RasterizerState**")] out ComPtr<ID3D11RasterizerState> ppRasterizerState) 
+		public readonly unsafe void RSGetState(out ComPtr<ID3D11RasterizerState> ppRasterizerState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppRasterizerState = default;
@@ -6375,55 +5450,47 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSGetViewports")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSGetViewports([NativeName(NativeNameType.Param, "pNumViewports")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumViewports, [NativeName(NativeNameType.Param, "pViewports")] [NativeName(NativeNameType.Type, "D3D11_VIEWPORT*")] D3D11Viewport* pViewports) 
+		public readonly unsafe void RSGetViewports(uint* pNumViewports, Viewport* pViewports) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint*, D3D11Viewport*, void>)(LpVtbl[95]))(ptr, pNumViewports, pViewports);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint*, Viewport*, void>)(LpVtbl[95]))(ptr, pNumViewports, pViewports);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSGetViewports")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSGetViewports([NativeName(NativeNameType.Param, "pNumViewports")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumViewports, [NativeName(NativeNameType.Param, "pViewports")] [NativeName(NativeNameType.Type, "D3D11_VIEWPORT*")] D3D11Viewport* pViewports) 
+		public readonly unsafe void RSGetViewports(ref uint pNumViewports, Viewport* pViewports) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumViewports = &pNumViewports)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint*, D3D11Viewport*, void>)(LpVtbl[95]))(ptr, (uint*)ppNumViewports, pViewports);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint*, Viewport*, void>)(LpVtbl[95]))(ptr, (uint*)ppNumViewports, pViewports);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSGetViewports")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSGetViewports([NativeName(NativeNameType.Param, "pNumViewports")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumViewports, [NativeName(NativeNameType.Param, "pViewports")] [NativeName(NativeNameType.Type, "D3D11_VIEWPORT*")] ref D3D11Viewport pViewports) 
+		public readonly unsafe void RSGetViewports(uint* pNumViewports, ref Viewport pViewports) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Viewport* ppViewports = &pViewports)
+			fixed (Viewport* ppViewports = &pViewports)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint*, D3D11Viewport*, void>)(LpVtbl[95]))(ptr, pNumViewports, (D3D11Viewport*)ppViewports);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint*, Viewport*, void>)(LpVtbl[95]))(ptr, pNumViewports, (Viewport*)ppViewports);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSGetViewports")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSGetViewports([NativeName(NativeNameType.Param, "pNumViewports")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumViewports, [NativeName(NativeNameType.Param, "pViewports")] [NativeName(NativeNameType.Type, "D3D11_VIEWPORT*")] ref D3D11Viewport pViewports) 
+		public readonly unsafe void RSGetViewports(ref uint pNumViewports, ref Viewport pViewports) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumViewports = &pNumViewports)
 			{
-				fixed (D3D11Viewport* ppViewports = &pViewports)
+				fixed (Viewport* ppViewports = &pViewports)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint*, D3D11Viewport*, void>)(LpVtbl[95]))(ptr, (uint*)ppNumViewports, (D3D11Viewport*)ppViewports);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint*, Viewport*, void>)(LpVtbl[95]))(ptr, (uint*)ppNumViewports, (Viewport*)ppViewports);
 				}
 			}
 		}
@@ -6431,9 +5498,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSGetScissorRects")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSGetScissorRects([NativeName(NativeNameType.Param, "pNumRects")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRects, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "D3D11_RECT*")] Rect32* pRects) 
+		public readonly unsafe void RSGetScissorRects(uint* pNumRects, Rect32* pRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint*, Rect32*, void>)(LpVtbl[96]))(ptr, pNumRects, pRects);
@@ -6442,9 +5507,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSGetScissorRects")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSGetScissorRects([NativeName(NativeNameType.Param, "pNumRects")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRects, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "D3D11_RECT*")] Rect32* pRects) 
+		public readonly unsafe void RSGetScissorRects(ref uint pNumRects, Rect32* pRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumRects = &pNumRects)
@@ -6456,9 +5519,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSGetScissorRects")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSGetScissorRects([NativeName(NativeNameType.Param, "pNumRects")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRects, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "D3D11_RECT*")] ref Rect32 pRects) 
+		public readonly unsafe void RSGetScissorRects(uint* pNumRects, ref Rect32 pRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRects = &pRects)
@@ -6470,9 +5531,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RSGetScissorRects")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void RSGetScissorRects([NativeName(NativeNameType.Param, "pNumRects")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRects, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "D3D11_RECT*")] ref Rect32 pRects) 
+		public readonly unsafe void RSGetScissorRects(ref uint pNumRects, ref Rect32 pRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumRects = &pNumRects)
@@ -6487,9 +5546,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void HSGetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[97]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -6498,9 +5555,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void HSGetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -6512,9 +5567,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void HSGetShaderResources(uint startSlot, uint numViews, out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppShaderResourceViews = default;
@@ -6524,9 +5577,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ID3D11HullShader** ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ID3D11HullShader** ppHullShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11HullShader**, ID3D11ClassInstance**, uint*, void>)(LpVtbl[98]))(ptr, ppHullShader, ppClassInstances, pNumClassInstances);
@@ -6535,9 +5586,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ref ID3D11HullShader* ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ref ID3D11HullShader* ppHullShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11HullShader** pppHullShader = &ppHullShader)
@@ -6549,9 +5598,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ID3D11HullShader** ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ID3D11HullShader** ppHullShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -6563,9 +5610,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ID3D11HullShader** ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ID3D11HullShader** ppHullShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -6577,9 +5622,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ref ID3D11HullShader* ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ref ID3D11HullShader* ppHullShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11HullShader** pppHullShader = &ppHullShader)
@@ -6594,9 +5637,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ref ID3D11HullShader* ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ref ID3D11HullShader* ppHullShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11HullShader** pppHullShader = &ppHullShader)
@@ -6611,9 +5652,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ID3D11HullShader** ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ID3D11HullShader** ppHullShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumClassInstances = &pNumClassInstances)
@@ -6625,9 +5664,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ref ID3D11HullShader* ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ref ID3D11HullShader* ppHullShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11HullShader** pppHullShader = &ppHullShader)
@@ -6642,9 +5679,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ID3D11HullShader** ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ID3D11HullShader** ppHullShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -6659,9 +5694,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ID3D11HullShader** ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ID3D11HullShader** ppHullShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -6676,9 +5709,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ref ID3D11HullShader* ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ref ID3D11HullShader* ppHullShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11HullShader** pppHullShader = &ppHullShader)
@@ -6696,9 +5727,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetShader([NativeName(NativeNameType.Param, "ppHullShader")] [NativeName(NativeNameType.Type, "ID3D11HullShader**")] ref ID3D11HullShader* ppHullShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void HSGetShader(ref ID3D11HullShader* ppHullShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11HullShader** pppHullShader = &ppHullShader)
@@ -6716,9 +5745,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void HSGetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[99]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -6727,9 +5754,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void HSGetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -6741,9 +5766,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] out ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void HSGetSamplers(uint startSlot, uint numSamplers, out ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSamplers = default;
@@ -6753,9 +5776,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void HSGetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[100]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -6764,9 +5785,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void HSGetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -6778,9 +5797,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] out ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void HSGetConstantBuffers(uint startSlot, uint numBuffers, out ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppConstantBuffers = default;
@@ -6790,9 +5807,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void DSGetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[101]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -6801,9 +5816,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void DSGetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -6815,9 +5828,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void DSGetShaderResources(uint startSlot, uint numViews, out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppShaderResourceViews = default;
@@ -6827,9 +5838,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ID3D11DomainShader** ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ID3D11DomainShader** ppDomainShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DomainShader**, ID3D11ClassInstance**, uint*, void>)(LpVtbl[102]))(ptr, ppDomainShader, ppClassInstances, pNumClassInstances);
@@ -6838,9 +5847,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ref ID3D11DomainShader* ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ref ID3D11DomainShader* ppDomainShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DomainShader** pppDomainShader = &ppDomainShader)
@@ -6852,9 +5859,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ID3D11DomainShader** ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ID3D11DomainShader** ppDomainShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -6866,9 +5871,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ID3D11DomainShader** ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ID3D11DomainShader** ppDomainShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -6880,9 +5883,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ref ID3D11DomainShader* ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ref ID3D11DomainShader* ppDomainShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DomainShader** pppDomainShader = &ppDomainShader)
@@ -6897,9 +5898,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ref ID3D11DomainShader* ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ref ID3D11DomainShader* ppDomainShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DomainShader** pppDomainShader = &ppDomainShader)
@@ -6914,9 +5913,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ID3D11DomainShader** ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ID3D11DomainShader** ppDomainShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumClassInstances = &pNumClassInstances)
@@ -6928,9 +5925,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ref ID3D11DomainShader* ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ref ID3D11DomainShader* ppDomainShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DomainShader** pppDomainShader = &ppDomainShader)
@@ -6945,9 +5940,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ID3D11DomainShader** ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ID3D11DomainShader** ppDomainShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -6962,9 +5955,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ID3D11DomainShader** ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ID3D11DomainShader** ppDomainShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -6979,9 +5970,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ref ID3D11DomainShader* ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ref ID3D11DomainShader* ppDomainShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DomainShader** pppDomainShader = &ppDomainShader)
@@ -6999,9 +5988,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetShader([NativeName(NativeNameType.Param, "ppDomainShader")] [NativeName(NativeNameType.Type, "ID3D11DomainShader**")] ref ID3D11DomainShader* ppDomainShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void DSGetShader(ref ID3D11DomainShader* ppDomainShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DomainShader** pppDomainShader = &ppDomainShader)
@@ -7019,9 +6006,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void DSGetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[103]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -7030,9 +6015,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void DSGetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -7044,9 +6027,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] out ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void DSGetSamplers(uint startSlot, uint numSamplers, out ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSamplers = default;
@@ -7056,9 +6037,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void DSGetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[104]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -7067,9 +6046,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void DSGetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -7081,9 +6058,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] out ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void DSGetConstantBuffers(uint startSlot, uint numBuffers, out ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppConstantBuffers = default;
@@ -7093,9 +6068,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ID3D11ShaderResourceView** ppShaderResourceViews) 
+		public readonly unsafe void CSGetShaderResources(uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(LpVtbl[105]))(ptr, startSlot, numViews, ppShaderResourceViews);
@@ -7104,9 +6077,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		public readonly unsafe void CSGetShaderResources(uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
@@ -7118,9 +6089,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShaderResources")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShaderResources([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumViews")] [NativeName(NativeNameType.Type, "UINT")] uint numViews, [NativeName(NativeNameType.Param, "ppShaderResourceViews")] [NativeName(NativeNameType.Type, "ID3D11ShaderResourceView**")] out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		public readonly unsafe void CSGetShaderResources(uint startSlot, uint numViews, out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppShaderResourceViews = default;
@@ -7130,9 +6099,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetUnorderedAccessViews([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
+		public readonly unsafe void CSGetUnorderedAccessViews(uint startSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11UnorderedAccessView**, void>)(LpVtbl[106]))(ptr, startSlot, numUaVs, ppUnorderedAccessViews);
@@ -7141,9 +6108,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetUnorderedAccessViews([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] ref ID3D11UnorderedAccessView* ppUnorderedAccessViews) 
+		public readonly unsafe void CSGetUnorderedAccessViews(uint startSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
@@ -7155,9 +6120,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetUnorderedAccessViews")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetUnorderedAccessViews([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumUAVs")] [NativeName(NativeNameType.Type, "UINT")] uint numUaVs, [NativeName(NativeNameType.Param, "ppUnorderedAccessViews")] [NativeName(NativeNameType.Type, "ID3D11UnorderedAccessView**")] out ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews) 
+		public readonly unsafe void CSGetUnorderedAccessViews(uint startSlot, uint numUaVs, out ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppUnorderedAccessViews = default;
@@ -7167,9 +6130,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ID3D11ComputeShader** ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ID3D11ComputeShader** ppComputeShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ComputeShader**, ID3D11ClassInstance**, uint*, void>)(LpVtbl[107]))(ptr, ppComputeShader, ppClassInstances, pNumClassInstances);
@@ -7178,9 +6139,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ref ID3D11ComputeShader* ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ref ID3D11ComputeShader* ppComputeShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ComputeShader** pppComputeShader = &ppComputeShader)
@@ -7192,9 +6151,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ID3D11ComputeShader** ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ID3D11ComputeShader** ppComputeShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -7206,9 +6163,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ID3D11ComputeShader** ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ID3D11ComputeShader** ppComputeShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -7220,9 +6175,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ref ID3D11ComputeShader* ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ref ID3D11ComputeShader* ppComputeShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ComputeShader** pppComputeShader = &ppComputeShader)
@@ -7237,9 +6190,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ref ID3D11ComputeShader* ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ref ID3D11ComputeShader* ppComputeShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ComputeShader** pppComputeShader = &ppComputeShader)
@@ -7254,9 +6205,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ID3D11ComputeShader** ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ID3D11ComputeShader** ppComputeShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumClassInstances = &pNumClassInstances)
@@ -7268,9 +6217,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ref ID3D11ComputeShader* ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ID3D11ClassInstance** ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ref ID3D11ComputeShader* ppComputeShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ComputeShader** pppComputeShader = &ppComputeShader)
@@ -7285,9 +6232,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ID3D11ComputeShader** ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ID3D11ComputeShader** ppComputeShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
@@ -7302,9 +6247,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ID3D11ComputeShader** ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ID3D11ComputeShader** ppComputeShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
@@ -7319,9 +6262,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ref ID3D11ComputeShader* ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ID3D11ClassInstance* ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ref ID3D11ComputeShader* ppComputeShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ComputeShader** pppComputeShader = &ppComputeShader)
@@ -7339,9 +6280,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetShader")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetShader([NativeName(NativeNameType.Param, "ppComputeShader")] [NativeName(NativeNameType.Type, "ID3D11ComputeShader**")] ref ID3D11ComputeShader* ppComputeShader, [NativeName(NativeNameType.Param, "ppClassInstances")] [NativeName(NativeNameType.Type, "ID3D11ClassInstance**")] ref ComPtr<ID3D11ClassInstance> ppClassInstances, [NativeName(NativeNameType.Param, "pNumClassInstances")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumClassInstances) 
+		public readonly unsafe void CSGetShader(ref ID3D11ComputeShader* ppComputeShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ComputeShader** pppComputeShader = &ppComputeShader)
@@ -7359,9 +6298,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ID3D11SamplerState** ppSamplers) 
+		public readonly unsafe void CSGetSamplers(uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(LpVtbl[108]))(ptr, startSlot, numSamplers, ppSamplers);
@@ -7370,9 +6307,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] ref ID3D11SamplerState* ppSamplers) 
+		public readonly unsafe void CSGetSamplers(uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
@@ -7384,9 +6319,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetSamplers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetSamplers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumSamplers")] [NativeName(NativeNameType.Type, "UINT")] uint numSamplers, [NativeName(NativeNameType.Param, "ppSamplers")] [NativeName(NativeNameType.Type, "ID3D11SamplerState**")] out ComPtr<ID3D11SamplerState> ppSamplers) 
+		public readonly unsafe void CSGetSamplers(uint startSlot, uint numSamplers, out ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSamplers = default;
@@ -7396,9 +6329,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers) 
+		public readonly unsafe void CSGetConstantBuffers(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(LpVtbl[109]))(ptr, startSlot, numBuffers, ppConstantBuffers);
@@ -7407,9 +6338,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers) 
+		public readonly unsafe void CSGetConstantBuffers(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -7421,9 +6350,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] out ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		public readonly unsafe void CSGetConstantBuffers(uint startSlot, uint numBuffers, out ComPtr<ID3D11Buffer> ppConstantBuffers) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppConstantBuffers = default;
@@ -7433,8 +6360,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearState")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void ClearState() 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -7444,8 +6369,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Flush")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void Flush() 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -7455,20 +6378,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetType")]
-		[return: NativeName(NativeNameType.Type, "D3D11_DEVICE_CONTEXT_TYPE")]
-		public readonly unsafe D3D11DeviceContextType GetType() 
+		public readonly unsafe DeviceContextType GetType() 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			D3D11DeviceContextType ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, D3D11DeviceContextType>)(LpVtbl[112]))(ptr);
+			DeviceContextType ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, DeviceContextType>)(LpVtbl[112]))(ptr);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContextFlags")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
 		public readonly unsafe uint GetContextFlags() 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -7479,9 +6398,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FinishCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FinishCommandList([NativeName(NativeNameType.Param, "RestoreDeferredContextState")] [NativeName(NativeNameType.Type, "BOOL")] int restoreDeferredContextState, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "ID3D11CommandList**")] ID3D11CommandList** ppCommandList) 
+		public readonly unsafe int FinishCommandList(int restoreDeferredContextState, ID3D11CommandList** ppCommandList) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, int, ID3D11CommandList**, int>)(LpVtbl[114]))(ptr, restoreDeferredContextState, ppCommandList);
@@ -7491,9 +6408,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FinishCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FinishCommandList([NativeName(NativeNameType.Param, "RestoreDeferredContextState")] [NativeName(NativeNameType.Type, "BOOL")] int restoreDeferredContextState, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "ID3D11CommandList**")] ref ID3D11CommandList* ppCommandList) 
+		public readonly unsafe int FinishCommandList(int restoreDeferredContextState, ref ID3D11CommandList* ppCommandList) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11CommandList** pppCommandList = &ppCommandList)
@@ -7506,9 +6421,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FinishCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FinishCommandList([NativeName(NativeNameType.Param, "RestoreDeferredContextState")] [NativeName(NativeNameType.Type, "BOOL")] int restoreDeferredContextState, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "ID3D11CommandList**")] out ComPtr<ID3D11CommandList> ppCommandList) 
+		public readonly unsafe int FinishCommandList(int restoreDeferredContextState, out ComPtr<ID3D11CommandList> ppCommandList) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppCommandList = default;
@@ -7519,77 +6432,65 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, Box* pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox, copyFlags);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox, copyFlags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, Box* pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox, copyFlags);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox, copyFlags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, Box* pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox, copyFlags);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox, copyFlags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, Box* pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, pSrcBox, copyFlags);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, pSrcBox, copyFlags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, Box* pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, pSrcBox, copyFlags);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, pSrcBox, copyFlags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, Box* pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, pSrcBox, copyFlags);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, pSrcBox, copyFlags);
 				}
 			}
 		}
@@ -7597,41 +6498,35 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, Box* pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, pSrcBox, copyFlags);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, pSrcBox, copyFlags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, ref Box pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppSrcBox = &pSrcBox)
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (D3D11Box*)ppSrcBox, copyFlags);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (Box*)ppSrcBox, copyFlags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, ref Box pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D11Box* ppSrcBox = &pSrcBox)
+				fixed (Box* ppSrcBox = &pSrcBox)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (D3D11Box*)ppSrcBox, copyFlags);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (Box*)ppSrcBox, copyFlags);
 				}
 			}
 		}
@@ -7639,30 +6534,26 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, ref Box pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppSrcBox = &pSrcBox)
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (D3D11Box*)ppSrcBox, copyFlags);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (Box*)ppSrcBox, copyFlags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, ref Box pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 			{
-				fixed (D3D11Box* ppSrcBox = &pSrcBox)
+				fixed (Box* ppSrcBox = &pSrcBox)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, (D3D11Box*)ppSrcBox, copyFlags);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, (Box*)ppSrcBox, copyFlags);
 				}
 			}
 		}
@@ -7670,32 +6561,28 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, ref Box pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppSrcBox = &pSrcBox)
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, (D3D11Box*)ppSrcBox, copyFlags);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, (Box*)ppSrcBox, copyFlags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, ref Box pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D11Box* ppSrcBox = &pSrcBox)
+					fixed (Box* ppSrcBox = &pSrcBox)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, (D3D11Box*)ppSrcBox, copyFlags);
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, (Box*)ppSrcBox, copyFlags);
 					}
 				}
 			}
@@ -7704,80 +6591,68 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopySubresourceRegion1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CopySubresourceRegion1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "DstX")] [NativeName(NativeNameType.Type, "UINT")] uint dstX, [NativeName(NativeNameType.Param, "DstY")] [NativeName(NativeNameType.Type, "UINT")] uint dstY, [NativeName(NativeNameType.Param, "DstZ")] [NativeName(NativeNameType.Type, "UINT")] uint dstZ, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pSrcResource, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pSrcBox, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void CopySubresourceRegion1(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, ref Box pSrcBox, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppSrcBox = &pSrcBox)
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, D3D11Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, (D3D11Box*)ppSrcBox, copyFlags);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, uint, void>)(LpVtbl[115]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, (Box*)ppSrcBox, copyFlags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void UpdateSubresource1(ID3D11Resource* pDstResource, uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, pDstResource, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, pDstResource, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void UpdateSubresource1(ref ID3D11Resource pDstResource, uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] D3D11Box* pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void UpdateSubresource1(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void UpdateSubresource1(ID3D11Resource* pDstResource, uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppDstBox = &pDstBox)
+			fixed (Box* ppDstBox = &pDstBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, pDstResource, dstSubresource, (D3D11Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, pDstResource, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void UpdateSubresource1(ref ID3D11Resource pDstResource, uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D11Box* ppDstBox = &pDstBox)
+				fixed (Box* ppDstBox = &pDstBox)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, (D3D11Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, (ID3D11Resource*)ppDstResource, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
 				}
 			}
 		}
@@ -7785,23 +6660,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateSubresource1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void UpdateSubresource1([NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pDstResource, [NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D11_BOX*")] ref D3D11Box pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch, [NativeName(NativeNameType.Param, "CopyFlags")] [NativeName(NativeNameType.Type, "UINT")] uint copyFlags) 
+		public readonly unsafe void UpdateSubresource1(ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch, uint copyFlags) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11Box* ppDstBox = &pDstBox)
+			fixed (Box* ppDstBox = &pDstBox)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, D3D11Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, (D3D11Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, uint, void>)(LpVtbl[116]))(ptr, (ID3D11Resource*)pDstResource.Handle, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch, copyFlags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardResource([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource) 
+		public readonly unsafe void DiscardResource(ID3D11Resource* pResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, void>)(LpVtbl[117]))(ptr, pResource);
@@ -7810,9 +6681,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardResource([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource) 
+		public readonly unsafe void DiscardResource(ref ID3D11Resource pResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Resource* ppResource = &pResource)
@@ -7824,9 +6693,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardResource([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource) 
+		public readonly unsafe void DiscardResource(ComPtr<ID3D11Resource> pResource) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, void>)(LpVtbl[117]))(ptr, (ID3D11Resource*)pResource.Handle);
@@ -7835,9 +6702,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardView([NativeName(NativeNameType.Param, "pResourceView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ID3D11View* pResourceView) 
+		public readonly unsafe void DiscardView(ID3D11View* pResourceView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11View*, void>)(LpVtbl[118]))(ptr, pResourceView);
@@ -7846,9 +6711,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardView([NativeName(NativeNameType.Param, "pResourceView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ref ID3D11View pResourceView) 
+		public readonly unsafe void DiscardView(ref ID3D11View pResourceView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11View* ppResourceView = &pResourceView)
@@ -7860,9 +6723,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardView([NativeName(NativeNameType.Param, "pResourceView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ComPtr<ID3D11View> pResourceView) 
+		public readonly unsafe void DiscardView(ComPtr<ID3D11View> pResourceView) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11View*, void>)(LpVtbl[118]))(ptr, (ID3D11View*)pResourceView.Handle);
@@ -7871,9 +6732,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[119]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -7882,9 +6741,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -7896,9 +6753,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[119]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle, pFirstConstant, pNumConstants);
@@ -7907,9 +6762,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -7921,9 +6774,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -7938,9 +6789,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -7952,9 +6801,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -7966,9 +6813,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -7983,9 +6828,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -7997,9 +6840,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8014,9 +6855,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8034,9 +6873,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8051,9 +6888,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[120]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -8062,9 +6897,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8076,9 +6909,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[120]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle, pFirstConstant, pNumConstants);
@@ -8087,9 +6918,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8101,9 +6930,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8118,9 +6945,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8132,9 +6957,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -8146,9 +6969,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8163,9 +6984,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -8177,9 +6996,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8194,9 +7011,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8214,9 +7029,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8231,9 +7044,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[121]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -8242,9 +7053,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8256,9 +7065,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[121]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle, pFirstConstant, pNumConstants);
@@ -8267,9 +7074,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8281,9 +7086,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8298,9 +7101,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8312,9 +7113,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -8326,9 +7125,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8343,9 +7140,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -8357,9 +7152,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8374,9 +7167,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8394,9 +7185,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8411,9 +7200,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[122]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -8422,9 +7209,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8436,9 +7221,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[122]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle, pFirstConstant, pNumConstants);
@@ -8447,9 +7230,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8461,9 +7242,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8478,9 +7257,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8492,9 +7269,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -8506,9 +7281,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8523,9 +7296,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -8537,9 +7308,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8554,9 +7323,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8574,9 +7341,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8591,9 +7356,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[123]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -8602,9 +7365,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8616,9 +7377,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[123]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle, pFirstConstant, pNumConstants);
@@ -8627,9 +7386,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8641,9 +7398,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8658,9 +7413,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8672,9 +7425,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -8686,9 +7437,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8703,9 +7452,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -8717,9 +7464,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8734,9 +7479,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8754,9 +7497,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8771,9 +7512,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[124]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -8782,9 +7521,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8796,9 +7533,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[124]))(ptr, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle, pFirstConstant, pNumConstants);
@@ -8807,9 +7542,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8821,9 +7554,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8838,9 +7569,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8852,9 +7581,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -8866,9 +7593,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8883,9 +7608,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -8897,9 +7620,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8914,9 +7635,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8934,9 +7653,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSSetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSSetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "const ID3D11Buffer**")] ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSSetConstantBuffers1(uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -8951,9 +7668,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[125]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -8962,9 +7677,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -8976,9 +7689,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -8990,9 +7701,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -9004,9 +7713,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9021,9 +7728,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9038,9 +7743,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -9052,9 +7755,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9069,9 +7770,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9086,9 +7785,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -9103,9 +7800,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9123,9 +7818,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void VSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void VSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9143,9 +7836,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[126]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -9154,9 +7845,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9168,9 +7857,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9182,9 +7869,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -9196,9 +7881,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9213,9 +7896,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9230,9 +7911,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -9244,9 +7923,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9261,9 +7938,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9278,9 +7953,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -9295,9 +7968,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9315,9 +7986,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "HSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void HSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void HSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9335,9 +8004,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[127]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -9346,9 +8013,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9360,9 +8025,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9374,9 +8037,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -9388,9 +8049,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9405,9 +8064,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9422,9 +8079,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -9436,9 +8091,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9453,9 +8106,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9470,9 +8121,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -9487,9 +8136,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9507,9 +8154,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void DSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9527,9 +8172,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[128]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -9538,9 +8181,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9552,9 +8193,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9566,9 +8205,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -9580,9 +8217,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9597,9 +8232,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9614,9 +8247,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -9628,9 +8259,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9645,9 +8274,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9662,9 +8289,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -9679,9 +8304,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9699,9 +8322,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void GSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void GSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9719,9 +8340,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[129]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -9730,9 +8349,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9744,9 +8361,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9758,9 +8373,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -9772,9 +8385,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9789,9 +8400,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9806,9 +8415,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -9820,9 +8427,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9837,9 +8442,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9854,9 +8457,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -9871,9 +8472,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9891,9 +8490,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void PSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9911,9 +8508,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(LpVtbl[130]))(ptr, startSlot, numBuffers, ppConstantBuffers, pFirstConstant, pNumConstants);
@@ -9922,9 +8517,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9936,9 +8529,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9950,9 +8541,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -9964,9 +8553,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -9981,9 +8568,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, uint* pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -9998,9 +8583,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumConstants = &pNumConstants)
@@ -10012,9 +8595,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -10029,9 +8610,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, uint* pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -10046,9 +8625,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ID3D11Buffer** ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFirstConstant = &pFirstConstant)
@@ -10063,9 +8640,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ID3D11Buffer* ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
@@ -10083,9 +8658,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CSGetConstantBuffers1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void CSGetConstantBuffers1([NativeName(NativeNameType.Param, "StartSlot")] [NativeName(NativeNameType.Type, "UINT")] uint startSlot, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "ppConstantBuffers")] [NativeName(NativeNameType.Type, "ID3D11Buffer**")] ref ComPtr<ID3D11Buffer> ppConstantBuffers, [NativeName(NativeNameType.Param, "pFirstConstant")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFirstConstant, [NativeName(NativeNameType.Param, "pNumConstants")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumConstants) 
+		public readonly unsafe void CSGetConstantBuffers1(uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppConstantBuffers, ref uint pFirstConstant, ref uint pNumConstants) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11Buffer>* pppConstantBuffers = &ppConstantBuffers)
@@ -10103,9 +8676,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SwapDeviceContextState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SwapDeviceContextState([NativeName(NativeNameType.Param, "pState")] [NativeName(NativeNameType.Type, "ID3DDeviceContextState*")] ID3DDeviceContextState* pState, [NativeName(NativeNameType.Param, "ppPreviousState")] [NativeName(NativeNameType.Type, "ID3DDeviceContextState**")] ID3DDeviceContextState** ppPreviousState) 
+		public readonly unsafe void SwapDeviceContextState(ID3DDeviceContextState* pState, ID3DDeviceContextState** ppPreviousState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3DDeviceContextState*, ID3DDeviceContextState**, void>)(LpVtbl[131]))(ptr, pState, ppPreviousState);
@@ -10114,9 +8685,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SwapDeviceContextState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SwapDeviceContextState([NativeName(NativeNameType.Param, "pState")] [NativeName(NativeNameType.Type, "ID3DDeviceContextState*")] ref ID3DDeviceContextState pState, [NativeName(NativeNameType.Param, "ppPreviousState")] [NativeName(NativeNameType.Type, "ID3DDeviceContextState**")] ID3DDeviceContextState** ppPreviousState) 
+		public readonly unsafe void SwapDeviceContextState(ref ID3DDeviceContextState pState, ID3DDeviceContextState** ppPreviousState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3DDeviceContextState* ppState = &pState)
@@ -10128,9 +8697,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SwapDeviceContextState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SwapDeviceContextState([NativeName(NativeNameType.Param, "pState")] [NativeName(NativeNameType.Type, "ID3DDeviceContextState*")] ID3DDeviceContextState* pState, [NativeName(NativeNameType.Param, "ppPreviousState")] [NativeName(NativeNameType.Type, "ID3DDeviceContextState**")] ref ID3DDeviceContextState* ppPreviousState) 
+		public readonly unsafe void SwapDeviceContextState(ID3DDeviceContextState* pState, ref ID3DDeviceContextState* ppPreviousState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3DDeviceContextState** pppPreviousState = &ppPreviousState)
@@ -10142,9 +8709,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SwapDeviceContextState")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SwapDeviceContextState([NativeName(NativeNameType.Param, "pState")] [NativeName(NativeNameType.Type, "ID3DDeviceContextState*")] ref ID3DDeviceContextState pState, [NativeName(NativeNameType.Param, "ppPreviousState")] [NativeName(NativeNameType.Type, "ID3DDeviceContextState**")] ref ID3DDeviceContextState* ppPreviousState) 
+		public readonly unsafe void SwapDeviceContextState(ref ID3DDeviceContextState pState, ref ID3DDeviceContextState* ppPreviousState) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3DDeviceContextState* ppState = &pState)
@@ -10159,9 +8724,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ID3D11View* pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ID3D11View* pView, float* color, Rect32* pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11View*, float*, Rect32*, uint, void>)(LpVtbl[132]))(ptr, pView, color, pRect, numRects);
@@ -10170,9 +8733,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ref ID3D11View pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ref ID3D11View pView, float* color, Rect32* pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11View* ppView = &pView)
@@ -10184,9 +8745,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ComPtr<ID3D11View> pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ComPtr<ID3D11View> pView, float* color, Rect32* pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11View*, float*, Rect32*, uint, void>)(LpVtbl[132]))(ptr, (ID3D11View*)pView.Handle, color, pRect, numRects);
@@ -10195,9 +8754,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ID3D11View* pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ID3D11View* pView, ref float color, Rect32* pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pcolor = &color)
@@ -10209,9 +8766,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ID3D11View* pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ReadOnlySpan<float> color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ID3D11View* pView, ReadOnlySpan<float> color, Rect32* pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pcolor = color)
@@ -10223,9 +8778,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ref ID3D11View pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ref ID3D11View pView, ref float color, Rect32* pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11View* ppView = &pView)
@@ -10240,9 +8793,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ref ID3D11View pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ReadOnlySpan<float> color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ref ID3D11View pView, ReadOnlySpan<float> color, Rect32* pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11View* ppView = &pView)
@@ -10257,9 +8808,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ComPtr<ID3D11View> pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ComPtr<ID3D11View> pView, ref float color, Rect32* pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pcolor = &color)
@@ -10271,9 +8820,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ID3D11View* pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ID3D11View* pView, float* color, ref Rect32 pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRect = &pRect)
@@ -10285,9 +8832,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ref ID3D11View pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ref ID3D11View pView, float* color, ref Rect32 pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11View* ppView = &pView)
@@ -10302,9 +8847,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ComPtr<ID3D11View> pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] float* color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ComPtr<ID3D11View> pView, float* color, ref Rect32 pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRect = &pRect)
@@ -10316,9 +8859,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ID3D11View* pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ID3D11View* pView, ref float color, ref Rect32 pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pcolor = &color)
@@ -10333,9 +8874,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ID3D11View* pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ReadOnlySpan<float> color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ID3D11View* pView, ReadOnlySpan<float> color, ref Rect32 pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pcolor = color)
@@ -10350,9 +8889,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ref ID3D11View pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ref ID3D11View pView, ref float color, ref Rect32 pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11View* ppView = &pView)
@@ -10370,9 +8907,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ref ID3D11View pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ReadOnlySpan<float> color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ref ID3D11View pView, ReadOnlySpan<float> color, ref Rect32 pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11View* ppView = &pView)
@@ -10390,9 +8925,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearView([NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ComPtr<ID3D11View> pView, [NativeName(NativeNameType.Param, "Color")] [NativeName(NativeNameType.Type, "const FLOAT[4]")] ref float color, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRect, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void ClearView(ComPtr<ID3D11View> pView, ref float color, ref Rect32 pRect, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (float* pcolor = &color)
@@ -10407,9 +8940,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardView1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardView1([NativeName(NativeNameType.Param, "pResourceView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ID3D11View* pResourceView, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRects, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void DiscardView1(ID3D11View* pResourceView, Rect32* pRects, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11View*, Rect32*, uint, void>)(LpVtbl[133]))(ptr, pResourceView, pRects, numRects);
@@ -10418,9 +8949,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardView1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardView1([NativeName(NativeNameType.Param, "pResourceView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ref ID3D11View pResourceView, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRects, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void DiscardView1(ref ID3D11View pResourceView, Rect32* pRects, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11View* ppResourceView = &pResourceView)
@@ -10432,9 +8961,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardView1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardView1([NativeName(NativeNameType.Param, "pResourceView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ComPtr<ID3D11View> pResourceView, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] Rect32* pRects, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void DiscardView1(ComPtr<ID3D11View> pResourceView, Rect32* pRects, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11View*, Rect32*, uint, void>)(LpVtbl[133]))(ptr, (ID3D11View*)pResourceView.Handle, pRects, numRects);
@@ -10443,9 +8970,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardView1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardView1([NativeName(NativeNameType.Param, "pResourceView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ID3D11View* pResourceView, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRects, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void DiscardView1(ID3D11View* pResourceView, ref Rect32 pRects, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRects = &pRects)
@@ -10457,9 +8982,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardView1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardView1([NativeName(NativeNameType.Param, "pResourceView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ref ID3D11View pResourceView, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRects, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void DiscardView1(ref ID3D11View pResourceView, ref Rect32 pRects, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11View* ppResourceView = &pResourceView)
@@ -10474,9 +8997,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardView1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardView1([NativeName(NativeNameType.Param, "pResourceView")] [NativeName(NativeNameType.Type, "ID3D11View*")] ComPtr<ID3D11View> pResourceView, [NativeName(NativeNameType.Param, "pRects")] [NativeName(NativeNameType.Type, "const D3D11_RECT*")] ref Rect32 pRects, [NativeName(NativeNameType.Param, "NumRects")] [NativeName(NativeNameType.Type, "UINT")] uint numRects) 
+		public readonly unsafe void DiscardView1(ComPtr<ID3D11View> pResourceView, ref Rect32 pRects, uint numRects) 
 		{
 			ID3D11DeviceContext1* ptr = (ID3D11DeviceContext1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRects = &pRects)

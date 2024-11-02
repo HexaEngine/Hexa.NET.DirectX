@@ -16,192 +16,94 @@ namespace Hexa.NET.DXGI
 {
 	public unsafe partial class DXGI
 	{
-		[NativeName(NativeNameType.Const, "__REQUIRED_RPCNDR_H_VERSION__")]
-		[NativeName(NativeNameType.Value, "501")]
-		public const int __REQUIRED_RPCNDR_H_VERSION__ = 501;
-
-		[NativeName(NativeNameType.Const, "__REQUIRED_RPCSAL_H_VERSION__")]
-		[NativeName(NativeNameType.Value, "100")]
-		public const int __REQUIRED_RPCSAL_H_VERSION__ = 100;
-
-		[NativeName(NativeNameType.Const, "DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN")]
-		[NativeName(NativeNameType.Value, "0xffffffff")]
 		public const uint DXGI_STANDARD_MULTISAMPLE_QUALITY_PATTERN = 0xffffffff;
 
-		[NativeName(NativeNameType.Const, "DXGI_CENTER_MULTISAMPLE_QUALITY_PATTERN")]
-		[NativeName(NativeNameType.Value, "0xfffffffe")]
 		public const uint DXGI_CENTER_MULTISAMPLE_QUALITY_PATTERN = 0xfffffffe;
 
-		[NativeName(NativeNameType.Const, "DXGI_FORMAT_DEFINED")]
-		[NativeName(NativeNameType.Value, "1")]
 		public const int DXGI_FORMAT_DEFINED = 1;
 
-		[NativeName(NativeNameType.Const, "_FACDXGI")]
-		[NativeName(NativeNameType.Value, "0x87a")]
 		public const int _FACDXGI = 0x87a;
 
-		[NativeName(NativeNameType.Const, "DXGI_CPU_ACCESS_NONE")]
-		[NativeName(NativeNameType.Value, "(0)")]
 		public const int DXGI_CPU_ACCESS_NONE = (0);
 
-		[NativeName(NativeNameType.Const, "DXGI_CPU_ACCESS_DYNAMIC")]
-		[NativeName(NativeNameType.Value, "(1)")]
 		public const int DXGI_CPU_ACCESS_DYNAMIC = (1);
 
-		[NativeName(NativeNameType.Const, "DXGI_CPU_ACCESS_READ_WRITE")]
-		[NativeName(NativeNameType.Value, "(2)")]
 		public const int DXGI_CPU_ACCESS_READ_WRITE = (2);
 
-		[NativeName(NativeNameType.Const, "DXGI_CPU_ACCESS_SCRATCH")]
-		[NativeName(NativeNameType.Value, "(3)")]
 		public const int DXGI_CPU_ACCESS_SCRATCH = (3);
 
-		[NativeName(NativeNameType.Const, "DXGI_CPU_ACCESS_FIELD")]
-		[NativeName(NativeNameType.Value, "15")]
 		public const int DXGI_CPU_ACCESS_FIELD = 15;
 
-		[NativeName(NativeNameType.Const, "DXGI_USAGE_SHADER_INPUT")]
-		[NativeName(NativeNameType.Value, "0x00000010UL")]
 		public const ulong DXGI_USAGE_SHADER_INPUT = 0x00000010UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_USAGE_RENDER_TARGET_OUTPUT")]
-		[NativeName(NativeNameType.Value, "0x00000020UL")]
 		public const ulong DXGI_USAGE_RENDER_TARGET_OUTPUT = 0x00000020UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_USAGE_BACK_BUFFER")]
-		[NativeName(NativeNameType.Value, "0x00000040UL")]
 		public const ulong DXGI_USAGE_BACK_BUFFER = 0x00000040UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_USAGE_SHARED")]
-		[NativeName(NativeNameType.Value, "0x00000080UL")]
 		public const ulong DXGI_USAGE_SHARED = 0x00000080UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_USAGE_READ_ONLY")]
-		[NativeName(NativeNameType.Value, "0x00000100UL")]
 		public const ulong DXGI_USAGE_READ_ONLY = 0x00000100UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_USAGE_DISCARD_ON_PRESENT")]
-		[NativeName(NativeNameType.Value, "0x00000200UL")]
 		public const ulong DXGI_USAGE_DISCARD_ON_PRESENT = 0x00000200UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_USAGE_UNORDERED_ACCESS")]
-		[NativeName(NativeNameType.Value, "0x00000400UL")]
 		public const ulong DXGI_USAGE_UNORDERED_ACCESS = 0x00000400UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_RESOURCE_PRIORITY_MINIMUM")]
-		[NativeName(NativeNameType.Value, "(0x28000000)")]
 		public const int DXGI_RESOURCE_PRIORITY_MINIMUM = (0x28000000);
 
-		[NativeName(NativeNameType.Const, "DXGI_RESOURCE_PRIORITY_LOW")]
-		[NativeName(NativeNameType.Value, "(0x50000000)")]
 		public const int DXGI_RESOURCE_PRIORITY_LOW = (0x50000000);
 
-		[NativeName(NativeNameType.Const, "DXGI_RESOURCE_PRIORITY_NORMAL")]
-		[NativeName(NativeNameType.Value, "(0x78000000)")]
 		public const int DXGI_RESOURCE_PRIORITY_NORMAL = (0x78000000);
 
-		[NativeName(NativeNameType.Const, "DXGI_RESOURCE_PRIORITY_HIGH")]
-		[NativeName(NativeNameType.Value, "(0xa0000000)")]
 		public const uint DXGI_RESOURCE_PRIORITY_HIGH = (0xa0000000);
 
-		[NativeName(NativeNameType.Const, "DXGI_RESOURCE_PRIORITY_MAXIMUM")]
-		[NativeName(NativeNameType.Value, "(0xc8000000)")]
 		public const uint DXGI_RESOURCE_PRIORITY_MAXIMUM = (0xc8000000);
 
-		[NativeName(NativeNameType.Const, "DXGI_MAP_READ")]
-		[NativeName(NativeNameType.Value, "(1UL)")]
 		public const ulong DXGI_MAP_READ = (1UL);
 
-		[NativeName(NativeNameType.Const, "DXGI_MAP_WRITE")]
-		[NativeName(NativeNameType.Value, "(2UL)")]
 		public const ulong DXGI_MAP_WRITE = (2UL);
 
-		[NativeName(NativeNameType.Const, "DXGI_MAP_DISCARD")]
-		[NativeName(NativeNameType.Value, "(4UL)")]
 		public const ulong DXGI_MAP_DISCARD = (4UL);
 
-		[NativeName(NativeNameType.Const, "DXGI_ENUM_MODES_INTERLACED")]
-		[NativeName(NativeNameType.Value, "(1UL)")]
 		public const ulong DXGI_ENUM_MODES_INTERLACED = (1UL);
 
-		[NativeName(NativeNameType.Const, "DXGI_ENUM_MODES_SCALING")]
-		[NativeName(NativeNameType.Value, "(2UL)")]
 		public const ulong DXGI_ENUM_MODES_SCALING = (2UL);
 
-		[NativeName(NativeNameType.Const, "DXGI_MAX_SWAP_CHAIN_BUFFERS")]
-		[NativeName(NativeNameType.Value, "(16)")]
 		public const int DXGI_MAX_SWAP_CHAIN_BUFFERS = (16);
 
-		[NativeName(NativeNameType.Const, "DXGI_PRESENT_TEST")]
-		[NativeName(NativeNameType.Value, "0x00000001UL")]
 		public const ulong DXGI_PRESENT_TEST = 0x00000001UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_PRESENT_DO_NOT_SEQUENCE")]
-		[NativeName(NativeNameType.Value, "0x00000002UL")]
 		public const ulong DXGI_PRESENT_DO_NOT_SEQUENCE = 0x00000002UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_PRESENT_RESTART")]
-		[NativeName(NativeNameType.Value, "0x00000004UL")]
 		public const ulong DXGI_PRESENT_RESTART = 0x00000004UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_PRESENT_DO_NOT_WAIT")]
-		[NativeName(NativeNameType.Value, "0x00000008UL")]
 		public const ulong DXGI_PRESENT_DO_NOT_WAIT = 0x00000008UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_PRESENT_STEREO_PREFER_RIGHT")]
-		[NativeName(NativeNameType.Value, "0x00000010UL")]
 		public const ulong DXGI_PRESENT_STEREO_PREFER_RIGHT = 0x00000010UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_PRESENT_STEREO_TEMPORARY_MONO")]
-		[NativeName(NativeNameType.Value, "0x00000020UL")]
 		public const ulong DXGI_PRESENT_STEREO_TEMPORARY_MONO = 0x00000020UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_PRESENT_RESTRICT_TO_OUTPUT")]
-		[NativeName(NativeNameType.Value, "0x00000040UL")]
 		public const ulong DXGI_PRESENT_RESTRICT_TO_OUTPUT = 0x00000040UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_PRESENT_USE_DURATION")]
-		[NativeName(NativeNameType.Value, "0x00000100UL")]
 		public const ulong DXGI_PRESENT_USE_DURATION = 0x00000100UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_PRESENT_ALLOW_TEARING")]
-		[NativeName(NativeNameType.Value, "0x00000200UL")]
 		public const ulong DXGI_PRESENT_ALLOW_TEARING = 0x00000200UL;
 
-		[NativeName(NativeNameType.Const, "DXGI_MWA_VALID")]
-		[NativeName(NativeNameType.Value, "(0x7)")]
 		public const int DXGI_MWA_VALID = (0x7);
 
-		[NativeName(NativeNameType.Const, "DXGI_ENUM_MODES_STEREO")]
-		[NativeName(NativeNameType.Value, "(4UL)")]
 		public const ulong DXGI_ENUM_MODES_STEREO = (4UL);
 
-		[NativeName(NativeNameType.Const, "DXGI_ENUM_MODES_DISABLED_STEREO")]
-		[NativeName(NativeNameType.Value, "(8UL)")]
 		public const ulong DXGI_ENUM_MODES_DISABLED_STEREO = (8UL);
 
-		[NativeName(NativeNameType.Const, "DXGI_SHARED_RESOURCE_READ")]
-		[NativeName(NativeNameType.Value, "(0x80000000L)")]
 		public const long DXGI_SHARED_RESOURCE_READ = (0x80000000L);
 
-		[NativeName(NativeNameType.Const, "DXGI_SHARED_RESOURCE_WRITE")]
-		[NativeName(NativeNameType.Value, "(1)")]
 		public const int DXGI_SHARED_RESOURCE_WRITE = (1);
 
-		[NativeName(NativeNameType.Const, "DXGI_CREATE_FACTORY_DEBUG")]
-		[NativeName(NativeNameType.Value, "0x1")]
 		public const int DXGI_CREATE_FACTORY_DEBUG = 0x1;
 
-		[NativeName(NativeNameType.Const, "DXGI_DEBUG_BINARY_VERSION")]
-		[NativeName(NativeNameType.Value, "(1)")]
 		public const int DXGI_DEBUG_BINARY_VERSION = (1);
 
-		[NativeName(NativeNameType.Const, "DXGI_INFO_QUEUE_MESSAGE_ID_STRING_FROM_APPLICATION")]
-		[NativeName(NativeNameType.Value, "0")]
 		public const int DXGI_INFO_QUEUE_MESSAGE_ID_STRING_FROM_APPLICATION = 0;
 
-		[NativeName(NativeNameType.Const, "DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT")]
-		[NativeName(NativeNameType.Value, "1024")]
 		public const int DXGI_INFO_QUEUE_DEFAULT_MESSAGE_COUNT_LIMIT = 1024;
 
 	}

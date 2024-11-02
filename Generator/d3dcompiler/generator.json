@@ -4,7 +4,9 @@
   "LibName": "d3dcompiler_47",
   "Usings": [ "Hexa.NET.D3DCommon", "Hexa.NET.D3D11" ],
   "GenerateSizeOfStructs": false,
-  "GenerateMetadata": true,
+  "GenerateMetadata": false,
+  "FunctionNamingConvention": "Unknown",
+  "ExtensionNamingConvention": "Unknown",
   "BoolType": 1,
   "TypeMappings": {
     "DXGI_USAGE": "uint",

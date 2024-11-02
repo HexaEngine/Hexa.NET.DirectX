@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcCompilerArgs")]
 	public partial struct IDxcCompilerArgs : IComObject, IComObject<IDxcCompilerArgs>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,8 +99,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Pass GetArguments() and GetCount() to Compile<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetArguments")]
-		[return: NativeName(NativeNameType.Type, "LPCWSTR*")]
 		public readonly unsafe char** GetArguments() 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -124,8 +109,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCount")]
-		[return: NativeName(NativeNameType.Type, "UINT32")]
 		public readonly unsafe uint GetCount() 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -136,9 +119,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Add additional arguments or defines here, if desired.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddArguments")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddArguments([NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount) 
+		public readonly unsafe int AddArguments(char** pArguments, uint argCount) 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, char**, uint, int>)(LpVtbl[5]))(ptr, pArguments, argCount);
@@ -148,9 +129,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Add additional arguments or defines here, if desired.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddArguments")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddArguments([NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount) 
+		public readonly unsafe int AddArguments(ref char* pArguments, uint argCount) 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -163,9 +142,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddArgumentsUTF8")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddArgumentsUTF8([NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCSTR*")] byte** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount) 
+		public readonly unsafe int AddArgumentsUTF8(byte** pArguments, uint argCount) 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, byte**, uint, int>)(LpVtbl[6]))(ptr, pArguments, argCount);
@@ -175,9 +152,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddArgumentsUTF8")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddArgumentsUTF8([NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCSTR*")] ref byte* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount) 
+		public readonly unsafe int AddArgumentsUTF8(ref byte* pArguments, uint argCount) 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte** ppArguments = &pArguments)
@@ -190,26 +165,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddDefines")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddDefines([NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount) 
+		public readonly unsafe int AddDefines(Define* pDefines, uint defineCount) 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, DxcDefine*, uint, int>)(LpVtbl[7]))(ptr, pDefines, defineCount);
+			int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Define*, uint, int>)(LpVtbl[7]))(ptr, pDefines, defineCount);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddDefines")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddDefines([NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount) 
+		public readonly unsafe int AddDefines(ref Define pDefines, uint defineCount) 
 		{
 			IDxcCompilerArgs* ptr = (IDxcCompilerArgs*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcDefine* ppDefines = &pDefines)
+			fixed (Define* ppDefines = &pDefines)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, DxcDefine*, uint, int>)(LpVtbl[7]))(ptr, (DxcDefine*)ppDefines, defineCount);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcCompilerArgs*, Define*, uint, int>)(LpVtbl[7]))(ptr, (Define*)ppDefines, defineCount);
 				return ret;
 			}
 		}

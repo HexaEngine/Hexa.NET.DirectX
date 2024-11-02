@@ -20,7 +20,6 @@ namespace Hexa.NET.D3D12
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.Typedef, "LPD3D12LIBRARYREFLECTION")]
 	#if NET5_0_OR_GREATER
 	[DebuggerDisplay("{DebuggerDisplay,nq}")]
 	#endif

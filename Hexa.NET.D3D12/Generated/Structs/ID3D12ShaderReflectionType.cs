@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// {E913C351-783D-48CA-A1D1-4F306284AD56}<br/>
 	/// </summary>
 	[Guid("e913c351-783d-48ca-a1d1-4f306284ad56")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12ShaderReflectionType")]
 	public partial struct ID3D12ShaderReflectionType : IComObject, IComObject<ID3D12ShaderReflectionType>
 	{
 		public unsafe void** LpVtbl;
@@ -37,26 +36,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D12_SHADER_TYPE_DESC*")] D3D12ShaderTypeDesc* pDesc) 
+		public readonly unsafe int GetDesc(ShaderTypeDesc* pDesc) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, D3D12ShaderTypeDesc*, int>)(*LpVtbl))(ptr, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, ShaderTypeDesc*, int>)(*LpVtbl))(ptr, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D12_SHADER_TYPE_DESC*")] ref D3D12ShaderTypeDesc pDesc) 
+		public readonly unsafe int GetDesc(ref ShaderTypeDesc pDesc) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12ShaderTypeDesc* ppDesc = &pDesc)
+			fixed (ShaderTypeDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, D3D12ShaderTypeDesc*, int>)(*LpVtbl))(ptr, (D3D12ShaderTypeDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, ShaderTypeDesc*, int>)(*LpVtbl))(ptr, (ShaderTypeDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeByIndex")]
-		[return: NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")]
-		public readonly unsafe ID3D12ShaderReflectionType* GetMemberTypeByIndex([NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
+		public readonly unsafe ID3D12ShaderReflectionType* GetMemberTypeByIndex(uint index) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ID3D12ShaderReflectionType* ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, uint, ID3D12ShaderReflectionType*>)(LpVtbl[1]))(ptr, index);
@@ -76,9 +69,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")]
-		public readonly unsafe ID3D12ShaderReflectionType* GetMemberTypeByName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* name) 
+		public readonly unsafe ID3D12ShaderReflectionType* GetMemberTypeByName(byte* name) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ID3D12ShaderReflectionType* ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, byte*, ID3D12ShaderReflectionType*>)(LpVtbl[2]))(ptr, name);
@@ -88,9 +79,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")]
-		public readonly unsafe ID3D12ShaderReflectionType* GetMemberTypeByName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> name) 
+		public readonly unsafe ID3D12ShaderReflectionType* GetMemberTypeByName(ReadOnlySpan<byte> name) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* pname = name)
@@ -103,9 +92,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")]
-		public readonly unsafe ID3D12ShaderReflectionType* GetMemberTypeByName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] string name) 
+		public readonly unsafe ID3D12ShaderReflectionType* GetMemberTypeByName(string name) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -136,9 +123,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeName")]
-		[return: NativeName(NativeNameType.Type, "LPCSTR")]
-		public readonly unsafe byte* GetMemberTypeName([NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
+		public readonly unsafe byte* GetMemberTypeName(uint index) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, uint, byte*>)(LpVtbl[3]))(ptr, index);
@@ -148,9 +133,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeName")]
-		[return: NativeName(NativeNameType.Type, "LPCSTR")]
-		public readonly unsafe string GetMemberTypeNameS([NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
+		public readonly unsafe string GetMemberTypeNameS(uint index) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			string ret = Utils.DecodeStringUTF8(((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, uint, byte*>)(LpVtbl[3]))(ptr, index));
@@ -160,9 +143,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IsEqual")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int IsEqual([NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")] ID3D12ShaderReflectionType* pType) 
+		public readonly unsafe int IsEqual(ID3D12ShaderReflectionType* pType) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, ID3D12ShaderReflectionType*, int>)(LpVtbl[4]))(ptr, pType);
@@ -172,9 +153,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IsEqual")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int IsEqual([NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")] ref ID3D12ShaderReflectionType pType) 
+		public readonly unsafe int IsEqual(ref ID3D12ShaderReflectionType pType) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ShaderReflectionType* ppType = &pType)
@@ -187,9 +166,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IsEqual")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int IsEqual([NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")] ComPtr<ID3D12ShaderReflectionType> pType) 
+		public readonly unsafe int IsEqual(ComPtr<ID3D12ShaderReflectionType> pType) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, ID3D12ShaderReflectionType*, int>)(LpVtbl[4]))(ptr, (ID3D12ShaderReflectionType*)pType.Handle);
@@ -199,8 +176,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSubType")]
-		[return: NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")]
 		public readonly unsafe ID3D12ShaderReflectionType* GetSubType() 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -211,8 +186,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBaseClass")]
-		[return: NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")]
 		public readonly unsafe ID3D12ShaderReflectionType* GetBaseClass() 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -223,8 +196,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumInterfaces")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
 		public readonly unsafe uint GetNumInterfaces() 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -235,9 +206,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetInterfaceByIndex")]
-		[return: NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")]
-		public readonly unsafe ID3D12ShaderReflectionType* GetInterfaceByIndex([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT")] uint uIndex) 
+		public readonly unsafe ID3D12ShaderReflectionType* GetInterfaceByIndex(uint uIndex) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ID3D12ShaderReflectionType* ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, uint, ID3D12ShaderReflectionType*>)(LpVtbl[8]))(ptr, uIndex);
@@ -247,9 +216,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IsOfType")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int IsOfType([NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")] ID3D12ShaderReflectionType* pType) 
+		public readonly unsafe int IsOfType(ID3D12ShaderReflectionType* pType) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, ID3D12ShaderReflectionType*, int>)(LpVtbl[9]))(ptr, pType);
@@ -259,9 +226,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IsOfType")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int IsOfType([NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")] ref ID3D12ShaderReflectionType pType) 
+		public readonly unsafe int IsOfType(ref ID3D12ShaderReflectionType pType) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ShaderReflectionType* ppType = &pType)
@@ -274,9 +239,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IsOfType")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int IsOfType([NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")] ComPtr<ID3D12ShaderReflectionType> pType) 
+		public readonly unsafe int IsOfType(ComPtr<ID3D12ShaderReflectionType> pType) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, ID3D12ShaderReflectionType*, int>)(LpVtbl[9]))(ptr, (ID3D12ShaderReflectionType*)pType.Handle);
@@ -286,9 +249,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ImplementsInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ImplementsInterface([NativeName(NativeNameType.Param, "pBase")] [NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")] ID3D12ShaderReflectionType* pBase) 
+		public readonly unsafe int ImplementsInterface(ID3D12ShaderReflectionType* pBase) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, ID3D12ShaderReflectionType*, int>)(LpVtbl[10]))(ptr, pBase);
@@ -298,9 +259,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ImplementsInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ImplementsInterface([NativeName(NativeNameType.Param, "pBase")] [NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")] ref ID3D12ShaderReflectionType pBase) 
+		public readonly unsafe int ImplementsInterface(ref ID3D12ShaderReflectionType pBase) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ShaderReflectionType* ppBase = &pBase)
@@ -313,9 +272,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ImplementsInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ImplementsInterface([NativeName(NativeNameType.Param, "pBase")] [NativeName(NativeNameType.Type, "ID3D12ShaderReflectionType*")] ComPtr<ID3D12ShaderReflectionType> pBase) 
+		public readonly unsafe int ImplementsInterface(ComPtr<ID3D12ShaderReflectionType> pBase) 
 		{
 			ID3D12ShaderReflectionType* ptr = (ID3D12ShaderReflectionType*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12ShaderReflectionType*, ID3D12ShaderReflectionType*, int>)(LpVtbl[10]))(ptr, (ID3D12ShaderReflectionType*)pBase.Handle);

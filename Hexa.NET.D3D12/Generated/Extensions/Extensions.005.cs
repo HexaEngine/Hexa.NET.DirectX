@@ -23,3782 +23,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandAllocator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandAllocator<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandAllocator")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandAllocator) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppCommandAllocator = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandListType, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, type, (Guid*)priid, (void**)ppCommandAllocator.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateGraphicsPipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateGraphicsPipelineState(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pDesc, riid, ppPipelineState);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateGraphicsPipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateGraphicsPipelineState(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (D3D12GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateGraphicsPipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateGraphicsPipelineState(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pDesc, (Guid*)priid, ppPipelineState);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateGraphicsPipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateGraphicsPipelineState(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (D3D12GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateGraphicsPipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateGraphicsPipelineState<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppPipelineState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateGraphicsPipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateGraphicsPipelineState<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
-			{
-				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (D3D12GraphicsPipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateGraphicsPipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateGraphicsPipelineState<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateGraphicsPipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateGraphicsPipelineState<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppPipelineState = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (D3D12GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateComputePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateComputePipelineState(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, pDesc, riid, ppPipelineState);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateComputePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateComputePipelineState(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, (D3D12ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateComputePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateComputePipelineState(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, pDesc, (Guid*)priid, ppPipelineState);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateComputePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateComputePipelineState(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, (D3D12ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateComputePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateComputePipelineState<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppPipelineState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateComputePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateComputePipelineState<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
-			{
-				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, (D3D12ComputePipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateComputePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateComputePipelineState<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateComputePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateComputePipelineState<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppPipelineState = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, (D3D12ComputePipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ID3D12CommandAllocator* pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, pInitialState, riid, ppCommandList);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ref ID3D12CommandAllocator pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12CommandAllocator* ppCommandAllocator = &pCommandAllocator)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)ppCommandAllocator, pInitialState, riid, ppCommandList);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ComPtr<ID3D12CommandAllocator> pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, pInitialState, riid, ppCommandList);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ID3D12CommandAllocator* pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ref ID3D12PipelineState pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12PipelineState* ppInitialState = &pInitialState)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)ppInitialState, riid, ppCommandList);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ID3D12CommandAllocator* pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ComPtr<ID3D12PipelineState> pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)pInitialState.Handle, riid, ppCommandList);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ref ID3D12CommandAllocator pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ref ID3D12PipelineState pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12CommandAllocator* ppCommandAllocator = &pCommandAllocator)
-			{
-				fixed (ID3D12PipelineState* ppInitialState = &pInitialState)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)ppCommandAllocator, (ID3D12PipelineState*)ppInitialState, riid, ppCommandList);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ComPtr<ID3D12CommandAllocator> pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ComPtr<ID3D12PipelineState> pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, (ID3D12PipelineState*)pInitialState.Handle, riid, ppCommandList);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ID3D12CommandAllocator* pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, pInitialState, (Guid*)priid, ppCommandList);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ref ID3D12CommandAllocator pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12CommandAllocator* ppCommandAllocator = &pCommandAllocator)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)ppCommandAllocator, pInitialState, (Guid*)priid, ppCommandList);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ComPtr<ID3D12CommandAllocator> pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, pInitialState, (Guid*)priid, ppCommandList);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ID3D12CommandAllocator* pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ref ID3D12PipelineState pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12PipelineState* ppInitialState = &pInitialState)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)ppInitialState, (Guid*)priid, ppCommandList);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ID3D12CommandAllocator* pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ComPtr<ID3D12PipelineState> pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)priid, ppCommandList);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ref ID3D12CommandAllocator pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ref ID3D12PipelineState pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12CommandAllocator* ppCommandAllocator = &pCommandAllocator)
-			{
-				fixed (ID3D12PipelineState* ppInitialState = &pInitialState)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)ppCommandAllocator, (ID3D12PipelineState*)ppInitialState, (Guid*)priid, ppCommandList);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ComPtr<ID3D12CommandAllocator> pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ComPtr<ID3D12PipelineState> pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)priid, ppCommandList);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ID3D12CommandAllocator* pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pInitialState, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppCommandList = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, pInitialState, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandList.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ComPtr<ID3D12CommandAllocator> pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pInitialState, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppCommandList = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, pInitialState, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandList.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ID3D12CommandAllocator* pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ComPtr<ID3D12PipelineState> pInitialState, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppCommandList = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandList.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ComPtr<ID3D12CommandAllocator> pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ComPtr<ID3D12PipelineState> pInitialState, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppCommandList = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandList.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ID3D12CommandAllocator* pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppCommandList = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, pInitialState, (Guid*)priid, (void**)ppCommandList.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ComPtr<ID3D12CommandAllocator> pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppCommandList = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, pInitialState, (Guid*)priid, (void**)ppCommandList.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ID3D12CommandAllocator* pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ComPtr<ID3D12PipelineState> pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppCommandList = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)priid, (void**)ppCommandList.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "pCommandAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ComPtr<ID3D12CommandAllocator> pCommandAllocator, [NativeName(NativeNameType.Param, "pInitialState")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ComPtr<ID3D12PipelineState> pInitialState, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppCommandList = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)priid, (void**)ppCommandList.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckFeatureSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckFeatureSupport(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Feature")] [NativeName(NativeNameType.Type, "D3D12_FEATURE")] D3D12Feature feature, [NativeName(NativeNameType.Param, "pFeatureSupportData")] [NativeName(NativeNameType.Type, "void*")] void* pFeatureSupportData, [NativeName(NativeNameType.Param, "FeatureSupportDataSize")] [NativeName(NativeNameType.Type, "UINT")] uint featureSupportDataSize) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12Feature, void*, uint, int>)(handle->LpVtbl[13]))(handle, feature, pFeatureSupportData, featureSupportDataSize);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckFeatureSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckFeatureSupport<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Feature")] [NativeName(NativeNameType.Type, "D3D12_FEATURE")] D3D12Feature feature, [NativeName(NativeNameType.Param, "pFeatureSupportData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pFeatureSupportData, [NativeName(NativeNameType.Param, "FeatureSupportDataSize")] [NativeName(NativeNameType.Type, "UINT")] uint featureSupportDataSize) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12Feature, void*, uint, int>)(handle->LpVtbl[13]))(handle, feature, (void*)pFeatureSupportData.Handle, featureSupportDataSize);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDescriptorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDescriptorHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDescriptorHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_DESCRIPTOR_HEAP_DESC*")] D3D12DescriptorHeapDesc* pDescriptorHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, pDescriptorHeapDesc, riid, ppvHeap);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDescriptorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDescriptorHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDescriptorHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_DESCRIPTOR_HEAP_DESC*")] ref D3D12DescriptorHeapDesc pDescriptorHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12DescriptorHeapDesc* ppDescriptorHeapDesc = &pDescriptorHeapDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, (D3D12DescriptorHeapDesc*)ppDescriptorHeapDesc, riid, ppvHeap);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDescriptorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDescriptorHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDescriptorHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_DESCRIPTOR_HEAP_DESC*")] D3D12DescriptorHeapDesc* pDescriptorHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, pDescriptorHeapDesc, (Guid*)priid, ppvHeap);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDescriptorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDescriptorHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDescriptorHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_DESCRIPTOR_HEAP_DESC*")] ref D3D12DescriptorHeapDesc pDescriptorHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12DescriptorHeapDesc* ppDescriptorHeapDesc = &pDescriptorHeapDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, (D3D12DescriptorHeapDesc*)ppDescriptorHeapDesc, (Guid*)priid, ppvHeap);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDescriptorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDescriptorHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDescriptorHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_DESCRIPTOR_HEAP_DESC*")] D3D12DescriptorHeapDesc* pDescriptorHeapDesc, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppvHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, pDescriptorHeapDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDescriptorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDescriptorHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDescriptorHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_DESCRIPTOR_HEAP_DESC*")] ref D3D12DescriptorHeapDesc pDescriptorHeapDesc, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12DescriptorHeapDesc* ppDescriptorHeapDesc = &pDescriptorHeapDesc)
-			{
-				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, (D3D12DescriptorHeapDesc*)ppDescriptorHeapDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDescriptorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDescriptorHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDescriptorHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_DESCRIPTOR_HEAP_DESC*")] D3D12DescriptorHeapDesc* pDescriptorHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, pDescriptorHeapDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDescriptorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDescriptorHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDescriptorHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_DESCRIPTOR_HEAP_DESC*")] ref D3D12DescriptorHeapDesc pDescriptorHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12DescriptorHeapDesc* ppDescriptorHeapDesc = &pDescriptorHeapDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppvHeap = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, (D3D12DescriptorHeapDesc*)ppDescriptorHeapDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDescriptorHandleIncrementSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetDescriptorHandleIncrementSize(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "DescriptorHeapType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12DescriptorHeapType, uint>)(handle->LpVtbl[15]))(handle, descriptorHeapType);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateRootSignature(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pBlobWithRootSignature")] [NativeName(NativeNameType.Type, "const void*")] void* pBlobWithRootSignature, [NativeName(NativeNameType.Param, "blobLengthInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint blobLengthInBytes, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvRootSignature")] [NativeName(NativeNameType.Type, "void**")] void** ppvRootSignature) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[16]))(handle, nodeMask, pBlobWithRootSignature, blobLengthInBytes, riid, ppvRootSignature);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateRootSignature(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pBlobWithRootSignature")] [NativeName(NativeNameType.Type, "const void*")] void* pBlobWithRootSignature, [NativeName(NativeNameType.Param, "blobLengthInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint blobLengthInBytes, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvRootSignature")] [NativeName(NativeNameType.Type, "void**")] void** ppvRootSignature) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[16]))(handle, nodeMask, pBlobWithRootSignature, blobLengthInBytes, (Guid*)priid, ppvRootSignature);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateRootSignature<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pBlobWithRootSignature")] [NativeName(NativeNameType.Type, "const void*")] void* pBlobWithRootSignature, [NativeName(NativeNameType.Param, "blobLengthInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint blobLengthInBytes, [NativeName(NativeNameType.Param, "ppvRootSignature")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvRootSignature) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppvRootSignature = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[16]))(handle, nodeMask, pBlobWithRootSignature, blobLengthInBytes, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvRootSignature.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateRootSignature<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pBlobWithRootSignature")] [NativeName(NativeNameType.Type, "const void*")] void* pBlobWithRootSignature, [NativeName(NativeNameType.Param, "blobLengthInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint blobLengthInBytes, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvRootSignature")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvRootSignature) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvRootSignature = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[16]))(handle, nodeMask, pBlobWithRootSignature, blobLengthInBytes, (Guid*)priid, (void**)ppvRootSignature.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateConstantBufferView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateConstantBufferView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_CONSTANT_BUFFER_VIEW_DESC*")] D3D12ConstantBufferViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ConstantBufferViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[17]))(handle, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateConstantBufferView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateConstantBufferView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_CONSTANT_BUFFER_VIEW_DESC*")] ref D3D12ConstantBufferViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ConstantBufferViewDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ConstantBufferViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[17]))(handle, (D3D12ConstantBufferViewDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderResourceView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_SHADER_RESOURCE_VIEW_DESC*")] D3D12ShaderResourceViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12ShaderResourceViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, pResource, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderResourceView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_SHADER_RESOURCE_VIEW_DESC*")] D3D12ShaderResourceViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12ShaderResourceViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, (ID3D12Resource*)ppResource, pDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderResourceView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_SHADER_RESOURCE_VIEW_DESC*")] D3D12ShaderResourceViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12ShaderResourceViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, (ID3D12Resource*)pResource.Handle, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderResourceView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_SHADER_RESOURCE_VIEW_DESC*")] ref D3D12ShaderResourceViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ShaderResourceViewDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12ShaderResourceViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, pResource, (D3D12ShaderResourceViewDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderResourceView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_SHADER_RESOURCE_VIEW_DESC*")] ref D3D12ShaderResourceViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12ShaderResourceViewDesc* ppDesc = &pDesc)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12ShaderResourceViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, (ID3D12Resource*)ppResource, (D3D12ShaderResourceViewDesc*)ppDesc, destDescriptor);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderResourceView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_SHADER_RESOURCE_VIEW_DESC*")] ref D3D12ShaderResourceViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ShaderResourceViewDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12ShaderResourceViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, (ID3D12Resource*)pResource.Handle, (D3D12ShaderResourceViewDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] D3D12UnorderedAccessViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, pCounterResource, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] D3D12UnorderedAccessViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)ppResource, pCounterResource, pDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] D3D12UnorderedAccessViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)pResource.Handle, pCounterResource, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] D3D12UnorderedAccessViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppCounterResource = &pCounterResource)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, (ID3D12Resource*)ppCounterResource, pDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] D3D12UnorderedAccessViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, (ID3D12Resource*)pCounterResource.Handle, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] D3D12UnorderedAccessViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (ID3D12Resource* ppCounterResource = &pCounterResource)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)ppResource, (ID3D12Resource*)ppCounterResource, pDesc, destDescriptor);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] D3D12UnorderedAccessViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)pResource.Handle, (ID3D12Resource*)pCounterResource.Handle, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] ref D3D12UnorderedAccessViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12UnorderedAccessViewDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, pCounterResource, (D3D12UnorderedAccessViewDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] ref D3D12UnorderedAccessViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12UnorderedAccessViewDesc* ppDesc = &pDesc)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)ppResource, pCounterResource, (D3D12UnorderedAccessViewDesc*)ppDesc, destDescriptor);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] ref D3D12UnorderedAccessViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12UnorderedAccessViewDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)pResource.Handle, pCounterResource, (D3D12UnorderedAccessViewDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] ref D3D12UnorderedAccessViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppCounterResource = &pCounterResource)
-			{
-				fixed (D3D12UnorderedAccessViewDesc* ppDesc = &pDesc)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, (ID3D12Resource*)ppCounterResource, (D3D12UnorderedAccessViewDesc*)ppDesc, destDescriptor);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] ref D3D12UnorderedAccessViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12UnorderedAccessViewDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, (ID3D12Resource*)pCounterResource.Handle, (D3D12UnorderedAccessViewDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] ref D3D12UnorderedAccessViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (ID3D12Resource* ppCounterResource = &pCounterResource)
-				{
-					fixed (D3D12UnorderedAccessViewDesc* ppDesc = &pDesc)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)ppResource, (ID3D12Resource*)ppCounterResource, (D3D12UnorderedAccessViewDesc*)ppDesc, destDescriptor);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pCounterResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pCounterResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_UNORDERED_ACCESS_VIEW_DESC*")] ref D3D12UnorderedAccessViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12UnorderedAccessViewDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, D3D12UnorderedAccessViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)pResource.Handle, (ID3D12Resource*)pCounterResource.Handle, (D3D12UnorderedAccessViewDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RENDER_TARGET_VIEW_DESC*")] D3D12RenderTargetViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12RenderTargetViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, pResource, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RENDER_TARGET_VIEW_DESC*")] D3D12RenderTargetViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12RenderTargetViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, (ID3D12Resource*)ppResource, pDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RENDER_TARGET_VIEW_DESC*")] D3D12RenderTargetViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12RenderTargetViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, (ID3D12Resource*)pResource.Handle, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RENDER_TARGET_VIEW_DESC*")] ref D3D12RenderTargetViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12RenderTargetViewDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12RenderTargetViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, pResource, (D3D12RenderTargetViewDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RENDER_TARGET_VIEW_DESC*")] ref D3D12RenderTargetViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12RenderTargetViewDesc* ppDesc = &pDesc)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12RenderTargetViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, (ID3D12Resource*)ppResource, (D3D12RenderTargetViewDesc*)ppDesc, destDescriptor);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateRenderTargetView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RENDER_TARGET_VIEW_DESC*")] ref D3D12RenderTargetViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12RenderTargetViewDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12RenderTargetViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, (ID3D12Resource*)pResource.Handle, (D3D12RenderTargetViewDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDepthStencilView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_DEPTH_STENCIL_VIEW_DESC*")] D3D12DepthStencilViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12DepthStencilViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, pResource, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDepthStencilView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_DEPTH_STENCIL_VIEW_DESC*")] D3D12DepthStencilViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12DepthStencilViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, (ID3D12Resource*)ppResource, pDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDepthStencilView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_DEPTH_STENCIL_VIEW_DESC*")] D3D12DepthStencilViewDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12DepthStencilViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, (ID3D12Resource*)pResource.Handle, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDepthStencilView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_DEPTH_STENCIL_VIEW_DESC*")] ref D3D12DepthStencilViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12DepthStencilViewDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12DepthStencilViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, pResource, (D3D12DepthStencilViewDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDepthStencilView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_DEPTH_STENCIL_VIEW_DESC*")] ref D3D12DepthStencilViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12DepthStencilViewDesc* ppDesc = &pDesc)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12DepthStencilViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, (ID3D12Resource*)ppResource, (D3D12DepthStencilViewDesc*)ppDesc, destDescriptor);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateDepthStencilView")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_DEPTH_STENCIL_VIEW_DESC*")] ref D3D12DepthStencilViewDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12DepthStencilViewDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, D3D12DepthStencilViewDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, (ID3D12Resource*)pResource.Handle, (D3D12DepthStencilViewDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSampler")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateSampler(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_SAMPLER_DESC*")] D3D12SamplerDesc* pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12SamplerDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[22]))(handle, pDesc, destDescriptor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSampler")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CreateSampler(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_SAMPLER_DESC*")] ref D3D12SamplerDesc pDesc, [NativeName(NativeNameType.Param, "DestDescriptor")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptor) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12SamplerDesc* ppDesc = &pDesc)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12SamplerDesc*, D3D12CpuDescriptorHandle, void>)(handle->LpVtbl[22]))(handle, (D3D12SamplerDesc*)ppDesc, destDescriptor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (D3D12CpuDescriptorHandle*)ppDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
-			{
-				fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (D3D12CpuDescriptorHandle*)ppDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, (D3D12CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
-			{
-				fixed (D3D12CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (D3D12CpuDescriptorHandle*)ppDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, (D3D12CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
-			{
-				fixed (D3D12CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, (D3D12CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
-			{
-				fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
-				{
-					fixed (D3D12CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (D3D12CpuDescriptorHandle*)ppDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, (D3D12CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
-			{
-				fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (D3D12CpuDescriptorHandle*)ppDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
-			{
-				fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
-			{
-				fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
-				{
-					fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (D3D12CpuDescriptorHandle*)ppDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
-			{
-				fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, (D3D12CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
-			{
-				fixed (D3D12CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
-				{
-					fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (D3D12CpuDescriptorHandle*)ppDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, (D3D12CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] D3D12CpuDescriptorHandle* pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
-			{
-				fixed (D3D12CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
-				{
-					fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, (D3D12CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptors")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDestDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numDestDescriptorRanges, [NativeName(NativeNameType.Param, "pDestDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pDestDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pDestDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pDestDescriptorRangeSizes, [NativeName(NativeNameType.Param, "NumSrcDescriptorRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numSrcDescriptorRanges, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeStarts")] [NativeName(NativeNameType.Type, "const D3D12_CPU_DESCRIPTOR_HANDLE*")] ref D3D12CpuDescriptorHandle pSrcDescriptorRangeStarts, [NativeName(NativeNameType.Param, "pSrcDescriptorRangeSizes")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pSrcDescriptorRangeSizes, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
-			{
-				fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
-				{
-					fixed (D3D12CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
-					{
-						fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle*, uint*, uint, D3D12CpuDescriptorHandle*, uint*, D3D12DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (D3D12CpuDescriptorHandle*)ppDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, (D3D12CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyDescriptorsSimple")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyDescriptorsSimple(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumDescriptors")] [NativeName(NativeNameType.Type, "UINT")] uint numDescriptors, [NativeName(NativeNameType.Param, "DestDescriptorRangeStart")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle destDescriptorRangeStart, [NativeName(NativeNameType.Param, "SrcDescriptorRangeStart")] [NativeName(NativeNameType.Type, "D3D12_CPU_DESCRIPTOR_HANDLE")] D3D12CpuDescriptorHandle srcDescriptorRangeStart, [NativeName(NativeNameType.Param, "DescriptorHeapsType")] [NativeName(NativeNameType.Type, "D3D12_DESCRIPTOR_HEAP_TYPE")] D3D12DescriptorHeapType descriptorHeapsType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12CpuDescriptorHandle, D3D12CpuDescriptorHandle, D3D12DescriptorHeapType, void>)(handle->LpVtbl[24]))(handle, numDescriptors, destDescriptorRangeStart, srcDescriptorRangeStart, descriptorHeapsType);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceAllocationInfo")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO")]
-		public static D3D12ResourceAllocationInfo GetResourceAllocationInfo(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "visibleMask")] [NativeName(NativeNameType.Type, "UINT")] uint visibleMask, [NativeName(NativeNameType.Param, "numResourceDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceDescs, [NativeName(NativeNameType.Param, "pResourceDescs")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDescs) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			D3D12ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, uint, D3D12ResourceDesc*, D3D12ResourceAllocationInfo>)(handle->LpVtbl[25]))(handle, visibleMask, numResourceDescs, pResourceDescs);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceAllocationInfo")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO")]
-		public static D3D12ResourceAllocationInfo GetResourceAllocationInfo(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "visibleMask")] [NativeName(NativeNameType.Type, "UINT")] uint visibleMask, [NativeName(NativeNameType.Param, "numResourceDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceDescs, [NativeName(NativeNameType.Param, "pResourceDescs")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDescs) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDescs = &pResourceDescs)
-			{
-				D3D12ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, uint, D3D12ResourceDesc*, D3D12ResourceAllocationInfo>)(handle->LpVtbl[25]))(handle, visibleMask, numResourceDescs, (D3D12ResourceDesc*)ppResourceDescs);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCustomHeapProperties")]
-		[return: NativeName(NativeNameType.Type, "D3D12_HEAP_PROPERTIES")]
-		public static D3D12HeapProperties GetCustomHeapProperties(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "heapType")] [NativeName(NativeNameType.Type, "D3D12_HEAP_TYPE")] D3D12HeapType heapType) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			D3D12HeapProperties ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, D3D12HeapType, D3D12HeapProperties>)(handle->LpVtbl[26]))(handle, nodeMask, heapType);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, riidResource, ppvResource);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, riidResource, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, riidResource, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, riidResource, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, riidResource, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, riidResource, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, riidResource, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, riidResource, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priidResource = &riidResource)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (Guid* priidResource = &riidResource)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priidResource = &riidResource)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					fixed (Guid* priidResource = &riidResource)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (Guid* priidResource = &riidResource)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (Guid* priidResource = &riidResource)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (Guid* priidResource = &riidResource)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-					{
-						fixed (Guid* priidResource = &riidResource)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, ppvResource);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppvResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-					{
-						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priidResource = &riidResource)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (Guid* priidResource = &riidResource)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priidResource = &riidResource)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					fixed (Guid* priidResource = &riidResource)
-					{
-						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (Guid* priidResource = &riidResource)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (Guid* priidResource = &riidResource)
-					{
-						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (Guid* priidResource = &riidResource)
-					{
-						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-					{
-						fixed (Guid* priidResource = &riidResource)
-						{
-							ppvResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, pDesc, riid, ppvHeap);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, (D3D12HeapDesc*)ppDesc, riid, ppvHeap);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, pDesc, (Guid*)priid, ppvHeap);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, (D3D12HeapDesc*)ppDesc, (Guid*)priid, ppvHeap);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppvHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
-			{
-				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, (D3D12HeapDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, pDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppvHeap = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, (D3D12HeapDesc*)ppDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, riid, ppvResource);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, riid, ppvResource);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, riid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, riid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, riid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, riid, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, riid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-					{
-						fixed (Guid* priid = &riid)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppvResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppvResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePlacedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "HeapOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong heapOffset, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, pOptimizedClearValue, riid, ppvResource);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, riid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			ppvResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, name, pHandle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12DeviceChild* ppObject = &pObject)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, pAttributes, access, name, pHandle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ComPtr<ID3D12DeviceChild> pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)pObject.Handle, pAttributes, access, name, pHandle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (SecurityAttributes* ppAttributes = &pAttributes)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, (SecurityAttributes*)ppAttributes, access, name, pHandle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12DeviceChild* ppObject = &pObject)
-			{
-				fixed (SecurityAttributes* ppAttributes = &pAttributes)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, (SecurityAttributes*)ppAttributes, access, name, pHandle);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ComPtr<ID3D12DeviceChild> pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (SecurityAttributes* ppAttributes = &pAttributes)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)pObject.Handle, (SecurityAttributes*)ppAttributes, access, name, pHandle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (char* pname = name)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, (char*)pname, pHandle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, pStr0, pHandle);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12DeviceChild* ppObject = &pObject)
-			{
-				fixed (char* pname = name)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, pAttributes, access, (char*)pname, pHandle);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12DeviceChild* ppObject = &pObject)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (name != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(name);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, pAttributes, access, pStr0, pHandle);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (SecurityAttributes* ppAttributes = &pAttributes)
-			{
-				fixed (char* pname = name)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, (SecurityAttributes*)ppAttributes, access, (char*)pname, pHandle);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (SecurityAttributes* ppAttributes = &pAttributes)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (name != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(name);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, (SecurityAttributes*)ppAttributes, access, pStr0, pHandle);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12DeviceChild* ppObject = &pObject)
-			{
-				fixed (SecurityAttributes* ppAttributes = &pAttributes)
-				{
-					fixed (char* pname = name)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, (SecurityAttributes*)ppAttributes, access, (char*)pname, pHandle);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12DeviceChild* ppObject = &pObject)
-			{
-				fixed (SecurityAttributes* ppAttributes = &pAttributes)
-				{
-					char* pStr0 = null;
-					int pStrSize0 = 0;
-					if (name != null)
-					{
-						pStrSize0 = Utils.GetByteCountUTF16(name);
-						if (pStrSize0 >= Utils.MaxStackallocSize)
-						{
-							pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-						}
-						else
-						{
-							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-							pStr0 = (char*)pStrStack0;
-						}
-						int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
-						pStr0[pStrOffset0] = '\0';
-					}
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, (SecurityAttributes*)ppAttributes, access, pStr0, pHandle);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (nint* ppHandle = &pHandle)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, name, (nint*)ppHandle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12DeviceChild* ppObject = &pObject)
-			{
-				fixed (nint* ppHandle = &pHandle)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, pAttributes, access, name, (nint*)ppHandle);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ComPtr<ID3D12DeviceChild> pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (nint* ppHandle = &pHandle)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)pObject.Handle, pAttributes, access, name, (nint*)ppHandle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (SecurityAttributes* ppAttributes = &pAttributes)
-			{
-				fixed (nint* ppHandle = &pHandle)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, (SecurityAttributes*)ppAttributes, access, name, (nint*)ppHandle);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (ID3D12DeviceChild* ppObject = &pObject)
-			{
-				fixed (SecurityAttributes* ppAttributes = &pAttributes)
-				{
-					fixed (nint* ppHandle = &pHandle)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, (SecurityAttributes*)ppAttributes, access, name, (nint*)ppHandle);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ComPtr<ID3D12DeviceChild> pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (SecurityAttributes* ppAttributes = &pAttributes)
-			{
-				fixed (nint* ppHandle = &pHandle)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)pObject.Handle, (SecurityAttributes*)ppAttributes, access, name, (nint*)ppHandle);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			fixed (char* pname = name)
-			{
-				fixed (nint* ppHandle = &pHandle)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, (char*)pname, (nint*)ppHandle);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
-		{
-			ID3D12Device* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			fixed (nint* ppHandle = &pHandle)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, pStr0, (nint*)ppHandle);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, SecurityAttributes* pAttributes, uint access, ReadOnlySpan<char> name, ref nint pHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (ID3D12DeviceChild* ppObject = &pObject)
@@ -3817,9 +42,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] SecurityAttributes* pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, SecurityAttributes* pAttributes, uint access, string name, ref nint pHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (ID3D12DeviceChild* ppObject = &pObject)
@@ -3856,9 +79,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, ref SecurityAttributes pAttributes, uint access, ReadOnlySpan<char> name, ref nint pHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (SecurityAttributes* ppAttributes = &pAttributes)
@@ -3877,9 +98,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, ref SecurityAttributes pAttributes, uint access, string name, ref nint pHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (SecurityAttributes* ppAttributes = &pAttributes)
@@ -3916,9 +135,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, ref SecurityAttributes pAttributes, uint access, ReadOnlySpan<char> name, ref nint pHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (ID3D12DeviceChild* ppObject = &pObject)
@@ -3940,9 +157,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pAttributes")] [NativeName(NativeNameType.Type, "const SECURITY_ATTRIBUTES*")] ref SecurityAttributes pAttributes, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, ref SecurityAttributes pAttributes, uint access, string name, ref nint pHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (ID3D12DeviceChild* ppObject = &pObject)
@@ -3982,9 +197,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NTHandle")] [NativeName(NativeNameType.Type, "HANDLE")] nint ntHandle, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObj")] [NativeName(NativeNameType.Type, "void**")] void** ppvObj) 
+		public static int OpenSharedHandle(this ComPtr<ID3D12Device> comObj, nint ntHandle, Guid* riid, void** ppvObj) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, nint, Guid*, void**, int>)(handle->LpVtbl[32]))(handle, ntHandle, riid, ppvObj);
@@ -3994,9 +207,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenSharedHandle(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NTHandle")] [NativeName(NativeNameType.Type, "HANDLE")] nint ntHandle, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObj")] [NativeName(NativeNameType.Type, "void**")] void** ppvObj) 
+		public static int OpenSharedHandle(this ComPtr<ID3D12Device> comObj, nint ntHandle, ref Guid riid, void** ppvObj) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4009,9 +220,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenSharedHandle<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NTHandle")] [NativeName(NativeNameType.Type, "HANDLE")] nint ntHandle, [NativeName(NativeNameType.Param, "ppvObj")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObj) where T : unmanaged, IComObject, IComObject<T>
+		public static int OpenSharedHandle<T>(this ComPtr<ID3D12Device> comObj, nint ntHandle, out ComPtr<T> ppvObj) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			ppvObj = default;
@@ -4022,9 +231,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenSharedHandle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenSharedHandle<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NTHandle")] [NativeName(NativeNameType.Type, "HANDLE")] nint ntHandle, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObj")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObj) where T : unmanaged, IComObject, IComObject<T>
+		public static int OpenSharedHandle<T>(this ComPtr<ID3D12Device> comObj, nint ntHandle, ref Guid riid, out ComPtr<T> ppvObj) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4038,9 +245,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenSharedHandleByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "pNTHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pNTHandle) 
+		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, char* name, uint access, nint* pNTHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, char*, uint, nint*, int>)(handle->LpVtbl[33]))(handle, name, access, pNTHandle);
@@ -4050,9 +255,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenSharedHandleByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "pNTHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pNTHandle) 
+		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, ReadOnlySpan<char> name, uint access, nint* pNTHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (char* pname = name)
@@ -4065,9 +268,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenSharedHandleByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "pNTHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pNTHandle) 
+		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, string name, uint access, nint* pNTHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4098,9 +299,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenSharedHandleByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "pNTHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pNTHandle) 
+		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, char* name, uint access, ref nint pNTHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (nint* ppNTHandle = &pNTHandle)
@@ -4113,9 +312,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenSharedHandleByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "pNTHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pNTHandle) 
+		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, ReadOnlySpan<char> name, uint access, ref nint pNTHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (char* pname = name)
@@ -4131,9 +328,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenSharedHandleByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name, [NativeName(NativeNameType.Param, "Access")] [NativeName(NativeNameType.Type, "DWORD")] uint access, [NativeName(NativeNameType.Param, "pNTHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pNTHandle) 
+		public static int OpenSharedHandleByName(this ComPtr<ID3D12Device> comObj, string name, uint access, ref nint pNTHandle) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4167,9 +362,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "MakeResident")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int MakeResident(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ID3D12Pageable** ppObjects) 
+		public static int MakeResident(this ComPtr<ID3D12Device> comObj, uint numObjects, ID3D12Pageable** ppObjects) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, ID3D12Pageable**, int>)(handle->LpVtbl[34]))(handle, numObjects, ppObjects);
@@ -4179,9 +372,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "MakeResident")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int MakeResident(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ref ID3D12Pageable* ppObjects) 
+		public static int MakeResident(this ComPtr<ID3D12Device> comObj, uint numObjects, ref ID3D12Pageable* ppObjects) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (ID3D12Pageable** pppObjects = &ppObjects)
@@ -4194,9 +385,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Evict")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Evict(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ID3D12Pageable** ppObjects) 
+		public static int Evict(this ComPtr<ID3D12Device> comObj, uint numObjects, ID3D12Pageable** ppObjects) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, ID3D12Pageable**, int>)(handle->LpVtbl[35]))(handle, numObjects, ppObjects);
@@ -4206,9 +395,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Evict")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Evict(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ref ID3D12Pageable* ppObjects) 
+		public static int Evict(this ComPtr<ID3D12Device> comObj, uint numObjects, ref ID3D12Pageable* ppObjects) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (ID3D12Pageable** pppObjects = &ppObjects)
@@ -4221,26 +408,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateFence")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateFence(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "InitialValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong initialValue, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_FENCE_FLAGS")] D3D12FenceFlags flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppFence")] [NativeName(NativeNameType.Type, "void**")] void** ppFence) 
+		public static int CreateFence(this ComPtr<ID3D12Device> comObj, ulong initialValue, FenceFlags flags, Guid* riid, void** ppFence) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ulong, D3D12FenceFlags, Guid*, void**, int>)(handle->LpVtbl[36]))(handle, initialValue, flags, riid, ppFence);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ulong, FenceFlags, Guid*, void**, int>)(handle->LpVtbl[36]))(handle, initialValue, flags, riid, ppFence);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateFence")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateFence(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "InitialValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong initialValue, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_FENCE_FLAGS")] D3D12FenceFlags flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppFence")] [NativeName(NativeNameType.Type, "void**")] void** ppFence) 
+		public static int CreateFence(this ComPtr<ID3D12Device> comObj, ulong initialValue, FenceFlags flags, ref Guid riid, void** ppFence) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ulong, D3D12FenceFlags, Guid*, void**, int>)(handle->LpVtbl[36]))(handle, initialValue, flags, (Guid*)priid, ppFence);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ulong, FenceFlags, Guid*, void**, int>)(handle->LpVtbl[36]))(handle, initialValue, flags, (Guid*)priid, ppFence);
 				return ret;
 			}
 		}
@@ -4248,28 +431,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateFence")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateFence<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "InitialValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong initialValue, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_FENCE_FLAGS")] D3D12FenceFlags flags, [NativeName(NativeNameType.Param, "ppFence")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppFence) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateFence<T>(this ComPtr<ID3D12Device> comObj, ulong initialValue, FenceFlags flags, out ComPtr<T> ppFence) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			ppFence = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ulong, D3D12FenceFlags, Guid*, void**, int>)(handle->LpVtbl[36]))(handle, initialValue, flags, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppFence.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ulong, FenceFlags, Guid*, void**, int>)(handle->LpVtbl[36]))(handle, initialValue, flags, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppFence.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateFence")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateFence<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "InitialValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong initialValue, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_FENCE_FLAGS")] D3D12FenceFlags flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppFence")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppFence) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateFence<T>(this ComPtr<ID3D12Device> comObj, ulong initialValue, FenceFlags flags, ref Guid riid, out ComPtr<T> ppFence) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppFence = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ulong, D3D12FenceFlags, Guid*, void**, int>)(handle->LpVtbl[36]))(handle, initialValue, flags, (Guid*)priid, (void**)ppFence.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ulong, FenceFlags, Guid*, void**, int>)(handle->LpVtbl[36]))(handle, initialValue, flags, (Guid*)priid, (void**)ppFence.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4277,8 +456,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDeviceRemovedReason")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		public static int GetDeviceRemovedReason(this ComPtr<ID3D12Device> comObj) 
 		{
 			ID3D12Device* handle = comObj.Handle;
@@ -4289,55 +466,47 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -4345,30 +514,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (uint* ppNumRows = &pNumRows)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
 				fixed (uint* ppNumRows = &pNumRows)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -4376,16 +541,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
 				fixed (uint* ppNumRows = &pNumRows)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -4393,18 +556,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
 					fixed (uint* ppNumRows = &pNumRows)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
 					}
 				}
 			}
@@ -4413,30 +574,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
 				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -4444,16 +601,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
 				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -4461,18 +616,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
 					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 					}
 				}
 			}
@@ -4481,16 +634,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (uint* ppNumRows = &pNumRows)
 			{
 				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -4498,18 +649,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
 				fixed (uint* ppNumRows = &pNumRows)
 				{
 					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 					}
 				}
 			}
@@ -4518,18 +667,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
 				fixed (uint* ppNumRows = &pNumRows)
 				{
 					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 					}
 				}
 			}
@@ -4538,20 +685,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
 					fixed (uint* ppNumRows = &pNumRows)
 					{
 						fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 						}
 					}
 				}
@@ -4561,30 +706,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (ulong* ppTotalBytes = &pTotalBytes)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
 				fixed (ulong* ppTotalBytes = &pTotalBytes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
 				}
 			}
 		}
@@ -4592,16 +733,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
 				fixed (ulong* ppTotalBytes = &pTotalBytes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
 				}
 			}
 		}
@@ -4609,18 +748,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
 					fixed (ulong* ppTotalBytes = &pTotalBytes)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
 					}
 				}
 			}
@@ -4629,16 +766,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (uint* ppNumRows = &pNumRows)
 			{
 				fixed (ulong* ppTotalBytes = &pTotalBytes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
 				}
 			}
 		}
@@ -4646,18 +781,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
 				fixed (uint* ppNumRows = &pNumRows)
 				{
 					fixed (ulong* ppTotalBytes = &pTotalBytes)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
 					}
 				}
 			}
@@ -4666,18 +799,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
 				fixed (uint* ppNumRows = &pNumRows)
 				{
 					fixed (ulong* ppTotalBytes = &pTotalBytes)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
 					}
 				}
 			}
@@ -4686,20 +817,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
 					fixed (uint* ppNumRows = &pNumRows)
 					{
 						fixed (ulong* ppTotalBytes = &pTotalBytes)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
 						}
 					}
 				}
@@ -4709,16 +838,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 			{
 				fixed (ulong* ppTotalBytes = &pTotalBytes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
 				}
 			}
 		}
@@ -4726,18 +853,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
 				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 				{
 					fixed (ulong* ppTotalBytes = &pTotalBytes)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
 					}
 				}
 			}
@@ -4746,18 +871,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
 				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 				{
 					fixed (ulong* ppTotalBytes = &pTotalBytes)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
 					}
 				}
 			}
@@ -4766,20 +889,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
 					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 					{
 						fixed (ulong* ppTotalBytes = &pTotalBytes)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
 						}
 					}
 				}
@@ -4789,9 +910,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (uint* ppNumRows = &pNumRows)
@@ -4800,7 +919,7 @@ namespace Hexa.NET.D3D12
 				{
 					fixed (ulong* ppTotalBytes = &pTotalBytes)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
 					}
 				}
 			}
@@ -4809,12 +928,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] D3D12PlacedSubresourceFootprint* pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
 				fixed (uint* ppNumRows = &pNumRows)
 				{
@@ -4822,7 +939,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ulong* ppTotalBytes = &pTotalBytes)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
 						}
 					}
 				}
@@ -4832,12 +949,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ResourceDesc* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
 				fixed (uint* ppNumRows = &pNumRows)
 				{
@@ -4845,7 +960,7 @@ namespace Hexa.NET.D3D12
 					{
 						fixed (ulong* ppTotalBytes = &pTotalBytes)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
 						}
 					}
 				}
@@ -4855,14 +970,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCopyableFootprints")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pResourceDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDesc, [NativeName(NativeNameType.Param, "FirstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint firstSubresource, [NativeName(NativeNameType.Param, "NumSubresources")] [NativeName(NativeNameType.Type, "UINT")] uint numSubresources, [NativeName(NativeNameType.Param, "BaseOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong baseOffset, [NativeName(NativeNameType.Param, "pLayouts")] [NativeName(NativeNameType.Type, "D3D12_PLACED_SUBRESOURCE_FOOTPRINT*")] ref D3D12PlacedSubresourceFootprint pLayouts, [NativeName(NativeNameType.Param, "pNumRows")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumRows, [NativeName(NativeNameType.Param, "pRowSizeInBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pRowSizeInBytes, [NativeName(NativeNameType.Param, "pTotalBytes")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTotalBytes) 
+		public static void GetCopyableFootprints(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDesc = &pResourceDesc)
+			fixed (ResourceDesc* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (D3D12PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
 					fixed (uint* ppNumRows = &pNumRows)
 					{
@@ -4870,7 +983,7 @@ namespace Hexa.NET.D3D12
 						{
 							fixed (ulong* ppTotalBytes = &pTotalBytes)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12ResourceDesc*, uint, uint, ulong, D3D12PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (D3D12ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (D3D12PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+								((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[38]))(handle, (ResourceDesc*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
 							}
 						}
 					}
@@ -4881,26 +994,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateQueryHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateQueryHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_QUERY_HEAP_DESC*")] D3D12QueryHeapDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreateQueryHeap(this ComPtr<ID3D12Device> comObj, QueryHeapDesc* pDesc, Guid* riid, void** ppvHeap) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, pDesc, riid, ppvHeap);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, pDesc, riid, ppvHeap);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateQueryHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateQueryHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_QUERY_HEAP_DESC*")] ref D3D12QueryHeapDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreateQueryHeap(this ComPtr<ID3D12Device> comObj, ref QueryHeapDesc pDesc, Guid* riid, void** ppvHeap) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12QueryHeapDesc* ppDesc = &pDesc)
+			fixed (QueryHeapDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, (D3D12QueryHeapDesc*)ppDesc, riid, ppvHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, (QueryHeapDesc*)ppDesc, riid, ppvHeap);
 				return ret;
 			}
 		}
@@ -4908,14 +1017,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateQueryHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateQueryHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_QUERY_HEAP_DESC*")] D3D12QueryHeapDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreateQueryHeap(this ComPtr<ID3D12Device> comObj, QueryHeapDesc* pDesc, ref Guid riid, void** ppvHeap) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, pDesc, (Guid*)priid, ppvHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, pDesc, (Guid*)priid, ppvHeap);
 				return ret;
 			}
 		}
@@ -4923,16 +1030,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateQueryHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateQueryHeap(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_QUERY_HEAP_DESC*")] ref D3D12QueryHeapDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreateQueryHeap(this ComPtr<ID3D12Device> comObj, ref QueryHeapDesc pDesc, ref Guid riid, void** ppvHeap) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12QueryHeapDesc* ppDesc = &pDesc)
+			fixed (QueryHeapDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, (D3D12QueryHeapDesc*)ppDesc, (Guid*)priid, ppvHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, (QueryHeapDesc*)ppDesc, (Guid*)priid, ppvHeap);
 					return ret;
 				}
 			}
@@ -4941,28 +1046,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateQueryHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateQueryHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_QUERY_HEAP_DESC*")] D3D12QueryHeapDesc* pDesc, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateQueryHeap<T>(this ComPtr<ID3D12Device> comObj, QueryHeapDesc* pDesc, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			ppvHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateQueryHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateQueryHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_QUERY_HEAP_DESC*")] ref D3D12QueryHeapDesc pDesc, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateQueryHeap<T>(this ComPtr<ID3D12Device> comObj, ref QueryHeapDesc pDesc, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12QueryHeapDesc* ppDesc = &pDesc)
+			fixed (QueryHeapDesc* ppDesc = &pDesc)
 			{
 				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, (D3D12QueryHeapDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, (QueryHeapDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4970,15 +1071,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateQueryHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateQueryHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_QUERY_HEAP_DESC*")] D3D12QueryHeapDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateQueryHeap<T>(this ComPtr<ID3D12Device> comObj, QueryHeapDesc* pDesc, ref Guid riid, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, pDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, pDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4986,17 +1085,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateQueryHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateQueryHeap<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_QUERY_HEAP_DESC*")] ref D3D12QueryHeapDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateQueryHeap<T>(this ComPtr<ID3D12Device> comObj, ref QueryHeapDesc pDesc, ref Guid riid, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12QueryHeapDesc* ppDesc = &pDesc)
+			fixed (QueryHeapDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppvHeap = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, (D3D12QueryHeapDesc*)ppDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, QueryHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[39]))(handle, (QueryHeapDesc*)ppDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
 					return ret;
 				}
 			}
@@ -5005,9 +1102,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetStablePowerState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetStablePowerState(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable) 
+		public static int SetStablePowerState(this ComPtr<ID3D12Device> comObj, int enable) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, int, int>)(handle->LpVtbl[40]))(handle, enable);
@@ -5017,12 +1112,3936 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandSignature(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMMAND_SIGNATURE_DESC*")] D3D12CommandSignatureDesc* pDesc, [NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "ID3D12RootSignature*")] ID3D12RootSignature* pRootSignature, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvCommandSignature")] [NativeName(NativeNameType.Type, "void**")] void** ppvCommandSignature) 
+		public static int CreateCommandSignature(this ComPtr<ID3D12Device> comObj, CommandSignatureDesc* pDesc, ID3D12RootSignature* pRootSignature, Guid* riid, void** ppvCommandSignature) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, pDesc, pRootSignature, riid, ppvCommandSignature);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, pDesc, pRootSignature, riid, ppvCommandSignature);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature(this ComPtr<ID3D12Device> comObj, ref CommandSignatureDesc pDesc, ID3D12RootSignature* pRootSignature, Guid* riid, void** ppvCommandSignature) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CommandSignatureDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, (CommandSignatureDesc*)ppDesc, pRootSignature, riid, ppvCommandSignature);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature(this ComPtr<ID3D12Device> comObj, CommandSignatureDesc* pDesc, ref ID3D12RootSignature pRootSignature, Guid* riid, void** ppvCommandSignature) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12RootSignature* ppRootSignature = &pRootSignature)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, pDesc, (ID3D12RootSignature*)ppRootSignature, riid, ppvCommandSignature);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature(this ComPtr<ID3D12Device> comObj, ref CommandSignatureDesc pDesc, ref ID3D12RootSignature pRootSignature, Guid* riid, void** ppvCommandSignature) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CommandSignatureDesc* ppDesc = &pDesc)
+			{
+				fixed (ID3D12RootSignature* ppRootSignature = &pRootSignature)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, (CommandSignatureDesc*)ppDesc, (ID3D12RootSignature*)ppRootSignature, riid, ppvCommandSignature);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature(this ComPtr<ID3D12Device> comObj, CommandSignatureDesc* pDesc, ID3D12RootSignature* pRootSignature, ref Guid riid, void** ppvCommandSignature) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, pDesc, pRootSignature, (Guid*)priid, ppvCommandSignature);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature(this ComPtr<ID3D12Device> comObj, ref CommandSignatureDesc pDesc, ID3D12RootSignature* pRootSignature, ref Guid riid, void** ppvCommandSignature) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CommandSignatureDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, (CommandSignatureDesc*)ppDesc, pRootSignature, (Guid*)priid, ppvCommandSignature);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature(this ComPtr<ID3D12Device> comObj, CommandSignatureDesc* pDesc, ref ID3D12RootSignature pRootSignature, ref Guid riid, void** ppvCommandSignature) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12RootSignature* ppRootSignature = &pRootSignature)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, pDesc, (ID3D12RootSignature*)ppRootSignature, (Guid*)priid, ppvCommandSignature);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature(this ComPtr<ID3D12Device> comObj, ref CommandSignatureDesc pDesc, ref ID3D12RootSignature pRootSignature, ref Guid riid, void** ppvCommandSignature) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CommandSignatureDesc* ppDesc = &pDesc)
+			{
+				fixed (ID3D12RootSignature* ppRootSignature = &pRootSignature)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, (CommandSignatureDesc*)ppDesc, (ID3D12RootSignature*)ppRootSignature, (Guid*)priid, ppvCommandSignature);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature<T>(this ComPtr<ID3D12Device> comObj, CommandSignatureDesc* pDesc, ID3D12RootSignature* pRootSignature, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppvCommandSignature = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, pDesc, pRootSignature, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvCommandSignature.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature<T>(this ComPtr<ID3D12Device> comObj, ref CommandSignatureDesc pDesc, ID3D12RootSignature* pRootSignature, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CommandSignatureDesc* ppDesc = &pDesc)
+			{
+				ppvCommandSignature = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, (CommandSignatureDesc*)ppDesc, pRootSignature, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvCommandSignature.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature<T>(this ComPtr<ID3D12Device> comObj, CommandSignatureDesc* pDesc, ref ID3D12RootSignature pRootSignature, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12RootSignature* ppRootSignature = &pRootSignature)
+			{
+				ppvCommandSignature = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, pDesc, (ID3D12RootSignature*)ppRootSignature, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvCommandSignature.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature<T>(this ComPtr<ID3D12Device> comObj, ref CommandSignatureDesc pDesc, ref ID3D12RootSignature pRootSignature, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CommandSignatureDesc* ppDesc = &pDesc)
+			{
+				fixed (ID3D12RootSignature* ppRootSignature = &pRootSignature)
+				{
+					ppvCommandSignature = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, (CommandSignatureDesc*)ppDesc, (ID3D12RootSignature*)ppRootSignature, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvCommandSignature.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature<T>(this ComPtr<ID3D12Device> comObj, CommandSignatureDesc* pDesc, ID3D12RootSignature* pRootSignature, ref Guid riid, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvCommandSignature = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, pDesc, pRootSignature, (Guid*)priid, (void**)ppvCommandSignature.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature<T>(this ComPtr<ID3D12Device> comObj, ref CommandSignatureDesc pDesc, ID3D12RootSignature* pRootSignature, ref Guid riid, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CommandSignatureDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppvCommandSignature = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, (CommandSignatureDesc*)ppDesc, pRootSignature, (Guid*)priid, (void**)ppvCommandSignature.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature<T>(this ComPtr<ID3D12Device> comObj, CommandSignatureDesc* pDesc, ref ID3D12RootSignature pRootSignature, ref Guid riid, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12RootSignature* ppRootSignature = &pRootSignature)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppvCommandSignature = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, pDesc, (ID3D12RootSignature*)ppRootSignature, (Guid*)priid, (void**)ppvCommandSignature.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandSignature<T>(this ComPtr<ID3D12Device> comObj, ref CommandSignatureDesc pDesc, ref ID3D12RootSignature pRootSignature, ref Guid riid, out ComPtr<T> ppvCommandSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CommandSignatureDesc* ppDesc = &pDesc)
+			{
+				fixed (ID3D12RootSignature* ppRootSignature = &pRootSignature)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						ppvCommandSignature = default;
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandSignatureDesc*, ID3D12RootSignature*, Guid*, void**, int>)(handle->LpVtbl[41]))(handle, (CommandSignatureDesc*)ppDesc, (ID3D12RootSignature*)ppRootSignature, (Guid*)priid, (void**)ppvCommandSignature.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+					{
+						fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+					{
+						fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+					{
+						fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+						{
+							fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, SubresourceTiling* pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, pSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+			{
+				fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+			{
+				fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+					{
+						fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+						{
+							fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, uint* pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, pNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+			{
+				fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+			{
+				fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+					{
+						fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+						{
+							fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, TileShape* pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, pStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+			{
+				fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+				{
+					fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+						{
+							fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, PackedMipInfo* pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, pPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+						{
+							fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, uint* pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+			{
+				fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+				{
+					fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+					{
+						fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, pNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+						{
+							fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, pTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTiledResource = &pTiledResource)
+			{
+				fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+				{
+					fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+					{
+						fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+						{
+							fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+							{
+								fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+								{
+									((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)ppTiledResource, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetResourceTiling(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pTiledResource, ref uint pNumTilesForEntireResource, ref PackedMipInfo pPackedMipDesc, ref TileShape pStandardTileShapeForNonPackedMips, ref uint pNumSubresourceTilings, uint firstSubresourceTilingToGet, ref SubresourceTiling pSubresourceTilingsForNonPackedMips) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppNumTilesForEntireResource = &pNumTilesForEntireResource)
+			{
+				fixed (PackedMipInfo* ppPackedMipDesc = &pPackedMipDesc)
+				{
+					fixed (TileShape* ppStandardTileShapeForNonPackedMips = &pStandardTileShapeForNonPackedMips)
+					{
+						fixed (uint* ppNumSubresourceTilings = &pNumSubresourceTilings)
+						{
+							fixed (SubresourceTiling* ppSubresourceTilingsForNonPackedMips = &pSubresourceTilingsForNonPackedMips)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, uint*, PackedMipInfo*, TileShape*, uint*, uint, SubresourceTiling*, void>)(handle->LpVtbl[42]))(handle, (ID3D12Resource*)pTiledResource.Handle, (uint*)ppNumTilesForEntireResource, (PackedMipInfo*)ppPackedMipDesc, (TileShape*)ppStandardTileShapeForNonPackedMips, (uint*)ppNumSubresourceTilings, firstSubresourceTilingToGet, (SubresourceTiling*)ppSubresourceTilingsForNonPackedMips);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static Luid GetAdapterLuid(this ComPtr<ID3D12Device> comObj) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			Luid ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, Luid>)(handle->LpVtbl[43]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<ID3D12PipelineLibrary> comObj, Guid* riid, void** ppvObject) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid riid, void** ppvObject) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<ID3D12PipelineLibrary> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			ppvObject = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvObject = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint AddRef(this ComPtr<ID3D12PipelineLibrary> comObj) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, uint>)(handle->LpVtbl[1]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint Release(this ComPtr<ID3D12PipelineLibrary> comObj) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, uint>)(handle->LpVtbl[2]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D12PipelineLibrary> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, guid, pDataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pguid, pDataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D12PipelineLibrary> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, guid, (uint*)ppDataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				fixed (uint* ppDataSize = &pDataSize)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12PipelineLibrary> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, guid, pDataSize, (void*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12PipelineLibrary> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				fixed (uint* ppDataSize = &pDataSize)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateData(this ComPtr<ID3D12PipelineLibrary> comObj, Guid* guid, uint dataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, uint, void*, int>)(handle->LpVtbl[4]))(handle, guid, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateData(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid guid, uint dataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, uint, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, dataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary> comObj, Guid* guid, IUnknown* pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, guid, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid guid, IUnknown* pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary> comObj, Guid* guid, ref IUnknown pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (IUnknown* ppData = &pData)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, guid, (IUnknown*)ppData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, guid, (IUnknown*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid guid, ref IUnknown pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				fixed (IUnknown* ppData = &pData)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetName(this ComPtr<ID3D12PipelineLibrary> comObj, char* name) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, int>)(handle->LpVtbl[6]))(handle, name);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetName(this ComPtr<ID3D12PipelineLibrary> comObj, ReadOnlySpan<char> name) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (char* pname = name)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, int>)(handle->LpVtbl[6]))(handle, (char*)pname);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetName(this ComPtr<ID3D12PipelineLibrary> comObj, string name) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (name != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(name);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, int>)(handle->LpVtbl[6]))(handle, pStr0);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetDevice(this ComPtr<ID3D12PipelineLibrary> comObj, Guid* riid, void** ppvDevice) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, riid, ppvDevice);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetDevice(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid riid, void** ppvDevice) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, (Guid*)priid, ppvDevice);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetDevice<T>(this ComPtr<ID3D12PipelineLibrary> comObj, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			ppvDevice = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDevice.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetDevice<T>(this ComPtr<ID3D12PipelineLibrary> comObj, ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvDevice = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, (Guid*)priid, (void**)ppvDevice.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ID3D12PipelineState* pPipeline) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, pName, pPipeline);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, ReadOnlySpan<char> pName, ID3D12PipelineState* pPipeline) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, (char*)ppName, pPipeline);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, string pName, ID3D12PipelineState* pPipeline) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, pStr0, pPipeline);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ref ID3D12PipelineState pPipeline) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (ID3D12PipelineState* ppPipeline = &pPipeline)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, pName, (ID3D12PipelineState*)ppPipeline);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ComPtr<ID3D12PipelineState> pPipeline) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, pName, (ID3D12PipelineState*)pPipeline.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, ReadOnlySpan<char> pName, ref ID3D12PipelineState pPipeline) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (ID3D12PipelineState* ppPipeline = &pPipeline)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, (char*)ppName, (ID3D12PipelineState*)ppPipeline);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, string pName, ref ID3D12PipelineState pPipeline) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (ID3D12PipelineState* ppPipeline = &pPipeline)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, pStr0, (ID3D12PipelineState*)ppPipeline);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, pDesc, riid, ppPipelineState);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, ReadOnlySpan<char> pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, (char*)ppName, pDesc, riid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, string pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pStr0, pDesc, riid, ppPipelineState);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, ReadOnlySpan<char> pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, (char*)ppName, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, string pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pStr0, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, pDesc, (Guid*)priid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, ReadOnlySpan<char> pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, string pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pStr0, pDesc, (Guid*)priid, ppPipelineState);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, ReadOnlySpan<char> pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, (char*)ppName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary> comObj, string pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pStr0, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline<T>(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, GraphicsPipelineStateDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			ppPipelineState = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline<T>(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ref GraphicsPipelineStateDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				ppPipelineState = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline<T>(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppPipelineState = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline<T>(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppPipelineState = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pName, pDesc, riid, ppPipelineState);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, ReadOnlySpan<char> pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (char*)ppName, pDesc, riid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, string pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pStr0, pDesc, riid, ppPipelineState);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, ReadOnlySpan<char> pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (char*)ppName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, string pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pStr0, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pName, pDesc, (Guid*)priid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, ReadOnlySpan<char> pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, string pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pStr0, pDesc, (Guid*)priid, ppPipelineState);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, ReadOnlySpan<char> pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (char*)ppName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary> comObj, string pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pStr0, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline<T>(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ComputePipelineStateDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			ppPipelineState = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline<T>(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ref ComputePipelineStateDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				ppPipelineState = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline<T>(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ComputePipelineStateDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppPipelineState = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline<T>(this ComPtr<ID3D12PipelineLibrary> comObj, char* pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppPipelineState = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static nuint GetSerializedSize(this ComPtr<ID3D12PipelineLibrary> comObj) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			nuint ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, nuint>)(handle->LpVtbl[11]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int Serialize(this ComPtr<ID3D12PipelineLibrary> comObj, void* pData, nuint dataSizeInBytes) 
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, void*, nuint, int>)(handle->LpVtbl[12]))(handle, pData, dataSizeInBytes);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int Serialize<T>(this ComPtr<ID3D12PipelineLibrary> comObj, ComPtr<T> pData, nuint dataSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary*, void*, nuint, int>)(handle->LpVtbl[12]))(handle, (void*)pData.Handle, dataSizeInBytes);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<ID3D12PipelineLibrary1> comObj, Guid* riid, void** ppvObject) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid riid, void** ppvObject) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			ppvObject = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvObject = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint AddRef(this ComPtr<ID3D12PipelineLibrary1> comObj) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, uint>)(handle->LpVtbl[1]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint Release(this ComPtr<ID3D12PipelineLibrary1> comObj) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, uint>)(handle->LpVtbl[2]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D12PipelineLibrary1> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, guid, pDataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pguid, pDataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D12PipelineLibrary1> comObj, Guid* guid, ref uint pDataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, guid, (uint*)ppDataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				fixed (uint* ppDataSize = &pDataSize)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, guid, pDataSize, (void*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				fixed (uint* ppDataSize = &pDataSize)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateData(this ComPtr<ID3D12PipelineLibrary1> comObj, Guid* guid, uint dataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint, void*, int>)(handle->LpVtbl[4]))(handle, guid, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateData(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid guid, uint dataSize, void* pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, dataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary1> comObj, Guid* guid, IUnknown* pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, guid, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid guid, IUnknown* pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary1> comObj, Guid* guid, ref IUnknown pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (IUnknown* ppData = &pData)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, guid, (IUnknown*)ppData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary1> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, guid, (IUnknown*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid guid, ref IUnknown pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				fixed (IUnknown* ppData = &pData)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetName(this ComPtr<ID3D12PipelineLibrary1> comObj, char* name) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, int>)(handle->LpVtbl[6]))(handle, name);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetName(this ComPtr<ID3D12PipelineLibrary1> comObj, ReadOnlySpan<char> name) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (char* pname = name)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, int>)(handle->LpVtbl[6]))(handle, (char*)pname);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetName(this ComPtr<ID3D12PipelineLibrary1> comObj, string name) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (name != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(name);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, int>)(handle->LpVtbl[6]))(handle, pStr0);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetDevice(this ComPtr<ID3D12PipelineLibrary1> comObj, Guid* riid, void** ppvDevice) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, riid, ppvDevice);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetDevice(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid riid, void** ppvDevice) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, (Guid*)priid, ppvDevice);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetDevice<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			ppvDevice = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDevice.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetDevice<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvDevice = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(handle->LpVtbl[7]))(handle, (Guid*)priid, (void**)ppvDevice.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, ID3D12PipelineState* pPipeline) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, pName, pPipeline);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, ReadOnlySpan<char> pName, ID3D12PipelineState* pPipeline) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, (char*)ppName, pPipeline);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, string pName, ID3D12PipelineState* pPipeline) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, pStr0, pPipeline);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, ref ID3D12PipelineState pPipeline) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (ID3D12PipelineState* ppPipeline = &pPipeline)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, pName, (ID3D12PipelineState*)ppPipeline);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, ComPtr<ID3D12PipelineState> pPipeline) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, pName, (ID3D12PipelineState*)pPipeline.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, ReadOnlySpan<char> pName, ref ID3D12PipelineState pPipeline) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (ID3D12PipelineState* ppPipeline = &pPipeline)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, (char*)ppName, (ID3D12PipelineState*)ppPipeline);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int StorePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, string pName, ref ID3D12PipelineState pPipeline) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (ID3D12PipelineState* ppPipeline = &pPipeline)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(handle->LpVtbl[8]))(handle, pStr0, (ID3D12PipelineState*)ppPipeline);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, pDesc, riid, ppPipelineState);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, ReadOnlySpan<char> pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, (char*)ppName, pDesc, riid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, string pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pStr0, pDesc, riid, ppPipelineState);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, ReadOnlySpan<char> pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, (char*)ppName, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, string pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pStr0, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, pDesc, (Guid*)priid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, ReadOnlySpan<char> pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, string pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pStr0, pDesc, (Guid*)priid, ppPipelineState);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, ReadOnlySpan<char> pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, (char*)ppName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, string pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pStr0, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, GraphicsPipelineStateDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			ppPipelineState = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, ref GraphicsPipelineStateDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				ppPipelineState = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppPipelineState = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadGraphicsPipeline<T>(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppPipelineState = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, char* pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pName, pDesc, riid, ppPipelineState);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, ReadOnlySpan<char> pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			fixed (char* ppName = pName)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (char*)ppName, pDesc, riid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int LoadComputePipeline(this ComPtr<ID3D12PipelineLibrary1> comObj, string pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12PipelineLibrary1* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pStr0, pDesc, riid, ppPipelineState);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
 			return ret;
 		}
 	}

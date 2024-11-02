@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcLinker")]
 	public partial struct IDxcLinker : IComObject, IComObject<IDxcLinker>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,9 +99,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RegisterLibrary([NativeName(NativeNameType.Param, "pLibName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pLibName, [NativeName(NativeNameType.Param, "pLib")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pLib) 
+		public readonly unsafe int RegisterLibrary(char* pLibName, IDxcBlob* pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, int>)(LpVtbl[3]))(ptr, pLibName, pLib);
@@ -124,9 +109,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RegisterLibrary([NativeName(NativeNameType.Param, "pLibName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pLibName, [NativeName(NativeNameType.Param, "pLib")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pLib) 
+		public readonly unsafe int RegisterLibrary(ReadOnlySpan<char> pLibName, IDxcBlob* pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppLibName = pLibName)
@@ -139,9 +122,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RegisterLibrary([NativeName(NativeNameType.Param, "pLibName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pLibName, [NativeName(NativeNameType.Param, "pLib")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pLib) 
+		public readonly unsafe int RegisterLibrary(string pLibName, IDxcBlob* pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -172,9 +153,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RegisterLibrary([NativeName(NativeNameType.Param, "pLibName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pLibName, [NativeName(NativeNameType.Param, "pLib")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pLib) 
+		public readonly unsafe int RegisterLibrary(char* pLibName, ref IDxcBlob pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppLib = &pLib)
@@ -187,9 +166,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RegisterLibrary([NativeName(NativeNameType.Param, "pLibName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pLibName, [NativeName(NativeNameType.Param, "pLib")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pLib) 
+		public readonly unsafe int RegisterLibrary(char* pLibName, ComPtr<IDxcBlob> pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, IDxcBlob*, int>)(LpVtbl[3]))(ptr, pLibName, (IDxcBlob*)pLib.Handle);
@@ -199,9 +176,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RegisterLibrary([NativeName(NativeNameType.Param, "pLibName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pLibName, [NativeName(NativeNameType.Param, "pLib")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pLib) 
+		public readonly unsafe int RegisterLibrary(ReadOnlySpan<char> pLibName, ref IDxcBlob pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppLibName = pLibName)
@@ -217,9 +192,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Register a library with name to ref it later.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RegisterLibrary([NativeName(NativeNameType.Param, "pLibName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pLibName, [NativeName(NativeNameType.Param, "pLib")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pLib) 
+		public readonly unsafe int RegisterLibrary(string pLibName, ref IDxcBlob pLib) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -254,9 +227,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLinker*, char*, char*, char**, uint, char**, uint, IDxcOperationResult**, int>)(LpVtbl[4]))(ptr, pEntryName, pTargetProfile, pLibNames, libCount, pArguments, argCount, ppResult);
@@ -267,9 +238,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -283,9 +252,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -317,9 +284,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -333,9 +298,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -367,9 +330,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -386,9 +347,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -441,9 +400,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
@@ -457,9 +414,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -476,9 +431,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -513,9 +466,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -532,9 +483,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -569,9 +518,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -591,9 +538,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -649,9 +594,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -665,9 +608,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -684,9 +625,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -721,9 +660,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -740,9 +677,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -777,9 +712,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -799,9 +732,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -857,9 +788,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
@@ -876,9 +805,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -898,9 +825,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -938,9 +863,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -960,9 +883,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1000,9 +921,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1025,9 +944,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult) 
+		public readonly unsafe int Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, IDxcOperationResult** ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1086,9 +1003,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcOperationResult** pppResult = &ppResult)
@@ -1102,9 +1017,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
@@ -1116,9 +1029,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1135,9 +1046,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1172,9 +1081,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -1191,9 +1098,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1228,9 +1133,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1250,9 +1153,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1308,9 +1209,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
@@ -1327,9 +1226,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
@@ -1344,9 +1241,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1366,9 +1261,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1406,9 +1299,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -1428,9 +1319,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1468,9 +1357,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1493,9 +1380,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, char** pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1554,9 +1439,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -1573,9 +1456,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppArguments = &pArguments)
@@ -1590,9 +1471,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1612,9 +1491,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1652,9 +1529,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -1674,9 +1549,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1714,9 +1587,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1739,9 +1610,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] char** pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(string pEntryName, string pTargetProfile, char** pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1800,9 +1669,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
@@ -1822,9 +1689,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] out ComPtr<IDxcOperationResult> ppResult) 
+		public readonly unsafe int Link(char* pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, out ComPtr<IDxcOperationResult> ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** ppLibNames = &pLibNames)
@@ -1842,9 +1707,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -1867,9 +1730,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(string pEntryName, char* pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1910,9 +1771,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppTargetProfile = pTargetProfile)
@@ -1935,9 +1794,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(char* pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1978,9 +1835,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(ReadOnlySpan<char> pEntryName, ReadOnlySpan<char> pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppEntryName = pEntryName)
@@ -2006,9 +1861,7 @@ namespace Hexa.NET.DXC
 		/// Links the shader and produces a shader blob that the Direct3D runtime can<br/>
 		/// use.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pLibNames")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pLibNames, [NativeName(NativeNameType.Param, "libCount")] [NativeName(NativeNameType.Type, "UINT32")] uint libCount, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "const LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult) 
+		public readonly unsafe int Link(string pEntryName, string pTargetProfile, ref char* pLibNames, uint libCount, ref char* pArguments, uint argCount, ref IDxcOperationResult* ppResult) 
 		{
 			IDxcLinker* ptr = (IDxcLinker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;

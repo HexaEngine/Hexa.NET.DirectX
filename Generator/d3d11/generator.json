@@ -7,7 +7,9 @@
   "GenerateConstructorsForStructs": true,
   "GenerateSizeOfStructs": false,
   "GenerateDelegates": false,
-  "GenerateMetadata": true,
+  "GenerateMetadata": false,
+  "FunctionNamingConvention": "Unknown",
+  "ExtensionNamingConvention": "Unknown",
   "BoolType": 1,
   "NameMappings": {
     "d3d11": "D3D11"
@@ -25,9 +27,7 @@
     "SECURITY_ATTRIBUTES": "SecurityAttributes",
     "D3D11_TRACE_COMPONENT_MASK": "byte",
     "D3D11_TRACE_MISC_OPERATIONS_MASK": "ushort",
-    "ID3DBlob": "ID3D10Blob",
-    "D3D11_SRV_DIMENSION": "D3DSrvDimension",
-    "D3D_PRIMITIVE_TOPOLOGY": "D3D11PrimitiveTopology"
+    "ID3DBlob": "ID3D10Blob"
   },
   "IgnoredEnums": [
     "D3D_FEATURE_LEVEL",

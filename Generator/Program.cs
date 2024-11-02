@@ -1,26 +1,38 @@
 ﻿using HexaGen;
 using HexaGen.Patching;
 
-var start = DateTime.Now;
-Generate(["d3dcommon/d3dcommon.h"], "../../../../Hexa.NET.D3DCommon/Generated", "d3dcommon/generator.json");
-Generate(["d3dcompiler/d3dcompiler.h"], "../../../../Hexa.NET.D3DCompiler/Generated", "d3dcompiler/generator.json");
-Generate(["dxc/main.h"], "../../../../Hexa.NET.DXC/Generated", "dxc/generator.json");
-Generate([.. Directory.GetFiles("d3d11", "*.h")], "../../../../Hexa.NET.D3D11/Generated", "d3d11/generator.json");
-Generate([.. Directory.GetFiles("d3d12", "*.h")], "../../../../Hexa.NET.D3D12/Generated", "d3d12/generator.json");
-var end = DateTime.Now;
-var elapsed = end - start;
+BatchGenerator generator = new();
+generator
+    .Start()
+    .AddGlobalPrePatch(new NamingPatch(["DXGI", "D3D111", "D3D11", "D3D12", "Dxc", "D3D"], NamingPatchOptions.CaseInsensitive, NamingPatchMode.All))
 
-Console.ForegroundColor = ConsoleColor.DarkGreen;
-Console.WriteLine($"All Done! Generation took {elapsed.TotalSeconds:n2}s");
-Console.ForegroundColor = ConsoleColor.White;
+    .Setup<CsComCodeGenerator>("d3dcommon/generator.json")
+    .Generate(["d3dcommon/d3dcommon.h"], "../../../../Hexa.NET.D3DCommon/Generated")
+    .GetConfig(out var config)
+    .GetMetadata(out var metadata)
 
-static void Generate(List<string> sources, string output, string configPath)
-{
-    CsCodeGeneratorConfig config = CsCodeGeneratorConfig.Load(configPath);
-    CsComCodeGenerator generator = new(config);
-    generator.Settings.FunctionNamingConvention = NamingConvention.Unknown;
-    generator.Settings.ExtensionNamingConvention = NamingConvention.Unknown;
-    generator.PatchEngine.RegisterPrePatch(new NamingPatch(["DXGI", "D3D11", "D3D12", "Dxc", "D3D"], NamingPatchOptions.None));
-    generator.LogToConsole();
-    generator.Generate(sources, output);
-}
+    .Setup<CsComCodeGenerator>("dxgi/generator.json")
+    .MergeConfig(config, MergeOptions.Mappings)
+    .CopyFromMetadata(metadata)
+    .Generate([.. Directory.GetFiles("dxgi", "*.h")], "../../../../Hexa.NET.DXGI/Generated")
+    .GetConfig(out config)
+
+    .Setup<CsComCodeGenerator>("d3d11/generator.json")
+    .MergeConfig(config, MergeOptions.Mappings)
+    .CopyFromMetadata(metadata)
+    .Generate([.. Directory.GetFiles("d3d11", "*.h")], "../../../../Hexa.NET.D3D11/Generated")
+    .GetConfig(out var d3d11Config)
+
+    .Setup<CsComCodeGenerator>("d3d12/generator.json")
+    .MergeConfig(config, MergeOptions.Mappings)
+    .CopyFromMetadata(metadata)
+    .Generate([.. Directory.GetFiles("d3d12", "*.h")], "../../../../Hexa.NET.D3D12/Generated")
+
+    .Setup<CsComCodeGenerator>("d3dcompiler/generator.json")
+    .MergeConfig(d3d11Config, MergeOptions.Mappings)
+    .Generate(["d3dcompiler/d3dcompiler.h"], "../../../../Hexa.NET.D3DCompiler/Generated")
+
+    .Setup<CsComCodeGenerator>("dxc/generator.json")
+    .MergeConfig(config, MergeOptions.Mappings)
+    .Generate(["dxc/main.h"], "../../../../Hexa.NET.DXC/Generated")
+    .Finish();

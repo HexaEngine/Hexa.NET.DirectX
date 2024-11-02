@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("09e0bf36-54ac-484f-8847-4baeeab6053f")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12DebugCommandList")]
 	public partial struct ID3D12DebugCommandList : IComObject, IComObject<ID3D12DebugCommandList>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandList* ptr = (ID3D12DebugCommandList*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DebugCommandList* ptr = (ID3D12DebugCommandList*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList* ptr = (ID3D12DebugCommandList*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugCommandList* ptr = (ID3D12DebugCommandList*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12DebugCommandList* ptr = (ID3D12DebugCommandList*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12DebugCommandList* ptr = (ID3D12DebugCommandList*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AssertResourceState")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public readonly unsafe int AssertResourceState([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "State")] [NativeName(NativeNameType.Type, "UINT")] uint state) 
+		public readonly unsafe int AssertResourceState(ID3D12Resource* pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList* ptr = (ID3D12DebugCommandList*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, ID3D12Resource*, uint, uint, int>)(LpVtbl[3]))(ptr, pResource, subresource, state);
@@ -129,9 +114,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AssertResourceState")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public readonly unsafe int AssertResourceState([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "State")] [NativeName(NativeNameType.Type, "UINT")] uint state) 
+		public readonly unsafe int AssertResourceState(ref ID3D12Resource pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList* ptr = (ID3D12DebugCommandList*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
@@ -144,9 +127,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AssertResourceState")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public readonly unsafe int AssertResourceState([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "State")] [NativeName(NativeNameType.Type, "UINT")] uint state) 
+		public readonly unsafe int AssertResourceState(ComPtr<ID3D12Resource> pResource, uint subresource, uint state) 
 		{
 			ID3D12DebugCommandList* ptr = (ID3D12DebugCommandList*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, ID3D12Resource*, uint, uint, int>)(LpVtbl[3]))(ptr, (ID3D12Resource*)pResource.Handle, subresource, state);
@@ -156,24 +137,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetFeatureMask")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetFeatureMask([NativeName(NativeNameType.Param, "Mask")] [NativeName(NativeNameType.Type, "D3D12_DEBUG_FEATURE")] D3D12DebugFeature mask) 
+		public readonly unsafe int SetFeatureMask(DebugFeature mask) 
 		{
 			ID3D12DebugCommandList* ptr = (ID3D12DebugCommandList*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, D3D12DebugFeature, int>)(LpVtbl[4]))(ptr, mask);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, DebugFeature, int>)(LpVtbl[4]))(ptr, mask);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFeatureMask")]
-		[return: NativeName(NativeNameType.Type, "D3D12_DEBUG_FEATURE")]
-		public readonly unsafe D3D12DebugFeature GetFeatureMask() 
+		public readonly unsafe DebugFeature GetFeatureMask() 
 		{
 			ID3D12DebugCommandList* ptr = (ID3D12DebugCommandList*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			D3D12DebugFeature ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, D3D12DebugFeature>)(LpVtbl[5]))(ptr);
+			DebugFeature ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugCommandList*, DebugFeature>)(LpVtbl[5]))(ptr);
 			return ret;
 		}
 

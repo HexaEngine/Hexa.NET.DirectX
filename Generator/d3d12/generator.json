@@ -4,7 +4,9 @@
   "LibName": "d3d12",
   "Usings": [ "Hexa.NET.DXGI", "Hexa.NET.D3DCommon" ],
   "GenerateSizeOfStructs": false,
-  "GenerateMetadata": true,
+  "GenerateMetadata": false,
+  "FunctionNamingConvention": "Unknown",
+  "ExtensionNamingConvention": "Unknown",
   "BoolType": 1,
   "TypeMappings": {
     "DXGI_USAGE": "uint",

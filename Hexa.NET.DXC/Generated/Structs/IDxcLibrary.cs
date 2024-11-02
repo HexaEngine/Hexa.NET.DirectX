@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// NOTE: IDxcUtils replaces IDxcLibrary<br/>
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcLibrary")]
 	public partial struct IDxcLibrary : IComObject, IComObject<IDxcLibrary>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,9 +99,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetMalloc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetMalloc([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc) 
+		public readonly unsafe int SetMalloc(IMalloc* pMalloc) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, int>)(LpVtbl[3]))(ptr, pMalloc);
@@ -124,9 +109,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetMalloc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetMalloc([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ref IMalloc pMalloc) 
+		public readonly unsafe int SetMalloc(ref IMalloc pMalloc) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IMalloc* ppMalloc = &pMalloc)
@@ -139,9 +122,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetMalloc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetMalloc([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ComPtr<IMalloc> pMalloc) 
+		public readonly unsafe int SetMalloc(ComPtr<IMalloc> pMalloc) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IMalloc*, int>)(LpVtbl[3]))(ptr, (IMalloc*)pMalloc.Handle);
@@ -151,9 +132,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromBlob")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromBlob([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "UINT32")] uint offset, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "UINT32")] uint length, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** ppResult) 
+		public readonly unsafe int CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[4]))(ptr, pBlob, offset, length, ppResult);
@@ -163,9 +142,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromBlob")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromBlob([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "UINT32")] uint offset, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "UINT32")] uint length, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** ppResult) 
+		public readonly unsafe int CreateBlobFromBlob(ref IDxcBlob pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -178,9 +155,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromBlob")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromBlob([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "UINT32")] uint offset, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "UINT32")] uint length, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** ppResult) 
+		public readonly unsafe int CreateBlobFromBlob(ComPtr<IDxcBlob> pBlob, uint offset, uint length, IDxcBlob** ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, uint, uint, IDxcBlob**, int>)(LpVtbl[4]))(ptr, (IDxcBlob*)pBlob.Handle, offset, length, ppResult);
@@ -190,9 +165,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromBlob")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromBlob([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "UINT32")] uint offset, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "UINT32")] uint length, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppResult) 
+		public readonly unsafe int CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** pppResult = &ppResult)
@@ -205,9 +178,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromBlob")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromBlob([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "UINT32")] uint offset, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "UINT32")] uint length, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppResult) 
+		public readonly unsafe int CreateBlobFromBlob(IDxcBlob* pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
@@ -218,9 +189,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromBlob")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromBlob([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "UINT32")] uint offset, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "UINT32")] uint length, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppResult) 
+		public readonly unsafe int CreateBlobFromBlob(ref IDxcBlob pBlob, uint offset, uint length, ref IDxcBlob* ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -236,9 +205,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromBlob")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromBlob([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "offset")] [NativeName(NativeNameType.Type, "UINT32")] uint offset, [NativeName(NativeNameType.Param, "length")] [NativeName(NativeNameType.Type, "UINT32")] uint length, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppResult) 
+		public readonly unsafe int CreateBlobFromBlob(ComPtr<IDxcBlob> pBlob, uint offset, uint length, out ComPtr<IDxcBlob> ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
@@ -249,9 +216,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] uint* codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(char* pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, char*, uint*, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pFileName, codePage, pBlobEncoding);
@@ -261,9 +226,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] uint* codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(ReadOnlySpan<char> pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
@@ -276,9 +239,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] uint* codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(string pFileName, uint* codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -309,9 +270,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(char* pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* pcodePage = &codePage)
@@ -324,9 +283,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(ReadOnlySpan<char> pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
@@ -342,9 +299,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(string pFileName, ref uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -378,9 +333,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] uint* codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(char* pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
@@ -393,9 +346,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] uint* codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(char* pFileName, uint* codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
@@ -406,9 +357,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] uint* codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(ReadOnlySpan<char> pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
@@ -424,9 +373,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] uint* codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(string pFileName, uint* codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -460,9 +407,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(char* pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* pcodePage = &codePage)
@@ -478,9 +423,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(char* pFileName, ref uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* pcodePage = &codePage)
@@ -494,9 +437,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(ReadOnlySpan<char> pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppFileName = pFileName)
@@ -515,9 +456,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobFromFile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobFromFile([NativeName(NativeNameType.Param, "pFileName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pFileName, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int CreateBlobFromFile(string pFileName, ref uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -554,9 +493,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingFromPinned")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingFromPinned([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingFromPinned(void* pText, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[6]))(ptr, pText, size, codePage, pBlobEncoding);
@@ -566,9 +503,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingFromPinned")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingFromPinned([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingFromPinned(void* pText, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
@@ -581,9 +516,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingFromPinned")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingFromPinned([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingFromPinned(void* pText, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
@@ -594,9 +527,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingOnHeapCopy")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingOnHeapCopy([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingOnHeapCopy(void* pText, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[7]))(ptr, pText, size, codePage, pBlobEncoding);
@@ -606,9 +537,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingOnHeapCopy")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingOnHeapCopy([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingOnHeapCopy(void* pText, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
@@ -621,9 +550,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingOnHeapCopy")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingOnHeapCopy([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingOnHeapCopy(void* pText, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
@@ -634,9 +561,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingOnMalloc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "pIMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pIMalloc, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, IMalloc* pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[8]))(ptr, pText, pIMalloc, size, codePage, pBlobEncoding);
@@ -646,9 +571,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingOnMalloc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "pIMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ref IMalloc pIMalloc, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, ref IMalloc pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IMalloc* ppIMalloc = &pIMalloc)
@@ -661,9 +584,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingOnMalloc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "pIMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ComPtr<IMalloc> pIMalloc, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, void*, IMalloc*, uint, uint, IDxcBlobEncoding**, int>)(LpVtbl[8]))(ptr, pText, (IMalloc*)pIMalloc.Handle, size, codePage, pBlobEncoding);
@@ -673,9 +594,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingOnMalloc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "pIMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pIMalloc, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, IMalloc* pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
@@ -688,9 +607,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingOnMalloc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "pIMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pIMalloc, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, IMalloc* pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
@@ -701,9 +618,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingOnMalloc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "pIMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ref IMalloc pIMalloc, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, ref IMalloc pIMalloc, uint size, uint codePage, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IMalloc* ppIMalloc = &pIMalloc)
@@ -719,9 +634,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateBlobWithEncodingOnMalloc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateBlobWithEncodingOnMalloc([NativeName(NativeNameType.Param, "pText")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pText, [NativeName(NativeNameType.Param, "pIMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ComPtr<IMalloc> pIMalloc, [NativeName(NativeNameType.Param, "size")] [NativeName(NativeNameType.Type, "UINT32")] uint size, [NativeName(NativeNameType.Param, "codePage")] [NativeName(NativeNameType.Type, "UINT32")] uint codePage, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe int CreateBlobWithEncodingOnMalloc(void* pText, ComPtr<IMalloc> pIMalloc, uint size, uint codePage, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
@@ -732,9 +645,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateIncludeHandler")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateIncludeHandler([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler**")] IDxcIncludeHandler** ppResult) 
+		public readonly unsafe int CreateIncludeHandler(IDxcIncludeHandler** ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcIncludeHandler**, int>)(LpVtbl[9]))(ptr, ppResult);
@@ -744,9 +655,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateIncludeHandler")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateIncludeHandler([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler**")] ref IDxcIncludeHandler* ppResult) 
+		public readonly unsafe int CreateIncludeHandler(ref IDxcIncludeHandler* ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcIncludeHandler** pppResult = &ppResult)
@@ -759,9 +668,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateIncludeHandler")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateIncludeHandler([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler**")] out ComPtr<IDxcIncludeHandler> ppResult) 
+		public readonly unsafe int CreateIncludeHandler(out ComPtr<IDxcIncludeHandler> ppResult) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
@@ -772,9 +679,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStreamFromBlobReadOnly")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateStreamFromBlobReadOnly([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppStream")] [NativeName(NativeNameType.Type, "IStream**")] IStream** ppStream) 
+		public readonly unsafe int CreateStreamFromBlobReadOnly(IDxcBlob* pBlob, IStream** ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(LpVtbl[10]))(ptr, pBlob, ppStream);
@@ -784,9 +689,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStreamFromBlobReadOnly")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateStreamFromBlobReadOnly([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "ppStream")] [NativeName(NativeNameType.Type, "IStream**")] IStream** ppStream) 
+		public readonly unsafe int CreateStreamFromBlobReadOnly(ref IDxcBlob pBlob, IStream** ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -799,9 +702,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStreamFromBlobReadOnly")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateStreamFromBlobReadOnly([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "ppStream")] [NativeName(NativeNameType.Type, "IStream**")] IStream** ppStream) 
+		public readonly unsafe int CreateStreamFromBlobReadOnly(ComPtr<IDxcBlob> pBlob, IStream** ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IStream**, int>)(LpVtbl[10]))(ptr, (IDxcBlob*)pBlob.Handle, ppStream);
@@ -811,9 +712,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStreamFromBlobReadOnly")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateStreamFromBlobReadOnly([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppStream")] [NativeName(NativeNameType.Type, "IStream**")] ref IStream* ppStream) 
+		public readonly unsafe int CreateStreamFromBlobReadOnly(IDxcBlob* pBlob, ref IStream* ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IStream** pppStream = &ppStream)
@@ -826,9 +725,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStreamFromBlobReadOnly")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateStreamFromBlobReadOnly([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppStream")] [NativeName(NativeNameType.Type, "IStream**")] out ComPtr<IStream> ppStream) 
+		public readonly unsafe int CreateStreamFromBlobReadOnly(IDxcBlob* pBlob, out ComPtr<IStream> ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppStream = default;
@@ -839,9 +736,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStreamFromBlobReadOnly")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateStreamFromBlobReadOnly([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "ppStream")] [NativeName(NativeNameType.Type, "IStream**")] ref IStream* ppStream) 
+		public readonly unsafe int CreateStreamFromBlobReadOnly(ref IDxcBlob pBlob, ref IStream* ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -857,9 +752,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStreamFromBlobReadOnly")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateStreamFromBlobReadOnly([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "ppStream")] [NativeName(NativeNameType.Type, "IStream**")] out ComPtr<IStream> ppStream) 
+		public readonly unsafe int CreateStreamFromBlobReadOnly(ComPtr<IDxcBlob> pBlob, out ComPtr<IStream> ppStream) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppStream = default;
@@ -870,9 +763,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf8")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf8([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf8(IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[11]))(ptr, pBlob, pBlobEncoding);
@@ -882,9 +773,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf8")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf8([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf8(ref IDxcBlob pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -897,9 +786,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf8")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf8([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf8(ComPtr<IDxcBlob> pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[11]))(ptr, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
@@ -909,9 +796,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf8")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf8([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf8(IDxcBlob* pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
@@ -924,9 +809,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf8")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf8([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf8(IDxcBlob* pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
@@ -937,9 +820,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf8")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf8([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf8(ref IDxcBlob pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -955,9 +836,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf8")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf8([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf8(ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
@@ -968,9 +847,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf16")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf16([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf16(IDxcBlob* pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[12]))(ptr, pBlob, pBlobEncoding);
@@ -980,9 +857,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf16")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf16([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf16(ref IDxcBlob pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -995,9 +870,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf16")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf16([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf16(ComPtr<IDxcBlob> pBlob, IDxcBlobEncoding** pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcLibrary*, IDxcBlob*, IDxcBlobEncoding**, int>)(LpVtbl[12]))(ptr, (IDxcBlob*)pBlob.Handle, pBlobEncoding);
@@ -1007,9 +880,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf16")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf16([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf16(IDxcBlob* pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** ppBlobEncoding = &pBlobEncoding)
@@ -1022,9 +893,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf16")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf16([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf16(IDxcBlob* pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;
@@ -1035,9 +904,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf16")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf16([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf16(ref IDxcBlob pBlob, ref IDxcBlobEncoding* pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -1053,9 +920,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBlobAsUtf16")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBlobAsUtf16([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "pBlobEncoding")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
+		public readonly unsafe int GetBlobAsUtf16(ComPtr<IDxcBlob> pBlob, out ComPtr<IDxcBlobEncoding> pBlobEncoding) 
 		{
 			IDxcLibrary* ptr = (IDxcLibrary*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			pBlobEncoding = default;

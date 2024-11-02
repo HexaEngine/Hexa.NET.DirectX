@@ -22,24 +22,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int SerializeRootSignatureNative([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_ROOT_SIGNATURE_DESC*")] D3D12RootSignatureDesc* pRootSignature, [NativeName(NativeNameType.Param, "Version")] [NativeName(NativeNameType.Type, "D3D_ROOT_SIGNATURE_VERSION")] D3DRootSignatureVersion version, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBlob)
+		internal static int SerializeRootSignatureNative(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<D3D12RootSignatureDesc*, D3DRootSignatureVersion, ID3D10Blob**, ID3D10Blob**, int>)funcTable[0])(pRootSignature, version, ppBlob, ppErrorBlob);
+			return ((delegate* unmanaged[Cdecl]<RootSignatureDesc*, RootSignatureVersion, ID3D10Blob**, ID3D10Blob**, int>)funcTable[0])(pRootSignature, version, ppBlob, ppErrorBlob);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, D3DRootSignatureVersion, nint, nint, int>)funcTable[0])((nint)pRootSignature, version, (nint)ppBlob, (nint)ppErrorBlob);
+			return (int)((delegate* unmanaged[Cdecl]<nint, RootSignatureVersion, nint, nint, int>)funcTable[0])((nint)pRootSignature, version, (nint)ppBlob, (nint)ppErrorBlob);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_ROOT_SIGNATURE_DESC*")] D3D12RootSignatureDesc* pRootSignature, [NativeName(NativeNameType.Param, "Version")] [NativeName(NativeNameType.Type, "D3D_ROOT_SIGNATURE_VERSION")] D3DRootSignatureVersion version, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBlob)
+		public static int SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			int ret = SerializeRootSignatureNative(pRootSignature, version, ppBlob, ppErrorBlob);
 			return ret;
@@ -48,13 +44,11 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_ROOT_SIGNATURE_DESC*")] ref D3D12RootSignatureDesc pRootSignature, [NativeName(NativeNameType.Param, "Version")] [NativeName(NativeNameType.Type, "D3D_ROOT_SIGNATURE_VERSION")] D3DRootSignatureVersion version, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBlob)
+		public static int SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
-			fixed (D3D12RootSignatureDesc* ppRootSignature = &pRootSignature)
+			fixed (RootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
-				int ret = SerializeRootSignatureNative((D3D12RootSignatureDesc*)ppRootSignature, version, ppBlob, ppErrorBlob);
+				int ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, ppBlob, ppErrorBlob);
 				return ret;
 			}
 		}
@@ -62,9 +56,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_ROOT_SIGNATURE_DESC*")] D3D12RootSignatureDesc* pRootSignature, [NativeName(NativeNameType.Param, "Version")] [NativeName(NativeNameType.Type, "D3D_ROOT_SIGNATURE_VERSION")] D3DRootSignatureVersion version, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBlob)
+		public static int SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppBlob = &ppBlob)
 			{
@@ -76,15 +68,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_ROOT_SIGNATURE_DESC*")] ref D3D12RootSignatureDesc pRootSignature, [NativeName(NativeNameType.Param, "Version")] [NativeName(NativeNameType.Type, "D3D_ROOT_SIGNATURE_VERSION")] D3DRootSignatureVersion version, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBlob)
+		public static int SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
 		{
-			fixed (D3D12RootSignatureDesc* ppRootSignature = &pRootSignature)
+			fixed (RootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
 				fixed (ID3D10Blob** pppBlob = &ppBlob)
 				{
-					int ret = SerializeRootSignatureNative((D3D12RootSignatureDesc*)ppRootSignature, version, (ID3D10Blob**)pppBlob, ppErrorBlob);
+					int ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, (ID3D10Blob**)pppBlob, ppErrorBlob);
 					return ret;
 				}
 			}
@@ -93,9 +83,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_ROOT_SIGNATURE_DESC*")] D3D12RootSignatureDesc* pRootSignature, [NativeName(NativeNameType.Param, "Version")] [NativeName(NativeNameType.Type, "D3D_ROOT_SIGNATURE_VERSION")] D3DRootSignatureVersion version, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBlob)
+		public static int SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 			{
@@ -107,15 +95,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_ROOT_SIGNATURE_DESC*")] ref D3D12RootSignatureDesc pRootSignature, [NativeName(NativeNameType.Param, "Version")] [NativeName(NativeNameType.Type, "D3D_ROOT_SIGNATURE_VERSION")] D3DRootSignatureVersion version, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBlob)
+		public static int SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
-			fixed (D3D12RootSignatureDesc* ppRootSignature = &pRootSignature)
+			fixed (RootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
 				fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 				{
-					int ret = SerializeRootSignatureNative((D3D12RootSignatureDesc*)ppRootSignature, version, ppBlob, (ID3D10Blob**)pppErrorBlob);
+					int ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, ppBlob, (ID3D10Blob**)pppErrorBlob);
 					return ret;
 				}
 			}
@@ -124,9 +110,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_ROOT_SIGNATURE_DESC*")] D3D12RootSignatureDesc* pRootSignature, [NativeName(NativeNameType.Param, "Version")] [NativeName(NativeNameType.Type, "D3D_ROOT_SIGNATURE_VERSION")] D3DRootSignatureVersion version, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBlob)
+		public static int SerializeRootSignature(RootSignatureDesc* pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppBlob = &ppBlob)
 			{
@@ -141,17 +125,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_ROOT_SIGNATURE_DESC*")] ref D3D12RootSignatureDesc pRootSignature, [NativeName(NativeNameType.Param, "Version")] [NativeName(NativeNameType.Type, "D3D_ROOT_SIGNATURE_VERSION")] D3DRootSignatureVersion version, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBlob)
+		public static int SerializeRootSignature(ref RootSignatureDesc pRootSignature, RootSignatureVersion version, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
-			fixed (D3D12RootSignatureDesc* ppRootSignature = &pRootSignature)
+			fixed (RootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
 				fixed (ID3D10Blob** pppBlob = &ppBlob)
 				{
 					fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 					{
-						int ret = SerializeRootSignatureNative((D3D12RootSignatureDesc*)ppRootSignature, version, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
+						int ret = SerializeRootSignatureNative((RootSignatureDesc*)ppRootSignature, version, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
 						return ret;
 					}
 				}
@@ -161,10 +143,8 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateRootSignatureDeserializer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateRootSignatureDeserializerNative([NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint srcDataSizeInBytes, [NativeName(NativeNameType.Param, "pRootSignatureDeserializerInterface")] [NativeName(NativeNameType.Type, "const IID&")] Guid* pRootSignatureDeserializerInterface, [NativeName(NativeNameType.Param, "ppRootSignatureDeserializer")] [NativeName(NativeNameType.Type, "void**")] void** ppRootSignatureDeserializer)
+		internal static int CreateRootSignatureDeserializerNative(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, nuint, Guid*, void**, int>)funcTable[1])(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
@@ -176,9 +156,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateRootSignatureDeserializer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateRootSignatureDeserializer([NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint srcDataSizeInBytes, [NativeName(NativeNameType.Param, "pRootSignatureDeserializerInterface")] [NativeName(NativeNameType.Type, "const IID&")] Guid* pRootSignatureDeserializerInterface, [NativeName(NativeNameType.Param, "ppRootSignatureDeserializer")] [NativeName(NativeNameType.Type, "void**")] void** ppRootSignatureDeserializer)
+		public static int CreateRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
 			int ret = CreateRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
 			return ret;
@@ -187,9 +165,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateRootSignatureDeserializer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateRootSignatureDeserializer([NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint srcDataSizeInBytes, [NativeName(NativeNameType.Param, "pRootSignatureDeserializerInterface")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid pRootSignatureDeserializerInterface, [NativeName(NativeNameType.Param, "ppRootSignatureDeserializer")] [NativeName(NativeNameType.Type, "void**")] void** ppRootSignatureDeserializer)
+		public static int CreateRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
 			fixed (Guid* ppRootSignatureDeserializerInterface = &pRootSignatureDeserializerInterface)
 			{
@@ -201,9 +177,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateRootSignatureDeserializer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateRootSignatureDeserializer<T>([NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint srcDataSizeInBytes, [NativeName(NativeNameType.Param, "ppRootSignatureDeserializer")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppRootSignatureDeserializer = default;
 			int ret = CreateRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppRootSignatureDeserializer.GetAddressOf());
@@ -213,9 +187,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateRootSignatureDeserializer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateRootSignatureDeserializer<T>([NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint srcDataSizeInBytes, [NativeName(NativeNameType.Param, "pRootSignatureDeserializerInterface")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid pRootSignatureDeserializerInterface, [NativeName(NativeNameType.Param, "ppRootSignatureDeserializer")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* ppRootSignatureDeserializerInterface = &pRootSignatureDeserializerInterface)
 			{
@@ -228,13 +200,11 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeVersionedRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int SerializeVersionedRootSignatureNative([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC*")] D3D12VersionedRootSignatureDesc* pRootSignature, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBlob)
+		internal static int SerializeVersionedRootSignatureNative(VersionedRootSignatureDesc* pRootSignature, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<D3D12VersionedRootSignatureDesc*, ID3D10Blob**, ID3D10Blob**, int>)funcTable[2])(pRootSignature, ppBlob, ppErrorBlob);
+			return ((delegate* unmanaged[Cdecl]<VersionedRootSignatureDesc*, ID3D10Blob**, ID3D10Blob**, int>)funcTable[2])(pRootSignature, ppBlob, ppErrorBlob);
 			#else
 			return (int)((delegate* unmanaged[Cdecl]<nint, nint, nint, int>)funcTable[2])((nint)pRootSignature, (nint)ppBlob, (nint)ppErrorBlob);
 			#endif
@@ -243,9 +213,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeVersionedRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeVersionedRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC*")] D3D12VersionedRootSignatureDesc* pRootSignature, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBlob)
+		public static int SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			int ret = SerializeVersionedRootSignatureNative(pRootSignature, ppBlob, ppErrorBlob);
 			return ret;
@@ -254,13 +222,11 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeVersionedRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeVersionedRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC*")] ref D3D12VersionedRootSignatureDesc pRootSignature, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBlob)
+		public static int SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ID3D10Blob** ppBlob, ID3D10Blob** ppErrorBlob)
 		{
-			fixed (D3D12VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
+			fixed (VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
-				int ret = SerializeVersionedRootSignatureNative((D3D12VersionedRootSignatureDesc*)ppRootSignature, ppBlob, ppErrorBlob);
+				int ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, ppBlob, ppErrorBlob);
 				return ret;
 			}
 		}
@@ -268,9 +234,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeVersionedRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeVersionedRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC*")] D3D12VersionedRootSignatureDesc* pRootSignature, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBlob)
+		public static int SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppBlob = &ppBlob)
 			{
@@ -282,15 +246,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeVersionedRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeVersionedRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC*")] ref D3D12VersionedRootSignatureDesc pRootSignature, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBlob)
+		public static int SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ref ID3D10Blob* ppBlob, ID3D10Blob** ppErrorBlob)
 		{
-			fixed (D3D12VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
+			fixed (VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
 				fixed (ID3D10Blob** pppBlob = &ppBlob)
 				{
-					int ret = SerializeVersionedRootSignatureNative((D3D12VersionedRootSignatureDesc*)ppRootSignature, (ID3D10Blob**)pppBlob, ppErrorBlob);
+					int ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, (ID3D10Blob**)pppBlob, ppErrorBlob);
 					return ret;
 				}
 			}
@@ -299,9 +261,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeVersionedRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeVersionedRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC*")] D3D12VersionedRootSignatureDesc* pRootSignature, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBlob)
+		public static int SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 			{
@@ -313,15 +273,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeVersionedRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeVersionedRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC*")] ref D3D12VersionedRootSignatureDesc pRootSignature, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBlob)
+		public static int SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ID3D10Blob** ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
-			fixed (D3D12VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
+			fixed (VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
 				fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 				{
-					int ret = SerializeVersionedRootSignatureNative((D3D12VersionedRootSignatureDesc*)ppRootSignature, ppBlob, (ID3D10Blob**)pppErrorBlob);
+					int ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, ppBlob, (ID3D10Blob**)pppErrorBlob);
 					return ret;
 				}
 			}
@@ -330,9 +288,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeVersionedRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeVersionedRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC*")] D3D12VersionedRootSignatureDesc* pRootSignature, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBlob)
+		public static int SerializeVersionedRootSignature(VersionedRootSignatureDesc* pRootSignature, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
 			fixed (ID3D10Blob** pppBlob = &ppBlob)
 			{
@@ -347,17 +303,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12SerializeVersionedRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SerializeVersionedRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const D3D12_VERSIONED_ROOT_SIGNATURE_DESC*")] ref D3D12VersionedRootSignatureDesc pRootSignature, [NativeName(NativeNameType.Param, "ppBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppBlob, [NativeName(NativeNameType.Param, "ppErrorBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBlob)
+		public static int SerializeVersionedRootSignature(ref VersionedRootSignatureDesc pRootSignature, ref ID3D10Blob* ppBlob, ref ID3D10Blob* ppErrorBlob)
 		{
-			fixed (D3D12VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
+			fixed (VersionedRootSignatureDesc* ppRootSignature = &pRootSignature)
 			{
 				fixed (ID3D10Blob** pppBlob = &ppBlob)
 				{
 					fixed (ID3D10Blob** pppErrorBlob = &ppErrorBlob)
 					{
-						int ret = SerializeVersionedRootSignatureNative((D3D12VersionedRootSignatureDesc*)ppRootSignature, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
+						int ret = SerializeVersionedRootSignatureNative((VersionedRootSignatureDesc*)ppRootSignature, (ID3D10Blob**)pppBlob, (ID3D10Blob**)pppErrorBlob);
 						return ret;
 					}
 				}
@@ -367,10 +321,8 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateVersionedRootSignatureDeserializer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateVersionedRootSignatureDeserializerNative([NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint srcDataSizeInBytes, [NativeName(NativeNameType.Param, "pRootSignatureDeserializerInterface")] [NativeName(NativeNameType.Type, "const IID&")] Guid* pRootSignatureDeserializerInterface, [NativeName(NativeNameType.Param, "ppRootSignatureDeserializer")] [NativeName(NativeNameType.Type, "void**")] void** ppRootSignatureDeserializer)
+		internal static int CreateVersionedRootSignatureDeserializerNative(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<void*, nuint, Guid*, void**, int>)funcTable[3])(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
@@ -382,9 +334,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateVersionedRootSignatureDeserializer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVersionedRootSignatureDeserializer([NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint srcDataSizeInBytes, [NativeName(NativeNameType.Param, "pRootSignatureDeserializerInterface")] [NativeName(NativeNameType.Type, "const IID&")] Guid* pRootSignatureDeserializerInterface, [NativeName(NativeNameType.Param, "ppRootSignatureDeserializer")] [NativeName(NativeNameType.Type, "void**")] void** ppRootSignatureDeserializer)
+		public static int CreateVersionedRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, Guid* pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
 			int ret = CreateVersionedRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, pRootSignatureDeserializerInterface, ppRootSignatureDeserializer);
 			return ret;
@@ -393,9 +343,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateVersionedRootSignatureDeserializer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVersionedRootSignatureDeserializer([NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint srcDataSizeInBytes, [NativeName(NativeNameType.Param, "pRootSignatureDeserializerInterface")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid pRootSignatureDeserializerInterface, [NativeName(NativeNameType.Param, "ppRootSignatureDeserializer")] [NativeName(NativeNameType.Type, "void**")] void** ppRootSignatureDeserializer)
+		public static int CreateVersionedRootSignatureDeserializer(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, void** ppRootSignatureDeserializer)
 		{
 			fixed (Guid* ppRootSignatureDeserializerInterface = &pRootSignatureDeserializerInterface)
 			{
@@ -407,9 +355,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateVersionedRootSignatureDeserializer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVersionedRootSignatureDeserializer<T>([NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint srcDataSizeInBytes, [NativeName(NativeNameType.Param, "ppRootSignatureDeserializer")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateVersionedRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppRootSignatureDeserializer = default;
 			int ret = CreateVersionedRootSignatureDeserializerNative(pSrcData, srcDataSizeInBytes, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppRootSignatureDeserializer.GetAddressOf());
@@ -419,9 +365,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateVersionedRootSignatureDeserializer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVersionedRootSignatureDeserializer<T>([NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "LPCVOID")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint srcDataSizeInBytes, [NativeName(NativeNameType.Param, "pRootSignatureDeserializerInterface")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid pRootSignatureDeserializerInterface, [NativeName(NativeNameType.Param, "ppRootSignatureDeserializer")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateVersionedRootSignatureDeserializer<T>(void* pSrcData, nuint srcDataSizeInBytes, ref Guid pRootSignatureDeserializerInterface, out ComPtr<T> ppRootSignatureDeserializer) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* ppRootSignatureDeserializerInterface = &pRootSignatureDeserializerInterface)
 			{
@@ -434,24 +378,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateDeviceNative([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pAdapter, [NativeName(NativeNameType.Param, "MinimumFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL")] D3DFeatureLevel minimumFeatureLevel, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice)
+		internal static int CreateDeviceNative(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<IUnknown*, D3DFeatureLevel, Guid*, void**, int>)funcTable[4])(pAdapter, minimumFeatureLevel, riid, ppDevice);
+			return ((delegate* unmanaged[Cdecl]<IUnknown*, FeatureLevel, Guid*, void**, int>)funcTable[4])(pAdapter, minimumFeatureLevel, riid, ppDevice);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, D3DFeatureLevel, nint, nint, int>)funcTable[4])((nint)pAdapter, minimumFeatureLevel, (nint)riid, (nint)ppDevice);
+			return (int)((delegate* unmanaged[Cdecl]<nint, FeatureLevel, nint, nint, int>)funcTable[4])((nint)pAdapter, minimumFeatureLevel, (nint)riid, (nint)ppDevice);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pAdapter, [NativeName(NativeNameType.Param, "MinimumFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL")] D3DFeatureLevel minimumFeatureLevel, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice)
+		public static int CreateDevice(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
 		{
 			int ret = CreateDeviceNative(pAdapter, minimumFeatureLevel, riid, ppDevice);
 			return ret;
@@ -460,9 +400,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pAdapter, [NativeName(NativeNameType.Param, "MinimumFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL")] D3DFeatureLevel minimumFeatureLevel, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice)
+		public static int CreateDevice(ref IUnknown pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
 		{
 			fixed (IUnknown* ppAdapter = &pAdapter)
 			{
@@ -474,20 +412,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pAdapter, [NativeName(NativeNameType.Param, "MinimumFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL")] D3DFeatureLevel minimumFeatureLevel, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice)
+		public static int CreateDevice(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, Guid* riid, void** ppDevice)
 		{
-			int ret = CreateDeviceNative((IUnknown*)pAdapter.GetAddressOf(), minimumFeatureLevel, riid, ppDevice);
+			int ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, riid, ppDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pAdapter, [NativeName(NativeNameType.Param, "MinimumFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL")] D3DFeatureLevel minimumFeatureLevel, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice)
+		public static int CreateDevice(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, void** ppDevice)
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -499,9 +433,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pAdapter, [NativeName(NativeNameType.Param, "MinimumFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL")] D3DFeatureLevel minimumFeatureLevel, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice)
+		public static int CreateDevice(ref IUnknown pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, void** ppDevice)
 		{
 			fixed (IUnknown* ppAdapter = &pAdapter)
 			{
@@ -516,13 +448,11 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pAdapter, [NativeName(NativeNameType.Param, "MinimumFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL")] D3DFeatureLevel minimumFeatureLevel, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice)
+		public static int CreateDevice(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, void** ppDevice)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = CreateDeviceNative((IUnknown*)pAdapter.GetAddressOf(), minimumFeatureLevel, (Guid*)priid, ppDevice);
+				int ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, (Guid*)priid, ppDevice);
 				return ret;
 			}
 		}
@@ -530,9 +460,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice<T>([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pAdapter, [NativeName(NativeNameType.Param, "MinimumFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL")] D3DFeatureLevel minimumFeatureLevel, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateDevice<T>(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppDevice = default;
 			int ret = CreateDeviceNative(pAdapter, minimumFeatureLevel, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppDevice.GetAddressOf());
@@ -542,21 +470,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice<T>([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pAdapter, [NativeName(NativeNameType.Param, "MinimumFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL")] D3DFeatureLevel minimumFeatureLevel, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateDevice<T>(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppDevice = default;
-			int ret = CreateDeviceNative((IUnknown*)pAdapter.GetAddressOf(), minimumFeatureLevel, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppDevice.GetAddressOf());
+			int ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppDevice.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice<T>([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pAdapter, [NativeName(NativeNameType.Param, "MinimumFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL")] D3DFeatureLevel minimumFeatureLevel, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateDevice<T>(IUnknown* pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -569,14 +493,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice<T>([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pAdapter, [NativeName(NativeNameType.Param, "MinimumFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL")] D3DFeatureLevel minimumFeatureLevel, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateDevice<T>(ComPtr<IUnknown> pAdapter, FeatureLevel minimumFeatureLevel, ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
 				ppDevice = default;
-				int ret = CreateDeviceNative((IUnknown*)pAdapter.GetAddressOf(), minimumFeatureLevel, (Guid*)priid, (void**)ppDevice.GetAddressOf());
+				int ret = CreateDeviceNative((IUnknown*)pAdapter.Handle, minimumFeatureLevel, (Guid*)priid, (void**)ppDevice.GetAddressOf());
 				return ret;
 			}
 		}
@@ -584,10 +506,8 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetDebugInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetDebugInterfaceNative([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] void** ppvDebug)
+		internal static int GetDebugInterfaceNative(Guid* riid, void** ppvDebug)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<Guid*, void**, int>)funcTable[5])(riid, ppvDebug);
@@ -599,9 +519,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetDebugInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDebugInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] void** ppvDebug)
+		public static int GetDebugInterface(Guid* riid, void** ppvDebug)
 		{
 			int ret = GetDebugInterfaceNative(riid, ppvDebug);
 			return ret;
@@ -610,9 +528,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetDebugInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDebugInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] void** ppvDebug)
+		public static int GetDebugInterface(ref Guid riid, void** ppvDebug)
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -624,9 +540,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetDebugInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDebugInterface<T>([NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDebugInterface<T>(out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppvDebug = default;
 			int ret = GetDebugInterfaceNative((Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDebug.GetAddressOf());
@@ -636,9 +550,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetDebugInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDebugInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetDebugInterface<T>(ref Guid riid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -668,10 +580,8 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12EnableExperimentalFeatures")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int EnableExperimentalFeaturesNative([NativeName(NativeNameType.Param, "NumFeatures")] [NativeName(NativeNameType.Type, "UINT")] uint numFeatures, [NativeName(NativeNameType.Param, "pIIDs")] [NativeName(NativeNameType.Type, "const IID*")] Guid* pIIDs, [NativeName(NativeNameType.Param, "pConfigurationStructs")] [NativeName(NativeNameType.Type, "void*")] void* pConfigurationStructs, [NativeName(NativeNameType.Param, "pConfigurationStructSizes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pConfigurationStructSizes)
+		internal static int EnableExperimentalFeaturesNative(uint numFeatures, Guid* pIIDs, void* pConfigurationStructs, uint* pConfigurationStructSizes)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<uint, Guid*, void*, uint*, int>)funcTable[6])(numFeatures, pIIDs, pConfigurationStructs, pConfigurationStructSizes);
@@ -700,9 +610,7 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12EnableExperimentalFeatures")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnableExperimentalFeatures([NativeName(NativeNameType.Param, "NumFeatures")] [NativeName(NativeNameType.Type, "UINT")] uint numFeatures, [NativeName(NativeNameType.Param, "pIIDs")] [NativeName(NativeNameType.Type, "const IID*")] Guid* pIIDs, [NativeName(NativeNameType.Param, "pConfigurationStructs")] [NativeName(NativeNameType.Type, "void*")] void* pConfigurationStructs, [NativeName(NativeNameType.Param, "pConfigurationStructSizes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pConfigurationStructSizes)
+		public static int EnableExperimentalFeatures(uint numFeatures, Guid* pIIDs, void* pConfigurationStructs, uint* pConfigurationStructSizes)
 		{
 			int ret = EnableExperimentalFeaturesNative(numFeatures, pIIDs, pConfigurationStructs, pConfigurationStructSizes);
 			return ret;
@@ -728,9 +636,7 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12EnableExperimentalFeatures")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnableExperimentalFeatures([NativeName(NativeNameType.Param, "NumFeatures")] [NativeName(NativeNameType.Type, "UINT")] uint numFeatures, [NativeName(NativeNameType.Param, "pIIDs")] [NativeName(NativeNameType.Type, "const IID*")] ref Guid pIIDs, [NativeName(NativeNameType.Param, "pConfigurationStructs")] [NativeName(NativeNameType.Type, "void*")] void* pConfigurationStructs, [NativeName(NativeNameType.Param, "pConfigurationStructSizes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pConfigurationStructSizes)
+		public static int EnableExperimentalFeatures(uint numFeatures, ref Guid pIIDs, void* pConfigurationStructs, uint* pConfigurationStructSizes)
 		{
 			fixed (Guid* ppIIDs = &pIIDs)
 			{
@@ -759,11 +665,9 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12EnableExperimentalFeatures")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnableExperimentalFeatures<T>([NativeName(NativeNameType.Param, "NumFeatures")] [NativeName(NativeNameType.Type, "UINT")] uint numFeatures, [NativeName(NativeNameType.Param, "pConfigurationStructs")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pConfigurationStructs, [NativeName(NativeNameType.Param, "pConfigurationStructSizes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
+		public static int EnableExperimentalFeatures<T>(uint numFeatures, ComPtr<T> pConfigurationStructs, uint* pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
 		{
-			int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)(ComUtils.GuidPtrOf<T>()), (void*)pConfigurationStructs.GetAddressOf(), pConfigurationStructSizes);
+			int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)(ComUtils.GuidPtrOf<T>()), (void*)pConfigurationStructs.Handle, pConfigurationStructSizes);
 			return ret;
 		}
 
@@ -787,13 +691,11 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12EnableExperimentalFeatures")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnableExperimentalFeatures<T>([NativeName(NativeNameType.Param, "NumFeatures")] [NativeName(NativeNameType.Type, "UINT")] uint numFeatures, [NativeName(NativeNameType.Param, "pIIDs")] [NativeName(NativeNameType.Type, "const IID*")] ref Guid pIIDs, [NativeName(NativeNameType.Param, "pConfigurationStructs")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pConfigurationStructs, [NativeName(NativeNameType.Param, "pConfigurationStructSizes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
+		public static int EnableExperimentalFeatures<T>(uint numFeatures, ref Guid pIIDs, ComPtr<T> pConfigurationStructs, uint* pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* ppIIDs = &pIIDs)
 			{
-				int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, (void*)pConfigurationStructs.GetAddressOf(), pConfigurationStructSizes);
+				int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, (void*)pConfigurationStructs.Handle, pConfigurationStructSizes);
 				return ret;
 			}
 		}
@@ -818,9 +720,7 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12EnableExperimentalFeatures")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnableExperimentalFeatures([NativeName(NativeNameType.Param, "NumFeatures")] [NativeName(NativeNameType.Type, "UINT")] uint numFeatures, [NativeName(NativeNameType.Param, "pIIDs")] [NativeName(NativeNameType.Type, "const IID*")] Guid* pIIDs, [NativeName(NativeNameType.Param, "pConfigurationStructs")] [NativeName(NativeNameType.Type, "void*")] void* pConfigurationStructs, [NativeName(NativeNameType.Param, "pConfigurationStructSizes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pConfigurationStructSizes)
+		public static int EnableExperimentalFeatures(uint numFeatures, Guid* pIIDs, void* pConfigurationStructs, ref uint pConfigurationStructSizes)
 		{
 			fixed (uint* ppConfigurationStructSizes = &pConfigurationStructSizes)
 			{
@@ -849,9 +749,7 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12EnableExperimentalFeatures")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnableExperimentalFeatures([NativeName(NativeNameType.Param, "NumFeatures")] [NativeName(NativeNameType.Type, "UINT")] uint numFeatures, [NativeName(NativeNameType.Param, "pIIDs")] [NativeName(NativeNameType.Type, "const IID*")] ref Guid pIIDs, [NativeName(NativeNameType.Param, "pConfigurationStructs")] [NativeName(NativeNameType.Type, "void*")] void* pConfigurationStructs, [NativeName(NativeNameType.Param, "pConfigurationStructSizes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pConfigurationStructSizes)
+		public static int EnableExperimentalFeatures(uint numFeatures, ref Guid pIIDs, void* pConfigurationStructs, ref uint pConfigurationStructSizes)
 		{
 			fixed (Guid* ppIIDs = &pIIDs)
 			{
@@ -883,13 +781,11 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12EnableExperimentalFeatures")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnableExperimentalFeatures<T>([NativeName(NativeNameType.Param, "NumFeatures")] [NativeName(NativeNameType.Type, "UINT")] uint numFeatures, [NativeName(NativeNameType.Param, "pConfigurationStructs")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pConfigurationStructs, [NativeName(NativeNameType.Param, "pConfigurationStructSizes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
+		public static int EnableExperimentalFeatures<T>(uint numFeatures, ComPtr<T> pConfigurationStructs, ref uint pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (uint* ppConfigurationStructSizes = &pConfigurationStructSizes)
 			{
-				int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)(ComUtils.GuidPtrOf<T>()), (void*)pConfigurationStructs.GetAddressOf(), (uint*)ppConfigurationStructSizes);
+				int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)(ComUtils.GuidPtrOf<T>()), (void*)pConfigurationStructs.Handle, (uint*)ppConfigurationStructSizes);
 				return ret;
 			}
 		}
@@ -914,15 +810,13 @@ namespace Hexa.NET.D3D12
 		/// Returns S_OK otherwise.<br/>
 		/// --------------------------------------------------------------------------------------------------------------------------------<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12EnableExperimentalFeatures")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnableExperimentalFeatures<T>([NativeName(NativeNameType.Param, "NumFeatures")] [NativeName(NativeNameType.Type, "UINT")] uint numFeatures, [NativeName(NativeNameType.Param, "pIIDs")] [NativeName(NativeNameType.Type, "const IID*")] ref Guid pIIDs, [NativeName(NativeNameType.Param, "pConfigurationStructs")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pConfigurationStructs, [NativeName(NativeNameType.Param, "pConfigurationStructSizes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
+		public static int EnableExperimentalFeatures<T>(uint numFeatures, ref Guid pIIDs, ComPtr<T> pConfigurationStructs, ref uint pConfigurationStructSizes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* ppIIDs = &pIIDs)
 			{
 				fixed (uint* ppConfigurationStructSizes = &pConfigurationStructSizes)
 				{
-					int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, (void*)pConfigurationStructs.GetAddressOf(), (uint*)ppConfigurationStructSizes);
+					int ret = EnableExperimentalFeaturesNative(numFeatures, (Guid*)ppIIDs, (void*)pConfigurationStructs.Handle, (uint*)ppConfigurationStructSizes);
 					return ret;
 				}
 			}
@@ -931,10 +825,8 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int GetInterfaceNative([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] void** ppvDebug)
+		internal static int GetInterfaceNative(Guid* rclsid, Guid* riid, void** ppvDebug)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<Guid*, Guid*, void**, int>)funcTable[7])(rclsid, riid, ppvDebug);
@@ -946,9 +838,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetInterface([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] void** ppvDebug)
+		public static int GetInterface(Guid* rclsid, Guid* riid, void** ppvDebug)
 		{
 			int ret = GetInterfaceNative(rclsid, riid, ppvDebug);
 			return ret;
@@ -957,9 +847,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetInterface([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] void** ppvDebug)
+		public static int GetInterface(ref Guid rclsid, Guid* riid, void** ppvDebug)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -971,9 +859,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetInterface([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] void** ppvDebug)
+		public static int GetInterface(Guid* rclsid, ref Guid riid, void** ppvDebug)
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -985,9 +871,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetInterface([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] void** ppvDebug)
+		public static int GetInterface(ref Guid rclsid, ref Guid riid, void** ppvDebug)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -1002,9 +886,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetInterface<T>([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetInterface<T>(Guid* rclsid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ppvDebug = default;
 			int ret = GetInterfaceNative(rclsid, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvDebug.GetAddressOf());
@@ -1014,9 +896,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetInterface<T>([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetInterface<T>(ref Guid rclsid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -1029,9 +909,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetInterface<T>([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetInterface<T>(Guid* rclsid, ref Guid riid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -1044,9 +922,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D12GetInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetInterface<T>([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDebug")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetInterface<T>(ref Guid rclsid, ref Guid riid, out ComPtr<T> ppvDebug) where T : unmanaged, IComObject, IComObject<T>
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{

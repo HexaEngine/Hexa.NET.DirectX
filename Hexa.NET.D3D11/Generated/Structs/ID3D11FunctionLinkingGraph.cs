@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// {54133220-1CE8-43D3-8236-9855C5CEECFF}<br/>
 	/// </summary>
 	[Guid("54133220-1ce8-43d3-8236-9855c5ceecff")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D11FunctionLinkingGraph")]
 	public partial struct ID3D11FunctionLinkingGraph : IComObject, IComObject<ID3D11FunctionLinkingGraph>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public readonly unsafe int QueryInterface(Guid* iid, ref void* ppv) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppv = &ppv)
@@ -132,9 +117,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public readonly unsafe int QueryInterface(ref Guid iid, ref void* ppv) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -150,9 +133,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateModuleInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateModuleInstance([NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ID3D11ModuleInstance** ppModuleInstance, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int CreateModuleInstance(ID3D11ModuleInstance** ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11ModuleInstance**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, ppModuleInstance, ppErrorBuffer);
@@ -162,9 +143,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateModuleInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateModuleInstance([NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ref ID3D11ModuleInstance* ppModuleInstance, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int CreateModuleInstance(ref ID3D11ModuleInstance* ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
@@ -177,9 +156,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateModuleInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateModuleInstance([NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int CreateModuleInstance(ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ModuleInstance>* pppModuleInstance = &ppModuleInstance)
@@ -192,9 +169,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateModuleInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateModuleInstance([NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ID3D11ModuleInstance** ppModuleInstance, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int CreateModuleInstance(ID3D11ModuleInstance** ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
@@ -207,9 +182,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateModuleInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateModuleInstance([NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ref ID3D11ModuleInstance* ppModuleInstance, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int CreateModuleInstance(ref ID3D11ModuleInstance* ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
@@ -225,9 +198,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateModuleInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateModuleInstance([NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int CreateModuleInstance(ref ComPtr<ID3D11ModuleInstance> ppModuleInstance, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<ID3D11ModuleInstance>* pppModuleInstance = &ppModuleInstance)
@@ -243,26 +214,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetInputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetInputSignature([NativeName(NativeNameType.Param, "pInputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] D3D11ParameterDesc* pInputParameters, [NativeName(NativeNameType.Param, "cInputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cInputParameters, [NativeName(NativeNameType.Param, "ppInputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppInputNode) 
+		public readonly unsafe int SetInputSignature(ParameterDesc* pInputParameters, uint cInputParameters, ID3D11LinkingNode** ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, ppInputNode);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, ppInputNode);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetInputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetInputSignature([NativeName(NativeNameType.Param, "pInputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] ref D3D11ParameterDesc pInputParameters, [NativeName(NativeNameType.Param, "cInputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cInputParameters, [NativeName(NativeNameType.Param, "ppInputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppInputNode) 
+		public readonly unsafe int SetInputSignature(ref ParameterDesc pInputParameters, uint cInputParameters, ID3D11LinkingNode** ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11ParameterDesc* ppInputParameters = &pInputParameters)
+			fixed (ParameterDesc* ppInputParameters = &pInputParameters)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, (D3D11ParameterDesc*)ppInputParameters, cInputParameters, ppInputNode);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, (ParameterDesc*)ppInputParameters, cInputParameters, ppInputNode);
 				return ret;
 			}
 		}
@@ -270,14 +237,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetInputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetInputSignature([NativeName(NativeNameType.Param, "pInputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] D3D11ParameterDesc* pInputParameters, [NativeName(NativeNameType.Param, "cInputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cInputParameters, [NativeName(NativeNameType.Param, "ppInputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppInputNode) 
+		public readonly unsafe int SetInputSignature(ParameterDesc* pInputParameters, uint cInputParameters, ref ID3D11LinkingNode* ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode** pppInputNode = &ppInputNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
 				return ret;
 			}
 		}
@@ -285,29 +250,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetInputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetInputSignature([NativeName(NativeNameType.Param, "pInputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] D3D11ParameterDesc* pInputParameters, [NativeName(NativeNameType.Param, "cInputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cInputParameters, [NativeName(NativeNameType.Param, "ppInputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] out ComPtr<ID3D11LinkingNode> ppInputNode) 
+		public readonly unsafe int SetInputSignature(ParameterDesc* pInputParameters, uint cInputParameters, out ComPtr<ID3D11LinkingNode> ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppInputNode = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, pInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetInputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetInputSignature([NativeName(NativeNameType.Param, "pInputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] ref D3D11ParameterDesc pInputParameters, [NativeName(NativeNameType.Param, "cInputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cInputParameters, [NativeName(NativeNameType.Param, "ppInputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppInputNode) 
+		public readonly unsafe int SetInputSignature(ref ParameterDesc pInputParameters, uint cInputParameters, ref ID3D11LinkingNode* ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11ParameterDesc* ppInputParameters = &pInputParameters)
+			fixed (ParameterDesc* ppInputParameters = &pInputParameters)
 			{
 				fixed (ID3D11LinkingNode** pppInputNode = &ppInputNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, (D3D11ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, (ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)pppInputNode);
 					return ret;
 				}
 			}
@@ -316,15 +277,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetInputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetInputSignature([NativeName(NativeNameType.Param, "pInputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] ref D3D11ParameterDesc pInputParameters, [NativeName(NativeNameType.Param, "cInputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cInputParameters, [NativeName(NativeNameType.Param, "ppInputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] out ComPtr<ID3D11LinkingNode> ppInputNode) 
+		public readonly unsafe int SetInputSignature(ref ParameterDesc pInputParameters, uint cInputParameters, out ComPtr<ID3D11LinkingNode> ppInputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11ParameterDesc* ppInputParameters = &pInputParameters)
+			fixed (ParameterDesc* ppInputParameters = &pInputParameters)
 			{
 				ppInputNode = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, (D3D11ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[5]))(ptr, (ParameterDesc*)ppInputParameters, cInputParameters, (ID3D11LinkingNode**)ppInputNode.GetAddressOf());
 				return ret;
 			}
 		}
@@ -332,26 +291,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetOutputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetOutputSignature([NativeName(NativeNameType.Param, "pOutputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] D3D11ParameterDesc* pOutputParameters, [NativeName(NativeNameType.Param, "cOutputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cOutputParameters, [NativeName(NativeNameType.Param, "ppOutputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppOutputNode) 
+		public readonly unsafe int SetOutputSignature(ParameterDesc* pOutputParameters, uint cOutputParameters, ID3D11LinkingNode** ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, ppOutputNode);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, ppOutputNode);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetOutputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetOutputSignature([NativeName(NativeNameType.Param, "pOutputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] ref D3D11ParameterDesc pOutputParameters, [NativeName(NativeNameType.Param, "cOutputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cOutputParameters, [NativeName(NativeNameType.Param, "ppOutputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppOutputNode) 
+		public readonly unsafe int SetOutputSignature(ref ParameterDesc pOutputParameters, uint cOutputParameters, ID3D11LinkingNode** ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11ParameterDesc* ppOutputParameters = &pOutputParameters)
+			fixed (ParameterDesc* ppOutputParameters = &pOutputParameters)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, (D3D11ParameterDesc*)ppOutputParameters, cOutputParameters, ppOutputNode);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, (ParameterDesc*)ppOutputParameters, cOutputParameters, ppOutputNode);
 				return ret;
 			}
 		}
@@ -359,14 +314,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetOutputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetOutputSignature([NativeName(NativeNameType.Param, "pOutputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] D3D11ParameterDesc* pOutputParameters, [NativeName(NativeNameType.Param, "cOutputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cOutputParameters, [NativeName(NativeNameType.Param, "ppOutputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppOutputNode) 
+		public readonly unsafe int SetOutputSignature(ParameterDesc* pOutputParameters, uint cOutputParameters, ref ID3D11LinkingNode* ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode** pppOutputNode = &ppOutputNode)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
 				return ret;
 			}
 		}
@@ -374,29 +327,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetOutputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetOutputSignature([NativeName(NativeNameType.Param, "pOutputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] D3D11ParameterDesc* pOutputParameters, [NativeName(NativeNameType.Param, "cOutputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cOutputParameters, [NativeName(NativeNameType.Param, "ppOutputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] out ComPtr<ID3D11LinkingNode> ppOutputNode) 
+		public readonly unsafe int SetOutputSignature(ParameterDesc* pOutputParameters, uint cOutputParameters, out ComPtr<ID3D11LinkingNode> ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputNode = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, pOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetOutputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetOutputSignature([NativeName(NativeNameType.Param, "pOutputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] ref D3D11ParameterDesc pOutputParameters, [NativeName(NativeNameType.Param, "cOutputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cOutputParameters, [NativeName(NativeNameType.Param, "ppOutputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppOutputNode) 
+		public readonly unsafe int SetOutputSignature(ref ParameterDesc pOutputParameters, uint cOutputParameters, ref ID3D11LinkingNode* ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11ParameterDesc* ppOutputParameters = &pOutputParameters)
+			fixed (ParameterDesc* ppOutputParameters = &pOutputParameters)
 			{
 				fixed (ID3D11LinkingNode** pppOutputNode = &ppOutputNode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, (D3D11ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, (ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)pppOutputNode);
 					return ret;
 				}
 			}
@@ -405,15 +354,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetOutputSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetOutputSignature([NativeName(NativeNameType.Param, "pOutputParameters")] [NativeName(NativeNameType.Type, "const D3D11_PARAMETER_DESC*")] ref D3D11ParameterDesc pOutputParameters, [NativeName(NativeNameType.Param, "cOutputParameters")] [NativeName(NativeNameType.Type, "UINT")] uint cOutputParameters, [NativeName(NativeNameType.Param, "ppOutputNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] out ComPtr<ID3D11LinkingNode> ppOutputNode) 
+		public readonly unsafe int SetOutputSignature(ref ParameterDesc pOutputParameters, uint cOutputParameters, out ComPtr<ID3D11LinkingNode> ppOutputNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11ParameterDesc* ppOutputParameters = &pOutputParameters)
+			fixed (ParameterDesc* ppOutputParameters = &pOutputParameters)
 			{
 				ppOutputNode = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, D3D11ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, (D3D11ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ParameterDesc*, uint, ID3D11LinkingNode**, int>)(LpVtbl[6]))(ptr, (ParameterDesc*)ppOutputParameters, cOutputParameters, (ID3D11LinkingNode**)ppOutputNode.GetAddressOf());
 				return ret;
 			}
 		}
@@ -421,9 +368,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, pModuleWithFunctionPrototype, pFunctionName, ppCallNode);
@@ -433,9 +378,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -448,9 +391,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -481,9 +422,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -496,9 +435,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ComPtr<ID3D11Module> pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ComPtr<ID3D11Module> pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, byte*, ID3D11Module*, byte*, ID3D11LinkingNode**, int>)(LpVtbl[7]))(ptr, pModuleInstanceNamespace, (ID3D11Module*)pModuleWithFunctionPrototype.Handle, pFunctionName, ppCallNode);
@@ -508,9 +445,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -526,9 +461,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -562,9 +495,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppFunctionName = pFunctionName)
@@ -577,9 +508,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -610,9 +539,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -628,9 +555,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -682,9 +607,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -700,9 +623,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -736,9 +657,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -757,9 +676,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ID3D11LinkingNode** ppCallNode) 
+		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ID3D11LinkingNode** ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -814,9 +731,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode** pppCallNode = &ppCallNode)
@@ -829,9 +744,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] out ComPtr<ID3D11LinkingNode> ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, out ComPtr<ID3D11LinkingNode> ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppCallNode = default;
@@ -842,9 +755,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -860,9 +771,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -896,9 +805,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -914,9 +821,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ComPtr<ID3D11Module> pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] out ComPtr<ID3D11LinkingNode> ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ComPtr<ID3D11Module> pModuleWithFunctionPrototype, byte* pFunctionName, out ComPtr<ID3D11LinkingNode> ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppCallNode = default;
@@ -927,9 +832,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -948,9 +851,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, byte* pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -987,9 +888,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppFunctionName = pFunctionName)
@@ -1005,9 +904,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1041,9 +938,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -1062,9 +957,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ID3D11Module* pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ID3D11Module* pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1119,9 +1012,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -1140,9 +1031,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(byte* pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11Module* ppModuleWithFunctionPrototype = &pModuleWithFunctionPrototype)
@@ -1179,9 +1068,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(ReadOnlySpan<byte> pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, ReadOnlySpan<byte> pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppModuleInstanceNamespace = pModuleInstanceNamespace)
@@ -1203,9 +1090,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CallFunction")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CallFunction([NativeName(NativeNameType.Param, "pModuleInstanceNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pModuleInstanceNamespace, [NativeName(NativeNameType.Param, "pModuleWithFunctionPrototype")] [NativeName(NativeNameType.Type, "ID3D11Module*")] ref ID3D11Module pModuleWithFunctionPrototype, [NativeName(NativeNameType.Param, "pFunctionName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pFunctionName, [NativeName(NativeNameType.Param, "ppCallNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode**")] ref ID3D11LinkingNode* ppCallNode) 
+		public readonly unsafe int CallFunction(string pModuleInstanceNamespace, ref ID3D11Module pModuleWithFunctionPrototype, string pFunctionName, ref ID3D11LinkingNode* ppCallNode) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1263,9 +1148,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValue([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex) 
+		public readonly unsafe int PassValue(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(LpVtbl[8]))(ptr, pSrcNode, srcParameterIndex, pDstNode, dstParameterIndex);
@@ -1275,9 +1158,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValue([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex) 
+		public readonly unsafe int PassValue(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1290,9 +1171,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValue([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ComPtr<ID3D11LinkingNode> pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex) 
+		public readonly unsafe int PassValue(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, ID3D11LinkingNode* pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(LpVtbl[8]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pDstNode, dstParameterIndex);
@@ -1302,9 +1181,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValue([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex) 
+		public readonly unsafe int PassValue(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ref ID3D11LinkingNode pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
@@ -1317,9 +1194,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValue([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ComPtr<ID3D11LinkingNode> pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex) 
+		public readonly unsafe int PassValue(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(LpVtbl[8]))(ptr, pSrcNode, srcParameterIndex, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex);
@@ -1329,9 +1204,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValue([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex) 
+		public readonly unsafe int PassValue(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ref ID3D11LinkingNode pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1347,9 +1220,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValue([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ComPtr<ID3D11LinkingNode> pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ComPtr<ID3D11LinkingNode> pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex) 
+		public readonly unsafe int PassValue(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, ID3D11LinkingNode*, int, int>)(LpVtbl[8]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex);
@@ -1359,9 +1230,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
@@ -1371,9 +1240,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1386,9 +1253,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ComPtr<ID3D11LinkingNode> pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pSrcSwizzle, pDstNode, dstParameterIndex, pDstSwizzle);
@@ -1398,9 +1263,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
@@ -1413,9 +1276,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1446,9 +1307,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1464,9 +1323,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1500,9 +1357,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
@@ -1515,9 +1370,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ComPtr<ID3D11LinkingNode> pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, pSrcNode, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex, pDstSwizzle);
@@ -1527,9 +1380,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1545,9 +1396,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ComPtr<ID3D11LinkingNode> pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ComPtr<ID3D11LinkingNode> pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ComPtr<ID3D11LinkingNode> pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ComPtr<ID3D11LinkingNode> pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D11LinkingNode*, int, byte*, ID3D11LinkingNode*, int, byte*, int>)(LpVtbl[9]))(ptr, (ID3D11LinkingNode*)pSrcNode.Handle, srcParameterIndex, pSrcSwizzle, (ID3D11LinkingNode*)pDstNode.Handle, dstParameterIndex, pDstSwizzle);
@@ -1557,9 +1406,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
@@ -1575,9 +1422,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1611,9 +1456,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1632,9 +1475,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, byte* pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1671,9 +1512,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppDstSwizzle = pDstSwizzle)
@@ -1686,9 +1525,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1719,9 +1556,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1737,9 +1572,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1773,9 +1606,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
@@ -1791,9 +1622,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1845,9 +1674,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1866,9 +1693,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ID3D11LinkingNode* pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1923,9 +1748,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
@@ -1941,9 +1764,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppDstNode = &pDstNode)
@@ -1977,9 +1798,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -1998,9 +1817,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, byte* pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -2037,9 +1854,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppSrcSwizzle = pSrcSwizzle)
@@ -2058,9 +1873,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ID3D11LinkingNode* pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ID3D11LinkingNode* pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -2115,9 +1928,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, ReadOnlySpan<byte> pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, ReadOnlySpan<byte> pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -2139,9 +1950,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PassValueWithSwizzle")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PassValueWithSwizzle([NativeName(NativeNameType.Param, "pSrcNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pSrcNode, [NativeName(NativeNameType.Param, "SrcParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int srcParameterIndex, [NativeName(NativeNameType.Param, "pSrcSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pSrcSwizzle, [NativeName(NativeNameType.Param, "pDstNode")] [NativeName(NativeNameType.Type, "ID3D11LinkingNode*")] ref ID3D11LinkingNode pDstNode, [NativeName(NativeNameType.Param, "DstParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int dstParameterIndex, [NativeName(NativeNameType.Param, "pDstSwizzle")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDstSwizzle) 
+		public readonly unsafe int PassValueWithSwizzle(ref ID3D11LinkingNode pSrcNode, int srcParameterIndex, string pSrcSwizzle, ref ID3D11LinkingNode pDstNode, int dstParameterIndex, string pDstSwizzle) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11LinkingNode* ppSrcNode = &pSrcNode)
@@ -2199,9 +2008,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetLastError")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetLastError([NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int GetLastError(ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, ID3D10Blob**, int>)(LpVtbl[10]))(ptr, ppErrorBuffer);
@@ -2211,9 +2018,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetLastError")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetLastError([NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int GetLastError(ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
@@ -2226,9 +2031,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GenerateHlsl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GenerateHlsl([NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppBuffer) 
+		public readonly unsafe int GenerateHlsl(uint uFlags, ID3D10Blob** ppBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionLinkingGraph*, uint, ID3D10Blob**, int>)(LpVtbl[11]))(ptr, uFlags, ppBuffer);
@@ -2238,9 +2041,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GenerateHlsl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GenerateHlsl([NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppBuffer) 
+		public readonly unsafe int GenerateHlsl(uint uFlags, ref ID3D10Blob* ppBuffer) 
 		{
 			ID3D11FunctionLinkingGraph* ptr = (ID3D11FunctionLinkingGraph*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppBuffer = &ppBuffer)

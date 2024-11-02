@@ -22,24 +22,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateDeviceNative([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		internal static int CreateDeviceNative(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<IDXGIAdapter*, D3DDriverType, nint, uint, D3DFeatureLevel*, uint, uint, ID3D11Device**, D3DFeatureLevel*, ID3D11DeviceContext**, int>)funcTable[0])(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+			return ((delegate* unmanaged[Cdecl]<IDXGIAdapter*, DriverType, nint, uint, FeatureLevel*, uint, uint, ID3D11Device**, FeatureLevel*, ID3D11DeviceContext**, int>)funcTable[0])(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, D3DDriverType, nint, uint, nint, uint, uint, nint, nint, nint, int>)funcTable[0])((nint)pAdapter, driverType, software, flags, (nint)pFeatureLevels, featureLevels, sdkVersion, (nint)ppDevice, (nint)pFeatureLevel, (nint)ppImmediateContext);
+			return (int)((delegate* unmanaged[Cdecl]<nint, DriverType, nint, uint, nint, uint, uint, nint, nint, nint, int>)funcTable[0])((nint)pAdapter, driverType, software, flags, (nint)pFeatureLevels, featureLevels, sdkVersion, (nint)ppDevice, (nint)pFeatureLevel, (nint)ppImmediateContext);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 			return ret;
@@ -48,9 +44,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -62,24 +56,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+			int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -87,15 +77,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -104,13 +92,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -118,9 +104,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
@@ -132,9 +116,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
@@ -146,9 +128,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -163,13 +143,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -177,15 +155,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -194,15 +170,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -211,17 +185,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -231,15 +203,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -248,13 +218,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -262,15 +230,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -279,13 +245,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -293,15 +257,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -310,17 +272,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -330,15 +290,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -347,15 +305,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -364,15 +320,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -381,17 +335,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -401,15 +353,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -418,17 +368,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -438,17 +386,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -458,19 +404,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -481,17 +425,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -501,9 +443,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 			{
@@ -515,9 +455,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			ppImmediateContext = default;
 			int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
@@ -527,9 +465,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -544,27 +480,23 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			ppImmediateContext = default;
-			int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+			int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -573,14 +505,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -588,17 +518,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -608,14 +536,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -623,9 +549,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
@@ -640,9 +564,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
@@ -655,9 +577,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -675,14 +595,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -690,17 +608,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -710,16 +626,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -728,19 +642,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -751,16 +663,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -769,15 +679,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -786,14 +694,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -801,17 +707,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -821,14 +725,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -836,17 +738,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -856,16 +756,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -874,19 +772,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -897,16 +793,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -915,17 +809,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -935,16 +827,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -953,19 +843,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -976,16 +864,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -994,19 +880,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -1017,18 +901,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -1038,21 +920,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDevice(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								int ret = CreateDeviceNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -1064,18 +944,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDevice([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDevice(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -1085,24 +963,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateDeviceAndSwapChainNative([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		internal static int CreateDeviceAndSwapChainNative(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			#if NET5_0_OR_GREATER
-			return ((delegate* unmanaged[Cdecl]<IDXGIAdapter*, D3DDriverType, nint, uint, D3DFeatureLevel*, uint, uint, DxgiSwapChainDesc*, IDXGISwapChain**, ID3D11Device**, D3DFeatureLevel*, ID3D11DeviceContext**, int>)funcTable[1])(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+			return ((delegate* unmanaged[Cdecl]<IDXGIAdapter*, DriverType, nint, uint, FeatureLevel*, uint, uint, SwapChainDesc*, IDXGISwapChain**, ID3D11Device**, FeatureLevel*, ID3D11DeviceContext**, int>)funcTable[1])(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 			#else
-			return (int)((delegate* unmanaged[Cdecl]<nint, D3DDriverType, nint, uint, nint, uint, uint, nint, nint, nint, nint, nint, int>)funcTable[1])((nint)pAdapter, driverType, software, flags, (nint)pFeatureLevels, featureLevels, sdkVersion, (nint)pSwapChainDesc, (nint)ppSwapChain, (nint)ppDevice, (nint)pFeatureLevel, (nint)ppImmediateContext);
+			return (int)((delegate* unmanaged[Cdecl]<nint, DriverType, nint, uint, nint, uint, uint, nint, nint, nint, nint, nint, int>)funcTable[1])((nint)pAdapter, driverType, software, flags, (nint)pFeatureLevels, featureLevels, sdkVersion, (nint)pSwapChainDesc, (nint)ppSwapChain, (nint)ppDevice, (nint)pFeatureLevel, (nint)ppImmediateContext);
 			#endif
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 			return ret;
@@ -1111,9 +985,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1125,24 +997,20 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+			int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1150,15 +1018,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1167,13 +1033,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1181,13 +1045,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1195,15 +1057,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1212,13 +1072,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1226,15 +1084,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1243,17 +1099,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1263,15 +1117,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1280,9 +1132,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
@@ -1294,9 +1144,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
@@ -1308,9 +1156,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1325,13 +1171,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1339,15 +1183,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1356,15 +1198,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1373,17 +1213,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1393,15 +1231,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1410,15 +1246,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1427,15 +1261,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1444,17 +1276,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1464,15 +1294,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1481,17 +1309,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1501,17 +1327,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1521,19 +1345,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
 						fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -1544,17 +1366,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1564,9 +1384,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
@@ -1578,9 +1396,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
@@ -1592,9 +1408,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1609,13 +1423,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -1623,15 +1435,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1640,15 +1450,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1657,17 +1465,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1677,15 +1483,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1694,15 +1498,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1711,15 +1513,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1728,17 +1528,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1748,15 +1546,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1765,17 +1561,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1785,17 +1579,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1805,19 +1597,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -1828,17 +1618,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1848,9 +1636,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
@@ -1865,9 +1651,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
@@ -1882,9 +1666,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -1902,15 +1684,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -1919,17 +1699,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1939,17 +1717,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -1959,19 +1735,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -1982,17 +1756,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2002,17 +1774,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2022,17 +1792,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2042,19 +1810,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2065,17 +1831,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2085,19 +1849,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2108,19 +1870,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
 						fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2131,21 +1891,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
 						fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 						{
 							fixed (ID3D11Device** pppDevice = &ppDevice)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -2157,19 +1915,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
 						fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2180,13 +1936,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -2194,15 +1948,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2211,13 +1963,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 				return ret;
 			}
 		}
@@ -2225,15 +1975,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2242,17 +1990,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2262,15 +2008,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2279,15 +2023,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2296,17 +2038,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2316,15 +2056,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2333,17 +2071,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2353,19 +2089,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2376,17 +2110,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2396,15 +2128,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2413,15 +2143,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2430,17 +2158,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2450,15 +2176,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2467,17 +2191,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2487,17 +2209,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2507,19 +2227,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2530,17 +2248,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2550,17 +2266,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2570,17 +2284,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2590,19 +2302,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2613,17 +2323,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2633,19 +2341,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2656,19 +2362,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2679,21 +2383,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
 						fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 						{
-							fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -2705,19 +2407,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2728,15 +2428,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2745,15 +2443,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2762,17 +2458,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2782,15 +2476,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 					return ret;
 				}
 			}
@@ -2799,17 +2491,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2819,17 +2509,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2839,19 +2527,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2862,17 +2548,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2882,17 +2566,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2902,17 +2584,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2922,19 +2602,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2945,17 +2623,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -2965,19 +2641,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -2988,19 +2662,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -3011,21 +2683,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -3037,19 +2707,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -3060,17 +2728,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -3080,17 +2746,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -3100,9 +2764,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3110,9 +2772,9 @@ namespace Hexa.NET.D3D11
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -3123,17 +2785,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 						return ret;
 					}
 				}
@@ -3143,19 +2803,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -3166,19 +2824,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -3189,21 +2845,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -3215,19 +2869,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -3238,19 +2890,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -3261,19 +2911,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -3284,21 +2932,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -3310,19 +2956,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 							return ret;
 						}
 					}
@@ -3333,21 +2977,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
-							fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -3359,21 +3001,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
 						fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 						{
-							fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -3385,23 +3025,21 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
 						fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 						{
 							fixed (ID3D11Device** pppDevice = &ppDevice)
 							{
-								fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+								fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 								{
-									int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+									int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 									return ret;
 								}
 							}
@@ -3414,21 +3052,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ID3D11DeviceContext** ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, ID3D11DeviceContext** ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
 						fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 						{
-							fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (D3DFeatureLevel*)ppFeatureLevel, ppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, ppImmediateContext);
 								return ret;
 							}
 						}
@@ -3440,9 +3076,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 			{
@@ -3454,9 +3088,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			ppImmediateContext = default;
 			int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
@@ -3466,9 +3098,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3483,27 +3113,23 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			ppImmediateContext = default;
-			int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+			int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -3512,14 +3138,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3527,17 +3151,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3547,14 +3169,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3562,15 +3182,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -3579,14 +3197,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3594,17 +3210,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3614,14 +3228,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3629,17 +3241,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3649,16 +3259,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3667,19 +3275,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3690,16 +3296,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3708,9 +3312,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
@@ -3725,9 +3327,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
@@ -3740,9 +3340,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -3760,14 +3358,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3775,17 +3371,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3795,16 +3389,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3813,19 +3405,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3836,16 +3426,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3854,17 +3442,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -3874,16 +3460,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3892,19 +3476,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3915,16 +3497,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3933,19 +3513,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -3956,18 +3534,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -3977,21 +3553,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
 						fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4003,18 +3577,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4024,9 +3596,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
@@ -4041,9 +3611,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
@@ -4056,9 +3624,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4076,14 +3642,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4091,17 +3655,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -4111,16 +3673,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4129,19 +3689,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4152,16 +3710,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4170,17 +3726,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ID3D11Device** pppDevice = &ppDevice)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -4190,16 +3744,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4208,19 +3760,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4231,16 +3781,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4249,19 +3797,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ID3D11Device** pppDevice = &ppDevice)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4272,18 +3818,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4293,21 +3837,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
 						fixed (ID3D11Device** pppDevice = &ppDevice)
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4319,18 +3861,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4340,9 +3880,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 			{
@@ -4360,9 +3898,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
@@ -4378,9 +3914,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
@@ -4401,16 +3935,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
 			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 			{
 				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4419,11 +3951,9 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
@@ -4431,7 +3961,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4442,18 +3972,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4463,13 +3991,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
@@ -4477,7 +4003,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4489,18 +4015,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4510,11 +4034,9 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 				{
@@ -4522,7 +4044,7 @@ namespace Hexa.NET.D3D11
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4533,18 +4055,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4554,13 +4074,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
@@ -4568,7 +4086,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4580,18 +4098,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
 				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 				{
 					fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4601,13 +4117,11 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 					{
@@ -4615,7 +4129,7 @@ namespace Hexa.NET.D3D11
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4627,20 +4141,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
 						fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 						{
 							ppImmediateContext = default;
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 							return ret;
 						}
 					}
@@ -4651,15 +4163,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ID3D11Device* ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ref ID3D11Device* ppDevice, FeatureLevel* pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
 						fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
 						{
@@ -4667,7 +4177,7 @@ namespace Hexa.NET.D3D11
 							{
 								fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 								{
-									int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+									int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 									return ret;
 								}
 							}
@@ -4680,20 +4190,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref ComPtr<IDXGISwapChain> ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ref ComPtr<ID3D11Device> ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, FeatureLevel* pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
 					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
 					{
 						fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
 						{
 							ppImmediateContext = default;
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, (ID3D11Device**)pppDevice, pFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 							return ret;
 						}
 					}
@@ -4704,15 +4212,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 				{
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 					return ret;
 				}
 			}
@@ -4721,14 +4227,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4736,17 +4240,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -4756,14 +4258,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+			fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 			{
 				ppImmediateContext = default;
-				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+				int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4771,17 +4271,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -4791,16 +4289,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4809,19 +4305,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4832,16 +4326,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4850,17 +4342,15 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 					{
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 						return ret;
 					}
 				}
@@ -4870,16 +4360,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4888,19 +4376,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4911,16 +4397,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 				{
 					ppImmediateContext = default;
-					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4929,19 +4413,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 						{
-							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 							return ret;
 						}
 					}
@@ -4952,18 +4434,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] IDXGIAdapter* pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4973,21 +4453,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ref IDXGIAdapter pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] ref ID3D11DeviceContext* ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
 		{
 			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
 			{
-				fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 				{
-					fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 					{
-						fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 						{
 							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
 							{
-								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
 								return ret;
 							}
 						}
@@ -4999,18 +4477,542 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "D3D11CreateDeviceAndSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateDeviceAndSwapChain([NativeName(NativeNameType.Param, "pAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter*")] ComPtr<IDXGIAdapter> pAdapter, [NativeName(NativeNameType.Param, "DriverType")] [NativeName(NativeNameType.Type, "D3D_DRIVER_TYPE")] D3DDriverType driverType, [NativeName(NativeNameType.Param, "Software")] [NativeName(NativeNameType.Type, "HMODULE")] nint software, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pFeatureLevels")] [NativeName(NativeNameType.Type, "const D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevels, [NativeName(NativeNameType.Param, "FeatureLevels")] [NativeName(NativeNameType.Type, "UINT")] uint featureLevels, [NativeName(NativeNameType.Param, "SDKVersion")] [NativeName(NativeNameType.Type, "UINT")] uint sdkVersion, [NativeName(NativeNameType.Param, "pSwapChainDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pSwapChainDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "ID3D11Device**")] ID3D11Device** ppDevice, [NativeName(NativeNameType.Param, "pFeatureLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pFeatureLevel, [NativeName(NativeNameType.Param, "ppImmediateContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext**")] out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
 		{
-			fixed (D3DFeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
 			{
-				fixed (DxgiSwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
 				{
-					fixed (D3DFeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
 					{
 						ppImmediateContext = default;
-						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.GetAddressOf(), driverType, software, flags, (D3DFeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (DxgiSwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (D3DFeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+			{
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				{
+					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+					{
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
+			{
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				{
+					ppImmediateContext = default;
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
+			{
+				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+						{
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
+			{
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				{
+					ppImmediateContext = default;
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			{
+				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+						{
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			{
+				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						ppImmediateContext = default;
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
+			{
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				{
+					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+					{
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						{
+							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+							{
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			{
+				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						ppImmediateContext = default;
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			{
+				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+						{
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			{
+				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						ppImmediateContext = default;
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
+			{
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				{
+					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+					{
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						{
+							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+							{
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			{
+				fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						ppImmediateContext = default;
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			{
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				{
+					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+					{
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						{
+							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+							{
+								int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			{
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				{
+					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
+					{
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						{
+							ppImmediateContext = default;
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref IDXGISwapChain* ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
+			{
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				{
+					fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+					{
+						fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
+						{
+							fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+							{
+								fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+								{
+									int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, ref ComPtr<IDXGISwapChain> ppSwapChain, ID3D11Device** ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			{
+				fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+				{
+					fixed (ComPtr<IDXGISwapChain>* pppSwapChain = &ppSwapChain)
+					{
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						{
+							ppImmediateContext = default;
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, (IDXGISwapChain**)pppSwapChain, ppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (ID3D11Device** pppDevice = &ppDevice)
+			{
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				{
+					fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+					{
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
+			{
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				{
+					ppImmediateContext = default;
+					int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
+			{
+				fixed (ID3D11Device** pppDevice = &ppDevice)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+						{
+							int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
+			{
+				fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+				{
+					ppImmediateContext = default;
+					int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			{
+				fixed (ID3D11Device** pppDevice = &ppDevice)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+						{
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			{
+				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						ppImmediateContext = default;
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ref IDXGIAdapter pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (IDXGIAdapter* ppAdapter = &pAdapter)
+			{
+				fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+				{
+					fixed (ID3D11Device** pppDevice = &ppDevice)
+					{
+						fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+						{
+							fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+							{
+								int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)ppAdapter, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(ComPtr<IDXGIAdapter> pAdapter, DriverType driverType, nint software, uint flags, ref FeatureLevel pFeatureLevels, uint featureLevels, uint sdkVersion, SwapChainDesc* pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (FeatureLevel* ppFeatureLevels = &pFeatureLevels)
+			{
+				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						ppImmediateContext = default;
+						int ret = CreateDeviceAndSwapChainNative((IDXGIAdapter*)pAdapter.Handle, driverType, software, flags, (FeatureLevel*)ppFeatureLevels, featureLevels, sdkVersion, pSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ID3D11Device* ppDevice, ref FeatureLevel pFeatureLevel, ref ID3D11DeviceContext* ppImmediateContext)
+		{
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			{
+				fixed (ID3D11Device** pppDevice = &ppDevice)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						fixed (ID3D11DeviceContext** pppImmediateContext = &ppImmediateContext)
+						{
+							int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)pppImmediateContext);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDeviceAndSwapChain(IDXGIAdapter* pAdapter, DriverType driverType, nint software, uint flags, FeatureLevel* pFeatureLevels, uint featureLevels, uint sdkVersion, ref SwapChainDesc pSwapChainDesc, IDXGISwapChain** ppSwapChain, ref ComPtr<ID3D11Device> ppDevice, ref FeatureLevel pFeatureLevel, out ComPtr<ID3D11DeviceContext> ppImmediateContext)
+		{
+			fixed (SwapChainDesc* ppSwapChainDesc = &pSwapChainDesc)
+			{
+				fixed (ComPtr<ID3D11Device>* pppDevice = &ppDevice)
+				{
+					fixed (FeatureLevel* ppFeatureLevel = &pFeatureLevel)
+					{
+						ppImmediateContext = default;
+						int ret = CreateDeviceAndSwapChainNative(pAdapter, driverType, software, flags, pFeatureLevels, featureLevels, sdkVersion, (SwapChainDesc*)ppSwapChainDesc, ppSwapChain, (ID3D11Device**)pppDevice, (FeatureLevel*)ppFeatureLevel, (ID3D11DeviceContext**)ppImmediateContext.GetAddressOf());
 						return ret;
 					}
 				}

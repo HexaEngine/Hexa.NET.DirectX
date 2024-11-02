@@ -21,7 +21,6 @@ namespace Hexa.NET.D3D11
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "ID3D11ShaderTrace")]
 	public partial struct ID3D11ShaderTrace : IComObject, IComObject<ID3D11ShaderTrace>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -34,9 +33,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -46,9 +43,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -61,9 +56,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -74,9 +67,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -90,8 +81,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -102,8 +91,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -114,9 +101,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "TraceReady")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int TraceReady([NativeName(NativeNameType.Param, "pTestCount")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pTestCount) 
+		public readonly unsafe int TraceReady(ulong* pTestCount) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, ulong*, int>)(LpVtbl[3]))(ptr, pTestCount);
@@ -126,9 +111,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "TraceReady")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int TraceReady([NativeName(NativeNameType.Param, "pTestCount")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pTestCount) 
+		public readonly unsafe int TraceReady(ref ulong pTestCount) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ulong* ppTestCount = &pTestCount)
@@ -141,8 +124,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResetTrace")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void ResetTrace() 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -152,26 +133,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetTraceStats")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetTraceStats([NativeName(NativeNameType.Param, "pTraceStats")] [NativeName(NativeNameType.Type, "D3D11_TRACE_STATS*")] D3D11TraceStats* pTraceStats) 
+		public readonly unsafe int GetTraceStats(TraceStats* pTraceStats) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, D3D11TraceStats*, int>)(LpVtbl[5]))(ptr, pTraceStats);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceStats*, int>)(LpVtbl[5]))(ptr, pTraceStats);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetTraceStats")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetTraceStats([NativeName(NativeNameType.Param, "pTraceStats")] [NativeName(NativeNameType.Type, "D3D11_TRACE_STATS*")] ref D3D11TraceStats pTraceStats) 
+		public readonly unsafe int GetTraceStats(ref TraceStats pTraceStats) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11TraceStats* ppTraceStats = &pTraceStats)
+			fixed (TraceStats* ppTraceStats = &pTraceStats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, D3D11TraceStats*, int>)(LpVtbl[5]))(ptr, (D3D11TraceStats*)ppTraceStats);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceStats*, int>)(LpVtbl[5]))(ptr, (TraceStats*)ppTraceStats);
 				return ret;
 			}
 		}
@@ -179,9 +156,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PSSelectStamp")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PSSelectStamp([NativeName(NativeNameType.Param, "stampIndex")] [NativeName(NativeNameType.Type, "UINT")] uint stampIndex) 
+		public readonly unsafe int PSSelectStamp(uint stampIndex) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, int>)(LpVtbl[6]))(ptr, stampIndex);
@@ -191,26 +166,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetInitialRegisterContents")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetInitialRegisterContents([NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] D3D11TraceRegister* pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] D3D11TraceValue* pValue) 
+		public readonly unsafe int GetInitialRegisterContents(TraceRegister* pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[7]))(ptr, pRegister, pValue);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(LpVtbl[7]))(ptr, pRegister, pValue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetInitialRegisterContents")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetInitialRegisterContents([NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] ref D3D11TraceRegister pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] D3D11TraceValue* pValue) 
+		public readonly unsafe int GetInitialRegisterContents(ref TraceRegister pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11TraceRegister* ppRegister = &pRegister)
+			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[7]))(ptr, (D3D11TraceRegister*)ppRegister, pValue);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(LpVtbl[7]))(ptr, (TraceRegister*)ppRegister, pValue);
 				return ret;
 			}
 		}
@@ -218,14 +189,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetInitialRegisterContents")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetInitialRegisterContents([NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] D3D11TraceRegister* pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] ref D3D11TraceValue pValue) 
+		public readonly unsafe int GetInitialRegisterContents(TraceRegister* pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11TraceValue* ppValue = &pValue)
+			fixed (TraceValue* ppValue = &pValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[7]))(ptr, pRegister, (D3D11TraceValue*)ppValue);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(LpVtbl[7]))(ptr, pRegister, (TraceValue*)ppValue);
 				return ret;
 			}
 		}
@@ -233,16 +202,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetInitialRegisterContents")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetInitialRegisterContents([NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] ref D3D11TraceRegister pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] ref D3D11TraceValue pValue) 
+		public readonly unsafe int GetInitialRegisterContents(ref TraceRegister pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11TraceRegister* ppRegister = &pRegister)
+			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				fixed (D3D11TraceValue* ppValue = &pValue)
+				fixed (TraceValue* ppValue = &pValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[7]))(ptr, (D3D11TraceRegister*)ppRegister, (D3D11TraceValue*)ppValue);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, TraceRegister*, TraceValue*, int>)(LpVtbl[7]))(ptr, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
 					return ret;
 				}
 			}
@@ -251,26 +218,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStep")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetStep([NativeName(NativeNameType.Param, "stepIndex")] [NativeName(NativeNameType.Type, "UINT")] uint stepIndex, [NativeName(NativeNameType.Param, "pTraceStep")] [NativeName(NativeNameType.Type, "D3D11_TRACE_STEP*")] D3D11TraceStep* pTraceStep) 
+		public readonly unsafe int GetStep(uint stepIndex, TraceStep* pTraceStep) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, D3D11TraceStep*, int>)(LpVtbl[8]))(ptr, stepIndex, pTraceStep);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, TraceStep*, int>)(LpVtbl[8]))(ptr, stepIndex, pTraceStep);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStep")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetStep([NativeName(NativeNameType.Param, "stepIndex")] [NativeName(NativeNameType.Type, "UINT")] uint stepIndex, [NativeName(NativeNameType.Param, "pTraceStep")] [NativeName(NativeNameType.Type, "D3D11_TRACE_STEP*")] ref D3D11TraceStep pTraceStep) 
+		public readonly unsafe int GetStep(uint stepIndex, ref TraceStep pTraceStep) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11TraceStep* ppTraceStep = &pTraceStep)
+			fixed (TraceStep* ppTraceStep = &pTraceStep)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, D3D11TraceStep*, int>)(LpVtbl[8]))(ptr, stepIndex, (D3D11TraceStep*)ppTraceStep);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, TraceStep*, int>)(LpVtbl[8]))(ptr, stepIndex, (TraceStep*)ppTraceStep);
 				return ret;
 			}
 		}
@@ -278,26 +241,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetWrittenRegister")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetWrittenRegister([NativeName(NativeNameType.Param, "stepIndex")] [NativeName(NativeNameType.Type, "UINT")] uint stepIndex, [NativeName(NativeNameType.Param, "writtenRegisterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint writtenRegisterIndex, [NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] D3D11TraceRegister* pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] D3D11TraceValue* pValue) 
+		public readonly unsafe int GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, TraceRegister* pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, pRegister, pValue);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, pRegister, pValue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetWrittenRegister")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetWrittenRegister([NativeName(NativeNameType.Param, "stepIndex")] [NativeName(NativeNameType.Type, "UINT")] uint stepIndex, [NativeName(NativeNameType.Param, "writtenRegisterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint writtenRegisterIndex, [NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] ref D3D11TraceRegister pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] D3D11TraceValue* pValue) 
+		public readonly unsafe int GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, ref TraceRegister pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11TraceRegister* ppRegister = &pRegister)
+			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, (D3D11TraceRegister*)ppRegister, pValue);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, (TraceRegister*)ppRegister, pValue);
 				return ret;
 			}
 		}
@@ -305,14 +264,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetWrittenRegister")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetWrittenRegister([NativeName(NativeNameType.Param, "stepIndex")] [NativeName(NativeNameType.Type, "UINT")] uint stepIndex, [NativeName(NativeNameType.Param, "writtenRegisterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint writtenRegisterIndex, [NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] D3D11TraceRegister* pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] ref D3D11TraceValue pValue) 
+		public readonly unsafe int GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, TraceRegister* pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11TraceValue* ppValue = &pValue)
+			fixed (TraceValue* ppValue = &pValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, pRegister, (D3D11TraceValue*)ppValue);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, pRegister, (TraceValue*)ppValue);
 				return ret;
 			}
 		}
@@ -320,16 +277,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetWrittenRegister")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetWrittenRegister([NativeName(NativeNameType.Param, "stepIndex")] [NativeName(NativeNameType.Type, "UINT")] uint stepIndex, [NativeName(NativeNameType.Param, "writtenRegisterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint writtenRegisterIndex, [NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] ref D3D11TraceRegister pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] ref D3D11TraceValue pValue) 
+		public readonly unsafe int GetWrittenRegister(uint stepIndex, uint writtenRegisterIndex, ref TraceRegister pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11TraceRegister* ppRegister = &pRegister)
+			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				fixed (D3D11TraceValue* ppValue = &pValue)
+				fixed (TraceValue* ppValue = &pValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, (D3D11TraceRegister*)ppRegister, (D3D11TraceValue*)ppValue);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[9]))(ptr, stepIndex, writtenRegisterIndex, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
 					return ret;
 				}
 			}
@@ -338,26 +293,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetReadRegister")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetReadRegister([NativeName(NativeNameType.Param, "stepIndex")] [NativeName(NativeNameType.Type, "UINT")] uint stepIndex, [NativeName(NativeNameType.Param, "readRegisterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint readRegisterIndex, [NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] D3D11TraceRegister* pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] D3D11TraceValue* pValue) 
+		public readonly unsafe int GetReadRegister(uint stepIndex, uint readRegisterIndex, TraceRegister* pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, pRegister, pValue);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, pRegister, pValue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetReadRegister")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetReadRegister([NativeName(NativeNameType.Param, "stepIndex")] [NativeName(NativeNameType.Type, "UINT")] uint stepIndex, [NativeName(NativeNameType.Param, "readRegisterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint readRegisterIndex, [NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] ref D3D11TraceRegister pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] D3D11TraceValue* pValue) 
+		public readonly unsafe int GetReadRegister(uint stepIndex, uint readRegisterIndex, ref TraceRegister pRegister, TraceValue* pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11TraceRegister* ppRegister = &pRegister)
+			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, (D3D11TraceRegister*)ppRegister, pValue);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, (TraceRegister*)ppRegister, pValue);
 				return ret;
 			}
 		}
@@ -365,14 +316,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetReadRegister")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetReadRegister([NativeName(NativeNameType.Param, "stepIndex")] [NativeName(NativeNameType.Type, "UINT")] uint stepIndex, [NativeName(NativeNameType.Param, "readRegisterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint readRegisterIndex, [NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] D3D11TraceRegister* pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] ref D3D11TraceValue pValue) 
+		public readonly unsafe int GetReadRegister(uint stepIndex, uint readRegisterIndex, TraceRegister* pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11TraceValue* ppValue = &pValue)
+			fixed (TraceValue* ppValue = &pValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, pRegister, (D3D11TraceValue*)ppValue);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, pRegister, (TraceValue*)ppValue);
 				return ret;
 			}
 		}
@@ -380,16 +329,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetReadRegister")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetReadRegister([NativeName(NativeNameType.Param, "stepIndex")] [NativeName(NativeNameType.Type, "UINT")] uint stepIndex, [NativeName(NativeNameType.Param, "readRegisterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint readRegisterIndex, [NativeName(NativeNameType.Param, "pRegister")] [NativeName(NativeNameType.Type, "D3D11_TRACE_REGISTER*")] ref D3D11TraceRegister pRegister, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "D3D11_TRACE_VALUE*")] ref D3D11TraceValue pValue) 
+		public readonly unsafe int GetReadRegister(uint stepIndex, uint readRegisterIndex, ref TraceRegister pRegister, ref TraceValue pValue) 
 		{
 			ID3D11ShaderTrace* ptr = (ID3D11ShaderTrace*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11TraceRegister* ppRegister = &pRegister)
+			fixed (TraceRegister* ppRegister = &pRegister)
 			{
-				fixed (D3D11TraceValue* ppValue = &pValue)
+				fixed (TraceValue* ppValue = &pValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, D3D11TraceRegister*, D3D11TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, (D3D11TraceRegister*)ppRegister, (D3D11TraceValue*)ppValue);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTrace*, uint, uint, TraceRegister*, TraceValue*, int>)(LpVtbl[10]))(ptr, stepIndex, readRegisterIndex, (TraceRegister*)ppRegister, (TraceValue*)ppValue);
 					return ret;
 				}
 			}

@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("dbd5ae51-3317-4f0a-adf9-1d7cedcaae0b")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12DeviceRemovedExtendedDataSettings1")]
 	public partial struct ID3D12DeviceRemovedExtendedDataSettings1 : IComObject, IComObject<ID3D12DeviceRemovedExtendedDataSettings1>, IComObject<ID3D12DeviceRemovedExtendedDataSettings>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12DeviceRemovedExtendedDataSettings1* ptr = (ID3D12DeviceRemovedExtendedDataSettings1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedDataSettings1*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DeviceRemovedExtendedDataSettings1* ptr = (ID3D12DeviceRemovedExtendedDataSettings1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DeviceRemovedExtendedDataSettings1* ptr = (ID3D12DeviceRemovedExtendedDataSettings1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DeviceRemovedExtendedDataSettings1* ptr = (ID3D12DeviceRemovedExtendedDataSettings1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12DeviceRemovedExtendedDataSettings1* ptr = (ID3D12DeviceRemovedExtendedDataSettings1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12DeviceRemovedExtendedDataSettings1* ptr = (ID3D12DeviceRemovedExtendedDataSettings1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,45 +104,37 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetAutoBreadcrumbsEnablement")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetAutoBreadcrumbsEnablement([NativeName(NativeNameType.Param, "Enablement")] [NativeName(NativeNameType.Type, "D3D12_DRED_ENABLEMENT")] D3D12DredEnablement enablement) 
+		public readonly unsafe void SetAutoBreadcrumbsEnablement(DredEnablement enablement) 
 		{
 			ID3D12DeviceRemovedExtendedDataSettings1* ptr = (ID3D12DeviceRemovedExtendedDataSettings1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedDataSettings1*, D3D12DredEnablement, void>)(LpVtbl[3]))(ptr, enablement);
+			((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedDataSettings1*, DredEnablement, void>)(LpVtbl[3]))(ptr, enablement);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPageFaultEnablement")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetPageFaultEnablement([NativeName(NativeNameType.Param, "Enablement")] [NativeName(NativeNameType.Type, "D3D12_DRED_ENABLEMENT")] D3D12DredEnablement enablement) 
+		public readonly unsafe void SetPageFaultEnablement(DredEnablement enablement) 
 		{
 			ID3D12DeviceRemovedExtendedDataSettings1* ptr = (ID3D12DeviceRemovedExtendedDataSettings1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedDataSettings1*, D3D12DredEnablement, void>)(LpVtbl[4]))(ptr, enablement);
+			((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedDataSettings1*, DredEnablement, void>)(LpVtbl[4]))(ptr, enablement);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetWatsonDumpEnablement")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetWatsonDumpEnablement([NativeName(NativeNameType.Param, "Enablement")] [NativeName(NativeNameType.Type, "D3D12_DRED_ENABLEMENT")] D3D12DredEnablement enablement) 
+		public readonly unsafe void SetWatsonDumpEnablement(DredEnablement enablement) 
 		{
 			ID3D12DeviceRemovedExtendedDataSettings1* ptr = (ID3D12DeviceRemovedExtendedDataSettings1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedDataSettings1*, D3D12DredEnablement, void>)(LpVtbl[5]))(ptr, enablement);
+			((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedDataSettings1*, DredEnablement, void>)(LpVtbl[5]))(ptr, enablement);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBreadcrumbContextEnablement")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetBreadcrumbContextEnablement([NativeName(NativeNameType.Param, "Enablement")] [NativeName(NativeNameType.Type, "D3D12_DRED_ENABLEMENT")] D3D12DredEnablement enablement) 
+		public readonly unsafe void SetBreadcrumbContextEnablement(DredEnablement enablement) 
 		{
 			ID3D12DeviceRemovedExtendedDataSettings1* ptr = (ID3D12DeviceRemovedExtendedDataSettings1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedDataSettings1*, D3D12DredEnablement, void>)(LpVtbl[6]))(ptr, enablement);
+			((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedDataSettings1*, DredEnablement, void>)(LpVtbl[6]))(ptr, enablement);
 		}
 
 		unsafe void*** IComObject.AsVtblPtr()

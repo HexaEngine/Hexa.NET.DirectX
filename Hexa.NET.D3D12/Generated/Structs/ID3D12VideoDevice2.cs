@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("f019ac49-f838-4a95-9b17-579437c8f513")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12VideoDevice2")]
 	public partial struct ID3D12VideoDevice2 : IComObject, IComObject<ID3D12VideoDevice2>, IComObject<ID3D12VideoDevice1>, IComObject<ID3D12VideoDevice>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,50 +104,42 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckFeatureSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckFeatureSupport([NativeName(NativeNameType.Param, "FeatureVideo")] [NativeName(NativeNameType.Type, "D3D12_FEATURE_VIDEO")] D3D12FeatureVideo featureVideo, [NativeName(NativeNameType.Param, "pFeatureSupportData")] [NativeName(NativeNameType.Type, "void*")] void* pFeatureSupportData, [NativeName(NativeNameType.Param, "FeatureSupportDataSize")] [NativeName(NativeNameType.Type, "UINT")] uint featureSupportDataSize) 
+		public readonly unsafe int CheckFeatureSupport(FeatureVideo featureVideo, void* pFeatureSupportData, uint featureSupportDataSize) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12FeatureVideo, void*, uint, int>)(LpVtbl[3]))(ptr, featureVideo, pFeatureSupportData, featureSupportDataSize);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, FeatureVideo, void*, uint, int>)(LpVtbl[3]))(ptr, featureVideo, pFeatureSupportData, featureSupportDataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckFeatureSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckFeatureSupport<T>([NativeName(NativeNameType.Param, "FeatureVideo")] [NativeName(NativeNameType.Type, "D3D12_FEATURE_VIDEO")] D3D12FeatureVideo featureVideo, [NativeName(NativeNameType.Param, "pFeatureSupportData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pFeatureSupportData, [NativeName(NativeNameType.Param, "FeatureSupportDataSize")] [NativeName(NativeNameType.Type, "UINT")] uint featureSupportDataSize) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CheckFeatureSupport<T>(FeatureVideo featureVideo, ComPtr<T> pFeatureSupportData, uint featureSupportDataSize) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12FeatureVideo, void*, uint, int>)(LpVtbl[3]))(ptr, featureVideo, (void*)pFeatureSupportData.Handle, featureSupportDataSize);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, FeatureVideo, void*, uint, int>)(LpVtbl[3]))(ptr, featureVideo, (void*)pFeatureSupportData.Handle, featureSupportDataSize);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pDesc, Guid* riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pDesc, riid, ppVideoDecoder);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pDesc, riid, ppVideoDecoder);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pDesc, Guid* riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, riid, ppVideoDecoder);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (VideoDecoderDesc*)ppDesc, riid, ppVideoDecoder);
 				return ret;
 			}
 		}
@@ -168,14 +147,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder(VideoDecoderDesc* pDesc, ref Guid riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pDesc, (Guid*)priid, ppVideoDecoder);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pDesc, (Guid*)priid, ppVideoDecoder);
 				return ret;
 			}
 		}
@@ -183,16 +160,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder(ref VideoDecoderDesc pDesc, ref Guid riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, (Guid*)priid, ppVideoDecoder);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (VideoDecoderDesc*)ppDesc, (Guid*)priid, ppVideoDecoder);
 					return ret;
 				}
 			}
@@ -201,28 +176,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder<T>(VideoDecoderDesc* pDesc, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoDecoder = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder<T>(ref VideoDecoderDesc pDesc, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				ppVideoDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (VideoDecoderDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
 				return ret;
 			}
 		}
@@ -230,15 +201,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder<T>(VideoDecoderDesc* pDesc, ref Guid riid, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pDesc, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, pDesc, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
 				return ret;
 			}
 		}
@@ -246,17 +215,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder<T>(ref VideoDecoderDesc pDesc, ref Guid riid, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoDecoder = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, Guid*, void**, int>)(LpVtbl[4]))(ptr, (VideoDecoderDesc*)ppDesc, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
 					return ret;
 				}
 			}
@@ -265,26 +232,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, Guid* riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, pVideoDecoderHeapDesc, riid, ppVideoDecoderHeap);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, pVideoDecoderHeapDesc, riid, ppVideoDecoderHeap);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, Guid* riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, riid, ppVideoDecoderHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, riid, ppVideoDecoderHeap);
 				return ret;
 			}
 		}
@@ -292,14 +255,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ref Guid riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, pVideoDecoderHeapDesc, (Guid*)priid, ppVideoDecoderHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, pVideoDecoderHeapDesc, (Guid*)priid, ppVideoDecoderHeap);
 				return ret;
 			}
 		}
@@ -307,16 +268,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ref Guid riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (Guid*)priid, ppVideoDecoderHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (Guid*)priid, ppVideoDecoderHeap);
 					return ret;
 				}
 			}
@@ -325,28 +284,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap<T>(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoDecoderHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, pVideoDecoderHeapDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, pVideoDecoderHeapDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap<T>(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
 				ppVideoDecoderHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -354,15 +309,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap<T>(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ref Guid riid, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoDecoderHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, pVideoDecoderHeapDesc, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, pVideoDecoderHeapDesc, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -370,17 +323,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap<T>(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ref Guid riid, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoDecoderHeap = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, Guid*, void**, int>)(LpVtbl[5]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
 					return ret;
 				}
 			}
@@ -389,26 +340,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, riid, ppVideoProcessor);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, riid, ppVideoProcessor);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, riid, ppVideoProcessor);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, riid, ppVideoProcessor);
 				return ret;
 			}
 		}
@@ -416,14 +363,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, riid, ppVideoProcessor);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, riid, ppVideoProcessor);
 				return ret;
 			}
 		}
@@ -431,16 +376,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, riid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, riid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -449,14 +392,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)priid, ppVideoProcessor);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)priid, ppVideoProcessor);
 				return ret;
 			}
 		}
@@ -464,16 +405,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)priid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)priid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -482,16 +421,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)priid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)priid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -500,18 +437,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)priid, ppVideoProcessor);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)priid, ppVideoProcessor);
 						return ret;
 					}
 				}
@@ -521,28 +456,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoProcessor = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
 				ppVideoProcessor = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 				return ret;
 			}
 		}
@@ -550,15 +481,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
 				ppVideoProcessor = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 				return ret;
 			}
 		}
@@ -566,17 +495,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
 					ppVideoProcessor = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 					return ret;
 				}
 			}
@@ -585,15 +512,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoProcessor = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 				return ret;
 			}
 		}
@@ -601,17 +526,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoProcessor = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 					return ret;
 				}
 			}
@@ -620,17 +543,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoProcessor = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 					return ret;
 				}
 			}
@@ -639,19 +560,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
 					fixed (Guid* priid = &riid)
 					{
 						ppVideoProcessor = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, Guid*, void**, int>)(LpVtbl[6]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 						return ret;
 					}
 				}
@@ -661,26 +580,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] D3D12VideoMotionEstimatorDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(VideoMotionEstimatorDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, pProtectedResourceSession, riid, ppVideoMotionEstimator);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, pProtectedResourceSession, riid, ppVideoMotionEstimator);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] ref D3D12VideoMotionEstimatorDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(ref VideoMotionEstimatorDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorDesc* ppDesc = &pDesc)
+			fixed (VideoMotionEstimatorDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (D3D12VideoMotionEstimatorDesc*)ppDesc, pProtectedResourceSession, riid, ppVideoMotionEstimator);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (VideoMotionEstimatorDesc*)ppDesc, pProtectedResourceSession, riid, ppVideoMotionEstimator);
 				return ret;
 			}
 		}
@@ -688,14 +603,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] D3D12VideoMotionEstimatorDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(VideoMotionEstimatorDesc* pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoMotionEstimator);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoMotionEstimator);
 				return ret;
 			}
 		}
@@ -703,28 +616,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] D3D12VideoMotionEstimatorDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(VideoMotionEstimatorDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoMotionEstimator);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoMotionEstimator);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] ref D3D12VideoMotionEstimatorDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(ref VideoMotionEstimatorDesc pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorDesc* ppDesc = &pDesc)
+			fixed (VideoMotionEstimatorDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (D3D12VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoMotionEstimator);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoMotionEstimator);
 					return ret;
 				}
 			}
@@ -733,14 +642,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] ref D3D12VideoMotionEstimatorDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(ref VideoMotionEstimatorDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorDesc* ppDesc = &pDesc)
+			fixed (VideoMotionEstimatorDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (D3D12VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoMotionEstimator);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoMotionEstimator);
 				return ret;
 			}
 		}
@@ -748,14 +655,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] D3D12VideoMotionEstimatorDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(VideoMotionEstimatorDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, ppVideoMotionEstimator);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, ppVideoMotionEstimator);
 				return ret;
 			}
 		}
@@ -763,16 +668,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] ref D3D12VideoMotionEstimatorDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(ref VideoMotionEstimatorDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorDesc* ppDesc = &pDesc)
+			fixed (VideoMotionEstimatorDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (D3D12VideoMotionEstimatorDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, ppVideoMotionEstimator);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (VideoMotionEstimatorDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, ppVideoMotionEstimator);
 					return ret;
 				}
 			}
@@ -781,16 +684,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] D3D12VideoMotionEstimatorDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(VideoMotionEstimatorDesc* pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoMotionEstimator);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoMotionEstimator);
 					return ret;
 				}
 			}
@@ -799,14 +700,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] D3D12VideoMotionEstimatorDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(VideoMotionEstimatorDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoMotionEstimator);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoMotionEstimator);
 				return ret;
 			}
 		}
@@ -814,18 +713,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] ref D3D12VideoMotionEstimatorDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(ref VideoMotionEstimatorDesc pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorDesc* ppDesc = &pDesc)
+			fixed (VideoMotionEstimatorDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (D3D12VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoMotionEstimator);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoMotionEstimator);
 						return ret;
 					}
 				}
@@ -835,16 +732,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] ref D3D12VideoMotionEstimatorDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionEstimator) 
+		public readonly unsafe int CreateVideoMotionEstimator(ref VideoMotionEstimatorDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoMotionEstimator) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorDesc* ppDesc = &pDesc)
+			fixed (VideoMotionEstimatorDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (D3D12VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoMotionEstimator);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoMotionEstimator);
 					return ret;
 				}
 			}
@@ -853,28 +748,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] D3D12VideoMotionEstimatorDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionEstimator<T>(VideoMotionEstimatorDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoMotionEstimator = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionEstimator.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionEstimator.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] ref D3D12VideoMotionEstimatorDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionEstimator<T>(ref VideoMotionEstimatorDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorDesc* ppDesc = &pDesc)
+			fixed (VideoMotionEstimatorDesc* ppDesc = &pDesc)
 			{
 				ppVideoMotionEstimator = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (D3D12VideoMotionEstimatorDesc*)ppDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionEstimator.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (VideoMotionEstimatorDesc*)ppDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionEstimator.GetAddressOf());
 				return ret;
 			}
 		}
@@ -882,28 +773,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] D3D12VideoMotionEstimatorDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionEstimator<T>(VideoMotionEstimatorDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoMotionEstimator = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionEstimator.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionEstimator.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] ref D3D12VideoMotionEstimatorDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionEstimator<T>(ref VideoMotionEstimatorDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorDesc* ppDesc = &pDesc)
+			fixed (VideoMotionEstimatorDesc* ppDesc = &pDesc)
 			{
 				ppVideoMotionEstimator = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (D3D12VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionEstimator.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionEstimator.GetAddressOf());
 				return ret;
 			}
 		}
@@ -911,15 +798,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] D3D12VideoMotionEstimatorDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionEstimator<T>(VideoMotionEstimatorDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoMotionEstimator = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoMotionEstimator.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoMotionEstimator.GetAddressOf());
 				return ret;
 			}
 		}
@@ -927,17 +812,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] ref D3D12VideoMotionEstimatorDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionEstimator<T>(ref VideoMotionEstimatorDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorDesc* ppDesc = &pDesc)
+			fixed (VideoMotionEstimatorDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoMotionEstimator = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (D3D12VideoMotionEstimatorDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoMotionEstimator.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (VideoMotionEstimatorDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoMotionEstimator.GetAddressOf());
 					return ret;
 				}
 			}
@@ -946,15 +829,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] D3D12VideoMotionEstimatorDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionEstimator<T>(VideoMotionEstimatorDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoMotionEstimator = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoMotionEstimator.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoMotionEstimator.GetAddressOf());
 				return ret;
 			}
 		}
@@ -962,17 +843,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionEstimator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionEstimator<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_DESC*")] ref D3D12VideoMotionEstimatorDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionEstimator")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionEstimator<T>(ref VideoMotionEstimatorDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoMotionEstimator) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorDesc* ppDesc = &pDesc)
+			fixed (VideoMotionEstimatorDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoMotionEstimator = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (D3D12VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoMotionEstimator.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionEstimatorDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[7]))(ptr, (VideoMotionEstimatorDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoMotionEstimator.GetAddressOf());
 					return ret;
 				}
 			}
@@ -981,26 +860,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] D3D12VideoMotionVectorHeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(VideoMotionVectorHeapDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, pProtectedResourceSession, riid, ppVideoMotionVectorHeap);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, pProtectedResourceSession, riid, ppVideoMotionVectorHeap);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] ref D3D12VideoMotionVectorHeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(ref VideoMotionVectorHeapDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionVectorHeapDesc* ppDesc = &pDesc)
+			fixed (VideoMotionVectorHeapDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (D3D12VideoMotionVectorHeapDesc*)ppDesc, pProtectedResourceSession, riid, ppVideoMotionVectorHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (VideoMotionVectorHeapDesc*)ppDesc, pProtectedResourceSession, riid, ppVideoMotionVectorHeap);
 				return ret;
 			}
 		}
@@ -1008,14 +883,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] D3D12VideoMotionVectorHeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(VideoMotionVectorHeapDesc* pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoMotionVectorHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoMotionVectorHeap);
 				return ret;
 			}
 		}
@@ -1023,28 +896,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] D3D12VideoMotionVectorHeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(VideoMotionVectorHeapDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoMotionVectorHeap);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoMotionVectorHeap);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] ref D3D12VideoMotionVectorHeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(ref VideoMotionVectorHeapDesc pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionVectorHeapDesc* ppDesc = &pDesc)
+			fixed (VideoMotionVectorHeapDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (D3D12VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoMotionVectorHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoMotionVectorHeap);
 					return ret;
 				}
 			}
@@ -1053,14 +922,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] ref D3D12VideoMotionVectorHeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(ref VideoMotionVectorHeapDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionVectorHeapDesc* ppDesc = &pDesc)
+			fixed (VideoMotionVectorHeapDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (D3D12VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoMotionVectorHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoMotionVectorHeap);
 				return ret;
 			}
 		}
@@ -1068,14 +935,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] D3D12VideoMotionVectorHeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(VideoMotionVectorHeapDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, ppVideoMotionVectorHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, ppVideoMotionVectorHeap);
 				return ret;
 			}
 		}
@@ -1083,16 +948,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] ref D3D12VideoMotionVectorHeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(ref VideoMotionVectorHeapDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionVectorHeapDesc* ppDesc = &pDesc)
+			fixed (VideoMotionVectorHeapDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (D3D12VideoMotionVectorHeapDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, ppVideoMotionVectorHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (VideoMotionVectorHeapDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, ppVideoMotionVectorHeap);
 					return ret;
 				}
 			}
@@ -1101,16 +964,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] D3D12VideoMotionVectorHeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(VideoMotionVectorHeapDesc* pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoMotionVectorHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoMotionVectorHeap);
 					return ret;
 				}
 			}
@@ -1119,14 +980,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] D3D12VideoMotionVectorHeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(VideoMotionVectorHeapDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoMotionVectorHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoMotionVectorHeap);
 				return ret;
 			}
 		}
@@ -1134,18 +993,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] ref D3D12VideoMotionVectorHeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(ref VideoMotionVectorHeapDesc pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionVectorHeapDesc* ppDesc = &pDesc)
+			fixed (VideoMotionVectorHeapDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (D3D12VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoMotionVectorHeap);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoMotionVectorHeap);
 						return ret;
 					}
 				}
@@ -1155,16 +1012,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] ref D3D12VideoMotionVectorHeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoMotionVectorHeap) 
+		public readonly unsafe int CreateVideoMotionVectorHeap(ref VideoMotionVectorHeapDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoMotionVectorHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionVectorHeapDesc* ppDesc = &pDesc)
+			fixed (VideoMotionVectorHeapDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (D3D12VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoMotionVectorHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoMotionVectorHeap);
 					return ret;
 				}
 			}
@@ -1173,28 +1028,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] D3D12VideoMotionVectorHeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionVectorHeap<T>(VideoMotionVectorHeapDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoMotionVectorHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionVectorHeap.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionVectorHeap.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] ref D3D12VideoMotionVectorHeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionVectorHeap<T>(ref VideoMotionVectorHeapDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionVectorHeapDesc* ppDesc = &pDesc)
+			fixed (VideoMotionVectorHeapDesc* ppDesc = &pDesc)
 			{
 				ppVideoMotionVectorHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (D3D12VideoMotionVectorHeapDesc*)ppDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionVectorHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (VideoMotionVectorHeapDesc*)ppDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionVectorHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1202,28 +1053,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] D3D12VideoMotionVectorHeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionVectorHeap<T>(VideoMotionVectorHeapDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoMotionVectorHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionVectorHeap.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionVectorHeap.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] ref D3D12VideoMotionVectorHeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionVectorHeap<T>(ref VideoMotionVectorHeapDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionVectorHeapDesc* ppDesc = &pDesc)
+			fixed (VideoMotionVectorHeapDesc* ppDesc = &pDesc)
 			{
 				ppVideoMotionVectorHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (D3D12VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionVectorHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoMotionVectorHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1231,15 +1078,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] D3D12VideoMotionVectorHeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionVectorHeap<T>(VideoMotionVectorHeapDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoMotionVectorHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoMotionVectorHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoMotionVectorHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1247,17 +1092,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] ref D3D12VideoMotionVectorHeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionVectorHeap<T>(ref VideoMotionVectorHeapDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionVectorHeapDesc* ppDesc = &pDesc)
+			fixed (VideoMotionVectorHeapDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoMotionVectorHeap = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (D3D12VideoMotionVectorHeapDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoMotionVectorHeap.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (VideoMotionVectorHeapDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoMotionVectorHeap.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1266,15 +1109,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] D3D12VideoMotionVectorHeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionVectorHeap<T>(VideoMotionVectorHeapDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoMotionVectorHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoMotionVectorHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoMotionVectorHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1282,17 +1123,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoMotionVectorHeap<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC*")] ref D3D12VideoMotionVectorHeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoMotionVectorHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoMotionVectorHeap<T>(ref VideoMotionVectorHeapDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoMotionVectorHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionVectorHeapDesc* ppDesc = &pDesc)
+			fixed (VideoMotionVectorHeapDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoMotionVectorHeap = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (D3D12VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoMotionVectorHeap.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoMotionVectorHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[8]))(ptr, (VideoMotionVectorHeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoMotionVectorHeap.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1301,26 +1140,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(VideoDecoderDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, pProtectedResourceSession, riid, ppVideoDecoder);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, pProtectedResourceSession, riid, ppVideoDecoder);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(ref VideoDecoderDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, pProtectedResourceSession, riid, ppVideoDecoder);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (VideoDecoderDesc*)ppDesc, pProtectedResourceSession, riid, ppVideoDecoder);
 				return ret;
 			}
 		}
@@ -1328,14 +1163,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(VideoDecoderDesc* pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoDecoder);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoDecoder);
 				return ret;
 			}
 		}
@@ -1343,28 +1176,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(VideoDecoderDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoDecoder);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoDecoder);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(ref VideoDecoderDesc pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoDecoder);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoDecoder);
 					return ret;
 				}
 			}
@@ -1373,14 +1202,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(ref VideoDecoderDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoDecoder);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoDecoder);
 				return ret;
 			}
 		}
@@ -1388,14 +1215,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(VideoDecoderDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, ppVideoDecoder);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, ppVideoDecoder);
 				return ret;
 			}
 		}
@@ -1403,16 +1228,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(ref VideoDecoderDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, ppVideoDecoder);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (VideoDecoderDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, ppVideoDecoder);
 					return ret;
 				}
 			}
@@ -1421,16 +1244,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(VideoDecoderDesc* pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoDecoder);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoDecoder);
 					return ret;
 				}
 			}
@@ -1439,14 +1260,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(VideoDecoderDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoDecoder);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoDecoder);
 				return ret;
 			}
 		}
@@ -1454,18 +1273,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(ref VideoDecoderDesc pDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoDecoder);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoDecoder);
 						return ret;
 					}
 				}
@@ -1475,16 +1292,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoder) 
+		public readonly unsafe int CreateVideoDecoder1(ref VideoDecoderDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoDecoder) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoDecoder);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoDecoder);
 					return ret;
 				}
 			}
@@ -1493,28 +1308,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder1<T>(VideoDecoderDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoDecoder = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder1<T>(ref VideoDecoderDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				ppVideoDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (VideoDecoderDesc*)ppDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1522,28 +1333,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder1<T>(VideoDecoderDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoDecoder = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder1<T>(ref VideoDecoderDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				ppVideoDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoder.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1551,15 +1358,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder1<T>(VideoDecoderDesc* pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1567,17 +1372,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder1<T>(ref VideoDecoderDesc pDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoDecoder = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (VideoDecoderDesc*)ppDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1586,15 +1389,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] D3D12VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder1<T>(VideoDecoderDesc* pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1602,17 +1403,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoder1<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_DESC*")] ref D3D12VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoder")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoder1<T>(ref VideoDecoderDesc pDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoDecoder) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderDesc* ppDesc = &pDesc)
+			fixed (VideoDecoderDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoDecoder = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (D3D12VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (VideoDecoderDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoDecoder.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1621,26 +1420,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, pProtectedResourceSession, riid, ppVideoDecoderHeap);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, pProtectedResourceSession, riid, ppVideoDecoderHeap);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, pProtectedResourceSession, riid, ppVideoDecoderHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, pProtectedResourceSession, riid, ppVideoDecoderHeap);
 				return ret;
 			}
 		}
@@ -1648,14 +1443,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoDecoderHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoDecoderHeap);
 				return ret;
 			}
 		}
@@ -1663,28 +1456,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoDecoderHeap);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoDecoderHeap);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoDecoderHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoDecoderHeap);
 					return ret;
 				}
 			}
@@ -1693,14 +1482,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoDecoderHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoDecoderHeap);
 				return ret;
 			}
 		}
@@ -1708,14 +1495,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)priid, ppVideoDecoderHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)priid, ppVideoDecoderHeap);
 				return ret;
 			}
 		}
@@ -1723,16 +1508,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)priid, ppVideoDecoderHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)priid, ppVideoDecoderHeap);
 					return ret;
 				}
 			}
@@ -1741,16 +1524,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoDecoderHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoDecoderHeap);
 					return ret;
 				}
 			}
@@ -1759,14 +1540,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoDecoderHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoDecoderHeap);
 				return ret;
 			}
 		}
@@ -1774,18 +1553,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoDecoderHeap);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoDecoderHeap);
 						return ret;
 					}
 				}
@@ -1795,16 +1572,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoDecoderHeap) 
+		public readonly unsafe int CreateVideoDecoderHeap1(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoDecoderHeap) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoDecoderHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoDecoderHeap);
 					return ret;
 				}
 			}
@@ -1813,28 +1588,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap1<T>(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoDecoderHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap1<T>(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
 				ppVideoDecoderHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1842,28 +1613,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap1<T>(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoDecoderHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap1<T>(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
 				ppVideoDecoderHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoDecoderHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1871,15 +1638,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap1<T>(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoDecoderHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1887,17 +1652,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap1<T>(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoDecoderHeap = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1906,15 +1669,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] D3D12VideoDecoderHeapDesc* pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap1<T>(VideoDecoderHeapDesc* pVideoDecoderHeapDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoDecoderHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1922,17 +1683,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoDecoderHeap1<T>([NativeName(NativeNameType.Param, "pVideoDecoderHeapDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_DECODER_HEAP_DESC*")] ref D3D12VideoDecoderHeapDesc pVideoDecoderHeapDesc, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoDecoderHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoDecoderHeap1<T>(ref VideoDecoderHeapDesc pVideoDecoderHeapDesc, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoDecoderHeap) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
+			fixed (VideoDecoderHeapDesc* ppVideoDecoderHeapDesc = &pVideoDecoderHeapDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoDecoderHeap = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (D3D12VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoDecoderHeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (VideoDecoderHeapDesc*)ppVideoDecoderHeapDesc, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoDecoderHeap.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1941,26 +1700,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, riid, ppVideoProcessor);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, riid, ppVideoProcessor);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, riid, ppVideoProcessor);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, riid, ppVideoProcessor);
 				return ret;
 			}
 		}
@@ -1968,14 +1723,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, riid, ppVideoProcessor);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, riid, ppVideoProcessor);
 				return ret;
 			}
 		}
@@ -1983,16 +1736,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, riid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, riid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -2001,14 +1752,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoProcessor);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoProcessor);
 				return ret;
 			}
 		}
@@ -2016,28 +1765,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoProcessor);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoProcessor);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -2046,14 +1791,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoProcessor);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoProcessor);
 				return ret;
 			}
 		}
@@ -2061,16 +1804,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -2079,14 +1820,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoProcessor);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoProcessor);
 				return ret;
 			}
 		}
@@ -2094,18 +1833,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
 					fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoProcessor);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoProcessor);
 						return ret;
 					}
 				}
@@ -2115,16 +1852,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -2133,14 +1868,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
 				return ret;
 			}
 		}
@@ -2148,16 +1881,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -2166,16 +1897,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -2184,18 +1913,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
 						return ret;
 					}
 				}
@@ -2205,16 +1932,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -2223,14 +1948,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoProcessor);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoProcessor);
 				return ret;
 			}
 		}
@@ -2238,18 +1961,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
 						return ret;
 					}
 				}
@@ -2259,16 +1980,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -2277,18 +1996,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
 						return ret;
 					}
 				}
@@ -2298,16 +2015,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoProcessor);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoProcessor);
 					return ret;
 				}
 			}
@@ -2316,20 +2031,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
 					fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoProcessor);
 							return ret;
 						}
 					}
@@ -2340,18 +2053,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoProcessor) 
+		public readonly unsafe int CreateVideoProcessor1(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoProcessor) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoProcessor);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoProcessor);
 						return ret;
 					}
 				}
@@ -2361,28 +2072,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoProcessor = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
 				ppVideoProcessor = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2390,15 +2097,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
 				ppVideoProcessor = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2406,17 +2111,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
 					ppVideoProcessor = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2425,28 +2128,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoProcessor = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
 				ppVideoProcessor = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2454,15 +2153,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
 				ppVideoProcessor = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2470,17 +2167,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
 					ppVideoProcessor = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoProcessor.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2489,15 +2184,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoProcessor = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2505,17 +2198,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoProcessor = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2524,17 +2215,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoProcessor = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2543,19 +2232,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
 					fixed (Guid* priid = &riid)
 					{
 						ppVideoProcessor = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 						return ret;
 					}
 				}
@@ -2565,15 +2252,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoProcessor = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2581,17 +2266,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] D3D12VideoProcessInputStreamDesc* pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, VideoProcessInputStreamDesc* pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoProcessor = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, pInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2600,17 +2283,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] D3D12VideoProcessOutputStreamDesc* pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, VideoProcessOutputStreamDesc* pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+			fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoProcessor = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, pOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2619,19 +2300,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoProcessor1<T>([NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pOutputStreamDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC*")] ref D3D12VideoProcessOutputStreamDesc pOutputStreamDesc, [NativeName(NativeNameType.Param, "NumInputStreamDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numInputStreamDescs, [NativeName(NativeNameType.Param, "pInputStreamDescs")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC*")] ref D3D12VideoProcessInputStreamDesc pInputStreamDescs, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoProcessor1<T>(uint nodeMask, ref VideoProcessOutputStreamDesc pOutputStreamDesc, uint numInputStreamDescs, ref VideoProcessInputStreamDesc pInputStreamDescs, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoProcessor) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
+			fixed (VideoProcessOutputStreamDesc* ppOutputStreamDesc = &pOutputStreamDesc)
 			{
-				fixed (D3D12VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
+				fixed (VideoProcessInputStreamDesc* ppInputStreamDescs = &pInputStreamDescs)
 				{
 					fixed (Guid* priid = &riid)
 					{
 						ppVideoProcessor = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, D3D12VideoProcessOutputStreamDesc*, uint, D3D12VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (D3D12VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (D3D12VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, uint, VideoProcessOutputStreamDesc*, uint, VideoProcessInputStreamDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[11]))(ptr, nodeMask, (VideoProcessOutputStreamDesc*)ppOutputStreamDesc, numInputStreamDescs, (VideoProcessInputStreamDesc*)ppInputStreamDescs, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoProcessor.GetAddressOf());
 						return ret;
 					}
 				}
@@ -2641,26 +2320,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] D3D12VideoExtensionCommandDesc* pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, riid, ppVideoExtensionCommand);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, riid, ppVideoExtensionCommand);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] ref D3D12VideoExtensionCommandDesc pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, Guid* riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoExtensionCommandDesc* ppDesc = &pDesc)
+			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (D3D12VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, riid, ppVideoExtensionCommand);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, riid, ppVideoExtensionCommand);
 				return ret;
 			}
 		}
@@ -2668,14 +2343,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] D3D12VideoExtensionCommandDesc* pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoExtensionCommand);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoExtensionCommand);
 				return ret;
 			}
 		}
@@ -2683,28 +2356,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] D3D12VideoExtensionCommandDesc* pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoExtensionCommand);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoExtensionCommand);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] ref D3D12VideoExtensionCommandDesc pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ref ID3D12ProtectedResourceSession pProtectedResourceSession, Guid* riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoExtensionCommandDesc* ppDesc = &pDesc)
+			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (D3D12VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoExtensionCommand);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, riid, ppVideoExtensionCommand);
 					return ret;
 				}
 			}
@@ -2713,14 +2382,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] ref D3D12VideoExtensionCommandDesc pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, Guid* riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoExtensionCommandDesc* ppDesc = &pDesc)
+			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (D3D12VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoExtensionCommand);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, riid, ppVideoExtensionCommand);
 				return ret;
 			}
 		}
@@ -2728,14 +2395,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] D3D12VideoExtensionCommandDesc* pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)priid, ppVideoExtensionCommand);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)priid, ppVideoExtensionCommand);
 				return ret;
 			}
 		}
@@ -2743,16 +2408,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] ref D3D12VideoExtensionCommandDesc pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoExtensionCommandDesc* ppDesc = &pDesc)
+			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (D3D12VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)priid, ppVideoExtensionCommand);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)priid, ppVideoExtensionCommand);
 					return ret;
 				}
 			}
@@ -2761,16 +2424,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] D3D12VideoExtensionCommandDesc* pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoExtensionCommand);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoExtensionCommand);
 					return ret;
 				}
 			}
@@ -2779,14 +2440,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] D3D12VideoExtensionCommandDesc* pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoExtensionCommand);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoExtensionCommand);
 				return ret;
 			}
 		}
@@ -2794,18 +2453,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] ref D3D12VideoExtensionCommandDesc pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ref ID3D12ProtectedResourceSession pProtectedResourceSession, ref Guid riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoExtensionCommandDesc* ppDesc = &pDesc)
+			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (D3D12VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoExtensionCommand);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)ppProtectedResourceSession, (Guid*)priid, ppVideoExtensionCommand);
 						return ret;
 					}
 				}
@@ -2815,16 +2472,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] ref D3D12VideoExtensionCommandDesc pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppVideoExtensionCommand) 
+		public readonly unsafe int CreateVideoExtensionCommand(ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, void** ppVideoExtensionCommand) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoExtensionCommandDesc* ppDesc = &pDesc)
+			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (D3D12VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoExtensionCommand);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, ppVideoExtensionCommand);
 					return ret;
 				}
 			}
@@ -2833,28 +2488,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] D3D12VideoExtensionCommandDesc* pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoExtensionCommand<T>(VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoExtensionCommand = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoExtensionCommand.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoExtensionCommand.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] ref D3D12VideoExtensionCommandDesc pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoExtensionCommand<T>(ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoExtensionCommandDesc* ppDesc = &pDesc)
+			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
 			{
 				ppVideoExtensionCommand = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (D3D12VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoExtensionCommand.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoExtensionCommand.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2862,28 +2513,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] D3D12VideoExtensionCommandDesc* pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoExtensionCommand<T>(VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVideoExtensionCommand = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoExtensionCommand.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoExtensionCommand.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] ref D3D12VideoExtensionCommandDesc pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoExtensionCommand<T>(ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoExtensionCommandDesc* ppDesc = &pDesc)
+			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
 			{
 				ppVideoExtensionCommand = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (D3D12VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoExtensionCommand.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppVideoExtensionCommand.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2891,15 +2538,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] D3D12VideoExtensionCommandDesc* pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoExtensionCommand<T>(VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoExtensionCommand = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoExtensionCommand.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoExtensionCommand.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2907,17 +2552,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] ref D3D12VideoExtensionCommandDesc pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoExtensionCommand<T>(ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ID3D12ProtectedResourceSession* pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoExtensionCommandDesc* ppDesc = &pDesc)
+			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoExtensionCommand = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (D3D12VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoExtensionCommand.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, pProtectedResourceSession, (Guid*)priid, (void**)ppVideoExtensionCommand.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2926,15 +2569,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] D3D12VideoExtensionCommandDesc* pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoExtensionCommand<T>(VideoExtensionCommandDesc* pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppVideoExtensionCommand = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoExtensionCommand.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, pDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoExtensionCommand.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2942,17 +2583,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateVideoExtensionCommand<T>([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_EXTENSION_COMMAND_DESC*")] ref D3D12VideoExtensionCommandDesc pDesc, [NativeName(NativeNameType.Param, "pCreationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParameters, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppVideoExtensionCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int CreateVideoExtensionCommand<T>(ref VideoExtensionCommandDesc pDesc, void* pCreationParameters, nuint creationParametersDataSizeInBytes, ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession, ref Guid riid, out ComPtr<T> ppVideoExtensionCommand) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoExtensionCommandDesc* ppDesc = &pDesc)
+			fixed (VideoExtensionCommandDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppVideoExtensionCommand = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, D3D12VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (D3D12VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoExtensionCommand.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, VideoExtensionCommandDesc*, void*, nuint, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(LpVtbl[12]))(ptr, (VideoExtensionCommandDesc*)ppDesc, pCreationParameters, creationParametersDataSizeInBytes, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle, (Guid*)priid, (void**)ppVideoExtensionCommand.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2961,9 +2600,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ExecuteExtensionCommand([NativeName(NativeNameType.Param, "pExtensionCommand")] [NativeName(NativeNameType.Type, "ID3D12VideoExtensionCommand*")] ID3D12VideoExtensionCommand* pExtensionCommand, [NativeName(NativeNameType.Param, "pExecutionParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pExecutionParameters, [NativeName(NativeNameType.Param, "ExecutionParametersSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint executionParametersSizeInBytes, [NativeName(NativeNameType.Param, "pOutputData")] [NativeName(NativeNameType.Type, "void*")] void* pOutputData, [NativeName(NativeNameType.Param, "OutputDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint outputDataSizeInBytes) 
+		public readonly unsafe int ExecuteExtensionCommand(ID3D12VideoExtensionCommand* pExtensionCommand, void* pExecutionParameters, nuint executionParametersSizeInBytes, void* pOutputData, nuint outputDataSizeInBytes) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, ID3D12VideoExtensionCommand*, void*, nuint, void*, nuint, int>)(LpVtbl[13]))(ptr, pExtensionCommand, pExecutionParameters, executionParametersSizeInBytes, pOutputData, outputDataSizeInBytes);
@@ -2973,9 +2610,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ExecuteExtensionCommand([NativeName(NativeNameType.Param, "pExtensionCommand")] [NativeName(NativeNameType.Type, "ID3D12VideoExtensionCommand*")] ref ID3D12VideoExtensionCommand pExtensionCommand, [NativeName(NativeNameType.Param, "pExecutionParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pExecutionParameters, [NativeName(NativeNameType.Param, "ExecutionParametersSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint executionParametersSizeInBytes, [NativeName(NativeNameType.Param, "pOutputData")] [NativeName(NativeNameType.Type, "void*")] void* pOutputData, [NativeName(NativeNameType.Param, "OutputDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint outputDataSizeInBytes) 
+		public readonly unsafe int ExecuteExtensionCommand(ref ID3D12VideoExtensionCommand pExtensionCommand, void* pExecutionParameters, nuint executionParametersSizeInBytes, void* pOutputData, nuint outputDataSizeInBytes) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoExtensionCommand* ppExtensionCommand = &pExtensionCommand)
@@ -2988,9 +2623,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ExecuteExtensionCommand([NativeName(NativeNameType.Param, "pExtensionCommand")] [NativeName(NativeNameType.Type, "ID3D12VideoExtensionCommand*")] ComPtr<ID3D12VideoExtensionCommand> pExtensionCommand, [NativeName(NativeNameType.Param, "pExecutionParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pExecutionParameters, [NativeName(NativeNameType.Param, "ExecutionParametersSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint executionParametersSizeInBytes, [NativeName(NativeNameType.Param, "pOutputData")] [NativeName(NativeNameType.Type, "void*")] void* pOutputData, [NativeName(NativeNameType.Param, "OutputDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint outputDataSizeInBytes) 
+		public readonly unsafe int ExecuteExtensionCommand(ComPtr<ID3D12VideoExtensionCommand> pExtensionCommand, void* pExecutionParameters, nuint executionParametersSizeInBytes, void* pOutputData, nuint outputDataSizeInBytes) 
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, ID3D12VideoExtensionCommand*, void*, nuint, void*, nuint, int>)(LpVtbl[13]))(ptr, (ID3D12VideoExtensionCommand*)pExtensionCommand.Handle, pExecutionParameters, executionParametersSizeInBytes, pOutputData, outputDataSizeInBytes);
@@ -3000,9 +2633,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ExecuteExtensionCommand<T>([NativeName(NativeNameType.Param, "pExtensionCommand")] [NativeName(NativeNameType.Type, "ID3D12VideoExtensionCommand*")] ID3D12VideoExtensionCommand* pExtensionCommand, [NativeName(NativeNameType.Param, "pExecutionParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pExecutionParameters, [NativeName(NativeNameType.Param, "ExecutionParametersSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint executionParametersSizeInBytes, [NativeName(NativeNameType.Param, "pOutputData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pOutputData, [NativeName(NativeNameType.Param, "OutputDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint outputDataSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int ExecuteExtensionCommand<T>(ID3D12VideoExtensionCommand* pExtensionCommand, void* pExecutionParameters, nuint executionParametersSizeInBytes, ComPtr<T> pOutputData, nuint outputDataSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, ID3D12VideoExtensionCommand*, void*, nuint, void*, nuint, int>)(LpVtbl[13]))(ptr, pExtensionCommand, pExecutionParameters, executionParametersSizeInBytes, (void*)pOutputData.Handle, outputDataSizeInBytes);
@@ -3012,9 +2643,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ExecuteExtensionCommand<T>([NativeName(NativeNameType.Param, "pExtensionCommand")] [NativeName(NativeNameType.Type, "ID3D12VideoExtensionCommand*")] ComPtr<ID3D12VideoExtensionCommand> pExtensionCommand, [NativeName(NativeNameType.Param, "pExecutionParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pExecutionParameters, [NativeName(NativeNameType.Param, "ExecutionParametersSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint executionParametersSizeInBytes, [NativeName(NativeNameType.Param, "pOutputData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pOutputData, [NativeName(NativeNameType.Param, "OutputDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint outputDataSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int ExecuteExtensionCommand<T>(ComPtr<ID3D12VideoExtensionCommand> pExtensionCommand, void* pExecutionParameters, nuint executionParametersSizeInBytes, ComPtr<T> pOutputData, nuint outputDataSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoDevice2* ptr = (ID3D12VideoDevice2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoDevice2*, ID3D12VideoExtensionCommand*, void*, nuint, void*, nuint, int>)(LpVtbl[13]))(ptr, (ID3D12VideoExtensionCommand*)pExtensionCommand.Handle, pExecutionParameters, executionParametersSizeInBytes, (void*)pOutputData.Handle, outputDataSizeInBytes);

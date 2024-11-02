@@ -21,7 +21,6 @@ namespace Hexa.NET.DXGI
 	/// To be documented.
 	/// </summary>
 	[Guid("068346e8-aaec-4b84-add7-137f513f77a1")]
-	[NativeName(NativeNameType.StructOrClass, "IDXGIOutput6")]
 	public partial struct IDXGIOutput6 : IComObject, IComObject<IDXGIOutput6>, IComObject<IDXGIOutput5>, IComObject<IDXGIOutput4>, IComObject<IDXGIOutput3>, IComObject<IDXGIOutput2>, IComObject<IDXGIOutput1>, IComObject<IDXGIOutput>, IComObject<IDXGIObject>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -36,9 +35,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -48,9 +45,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -63,9 +58,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -76,9 +69,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -92,8 +83,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -104,8 +93,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -116,9 +103,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Guid*, uint, void*, int>)(LpVtbl[3]))(ptr, name, dataSize, pData);
@@ -128,9 +113,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -143,9 +126,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, pUnknown);
@@ -155,9 +136,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -170,9 +149,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -185,9 +162,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, (IUnknown*)pUnknown.Handle);
@@ -197,9 +172,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -215,9 +188,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -230,9 +201,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, pDataSize, pData);
@@ -242,9 +211,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -257,9 +224,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -272,9 +237,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -290,9 +253,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, pDataSize, (void*)pData.Handle);
@@ -302,9 +263,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -317,9 +276,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -332,9 +289,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -350,9 +305,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public readonly unsafe int GetParent(Guid* riid, void** ppParent) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Guid*, void**, int>)(LpVtbl[6]))(ptr, riid, ppParent);
@@ -362,9 +315,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public readonly unsafe int GetParent(ref Guid riid, void** ppParent) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -377,9 +328,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent<T>([NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetParent<T>(out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppParent = default;
@@ -390,9 +339,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetParent<T>(ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -406,26 +353,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_OUTPUT_DESC*")] DxgiOutputDesc* pDesc) 
+		public readonly unsafe int GetDesc(OutputDesc* pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiOutputDesc*, int>)(LpVtbl[7]))(ptr, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, OutputDesc*, int>)(LpVtbl[7]))(ptr, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_OUTPUT_DESC*")] ref DxgiOutputDesc pDesc) 
+		public readonly unsafe int GetDesc(ref OutputDesc pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiOutputDesc* ppDesc = &pDesc)
+			fixed (OutputDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiOutputDesc*, int>)(LpVtbl[7]))(ptr, (DxgiOutputDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, OutputDesc*, int>)(LpVtbl[7]))(ptr, (OutputDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -433,26 +376,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplayModeList([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pDesc) 
+		public readonly unsafe int GetDisplayModeList(Format enumFormat, uint flags, uint* pNumModes, ModeDesc* pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc*, int>)(LpVtbl[8]))(ptr, enumFormat, flags, pNumModes, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, uint, uint*, ModeDesc*, int>)(LpVtbl[8]))(ptr, enumFormat, flags, pNumModes, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplayModeList([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pDesc) 
+		public readonly unsafe int GetDisplayModeList(Format enumFormat, uint flags, ref uint pNumModes, ModeDesc* pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumModes = &pNumModes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc*, int>)(LpVtbl[8]))(ptr, enumFormat, flags, (uint*)ppNumModes, pDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, uint, uint*, ModeDesc*, int>)(LpVtbl[8]))(ptr, enumFormat, flags, (uint*)ppNumModes, pDesc);
 				return ret;
 			}
 		}
@@ -460,14 +399,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplayModeList([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pDesc) 
+		public readonly unsafe int GetDisplayModeList(Format enumFormat, uint flags, uint* pNumModes, ref ModeDesc pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc* ppDesc = &pDesc)
+			fixed (ModeDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc*, int>)(LpVtbl[8]))(ptr, enumFormat, flags, pNumModes, (DxgiModeDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, uint, uint*, ModeDesc*, int>)(LpVtbl[8]))(ptr, enumFormat, flags, pNumModes, (ModeDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -475,16 +412,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplayModeList([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pDesc) 
+		public readonly unsafe int GetDisplayModeList(Format enumFormat, uint flags, ref uint pNumModes, ref ModeDesc pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumModes = &pNumModes)
 			{
-				fixed (DxgiModeDesc* ppDesc = &pDesc)
+				fixed (ModeDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc*, int>)(LpVtbl[8]))(ptr, enumFormat, flags, (uint*)ppNumModes, (DxgiModeDesc*)ppDesc);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, uint, uint*, ModeDesc*, int>)(LpVtbl[8]))(ptr, enumFormat, flags, (uint*)ppNumModes, (ModeDesc*)ppDesc);
 					return ret;
 				}
 			}
@@ -493,26 +428,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, pClosestMatch, pConcernedDevice);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, pClosestMatch, pConcernedDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (DxgiModeDesc*)ppModeToMatch, pClosestMatch, pConcernedDevice);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (ModeDesc*)ppModeToMatch, pClosestMatch, pConcernedDevice);
 				return ret;
 			}
 		}
@@ -520,14 +451,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+			fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, (DxgiModeDesc*)ppClosestMatch, pConcernedDevice);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, (ModeDesc*)ppClosestMatch, pConcernedDevice);
 				return ret;
 			}
 		}
@@ -535,16 +464,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+				fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (DxgiModeDesc*)ppModeToMatch, (DxgiModeDesc*)ppClosestMatch, pConcernedDevice);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, pConcernedDevice);
 					return ret;
 				}
 			}
@@ -553,14 +480,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
 				return ret;
 			}
 		}
@@ -568,28 +493,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ModeDesc* pModeToMatch, ModeDesc* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
 				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (DxgiModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (ModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
 					return ret;
 				}
 			}
@@ -598,14 +519,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] DxgiModeDesc* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ref ModeDesc pModeToMatch, ModeDesc* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (DxgiModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (ModeDesc*)ppModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 				return ret;
 			}
 		}
@@ -613,16 +532,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+			fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 			{
 				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, (DxgiModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
 					return ret;
 				}
 			}
@@ -631,14 +548,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ModeDesc* pModeToMatch, ref ModeDesc pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+			fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, (DxgiModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, pModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 				return ret;
 			}
 		}
@@ -646,18 +561,16 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+				fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 				{
 					fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (DxgiModeDesc*)ppModeToMatch, (DxgiModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
 						return ret;
 					}
 				}
@@ -667,16 +580,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC*")] ref DxgiModeDesc pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode(ref ModeDesc pModeToMatch, ref ModeDesc pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc* ppModeToMatch = &pModeToMatch)
 			{
-				fixed (DxgiModeDesc* ppClosestMatch = &pClosestMatch)
+				fixed (ModeDesc* ppClosestMatch = &pClosestMatch)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc*, DxgiModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (DxgiModeDesc*)ppModeToMatch, (DxgiModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc*, ModeDesc*, IUnknown*, int>)(LpVtbl[9]))(ptr, (ModeDesc*)ppModeToMatch, (ModeDesc*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 					return ret;
 				}
 			}
@@ -685,8 +596,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "WaitForVBlank")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		public readonly unsafe int WaitForVBlank() 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -697,9 +606,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "TakeOwnership")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int TakeOwnership([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Exclusive")] [NativeName(NativeNameType.Type, "BOOL")] int exclusive) 
+		public readonly unsafe int TakeOwnership(IUnknown* pDevice, int exclusive) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, int, int>)(LpVtbl[11]))(ptr, pDevice, exclusive);
@@ -709,9 +616,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "TakeOwnership")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int TakeOwnership([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "Exclusive")] [NativeName(NativeNameType.Type, "BOOL")] int exclusive) 
+		public readonly unsafe int TakeOwnership(ref IUnknown pDevice, int exclusive) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -724,9 +629,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "TakeOwnership")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int TakeOwnership([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "Exclusive")] [NativeName(NativeNameType.Type, "BOOL")] int exclusive) 
+		public readonly unsafe int TakeOwnership(ComPtr<IUnknown> pDevice, int exclusive) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, int, int>)(LpVtbl[11]))(ptr, (IUnknown*)pDevice.Handle, exclusive);
@@ -736,8 +639,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReleaseOwnership")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void ReleaseOwnership() 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -747,26 +648,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControlCapabilities")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetGammaControlCapabilities([NativeName(NativeNameType.Param, "pGammaCaps")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL_CAPABILITIES*")] DxgiGammaControlCapabilities* pGammaCaps) 
+		public readonly unsafe int GetGammaControlCapabilities(GammaControlCapabilities* pGammaCaps) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControlCapabilities*, int>)(LpVtbl[13]))(ptr, pGammaCaps);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, GammaControlCapabilities*, int>)(LpVtbl[13]))(ptr, pGammaCaps);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControlCapabilities")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetGammaControlCapabilities([NativeName(NativeNameType.Param, "pGammaCaps")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL_CAPABILITIES*")] ref DxgiGammaControlCapabilities pGammaCaps) 
+		public readonly unsafe int GetGammaControlCapabilities(ref GammaControlCapabilities pGammaCaps) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiGammaControlCapabilities* ppGammaCaps = &pGammaCaps)
+			fixed (GammaControlCapabilities* ppGammaCaps = &pGammaCaps)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControlCapabilities*, int>)(LpVtbl[13]))(ptr, (DxgiGammaControlCapabilities*)ppGammaCaps);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, GammaControlCapabilities*, int>)(LpVtbl[13]))(ptr, (GammaControlCapabilities*)ppGammaCaps);
 				return ret;
 			}
 		}
@@ -774,26 +671,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetGammaControl([NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "const DXGI_GAMMA_CONTROL*")] DxgiGammaControl* pArray) 
+		public readonly unsafe int SetGammaControl(GammaControl* pArray) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControl*, int>)(LpVtbl[14]))(ptr, pArray);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, GammaControl*, int>)(LpVtbl[14]))(ptr, pArray);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetGammaControl([NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "const DXGI_GAMMA_CONTROL*")] ref DxgiGammaControl pArray) 
+		public readonly unsafe int SetGammaControl(ref GammaControl pArray) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiGammaControl* ppArray = &pArray)
+			fixed (GammaControl* ppArray = &pArray)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControl*, int>)(LpVtbl[14]))(ptr, (DxgiGammaControl*)ppArray);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, GammaControl*, int>)(LpVtbl[14]))(ptr, (GammaControl*)ppArray);
 				return ret;
 			}
 		}
@@ -801,26 +694,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetGammaControl([NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL*")] DxgiGammaControl* pArray) 
+		public readonly unsafe int GetGammaControl(GammaControl* pArray) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControl*, int>)(LpVtbl[15]))(ptr, pArray);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, GammaControl*, int>)(LpVtbl[15]))(ptr, pArray);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetGammaControl([NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL*")] ref DxgiGammaControl pArray) 
+		public readonly unsafe int GetGammaControl(ref GammaControl pArray) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiGammaControl* ppArray = &pArray)
+			fixed (GammaControl* ppArray = &pArray)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControl*, int>)(LpVtbl[15]))(ptr, (DxgiGammaControl*)ppArray);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, GammaControl*, int>)(LpVtbl[15]))(ptr, (GammaControl*)ppArray);
 				return ret;
 			}
 		}
@@ -828,9 +717,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetDisplaySurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetDisplaySurface([NativeName(NativeNameType.Param, "pScanoutSurface")] [NativeName(NativeNameType.Type, "IDXGISurface*")] IDXGISurface* pScanoutSurface) 
+		public readonly unsafe int SetDisplaySurface(IDXGISurface* pScanoutSurface) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGISurface*, int>)(LpVtbl[16]))(ptr, pScanoutSurface);
@@ -840,9 +727,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetDisplaySurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetDisplaySurface([NativeName(NativeNameType.Param, "pScanoutSurface")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ref IDXGISurface pScanoutSurface) 
+		public readonly unsafe int SetDisplaySurface(ref IDXGISurface pScanoutSurface) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGISurface* ppScanoutSurface = &pScanoutSurface)
@@ -855,9 +740,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetDisplaySurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetDisplaySurface([NativeName(NativeNameType.Param, "pScanoutSurface")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ComPtr<IDXGISurface> pScanoutSurface) 
+		public readonly unsafe int SetDisplaySurface(ComPtr<IDXGISurface> pScanoutSurface) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGISurface*, int>)(LpVtbl[16]))(ptr, (IDXGISurface*)pScanoutSurface.Handle);
@@ -867,9 +750,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplaySurfaceData([NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGISurface*")] IDXGISurface* pDestination) 
+		public readonly unsafe int GetDisplaySurfaceData(IDXGISurface* pDestination) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGISurface*, int>)(LpVtbl[17]))(ptr, pDestination);
@@ -879,9 +760,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplaySurfaceData([NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ref IDXGISurface pDestination) 
+		public readonly unsafe int GetDisplaySurfaceData(ref IDXGISurface pDestination) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGISurface* ppDestination = &pDestination)
@@ -894,9 +773,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplaySurfaceData([NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ComPtr<IDXGISurface> pDestination) 
+		public readonly unsafe int GetDisplaySurfaceData(ComPtr<IDXGISurface> pDestination) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGISurface*, int>)(LpVtbl[17]))(ptr, (IDXGISurface*)pDestination.Handle);
@@ -906,26 +783,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatistics")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFrameStatistics([NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS*")] DxgiFrameStatistics* pStats) 
+		public readonly unsafe int GetFrameStatistics(FrameStatistics* pStats) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFrameStatistics*, int>)(LpVtbl[18]))(ptr, pStats);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, FrameStatistics*, int>)(LpVtbl[18]))(ptr, pStats);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatistics")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFrameStatistics([NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS*")] ref DxgiFrameStatistics pStats) 
+		public readonly unsafe int GetFrameStatistics(ref FrameStatistics pStats) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiFrameStatistics* ppStats = &pStats)
+			fixed (FrameStatistics* ppStats = &pStats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFrameStatistics*, int>)(LpVtbl[18]))(ptr, (DxgiFrameStatistics*)ppStats);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, FrameStatistics*, int>)(LpVtbl[18]))(ptr, (FrameStatistics*)ppStats);
 				return ret;
 			}
 		}
@@ -933,26 +806,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplayModeList1([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pDesc) 
+		public readonly unsafe int GetDisplayModeList1(Format enumFormat, uint flags, uint* pNumModes, ModeDesc1* pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc1*, int>)(LpVtbl[19]))(ptr, enumFormat, flags, pNumModes, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, uint, uint*, ModeDesc1*, int>)(LpVtbl[19]))(ptr, enumFormat, flags, pNumModes, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplayModeList1([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pDesc) 
+		public readonly unsafe int GetDisplayModeList1(Format enumFormat, uint flags, ref uint pNumModes, ModeDesc1* pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumModes = &pNumModes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc1*, int>)(LpVtbl[19]))(ptr, enumFormat, flags, (uint*)ppNumModes, pDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, uint, uint*, ModeDesc1*, int>)(LpVtbl[19]))(ptr, enumFormat, flags, (uint*)ppNumModes, pDesc);
 				return ret;
 			}
 		}
@@ -960,14 +829,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplayModeList1([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pDesc) 
+		public readonly unsafe int GetDisplayModeList1(Format enumFormat, uint flags, uint* pNumModes, ref ModeDesc1 pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc1* ppDesc = &pDesc)
+			fixed (ModeDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc1*, int>)(LpVtbl[19]))(ptr, enumFormat, flags, pNumModes, (DxgiModeDesc1*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, uint, uint*, ModeDesc1*, int>)(LpVtbl[19]))(ptr, enumFormat, flags, pNumModes, (ModeDesc1*)ppDesc);
 				return ret;
 			}
 		}
@@ -975,16 +842,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplayModeList1([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pDesc) 
+		public readonly unsafe int GetDisplayModeList1(Format enumFormat, uint flags, ref uint pNumModes, ref ModeDesc1 pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppNumModes = &pNumModes)
 			{
-				fixed (DxgiModeDesc1* ppDesc = &pDesc)
+				fixed (ModeDesc1* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc1*, int>)(LpVtbl[19]))(ptr, enumFormat, flags, (uint*)ppNumModes, (DxgiModeDesc1*)ppDesc);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, uint, uint*, ModeDesc1*, int>)(LpVtbl[19]))(ptr, enumFormat, flags, (uint*)ppNumModes, (ModeDesc1*)ppDesc);
 					return ret;
 				}
 			}
@@ -993,26 +858,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ModeDesc1* pModeToMatch, ModeDesc1* pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, pClosestMatch, pConcernedDevice);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, pClosestMatch, pConcernedDevice);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ref ModeDesc1 pModeToMatch, ModeDesc1* pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (DxgiModeDesc1*)ppModeToMatch, pClosestMatch, pConcernedDevice);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (ModeDesc1*)ppModeToMatch, pClosestMatch, pConcernedDevice);
 				return ret;
 			}
 		}
@@ -1020,14 +881,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ModeDesc1* pModeToMatch, ref ModeDesc1 pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
+			fixed (ModeDesc1* ppClosestMatch = &pClosestMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, (DxgiModeDesc1*)ppClosestMatch, pConcernedDevice);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, (ModeDesc1*)ppClosestMatch, pConcernedDevice);
 				return ret;
 			}
 		}
@@ -1035,16 +894,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ref ModeDesc1 pModeToMatch, ref ModeDesc1 pClosestMatch, IUnknown* pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
 			{
-				fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
+				fixed (ModeDesc1* ppClosestMatch = &pClosestMatch)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (DxgiModeDesc1*)ppModeToMatch, (DxgiModeDesc1*)ppClosestMatch, pConcernedDevice);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (ModeDesc1*)ppModeToMatch, (ModeDesc1*)ppClosestMatch, pConcernedDevice);
 					return ret;
 				}
 			}
@@ -1053,14 +910,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ModeDesc1* pModeToMatch, ModeDesc1* pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
 				return ret;
 			}
 		}
@@ -1068,28 +923,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ModeDesc1* pModeToMatch, ModeDesc1* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ref ModeDesc1 pModeToMatch, ModeDesc1* pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
 			{
 				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (DxgiModeDesc1*)ppModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (ModeDesc1*)ppModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
 					return ret;
 				}
 			}
@@ -1098,14 +949,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ref ModeDesc1 pModeToMatch, ModeDesc1* pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (DxgiModeDesc1*)ppModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (ModeDesc1*)ppModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 				return ret;
 			}
 		}
@@ -1113,16 +962,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ModeDesc1* pModeToMatch, ref ModeDesc1 pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
+			fixed (ModeDesc1* ppClosestMatch = &pClosestMatch)
 			{
 				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, (DxgiModeDesc1*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
 					return ret;
 				}
 			}
@@ -1131,14 +978,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ModeDesc1* pModeToMatch, ref ModeDesc1 pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
+			fixed (ModeDesc1* ppClosestMatch = &pClosestMatch)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, (DxgiModeDesc1*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, pModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 				return ret;
 			}
 		}
@@ -1146,18 +991,16 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ref ModeDesc1 pModeToMatch, ref ModeDesc1 pClosestMatch, ref IUnknown pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
 			{
-				fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
+				fixed (ModeDesc1* ppClosestMatch = &pClosestMatch)
 				{
 					fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (DxgiModeDesc1*)ppModeToMatch, (DxgiModeDesc1*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (ModeDesc1*)ppModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
 						return ret;
 					}
 				}
@@ -1167,16 +1010,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int FindClosestMatchingMode1([NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
+		public readonly unsafe int FindClosestMatchingMode1(ref ModeDesc1 pModeToMatch, ref ModeDesc1 pClosestMatch, ComPtr<IUnknown> pConcernedDevice) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
+			fixed (ModeDesc1* ppModeToMatch = &pModeToMatch)
 			{
-				fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
+				fixed (ModeDesc1* ppClosestMatch = &pClosestMatch)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (DxgiModeDesc1*)ppModeToMatch, (DxgiModeDesc1*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, ModeDesc1*, ModeDesc1*, IUnknown*, int>)(LpVtbl[20]))(ptr, (ModeDesc1*)ppModeToMatch, (ModeDesc1*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
 					return ret;
 				}
 			}
@@ -1185,9 +1026,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplaySurfaceData1([NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGIResource*")] IDXGIResource* pDestination) 
+		public readonly unsafe int GetDisplaySurfaceData1(IDXGIResource* pDestination) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGIResource*, int>)(LpVtbl[21]))(ptr, pDestination);
@@ -1197,9 +1036,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplaySurfaceData1([NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGIResource*")] ref IDXGIResource pDestination) 
+		public readonly unsafe int GetDisplaySurfaceData1(ref IDXGIResource pDestination) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIResource* ppDestination = &pDestination)
@@ -1212,9 +1049,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDisplaySurfaceData1([NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGIResource*")] ComPtr<IDXGIResource> pDestination) 
+		public readonly unsafe int GetDisplaySurfaceData1(ComPtr<IDXGIResource> pDestination) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGIResource*, int>)(LpVtbl[21]))(ptr, (IDXGIResource*)pDestination.Handle);
@@ -1224,9 +1059,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput(IUnknown* pDevice, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, IDXGIOutputDuplication**, int>)(LpVtbl[22]))(ptr, pDevice, ppOutputDuplication);
@@ -1236,9 +1069,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput(ref IUnknown pDevice, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -1251,9 +1082,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput(ComPtr<IUnknown> pDevice, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, IDXGIOutputDuplication**, int>)(LpVtbl[22]))(ptr, (IUnknown*)pDevice.Handle, ppOutputDuplication);
@@ -1263,9 +1092,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput(IUnknown* pDevice, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
@@ -1278,9 +1105,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput(IUnknown* pDevice, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputDuplication = default;
@@ -1291,9 +1116,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput(ref IUnknown pDevice, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
@@ -1309,9 +1132,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput(ComPtr<IUnknown> pDevice, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputDuplication = default;
@@ -1322,8 +1143,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SupportsOverlays")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
 		public readonly unsafe int SupportsOverlays() 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -1334,26 +1153,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlaySupport([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
+		public readonly unsafe int CheckOverlaySupport(Format enumFormat, IUnknown* pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, pConcernedDevice, pFlags);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, pConcernedDevice, pFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlaySupport([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
+		public readonly unsafe int CheckOverlaySupport(Format enumFormat, ref IUnknown pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, (IUnknown*)ppConcernedDevice, pFlags);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, (IUnknown*)ppConcernedDevice, pFlags);
 				return ret;
 			}
 		}
@@ -1361,26 +1176,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlaySupport([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
+		public readonly unsafe int CheckOverlaySupport(Format enumFormat, ComPtr<IUnknown> pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, (IUnknown*)pConcernedDevice.Handle, pFlags);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, (IUnknown*)pConcernedDevice.Handle, pFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlaySupport([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
+		public readonly unsafe int CheckOverlaySupport(Format enumFormat, IUnknown* pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFlags = &pFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, pConcernedDevice, (uint*)ppFlags);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, pConcernedDevice, (uint*)ppFlags);
 				return ret;
 			}
 		}
@@ -1388,16 +1199,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlaySupport([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
+		public readonly unsafe int CheckOverlaySupport(Format enumFormat, ref IUnknown pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
 				fixed (uint* ppFlags = &pFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, (IUnknown*)ppConcernedDevice, (uint*)ppFlags);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, (IUnknown*)ppConcernedDevice, (uint*)ppFlags);
 					return ret;
 				}
 			}
@@ -1406,14 +1215,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlaySupport([NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
+		public readonly unsafe int CheckOverlaySupport(Format enumFormat, ComPtr<IUnknown> pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFlags = &pFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, (IUnknown*)pConcernedDevice.Handle, (uint*)ppFlags);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, IUnknown*, uint*, int>)(LpVtbl[24]))(ptr, enumFormat, (IUnknown*)pConcernedDevice.Handle, (uint*)ppFlags);
 				return ret;
 			}
 		}
@@ -1421,26 +1228,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlayColorSpaceSupport([NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
+		public readonly unsafe int CheckOverlayColorSpaceSupport(Format format, ColorSpaceType colorSpace, IUnknown* pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, pConcernedDevice, pFlags);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, ColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, pConcernedDevice, pFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlayColorSpaceSupport([NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
+		public readonly unsafe int CheckOverlayColorSpaceSupport(Format format, ColorSpaceType colorSpace, ref IUnknown pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, (IUnknown*)ppConcernedDevice, pFlags);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, ColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, (IUnknown*)ppConcernedDevice, pFlags);
 				return ret;
 			}
 		}
@@ -1448,26 +1251,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlayColorSpaceSupport([NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
+		public readonly unsafe int CheckOverlayColorSpaceSupport(Format format, ColorSpaceType colorSpace, ComPtr<IUnknown> pConcernedDevice, uint* pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, (IUnknown*)pConcernedDevice.Handle, pFlags);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, ColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, (IUnknown*)pConcernedDevice.Handle, pFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlayColorSpaceSupport([NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
+		public readonly unsafe int CheckOverlayColorSpaceSupport(Format format, ColorSpaceType colorSpace, IUnknown* pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFlags = &pFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, pConcernedDevice, (uint*)ppFlags);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, ColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, pConcernedDevice, (uint*)ppFlags);
 				return ret;
 			}
 		}
@@ -1475,16 +1274,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlayColorSpaceSupport([NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
+		public readonly unsafe int CheckOverlayColorSpaceSupport(Format format, ColorSpaceType colorSpace, ref IUnknown pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
 			{
 				fixed (uint* ppFlags = &pFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, (IUnknown*)ppConcernedDevice, (uint*)ppFlags);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, ColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, (IUnknown*)ppConcernedDevice, (uint*)ppFlags);
 					return ret;
 				}
 			}
@@ -1493,14 +1290,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckOverlayColorSpaceSupport([NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
+		public readonly unsafe int CheckOverlayColorSpaceSupport(Format format, ColorSpaceType colorSpace, ComPtr<IUnknown> pConcernedDevice, ref uint pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFlags = &pFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, (IUnknown*)pConcernedDevice.Handle, (uint*)ppFlags);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, Format, ColorSpaceType, IUnknown*, uint*, int>)(LpVtbl[25]))(ptr, format, colorSpace, (IUnknown*)pConcernedDevice.Handle, (uint*)ppFlags);
 				return ret;
 			}
 		}
@@ -1508,26 +1303,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(IUnknown* pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(ref IUnknown pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)ppDevice, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)ppDevice, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
 				return ret;
 			}
 		}
@@ -1535,26 +1326,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(IUnknown* pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
+			fixed (Format* ppSupportedFormats = &pSupportedFormats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, ppOutputDuplication);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, ppOutputDuplication);
 				return ret;
 			}
 		}
@@ -1562,16 +1349,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(ref IUnknown pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
+				fixed (Format* ppSupportedFormats = &pSupportedFormats)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)ppDevice, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, ppOutputDuplication);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)ppDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, ppOutputDuplication);
 					return ret;
 				}
 			}
@@ -1580,14 +1365,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, IDXGIOutputDuplication** ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
+			fixed (Format* ppSupportedFormats = &pSupportedFormats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, ppOutputDuplication);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, (Format*)ppSupportedFormats, ppOutputDuplication);
 				return ret;
 			}
 		}
@@ -1595,14 +1378,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(IUnknown* pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
 				return ret;
 			}
 		}
@@ -1610,29 +1391,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(IUnknown* pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputDuplication = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(ref IUnknown pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)ppDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)ppDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
 					return ret;
 				}
 			}
@@ -1641,29 +1418,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, Format* pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputDuplication = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(IUnknown* pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
+			fixed (Format* ppSupportedFormats = &pSupportedFormats)
 			{
 				fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
 					return ret;
 				}
 			}
@@ -1672,15 +1445,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(IUnknown* pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
+			fixed (Format* ppSupportedFormats = &pSupportedFormats)
 			{
 				ppOutputDuplication = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, pDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1688,18 +1459,16 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(ref IUnknown pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, ref IDXGIOutputDuplication* ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
+				fixed (Format* ppSupportedFormats = &pSupportedFormats)
 				{
 					fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)ppDevice, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)ppDevice, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
 						return ret;
 					}
 				}
@@ -1709,15 +1478,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int DuplicateOutput1([NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
+		public readonly unsafe int DuplicateOutput1(ComPtr<IUnknown> pDevice, uint flags, uint supportedFormatsCount, ref Format pSupportedFormats, out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
+			fixed (Format* ppSupportedFormats = &pSupportedFormats)
 			{
 				ppOutputDuplication = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, Format*, IDXGIOutputDuplication**, int>)(LpVtbl[26]))(ptr, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, (Format*)ppSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1725,26 +1492,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_OUTPUT_DESC1*")] DxgiOutputDesc1* pDesc) 
+		public readonly unsafe int GetDesc1(OutputDesc1* pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiOutputDesc1*, int>)(LpVtbl[27]))(ptr, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, OutputDesc1*, int>)(LpVtbl[27]))(ptr, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc1([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_OUTPUT_DESC1*")] ref DxgiOutputDesc1 pDesc) 
+		public readonly unsafe int GetDesc1(ref OutputDesc1 pDesc) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiOutputDesc1* ppDesc = &pDesc)
+			fixed (OutputDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiOutputDesc1*, int>)(LpVtbl[27]))(ptr, (DxgiOutputDesc1*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, OutputDesc1*, int>)(LpVtbl[27]))(ptr, (OutputDesc1*)ppDesc);
 				return ret;
 			}
 		}
@@ -1752,9 +1515,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckHardwareCompositionSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckHardwareCompositionSupport([NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
+		public readonly unsafe int CheckHardwareCompositionSupport(uint* pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, uint*, int>)(LpVtbl[28]))(ptr, pFlags);
@@ -1764,9 +1525,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckHardwareCompositionSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckHardwareCompositionSupport([NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
+		public readonly unsafe int CheckHardwareCompositionSupport(ref uint pFlags) 
 		{
 			IDXGIOutput6* ptr = (IDXGIOutput6*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppFlags = &pFlags)

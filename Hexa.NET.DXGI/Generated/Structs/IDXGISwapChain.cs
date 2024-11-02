@@ -21,7 +21,6 @@ namespace Hexa.NET.DXGI
 	/// To be documented.
 	/// </summary>
 	[Guid("310d36a0-d2e7-4c0a-aa04-6a9d23b8886a")]
-	[NativeName(NativeNameType.StructOrClass, "IDXGISwapChain")]
 	public partial struct IDXGISwapChain : IComObject, IComObject<IDXGISwapChain>, IComObject<IDXGIDeviceSubObject>, IComObject<IDXGIObject>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -36,9 +35,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -48,9 +45,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -63,9 +58,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -76,9 +69,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -92,8 +83,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -104,8 +93,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -116,9 +103,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(Guid* name, uint dataSize, void* pData) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, uint, void*, int>)(LpVtbl[3]))(ptr, name, dataSize, pData);
@@ -128,9 +113,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(ref Guid name, uint dataSize, void* pData) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -143,9 +126,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* name, IUnknown* pUnknown) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, pUnknown);
@@ -155,9 +136,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid name, IUnknown* pUnknown) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -170,9 +149,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* name, ref IUnknown pUnknown) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppUnknown = &pUnknown)
@@ -185,9 +162,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, IUnknown*, int>)(LpVtbl[4]))(ptr, name, (IUnknown*)pUnknown.Handle);
@@ -197,9 +172,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid name, ref IUnknown pUnknown) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -215,9 +188,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid name, ComPtr<IUnknown> pUnknown) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -230,9 +201,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* name, uint* pDataSize, void* pData) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, pDataSize, pData);
@@ -242,9 +211,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid name, uint* pDataSize, void* pData) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -257,9 +224,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* name, ref uint pDataSize, void* pData) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -272,9 +237,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid name, ref uint pDataSize, void* pData) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -290,9 +253,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, uint*, void*, int>)(LpVtbl[5]))(ptr, name, pDataSize, (void*)pData.Handle);
@@ -302,9 +263,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid name, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -317,9 +276,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -332,9 +289,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid name, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pname = &name)
@@ -350,9 +305,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public readonly unsafe int GetParent(Guid* riid, void** ppParent) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, void**, int>)(LpVtbl[6]))(ptr, riid, ppParent);
@@ -362,9 +315,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
+		public readonly unsafe int GetParent(ref Guid riid, void** ppParent) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -377,9 +328,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent<T>([NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetParent<T>(out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppParent = default;
@@ -390,9 +339,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetParent<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetParent<T>(ref Guid riid, out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -406,9 +353,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public readonly unsafe int GetDevice(Guid* riid, void** ppDevice) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, Guid*, void**, int>)(LpVtbl[7]))(ptr, riid, ppDevice);
@@ -418,9 +363,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppDevice) 
+		public readonly unsafe int GetDevice(ref Guid riid, void** ppDevice) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -433,9 +376,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice<T>([NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetDevice<T>(out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppDevice = default;
@@ -446,9 +387,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetDevice<T>(ref Guid riid, out ComPtr<T> ppDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -462,9 +401,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Present")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Present([NativeName(NativeNameType.Param, "SyncInterval")] [NativeName(NativeNameType.Type, "UINT")] uint syncInterval, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public readonly unsafe int Present(uint syncInterval, uint flags) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, uint, uint, int>)(LpVtbl[8]))(ptr, syncInterval, flags);
@@ -474,9 +411,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBuffer([NativeName(NativeNameType.Param, "Buffer")] [NativeName(NativeNameType.Type, "UINT")] uint buffer, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "void**")] void** ppSurface) 
+		public readonly unsafe int GetBuffer(uint buffer, Guid* riid, void** ppSurface) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, uint, Guid*, void**, int>)(LpVtbl[9]))(ptr, buffer, riid, ppSurface);
@@ -486,9 +421,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBuffer([NativeName(NativeNameType.Param, "Buffer")] [NativeName(NativeNameType.Type, "UINT")] uint buffer, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "void**")] void** ppSurface) 
+		public readonly unsafe int GetBuffer(uint buffer, ref Guid riid, void** ppSurface) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -501,9 +434,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBuffer<T>([NativeName(NativeNameType.Param, "Buffer")] [NativeName(NativeNameType.Type, "UINT")] uint buffer, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetBuffer<T>(uint buffer, out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSurface = default;
@@ -514,9 +445,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetBuffer<T>([NativeName(NativeNameType.Param, "Buffer")] [NativeName(NativeNameType.Type, "UINT")] uint buffer, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSurface")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetBuffer<T>(uint buffer, ref Guid riid, out ComPtr<T> ppSurface) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -530,9 +459,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetFullscreenState([NativeName(NativeNameType.Param, "Fullscreen")] [NativeName(NativeNameType.Type, "BOOL")] int fullscreen, [NativeName(NativeNameType.Param, "pTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pTarget) 
+		public readonly unsafe int SetFullscreenState(int fullscreen, IDXGIOutput* pTarget) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, int, IDXGIOutput*, int>)(LpVtbl[10]))(ptr, fullscreen, pTarget);
@@ -542,9 +469,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetFullscreenState([NativeName(NativeNameType.Param, "Fullscreen")] [NativeName(NativeNameType.Type, "BOOL")] int fullscreen, [NativeName(NativeNameType.Param, "pTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pTarget) 
+		public readonly unsafe int SetFullscreenState(int fullscreen, ref IDXGIOutput pTarget) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIOutput* ppTarget = &pTarget)
@@ -557,9 +482,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetFullscreenState([NativeName(NativeNameType.Param, "Fullscreen")] [NativeName(NativeNameType.Type, "BOOL")] int fullscreen, [NativeName(NativeNameType.Param, "pTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pTarget) 
+		public readonly unsafe int SetFullscreenState(int fullscreen, ComPtr<IDXGIOutput> pTarget) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, int, IDXGIOutput*, int>)(LpVtbl[10]))(ptr, fullscreen, (IDXGIOutput*)pTarget.Handle);
@@ -569,9 +492,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFullscreenState([NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] IDXGIOutput** ppTarget) 
+		public readonly unsafe int GetFullscreenState(int* pFullscreen, IDXGIOutput** ppTarget) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, int*, IDXGIOutput**, int>)(LpVtbl[11]))(ptr, pFullscreen, ppTarget);
@@ -581,9 +502,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFullscreenState([NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] IDXGIOutput** ppTarget) 
+		public readonly unsafe int GetFullscreenState(ref int pFullscreen, IDXGIOutput** ppTarget) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppFullscreen = &pFullscreen)
@@ -596,9 +515,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFullscreenState([NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] ref IDXGIOutput* ppTarget) 
+		public readonly unsafe int GetFullscreenState(int* pFullscreen, ref IDXGIOutput* ppTarget) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIOutput** pppTarget = &ppTarget)
@@ -611,9 +528,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFullscreenState([NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] out ComPtr<IDXGIOutput> ppTarget) 
+		public readonly unsafe int GetFullscreenState(int* pFullscreen, out ComPtr<IDXGIOutput> ppTarget) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppTarget = default;
@@ -624,9 +539,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFullscreenState([NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] ref IDXGIOutput* ppTarget) 
+		public readonly unsafe int GetFullscreenState(ref int pFullscreen, ref IDXGIOutput* ppTarget) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppFullscreen = &pFullscreen)
@@ -642,9 +555,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullscreenState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFullscreenState([NativeName(NativeNameType.Param, "pFullscreen")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFullscreen, [NativeName(NativeNameType.Param, "ppTarget")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] out ComPtr<IDXGIOutput> ppTarget) 
+		public readonly unsafe int GetFullscreenState(ref int pFullscreen, out ComPtr<IDXGIOutput> ppTarget) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppFullscreen = &pFullscreen)
@@ -658,26 +569,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pDesc) 
+		public readonly unsafe int GetDesc(SwapChainDesc* pDesc) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiSwapChainDesc*, int>)(LpVtbl[12]))(ptr, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, SwapChainDesc*, int>)(LpVtbl[12]))(ptr, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pDesc) 
+		public readonly unsafe int GetDesc(ref SwapChainDesc pDesc) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiSwapChainDesc* ppDesc = &pDesc)
+			fixed (SwapChainDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiSwapChainDesc*, int>)(LpVtbl[12]))(ptr, (DxgiSwapChainDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, SwapChainDesc*, int>)(LpVtbl[12]))(ptr, (SwapChainDesc*)ppDesc);
 				return ret;
 			}
 		}
@@ -685,38 +592,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResizeBuffers")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ResizeBuffers([NativeName(NativeNameType.Param, "BufferCount")] [NativeName(NativeNameType.Type, "UINT")] uint bufferCount, [NativeName(NativeNameType.Param, "Width")] [NativeName(NativeNameType.Type, "UINT")] uint width, [NativeName(NativeNameType.Param, "Height")] [NativeName(NativeNameType.Type, "UINT")] uint height, [NativeName(NativeNameType.Param, "NewFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat newFormat, [NativeName(NativeNameType.Param, "SwapChainFlags")] [NativeName(NativeNameType.Type, "UINT")] uint swapChainFlags) 
+		public readonly unsafe int ResizeBuffers(uint bufferCount, uint width, uint height, Format newFormat, uint swapChainFlags) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, uint, uint, uint, DxgiFormat, uint, int>)(LpVtbl[13]))(ptr, bufferCount, width, height, newFormat, swapChainFlags);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, uint, uint, uint, Format, uint, int>)(LpVtbl[13]))(ptr, bufferCount, width, height, newFormat, swapChainFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResizeTarget")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ResizeTarget([NativeName(NativeNameType.Param, "pNewTargetParameters")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] DxgiModeDesc* pNewTargetParameters) 
+		public readonly unsafe int ResizeTarget(ModeDesc* pNewTargetParameters) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiModeDesc*, int>)(LpVtbl[14]))(ptr, pNewTargetParameters);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, ModeDesc*, int>)(LpVtbl[14]))(ptr, pNewTargetParameters);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResizeTarget")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ResizeTarget([NativeName(NativeNameType.Param, "pNewTargetParameters")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC*")] ref DxgiModeDesc pNewTargetParameters) 
+		public readonly unsafe int ResizeTarget(ref ModeDesc pNewTargetParameters) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiModeDesc* ppNewTargetParameters = &pNewTargetParameters)
+			fixed (ModeDesc* ppNewTargetParameters = &pNewTargetParameters)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiModeDesc*, int>)(LpVtbl[14]))(ptr, (DxgiModeDesc*)ppNewTargetParameters);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, ModeDesc*, int>)(LpVtbl[14]))(ptr, (ModeDesc*)ppNewTargetParameters);
 				return ret;
 			}
 		}
@@ -724,9 +625,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContainingOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetContainingOutput([NativeName(NativeNameType.Param, "ppOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] IDXGIOutput** ppOutput) 
+		public readonly unsafe int GetContainingOutput(IDXGIOutput** ppOutput) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, IDXGIOutput**, int>)(LpVtbl[15]))(ptr, ppOutput);
@@ -736,9 +635,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContainingOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetContainingOutput([NativeName(NativeNameType.Param, "ppOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] ref IDXGIOutput* ppOutput) 
+		public readonly unsafe int GetContainingOutput(ref IDXGIOutput* ppOutput) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGIOutput** pppOutput = &ppOutput)
@@ -751,9 +648,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContainingOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetContainingOutput([NativeName(NativeNameType.Param, "ppOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput**")] out ComPtr<IDXGIOutput> ppOutput) 
+		public readonly unsafe int GetContainingOutput(out ComPtr<IDXGIOutput> ppOutput) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutput = default;
@@ -764,26 +659,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatistics")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFrameStatistics([NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS*")] DxgiFrameStatistics* pStats) 
+		public readonly unsafe int GetFrameStatistics(FrameStatistics* pStats) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiFrameStatistics*, int>)(LpVtbl[16]))(ptr, pStats);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, FrameStatistics*, int>)(LpVtbl[16]))(ptr, pStats);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatistics")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFrameStatistics([NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS*")] ref DxgiFrameStatistics pStats) 
+		public readonly unsafe int GetFrameStatistics(ref FrameStatistics pStats) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiFrameStatistics* ppStats = &pStats)
+			fixed (FrameStatistics* ppStats = &pStats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, DxgiFrameStatistics*, int>)(LpVtbl[16]))(ptr, (DxgiFrameStatistics*)ppStats);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, FrameStatistics*, int>)(LpVtbl[16]))(ptr, (FrameStatistics*)ppStats);
 				return ret;
 			}
 		}
@@ -791,9 +682,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetLastPresentCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetLastPresentCount([NativeName(NativeNameType.Param, "pLastPresentCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pLastPresentCount) 
+		public readonly unsafe int GetLastPresentCount(uint* pLastPresentCount) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChain*, uint*, int>)(LpVtbl[17]))(ptr, pLastPresentCount);
@@ -803,9 +692,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetLastPresentCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetLastPresentCount([NativeName(NativeNameType.Param, "pLastPresentCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pLastPresentCount) 
+		public readonly unsafe int GetLastPresentCount(ref uint pLastPresentCount) 
 		{
 			IDXGISwapChain* ptr = (IDXGISwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppLastPresentCount = &pLastPresentCount)

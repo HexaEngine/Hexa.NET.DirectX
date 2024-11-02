@@ -19,7 +19,6 @@ namespace Hexa.NET.D3DCommon
 	/// interface __MIDL_itf_d3dcommon_0000_0001 <br/>
 	/// [local] <br/>
 	/// </summary>
-	[NativeName(NativeNameType.Typedef, "LPD3D10BLOB")]
 	#if NET5_0_OR_GREATER
 	[DebuggerDisplay("{DebuggerDisplay,nq}")]
 	#endif

@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("895491e2-e701-46a9-9a1f-8d3480ed867a")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12VideoEncodeCommandList2")]
 	public partial struct ID3D12VideoEncodeCommandList2 : IComObject, IComObject<ID3D12VideoEncodeCommandList2>, IComObject<ID3D12VideoEncodeCommandList1>, IComObject<ID3D12VideoEncodeCommandList>, IComObject<ID3D12CommandList>, IComObject<ID3D12DeviceChild>, IComObject<ID3D12Object>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, pData);
@@ -129,9 +114,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -144,9 +127,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -159,9 +140,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -177,9 +156,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, (void*)pData.Handle);
@@ -189,9 +166,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -204,9 +179,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -219,9 +192,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -237,9 +208,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, Guid*, uint, void*, int>)(LpVtbl[4]))(ptr, guid, dataSize, pData);
@@ -249,9 +218,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -264,9 +231,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, pData);
@@ -276,9 +241,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -291,9 +254,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
@@ -306,9 +267,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, (IUnknown*)pData.Handle);
@@ -318,9 +277,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -336,9 +293,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -351,9 +306,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name) 
+		public readonly unsafe int SetName(char* name) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, char*, int>)(LpVtbl[6]))(ptr, name);
@@ -363,9 +316,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name) 
+		public readonly unsafe int SetName(ReadOnlySpan<char> name) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* pname = name)
@@ -378,9 +329,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name) 
+		public readonly unsafe int SetName(string name) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -411,9 +360,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppvDevice) 
+		public readonly unsafe int GetDevice(Guid* riid, void** ppvDevice) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, Guid*, void**, int>)(LpVtbl[7]))(ptr, riid, ppvDevice);
@@ -423,9 +370,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppvDevice) 
+		public readonly unsafe int GetDevice(ref Guid riid, void** ppvDevice) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -438,9 +383,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice<T>([NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetDevice<T>(out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvDevice = default;
@@ -451,9 +394,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetDevice<T>(ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -467,20 +408,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetType")]
-		[return: NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")]
-		public readonly unsafe D3D12CommandListType GetType() 
+		public readonly unsafe CommandListType GetType() 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			D3D12CommandListType ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, D3D12CommandListType>)(LpVtbl[8]))(ptr);
+			CommandListType ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, CommandListType>)(LpVtbl[8]))(ptr);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Close")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		public readonly unsafe int Close() 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -491,9 +428,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Reset")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Reset([NativeName(NativeNameType.Param, "pAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ID3D12CommandAllocator* pAllocator) 
+		public readonly unsafe int Reset(ID3D12CommandAllocator* pAllocator) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12CommandAllocator*, int>)(LpVtbl[10]))(ptr, pAllocator);
@@ -503,9 +438,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Reset")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Reset([NativeName(NativeNameType.Param, "pAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ref ID3D12CommandAllocator pAllocator) 
+		public readonly unsafe int Reset(ref ID3D12CommandAllocator pAllocator) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12CommandAllocator* ppAllocator = &pAllocator)
@@ -518,9 +451,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Reset")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Reset([NativeName(NativeNameType.Param, "pAllocator")] [NativeName(NativeNameType.Type, "ID3D12CommandAllocator*")] ComPtr<ID3D12CommandAllocator> pAllocator) 
+		public readonly unsafe int Reset(ComPtr<ID3D12CommandAllocator> pAllocator) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12CommandAllocator*, int>)(LpVtbl[10]))(ptr, (ID3D12CommandAllocator*)pAllocator.Handle);
@@ -530,8 +461,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearState")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void ClearState() 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -541,91 +470,77 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResourceBarrier")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResourceBarrier([NativeName(NativeNameType.Param, "NumBarriers")] [NativeName(NativeNameType.Type, "UINT")] uint numBarriers, [NativeName(NativeNameType.Param, "pBarriers")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_BARRIER*")] D3D12ResourceBarrier* pBarriers) 
+		public readonly unsafe void ResourceBarrier(uint numBarriers, ResourceBarrier* pBarriers) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, D3D12ResourceBarrier*, void>)(LpVtbl[12]))(ptr, numBarriers, pBarriers);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, ResourceBarrier*, void>)(LpVtbl[12]))(ptr, numBarriers, pBarriers);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResourceBarrier")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResourceBarrier([NativeName(NativeNameType.Param, "NumBarriers")] [NativeName(NativeNameType.Type, "UINT")] uint numBarriers, [NativeName(NativeNameType.Param, "pBarriers")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_BARRIER*")] ref D3D12ResourceBarrier pBarriers) 
+		public readonly unsafe void ResourceBarrier(uint numBarriers, ref ResourceBarrier pBarriers) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12ResourceBarrier* ppBarriers = &pBarriers)
+			fixed (ResourceBarrier* ppBarriers = &pBarriers)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, D3D12ResourceBarrier*, void>)(LpVtbl[12]))(ptr, numBarriers, (D3D12ResourceBarrier*)ppBarriers);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, ResourceBarrier*, void>)(LpVtbl[12]))(ptr, numBarriers, (ResourceBarrier*)ppBarriers);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardResource([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pRegion")] [NativeName(NativeNameType.Type, "const D3D12_DISCARD_REGION*")] D3D12DiscardRegion* pRegion) 
+		public readonly unsafe void DiscardResource(ID3D12Resource* pResource, DiscardRegion* pRegion) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, D3D12DiscardRegion*, void>)(LpVtbl[13]))(ptr, pResource, pRegion);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, DiscardRegion*, void>)(LpVtbl[13]))(ptr, pResource, pRegion);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardResource([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pRegion")] [NativeName(NativeNameType.Type, "const D3D12_DISCARD_REGION*")] D3D12DiscardRegion* pRegion) 
+		public readonly unsafe void DiscardResource(ref ID3D12Resource pResource, DiscardRegion* pRegion) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, D3D12DiscardRegion*, void>)(LpVtbl[13]))(ptr, (ID3D12Resource*)ppResource, pRegion);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, DiscardRegion*, void>)(LpVtbl[13]))(ptr, (ID3D12Resource*)ppResource, pRegion);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardResource([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pRegion")] [NativeName(NativeNameType.Type, "const D3D12_DISCARD_REGION*")] D3D12DiscardRegion* pRegion) 
+		public readonly unsafe void DiscardResource(ComPtr<ID3D12Resource> pResource, DiscardRegion* pRegion) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, D3D12DiscardRegion*, void>)(LpVtbl[13]))(ptr, (ID3D12Resource*)pResource.Handle, pRegion);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, DiscardRegion*, void>)(LpVtbl[13]))(ptr, (ID3D12Resource*)pResource.Handle, pRegion);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardResource([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "pRegion")] [NativeName(NativeNameType.Type, "const D3D12_DISCARD_REGION*")] ref D3D12DiscardRegion pRegion) 
+		public readonly unsafe void DiscardResource(ID3D12Resource* pResource, ref DiscardRegion pRegion) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12DiscardRegion* ppRegion = &pRegion)
+			fixed (DiscardRegion* ppRegion = &pRegion)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, D3D12DiscardRegion*, void>)(LpVtbl[13]))(ptr, pResource, (D3D12DiscardRegion*)ppRegion);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, DiscardRegion*, void>)(LpVtbl[13]))(ptr, pResource, (DiscardRegion*)ppRegion);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardResource([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "pRegion")] [NativeName(NativeNameType.Type, "const D3D12_DISCARD_REGION*")] ref D3D12DiscardRegion pRegion) 
+		public readonly unsafe void DiscardResource(ref ID3D12Resource pResource, ref DiscardRegion pRegion) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12DiscardRegion* ppRegion = &pRegion)
+				fixed (DiscardRegion* ppRegion = &pRegion)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, D3D12DiscardRegion*, void>)(LpVtbl[13]))(ptr, (ID3D12Resource*)ppResource, (D3D12DiscardRegion*)ppRegion);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, DiscardRegion*, void>)(LpVtbl[13]))(ptr, (ID3D12Resource*)ppResource, (DiscardRegion*)ppRegion);
 				}
 			}
 		}
@@ -633,130 +548,110 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DiscardResource")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void DiscardResource([NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "pRegion")] [NativeName(NativeNameType.Type, "const D3D12_DISCARD_REGION*")] ref D3D12DiscardRegion pRegion) 
+		public readonly unsafe void DiscardResource(ComPtr<ID3D12Resource> pResource, ref DiscardRegion pRegion) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12DiscardRegion* ppRegion = &pRegion)
+			fixed (DiscardRegion* ppRegion = &pRegion)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, D3D12DiscardRegion*, void>)(LpVtbl[13]))(ptr, (ID3D12Resource*)pResource.Handle, (D3D12DiscardRegion*)ppRegion);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, DiscardRegion*, void>)(LpVtbl[13]))(ptr, (ID3D12Resource*)pResource.Handle, (DiscardRegion*)ppRegion);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BeginQuery")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void BeginQuery([NativeName(NativeNameType.Param, "pQueryHeap")] [NativeName(NativeNameType.Type, "ID3D12QueryHeap*")] ID3D12QueryHeap* pQueryHeap, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D12_QUERY_TYPE")] D3D12QueryType type, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
+		public readonly unsafe void BeginQuery(ID3D12QueryHeap* pQueryHeap, QueryType type, uint index) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, D3D12QueryType, uint, void>)(LpVtbl[14]))(ptr, pQueryHeap, type, index);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, QueryType, uint, void>)(LpVtbl[14]))(ptr, pQueryHeap, type, index);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BeginQuery")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void BeginQuery([NativeName(NativeNameType.Param, "pQueryHeap")] [NativeName(NativeNameType.Type, "ID3D12QueryHeap*")] ref ID3D12QueryHeap pQueryHeap, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D12_QUERY_TYPE")] D3D12QueryType type, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
+		public readonly unsafe void BeginQuery(ref ID3D12QueryHeap pQueryHeap, QueryType type, uint index) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12QueryHeap* ppQueryHeap = &pQueryHeap)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, D3D12QueryType, uint, void>)(LpVtbl[14]))(ptr, (ID3D12QueryHeap*)ppQueryHeap, type, index);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, QueryType, uint, void>)(LpVtbl[14]))(ptr, (ID3D12QueryHeap*)ppQueryHeap, type, index);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EndQuery")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EndQuery([NativeName(NativeNameType.Param, "pQueryHeap")] [NativeName(NativeNameType.Type, "ID3D12QueryHeap*")] ID3D12QueryHeap* pQueryHeap, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D12_QUERY_TYPE")] D3D12QueryType type, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
+		public readonly unsafe void EndQuery(ID3D12QueryHeap* pQueryHeap, QueryType type, uint index) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, D3D12QueryType, uint, void>)(LpVtbl[15]))(ptr, pQueryHeap, type, index);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, QueryType, uint, void>)(LpVtbl[15]))(ptr, pQueryHeap, type, index);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EndQuery")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EndQuery([NativeName(NativeNameType.Param, "pQueryHeap")] [NativeName(NativeNameType.Type, "ID3D12QueryHeap*")] ref ID3D12QueryHeap pQueryHeap, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D12_QUERY_TYPE")] D3D12QueryType type, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
+		public readonly unsafe void EndQuery(ref ID3D12QueryHeap pQueryHeap, QueryType type, uint index) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12QueryHeap* ppQueryHeap = &pQueryHeap)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, D3D12QueryType, uint, void>)(LpVtbl[15]))(ptr, (ID3D12QueryHeap*)ppQueryHeap, type, index);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, QueryType, uint, void>)(LpVtbl[15]))(ptr, (ID3D12QueryHeap*)ppQueryHeap, type, index);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveQueryData")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveQueryData([NativeName(NativeNameType.Param, "pQueryHeap")] [NativeName(NativeNameType.Type, "ID3D12QueryHeap*")] ID3D12QueryHeap* pQueryHeap, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D12_QUERY_TYPE")] D3D12QueryType type, [NativeName(NativeNameType.Param, "StartIndex")] [NativeName(NativeNameType.Type, "UINT")] uint startIndex, [NativeName(NativeNameType.Param, "NumQueries")] [NativeName(NativeNameType.Type, "UINT")] uint numQueries, [NativeName(NativeNameType.Param, "pDestinationBuffer")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDestinationBuffer, [NativeName(NativeNameType.Param, "AlignedDestinationBufferOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong alignedDestinationBufferOffset) 
+		public readonly unsafe void ResolveQueryData(ID3D12QueryHeap* pQueryHeap, QueryType type, uint startIndex, uint numQueries, ID3D12Resource* pDestinationBuffer, ulong alignedDestinationBufferOffset) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, D3D12QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, pQueryHeap, type, startIndex, numQueries, pDestinationBuffer, alignedDestinationBufferOffset);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, pQueryHeap, type, startIndex, numQueries, pDestinationBuffer, alignedDestinationBufferOffset);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveQueryData")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveQueryData([NativeName(NativeNameType.Param, "pQueryHeap")] [NativeName(NativeNameType.Type, "ID3D12QueryHeap*")] ref ID3D12QueryHeap pQueryHeap, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D12_QUERY_TYPE")] D3D12QueryType type, [NativeName(NativeNameType.Param, "StartIndex")] [NativeName(NativeNameType.Type, "UINT")] uint startIndex, [NativeName(NativeNameType.Param, "NumQueries")] [NativeName(NativeNameType.Type, "UINT")] uint numQueries, [NativeName(NativeNameType.Param, "pDestinationBuffer")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDestinationBuffer, [NativeName(NativeNameType.Param, "AlignedDestinationBufferOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong alignedDestinationBufferOffset) 
+		public readonly unsafe void ResolveQueryData(ref ID3D12QueryHeap pQueryHeap, QueryType type, uint startIndex, uint numQueries, ID3D12Resource* pDestinationBuffer, ulong alignedDestinationBufferOffset) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12QueryHeap* ppQueryHeap = &pQueryHeap)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, D3D12QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, (ID3D12QueryHeap*)ppQueryHeap, type, startIndex, numQueries, pDestinationBuffer, alignedDestinationBufferOffset);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, (ID3D12QueryHeap*)ppQueryHeap, type, startIndex, numQueries, pDestinationBuffer, alignedDestinationBufferOffset);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveQueryData")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveQueryData([NativeName(NativeNameType.Param, "pQueryHeap")] [NativeName(NativeNameType.Type, "ID3D12QueryHeap*")] ID3D12QueryHeap* pQueryHeap, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D12_QUERY_TYPE")] D3D12QueryType type, [NativeName(NativeNameType.Param, "StartIndex")] [NativeName(NativeNameType.Type, "UINT")] uint startIndex, [NativeName(NativeNameType.Param, "NumQueries")] [NativeName(NativeNameType.Type, "UINT")] uint numQueries, [NativeName(NativeNameType.Param, "pDestinationBuffer")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDestinationBuffer, [NativeName(NativeNameType.Param, "AlignedDestinationBufferOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong alignedDestinationBufferOffset) 
+		public readonly unsafe void ResolveQueryData(ID3D12QueryHeap* pQueryHeap, QueryType type, uint startIndex, uint numQueries, ref ID3D12Resource pDestinationBuffer, ulong alignedDestinationBufferOffset) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppDestinationBuffer = &pDestinationBuffer)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, D3D12QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, pQueryHeap, type, startIndex, numQueries, (ID3D12Resource*)ppDestinationBuffer, alignedDestinationBufferOffset);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, pQueryHeap, type, startIndex, numQueries, (ID3D12Resource*)ppDestinationBuffer, alignedDestinationBufferOffset);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveQueryData")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveQueryData([NativeName(NativeNameType.Param, "pQueryHeap")] [NativeName(NativeNameType.Type, "ID3D12QueryHeap*")] ID3D12QueryHeap* pQueryHeap, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D12_QUERY_TYPE")] D3D12QueryType type, [NativeName(NativeNameType.Param, "StartIndex")] [NativeName(NativeNameType.Type, "UINT")] uint startIndex, [NativeName(NativeNameType.Param, "NumQueries")] [NativeName(NativeNameType.Type, "UINT")] uint numQueries, [NativeName(NativeNameType.Param, "pDestinationBuffer")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDestinationBuffer, [NativeName(NativeNameType.Param, "AlignedDestinationBufferOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong alignedDestinationBufferOffset) 
+		public readonly unsafe void ResolveQueryData(ID3D12QueryHeap* pQueryHeap, QueryType type, uint startIndex, uint numQueries, ComPtr<ID3D12Resource> pDestinationBuffer, ulong alignedDestinationBufferOffset) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, D3D12QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, pQueryHeap, type, startIndex, numQueries, (ID3D12Resource*)pDestinationBuffer.Handle, alignedDestinationBufferOffset);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, pQueryHeap, type, startIndex, numQueries, (ID3D12Resource*)pDestinationBuffer.Handle, alignedDestinationBufferOffset);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveQueryData")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveQueryData([NativeName(NativeNameType.Param, "pQueryHeap")] [NativeName(NativeNameType.Type, "ID3D12QueryHeap*")] ref ID3D12QueryHeap pQueryHeap, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D12_QUERY_TYPE")] D3D12QueryType type, [NativeName(NativeNameType.Param, "StartIndex")] [NativeName(NativeNameType.Type, "UINT")] uint startIndex, [NativeName(NativeNameType.Param, "NumQueries")] [NativeName(NativeNameType.Type, "UINT")] uint numQueries, [NativeName(NativeNameType.Param, "pDestinationBuffer")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDestinationBuffer, [NativeName(NativeNameType.Param, "AlignedDestinationBufferOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong alignedDestinationBufferOffset) 
+		public readonly unsafe void ResolveQueryData(ref ID3D12QueryHeap pQueryHeap, QueryType type, uint startIndex, uint numQueries, ref ID3D12Resource pDestinationBuffer, ulong alignedDestinationBufferOffset) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12QueryHeap* ppQueryHeap = &pQueryHeap)
 			{
 				fixed (ID3D12Resource* ppDestinationBuffer = &pDestinationBuffer)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, D3D12QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, (ID3D12QueryHeap*)ppQueryHeap, type, startIndex, numQueries, (ID3D12Resource*)ppDestinationBuffer, alignedDestinationBufferOffset);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, (ID3D12QueryHeap*)ppQueryHeap, type, startIndex, numQueries, (ID3D12Resource*)ppDestinationBuffer, alignedDestinationBufferOffset);
 				}
 			}
 		}
@@ -764,59 +659,49 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveQueryData")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveQueryData([NativeName(NativeNameType.Param, "pQueryHeap")] [NativeName(NativeNameType.Type, "ID3D12QueryHeap*")] ref ID3D12QueryHeap pQueryHeap, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D12_QUERY_TYPE")] D3D12QueryType type, [NativeName(NativeNameType.Param, "StartIndex")] [NativeName(NativeNameType.Type, "UINT")] uint startIndex, [NativeName(NativeNameType.Param, "NumQueries")] [NativeName(NativeNameType.Type, "UINT")] uint numQueries, [NativeName(NativeNameType.Param, "pDestinationBuffer")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDestinationBuffer, [NativeName(NativeNameType.Param, "AlignedDestinationBufferOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong alignedDestinationBufferOffset) 
+		public readonly unsafe void ResolveQueryData(ref ID3D12QueryHeap pQueryHeap, QueryType type, uint startIndex, uint numQueries, ComPtr<ID3D12Resource> pDestinationBuffer, ulong alignedDestinationBufferOffset) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12QueryHeap* ppQueryHeap = &pQueryHeap)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, D3D12QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, (ID3D12QueryHeap*)ppQueryHeap, type, startIndex, numQueries, (ID3D12Resource*)pDestinationBuffer.Handle, alignedDestinationBufferOffset);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12QueryHeap*, QueryType, uint, uint, ID3D12Resource*, ulong, void>)(LpVtbl[16]))(ptr, (ID3D12QueryHeap*)ppQueryHeap, type, startIndex, numQueries, (ID3D12Resource*)pDestinationBuffer.Handle, alignedDestinationBufferOffset);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPredication")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetPredication([NativeName(NativeNameType.Param, "pBuffer")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pBuffer, [NativeName(NativeNameType.Param, "AlignedBufferOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong alignedBufferOffset, [NativeName(NativeNameType.Param, "Operation")] [NativeName(NativeNameType.Type, "D3D12_PREDICATION_OP")] D3D12PredicationOp operation) 
+		public readonly unsafe void SetPredication(ID3D12Resource* pBuffer, ulong alignedBufferOffset, PredicationOp operation) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, ulong, D3D12PredicationOp, void>)(LpVtbl[17]))(ptr, pBuffer, alignedBufferOffset, operation);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, ulong, PredicationOp, void>)(LpVtbl[17]))(ptr, pBuffer, alignedBufferOffset, operation);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPredication")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetPredication([NativeName(NativeNameType.Param, "pBuffer")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pBuffer, [NativeName(NativeNameType.Param, "AlignedBufferOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong alignedBufferOffset, [NativeName(NativeNameType.Param, "Operation")] [NativeName(NativeNameType.Type, "D3D12_PREDICATION_OP")] D3D12PredicationOp operation) 
+		public readonly unsafe void SetPredication(ref ID3D12Resource pBuffer, ulong alignedBufferOffset, PredicationOp operation) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Resource* ppBuffer = &pBuffer)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, ulong, D3D12PredicationOp, void>)(LpVtbl[17]))(ptr, (ID3D12Resource*)ppBuffer, alignedBufferOffset, operation);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, ulong, PredicationOp, void>)(LpVtbl[17]))(ptr, (ID3D12Resource*)ppBuffer, alignedBufferOffset, operation);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPredication")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetPredication([NativeName(NativeNameType.Param, "pBuffer")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pBuffer, [NativeName(NativeNameType.Param, "AlignedBufferOffset")] [NativeName(NativeNameType.Type, "UINT64")] ulong alignedBufferOffset, [NativeName(NativeNameType.Param, "Operation")] [NativeName(NativeNameType.Type, "D3D12_PREDICATION_OP")] D3D12PredicationOp operation) 
+		public readonly unsafe void SetPredication(ComPtr<ID3D12Resource> pBuffer, ulong alignedBufferOffset, PredicationOp operation) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, ulong, D3D12PredicationOp, void>)(LpVtbl[17]))(ptr, (ID3D12Resource*)pBuffer.Handle, alignedBufferOffset, operation);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12Resource*, ulong, PredicationOp, void>)(LpVtbl[17]))(ptr, (ID3D12Resource*)pBuffer.Handle, alignedBufferOffset, operation);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetMarker")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetMarker([NativeName(NativeNameType.Param, "Metadata")] [NativeName(NativeNameType.Type, "UINT")] uint metadata, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData, [NativeName(NativeNameType.Param, "Size")] [NativeName(NativeNameType.Type, "UINT")] uint size) 
+		public readonly unsafe void SetMarker(uint metadata, void* pData, uint size) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, void*, uint, void>)(LpVtbl[18]))(ptr, metadata, pData, size);
@@ -825,9 +710,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BeginEvent")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void BeginEvent([NativeName(NativeNameType.Param, "Metadata")] [NativeName(NativeNameType.Type, "UINT")] uint metadata, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData, [NativeName(NativeNameType.Param, "Size")] [NativeName(NativeNameType.Type, "UINT")] uint size) 
+		public readonly unsafe void BeginEvent(uint metadata, void* pData, uint size) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, void*, uint, void>)(LpVtbl[19]))(ptr, metadata, pData, size);
@@ -836,8 +719,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EndEvent")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public readonly unsafe void EndEvent() 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -847,66 +728,56 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ID3D12VideoMotionEstimator* pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] D3D12VideoMotionEstimatorOutput* pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] D3D12VideoMotionEstimatorInput* pInputArguments) 
+		public readonly unsafe void EstimateMotion(ID3D12VideoMotionEstimator* pMotionEstimator, VideoMotionEstimatorOutput* pOutputArguments, VideoMotionEstimatorInput* pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, pMotionEstimator, pOutputArguments, pInputArguments);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, pMotionEstimator, pOutputArguments, pInputArguments);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ref ID3D12VideoMotionEstimator pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] D3D12VideoMotionEstimatorOutput* pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] D3D12VideoMotionEstimatorInput* pInputArguments) 
+		public readonly unsafe void EstimateMotion(ref ID3D12VideoMotionEstimator pMotionEstimator, VideoMotionEstimatorOutput* pOutputArguments, VideoMotionEstimatorInput* pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoMotionEstimator* ppMotionEstimator = &pMotionEstimator)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)ppMotionEstimator, pOutputArguments, pInputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)ppMotionEstimator, pOutputArguments, pInputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ComPtr<ID3D12VideoMotionEstimator> pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] D3D12VideoMotionEstimatorOutput* pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] D3D12VideoMotionEstimatorInput* pInputArguments) 
+		public readonly unsafe void EstimateMotion(ComPtr<ID3D12VideoMotionEstimator> pMotionEstimator, VideoMotionEstimatorOutput* pOutputArguments, VideoMotionEstimatorInput* pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)pMotionEstimator.Handle, pOutputArguments, pInputArguments);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)pMotionEstimator.Handle, pOutputArguments, pInputArguments);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ID3D12VideoMotionEstimator* pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] ref D3D12VideoMotionEstimatorOutput pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] D3D12VideoMotionEstimatorInput* pInputArguments) 
+		public readonly unsafe void EstimateMotion(ID3D12VideoMotionEstimator* pMotionEstimator, ref VideoMotionEstimatorOutput pOutputArguments, VideoMotionEstimatorInput* pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
+			fixed (VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, pMotionEstimator, (D3D12VideoMotionEstimatorOutput*)ppOutputArguments, pInputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, pMotionEstimator, (VideoMotionEstimatorOutput*)ppOutputArguments, pInputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ref ID3D12VideoMotionEstimator pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] ref D3D12VideoMotionEstimatorOutput pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] D3D12VideoMotionEstimatorInput* pInputArguments) 
+		public readonly unsafe void EstimateMotion(ref ID3D12VideoMotionEstimator pMotionEstimator, ref VideoMotionEstimatorOutput pOutputArguments, VideoMotionEstimatorInput* pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoMotionEstimator* ppMotionEstimator = &pMotionEstimator)
 			{
-				fixed (D3D12VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
+				fixed (VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)ppMotionEstimator, (D3D12VideoMotionEstimatorOutput*)ppOutputArguments, pInputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)ppMotionEstimator, (VideoMotionEstimatorOutput*)ppOutputArguments, pInputArguments);
 				}
 			}
 		}
@@ -914,44 +785,38 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ComPtr<ID3D12VideoMotionEstimator> pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] ref D3D12VideoMotionEstimatorOutput pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] D3D12VideoMotionEstimatorInput* pInputArguments) 
+		public readonly unsafe void EstimateMotion(ComPtr<ID3D12VideoMotionEstimator> pMotionEstimator, ref VideoMotionEstimatorOutput pOutputArguments, VideoMotionEstimatorInput* pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
+			fixed (VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)pMotionEstimator.Handle, (D3D12VideoMotionEstimatorOutput*)ppOutputArguments, pInputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)pMotionEstimator.Handle, (VideoMotionEstimatorOutput*)ppOutputArguments, pInputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ID3D12VideoMotionEstimator* pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] D3D12VideoMotionEstimatorOutput* pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] ref D3D12VideoMotionEstimatorInput pInputArguments) 
+		public readonly unsafe void EstimateMotion(ID3D12VideoMotionEstimator* pMotionEstimator, VideoMotionEstimatorOutput* pOutputArguments, ref VideoMotionEstimatorInput pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
+			fixed (VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, pMotionEstimator, pOutputArguments, (D3D12VideoMotionEstimatorInput*)ppInputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, pMotionEstimator, pOutputArguments, (VideoMotionEstimatorInput*)ppInputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ref ID3D12VideoMotionEstimator pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] D3D12VideoMotionEstimatorOutput* pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] ref D3D12VideoMotionEstimatorInput pInputArguments) 
+		public readonly unsafe void EstimateMotion(ref ID3D12VideoMotionEstimator pMotionEstimator, VideoMotionEstimatorOutput* pOutputArguments, ref VideoMotionEstimatorInput pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoMotionEstimator* ppMotionEstimator = &pMotionEstimator)
 			{
-				fixed (D3D12VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
+				fixed (VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)ppMotionEstimator, pOutputArguments, (D3D12VideoMotionEstimatorInput*)ppInputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)ppMotionEstimator, pOutputArguments, (VideoMotionEstimatorInput*)ppInputArguments);
 				}
 			}
 		}
@@ -959,30 +824,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ComPtr<ID3D12VideoMotionEstimator> pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] D3D12VideoMotionEstimatorOutput* pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] ref D3D12VideoMotionEstimatorInput pInputArguments) 
+		public readonly unsafe void EstimateMotion(ComPtr<ID3D12VideoMotionEstimator> pMotionEstimator, VideoMotionEstimatorOutput* pOutputArguments, ref VideoMotionEstimatorInput pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
+			fixed (VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)pMotionEstimator.Handle, pOutputArguments, (D3D12VideoMotionEstimatorInput*)ppInputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)pMotionEstimator.Handle, pOutputArguments, (VideoMotionEstimatorInput*)ppInputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ID3D12VideoMotionEstimator* pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] ref D3D12VideoMotionEstimatorOutput pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] ref D3D12VideoMotionEstimatorInput pInputArguments) 
+		public readonly unsafe void EstimateMotion(ID3D12VideoMotionEstimator* pMotionEstimator, ref VideoMotionEstimatorOutput pOutputArguments, ref VideoMotionEstimatorInput pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
+			fixed (VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
 			{
-				fixed (D3D12VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
+				fixed (VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, pMotionEstimator, (D3D12VideoMotionEstimatorOutput*)ppOutputArguments, (D3D12VideoMotionEstimatorInput*)ppInputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, pMotionEstimator, (VideoMotionEstimatorOutput*)ppOutputArguments, (VideoMotionEstimatorInput*)ppInputArguments);
 				}
 			}
 		}
@@ -990,18 +851,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ref ID3D12VideoMotionEstimator pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] ref D3D12VideoMotionEstimatorOutput pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] ref D3D12VideoMotionEstimatorInput pInputArguments) 
+		public readonly unsafe void EstimateMotion(ref ID3D12VideoMotionEstimator pMotionEstimator, ref VideoMotionEstimatorOutput pOutputArguments, ref VideoMotionEstimatorInput pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoMotionEstimator* ppMotionEstimator = &pMotionEstimator)
 			{
-				fixed (D3D12VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
+				fixed (VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
 				{
-					fixed (D3D12VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
+					fixed (VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)ppMotionEstimator, (D3D12VideoMotionEstimatorOutput*)ppOutputArguments, (D3D12VideoMotionEstimatorInput*)ppInputArguments);
+						((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)ppMotionEstimator, (VideoMotionEstimatorOutput*)ppOutputArguments, (VideoMotionEstimatorInput*)ppInputArguments);
 					}
 				}
 			}
@@ -1010,16 +869,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EstimateMotion")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EstimateMotion([NativeName(NativeNameType.Param, "pMotionEstimator")] [NativeName(NativeNameType.Type, "ID3D12VideoMotionEstimator*")] ComPtr<ID3D12VideoMotionEstimator> pMotionEstimator, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_OUTPUT*")] ref D3D12VideoMotionEstimatorOutput pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_MOTION_ESTIMATOR_INPUT*")] ref D3D12VideoMotionEstimatorInput pInputArguments) 
+		public readonly unsafe void EstimateMotion(ComPtr<ID3D12VideoMotionEstimator> pMotionEstimator, ref VideoMotionEstimatorOutput pOutputArguments, ref VideoMotionEstimatorInput pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
+			fixed (VideoMotionEstimatorOutput* ppOutputArguments = &pOutputArguments)
 			{
-				fixed (D3D12VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
+				fixed (VideoMotionEstimatorInput* ppInputArguments = &pInputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, D3D12VideoMotionEstimatorOutput*, D3D12VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)pMotionEstimator.Handle, (D3D12VideoMotionEstimatorOutput*)ppOutputArguments, (D3D12VideoMotionEstimatorInput*)ppInputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoMotionEstimator*, VideoMotionEstimatorOutput*, VideoMotionEstimatorInput*, void>)(LpVtbl[21]))(ptr, (ID3D12VideoMotionEstimator*)pMotionEstimator.Handle, (VideoMotionEstimatorOutput*)ppOutputArguments, (VideoMotionEstimatorInput*)ppInputArguments);
 				}
 			}
 		}
@@ -1027,55 +884,47 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveMotionVectorHeap([NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT*")] D3D12ResolveVideoMotionVectorHeapOutput* pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT*")] D3D12ResolveVideoMotionVectorHeapInput* pInputArguments) 
+		public readonly unsafe void ResolveMotionVectorHeap(ResolveVideoMotionVectorHeapOutput* pOutputArguments, ResolveVideoMotionVectorHeapInput* pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, D3D12ResolveVideoMotionVectorHeapOutput*, D3D12ResolveVideoMotionVectorHeapInput*, void>)(LpVtbl[22]))(ptr, pOutputArguments, pInputArguments);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ResolveVideoMotionVectorHeapOutput*, ResolveVideoMotionVectorHeapInput*, void>)(LpVtbl[22]))(ptr, pOutputArguments, pInputArguments);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveMotionVectorHeap([NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT*")] ref D3D12ResolveVideoMotionVectorHeapOutput pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT*")] D3D12ResolveVideoMotionVectorHeapInput* pInputArguments) 
+		public readonly unsafe void ResolveMotionVectorHeap(ref ResolveVideoMotionVectorHeapOutput pOutputArguments, ResolveVideoMotionVectorHeapInput* pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12ResolveVideoMotionVectorHeapOutput* ppOutputArguments = &pOutputArguments)
+			fixed (ResolveVideoMotionVectorHeapOutput* ppOutputArguments = &pOutputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, D3D12ResolveVideoMotionVectorHeapOutput*, D3D12ResolveVideoMotionVectorHeapInput*, void>)(LpVtbl[22]))(ptr, (D3D12ResolveVideoMotionVectorHeapOutput*)ppOutputArguments, pInputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ResolveVideoMotionVectorHeapOutput*, ResolveVideoMotionVectorHeapInput*, void>)(LpVtbl[22]))(ptr, (ResolveVideoMotionVectorHeapOutput*)ppOutputArguments, pInputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveMotionVectorHeap([NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT*")] D3D12ResolveVideoMotionVectorHeapOutput* pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT*")] ref D3D12ResolveVideoMotionVectorHeapInput pInputArguments) 
+		public readonly unsafe void ResolveMotionVectorHeap(ResolveVideoMotionVectorHeapOutput* pOutputArguments, ref ResolveVideoMotionVectorHeapInput pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12ResolveVideoMotionVectorHeapInput* ppInputArguments = &pInputArguments)
+			fixed (ResolveVideoMotionVectorHeapInput* ppInputArguments = &pInputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, D3D12ResolveVideoMotionVectorHeapOutput*, D3D12ResolveVideoMotionVectorHeapInput*, void>)(LpVtbl[22]))(ptr, pOutputArguments, (D3D12ResolveVideoMotionVectorHeapInput*)ppInputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ResolveVideoMotionVectorHeapOutput*, ResolveVideoMotionVectorHeapInput*, void>)(LpVtbl[22]))(ptr, pOutputArguments, (ResolveVideoMotionVectorHeapInput*)ppInputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveMotionVectorHeap")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveMotionVectorHeap([NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_OUTPUT*")] ref D3D12ResolveVideoMotionVectorHeapOutput pOutputArguments, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_RESOLVE_VIDEO_MOTION_VECTOR_HEAP_INPUT*")] ref D3D12ResolveVideoMotionVectorHeapInput pInputArguments) 
+		public readonly unsafe void ResolveMotionVectorHeap(ref ResolveVideoMotionVectorHeapOutput pOutputArguments, ref ResolveVideoMotionVectorHeapInput pInputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12ResolveVideoMotionVectorHeapOutput* ppOutputArguments = &pOutputArguments)
+			fixed (ResolveVideoMotionVectorHeapOutput* ppOutputArguments = &pOutputArguments)
 			{
-				fixed (D3D12ResolveVideoMotionVectorHeapInput* ppInputArguments = &pInputArguments)
+				fixed (ResolveVideoMotionVectorHeapInput* ppInputArguments = &pInputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, D3D12ResolveVideoMotionVectorHeapOutput*, D3D12ResolveVideoMotionVectorHeapInput*, void>)(LpVtbl[22]))(ptr, (D3D12ResolveVideoMotionVectorHeapOutput*)ppOutputArguments, (D3D12ResolveVideoMotionVectorHeapInput*)ppInputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ResolveVideoMotionVectorHeapOutput*, ResolveVideoMotionVectorHeapInput*, void>)(LpVtbl[22]))(ptr, (ResolveVideoMotionVectorHeapOutput*)ppOutputArguments, (ResolveVideoMotionVectorHeapInput*)ppInputArguments);
 				}
 			}
 		}
@@ -1083,55 +932,47 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "WriteBufferImmediate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void WriteBufferImmediate([NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pParams")] [NativeName(NativeNameType.Type, "const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER*")] D3D12WritebufferimmediateParameter* pParams, [NativeName(NativeNameType.Param, "pModes")] [NativeName(NativeNameType.Type, "const D3D12_WRITEBUFFERIMMEDIATE_MODE*")] D3D12WritebufferimmediateMode* pModes) 
+		public readonly unsafe void WriteBufferImmediate(uint count, WritebufferimmediateParameter* pParams, WritebufferimmediateMode* pModes) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, D3D12WritebufferimmediateParameter*, D3D12WritebufferimmediateMode*, void>)(LpVtbl[23]))(ptr, count, pParams, pModes);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, WritebufferimmediateParameter*, WritebufferimmediateMode*, void>)(LpVtbl[23]))(ptr, count, pParams, pModes);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "WriteBufferImmediate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void WriteBufferImmediate([NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pParams")] [NativeName(NativeNameType.Type, "const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER*")] ref D3D12WritebufferimmediateParameter pParams, [NativeName(NativeNameType.Param, "pModes")] [NativeName(NativeNameType.Type, "const D3D12_WRITEBUFFERIMMEDIATE_MODE*")] D3D12WritebufferimmediateMode* pModes) 
+		public readonly unsafe void WriteBufferImmediate(uint count, ref WritebufferimmediateParameter pParams, WritebufferimmediateMode* pModes) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12WritebufferimmediateParameter* ppParams = &pParams)
+			fixed (WritebufferimmediateParameter* ppParams = &pParams)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, D3D12WritebufferimmediateParameter*, D3D12WritebufferimmediateMode*, void>)(LpVtbl[23]))(ptr, count, (D3D12WritebufferimmediateParameter*)ppParams, pModes);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, WritebufferimmediateParameter*, WritebufferimmediateMode*, void>)(LpVtbl[23]))(ptr, count, (WritebufferimmediateParameter*)ppParams, pModes);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "WriteBufferImmediate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void WriteBufferImmediate([NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pParams")] [NativeName(NativeNameType.Type, "const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER*")] D3D12WritebufferimmediateParameter* pParams, [NativeName(NativeNameType.Param, "pModes")] [NativeName(NativeNameType.Type, "const D3D12_WRITEBUFFERIMMEDIATE_MODE*")] ref D3D12WritebufferimmediateMode pModes) 
+		public readonly unsafe void WriteBufferImmediate(uint count, WritebufferimmediateParameter* pParams, ref WritebufferimmediateMode pModes) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12WritebufferimmediateMode* ppModes = &pModes)
+			fixed (WritebufferimmediateMode* ppModes = &pModes)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, D3D12WritebufferimmediateParameter*, D3D12WritebufferimmediateMode*, void>)(LpVtbl[23]))(ptr, count, pParams, (D3D12WritebufferimmediateMode*)ppModes);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, WritebufferimmediateParameter*, WritebufferimmediateMode*, void>)(LpVtbl[23]))(ptr, count, pParams, (WritebufferimmediateMode*)ppModes);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "WriteBufferImmediate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void WriteBufferImmediate([NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pParams")] [NativeName(NativeNameType.Type, "const D3D12_WRITEBUFFERIMMEDIATE_PARAMETER*")] ref D3D12WritebufferimmediateParameter pParams, [NativeName(NativeNameType.Param, "pModes")] [NativeName(NativeNameType.Type, "const D3D12_WRITEBUFFERIMMEDIATE_MODE*")] ref D3D12WritebufferimmediateMode pModes) 
+		public readonly unsafe void WriteBufferImmediate(uint count, ref WritebufferimmediateParameter pParams, ref WritebufferimmediateMode pModes) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12WritebufferimmediateParameter* ppParams = &pParams)
+			fixed (WritebufferimmediateParameter* ppParams = &pParams)
 			{
-				fixed (D3D12WritebufferimmediateMode* ppModes = &pModes)
+				fixed (WritebufferimmediateMode* ppModes = &pModes)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, D3D12WritebufferimmediateParameter*, D3D12WritebufferimmediateMode*, void>)(LpVtbl[23]))(ptr, count, (D3D12WritebufferimmediateParameter*)ppParams, (D3D12WritebufferimmediateMode*)ppModes);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, uint, WritebufferimmediateParameter*, WritebufferimmediateMode*, void>)(LpVtbl[23]))(ptr, count, (WritebufferimmediateParameter*)ppParams, (WritebufferimmediateMode*)ppModes);
 				}
 			}
 		}
@@ -1139,9 +980,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetProtectedResourceSession([NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedResourceSession) 
+		public readonly unsafe void SetProtectedResourceSession(ID3D12ProtectedResourceSession* pProtectedResourceSession) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12ProtectedResourceSession*, void>)(LpVtbl[24]))(ptr, pProtectedResourceSession);
@@ -1150,9 +989,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetProtectedResourceSession([NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedResourceSession) 
+		public readonly unsafe void SetProtectedResourceSession(ref ID3D12ProtectedResourceSession pProtectedResourceSession) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12ProtectedResourceSession* ppProtectedResourceSession = &pProtectedResourceSession)
@@ -1164,9 +1001,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetProtectedResourceSession([NativeName(NativeNameType.Param, "pProtectedResourceSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession) 
+		public readonly unsafe void SetProtectedResourceSession(ComPtr<ID3D12ProtectedResourceSession> pProtectedResourceSession) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12ProtectedResourceSession*, void>)(LpVtbl[24]))(ptr, (ID3D12ProtectedResourceSession*)pProtectedResourceSession.Handle);
@@ -1175,9 +1010,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "InitializeExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void InitializeExtensionCommand([NativeName(NativeNameType.Param, "pExtensionCommand")] [NativeName(NativeNameType.Type, "ID3D12VideoExtensionCommand*")] ID3D12VideoExtensionCommand* pExtensionCommand, [NativeName(NativeNameType.Param, "pInitializationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pInitializationParameters, [NativeName(NativeNameType.Param, "InitializationParametersSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint initializationParametersSizeInBytes) 
+		public readonly unsafe void InitializeExtensionCommand(ID3D12VideoExtensionCommand* pExtensionCommand, void* pInitializationParameters, nuint initializationParametersSizeInBytes) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoExtensionCommand*, void*, nuint, void>)(LpVtbl[25]))(ptr, pExtensionCommand, pInitializationParameters, initializationParametersSizeInBytes);
@@ -1186,9 +1019,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "InitializeExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void InitializeExtensionCommand([NativeName(NativeNameType.Param, "pExtensionCommand")] [NativeName(NativeNameType.Type, "ID3D12VideoExtensionCommand*")] ref ID3D12VideoExtensionCommand pExtensionCommand, [NativeName(NativeNameType.Param, "pInitializationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pInitializationParameters, [NativeName(NativeNameType.Param, "InitializationParametersSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint initializationParametersSizeInBytes) 
+		public readonly unsafe void InitializeExtensionCommand(ref ID3D12VideoExtensionCommand pExtensionCommand, void* pInitializationParameters, nuint initializationParametersSizeInBytes) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoExtensionCommand* ppExtensionCommand = &pExtensionCommand)
@@ -1200,9 +1031,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "InitializeExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void InitializeExtensionCommand([NativeName(NativeNameType.Param, "pExtensionCommand")] [NativeName(NativeNameType.Type, "ID3D12VideoExtensionCommand*")] ComPtr<ID3D12VideoExtensionCommand> pExtensionCommand, [NativeName(NativeNameType.Param, "pInitializationParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pInitializationParameters, [NativeName(NativeNameType.Param, "InitializationParametersSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint initializationParametersSizeInBytes) 
+		public readonly unsafe void InitializeExtensionCommand(ComPtr<ID3D12VideoExtensionCommand> pExtensionCommand, void* pInitializationParameters, nuint initializationParametersSizeInBytes) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoExtensionCommand*, void*, nuint, void>)(LpVtbl[25]))(ptr, (ID3D12VideoExtensionCommand*)pExtensionCommand.Handle, pInitializationParameters, initializationParametersSizeInBytes);
@@ -1211,9 +1040,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ExecuteExtensionCommand([NativeName(NativeNameType.Param, "pExtensionCommand")] [NativeName(NativeNameType.Type, "ID3D12VideoExtensionCommand*")] ID3D12VideoExtensionCommand* pExtensionCommand, [NativeName(NativeNameType.Param, "pExecutionParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pExecutionParameters, [NativeName(NativeNameType.Param, "ExecutionParametersSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint executionParametersSizeInBytes) 
+		public readonly unsafe void ExecuteExtensionCommand(ID3D12VideoExtensionCommand* pExtensionCommand, void* pExecutionParameters, nuint executionParametersSizeInBytes) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoExtensionCommand*, void*, nuint, void>)(LpVtbl[26]))(ptr, pExtensionCommand, pExecutionParameters, executionParametersSizeInBytes);
@@ -1222,9 +1049,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ExecuteExtensionCommand([NativeName(NativeNameType.Param, "pExtensionCommand")] [NativeName(NativeNameType.Type, "ID3D12VideoExtensionCommand*")] ref ID3D12VideoExtensionCommand pExtensionCommand, [NativeName(NativeNameType.Param, "pExecutionParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pExecutionParameters, [NativeName(NativeNameType.Param, "ExecutionParametersSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint executionParametersSizeInBytes) 
+		public readonly unsafe void ExecuteExtensionCommand(ref ID3D12VideoExtensionCommand pExtensionCommand, void* pExecutionParameters, nuint executionParametersSizeInBytes) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoExtensionCommand* ppExtensionCommand = &pExtensionCommand)
@@ -1236,9 +1061,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteExtensionCommand")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ExecuteExtensionCommand([NativeName(NativeNameType.Param, "pExtensionCommand")] [NativeName(NativeNameType.Type, "ID3D12VideoExtensionCommand*")] ComPtr<ID3D12VideoExtensionCommand> pExtensionCommand, [NativeName(NativeNameType.Param, "pExecutionParameters")] [NativeName(NativeNameType.Type, "const void*")] void* pExecutionParameters, [NativeName(NativeNameType.Param, "ExecutionParametersSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint executionParametersSizeInBytes) 
+		public readonly unsafe void ExecuteExtensionCommand(ComPtr<ID3D12VideoExtensionCommand> pExtensionCommand, void* pExecutionParameters, nuint executionParametersSizeInBytes) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoExtensionCommand*, void*, nuint, void>)(LpVtbl[26]))(ptr, (ID3D12VideoExtensionCommand*)pExtensionCommand.Handle, pExecutionParameters, executionParametersSizeInBytes);
@@ -1247,77 +1070,65 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ID3D12VideoEncoderHeap* pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, pHeap, pInputArguments, pOutputArguments);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, pHeap, pInputArguments, pOutputArguments);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ref ID3D12VideoEncoder pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ref ID3D12VideoEncoder pEncoder, ID3D12VideoEncoderHeap* pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoder* ppEncoder = &pEncoder)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, pHeap, pInputArguments, pOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, pHeap, pInputArguments, pOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ComPtr<ID3D12VideoEncoder> pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ComPtr<ID3D12VideoEncoder> pEncoder, ID3D12VideoEncoderHeap* pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, pHeap, pInputArguments, pOutputArguments);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, pHeap, pInputArguments, pOutputArguments);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ref ID3D12VideoEncoderHeap pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ref ID3D12VideoEncoderHeap pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoderHeap* ppHeap = &pHeap)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)ppHeap, pInputArguments, pOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)ppHeap, pInputArguments, pOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ComPtr<ID3D12VideoEncoderHeap> pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ComPtr<ID3D12VideoEncoderHeap> pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)pHeap.Handle, pInputArguments, pOutputArguments);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)pHeap.Handle, pInputArguments, pOutputArguments);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ref ID3D12VideoEncoder pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ref ID3D12VideoEncoderHeap pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ref ID3D12VideoEncoder pEncoder, ref ID3D12VideoEncoderHeap pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoder* ppEncoder = &pEncoder)
 			{
 				fixed (ID3D12VideoEncoderHeap* ppHeap = &pHeap)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, (ID3D12VideoEncoderHeap*)ppHeap, pInputArguments, pOutputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, (ID3D12VideoEncoderHeap*)ppHeap, pInputArguments, pOutputArguments);
 				}
 			}
 		}
@@ -1325,41 +1136,35 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ComPtr<ID3D12VideoEncoder> pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ComPtr<ID3D12VideoEncoderHeap> pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ComPtr<ID3D12VideoEncoder> pEncoder, ComPtr<ID3D12VideoEncoderHeap> pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, (ID3D12VideoEncoderHeap*)pHeap.Handle, pInputArguments, pOutputArguments);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, (ID3D12VideoEncoderHeap*)pHeap.Handle, pInputArguments, pOutputArguments);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ID3D12VideoEncoderHeap* pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+			fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, pHeap, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, pHeap, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ref ID3D12VideoEncoder pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ref ID3D12VideoEncoder pEncoder, ID3D12VideoEncoderHeap* pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoder* ppEncoder = &pEncoder)
 			{
-				fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+				fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, pHeap, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, pHeap, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
 				}
 			}
 		}
@@ -1367,30 +1172,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ComPtr<ID3D12VideoEncoder> pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ComPtr<ID3D12VideoEncoder> pEncoder, ID3D12VideoEncoderHeap* pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+			fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, pHeap, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, pHeap, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ref ID3D12VideoEncoderHeap pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ref ID3D12VideoEncoderHeap pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoderHeap* ppHeap = &pHeap)
 			{
-				fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+				fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)ppHeap, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)ppHeap, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
 				}
 			}
 		}
@@ -1398,32 +1199,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ComPtr<ID3D12VideoEncoderHeap> pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ComPtr<ID3D12VideoEncoderHeap> pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+			fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)pHeap.Handle, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)pHeap.Handle, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ref ID3D12VideoEncoder pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ref ID3D12VideoEncoderHeap pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ref ID3D12VideoEncoder pEncoder, ref ID3D12VideoEncoderHeap pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoder* ppEncoder = &pEncoder)
 			{
 				fixed (ID3D12VideoEncoderHeap* ppHeap = &pHeap)
 				{
-					fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+					fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, (ID3D12VideoEncoderHeap*)ppHeap, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
+						((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, (ID3D12VideoEncoderHeap*)ppHeap, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
 					}
 				}
 			}
@@ -1432,44 +1229,38 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ComPtr<ID3D12VideoEncoder> pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ComPtr<ID3D12VideoEncoderHeap> pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ComPtr<ID3D12VideoEncoder> pEncoder, ComPtr<ID3D12VideoEncoderHeap> pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, VideoEncoderEncodeframeOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+			fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, (ID3D12VideoEncoderHeap*)pHeap.Handle, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, (ID3D12VideoEncoderHeap*)pHeap.Handle, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, pOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ID3D12VideoEncoderHeap* pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+			fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, pHeap, pInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, pHeap, pInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ref ID3D12VideoEncoder pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ref ID3D12VideoEncoder pEncoder, ID3D12VideoEncoderHeap* pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoder* ppEncoder = &pEncoder)
 			{
-				fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+				fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, pHeap, pInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, pHeap, pInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 				}
 			}
 		}
@@ -1477,30 +1268,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ComPtr<ID3D12VideoEncoder> pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ComPtr<ID3D12VideoEncoder> pEncoder, ID3D12VideoEncoderHeap* pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+			fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, pHeap, pInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, pHeap, pInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ref ID3D12VideoEncoderHeap pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ref ID3D12VideoEncoderHeap pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoderHeap* ppHeap = &pHeap)
 			{
-				fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+				fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)ppHeap, pInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)ppHeap, pInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 				}
 			}
 		}
@@ -1508,32 +1295,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ComPtr<ID3D12VideoEncoderHeap> pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ComPtr<ID3D12VideoEncoderHeap> pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+			fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)pHeap.Handle, pInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)pHeap.Handle, pInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ref ID3D12VideoEncoder pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ref ID3D12VideoEncoderHeap pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ref ID3D12VideoEncoder pEncoder, ref ID3D12VideoEncoderHeap pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoder* ppEncoder = &pEncoder)
 			{
 				fixed (ID3D12VideoEncoderHeap* ppHeap = &pHeap)
 				{
-					fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+					fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, (ID3D12VideoEncoderHeap*)ppHeap, pInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+						((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, (ID3D12VideoEncoderHeap*)ppHeap, pInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 					}
 				}
 			}
@@ -1542,30 +1325,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ComPtr<ID3D12VideoEncoder> pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ComPtr<ID3D12VideoEncoderHeap> pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] D3D12VideoEncoderEncodeframeInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ComPtr<ID3D12VideoEncoder> pEncoder, ComPtr<ID3D12VideoEncoderHeap> pHeap, VideoEncoderEncodeframeInputArguments* pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+			fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, (ID3D12VideoEncoderHeap*)pHeap.Handle, pInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, (ID3D12VideoEncoderHeap*)pHeap.Handle, pInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ID3D12VideoEncoderHeap* pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+			fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 			{
-				fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+				fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, pHeap, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, pHeap, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 				}
 			}
 		}
@@ -1573,18 +1352,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ref ID3D12VideoEncoder pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ref ID3D12VideoEncoder pEncoder, ID3D12VideoEncoderHeap* pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoder* ppEncoder = &pEncoder)
 			{
-				fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+				fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 				{
-					fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+					fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, pHeap, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+						((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, pHeap, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 					}
 				}
 			}
@@ -1593,16 +1370,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ComPtr<ID3D12VideoEncoder> pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ID3D12VideoEncoderHeap* pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ComPtr<ID3D12VideoEncoder> pEncoder, ID3D12VideoEncoderHeap* pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+			fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 			{
-				fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+				fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, pHeap, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, pHeap, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 				}
 			}
 		}
@@ -1610,18 +1385,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ref ID3D12VideoEncoderHeap pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ref ID3D12VideoEncoderHeap pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoderHeap* ppHeap = &pHeap)
 			{
-				fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+				fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 				{
-					fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+					fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)ppHeap, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+						((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)ppHeap, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 					}
 				}
 			}
@@ -1630,16 +1403,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ID3D12VideoEncoder* pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ComPtr<ID3D12VideoEncoderHeap> pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ID3D12VideoEncoder* pEncoder, ComPtr<ID3D12VideoEncoderHeap> pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+			fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 			{
-				fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+				fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)pHeap.Handle, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, pEncoder, (ID3D12VideoEncoderHeap*)pHeap.Handle, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 				}
 			}
 		}
@@ -1647,20 +1418,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ref ID3D12VideoEncoder pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ref ID3D12VideoEncoderHeap pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ref ID3D12VideoEncoder pEncoder, ref ID3D12VideoEncoderHeap pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12VideoEncoder* ppEncoder = &pEncoder)
 			{
 				fixed (ID3D12VideoEncoderHeap* ppHeap = &pHeap)
 				{
-					fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+					fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 					{
-						fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+						fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, (ID3D12VideoEncoderHeap*)ppHeap, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+							((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)ppEncoder, (ID3D12VideoEncoderHeap*)ppHeap, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 						}
 					}
 				}
@@ -1670,16 +1439,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EncodeFrame")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void EncodeFrame([NativeName(NativeNameType.Param, "pEncoder")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoder*")] ComPtr<ID3D12VideoEncoder> pEncoder, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12VideoEncoderHeap*")] ComPtr<ID3D12VideoEncoderHeap> pHeap, [NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderEncodeframeOutputArguments pOutputArguments) 
+		public readonly unsafe void EncodeFrame(ComPtr<ID3D12VideoEncoder> pEncoder, ComPtr<ID3D12VideoEncoderHeap> pHeap, ref VideoEncoderEncodeframeInputArguments pInputArguments, ref VideoEncoderEncodeframeOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
+			fixed (VideoEncoderEncodeframeInputArguments* ppInputArguments = &pInputArguments)
 			{
-				fixed (D3D12VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
+				fixed (VideoEncoderEncodeframeOutputArguments* ppOutputArguments = &pOutputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, D3D12VideoEncoderEncodeframeInputArguments*, D3D12VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, (ID3D12VideoEncoderHeap*)pHeap.Handle, (D3D12VideoEncoderEncodeframeInputArguments*)ppInputArguments, (D3D12VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, ID3D12VideoEncoder*, ID3D12VideoEncoderHeap*, VideoEncoderEncodeframeInputArguments*, VideoEncoderEncodeframeOutputArguments*, void>)(LpVtbl[27]))(ptr, (ID3D12VideoEncoder*)pEncoder.Handle, (ID3D12VideoEncoderHeap*)pHeap.Handle, (VideoEncoderEncodeframeInputArguments*)ppInputArguments, (VideoEncoderEncodeframeOutputArguments*)ppOutputArguments);
 				}
 			}
 		}
@@ -1687,55 +1454,47 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveEncoderOutputMetadata")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveEncoderOutputMetadata([NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS*")] D3D12VideoEncoderResolveMetadataInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderResolveMetadataOutputArguments* pOutputArguments) 
+		public readonly unsafe void ResolveEncoderOutputMetadata(VideoEncoderResolveMetadataInputArguments* pInputArguments, VideoEncoderResolveMetadataOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, D3D12VideoEncoderResolveMetadataInputArguments*, D3D12VideoEncoderResolveMetadataOutputArguments*, void>)(LpVtbl[28]))(ptr, pInputArguments, pOutputArguments);
+			((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, VideoEncoderResolveMetadataInputArguments*, VideoEncoderResolveMetadataOutputArguments*, void>)(LpVtbl[28]))(ptr, pInputArguments, pOutputArguments);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveEncoderOutputMetadata")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveEncoderOutputMetadata([NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderResolveMetadataInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS*")] D3D12VideoEncoderResolveMetadataOutputArguments* pOutputArguments) 
+		public readonly unsafe void ResolveEncoderOutputMetadata(ref VideoEncoderResolveMetadataInputArguments pInputArguments, VideoEncoderResolveMetadataOutputArguments* pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderResolveMetadataInputArguments* ppInputArguments = &pInputArguments)
+			fixed (VideoEncoderResolveMetadataInputArguments* ppInputArguments = &pInputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, D3D12VideoEncoderResolveMetadataInputArguments*, D3D12VideoEncoderResolveMetadataOutputArguments*, void>)(LpVtbl[28]))(ptr, (D3D12VideoEncoderResolveMetadataInputArguments*)ppInputArguments, pOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, VideoEncoderResolveMetadataInputArguments*, VideoEncoderResolveMetadataOutputArguments*, void>)(LpVtbl[28]))(ptr, (VideoEncoderResolveMetadataInputArguments*)ppInputArguments, pOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveEncoderOutputMetadata")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveEncoderOutputMetadata([NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS*")] D3D12VideoEncoderResolveMetadataInputArguments* pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderResolveMetadataOutputArguments pOutputArguments) 
+		public readonly unsafe void ResolveEncoderOutputMetadata(VideoEncoderResolveMetadataInputArguments* pInputArguments, ref VideoEncoderResolveMetadataOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderResolveMetadataOutputArguments* ppOutputArguments = &pOutputArguments)
+			fixed (VideoEncoderResolveMetadataOutputArguments* ppOutputArguments = &pOutputArguments)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, D3D12VideoEncoderResolveMetadataInputArguments*, D3D12VideoEncoderResolveMetadataOutputArguments*, void>)(LpVtbl[28]))(ptr, pInputArguments, (D3D12VideoEncoderResolveMetadataOutputArguments*)ppOutputArguments);
+				((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, VideoEncoderResolveMetadataInputArguments*, VideoEncoderResolveMetadataOutputArguments*, void>)(LpVtbl[28]))(ptr, pInputArguments, (VideoEncoderResolveMetadataOutputArguments*)ppOutputArguments);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ResolveEncoderOutputMetadata")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ResolveEncoderOutputMetadata([NativeName(NativeNameType.Param, "pInputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS*")] ref D3D12VideoEncoderResolveMetadataInputArguments pInputArguments, [NativeName(NativeNameType.Param, "pOutputArguments")] [NativeName(NativeNameType.Type, "const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS*")] ref D3D12VideoEncoderResolveMetadataOutputArguments pOutputArguments) 
+		public readonly unsafe void ResolveEncoderOutputMetadata(ref VideoEncoderResolveMetadataInputArguments pInputArguments, ref VideoEncoderResolveMetadataOutputArguments pOutputArguments) 
 		{
 			ID3D12VideoEncodeCommandList2* ptr = (ID3D12VideoEncodeCommandList2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12VideoEncoderResolveMetadataInputArguments* ppInputArguments = &pInputArguments)
+			fixed (VideoEncoderResolveMetadataInputArguments* ppInputArguments = &pInputArguments)
 			{
-				fixed (D3D12VideoEncoderResolveMetadataOutputArguments* ppOutputArguments = &pOutputArguments)
+				fixed (VideoEncoderResolveMetadataOutputArguments* ppOutputArguments = &pOutputArguments)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, D3D12VideoEncoderResolveMetadataInputArguments*, D3D12VideoEncoderResolveMetadataOutputArguments*, void>)(LpVtbl[28]))(ptr, (D3D12VideoEncoderResolveMetadataInputArguments*)ppInputArguments, (D3D12VideoEncoderResolveMetadataOutputArguments*)ppOutputArguments);
+					((delegate* unmanaged[Stdcall]<ID3D12VideoEncodeCommandList2*, VideoEncoderResolveMetadataInputArguments*, VideoEncoderResolveMetadataOutputArguments*, void>)(LpVtbl[28]))(ptr, (VideoEncoderResolveMetadataInputArguments*)ppInputArguments, (VideoEncoderResolveMetadataOutputArguments*)ppOutputArguments);
 				}
 			}
 		}

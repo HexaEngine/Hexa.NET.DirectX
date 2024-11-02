@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// {EC25F42D-7006-4F2B-B33E-02CC3375733F}<br/>
 	/// </summary>
 	[Guid("ec25f42d-7006-4f2b-b33e-02cc3375733f")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12FunctionParameterReflection")]
 	public partial struct ID3D12FunctionParameterReflection : IComObject, IComObject<ID3D12FunctionParameterReflection>
 	{
 		public unsafe void** LpVtbl;
@@ -37,26 +36,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D12_PARAMETER_DESC*")] D3D12ParameterDesc* pDesc) 
+		public readonly unsafe int GetDesc(ParameterDesc* pDesc) 
 		{
 			ID3D12FunctionParameterReflection* ptr = (ID3D12FunctionParameterReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12FunctionParameterReflection*, D3D12ParameterDesc*, int>)(*LpVtbl))(ptr, pDesc);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12FunctionParameterReflection*, ParameterDesc*, int>)(*LpVtbl))(ptr, pDesc);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDesc([NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D12_PARAMETER_DESC*")] ref D3D12ParameterDesc pDesc) 
+		public readonly unsafe int GetDesc(ref ParameterDesc pDesc) 
 		{
 			ID3D12FunctionParameterReflection* ptr = (ID3D12FunctionParameterReflection*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12ParameterDesc* ppDesc = &pDesc)
+			fixed (ParameterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12FunctionParameterReflection*, D3D12ParameterDesc*, int>)(*LpVtbl))(ptr, (D3D12ParameterDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12FunctionParameterReflection*, ParameterDesc*, int>)(*LpVtbl))(ptr, (ParameterDesc*)ppDesc);
 				return ret;
 			}
 		}

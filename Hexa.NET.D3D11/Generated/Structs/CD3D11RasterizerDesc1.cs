@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// interface __MIDL_itf_d3d11_1_0000_0001 <br/>
 	/// [local] <br/>
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "CD3D11_RASTERIZER_DESC1")]
 	[StructLayout(LayoutKind.Sequential)]
 	public partial struct CD3D11RasterizerDesc1
 	{

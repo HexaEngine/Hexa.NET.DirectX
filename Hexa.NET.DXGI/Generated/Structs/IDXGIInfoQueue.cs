@@ -21,7 +21,6 @@ namespace Hexa.NET.DXGI
 	/// To be documented.
 	/// </summary>
 	[Guid("d67441c7-672a-476f-9e82-cd55b44949ce")]
-	[NativeName(NativeNameType.StructOrClass, "IDXGIInfoQueue")]
 	public partial struct IDXGIInfoQueue : IComObject, IComObject<IDXGIInfoQueue>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -36,9 +35,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -48,9 +45,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -63,9 +58,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -76,9 +69,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -92,8 +83,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -104,8 +93,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -116,9 +103,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetMessageCountLimit")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetMessageCountLimit([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "MessageCountLimit")] [NativeName(NativeNameType.Type, "UINT64")] ulong messageCountLimit) 
+		public readonly unsafe int SetMessageCountLimit(Guid producer, ulong messageCountLimit) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, int>)(LpVtbl[3]))(ptr, producer, messageCountLimit);
@@ -128,9 +113,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearStoredMessages")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearStoredMessages([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe void ClearStoredMessages(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, void>)(LpVtbl[4]))(ptr, producer);
@@ -139,26 +122,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMessageA")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetMessageA([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "MessageIndex")] [NativeName(NativeNameType.Type, "UINT64")] ulong messageIndex, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE*")] DxgiInfoQueueMessage* pMessage, [NativeName(NativeNameType.Param, "pMessageByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pMessageByteLength) 
+		public readonly unsafe int GetMessageA(Guid producer, ulong messageIndex, InfoQueueMessage* pMessage, nuint* pMessageByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, DxgiInfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, pMessage, pMessageByteLength);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, pMessage, pMessageByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMessageA")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetMessageA([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "MessageIndex")] [NativeName(NativeNameType.Type, "UINT64")] ulong messageIndex, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE*")] ref DxgiInfoQueueMessage pMessage, [NativeName(NativeNameType.Param, "pMessageByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pMessageByteLength) 
+		public readonly unsafe int GetMessageA(Guid producer, ulong messageIndex, ref InfoQueueMessage pMessage, nuint* pMessageByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiInfoQueueMessage* ppMessage = &pMessage)
+			fixed (InfoQueueMessage* ppMessage = &pMessage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, DxgiInfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, (DxgiInfoQueueMessage*)ppMessage, pMessageByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, (InfoQueueMessage*)ppMessage, pMessageByteLength);
 				return ret;
 			}
 		}
@@ -166,14 +145,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMessageA")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetMessageA([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "MessageIndex")] [NativeName(NativeNameType.Type, "UINT64")] ulong messageIndex, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE*")] DxgiInfoQueueMessage* pMessage, [NativeName(NativeNameType.Param, "pMessageByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pMessageByteLength) 
+		public readonly unsafe int GetMessageA(Guid producer, ulong messageIndex, InfoQueueMessage* pMessage, ref nuint pMessageByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, DxgiInfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, pMessage, (nuint*)ppMessageByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, pMessage, (nuint*)ppMessageByteLength);
 				return ret;
 			}
 		}
@@ -181,16 +158,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMessageA")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetMessageA([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "MessageIndex")] [NativeName(NativeNameType.Type, "UINT64")] ulong messageIndex, [NativeName(NativeNameType.Param, "pMessage")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE*")] ref DxgiInfoQueueMessage pMessage, [NativeName(NativeNameType.Param, "pMessageByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pMessageByteLength) 
+		public readonly unsafe int GetMessageA(Guid producer, ulong messageIndex, ref InfoQueueMessage pMessage, ref nuint pMessageByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiInfoQueueMessage* ppMessage = &pMessage)
+			fixed (InfoQueueMessage* ppMessage = &pMessage)
 			{
 				fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, DxgiInfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, (DxgiInfoQueueMessage*)ppMessage, (nuint*)ppMessageByteLength);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(LpVtbl[5]))(ptr, producer, messageIndex, (InfoQueueMessage*)ppMessage, (nuint*)ppMessageByteLength);
 					return ret;
 				}
 			}
@@ -199,9 +174,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumStoredMessagesAllowedByRetrievalFilters")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
-		public readonly unsafe ulong GetNumStoredMessagesAllowedByRetrievalFilters([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe ulong GetNumStoredMessagesAllowedByRetrievalFilters(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(LpVtbl[6]))(ptr, producer);
@@ -211,9 +184,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumStoredMessages")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
-		public readonly unsafe ulong GetNumStoredMessages([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe ulong GetNumStoredMessages(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(LpVtbl[7]))(ptr, producer);
@@ -223,9 +194,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumMessagesDiscardedByMessageCountLimit")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
-		public readonly unsafe ulong GetNumMessagesDiscardedByMessageCountLimit([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe ulong GetNumMessagesDiscardedByMessageCountLimit(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(LpVtbl[8]))(ptr, producer);
@@ -235,9 +204,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMessageCountLimit")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
-		public readonly unsafe ulong GetMessageCountLimit([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe ulong GetMessageCountLimit(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(LpVtbl[9]))(ptr, producer);
@@ -247,9 +214,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumMessagesAllowedByStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
-		public readonly unsafe ulong GetNumMessagesAllowedByStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe ulong GetNumMessagesAllowedByStorageFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(LpVtbl[10]))(ptr, producer);
@@ -259,9 +224,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumMessagesDeniedByStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
-		public readonly unsafe ulong GetNumMessagesDeniedByStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe ulong GetNumMessagesDeniedByStorageFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(LpVtbl[11]))(ptr, producer);
@@ -271,26 +234,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddStorageFilterEntries")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddStorageFilterEntries([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] DxgiInfoQueueFilter* pFilter) 
+		public readonly unsafe int AddStorageFilterEntries(Guid producer, InfoQueueFilter* pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, int>)(LpVtbl[12]))(ptr, producer, pFilter);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[12]))(ptr, producer, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddStorageFilterEntries")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddStorageFilterEntries([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] ref DxgiInfoQueueFilter pFilter) 
+		public readonly unsafe int AddStorageFilterEntries(Guid producer, ref InfoQueueFilter pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiInfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, int>)(LpVtbl[12]))(ptr, producer, (DxgiInfoQueueFilter*)ppFilter);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[12]))(ptr, producer, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -298,26 +257,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] DxgiInfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
+		public readonly unsafe int GetStorageFilter(Guid producer, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, pFilter, pFilterByteLength);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] ref DxgiInfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
+		public readonly unsafe int GetStorageFilter(Guid producer, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiInfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, (DxgiInfoQueueFilter*)ppFilter, pFilterByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -325,14 +280,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] DxgiInfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
+		public readonly unsafe int GetStorageFilter(Guid producer, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, pFilter, (nuint*)ppFilterByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -340,16 +293,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] ref DxgiInfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
+		public readonly unsafe int GetStorageFilter(Guid producer, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiInfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, (DxgiInfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[13]))(ptr, producer, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -358,9 +309,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe void ClearStorageFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, void>)(LpVtbl[14]))(ptr, producer);
@@ -369,9 +318,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushEmptyStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushEmptyStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe int PushEmptyStorageFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[15]))(ptr, producer);
@@ -381,9 +328,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushDenyAllStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushDenyAllStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe int PushDenyAllStorageFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[16]))(ptr, producer);
@@ -393,9 +338,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushCopyOfStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushCopyOfStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe int PushCopyOfStorageFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[17]))(ptr, producer);
@@ -405,26 +348,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] DxgiInfoQueueFilter* pFilter) 
+		public readonly unsafe int PushStorageFilter(Guid producer, InfoQueueFilter* pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, int>)(LpVtbl[18]))(ptr, producer, pFilter);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[18]))(ptr, producer, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] ref DxgiInfoQueueFilter pFilter) 
+		public readonly unsafe int PushStorageFilter(Guid producer, ref InfoQueueFilter pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiInfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, int>)(LpVtbl[18]))(ptr, producer, (DxgiInfoQueueFilter*)ppFilter);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[18]))(ptr, producer, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -432,9 +371,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PopStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PopStorageFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe void PopStorageFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, void>)(LpVtbl[19]))(ptr, producer);
@@ -443,9 +380,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilterStackSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public readonly unsafe uint GetStorageFilterStackSize([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe uint GetStorageFilterStackSize(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, uint>)(LpVtbl[20]))(ptr, producer);
@@ -455,26 +390,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRetrievalFilterEntries")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddRetrievalFilterEntries([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] DxgiInfoQueueFilter* pFilter) 
+		public readonly unsafe int AddRetrievalFilterEntries(Guid producer, InfoQueueFilter* pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, int>)(LpVtbl[21]))(ptr, producer, pFilter);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[21]))(ptr, producer, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRetrievalFilterEntries")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddRetrievalFilterEntries([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] ref DxgiInfoQueueFilter pFilter) 
+		public readonly unsafe int AddRetrievalFilterEntries(Guid producer, ref InfoQueueFilter pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiInfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, int>)(LpVtbl[21]))(ptr, producer, (DxgiInfoQueueFilter*)ppFilter);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[21]))(ptr, producer, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -482,26 +413,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetRetrievalFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] DxgiInfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
+		public readonly unsafe int GetRetrievalFilter(Guid producer, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, pFilter, pFilterByteLength);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, pFilter, pFilterByteLength);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetRetrievalFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] ref DxgiInfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
+		public readonly unsafe int GetRetrievalFilter(Guid producer, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiInfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, (DxgiInfoQueueFilter*)ppFilter, pFilterByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
@@ -509,14 +436,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetRetrievalFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] DxgiInfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
+		public readonly unsafe int GetRetrievalFilter(Guid producer, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, pFilter, (nuint*)ppFilterByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, pFilter, (nuint*)ppFilterByteLength);
 				return ret;
 			}
 		}
@@ -524,16 +449,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetRetrievalFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] ref DxgiInfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
+		public readonly unsafe int GetRetrievalFilter(Guid producer, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiInfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
 				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, (DxgiInfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(LpVtbl[22]))(ptr, producer, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
 					return ret;
 				}
 			}
@@ -542,9 +465,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void ClearRetrievalFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe void ClearRetrievalFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, void>)(LpVtbl[23]))(ptr, producer);
@@ -553,9 +474,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushEmptyRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushEmptyRetrievalFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe int PushEmptyRetrievalFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[24]))(ptr, producer);
@@ -565,9 +484,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushDenyAllRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushDenyAllRetrievalFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe int PushDenyAllRetrievalFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[25]))(ptr, producer);
@@ -577,9 +494,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushCopyOfRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushCopyOfRetrievalFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe int PushCopyOfRetrievalFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[26]))(ptr, producer);
@@ -589,26 +504,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushRetrievalFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] DxgiInfoQueueFilter* pFilter) 
+		public readonly unsafe int PushRetrievalFilter(Guid producer, InfoQueueFilter* pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, int>)(LpVtbl[27]))(ptr, producer, pFilter);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[27]))(ptr, producer, pFilter);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PushRetrievalFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_FILTER*")] ref DxgiInfoQueueFilter pFilter) 
+		public readonly unsafe int PushRetrievalFilter(Guid producer, ref InfoQueueFilter pFilter) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiInfoQueueFilter* ppFilter = &pFilter)
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueFilter*, int>)(LpVtbl[27]))(ptr, producer, (DxgiInfoQueueFilter*)ppFilter);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(LpVtbl[27]))(ptr, producer, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -616,9 +527,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PopRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void PopRetrievalFilter([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe void PopRetrievalFilter(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, void>)(LpVtbl[28]))(ptr, producer);
@@ -627,9 +536,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilterStackSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public readonly unsafe uint GetRetrievalFilterStackSize([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe uint GetRetrievalFilterStackSize(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, uint>)(LpVtbl[29]))(ptr, producer);
@@ -639,26 +546,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddMessage([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_CATEGORY")] DxgiInfoQueueMessageCategory category, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_SEVERITY")] DxgiInfoQueueMessageSeverity severity, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_ID")] int id, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDescription) 
+		public readonly unsafe int AddMessage(Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, byte* pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueMessageCategory, DxgiInfoQueueMessageSeverity, int, byte*, int>)(LpVtbl[30]))(ptr, producer, category, severity, id, pDescription);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, int>)(LpVtbl[30]))(ptr, producer, category, severity, id, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddMessage([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_CATEGORY")] DxgiInfoQueueMessageCategory category, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_SEVERITY")] DxgiInfoQueueMessageSeverity severity, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_ID")] int id, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDescription) 
+		public readonly unsafe int AddMessage(Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, ReadOnlySpan<byte> pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueMessageCategory, DxgiInfoQueueMessageSeverity, int, byte*, int>)(LpVtbl[30]))(ptr, producer, category, severity, id, (byte*)ppDescription);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, int>)(LpVtbl[30]))(ptr, producer, category, severity, id, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -666,9 +569,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddMessage([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_CATEGORY")] DxgiInfoQueueMessageCategory category, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_SEVERITY")] DxgiInfoQueueMessageSeverity severity, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_ID")] int id, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDescription) 
+		public readonly unsafe int AddMessage(Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, string pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -688,7 +589,7 @@ namespace Hexa.NET.DXGI
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueMessageCategory, DxgiInfoQueueMessageSeverity, int, byte*, int>)(LpVtbl[30]))(ptr, producer, category, severity, id, pStr0);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, int>)(LpVtbl[30]))(ptr, producer, category, severity, id, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -699,26 +600,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddApplicationMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddApplicationMessage([NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_SEVERITY")] DxgiInfoQueueMessageSeverity severity, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDescription) 
+		public readonly unsafe int AddApplicationMessage(InfoQueueMessageSeverity severity, byte* pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, DxgiInfoQueueMessageSeverity, byte*, int>)(LpVtbl[31]))(ptr, severity, pDescription);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, int>)(LpVtbl[31]))(ptr, severity, pDescription);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddApplicationMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddApplicationMessage([NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_SEVERITY")] DxgiInfoQueueMessageSeverity severity, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDescription) 
+		public readonly unsafe int AddApplicationMessage(InfoQueueMessageSeverity severity, ReadOnlySpan<byte> pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppDescription = pDescription)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, DxgiInfoQueueMessageSeverity, byte*, int>)(LpVtbl[31]))(ptr, severity, (byte*)ppDescription);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, int>)(LpVtbl[31]))(ptr, severity, (byte*)ppDescription);
 				return ret;
 			}
 		}
@@ -726,9 +623,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddApplicationMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddApplicationMessage([NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_SEVERITY")] DxgiInfoQueueMessageSeverity severity, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDescription) 
+		public readonly unsafe int AddApplicationMessage(InfoQueueMessageSeverity severity, string pDescription) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -748,7 +643,7 @@ namespace Hexa.NET.DXGI
 				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, DxgiInfoQueueMessageSeverity, byte*, int>)(LpVtbl[31]))(ptr, severity, pStr0);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, int>)(LpVtbl[31]))(ptr, severity, pStr0);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -759,33 +654,27 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBreakOnCategory")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetBreakOnCategory([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_CATEGORY")] DxgiInfoQueueMessageCategory category, [NativeName(NativeNameType.Param, "bEnable")] [NativeName(NativeNameType.Type, "BOOL")] int bEnable) 
+		public readonly unsafe int SetBreakOnCategory(Guid producer, InfoQueueMessageCategory category, int bEnable) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueMessageCategory, int, int>)(LpVtbl[32]))(ptr, producer, category, bEnable);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, int, int>)(LpVtbl[32]))(ptr, producer, category, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBreakOnSeverity")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetBreakOnSeverity([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_SEVERITY")] DxgiInfoQueueMessageSeverity severity, [NativeName(NativeNameType.Param, "bEnable")] [NativeName(NativeNameType.Type, "BOOL")] int bEnable) 
+		public readonly unsafe int SetBreakOnSeverity(Guid producer, InfoQueueMessageSeverity severity, int bEnable) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueMessageSeverity, int, int>)(LpVtbl[33]))(ptr, producer, severity, bEnable);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageSeverity, int, int>)(LpVtbl[33]))(ptr, producer, severity, bEnable);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBreakOnID")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetBreakOnID([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_ID")] int id, [NativeName(NativeNameType.Param, "bEnable")] [NativeName(NativeNameType.Type, "BOOL")] int bEnable) 
+		public readonly unsafe int SetBreakOnID(Guid producer, int id, int bEnable) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int, int, int>)(LpVtbl[34]))(ptr, producer, id, bEnable);
@@ -795,33 +684,27 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBreakOnCategory")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public readonly unsafe int GetBreakOnCategory([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_CATEGORY")] DxgiInfoQueueMessageCategory category) 
+		public readonly unsafe int GetBreakOnCategory(Guid producer, InfoQueueMessageCategory category) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueMessageCategory, int>)(LpVtbl[35]))(ptr, producer, category);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, int>)(LpVtbl[35]))(ptr, producer, category);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBreakOnSeverity")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public readonly unsafe int GetBreakOnSeverity([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_SEVERITY")] DxgiInfoQueueMessageSeverity severity) 
+		public readonly unsafe int GetBreakOnSeverity(Guid producer, InfoQueueMessageSeverity severity) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, DxgiInfoQueueMessageSeverity, int>)(LpVtbl[36]))(ptr, producer, severity);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageSeverity, int>)(LpVtbl[36]))(ptr, producer, severity);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBreakOnID")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public readonly unsafe int GetBreakOnID([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "DXGI_INFO_QUEUE_MESSAGE_ID")] int id) 
+		public readonly unsafe int GetBreakOnID(Guid producer, int id) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int, int>)(LpVtbl[37]))(ptr, producer, id);
@@ -831,9 +714,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetMuteDebugOutput")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void SetMuteDebugOutput([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer, [NativeName(NativeNameType.Param, "bMute")] [NativeName(NativeNameType.Type, "BOOL")] int bMute) 
+		public readonly unsafe void SetMuteDebugOutput(Guid producer, int bMute) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int, void>)(LpVtbl[38]))(ptr, producer, bMute);
@@ -842,9 +723,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMuteDebugOutput")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public readonly unsafe int GetMuteDebugOutput([NativeName(NativeNameType.Param, "Producer")] [NativeName(NativeNameType.Type, "DXGI_DEBUG_ID")] Guid producer) 
+		public readonly unsafe int GetMuteDebugOutput(Guid producer) 
 		{
 			IDXGIInfoQueue* ptr = (IDXGIInfoQueue*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(LpVtbl[39]))(ptr, producer);

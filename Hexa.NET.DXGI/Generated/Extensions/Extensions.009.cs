@@ -22,2060 +22,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "TakeOwnership")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int TakeOwnership(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "Exclusive")] [NativeName(NativeNameType.Type, "BOOL")] int exclusive) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, ComPtr<IUnknown> pWindow, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, int, int>)(handle->LpVtbl[11]))(handle, (IUnknown*)pDevice.Handle, exclusive);
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReleaseOwnership")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void ReleaseOwnership(this ComPtr<IDXGIOutput6> comObj) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIOutput6* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<IDXGIOutput6*, void>)(handle->LpVtbl[12]))(handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControlCapabilities")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetGammaControlCapabilities(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pGammaCaps")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL_CAPABILITIES*")] DxgiGammaControlCapabilities* pGammaCaps) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControlCapabilities*, int>)(handle->LpVtbl[13]))(handle, pGammaCaps);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControlCapabilities")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetGammaControlCapabilities(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pGammaCaps")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL_CAPABILITIES*")] ref DxgiGammaControlCapabilities pGammaCaps) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiGammaControlCapabilities* ppGammaCaps = &pGammaCaps)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControlCapabilities*, int>)(handle->LpVtbl[13]))(handle, (DxgiGammaControlCapabilities*)ppGammaCaps);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetGammaControl(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "const DXGI_GAMMA_CONTROL*")] DxgiGammaControl* pArray) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControl*, int>)(handle->LpVtbl[14]))(handle, pArray);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetGammaControl(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "const DXGI_GAMMA_CONTROL*")] ref DxgiGammaControl pArray) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiGammaControl* ppArray = &pArray)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControl*, int>)(handle->LpVtbl[14]))(handle, (DxgiGammaControl*)ppArray);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetGammaControl(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL*")] DxgiGammaControl* pArray) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControl*, int>)(handle->LpVtbl[15]))(handle, pArray);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGammaControl")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetGammaControl(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pArray")] [NativeName(NativeNameType.Type, "DXGI_GAMMA_CONTROL*")] ref DxgiGammaControl pArray) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiGammaControl* ppArray = &pArray)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiGammaControl*, int>)(handle->LpVtbl[15]))(handle, (DxgiGammaControl*)ppArray);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetDisplaySurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetDisplaySurface(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pScanoutSurface")] [NativeName(NativeNameType.Type, "IDXGISurface*")] IDXGISurface* pScanoutSurface) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGISurface*, int>)(handle->LpVtbl[16]))(handle, pScanoutSurface);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetDisplaySurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetDisplaySurface(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pScanoutSurface")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ref IDXGISurface pScanoutSurface) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IDXGISurface* ppScanoutSurface = &pScanoutSurface)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGISurface*, int>)(handle->LpVtbl[16]))(handle, (IDXGISurface*)ppScanoutSurface);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetDisplaySurface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetDisplaySurface(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pScanoutSurface")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ComPtr<IDXGISurface> pScanoutSurface) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGISurface*, int>)(handle->LpVtbl[16]))(handle, (IDXGISurface*)pScanoutSurface.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGISurface*")] IDXGISurface* pDestination) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGISurface*, int>)(handle->LpVtbl[17]))(handle, pDestination);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ref IDXGISurface pDestination) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IDXGISurface* ppDestination = &pDestination)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGISurface*, int>)(handle->LpVtbl[17]))(handle, (IDXGISurface*)ppDestination);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplaySurfaceData(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGISurface*")] ComPtr<IDXGISurface> pDestination) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGISurface*, int>)(handle->LpVtbl[17]))(handle, (IDXGISurface*)pDestination.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatistics")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFrameStatistics(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS*")] DxgiFrameStatistics* pStats) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFrameStatistics*, int>)(handle->LpVtbl[18]))(handle, pStats);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatistics")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetFrameStatistics(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS*")] ref DxgiFrameStatistics pStats) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiFrameStatistics* ppStats = &pStats)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFrameStatistics*, int>)(handle->LpVtbl[18]))(handle, (DxgiFrameStatistics*)ppStats);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplayModeList1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pDesc) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc1*, int>)(handle->LpVtbl[19]))(handle, enumFormat, flags, pNumModes, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplayModeList1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pDesc) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (uint* ppNumModes = &pNumModes)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc1*, int>)(handle->LpVtbl[19]))(handle, enumFormat, flags, (uint*)ppNumModes, pDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplayModeList1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pDesc) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiModeDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc1*, int>)(handle->LpVtbl[19]))(handle, enumFormat, flags, pNumModes, (DxgiModeDesc1*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplayModeList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplayModeList1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "pNumModes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumModes, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pDesc) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (uint* ppNumModes = &pNumModes)
-			{
-				fixed (DxgiModeDesc1* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, uint, uint*, DxgiModeDesc1*, int>)(handle->LpVtbl[19]))(handle, enumFormat, flags, (uint*)ppNumModes, (DxgiModeDesc1*)ppDesc);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, pClosestMatch, pConcernedDevice);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (DxgiModeDesc1*)ppModeToMatch, pClosestMatch, pConcernedDevice);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, (DxgiModeDesc1*)ppClosestMatch, pConcernedDevice);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
-			{
-				fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (DxgiModeDesc1*)ppModeToMatch, (DxgiModeDesc1*)ppClosestMatch, pConcernedDevice);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
-			{
-				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (DxgiModeDesc1*)ppModeToMatch, pClosestMatch, (IUnknown*)ppConcernedDevice);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] DxgiModeDesc1* pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (DxgiModeDesc1*)ppModeToMatch, pClosestMatch, (IUnknown*)pConcernedDevice.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
-			{
-				fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, (DxgiModeDesc1*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] DxgiModeDesc1* pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, pModeToMatch, (DxgiModeDesc1*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
-			{
-				fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
-				{
-					fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (DxgiModeDesc1*)ppModeToMatch, (DxgiModeDesc1*)ppClosestMatch, (IUnknown*)ppConcernedDevice);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FindClosestMatchingMode1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int FindClosestMatchingMode1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pModeToMatch")] [NativeName(NativeNameType.Type, "const DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pModeToMatch, [NativeName(NativeNameType.Param, "pClosestMatch")] [NativeName(NativeNameType.Type, "DXGI_MODE_DESC1*")] ref DxgiModeDesc1 pClosestMatch, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiModeDesc1* ppModeToMatch = &pModeToMatch)
-			{
-				fixed (DxgiModeDesc1* ppClosestMatch = &pClosestMatch)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiModeDesc1*, DxgiModeDesc1*, IUnknown*, int>)(handle->LpVtbl[20]))(handle, (DxgiModeDesc1*)ppModeToMatch, (DxgiModeDesc1*)ppClosestMatch, (IUnknown*)pConcernedDevice.Handle);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplaySurfaceData1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGIResource*")] IDXGIResource* pDestination) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGIResource*, int>)(handle->LpVtbl[21]))(handle, pDestination);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplaySurfaceData1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGIResource*")] ref IDXGIResource pDestination) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IDXGIResource* ppDestination = &pDestination)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGIResource*, int>)(handle->LpVtbl[21]))(handle, (IDXGIResource*)ppDestination);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDisplaySurfaceData1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDisplaySurfaceData1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDestination")] [NativeName(NativeNameType.Type, "IDXGIResource*")] ComPtr<IDXGIResource> pDestination) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IDXGIResource*, int>)(handle->LpVtbl[21]))(handle, (IDXGIResource*)pDestination.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, pDevice, ppOutputDuplication);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, (IUnknown*)ppDevice, ppOutputDuplication);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, (IUnknown*)pDevice.Handle, ppOutputDuplication);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, pDevice, (IDXGIOutputDuplication**)pppOutputDuplication);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			ppOutputDuplication = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, pDevice, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, (IUnknown*)ppDevice, (IDXGIOutputDuplication**)pppOutputDuplication);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			ppOutputDuplication = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[22]))(handle, (IUnknown*)pDevice.Handle, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SupportsOverlays")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public static int SupportsOverlays(this ComPtr<IDXGIOutput6> comObj) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, int>)(handle->LpVtbl[23]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, pConcernedDevice, pFlags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)ppConcernedDevice, pFlags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)pConcernedDevice.Handle, pFlags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (uint* ppFlags = &pFlags)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, pConcernedDevice, (uint*)ppFlags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
-			{
-				fixed (uint* ppFlags = &pFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)ppConcernedDevice, (uint*)ppFlags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlaySupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlaySupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "EnumFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat enumFormat, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (uint* ppFlags = &pFlags)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, IUnknown*, uint*, int>)(handle->LpVtbl[24]))(handle, enumFormat, (IUnknown*)pConcernedDevice.Handle, (uint*)ppFlags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, pConcernedDevice, pFlags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)ppConcernedDevice, pFlags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)pConcernedDevice.Handle, pFlags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (uint* ppFlags = &pFlags)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, pConcernedDevice, (uint*)ppFlags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IUnknown* ppConcernedDevice = &pConcernedDevice)
-			{
-				fixed (uint* ppFlags = &pFlags)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)ppConcernedDevice, (uint*)ppFlags);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckOverlayColorSpaceSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckOverlayColorSpaceSupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace, [NativeName(NativeNameType.Param, "pConcernedDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pConcernedDevice, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (uint* ppFlags = &pFlags)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiFormat, DxgiColorSpaceType, IUnknown*, uint*, int>)(handle->LpVtbl[25]))(handle, format, colorSpace, (IUnknown*)pConcernedDevice.Handle, (uint*)ppFlags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, pSupportedFormats, ppOutputDuplication);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, ppOutputDuplication);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, ppOutputDuplication);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] IDXGIOutputDuplication** ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, ppOutputDuplication);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			ppOutputDuplication = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] DxgiFormat* pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			ppOutputDuplication = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, pSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
-			{
-				fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
-			{
-				ppOutputDuplication = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, pDevice, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] ref IDXGIOutputDuplication* ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
-				{
-					fixed (IDXGIOutputDuplication** pppOutputDuplication = &ppOutputDuplication)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)ppDevice, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, (IDXGIOutputDuplication**)pppOutputDuplication);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DuplicateOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DuplicateOutput1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags, [NativeName(NativeNameType.Param, "SupportedFormatsCount")] [NativeName(NativeNameType.Type, "UINT")] uint supportedFormatsCount, [NativeName(NativeNameType.Param, "pSupportedFormats")] [NativeName(NativeNameType.Type, "const DXGI_FORMAT*")] ref DxgiFormat pSupportedFormats, [NativeName(NativeNameType.Param, "ppOutputDuplication")] [NativeName(NativeNameType.Type, "IDXGIOutputDuplication**")] out ComPtr<IDXGIOutputDuplication> ppOutputDuplication) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiFormat* ppSupportedFormats = &pSupportedFormats)
-			{
-				ppOutputDuplication = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, IUnknown*, uint, uint, DxgiFormat*, IDXGIOutputDuplication**, int>)(handle->LpVtbl[26]))(handle, (IUnknown*)pDevice.Handle, flags, supportedFormatsCount, (DxgiFormat*)ppSupportedFormats, (IDXGIOutputDuplication**)ppOutputDuplication.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_OUTPUT_DESC1*")] DxgiOutputDesc1* pDesc) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiOutputDesc1*, int>)(handle->LpVtbl[27]))(handle, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc1(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_OUTPUT_DESC1*")] ref DxgiOutputDesc1 pDesc) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (DxgiOutputDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, DxgiOutputDesc1*, int>)(handle->LpVtbl[27]))(handle, (DxgiOutputDesc1*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckHardwareCompositionSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckHardwareCompositionSupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] uint* pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, uint*, int>)(handle->LpVtbl[28]))(handle, pFlags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckHardwareCompositionSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckHardwareCompositionSupport(this ComPtr<IDXGIOutput6> comObj, [NativeName(NativeNameType.Param, "pFlags")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pFlags) 
-		{
-			IDXGIOutput6* handle = comObj.Handle;
-			fixed (uint* ppFlags = &pFlags)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIOutput6*, uint*, int>)(handle->LpVtbl[28]))(handle, (uint*)ppFlags);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint AddRef(this ComPtr<IDXGIFactory6> comObj) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint>)(handle->LpVtbl[1]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint Release(this ComPtr<IDXGIFactory6> comObj) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint>)(handle->LpVtbl[2]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppUnknown = &pUnknown)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
-			{
-				fixed (IUnknown* ppUnknown = &pUnknown)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (uint* ppDataSize = &pDataSize)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
-			{
-				fixed (uint* ppDataSize = &pDataSize)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, pData);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, (void*)pData.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, (void*)pData.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (uint* ppDataSize = &pDataSize)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, (void*)pData.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
-			{
-				fixed (uint* ppDataSize = &pDataSize)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, (uint*)ppDataSize, (void*)pData.Handle);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, riid, ppParent);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] void** ppParent) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, ppParent);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppParent = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppParent.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetParent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetParent<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppParent")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppParent) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppParent = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(handle->LpVtbl[6]))(handle, (Guid*)priid, (void**)ppParent.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapters(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Adapter")] [NativeName(NativeNameType.Type, "UINT")] uint adapter, [NativeName(NativeNameType.Param, "ppAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter**")] IDXGIAdapter** ppAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, adapter, ppAdapter);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapters(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Adapter")] [NativeName(NativeNameType.Type, "UINT")] uint adapter, [NativeName(NativeNameType.Param, "ppAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter**")] ref IDXGIAdapter* ppAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IDXGIAdapter** pppAdapter = &ppAdapter)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, adapter, (IDXGIAdapter**)pppAdapter);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapters(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Adapter")] [NativeName(NativeNameType.Type, "UINT")] uint adapter, [NativeName(NativeNameType.Param, "ppAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter**")] out ComPtr<IDXGIAdapter> ppAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppAdapter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, IDXGIAdapter**, int>)(handle->LpVtbl[7]))(handle, adapter, (IDXGIAdapter**)ppAdapter.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "MakeWindowAssociation")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int MakeWindowAssociation(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "WindowHandle")] [NativeName(NativeNameType.Type, "HWND")] nint windowHandle, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, uint, int>)(handle->LpVtbl[8]))(handle, windowHandle, flags);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetWindowAssociation")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetWindowAssociation(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pWindowHandle")] [NativeName(NativeNameType.Type, "HWND*")] nint* pWindowHandle) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint*, int>)(handle->LpVtbl[9]))(handle, pWindowHandle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetWindowAssociation")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetWindowAssociation(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pWindowHandle")] [NativeName(NativeNameType.Type, "HWND*")] ref nint pWindowHandle) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (nint* ppWindowHandle = &pWindowHandle)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint*, int>)(handle->LpVtbl[9]))(handle, (nint*)ppWindowHandle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, pDesc, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)ppDevice, pDesc, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)pDevice.Handle, pDesc, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, (DxgiSwapChainDesc*)ppDesc, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiSwapChainDesc* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)ppDevice, (DxgiSwapChainDesc*)ppDesc, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)pDevice.Handle, (DxgiSwapChainDesc*)ppDesc, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, pDesc, (IDXGISwapChain**)pppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] out ComPtr<IDXGISwapChain> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, pDesc, (IDXGISwapChain**)ppSwapChain.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)ppDevice, pDesc, (IDXGISwapChain**)pppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] DxgiSwapChainDesc* pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] out ComPtr<IDXGISwapChain> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)pDevice.Handle, pDesc, (IDXGISwapChain**)ppSwapChain.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc* ppDesc = &pDesc)
-			{
-				fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, (DxgiSwapChainDesc*)ppDesc, (IDXGISwapChain**)pppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] out ComPtr<IDXGISwapChain> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, pDevice, (DxgiSwapChainDesc*)ppDesc, (IDXGISwapChain**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiSwapChainDesc* ppDesc = &pDesc)
-				{
-					fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)ppDevice, (DxgiSwapChainDesc*)ppDesc, (IDXGISwapChain**)pppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChain(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "DXGI_SWAP_CHAIN_DESC*")] ref DxgiSwapChainDesc pDesc, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] out ComPtr<IDXGISwapChain> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc*, IDXGISwapChain**, int>)(handle->LpVtbl[10]))(handle, (IUnknown*)pDevice.Handle, (DxgiSwapChainDesc*)ppDesc, (IDXGISwapChain**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSoftwareAdapter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSoftwareAdapter(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Module")] [NativeName(NativeNameType.Type, "HMODULE")] nint module, [NativeName(NativeNameType.Param, "ppAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter**")] IDXGIAdapter** ppAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, IDXGIAdapter**, int>)(handle->LpVtbl[11]))(handle, module, ppAdapter);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSoftwareAdapter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSoftwareAdapter(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Module")] [NativeName(NativeNameType.Type, "HMODULE")] nint module, [NativeName(NativeNameType.Param, "ppAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter**")] ref IDXGIAdapter* ppAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IDXGIAdapter** pppAdapter = &ppAdapter)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, IDXGIAdapter**, int>)(handle->LpVtbl[11]))(handle, module, (IDXGIAdapter**)pppAdapter);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSoftwareAdapter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSoftwareAdapter(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Module")] [NativeName(NativeNameType.Type, "HMODULE")] nint module, [NativeName(NativeNameType.Param, "ppAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter**")] out ComPtr<IDXGIAdapter> ppAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppAdapter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, IDXGIAdapter**, int>)(handle->LpVtbl[11]))(handle, module, (IDXGIAdapter**)ppAdapter.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapters1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapters1(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Adapter")] [NativeName(NativeNameType.Type, "UINT")] uint adapter, [NativeName(NativeNameType.Param, "ppAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter1**")] IDXGIAdapter1** ppAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, IDXGIAdapter1**, int>)(handle->LpVtbl[12]))(handle, adapter, ppAdapter);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapters1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapters1(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Adapter")] [NativeName(NativeNameType.Type, "UINT")] uint adapter, [NativeName(NativeNameType.Param, "ppAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter1**")] ref IDXGIAdapter1* ppAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IDXGIAdapter1** pppAdapter = &ppAdapter)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, IDXGIAdapter1**, int>)(handle->LpVtbl[12]))(handle, adapter, (IDXGIAdapter1**)pppAdapter);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapters1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapters1(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Adapter")] [NativeName(NativeNameType.Type, "UINT")] uint adapter, [NativeName(NativeNameType.Param, "ppAdapter")] [NativeName(NativeNameType.Type, "IDXGIAdapter1**")] out ComPtr<IDXGIAdapter1> ppAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppAdapter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, IDXGIAdapter1**, int>)(handle->LpVtbl[12]))(handle, adapter, (IDXGIAdapter1**)ppAdapter.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "IsCurrent")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public static int IsCurrent(this ComPtr<IDXGIFactory6> comObj) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, int>)(handle->LpVtbl[13]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "IsWindowedStereoEnabled")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public static int IsWindowedStereoEnabled(this ComPtr<IDXGIFactory6> comObj) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, int>)(handle->LpVtbl[14]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, pFullscreenDesc, pRestrictToOutput, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, pDesc, pFullscreenDesc, pRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, pDesc, pFullscreenDesc, pRestrictToOutput, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, pRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, pRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, pRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-				{
-					fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, ppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, pFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, pFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, pDesc, pFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -2084,44 +48,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, pDesc, pFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -2129,18 +61,16 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+				fixed (SwapChainDesc1* ppDesc = &pDesc)
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 						return ret;
 					}
 				}
@@ -2150,14 +80,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -2165,51 +93,16 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref IUnknown pWindow, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (IUnknown* ppWindow = &pWindow)
 			{
-				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+				fixed (SwapChainDesc1* ppDesc = &pDesc)
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 						return ret;
 					}
 				}
@@ -2219,14 +112,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ComPtr<IUnknown> pWindow, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -2234,59 +125,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, ref IUnknown pWindow, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-				{
-					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+				fixed (IUnknown* ppWindow = &pWindow)
 				{
-					fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+					fixed (SwapChainDesc1* ppDesc = &pDesc)
 					{
 						fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 							return ret;
 						}
 					}
@@ -2297,32 +147,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, ComPtr<IUnknown> pWindow, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-					return ret;
-				}
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				return ret;
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, IUnknown* pWindow, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, pFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 				return ret;
 			}
 		}
@@ -2330,29 +173,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, IUnknown* pWindow, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, pFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, IUnknown* pWindow, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, pDesc, pFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -2361,29 +200,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, IUnknown* pWindow, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, pDesc, pFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref IUnknown pWindow, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (IUnknown* ppWindow = &pWindow)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -2392,34 +227,27 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ComPtr<IUnknown> pWindow, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
+			IDXGIFactory7* handle = comObj.Handle;
+			ppSwapChain = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, ref IUnknown pWindow, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+				fixed (IUnknown* ppWindow = &pWindow)
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -2429,32 +257,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, ComPtr<IUnknown> pWindow, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
+			IDXGIFactory7* handle = comObj.Handle;
+			ppSwapChain = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -2463,15 +284,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2479,18 +298,16 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+				fixed (SwapChainDesc1* ppDesc = &pDesc)
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -2500,15 +317,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2516,18 +331,16 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref IUnknown pWindow, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (IUnknown* ppWindow = &pWindow)
 			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+				fixed (SwapChainDesc1* ppDesc = &pDesc)
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -2537,39 +350,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ComPtr<IUnknown> pWindow, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-				{
-					ppSwapChain = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-					return ret;
-				}
+				ppSwapChain = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				return ret;
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, ref IUnknown pWindow, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+				fixed (IUnknown* ppWindow = &pWindow)
 				{
-					fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+					fixed (SwapChainDesc1* ppDesc = &pDesc)
 					{
 						fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 							return ret;
 						}
 					}
@@ -2580,35 +386,28 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, ComPtr<IUnknown> pWindow, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-				{
-					ppSwapChain = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-					return ret;
-				}
+				ppSwapChain = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				return ret;
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, IUnknown* pWindow, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, pFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -2617,31 +416,27 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, IUnknown* pWindow, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, pFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, IUnknown* pWindow, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, pDesc, pFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -2651,31 +446,27 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, IUnknown* pWindow, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, pDesc, pFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref IUnknown pWindow, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (IUnknown* ppWindow = &pWindow)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -2685,36 +476,29 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ComPtr<IUnknown> pWindow, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
+			IDXGIFactory7* handle = comObj.Handle;
+			ppSwapChain = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, ref IUnknown pWindow, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+				fixed (IUnknown* ppWindow = &pWindow)
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
 						fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 							return ret;
 						}
 					}
@@ -2725,34 +509,27 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] DxgiSwapChainFullscreenDesc* pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, ComPtr<IUnknown> pWindow, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, (DxgiSwapChainDesc1*)ppDesc, pFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
+			IDXGIFactory7* handle = comObj.Handle;
+			ppSwapChain = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -2762,15 +539,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2778,20 +553,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+				fixed (SwapChainDesc1* ppDesc = &pDesc)
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
 						fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 							return ret;
 						}
 					}
@@ -2802,15 +575,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, IUnknown* pWindow, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, pDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2818,20 +589,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref IUnknown pWindow, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (IUnknown* ppWindow = &pWindow)
 			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+				fixed (SwapChainDesc1* ppDesc = &pDesc)
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
 						fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 							return ret;
 						}
 					}
@@ -2842,41 +611,34 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ComPtr<IUnknown> pWindow, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-				{
-					ppSwapChain = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, pDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-					return ret;
-				}
+				ppSwapChain = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				return ret;
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, ref IUnknown pWindow, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+				fixed (IUnknown* ppWindow = &pWindow)
 				{
-					fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
+					fixed (SwapChainDesc1* ppDesc = &pDesc)
 					{
 						fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 						{
 							fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)ppDevice, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+								int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 								return ret;
 							}
 						}
@@ -2888,653 +650,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForHwnd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForHwnd(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "hWnd")] [NativeName(NativeNameType.Type, "HWND")] nint hWnd, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pFullscreenDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_FULLSCREEN_DESC*")] ref DxgiSwapChainFullscreenDesc pFullscreenDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, ComPtr<IUnknown> pWindow, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				fixed (DxgiSwapChainFullscreenDesc* ppFullscreenDesc = &pFullscreenDesc)
-				{
-					ppSwapChain = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, nint, DxgiSwapChainDesc1*, DxgiSwapChainFullscreenDesc*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[15]))(handle, (IUnknown*)pDevice.Handle, hWnd, (DxgiSwapChainDesc1*)ppDesc, (DxgiSwapChainFullscreenDesc*)ppFullscreenDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, pDesc, pRestrictToOutput, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, pDesc, pRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, pDesc, pRestrictToOutput, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppWindow = &pWindow)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, pDesc, pRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, pDesc, pRestrictToOutput, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IUnknown* ppWindow = &pWindow)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, pDesc, pRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, pDesc, pRestrictToOutput, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppWindow = &pWindow)
-			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IUnknown* ppWindow = &pWindow)
-				{
-					fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppWindow = &pWindow)
-			{
-				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IUnknown* ppWindow = &pWindow)
-				{
-					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-				{
-					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppWindow = &pWindow)
-			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-				{
-					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IUnknown* ppWindow = &pWindow)
-				{
-					fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-					{
-						fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppWindow = &pWindow)
-			{
-				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IUnknown* ppWindow = &pWindow)
-				{
-					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3542,436 +664,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int GetSharedResourceAdapterLuid(this ComPtr<IDXGIFactory7> comObj, nint hResource, Luid* pLuid) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-				{
-					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppWindow = &pWindow)
-			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-				{
-					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IUnknown* ppWindow = &pWindow)
-				{
-					fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-					{
-						fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-			{
-				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, Luid*, int>)(handle->LpVtbl[17]))(handle, hResource, pLuid);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int GetSharedResourceAdapterLuid(this ComPtr<IDXGIFactory7> comObj, nint hResource, ref Luid pLuid) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-				{
-					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppWindow = &pWindow)
-			{
-				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-				{
-					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IUnknown* ppWindow = &pWindow)
-				{
-					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-					{
-						fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-				{
-					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, pWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-				{
-					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-					{
-						fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, pWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, pWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppWindow = &pWindow)
-			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-				{
-					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-					{
-						fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)ppWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, pDevice, (IUnknown*)pWindow.Handle, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (IUnknown* ppDevice = &pDevice)
-			{
-				fixed (IUnknown* ppWindow = &pWindow)
-				{
-					fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-					{
-						fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
-						{
-							fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)ppDevice, (IUnknown*)ppWindow, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForCoreWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForCoreWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pWindow")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pWindow, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
-			{
-				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[16]))(handle, (IUnknown*)pDevice.Handle, (IUnknown*)pWindow.Handle, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSharedResourceAdapterLuid")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetSharedResourceAdapterLuid(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "hResource")] [NativeName(NativeNameType.Type, "HANDLE")] nint hResource, [NativeName(NativeNameType.Param, "pLuid")] [NativeName(NativeNameType.Type, "LUID*")] Luid* pLuid) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, Luid*, int>)(handle->LpVtbl[17]))(handle, hResource, pLuid);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSharedResourceAdapterLuid")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetSharedResourceAdapterLuid(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "hResource")] [NativeName(NativeNameType.Type, "HANDLE")] nint hResource, [NativeName(NativeNameType.Param, "pLuid")] [NativeName(NativeNameType.Type, "LUID*")] ref Luid pLuid) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (Luid* ppLuid = &pLuid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, Luid*, int>)(handle->LpVtbl[17]))(handle, hResource, (Luid*)ppLuid);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, Luid*, int>)(handle->LpVtbl[17]))(handle, hResource, (Luid*)ppLuid);
 				return ret;
 			}
 		}
@@ -3979,26 +687,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterStereoStatusWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int RegisterStereoStatusWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "WindowHandle")] [NativeName(NativeNameType.Type, "HWND")] nint windowHandle, [NativeName(NativeNameType.Param, "wMsg")] [NativeName(NativeNameType.Type, "UINT")] uint wMsg, [NativeName(NativeNameType.Param, "pdwCookie")] [NativeName(NativeNameType.Type, "DWORD*")] uint* pdwCookie) 
+		public static int RegisterStereoStatusWindow(this ComPtr<IDXGIFactory7> comObj, nint windowHandle, uint wMsg, uint* pdwCookie) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, uint, uint*, int>)(handle->LpVtbl[18]))(handle, windowHandle, wMsg, pdwCookie);
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, uint, uint*, int>)(handle->LpVtbl[18]))(handle, windowHandle, wMsg, pdwCookie);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterStereoStatusWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int RegisterStereoStatusWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "WindowHandle")] [NativeName(NativeNameType.Type, "HWND")] nint windowHandle, [NativeName(NativeNameType.Param, "wMsg")] [NativeName(NativeNameType.Type, "UINT")] uint wMsg, [NativeName(NativeNameType.Param, "pdwCookie")] [NativeName(NativeNameType.Type, "DWORD*")] ref uint pdwCookie) 
+		public static int RegisterStereoStatusWindow(this ComPtr<IDXGIFactory7> comObj, nint windowHandle, uint wMsg, ref uint pdwCookie) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (uint* ppdwCookie = &pdwCookie)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, uint, uint*, int>)(handle->LpVtbl[18]))(handle, windowHandle, wMsg, (uint*)ppdwCookie);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, uint, uint*, int>)(handle->LpVtbl[18]))(handle, windowHandle, wMsg, (uint*)ppdwCookie);
 				return ret;
 			}
 		}
@@ -4006,26 +710,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterStereoStatusEvent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int RegisterStereoStatusEvent(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "hEvent")] [NativeName(NativeNameType.Type, "HANDLE")] nint hEvent, [NativeName(NativeNameType.Param, "pdwCookie")] [NativeName(NativeNameType.Type, "DWORD*")] uint* pdwCookie) 
+		public static int RegisterStereoStatusEvent(this ComPtr<IDXGIFactory7> comObj, nint hEvent, uint* pdwCookie) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, uint*, int>)(handle->LpVtbl[19]))(handle, hEvent, pdwCookie);
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, uint*, int>)(handle->LpVtbl[19]))(handle, hEvent, pdwCookie);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterStereoStatusEvent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int RegisterStereoStatusEvent(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "hEvent")] [NativeName(NativeNameType.Type, "HANDLE")] nint hEvent, [NativeName(NativeNameType.Param, "pdwCookie")] [NativeName(NativeNameType.Type, "DWORD*")] ref uint pdwCookie) 
+		public static int RegisterStereoStatusEvent(this ComPtr<IDXGIFactory7> comObj, nint hEvent, ref uint pdwCookie) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (uint* ppdwCookie = &pdwCookie)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, uint*, int>)(handle->LpVtbl[19]))(handle, hEvent, (uint*)ppdwCookie);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, uint*, int>)(handle->LpVtbl[19]))(handle, hEvent, (uint*)ppdwCookie);
 				return ret;
 			}
 		}
@@ -4033,37 +733,31 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UnregisterStereoStatus")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UnregisterStereoStatus(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "dwCookie")] [NativeName(NativeNameType.Type, "DWORD")] uint dwCookie) 
+		public static void UnregisterStereoStatus(this ComPtr<IDXGIFactory7> comObj, uint dwCookie) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, void>)(handle->LpVtbl[20]))(handle, dwCookie);
+			IDXGIFactory7* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<IDXGIFactory7*, uint, void>)(handle->LpVtbl[20]))(handle, dwCookie);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterOcclusionStatusWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int RegisterOcclusionStatusWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "WindowHandle")] [NativeName(NativeNameType.Type, "HWND")] nint windowHandle, [NativeName(NativeNameType.Param, "wMsg")] [NativeName(NativeNameType.Type, "UINT")] uint wMsg, [NativeName(NativeNameType.Param, "pdwCookie")] [NativeName(NativeNameType.Type, "DWORD*")] uint* pdwCookie) 
+		public static int RegisterOcclusionStatusWindow(this ComPtr<IDXGIFactory7> comObj, nint windowHandle, uint wMsg, uint* pdwCookie) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, uint, uint*, int>)(handle->LpVtbl[21]))(handle, windowHandle, wMsg, pdwCookie);
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, uint, uint*, int>)(handle->LpVtbl[21]))(handle, windowHandle, wMsg, pdwCookie);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterOcclusionStatusWindow")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int RegisterOcclusionStatusWindow(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "WindowHandle")] [NativeName(NativeNameType.Type, "HWND")] nint windowHandle, [NativeName(NativeNameType.Param, "wMsg")] [NativeName(NativeNameType.Type, "UINT")] uint wMsg, [NativeName(NativeNameType.Param, "pdwCookie")] [NativeName(NativeNameType.Type, "DWORD*")] ref uint pdwCookie) 
+		public static int RegisterOcclusionStatusWindow(this ComPtr<IDXGIFactory7> comObj, nint windowHandle, uint wMsg, ref uint pdwCookie) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (uint* ppdwCookie = &pdwCookie)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, uint, uint*, int>)(handle->LpVtbl[21]))(handle, windowHandle, wMsg, (uint*)ppdwCookie);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, uint, uint*, int>)(handle->LpVtbl[21]))(handle, windowHandle, wMsg, (uint*)ppdwCookie);
 				return ret;
 			}
 		}
@@ -4071,26 +765,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterOcclusionStatusEvent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int RegisterOcclusionStatusEvent(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "hEvent")] [NativeName(NativeNameType.Type, "HANDLE")] nint hEvent, [NativeName(NativeNameType.Param, "pdwCookie")] [NativeName(NativeNameType.Type, "DWORD*")] uint* pdwCookie) 
+		public static int RegisterOcclusionStatusEvent(this ComPtr<IDXGIFactory7> comObj, nint hEvent, uint* pdwCookie) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, uint*, int>)(handle->LpVtbl[22]))(handle, hEvent, pdwCookie);
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, uint*, int>)(handle->LpVtbl[22]))(handle, hEvent, pdwCookie);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RegisterOcclusionStatusEvent")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int RegisterOcclusionStatusEvent(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "hEvent")] [NativeName(NativeNameType.Type, "HANDLE")] nint hEvent, [NativeName(NativeNameType.Param, "pdwCookie")] [NativeName(NativeNameType.Type, "DWORD*")] ref uint pdwCookie) 
+		public static int RegisterOcclusionStatusEvent(this ComPtr<IDXGIFactory7> comObj, nint hEvent, ref uint pdwCookie) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (uint* ppdwCookie = &pdwCookie)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, nint, uint*, int>)(handle->LpVtbl[22]))(handle, hEvent, (uint*)ppdwCookie);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, uint*, int>)(handle->LpVtbl[22]))(handle, hEvent, (uint*)ppdwCookie);
 				return ret;
 			}
 		}
@@ -4098,37 +788,31 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UnregisterOcclusionStatus")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UnregisterOcclusionStatus(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "dwCookie")] [NativeName(NativeNameType.Type, "DWORD")] uint dwCookie) 
+		public static void UnregisterOcclusionStatus(this ComPtr<IDXGIFactory7> comObj, uint dwCookie) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, void>)(handle->LpVtbl[23]))(handle, dwCookie);
+			IDXGIFactory7* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<IDXGIFactory7*, uint, void>)(handle->LpVtbl[23]))(handle, dwCookie);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, pRestrictToOutput, ppSwapChain);
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, pRestrictToOutput, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, pRestrictToOutput, ppSwapChain);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -4136,26 +820,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, pRestrictToOutput, ppSwapChain);
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, pRestrictToOutput, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -4163,16 +843,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+				fixed (SwapChainDesc1* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (SwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -4181,14 +859,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc1*)ppDesc, pRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -4196,14 +872,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 				return ret;
 			}
 		}
@@ -4211,28 +885,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -4241,28 +911,24 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 					return ret;
 				}
 			}
@@ -4271,14 +937,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -4286,18 +950,16 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+				fixed (SwapChainDesc1* ppDesc = &pDesc)
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, ppSwapChain);
 						return ret;
 					}
 				}
@@ -4307,14 +969,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] IDXGISwapChain1** ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, IDXGISwapChain1** ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, ppSwapChain);
 				return ret;
 			}
 		}
@@ -4322,14 +982,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 				return ret;
 			}
 		}
@@ -4337,29 +995,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -4368,29 +1022,25 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc1* pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -4399,15 +1049,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4415,18 +1063,16 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+				fixed (SwapChainDesc1* ppDesc = &pDesc)
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -4436,15 +1082,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] IDXGIOutput* pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc1 pDesc, IDXGIOutput* pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (DxgiSwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc1*)ppDesc, pRestrictToOutput, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4452,16 +1096,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 			{
 				fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 					return ret;
 				}
 			}
@@ -4470,31 +1112,27 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, SwapChainDesc1* pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, pDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -4504,31 +1142,27 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] DxgiSwapChainDesc1* pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, SwapChainDesc1* pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			ppSwapChain = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, pDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 				{
 					fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+						int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 						return ret;
 					}
 				}
@@ -4538,15 +1172,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, IUnknown* pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, pDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4554,20 +1186,18 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ref IDXGIOutput pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] ref IDXGISwapChain1* ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ref IUnknown pDevice, ref SwapChainDesc1 pDesc, ref IDXGIOutput pRestrictToOutput, ref IDXGISwapChain1* ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
+			IDXGIFactory7* handle = comObj.Handle;
 			fixed (IUnknown* ppDevice = &pDevice)
 			{
-				fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+				fixed (SwapChainDesc1* ppDesc = &pDesc)
 				{
 					fixed (IDXGIOutput* ppRestrictToOutput = &pRestrictToOutput)
 					{
 						fixed (IDXGISwapChain1** pppSwapChain = &ppSwapChain)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
+							int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)ppDevice, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)ppRestrictToOutput, (IDXGISwapChain1**)pppSwapChain);
 							return ret;
 						}
 					}
@@ -4578,15 +1208,13 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateSwapChainForComposition")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "pDevice")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pDevice, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const DXGI_SWAP_CHAIN_DESC1*")] ref DxgiSwapChainDesc1 pDesc, [NativeName(NativeNameType.Param, "pRestrictToOutput")] [NativeName(NativeNameType.Type, "IDXGIOutput*")] ComPtr<IDXGIOutput> pRestrictToOutput, [NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain1**")] out ComPtr<IDXGISwapChain1> ppSwapChain) 
+		public static int CreateSwapChainForComposition(this ComPtr<IDXGIFactory7> comObj, ComPtr<IUnknown> pDevice, ref SwapChainDesc1 pDesc, ComPtr<IDXGIOutput> pRestrictToOutput, out ComPtr<IDXGISwapChain1> ppSwapChain) 
 		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (DxgiSwapChainDesc1* ppDesc = &pDesc)
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (SwapChainDesc1* ppDesc = &pDesc)
 			{
 				ppSwapChain = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, IUnknown*, DxgiSwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (DxgiSwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, IUnknown*, SwapChainDesc1*, IDXGIOutput*, IDXGISwapChain1**, int>)(handle->LpVtbl[24]))(handle, (IUnknown*)pDevice.Handle, (SwapChainDesc1*)ppDesc, (IDXGIOutput*)pRestrictToOutput.Handle, (IDXGISwapChain1**)ppSwapChain.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4594,230 +1222,32 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCreationFlags")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetCreationFlags(this ComPtr<IDXGIFactory6> comObj) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint>)(handle->LpVtbl[25]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapterByLuid")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapterByLuid(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "AdapterLuid")] [NativeName(NativeNameType.Type, "LUID")] Luid adapterLuid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] void** ppvAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, riid, ppvAdapter);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapterByLuid")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapterByLuid(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "AdapterLuid")] [NativeName(NativeNameType.Type, "LUID")] Luid adapterLuid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] void** ppvAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)priid, ppvAdapter);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapterByLuid")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapterByLuid<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "AdapterLuid")] [NativeName(NativeNameType.Type, "LUID")] Luid adapterLuid, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppvAdapter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvAdapter.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapterByLuid")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapterByLuid<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "AdapterLuid")] [NativeName(NativeNameType.Type, "LUID")] Luid adapterLuid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvAdapter = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)priid, (void**)ppvAdapter.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumWarpAdapter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumWarpAdapter(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] void** ppvAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, riid, ppvAdapter);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumWarpAdapter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumWarpAdapter(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] void** ppvAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (Guid*)priid, ppvAdapter);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumWarpAdapter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumWarpAdapter<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppvAdapter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvAdapter.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumWarpAdapter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumWarpAdapter<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvAdapter = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (Guid*)priid, (void**)ppvAdapter.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckFeatureSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckFeatureSupport(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Feature")] [NativeName(NativeNameType.Type, "DXGI_FEATURE")] DxgiFeature feature, [NativeName(NativeNameType.Param, "pFeatureSupportData")] [NativeName(NativeNameType.Type, "void*")] void* pFeatureSupportData, [NativeName(NativeNameType.Param, "FeatureSupportDataSize")] [NativeName(NativeNameType.Type, "UINT")] uint featureSupportDataSize) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, DxgiFeature, void*, uint, int>)(handle->LpVtbl[28]))(handle, feature, pFeatureSupportData, featureSupportDataSize);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckFeatureSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckFeatureSupport<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Feature")] [NativeName(NativeNameType.Type, "DXGI_FEATURE")] DxgiFeature feature, [NativeName(NativeNameType.Param, "pFeatureSupportData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pFeatureSupportData, [NativeName(NativeNameType.Param, "FeatureSupportDataSize")] [NativeName(NativeNameType.Type, "UINT")] uint featureSupportDataSize) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, DxgiFeature, void*, uint, int>)(handle->LpVtbl[28]))(handle, feature, (void*)pFeatureSupportData.Handle, featureSupportDataSize);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapterByGpuPreference")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapterByGpuPreference(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Adapter")] [NativeName(NativeNameType.Type, "UINT")] uint adapter, [NativeName(NativeNameType.Param, "GpuPreference")] [NativeName(NativeNameType.Type, "DXGI_GPU_PREFERENCE")] DxgiGpuPreference gpuPreference, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] void** ppvAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, DxgiGpuPreference, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, adapter, gpuPreference, riid, ppvAdapter);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapterByGpuPreference")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapterByGpuPreference(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Adapter")] [NativeName(NativeNameType.Type, "UINT")] uint adapter, [NativeName(NativeNameType.Param, "GpuPreference")] [NativeName(NativeNameType.Type, "DXGI_GPU_PREFERENCE")] DxgiGpuPreference gpuPreference, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] void** ppvAdapter) 
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, DxgiGpuPreference, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, adapter, gpuPreference, (Guid*)priid, ppvAdapter);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapterByGpuPreference")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapterByGpuPreference<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Adapter")] [NativeName(NativeNameType.Type, "UINT")] uint adapter, [NativeName(NativeNameType.Param, "GpuPreference")] [NativeName(NativeNameType.Type, "DXGI_GPU_PREFERENCE")] DxgiGpuPreference gpuPreference, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			ppvAdapter = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, DxgiGpuPreference, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, adapter, gpuPreference, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvAdapter.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumAdapterByGpuPreference")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumAdapterByGpuPreference<T>(this ComPtr<IDXGIFactory6> comObj, [NativeName(NativeNameType.Param, "Adapter")] [NativeName(NativeNameType.Type, "UINT")] uint adapter, [NativeName(NativeNameType.Param, "GpuPreference")] [NativeName(NativeNameType.Type, "DXGI_GPU_PREFERENCE")] DxgiGpuPreference gpuPreference, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvAdapter")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
-		{
-			IDXGIFactory6* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvAdapter = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory6*, uint, DxgiGpuPreference, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, adapter, gpuPreference, (Guid*)priid, (void**)ppvAdapter.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static uint GetCreationFlags(this ComPtr<IDXGIFactory7> comObj) 
 		{
 			IDXGIFactory7* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, uint>)(handle->LpVtbl[25]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int EnumAdapterByLuid(this ComPtr<IDXGIFactory7> comObj, Luid adapterLuid, Guid* riid, void** ppvAdapter) 
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, riid, ppvAdapter);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumAdapterByLuid(this ComPtr<IDXGIFactory7> comObj, Luid adapterLuid, ref Guid riid, void** ppvAdapter) 
 		{
 			IDXGIFactory7* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)priid, ppvAdapter);
 				return ret;
 			}
 		}
@@ -4825,28 +1255,221 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int EnumAdapterByLuid<T>(this ComPtr<IDXGIFactory7> comObj, Luid adapterLuid, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIFactory7* handle = comObj.Handle;
+			ppvAdapter = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvAdapter.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumAdapterByLuid<T>(this ComPtr<IDXGIFactory7> comObj, Luid adapterLuid, ref Guid riid, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvAdapter = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Luid, Guid*, void**, int>)(handle->LpVtbl[26]))(handle, adapterLuid, (Guid*)priid, (void**)ppvAdapter.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumWarpAdapter(this ComPtr<IDXGIFactory7> comObj, Guid* riid, void** ppvAdapter) 
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, riid, ppvAdapter);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumWarpAdapter(this ComPtr<IDXGIFactory7> comObj, ref Guid riid, void** ppvAdapter) 
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (Guid*)priid, ppvAdapter);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumWarpAdapter<T>(this ComPtr<IDXGIFactory7> comObj, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			ppvAdapter = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvAdapter.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumWarpAdapter<T>(this ComPtr<IDXGIFactory7> comObj, ref Guid riid, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvAdapter = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (Guid*)priid, (void**)ppvAdapter.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckFeatureSupport(this ComPtr<IDXGIFactory7> comObj, Feature feature, void* pFeatureSupportData, uint featureSupportDataSize) 
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Feature, void*, uint, int>)(handle->LpVtbl[28]))(handle, feature, pFeatureSupportData, featureSupportDataSize);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckFeatureSupport<T>(this ComPtr<IDXGIFactory7> comObj, Feature feature, ComPtr<T> pFeatureSupportData, uint featureSupportDataSize) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Feature, void*, uint, int>)(handle->LpVtbl[28]))(handle, feature, (void*)pFeatureSupportData.Handle, featureSupportDataSize);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumAdapterByGpuPreference(this ComPtr<IDXGIFactory7> comObj, uint adapter, GpuPreference gpuPreference, Guid* riid, void** ppvAdapter) 
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, uint, GpuPreference, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, adapter, gpuPreference, riid, ppvAdapter);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumAdapterByGpuPreference(this ComPtr<IDXGIFactory7> comObj, uint adapter, GpuPreference gpuPreference, ref Guid riid, void** ppvAdapter) 
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, uint, GpuPreference, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, adapter, gpuPreference, (Guid*)priid, ppvAdapter);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumAdapterByGpuPreference<T>(this ComPtr<IDXGIFactory7> comObj, uint adapter, GpuPreference gpuPreference, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			ppvAdapter = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, uint, GpuPreference, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, adapter, gpuPreference, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvAdapter.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int EnumAdapterByGpuPreference<T>(this ComPtr<IDXGIFactory7> comObj, uint adapter, GpuPreference gpuPreference, ref Guid riid, out ComPtr<T> ppvAdapter) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvAdapter = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, uint, GpuPreference, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, adapter, gpuPreference, (Guid*)priid, (void**)ppvAdapter.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int RegisterAdaptersChangedEvent(this ComPtr<IDXGIFactory7> comObj, nint hEvent, uint* pdwCookie) 
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, uint*, int>)(handle->LpVtbl[30]))(handle, hEvent, pdwCookie);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int RegisterAdaptersChangedEvent(this ComPtr<IDXGIFactory7> comObj, nint hEvent, ref uint pdwCookie) 
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			fixed (uint* ppdwCookie = &pdwCookie)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, nint, uint*, int>)(handle->LpVtbl[30]))(handle, hEvent, (uint*)ppdwCookie);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int UnregisterAdaptersChangedEvent(this ComPtr<IDXGIFactory7> comObj, uint dwCookie) 
+		{
+			IDXGIFactory7* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, uint, int>)(handle->LpVtbl[31]))(handle, dwCookie);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<IDXGIInfoQueue> comObj, Guid* riid, void** ppvObject) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<IDXGIInfoQueue> comObj, ref Guid riid, void** ppvObject) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<IDXGIInfoQueue> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<IDXGIInfoQueue> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
-			IDXGIFactory7* handle = comObj.Handle;
+			IDXGIInfoQueue* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4854,50 +1477,61 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint AddRef(this ComPtr<IDXGIFactory7> comObj) 
+		public static uint AddRef(this ComPtr<IDXGIInfoQueue> comObj) 
 		{
-			IDXGIFactory7* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, uint>)(handle->LpVtbl[1]))(handle);
+			IDXGIInfoQueue* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, uint>)(handle->LpVtbl[1]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint Release(this ComPtr<IDXGIFactory7> comObj) 
+		public static uint Release(this ComPtr<IDXGIInfoQueue> comObj) 
 		{
-			IDXGIFactory7* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, uint>)(handle->LpVtbl[2]))(handle);
+			IDXGIInfoQueue* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, uint>)(handle->LpVtbl[2]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetMessageCountLimit(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ulong messageCountLimit) 
 		{
-			IDXGIFactory7* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, name, dataSize, pData);
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, int>)(handle->LpVtbl[3]))(handle, producer, messageCountLimit);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static void ClearStoredMessages(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
 		{
-			IDXGIFactory7* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
+			IDXGIInfoQueue* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, void>)(handle->LpVtbl[4]))(handle, producer);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetMessageA(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ulong messageIndex, InfoQueueMessage* pMessage, nuint* pMessageByteLength) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(handle->LpVtbl[5]))(handle, producer, messageIndex, pMessage, pMessageByteLength);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetMessageA(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ulong messageIndex, ref InfoQueueMessage pMessage, nuint* pMessageByteLength) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (InfoQueueMessage* ppMessage = &pMessage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, uint, void*, int>)(handle->LpVtbl[3]))(handle, (Guid*)pname, dataSize, pData);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(handle->LpVtbl[5]))(handle, producer, messageIndex, (InfoQueueMessage*)ppMessage, pMessageByteLength);
 				return ret;
 			}
 		}
@@ -4905,26 +1539,12 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
+		public static int GetMessageA(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ulong messageIndex, InfoQueueMessage* pMessage, ref nuint pMessageByteLength) 
 		{
-			IDXGIFactory7* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, pUnknown);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pUnknown) 
-		{
-			IDXGIFactory7* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, pUnknown);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(handle->LpVtbl[5]))(handle, producer, messageIndex, pMessage, (nuint*)ppMessageByteLength);
 				return ret;
 			}
 		}
@@ -4932,43 +1552,14 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
+		public static int GetMessageA(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ulong messageIndex, ref InfoQueueMessage pMessage, ref nuint pMessageByteLength) 
 		{
-			IDXGIFactory7* handle = comObj.Handle;
-			fixed (IUnknown* ppUnknown = &pUnknown)
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (InfoQueueMessage* ppMessage = &pMessage)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)ppUnknown);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
-		{
-			IDXGIFactory7* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, name, (IUnknown*)pUnknown.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pUnknown) 
-		{
-			IDXGIFactory7* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
-			{
-				fixed (IUnknown* ppUnknown = &pUnknown)
+				fixed (nuint* ppMessageByteLength = &pMessageByteLength)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)ppUnknown);
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong, InfoQueueMessage*, nuint*, int>)(handle->LpVtbl[5]))(handle, producer, messageIndex, (InfoQueueMessage*)ppMessage, (nuint*)ppMessageByteLength);
 					return ret;
 				}
 			}
@@ -4977,41 +1568,82 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pUnknown")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pUnknown) 
+		public static ulong GetNumStoredMessagesAllowedByRetrievalFilters(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
 		{
-			IDXGIFactory7* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, IUnknown*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pname, (IUnknown*)pUnknown.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			IDXGIFactory7* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, pDataSize, pData);
+			IDXGIInfoQueue* handle = comObj.Handle;
+			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(handle->LpVtbl[6]))(handle, producer);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static ulong GetNumStoredMessages(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
 		{
-			IDXGIFactory7* handle = comObj.Handle;
-			fixed (Guid* pname = &name)
+			IDXGIInfoQueue* handle = comObj.Handle;
+			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(handle->LpVtbl[7]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static ulong GetNumMessagesDiscardedByMessageCountLimit(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(handle->LpVtbl[8]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static ulong GetMessageCountLimit(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(handle->LpVtbl[9]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static ulong GetNumMessagesAllowedByStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(handle->LpVtbl[10]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static ulong GetNumMessagesDeniedByStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			ulong ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, ulong>)(handle->LpVtbl[11]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int AddStorageFilterEntries(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueFilter* pFilter) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(handle->LpVtbl[12]))(handle, producer, pFilter);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int AddStorageFilterEntries(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ref InfoQueueFilter pFilter) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pname, pDataSize, pData);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(handle->LpVtbl[12]))(handle, producer, (InfoQueueFilter*)ppFilter);
 				return ret;
 			}
 		}
@@ -5019,16 +1651,662 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<IDXGIFactory7> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* name, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
 		{
-			IDXGIFactory7* handle = comObj.Handle;
-			fixed (uint* ppDataSize = &pDataSize)
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, producer, pFilter, pFilterByteLength);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGIFactory7*, Guid*, uint*, void*, int>)(handle->LpVtbl[5]))(handle, name, (uint*)ppDataSize, pData);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, producer, (InfoQueueFilter*)ppFilter, pFilterByteLength);
 				return ret;
 			}
 		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, producer, pFilter, (nuint*)ppFilterByteLength);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
+			{
+				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, producer, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, void>)(handle->LpVtbl[14]))(handle, producer);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int PushEmptyStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(handle->LpVtbl[15]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int PushDenyAllStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(handle->LpVtbl[16]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int PushCopyOfStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(handle->LpVtbl[17]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int PushStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueFilter* pFilter) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(handle->LpVtbl[18]))(handle, producer, pFilter);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int PushStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ref InfoQueueFilter pFilter) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(handle->LpVtbl[18]))(handle, producer, (InfoQueueFilter*)ppFilter);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PopStorageFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, void>)(handle->LpVtbl[19]))(handle, producer);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint GetStorageFilterStackSize(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, uint>)(handle->LpVtbl[20]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int AddRetrievalFilterEntries(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueFilter* pFilter) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(handle->LpVtbl[21]))(handle, producer, pFilter);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int AddRetrievalFilterEntries(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ref InfoQueueFilter pFilter) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(handle->LpVtbl[21]))(handle, producer, (InfoQueueFilter*)ppFilter);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetRetrievalFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueFilter* pFilter, nuint* pFilterByteLength) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[22]))(handle, producer, pFilter, pFilterByteLength);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetRetrievalFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ref InfoQueueFilter pFilter, nuint* pFilterByteLength) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[22]))(handle, producer, (InfoQueueFilter*)ppFilter, pFilterByteLength);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetRetrievalFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueFilter* pFilter, ref nuint pFilterByteLength) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[22]))(handle, producer, pFilter, (nuint*)ppFilterByteLength);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetRetrievalFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ref InfoQueueFilter pFilter, ref nuint pFilterByteLength) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
+			{
+				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[22]))(handle, producer, (InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearRetrievalFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, void>)(handle->LpVtbl[23]))(handle, producer);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int PushEmptyRetrievalFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(handle->LpVtbl[24]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int PushDenyAllRetrievalFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(handle->LpVtbl[25]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int PushCopyOfRetrievalFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(handle->LpVtbl[26]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int PushRetrievalFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueFilter* pFilter) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(handle->LpVtbl[27]))(handle, producer, pFilter);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int PushRetrievalFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, ref InfoQueueFilter pFilter) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (InfoQueueFilter* ppFilter = &pFilter)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueFilter*, int>)(handle->LpVtbl[27]))(handle, producer, (InfoQueueFilter*)ppFilter);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PopRetrievalFilter(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, void>)(handle->LpVtbl[28]))(handle, producer);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint GetRetrievalFilterStackSize(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, uint>)(handle->LpVtbl[29]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int AddMessage(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, byte* pDescription) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, int>)(handle->LpVtbl[30]))(handle, producer, category, severity, id, pDescription);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int AddMessage(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, ReadOnlySpan<byte> pDescription) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (byte* ppDescription = pDescription)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, int>)(handle->LpVtbl[30]))(handle, producer, category, severity, id, (byte*)ppDescription);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int AddMessage(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueMessageCategory category, InfoQueueMessageSeverity severity, int id, string pDescription) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pDescription != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(pDescription);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, InfoQueueMessageSeverity, int, byte*, int>)(handle->LpVtbl[30]))(handle, producer, category, severity, id, pStr0);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int AddApplicationMessage(this ComPtr<IDXGIInfoQueue> comObj, InfoQueueMessageSeverity severity, byte* pDescription) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, int>)(handle->LpVtbl[31]))(handle, severity, pDescription);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int AddApplicationMessage(this ComPtr<IDXGIInfoQueue> comObj, InfoQueueMessageSeverity severity, ReadOnlySpan<byte> pDescription) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			fixed (byte* ppDescription = pDescription)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, int>)(handle->LpVtbl[31]))(handle, severity, (byte*)ppDescription);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int AddApplicationMessage(this ComPtr<IDXGIInfoQueue> comObj, InfoQueueMessageSeverity severity, string pDescription) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pDescription != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(pDescription);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, InfoQueueMessageSeverity, byte*, int>)(handle->LpVtbl[31]))(handle, severity, pStr0);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetBreakOnCategory(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueMessageCategory category, int bEnable) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, int, int>)(handle->LpVtbl[32]))(handle, producer, category, bEnable);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetBreakOnSeverity(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueMessageSeverity severity, int bEnable) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageSeverity, int, int>)(handle->LpVtbl[33]))(handle, producer, severity, bEnable);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetBreakOnID(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, int id, int bEnable) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int, int, int>)(handle->LpVtbl[34]))(handle, producer, id, bEnable);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetBreakOnCategory(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueMessageCategory category) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageCategory, int>)(handle->LpVtbl[35]))(handle, producer, category);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetBreakOnSeverity(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, InfoQueueMessageSeverity severity) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, InfoQueueMessageSeverity, int>)(handle->LpVtbl[36]))(handle, producer, severity);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetBreakOnID(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, int id) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int, int>)(handle->LpVtbl[37]))(handle, producer, id);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SetMuteDebugOutput(this ComPtr<IDXGIInfoQueue> comObj, Guid producer, int bMute) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int, void>)(handle->LpVtbl[38]))(handle, producer, bMute);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetMuteDebugOutput(this ComPtr<IDXGIInfoQueue> comObj, Guid producer) 
+		{
+			IDXGIInfoQueue* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIInfoQueue*, Guid, int>)(handle->LpVtbl[39]))(handle, producer);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<IDXGIDebug> comObj, Guid* riid, void** ppvObject) 
+		{
+			IDXGIDebug* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<IDXGIDebug> comObj, ref Guid riid, void** ppvObject) 
+		{
+			IDXGIDebug* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<IDXGIDebug> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIDebug* handle = comObj.Handle;
+			ppvObject = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<IDXGIDebug> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIDebug* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvObject = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint AddRef(this ComPtr<IDXGIDebug> comObj) 
+		{
+			IDXGIDebug* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug*, uint>)(handle->LpVtbl[1]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint Release(this ComPtr<IDXGIDebug> comObj) 
+		{
+			IDXGIDebug* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug*, uint>)(handle->LpVtbl[2]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int ReportLiveObjects(this ComPtr<IDXGIDebug> comObj, Guid apiid, DebugRloFlags flags) 
+		{
+			IDXGIDebug* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug*, Guid, DebugRloFlags, int>)(handle->LpVtbl[3]))(handle, apiid, flags);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<IDXGIDebug1> comObj, Guid* riid, void** ppvObject) 
+		{
+			IDXGIDebug1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<IDXGIDebug1> comObj, ref Guid riid, void** ppvObject) 
+		{
+			IDXGIDebug1* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<IDXGIDebug1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIDebug1* handle = comObj.Handle;
+			ppvObject = default;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<IDXGIDebug1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			IDXGIDebug1* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvObject = default;
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint AddRef(this ComPtr<IDXGIDebug1> comObj) 
+		{
+			IDXGIDebug1* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug1*, uint>)(handle->LpVtbl[1]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint Release(this ComPtr<IDXGIDebug1> comObj) 
+		{
+			IDXGIDebug1* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug1*, uint>)(handle->LpVtbl[2]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int ReportLiveObjects(this ComPtr<IDXGIDebug1> comObj, Guid apiid, DebugRloFlags flags) 
+		{
+			IDXGIDebug1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug1*, Guid, DebugRloFlags, int>)(handle->LpVtbl[3]))(handle, apiid, flags);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EnableLeakTrackingForThread(this ComPtr<IDXGIDebug1> comObj) 
+		{
+			IDXGIDebug1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<IDXGIDebug1*, void>)(handle->LpVtbl[4]))(handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DisableLeakTrackingForThread(this ComPtr<IDXGIDebug1> comObj) 
+		{
+			IDXGIDebug1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<IDXGIDebug1*, void>)(handle->LpVtbl[5]))(handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int IsLeakTrackingEnabledForThread(this ComPtr<IDXGIDebug1> comObj) 
+		{
+			IDXGIDebug1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDebug1*, int>)(handle->LpVtbl[6]))(handle);
+			return ret;
+		}
+
 	}
 }

@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// {CAC701EE-80FC-4122-8242-10B39C8CEC34}<br/>
 	/// </summary>
 	[Guid("cac701ee-80fc-4122-8242-10b39c8cec34")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D11Module")]
 	public partial struct ID3D11Module : IComObject, IComObject<ID3D11Module>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public readonly unsafe int QueryInterface(Guid* iid, ref void* ppv) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppv = &ppv)
@@ -132,9 +117,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public readonly unsafe int QueryInterface(ref Guid iid, ref void* ppv) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -150,9 +133,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateInstance([NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ID3D11ModuleInstance** ppModuleInstance) 
+		public readonly unsafe int CreateInstance(byte* pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(LpVtbl[4]))(ptr, pNamespace, ppModuleInstance);
@@ -162,9 +143,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateInstance([NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ID3D11ModuleInstance** ppModuleInstance) 
+		public readonly unsafe int CreateInstance(ReadOnlySpan<byte> pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppNamespace = pNamespace)
@@ -177,9 +156,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateInstance([NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ID3D11ModuleInstance** ppModuleInstance) 
+		public readonly unsafe int CreateInstance(string pNamespace, ID3D11ModuleInstance** ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -210,9 +187,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateInstance([NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ref ID3D11ModuleInstance* ppModuleInstance) 
+		public readonly unsafe int CreateInstance(byte* pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
@@ -225,9 +200,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateInstance([NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] out ComPtr<ID3D11ModuleInstance> ppModuleInstance) 
+		public readonly unsafe int CreateInstance(byte* pNamespace, out ComPtr<ID3D11ModuleInstance> ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppModuleInstance = default;
@@ -238,9 +211,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateInstance([NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ref ID3D11ModuleInstance* ppModuleInstance) 
+		public readonly unsafe int CreateInstance(ReadOnlySpan<byte> pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppNamespace = pNamespace)
@@ -256,9 +227,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateInstance([NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ref ID3D11ModuleInstance* ppModuleInstance) 
+		public readonly unsafe int CreateInstance(string pNamespace, ref ID3D11ModuleInstance* ppModuleInstance) 
 		{
 			ID3D11Module* ptr = (ID3D11Module*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;

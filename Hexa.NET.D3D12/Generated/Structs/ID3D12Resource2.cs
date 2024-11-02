@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("be36ec3b-ea85-4aeb-a45a-e9d76404a495")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12Resource2")]
 	public partial struct ID3D12Resource2 : IComObject, IComObject<ID3D12Resource2>, IComObject<ID3D12Resource1>, IComObject<ID3D12Resource>, IComObject<ID3D12Pageable>, IComObject<ID3D12DeviceChild>, IComObject<ID3D12Object>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, pData);
@@ -129,9 +114,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -144,9 +127,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -159,9 +140,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -177,9 +156,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, (void*)pData.Handle);
@@ -189,9 +166,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -204,9 +179,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -219,9 +192,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -237,9 +208,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, uint, void*, int>)(LpVtbl[4]))(ptr, guid, dataSize, pData);
@@ -249,9 +218,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -264,9 +231,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, pData);
@@ -276,9 +241,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -291,9 +254,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
@@ -306,9 +267,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, (IUnknown*)pData.Handle);
@@ -318,9 +277,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -336,9 +293,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -351,9 +306,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name) 
+		public readonly unsafe int SetName(char* name) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, char*, int>)(LpVtbl[6]))(ptr, name);
@@ -363,9 +316,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name) 
+		public readonly unsafe int SetName(ReadOnlySpan<char> name) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* pname = name)
@@ -378,9 +329,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name) 
+		public readonly unsafe int SetName(string name) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -411,9 +360,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppvDevice) 
+		public readonly unsafe int GetDevice(Guid* riid, void** ppvDevice) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(LpVtbl[7]))(ptr, riid, ppvDevice);
@@ -423,9 +370,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppvDevice) 
+		public readonly unsafe int GetDevice(ref Guid riid, void** ppvDevice) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -438,9 +383,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice<T>([NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetDevice<T>(out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvDevice = default;
@@ -451,9 +394,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetDevice<T>(ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -467,26 +408,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Map([NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "pReadRange")] [NativeName(NativeNameType.Type, "const D3D12_RANGE*")] D3D12Range* pReadRange, [NativeName(NativeNameType.Param, "ppData")] [NativeName(NativeNameType.Type, "void**")] void** ppData) 
+		public readonly unsafe int Map(uint subresource, Range* pReadRange, void** ppData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, D3D12Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, pReadRange, ppData);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, pReadRange, ppData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Map([NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "pReadRange")] [NativeName(NativeNameType.Type, "const D3D12_RANGE*")] ref D3D12Range pReadRange, [NativeName(NativeNameType.Param, "ppData")] [NativeName(NativeNameType.Type, "void**")] void** ppData) 
+		public readonly unsafe int Map(uint subresource, ref Range pReadRange, void** ppData) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12Range* ppReadRange = &pReadRange)
+			fixed (Range* ppReadRange = &pReadRange)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, D3D12Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, (D3D12Range*)ppReadRange, ppData);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, (Range*)ppReadRange, ppData);
 				return ret;
 			}
 		}
@@ -494,28 +431,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Map<T>([NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "pReadRange")] [NativeName(NativeNameType.Type, "const D3D12_RANGE*")] D3D12Range* pReadRange, [NativeName(NativeNameType.Param, "ppData")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int Map<T>(uint subresource, Range* pReadRange, out ComPtr<T> ppData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppData = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, D3D12Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, pReadRange, (void**)ppData.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, pReadRange, (void**)ppData.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Map")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Map<T>([NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "pReadRange")] [NativeName(NativeNameType.Type, "const D3D12_RANGE*")] ref D3D12Range pReadRange, [NativeName(NativeNameType.Param, "ppData")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int Map<T>(uint subresource, ref Range pReadRange, out ComPtr<T> ppData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12Range* ppReadRange = &pReadRange)
+			fixed (Range* ppReadRange = &pReadRange)
 			{
 				ppData = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, D3D12Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, (D3D12Range*)ppReadRange, (void**)ppData.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void**, int>)(LpVtbl[8]))(ptr, subresource, (Range*)ppReadRange, (void**)ppData.GetAddressOf());
 				return ret;
 			}
 		}
@@ -523,45 +456,37 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Unmap")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Unmap([NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "pWrittenRange")] [NativeName(NativeNameType.Type, "const D3D12_RANGE*")] D3D12Range* pWrittenRange) 
+		public readonly unsafe void Unmap(uint subresource, Range* pWrittenRange) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, D3D12Range*, void>)(LpVtbl[9]))(ptr, subresource, pWrittenRange);
+			((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void>)(LpVtbl[9]))(ptr, subresource, pWrittenRange);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Unmap")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public readonly unsafe void Unmap([NativeName(NativeNameType.Param, "Subresource")] [NativeName(NativeNameType.Type, "UINT")] uint subresource, [NativeName(NativeNameType.Param, "pWrittenRange")] [NativeName(NativeNameType.Type, "const D3D12_RANGE*")] ref D3D12Range pWrittenRange) 
+		public readonly unsafe void Unmap(uint subresource, ref Range pWrittenRange) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12Range* ppWrittenRange = &pWrittenRange)
+			fixed (Range* ppWrittenRange = &pWrittenRange)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, D3D12Range*, void>)(LpVtbl[9]))(ptr, subresource, (D3D12Range*)ppWrittenRange);
+				((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Range*, void>)(LpVtbl[9]))(ptr, subresource, (Range*)ppWrittenRange);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_DESC")]
-		public readonly unsafe D3D12ResourceDesc GetDesc() 
+		public readonly unsafe ResourceDesc GetDesc() 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			D3D12ResourceDesc ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, D3D12ResourceDesc>)(LpVtbl[10]))(ptr);
+			ResourceDesc ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, ResourceDesc>)(LpVtbl[10]))(ptr);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGPUVirtualAddress")]
-		[return: NativeName(NativeNameType.Type, "D3D12_GPU_VIRTUAL_ADDRESS")]
 		public readonly unsafe ulong GetGPUVirtualAddress() 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -572,26 +497,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "WriteToSubresource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int WriteToSubresource([NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D12_BOX*")] D3D12Box* pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch) 
+		public readonly unsafe int WriteToSubresource(uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, D3D12Box*, void*, uint, uint, int>)(LpVtbl[12]))(ptr, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Box*, void*, uint, uint, int>)(LpVtbl[12]))(ptr, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "WriteToSubresource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int WriteToSubresource([NativeName(NativeNameType.Param, "DstSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint dstSubresource, [NativeName(NativeNameType.Param, "pDstBox")] [NativeName(NativeNameType.Type, "const D3D12_BOX*")] ref D3D12Box pDstBox, [NativeName(NativeNameType.Param, "pSrcData")] [NativeName(NativeNameType.Type, "const void*")] void* pSrcData, [NativeName(NativeNameType.Param, "SrcRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcRowPitch, [NativeName(NativeNameType.Param, "SrcDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint srcDepthPitch) 
+		public readonly unsafe int WriteToSubresource(uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12Box* ppDstBox = &pDstBox)
+			fixed (Box* ppDstBox = &pDstBox)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, D3D12Box*, void*, uint, uint, int>)(LpVtbl[12]))(ptr, dstSubresource, (D3D12Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, uint, Box*, void*, uint, uint, int>)(LpVtbl[12]))(ptr, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
 				return ret;
 			}
 		}
@@ -599,38 +520,32 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReadFromSubresource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ReadFromSubresource([NativeName(NativeNameType.Param, "pDstData")] [NativeName(NativeNameType.Type, "void*")] void* pDstData, [NativeName(NativeNameType.Param, "DstRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint dstRowPitch, [NativeName(NativeNameType.Param, "DstDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint dstDepthPitch, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D12_BOX*")] D3D12Box* pSrcBox) 
+		public readonly unsafe int ReadFromSubresource(void* pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, Box* pSrcBox) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, D3D12Box*, int>)(LpVtbl[13]))(ptr, pDstData, dstRowPitch, dstDepthPitch, srcSubresource, pSrcBox);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, int>)(LpVtbl[13]))(ptr, pDstData, dstRowPitch, dstDepthPitch, srcSubresource, pSrcBox);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReadFromSubresource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ReadFromSubresource<T>([NativeName(NativeNameType.Param, "pDstData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pDstData, [NativeName(NativeNameType.Param, "DstRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint dstRowPitch, [NativeName(NativeNameType.Param, "DstDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint dstDepthPitch, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D12_BOX*")] D3D12Box* pSrcBox) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int ReadFromSubresource<T>(ComPtr<T> pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, Box* pSrcBox) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, D3D12Box*, int>)(LpVtbl[13]))(ptr, (void*)pDstData.Handle, dstRowPitch, dstDepthPitch, srcSubresource, pSrcBox);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, int>)(LpVtbl[13]))(ptr, (void*)pDstData.Handle, dstRowPitch, dstDepthPitch, srcSubresource, pSrcBox);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReadFromSubresource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ReadFromSubresource([NativeName(NativeNameType.Param, "pDstData")] [NativeName(NativeNameType.Type, "void*")] void* pDstData, [NativeName(NativeNameType.Param, "DstRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint dstRowPitch, [NativeName(NativeNameType.Param, "DstDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint dstDepthPitch, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D12_BOX*")] ref D3D12Box pSrcBox) 
+		public readonly unsafe int ReadFromSubresource(void* pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, ref Box pSrcBox) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12Box* ppSrcBox = &pSrcBox)
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, D3D12Box*, int>)(LpVtbl[13]))(ptr, pDstData, dstRowPitch, dstDepthPitch, srcSubresource, (D3D12Box*)ppSrcBox);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, int>)(LpVtbl[13]))(ptr, pDstData, dstRowPitch, dstDepthPitch, srcSubresource, (Box*)ppSrcBox);
 				return ret;
 			}
 		}
@@ -638,14 +553,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReadFromSubresource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ReadFromSubresource<T>([NativeName(NativeNameType.Param, "pDstData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pDstData, [NativeName(NativeNameType.Param, "DstRowPitch")] [NativeName(NativeNameType.Type, "UINT")] uint dstRowPitch, [NativeName(NativeNameType.Param, "DstDepthPitch")] [NativeName(NativeNameType.Type, "UINT")] uint dstDepthPitch, [NativeName(NativeNameType.Param, "SrcSubresource")] [NativeName(NativeNameType.Type, "UINT")] uint srcSubresource, [NativeName(NativeNameType.Param, "pSrcBox")] [NativeName(NativeNameType.Type, "const D3D12_BOX*")] ref D3D12Box pSrcBox) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int ReadFromSubresource<T>(ComPtr<T> pDstData, uint dstRowPitch, uint dstDepthPitch, uint srcSubresource, ref Box pSrcBox) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12Box* ppSrcBox = &pSrcBox)
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, D3D12Box*, int>)(LpVtbl[13]))(ptr, (void*)pDstData.Handle, dstRowPitch, dstDepthPitch, srcSubresource, (D3D12Box*)ppSrcBox);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, void*, uint, uint, uint, Box*, int>)(LpVtbl[13]))(ptr, (void*)pDstData.Handle, dstRowPitch, dstDepthPitch, srcSubresource, (Box*)ppSrcBox);
 				return ret;
 			}
 		}
@@ -653,26 +566,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetHeapProperties")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetHeapProperties([NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "pHeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS*")] D3D12HeapFlags* pHeapFlags) 
+		public readonly unsafe int GetHeapProperties(HeapProperties* pHeapProperties, HeapFlags* pHeapFlags) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, D3D12HeapProperties*, D3D12HeapFlags*, int>)(LpVtbl[14]))(ptr, pHeapProperties, pHeapFlags);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, int>)(LpVtbl[14]))(ptr, pHeapProperties, pHeapFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetHeapProperties")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetHeapProperties([NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "pHeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS*")] D3D12HeapFlags* pHeapFlags) 
+		public readonly unsafe int GetHeapProperties(ref HeapProperties pHeapProperties, HeapFlags* pHeapFlags) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, D3D12HeapProperties*, D3D12HeapFlags*, int>)(LpVtbl[14]))(ptr, (D3D12HeapProperties*)ppHeapProperties, pHeapFlags);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, int>)(LpVtbl[14]))(ptr, (HeapProperties*)ppHeapProperties, pHeapFlags);
 				return ret;
 			}
 		}
@@ -680,14 +589,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetHeapProperties")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetHeapProperties([NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "pHeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS*")] ref D3D12HeapFlags pHeapFlags) 
+		public readonly unsafe int GetHeapProperties(HeapProperties* pHeapProperties, ref HeapFlags pHeapFlags) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12HeapFlags* ppHeapFlags = &pHeapFlags)
+			fixed (HeapFlags* ppHeapFlags = &pHeapFlags)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, D3D12HeapProperties*, D3D12HeapFlags*, int>)(LpVtbl[14]))(ptr, pHeapProperties, (D3D12HeapFlags*)ppHeapFlags);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, int>)(LpVtbl[14]))(ptr, pHeapProperties, (HeapFlags*)ppHeapFlags);
 				return ret;
 			}
 		}
@@ -695,16 +602,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetHeapProperties")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetHeapProperties([NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "pHeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS*")] ref D3D12HeapFlags pHeapFlags) 
+		public readonly unsafe int GetHeapProperties(ref HeapProperties pHeapProperties, ref HeapFlags pHeapFlags) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12HeapFlags* ppHeapFlags = &pHeapFlags)
+				fixed (HeapFlags* ppHeapFlags = &pHeapFlags)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, D3D12HeapProperties*, D3D12HeapFlags*, int>)(LpVtbl[14]))(ptr, (D3D12HeapProperties*)ppHeapProperties, (D3D12HeapFlags*)ppHeapFlags);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, HeapProperties*, HeapFlags*, int>)(LpVtbl[14]))(ptr, (HeapProperties*)ppHeapProperties, (HeapFlags*)ppHeapFlags);
 					return ret;
 				}
 			}
@@ -713,9 +618,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetProtectedResourceSession([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppProtectedSession")] [NativeName(NativeNameType.Type, "void**")] void** ppProtectedSession) 
+		public readonly unsafe int GetProtectedResourceSession(Guid* riid, void** ppProtectedSession) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, Guid*, void**, int>)(LpVtbl[15]))(ptr, riid, ppProtectedSession);
@@ -725,9 +628,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetProtectedResourceSession([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppProtectedSession")] [NativeName(NativeNameType.Type, "void**")] void** ppProtectedSession) 
+		public readonly unsafe int GetProtectedResourceSession(ref Guid riid, void** ppProtectedSession) 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -740,9 +641,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetProtectedResourceSession<T>([NativeName(NativeNameType.Param, "ppProtectedSession")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppProtectedSession) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetProtectedResourceSession<T>(out ComPtr<T> ppProtectedSession) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppProtectedSession = default;
@@ -753,9 +652,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetProtectedResourceSession<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppProtectedSession")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppProtectedSession) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetProtectedResourceSession<T>(ref Guid riid, out ComPtr<T> ppProtectedSession) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -769,12 +666,10 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc1")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_DESC1")]
-		public readonly unsafe D3D12ResourceDesc1 GetDesc1() 
+		public readonly unsafe ResourceDesc1 GetDesc1() 
 		{
 			ID3D12Resource2* ptr = (ID3D12Resource2*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			D3D12ResourceDesc1 ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, D3D12ResourceDesc1>)(LpVtbl[16]))(ptr);
+			ResourceDesc1 ret = ((delegate* unmanaged[Stdcall]<ID3D12Resource2*, ResourceDesc1>)(LpVtbl[16]))(ptr);
 			return ret;
 		}
 

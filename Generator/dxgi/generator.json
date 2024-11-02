@@ -6,12 +6,15 @@
   "EnableExperimentalOptions": true,
   "GenerateConstructorsForStructs": true,
   "GenerateSizeOfStructs": false,
-  "GenerateMetadata": true,
+  "GenerateMetadata": false,
+  "FunctionNamingConvention": "Unknown",
+  "ExtensionNamingConvention": "Unknown",
   "BoolType": 1,
   "NameMappings": {
     "PFN_DESTRUCTION_CALLBACK": "PfnDestructionCallback"
   },
   "TypeMappings": {
+    "_D3DCOLORVALUE": "ColorValue",
     "DXGI_USAGE": "uint",
     "RECT": "Rect32",
     "POINT": "Point32",

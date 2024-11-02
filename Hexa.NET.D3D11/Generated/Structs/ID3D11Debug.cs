@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// To be documented.
 	/// </summary>
 	[Guid("79cf2233-7536-4948-9d36-1e4692dc5760")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D11Debug")]
 	public partial struct ID3D11Debug : IComObject, IComObject<ID3D11Debug>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetFeatureMask")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetFeatureMask([NativeName(NativeNameType.Param, "Mask")] [NativeName(NativeNameType.Type, "UINT")] uint mask) 
+		public readonly unsafe int SetFeatureMask(uint mask) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, uint, int>)(LpVtbl[3]))(ptr, mask);
@@ -129,8 +114,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFeatureMask")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
 		public readonly unsafe uint GetFeatureMask() 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -141,9 +124,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPresentPerRenderOpDelay")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPresentPerRenderOpDelay([NativeName(NativeNameType.Param, "Milliseconds")] [NativeName(NativeNameType.Type, "UINT")] uint milliseconds) 
+		public readonly unsafe int SetPresentPerRenderOpDelay(uint milliseconds) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, uint, int>)(LpVtbl[5]))(ptr, milliseconds);
@@ -153,8 +134,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPresentPerRenderOpDelay")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
 		public readonly unsafe uint GetPresentPerRenderOpDelay() 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -165,9 +144,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetSwapChain([NativeName(NativeNameType.Param, "pSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain*")] IDXGISwapChain* pSwapChain) 
+		public readonly unsafe int SetSwapChain(IDXGISwapChain* pSwapChain) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, IDXGISwapChain*, int>)(LpVtbl[7]))(ptr, pSwapChain);
@@ -177,9 +154,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetSwapChain([NativeName(NativeNameType.Param, "pSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain*")] ref IDXGISwapChain pSwapChain) 
+		public readonly unsafe int SetSwapChain(ref IDXGISwapChain pSwapChain) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGISwapChain* ppSwapChain = &pSwapChain)
@@ -192,9 +167,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetSwapChain([NativeName(NativeNameType.Param, "pSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain*")] ComPtr<IDXGISwapChain> pSwapChain) 
+		public readonly unsafe int SetSwapChain(ComPtr<IDXGISwapChain> pSwapChain) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, IDXGISwapChain*, int>)(LpVtbl[7]))(ptr, (IDXGISwapChain*)pSwapChain.Handle);
@@ -204,9 +177,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSwapChain([NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] IDXGISwapChain** ppSwapChain) 
+		public readonly unsafe int GetSwapChain(IDXGISwapChain** ppSwapChain) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, IDXGISwapChain**, int>)(LpVtbl[8]))(ptr, ppSwapChain);
@@ -216,9 +187,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSwapChain([NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] ref IDXGISwapChain* ppSwapChain) 
+		public readonly unsafe int GetSwapChain(ref IDXGISwapChain* ppSwapChain) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDXGISwapChain** pppSwapChain = &ppSwapChain)
@@ -231,9 +200,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSwapChain")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSwapChain([NativeName(NativeNameType.Param, "ppSwapChain")] [NativeName(NativeNameType.Type, "IDXGISwapChain**")] out ComPtr<IDXGISwapChain> ppSwapChain) 
+		public readonly unsafe int GetSwapChain(out ComPtr<IDXGISwapChain> ppSwapChain) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppSwapChain = default;
@@ -244,9 +211,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ValidateContext")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ValidateContext([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext*")] ID3D11DeviceContext* pContext) 
+		public readonly unsafe int ValidateContext(ID3D11DeviceContext* pContext) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, ID3D11DeviceContext*, int>)(LpVtbl[9]))(ptr, pContext);
@@ -256,9 +221,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ValidateContext")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ValidateContext([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext*")] ref ID3D11DeviceContext pContext) 
+		public readonly unsafe int ValidateContext(ref ID3D11DeviceContext pContext) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DeviceContext* ppContext = &pContext)
@@ -271,9 +234,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ValidateContext")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ValidateContext([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext*")] ComPtr<ID3D11DeviceContext> pContext) 
+		public readonly unsafe int ValidateContext(ComPtr<ID3D11DeviceContext> pContext) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, ID3D11DeviceContext*, int>)(LpVtbl[9]))(ptr, (ID3D11DeviceContext*)pContext.Handle);
@@ -283,21 +244,17 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReportLiveDeviceObjects")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ReportLiveDeviceObjects([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D11_RLDO_FLAGS")] D3D11RldoFlags flags) 
+		public readonly unsafe int ReportLiveDeviceObjects(RldoFlags flags) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, D3D11RldoFlags, int>)(LpVtbl[10]))(ptr, flags);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, RldoFlags, int>)(LpVtbl[10]))(ptr, flags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ValidateContextForDispatch")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ValidateContextForDispatch([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext*")] ID3D11DeviceContext* pContext) 
+		public readonly unsafe int ValidateContextForDispatch(ID3D11DeviceContext* pContext) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, ID3D11DeviceContext*, int>)(LpVtbl[11]))(ptr, pContext);
@@ -307,9 +264,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ValidateContextForDispatch")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ValidateContextForDispatch([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext*")] ref ID3D11DeviceContext pContext) 
+		public readonly unsafe int ValidateContextForDispatch(ref ID3D11DeviceContext pContext) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11DeviceContext* ppContext = &pContext)
@@ -322,9 +277,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ValidateContextForDispatch")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ValidateContextForDispatch([NativeName(NativeNameType.Param, "pContext")] [NativeName(NativeNameType.Type, "ID3D11DeviceContext*")] ComPtr<ID3D11DeviceContext> pContext) 
+		public readonly unsafe int ValidateContextForDispatch(ComPtr<ID3D11DeviceContext> pContext) 
 		{
 			ID3D11Debug* ptr = (ID3D11Debug*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Debug*, ID3D11DeviceContext*, int>)(LpVtbl[11]))(ptr, (ID3D11DeviceContext*)pContext.Handle);

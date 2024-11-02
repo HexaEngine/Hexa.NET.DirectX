@@ -21,1103 +21,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppTargetProfile = pTargetProfile)
-				{
-					fixed (DxcDefine* ppDefines = &pDefines)
-					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pTargetProfile != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pTargetProfile);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				fixed (DxcDefine* ppDefines = &pDefines)
-				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppSourceName = pSourceName)
-			{
-				fixed (char* ppTargetProfile = pTargetProfile)
-				{
-					fixed (DxcDefine* ppDefines = &pDefines)
-					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pSourceName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			char* pStr1 = null;
-			int pStrSize1 = 0;
-			if (pTargetProfile != null)
-			{
-				pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-				}
-				else
-				{
-					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-					pStr1 = (char*)pStrStack1;
-				}
-				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
-				pStr1[pStrOffset1] = '\0';
-			}
-			fixed (DxcDefine* ppDefines = &pDefines)
-			{
-				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize1 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr1);
-							}
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppSourceName = pSourceName)
-				{
-					fixed (char* ppTargetProfile = pTargetProfile)
-					{
-						fixed (DxcDefine* ppDefines = &pDefines)
-						{
-							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-							{
-								fixed (char** pppDebugBlobName = &ppDebugBlobName)
-								{
-									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-										return ret;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pSourceName != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				char* pStr1 = null;
-				int pStrSize1 = 0;
-				if (pTargetProfile != null)
-				{
-					pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-					}
-					else
-					{
-						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-						pStr1 = (char*)pStrStack1;
-					}
-					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
-					pStr1[pStrOffset1] = '\0';
-				}
-				fixed (DxcDefine* ppDefines = &pDefines)
-				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize1 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr1);
-								}
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppEntryPoint = pEntryPoint)
-			{
-				fixed (char* ppTargetProfile = pTargetProfile)
-				{
-					fixed (DxcDefine* ppDefines = &pDefines)
-					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryPoint != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			char* pStr1 = null;
-			int pStrSize1 = 0;
-			if (pTargetProfile != null)
-			{
-				pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-				}
-				else
-				{
-					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-					pStr1 = (char*)pStrStack1;
-				}
-				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
-				pStr1[pStrOffset1] = '\0';
-			}
-			fixed (DxcDefine* ppDefines = &pDefines)
-			{
-				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize1 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr1);
-							}
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppEntryPoint = pEntryPoint)
-				{
-					fixed (char* ppTargetProfile = pTargetProfile)
-					{
-						fixed (DxcDefine* ppDefines = &pDefines)
-						{
-							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-							{
-								fixed (char** pppDebugBlobName = &ppDebugBlobName)
-								{
-									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-										return ret;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pEntryPoint != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				char* pStr1 = null;
-				int pStrSize1 = 0;
-				if (pTargetProfile != null)
-				{
-					pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-					}
-					else
-					{
-						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-						pStr1 = (char*)pStrStack1;
-					}
-					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
-					pStr1[pStrOffset1] = '\0';
-				}
-				fixed (DxcDefine* ppDefines = &pDefines)
-				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize1 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr1);
-								}
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppSourceName = pSourceName)
-			{
-				fixed (char* ppEntryPoint = pEntryPoint)
-				{
-					fixed (char* ppTargetProfile = pTargetProfile)
-					{
-						fixed (DxcDefine* ppDefines = &pDefines)
-						{
-							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-							{
-								fixed (char** pppDebugBlobName = &ppDebugBlobName)
-								{
-									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-										return ret;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pSourceName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			char* pStr1 = null;
-			int pStrSize1 = 0;
-			if (pEntryPoint != null)
-			{
-				pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-				}
-				else
-				{
-					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-					pStr1 = (char*)pStrStack1;
-				}
-				int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
-				pStr1[pStrOffset1] = '\0';
-			}
-			char* pStr2 = null;
-			int pStrSize2 = 0;
-			if (pTargetProfile != null)
-			{
-				pStrSize2 = Utils.GetByteCountUTF16(pTargetProfile);
-				if (pStrSize2 >= Utils.MaxStackallocSize)
-				{
-					pStr2 = Utils.Alloc<char>(pStrSize2 + 1);
-				}
-				else
-				{
-					byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
-					pStr2 = (char*)pStrStack2;
-				}
-				int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
-				pStr2[pStrOffset2] = '\0';
-			}
-			fixed (DxcDefine* ppDefines = &pDefines)
-			{
-				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize2 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr2);
-							}
-							if (pStrSize1 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr1);
-							}
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppSourceName = pSourceName)
-				{
-					fixed (char* ppEntryPoint = pEntryPoint)
-					{
-						fixed (char* ppTargetProfile = pTargetProfile)
-						{
-							fixed (DxcDefine* ppDefines = &pDefines)
-							{
-								fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-								{
-									fixed (char** pppDebugBlobName = &ppDebugBlobName)
-									{
-										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-										{
-											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-											return ret;
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pSourceName != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				char* pStr1 = null;
-				int pStrSize1 = 0;
-				if (pEntryPoint != null)
-				{
-					pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-					}
-					else
-					{
-						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-						pStr1 = (char*)pStrStack1;
-					}
-					int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
-					pStr1[pStrOffset1] = '\0';
-				}
-				char* pStr2 = null;
-				int pStrSize2 = 0;
-				if (pTargetProfile != null)
-				{
-					pStrSize2 = Utils.GetByteCountUTF16(pTargetProfile);
-					if (pStrSize2 >= Utils.MaxStackallocSize)
-					{
-						pStr2 = Utils.Alloc<char>(pStrSize2 + 1);
-					}
-					else
-					{
-						byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
-						pStr2 = (char*)pStrStack2;
-					}
-					int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
-					pStr2[pStrOffset2] = '\0';
-				}
-				fixed (DxcDefine* ppDefines = &pDefines)
-				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize2 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr2);
-								}
-								if (pStrSize1 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr1);
-								}
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (DxcDefine* ppDefines = &pDefines)
-				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (DxcDefine* ppDefines = &pDefines)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						ppDebugBlob = default;
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (DxcDefine* ppDefines = &pDefines)
-					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ComPtr<IDxcIncludeHandler> pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (DxcDefine* ppDefines = &pDefines)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						ppDebugBlob = default;
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppSourceName = pSourceName)
-			{
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (DxcDefine* ppDefines = &pDefines)
-					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pSourceName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (DxcDefine* ppDefines = &pDefines)
-				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppSourceName = pSourceName)
-				{
-					fixed (char** ppArguments = &pArguments)
-					{
-						fixed (DxcDefine* ppDefines = &pDefines)
-						{
-							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-							{
-								fixed (char** pppDebugBlobName = &ppDebugBlobName)
-								{
-									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-										return ret;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pSourceName != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (DxcDefine* ppDefines = &pDefines)
-					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									if (pStrSize0 >= Utils.MaxStackallocSize)
-									{
-										Utils.Free(pStr0);
-									}
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppEntryPoint = pEntryPoint)
-			{
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (DxcDefine* ppDefines = &pDefines)
-					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryPoint != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (DxcDefine* ppDefines = &pDefines)
-				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppEntryPoint = pEntryPoint)
-				{
-					fixed (char** ppArguments = &pArguments)
-					{
-						fixed (DxcDefine* ppDefines = &pDefines)
-						{
-							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
-							{
-								fixed (char** pppDebugBlobName = &ppDebugBlobName)
-								{
-									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-										return ret;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1141,15 +45,15 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					fixed (DxcDefine* ppDefines = &pDefines)
+					fixed (Define* ppDefines = &pDefines)
 					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
 							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									if (pStrSize0 >= Utils.MaxStackallocSize)
 									{
 										Utils.Free(pStr0);
@@ -1166,9 +70,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -1177,15 +79,15 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						fixed (DxcDefine* ppDefines = &pDefines)
+						fixed (Define* ppDefines = &pDefines)
 						{
-							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							fixed (IDxcOperationResult** pppResult = &ppResult)
 							{
 								fixed (char** pppDebugBlobName = &ppDebugBlobName)
 								{
 									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 										return ret;
 									}
 								}
@@ -1199,9 +101,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1240,15 +140,15 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				fixed (DxcDefine* ppDefines = &pDefines)
+				fixed (Define* ppDefines = &pDefines)
 				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
 						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize1 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr1);
@@ -1268,9 +168,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1281,15 +179,15 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char** ppArguments = &pArguments)
 						{
-							fixed (DxcDefine* ppDefines = &pDefines)
+							fixed (Define* ppDefines = &pDefines)
 							{
-								fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+								fixed (IDxcOperationResult** pppResult = &ppResult)
 								{
 									fixed (char** pppDebugBlobName = &ppDebugBlobName)
 									{
 										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 										{
-											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 											return ret;
 										}
 									}
@@ -1304,9 +202,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1347,15 +243,15 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					fixed (DxcDefine* ppDefines = &pDefines)
+					fixed (Define* ppDefines = &pDefines)
 					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
 							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									if (pStrSize1 >= Utils.MaxStackallocSize)
 									{
 										Utils.Free(pStr1);
@@ -1376,24 +272,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
 				fixed (char** ppArguments = &pArguments)
 				{
-					fixed (DxcDefine* ppDefines = &pDefines)
+					fixed (Define* ppDefines = &pDefines)
 					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
 							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									return ret;
 								}
 							}
@@ -1406,9 +300,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1430,15 +322,15 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				fixed (DxcDefine* ppDefines = &pDefines)
+				fixed (Define* ppDefines = &pDefines)
 				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
 						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize0 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr0);
@@ -1454,9 +346,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1465,15 +355,15 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						fixed (DxcDefine* ppDefines = &pDefines)
+						fixed (Define* ppDefines = &pDefines)
 						{
-							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							fixed (IDxcOperationResult** pppResult = &ppResult)
 							{
 								fixed (char** pppDebugBlobName = &ppDebugBlobName)
 								{
 									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 										return ret;
 									}
 								}
@@ -1487,9 +377,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1513,15 +401,15 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					fixed (DxcDefine* ppDefines = &pDefines)
+					fixed (Define* ppDefines = &pDefines)
 					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
 							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									if (pStrSize0 >= Utils.MaxStackallocSize)
 									{
 										Utils.Free(pStr0);
@@ -1538,9 +426,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -1549,15 +435,15 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						fixed (DxcDefine* ppDefines = &pDefines)
+						fixed (Define* ppDefines = &pDefines)
 						{
-							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							fixed (IDxcOperationResult** pppResult = &ppResult)
 							{
 								fixed (char** pppDebugBlobName = &ppDebugBlobName)
 								{
 									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 										return ret;
 									}
 								}
@@ -1571,9 +457,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1612,15 +496,15 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				fixed (DxcDefine* ppDefines = &pDefines)
+				fixed (Define* ppDefines = &pDefines)
 				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
 						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize1 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr1);
@@ -1640,9 +524,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1653,15 +535,15 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char** ppArguments = &pArguments)
 						{
-							fixed (DxcDefine* ppDefines = &pDefines)
+							fixed (Define* ppDefines = &pDefines)
 							{
-								fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+								fixed (IDxcOperationResult** pppResult = &ppResult)
 								{
 									fixed (char** pppDebugBlobName = &ppDebugBlobName)
 									{
 										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 										{
-											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 											return ret;
 										}
 									}
@@ -1676,9 +558,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1719,15 +599,15 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					fixed (DxcDefine* ppDefines = &pDefines)
+					fixed (Define* ppDefines = &pDefines)
 					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
 							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									if (pStrSize1 >= Utils.MaxStackallocSize)
 									{
 										Utils.Free(pStr1);
@@ -1748,9 +628,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
@@ -1759,15 +637,15 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char** ppArguments = &pArguments)
 					{
-						fixed (DxcDefine* ppDefines = &pDefines)
+						fixed (Define* ppDefines = &pDefines)
 						{
-							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							fixed (IDxcOperationResult** pppResult = &ppResult)
 							{
 								fixed (char** pppDebugBlobName = &ppDebugBlobName)
 								{
 									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 										return ret;
 									}
 								}
@@ -1781,9 +659,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -1822,15 +698,15 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				fixed (DxcDefine* ppDefines = &pDefines)
+				fixed (Define* ppDefines = &pDefines)
 				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
 						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize1 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr1);
@@ -1850,9 +726,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1863,15 +737,15 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char** ppArguments = &pArguments)
 						{
-							fixed (DxcDefine* ppDefines = &pDefines)
+							fixed (Define* ppDefines = &pDefines)
 							{
-								fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+								fixed (IDxcOperationResult** pppResult = &ppResult)
 								{
 									fixed (char** pppDebugBlobName = &ppDebugBlobName)
 									{
 										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 										{
-											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 											return ret;
 										}
 									}
@@ -1886,9 +760,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -1929,15 +801,15 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					fixed (DxcDefine* ppDefines = &pDefines)
+					fixed (Define* ppDefines = &pDefines)
 					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
 							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									if (pStrSize1 >= Utils.MaxStackallocSize)
 									{
 										Utils.Free(pStr1);
@@ -1958,9 +830,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -1971,15 +841,15 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char** ppArguments = &pArguments)
 						{
-							fixed (DxcDefine* ppDefines = &pDefines)
+							fixed (Define* ppDefines = &pDefines)
 							{
-								fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+								fixed (IDxcOperationResult** pppResult = &ppResult)
 								{
 									fixed (char** pppDebugBlobName = &ppDebugBlobName)
 									{
 										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 										{
-											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 											return ret;
 										}
 									}
@@ -1994,9 +864,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2052,15 +920,15 @@ namespace Hexa.NET.DXC
 			}
 			fixed (char** ppArguments = &pArguments)
 			{
-				fixed (DxcDefine* ppDefines = &pDefines)
+				fixed (Define* ppDefines = &pDefines)
 				{
-					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
 						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize2 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr2);
@@ -2084,9 +952,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2099,15 +965,15 @@ namespace Hexa.NET.DXC
 						{
 							fixed (char** ppArguments = &pArguments)
 							{
-								fixed (DxcDefine* ppDefines = &pDefines)
+								fixed (Define* ppDefines = &pDefines)
 								{
-									fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+									fixed (IDxcOperationResult** pppResult = &ppResult)
 									{
 										fixed (char** pppDebugBlobName = &ppDebugBlobName)
 										{
 											fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 											{
-												int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+												int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 												return ret;
 											}
 										}
@@ -2123,9 +989,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] ref IDxcIncludeHandler pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] IDxcOperationResult** ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, ref Define pDefines, uint defineCount, IDxcIncludeHandler* pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2183,15 +1047,15 @@ namespace Hexa.NET.DXC
 				}
 				fixed (char** ppArguments = &pArguments)
 				{
-					fixed (DxcDefine* ppDefines = &pDefines)
+					fixed (Define* ppDefines = &pDefines)
 					{
-						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
 							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
 								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (DxcDefine*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, ppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, (Define*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 									if (pStrSize2 >= Utils.MaxStackallocSize)
 									{
 										Utils.Free(pStr2);
@@ -2216,19 +1080,20 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcOperationResult** pppResult = &ppResult)
+			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
-				fixed (char** pppDebugBlobName = &ppDebugBlobName)
+				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+					fixed (char** pppDebugBlobName = &ppDebugBlobName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-						return ret;
+						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							return ret;
+						}
 					}
 				}
 			}
@@ -2237,9 +1102,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref ComPtr<IDxcOperationResult> ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, ref char* ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
@@ -2247,7 +1110,7 @@ namespace Hexa.NET.DXC
 				fixed (char** pppDebugBlobName = &ppDebugBlobName)
 				{
 					ppDebugBlob = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2256,21 +1119,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
 			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							return ret;
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								return ret;
+							}
 						}
 					}
 				}
@@ -2280,9 +1144,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref ComPtr<IDxcOperationResult> ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, ref char* ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
@@ -2290,7 +1152,7 @@ namespace Hexa.NET.DXC
 				fixed (char** pppDebugBlobName = &ppDebugBlobName)
 				{
 					ppDebugBlob = default;
-					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2299,21 +1161,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
 			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							return ret;
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								return ret;
+							}
 						}
 					}
 				}
@@ -2323,9 +1186,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2345,18 +1206,21 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			fixed (IDxcOperationResult** pppResult = &ppResult)
+			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
-				fixed (char** pppDebugBlobName = &ppDebugBlobName)
+				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+					fixed (char** pppDebugBlobName = &ppDebugBlobName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-						if (pStrSize0 >= Utils.MaxStackallocSize)
+						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							Utils.Free(pStr0);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
 						}
-						return ret;
 					}
 				}
 			}
@@ -2365,23 +1229,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
 			{
 				fixed (char* ppSourceName = pSourceName)
 				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								return ret;
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
 							}
 						}
 					}
@@ -2392,9 +1257,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2416,18 +1279,21 @@ namespace Hexa.NET.DXC
 					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = '\0';
 				}
-				fixed (IDxcOperationResult** pppResult = &ppResult)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize0 >= Utils.MaxStackallocSize)
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								Utils.Free(pStr0);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
 							}
-							return ret;
 						}
 					}
 				}
@@ -2437,21 +1303,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppEntryPoint = pEntryPoint)
 			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							return ret;
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								return ret;
+							}
 						}
 					}
 				}
@@ -2461,9 +1328,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2483,18 +1348,21 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			fixed (IDxcOperationResult** pppResult = &ppResult)
+			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
-				fixed (char** pppDebugBlobName = &ppDebugBlobName)
+				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+					fixed (char** pppDebugBlobName = &ppDebugBlobName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-						if (pStrSize0 >= Utils.MaxStackallocSize)
+						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							Utils.Free(pStr0);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
 						}
-						return ret;
 					}
 				}
 			}
@@ -2503,23 +1371,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
 			{
 				fixed (char* ppEntryPoint = pEntryPoint)
 				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								return ret;
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
 							}
 						}
 					}
@@ -2530,9 +1399,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2554,35 +1421,7 @@ namespace Hexa.NET.DXC
 					int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = '\0';
 				}
-				fixed (IDxcOperationResult** pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppSourceName = pSourceName)
-			{
-				fixed (char* ppEntryPoint = pEntryPoint)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
@@ -2590,7 +1429,11 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
 								return ret;
 							}
 						}
@@ -2602,9 +1445,35 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppSourceName = pSourceName)
+			{
+				fixed (char* ppEntryPoint = pEntryPoint)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2641,22 +1510,25 @@ namespace Hexa.NET.DXC
 				int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = '\0';
 			}
-			fixed (IDxcOperationResult** pppResult = &ppResult)
+			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
-				fixed (char** pppDebugBlobName = &ppDebugBlobName)
+				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+					fixed (char** pppDebugBlobName = &ppDebugBlobName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-						if (pStrSize1 >= Utils.MaxStackallocSize)
+						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							Utils.Free(pStr1);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
 						}
-						if (pStrSize0 >= Utils.MaxStackallocSize)
-						{
-							Utils.Free(pStr0);
-						}
-						return ret;
 					}
 				}
 			}
@@ -2665,9 +1537,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2676,14 +1546,17 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char* ppEntryPoint = pEntryPoint)
 					{
-						fixed (IDxcOperationResult** pppResult = &ppResult)
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							fixed (IDxcOperationResult** pppResult = &ppResult)
 							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
 								}
 							}
 						}
@@ -2695,9 +1568,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2736,22 +1607,25 @@ namespace Hexa.NET.DXC
 					int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = '\0';
 				}
-				fixed (IDxcOperationResult** pppResult = &ppResult)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize1 >= Utils.MaxStackallocSize)
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								Utils.Free(pStr1);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
 							}
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
 						}
 					}
 				}
@@ -2761,21 +1635,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppTargetProfile = pTargetProfile)
 			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							return ret;
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								return ret;
+							}
 						}
 					}
 				}
@@ -2785,9 +1660,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2807,18 +1680,21 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			fixed (IDxcOperationResult** pppResult = &ppResult)
+			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
-				fixed (char** pppDebugBlobName = &ppDebugBlobName)
+				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+					fixed (char** pppDebugBlobName = &ppDebugBlobName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-						if (pStrSize0 >= Utils.MaxStackallocSize)
+						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							Utils.Free(pStr0);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
 						}
-						return ret;
 					}
 				}
 			}
@@ -2827,23 +1703,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
 			{
 				fixed (char* ppTargetProfile = pTargetProfile)
 				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								return ret;
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
 							}
 						}
 					}
@@ -2854,9 +1731,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -2878,35 +1753,7 @@ namespace Hexa.NET.DXC
 					int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
 					pStr0[pStrOffset0] = '\0';
 				}
-				fixed (IDxcOperationResult** pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppSourceName = pSourceName)
-			{
-				fixed (char* ppTargetProfile = pTargetProfile)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
@@ -2914,7 +1761,11 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
 								return ret;
 							}
 						}
@@ -2926,9 +1777,35 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppSourceName = pSourceName)
+			{
+				fixed (char* ppTargetProfile = pTargetProfile)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -2965,22 +1842,25 @@ namespace Hexa.NET.DXC
 				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = '\0';
 			}
-			fixed (IDxcOperationResult** pppResult = &ppResult)
+			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
-				fixed (char** pppDebugBlobName = &ppDebugBlobName)
+				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+					fixed (char** pppDebugBlobName = &ppDebugBlobName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-						if (pStrSize1 >= Utils.MaxStackallocSize)
+						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							Utils.Free(pStr1);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
 						}
-						if (pStrSize0 >= Utils.MaxStackallocSize)
-						{
-							Utils.Free(pStr0);
-						}
-						return ret;
 					}
 				}
 			}
@@ -2989,9 +1869,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3000,14 +1878,17 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char* ppTargetProfile = pTargetProfile)
 					{
-						fixed (IDxcOperationResult** pppResult = &ppResult)
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							fixed (IDxcOperationResult** pppResult = &ppResult)
 							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
 								}
 							}
 						}
@@ -3019,9 +1900,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3060,39 +1939,7 @@ namespace Hexa.NET.DXC
 					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = '\0';
 				}
-				fixed (IDxcOperationResult** pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize1 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr1);
-							}
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppEntryPoint = pEntryPoint)
-			{
-				fixed (char* ppTargetProfile = pTargetProfile)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
@@ -3100,7 +1947,15 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
 								return ret;
 							}
 						}
@@ -3112,9 +1967,35 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppEntryPoint = pEntryPoint)
+			{
+				fixed (char* ppTargetProfile = pTargetProfile)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3151,22 +2032,25 @@ namespace Hexa.NET.DXC
 				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
 				pStr1[pStrOffset1] = '\0';
 			}
-			fixed (IDxcOperationResult** pppResult = &ppResult)
+			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
-				fixed (char** pppDebugBlobName = &ppDebugBlobName)
+				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
-					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+					fixed (char** pppDebugBlobName = &ppDebugBlobName)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-						if (pStrSize1 >= Utils.MaxStackallocSize)
+						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							Utils.Free(pStr1);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
 						}
-						if (pStrSize0 >= Utils.MaxStackallocSize)
-						{
-							Utils.Free(pStr0);
-						}
-						return ret;
 					}
 				}
 			}
@@ -3175,9 +2059,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3186,14 +2068,17 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char* ppTargetProfile = pTargetProfile)
 					{
-						fixed (IDxcOperationResult** pppResult = &ppResult)
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							fixed (IDxcOperationResult** pppResult = &ppResult)
 							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
 								}
 							}
 						}
@@ -3205,9 +2090,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -3246,22 +2129,25 @@ namespace Hexa.NET.DXC
 					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
 					pStr1[pStrOffset1] = '\0';
 				}
-				fixed (IDxcOperationResult** pppResult = &ppResult)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize1 >= Utils.MaxStackallocSize)
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								Utils.Free(pStr1);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
 							}
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
 						}
 					}
 				}
@@ -3271,9 +2157,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
@@ -3282,14 +2166,17 @@ namespace Hexa.NET.DXC
 				{
 					fixed (char* ppTargetProfile = pTargetProfile)
 					{
-						fixed (IDxcOperationResult** pppResult = &ppResult)
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							fixed (IDxcOperationResult** pppResult = &ppResult)
 							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
 								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
 								}
 							}
 						}
@@ -3301,9 +2188,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -3357,132 +2242,15 @@ namespace Hexa.NET.DXC
 				int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
 				pStr2[pStrOffset2] = '\0';
 			}
-			fixed (IDxcOperationResult** pppResult = &ppResult)
+			fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 			{
-				fixed (char** pppDebugBlobName = &ppDebugBlobName)
-				{
-					fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-						if (pStrSize2 >= Utils.MaxStackallocSize)
-						{
-							Utils.Free(pStr2);
-						}
-						if (pStrSize1 >= Utils.MaxStackallocSize)
-						{
-							Utils.Free(pStr1);
-						}
-						if (pStrSize0 >= Utils.MaxStackallocSize)
-						{
-							Utils.Free(pStr0);
-						}
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppSourceName = pSourceName)
-				{
-					fixed (char* ppEntryPoint = pEntryPoint)
-					{
-						fixed (char* ppTargetProfile = pTargetProfile)
-						{
-							fixed (IDxcOperationResult** pppResult = &ppResult)
-							{
-								fixed (char** pppDebugBlobName = &ppDebugBlobName)
-								{
-									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-										return ret;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pSourceName != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				char* pStr1 = null;
-				int pStrSize1 = 0;
-				if (pEntryPoint != null)
-				{
-					pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-					}
-					else
-					{
-						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-						pStr1 = (char*)pStrStack1;
-					}
-					int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
-					pStr1[pStrOffset1] = '\0';
-				}
-				char* pStr2 = null;
-				int pStrSize2 = 0;
-				if (pTargetProfile != null)
-				{
-					pStrSize2 = Utils.GetByteCountUTF16(pTargetProfile);
-					if (pStrSize2 >= Utils.MaxStackallocSize)
-					{
-						pStr2 = Utils.Alloc<char>(pStrSize2 + 1);
-					}
-					else
-					{
-						byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
-						pStr2 = (char*)pStrStack2;
-					}
-					int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
-					pStr2[pStrOffset2] = '\0';
-				}
 				fixed (IDxcOperationResult** pppResult = &ppResult)
 				{
 					fixed (char** pppDebugBlobName = &ppDebugBlobName)
 					{
 						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 							if (pStrSize2 >= Utils.MaxStackallocSize)
 							{
 								Utils.Free(pStr2);
@@ -3505,1268 +2273,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref ComPtr<IDxcOperationResult> ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						ppDebugBlob = default;
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref ComPtr<IDxcOperationResult> ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						ppDebugBlob = default;
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppSourceName = pSourceName)
-			{
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pSourceName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppSourceName = pSourceName)
-				{
-					fixed (char** ppArguments = &pArguments)
-					{
-						fixed (IDxcOperationResult** pppResult = &ppResult)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pSourceName != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppEntryPoint = pEntryPoint)
-			{
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryPoint != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppEntryPoint = pEntryPoint)
-				{
-					fixed (char** ppArguments = &pArguments)
-					{
-						fixed (IDxcOperationResult** pppResult = &ppResult)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pEntryPoint != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppSourceName = pSourceName)
-			{
-				fixed (char* ppEntryPoint = pEntryPoint)
-				{
-					fixed (char** ppArguments = &pArguments)
-					{
-						fixed (IDxcOperationResult** pppResult = &ppResult)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pSourceName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			char* pStr1 = null;
-			int pStrSize1 = 0;
-			if (pEntryPoint != null)
-			{
-				pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-				}
-				else
-				{
-					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-					pStr1 = (char*)pStrStack1;
-				}
-				int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
-				pStr1[pStrOffset1] = '\0';
-			}
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize1 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr1);
-							}
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppSourceName = pSourceName)
-				{
-					fixed (char* ppEntryPoint = pEntryPoint)
-					{
-						fixed (char** ppArguments = &pArguments)
-						{
-							fixed (IDxcOperationResult** pppResult = &ppResult)
-							{
-								fixed (char** pppDebugBlobName = &ppDebugBlobName)
-								{
-									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-										return ret;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pSourceName != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				char* pStr1 = null;
-				int pStrSize1 = 0;
-				if (pEntryPoint != null)
-				{
-					pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-					}
-					else
-					{
-						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-						pStr1 = (char*)pStrStack1;
-					}
-					int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
-					pStr1[pStrOffset1] = '\0';
-				}
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize1 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr1);
-								}
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppTargetProfile = pTargetProfile)
-			{
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pTargetProfile != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pTargetProfile);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppTargetProfile = pTargetProfile)
-				{
-					fixed (char** ppArguments = &pArguments)
-					{
-						fixed (IDxcOperationResult** pppResult = &ppResult)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pTargetProfile != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pTargetProfile);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppSourceName = pSourceName)
-			{
-				fixed (char* ppTargetProfile = pTargetProfile)
-				{
-					fixed (char** ppArguments = &pArguments)
-					{
-						fixed (IDxcOperationResult** pppResult = &ppResult)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pSourceName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			char* pStr1 = null;
-			int pStrSize1 = 0;
-			if (pTargetProfile != null)
-			{
-				pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-				}
-				else
-				{
-					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-					pStr1 = (char*)pStrStack1;
-				}
-				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
-				pStr1[pStrOffset1] = '\0';
-			}
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize1 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr1);
-							}
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppSourceName = pSourceName)
-				{
-					fixed (char* ppTargetProfile = pTargetProfile)
-					{
-						fixed (char** ppArguments = &pArguments)
-						{
-							fixed (IDxcOperationResult** pppResult = &ppResult)
-							{
-								fixed (char** pppDebugBlobName = &ppDebugBlobName)
-								{
-									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-										return ret;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pSourceName != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				char* pStr1 = null;
-				int pStrSize1 = 0;
-				if (pTargetProfile != null)
-				{
-					pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-					}
-					else
-					{
-						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-						pStr1 = (char*)pStrStack1;
-					}
-					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
-					pStr1[pStrOffset1] = '\0';
-				}
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize1 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr1);
-								}
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppEntryPoint = pEntryPoint)
-			{
-				fixed (char* ppTargetProfile = pTargetProfile)
-				{
-					fixed (char** ppArguments = &pArguments)
-					{
-						fixed (IDxcOperationResult** pppResult = &ppResult)
-						{
-							fixed (char** pppDebugBlobName = &ppDebugBlobName)
-							{
-								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-								{
-									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-									return ret;
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryPoint != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			char* pStr1 = null;
-			int pStrSize1 = 0;
-			if (pTargetProfile != null)
-			{
-				pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-				}
-				else
-				{
-					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-					pStr1 = (char*)pStrStack1;
-				}
-				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
-				pStr1[pStrOffset1] = '\0';
-			}
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize1 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr1);
-							}
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				fixed (char* ppEntryPoint = pEntryPoint)
-				{
-					fixed (char* ppTargetProfile = pTargetProfile)
-					{
-						fixed (char** ppArguments = &pArguments)
-						{
-							fixed (IDxcOperationResult** pppResult = &ppResult)
-							{
-								fixed (char** pppDebugBlobName = &ppDebugBlobName)
-								{
-									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-										return ret;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (IDxcBlob* ppSource = &pSource)
-			{
-				char* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pEntryPoint != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = (char*)pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = '\0';
-				}
-				char* pStr1 = null;
-				int pStrSize1 = 0;
-				if (pTargetProfile != null)
-				{
-					pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-					}
-					else
-					{
-						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-						pStr1 = (char*)pStrStack1;
-					}
-					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
-					pStr1[pStrOffset1] = '\0';
-				}
-				fixed (char** ppArguments = &pArguments)
-				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
-					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
-						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								if (pStrSize1 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr1);
-								}
-								if (pStrSize0 >= Utils.MaxStackallocSize)
-								{
-									Utils.Free(pStr0);
-								}
-								return ret;
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			fixed (char* ppSourceName = pSourceName)
-			{
-				fixed (char* ppEntryPoint = pEntryPoint)
-				{
-					fixed (char* ppTargetProfile = pTargetProfile)
-					{
-						fixed (char** ppArguments = &pArguments)
-						{
-							fixed (IDxcOperationResult** pppResult = &ppResult)
-							{
-								fixed (char** pppDebugBlobName = &ppDebugBlobName)
-								{
-									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-									{
-										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-										return ret;
-									}
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
-		{
-			IDxcCompiler2* handle = comObj.Handle;
-			char* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pSourceName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = (char*)pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = '\0';
-			}
-			char* pStr1 = null;
-			int pStrSize1 = 0;
-			if (pEntryPoint != null)
-			{
-				pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
-				}
-				else
-				{
-					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-					pStr1 = (char*)pStrStack1;
-				}
-				int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
-				pStr1[pStrOffset1] = '\0';
-			}
-			char* pStr2 = null;
-			int pStrSize2 = 0;
-			if (pTargetProfile != null)
-			{
-				pStrSize2 = Utils.GetByteCountUTF16(pTargetProfile);
-				if (pStrSize2 >= Utils.MaxStackallocSize)
-				{
-					pStr2 = Utils.Alloc<char>(pStrSize2 + 1);
-				}
-				else
-				{
-					byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
-					pStr2 = (char*)pStrStack2;
-				}
-				int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
-				pStr2[pStrOffset2] = '\0';
-			}
-			fixed (char** ppArguments = &pArguments)
-			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
-				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
-					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize2 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr2);
-							}
-							if (pStrSize1 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr1);
-							}
-							if (pStrSize0 >= Utils.MaxStackallocSize)
-							{
-								Utils.Free(pStr0);
-							}
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// Compile a single entry point to the target shader model with debug information.<br/>
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4777,7 +2284,7 @@ namespace Hexa.NET.DXC
 					{
 						fixed (char* ppTargetProfile = pTargetProfile)
 						{
-							fixed (char** ppArguments = &pArguments)
+							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 							{
 								fixed (IDxcOperationResult** pppResult = &ppResult)
 								{
@@ -4785,7 +2292,7 @@ namespace Hexa.NET.DXC
 									{
 										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 										{
-											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 											return ret;
 										}
 									}
@@ -4800,9 +2307,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] DxcDefine* pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
@@ -4858,7 +2363,7 @@ namespace Hexa.NET.DXC
 					int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
 					pStr2[pStrOffset2] = '\0';
 				}
-				fixed (char** ppArguments = &pArguments)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
 					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
@@ -4866,7 +2371,7 @@ namespace Hexa.NET.DXC
 						{
 							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, pArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
 								if (pStrSize2 >= Utils.MaxStackallocSize)
 								{
 									Utils.Free(pStr2);
@@ -4890,21 +2395,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
-			fixed (DxcDefine* ppDefines = &pDefines)
+			fixed (char** ppArguments = &pArguments)
 			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 				{
-					fixed (char** pppDebugBlobName = &ppDebugBlobName)
+					fixed (IDxcOperationResult** pppResult = &ppResult)
 					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							return ret;
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								return ret;
+							}
 						}
 					}
 				}
@@ -4914,19 +2420,17 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref ComPtr<IDxcOperationResult> ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, ref char* ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
-			fixed (DxcDefine* ppDefines = &pDefines)
+			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
 				{
 					fixed (char** pppDebugBlobName = &ppDebugBlobName)
 					{
 						ppDebugBlob = default;
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4936,23 +2440,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (IDxcBlob* ppSource = &pSource)
 			{
-				fixed (DxcDefine* ppDefines = &pDefines)
+				fixed (char** ppArguments = &pArguments)
 				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								return ret;
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
 							}
 						}
 					}
@@ -4963,19 +2468,17 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref ComPtr<IDxcOperationResult> ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, ref char* ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
-			fixed (DxcDefine* ppDefines = &pDefines)
+			fixed (char** ppArguments = &pArguments)
 			{
 				fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
 				{
 					fixed (char** pppDebugBlobName = &ppDebugBlobName)
 					{
 						ppDebugBlob = default;
-						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4985,23 +2488,24 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			fixed (char* ppSourceName = pSourceName)
 			{
-				fixed (DxcDefine* ppDefines = &pDefines)
+				fixed (char** ppArguments = &pArguments)
 				{
-					fixed (IDxcOperationResult** pppResult = &ppResult)
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
 					{
-						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
-							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-								return ret;
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
 							}
 						}
 					}
@@ -5012,9 +2516,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// Compile a single entry point to the target shader model with debug information.<br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileWithDebug")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, [NativeName(NativeNameType.Param, "pSource")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pSource, [NativeName(NativeNameType.Param, "pSourceName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pSourceName, [NativeName(NativeNameType.Param, "pEntryPoint")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pEntryPoint, [NativeName(NativeNameType.Param, "pTargetProfile")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pTargetProfile, [NativeName(NativeNameType.Param, "pArguments")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** pArguments, [NativeName(NativeNameType.Param, "argCount")] [NativeName(NativeNameType.Type, "UINT32")] uint argCount, [NativeName(NativeNameType.Param, "pDefines")] [NativeName(NativeNameType.Type, "const DxcDefine*")] ref DxcDefine pDefines, [NativeName(NativeNameType.Param, "defineCount")] [NativeName(NativeNameType.Type, "UINT32")] uint defineCount, [NativeName(NativeNameType.Param, "pIncludeHandler")] [NativeName(NativeNameType.Type, "IDxcIncludeHandler*")] IDxcIncludeHandler* pIncludeHandler, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOperationResult**")] ref IDxcOperationResult* ppResult, [NativeName(NativeNameType.Param, "ppDebugBlobName")] [NativeName(NativeNameType.Type, "LPWSTR*")] ref char* ppDebugBlobName, [NativeName(NativeNameType.Param, "ppDebugBlob")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppDebugBlob) 
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
 		{
 			IDxcCompiler2* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -5034,20 +2536,2550 @@ namespace Hexa.NET.DXC
 				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			fixed (DxcDefine* ppDefines = &pDefines)
+			fixed (char** ppArguments = &pArguments)
 			{
-				fixed (IDxcOperationResult** pppResult = &ppResult)
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppSourceName = pSourceName)
+				{
+					fixed (char** ppArguments = &pArguments)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pSourceName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				fixed (char** ppArguments = &pArguments)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppEntryPoint = pEntryPoint)
+			{
+				fixed (char** ppArguments = &pArguments)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pEntryPoint != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (char** ppArguments = &pArguments)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppEntryPoint = pEntryPoint)
+				{
+					fixed (char** ppArguments = &pArguments)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pEntryPoint != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				fixed (char** ppArguments = &pArguments)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppSourceName = pSourceName)
+			{
+				fixed (char* ppEntryPoint = pEntryPoint)
+				{
+					fixed (char** ppArguments = &pArguments)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pSourceName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			char* pStr1 = null;
+			int pStrSize1 = 0;
+			if (pEntryPoint != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = (char*)pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = '\0';
+			}
+			fixed (char** ppArguments = &pArguments)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppSourceName = pSourceName)
+				{
+					fixed (char* ppEntryPoint = pEntryPoint)
+					{
+						fixed (char** ppArguments = &pArguments)
+						{
+							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							{
+								fixed (IDxcOperationResult** pppResult = &ppResult)
+								{
+									fixed (char** pppDebugBlobName = &ppDebugBlobName)
+									{
+										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+										{
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											return ret;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pSourceName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				char* pStr1 = null;
+				int pStrSize1 = 0;
+				if (pEntryPoint != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = (char*)pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = '\0';
+				}
+				fixed (char** ppArguments = &pArguments)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize1 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr1);
+									}
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppTargetProfile = pTargetProfile)
+			{
+				fixed (char** ppArguments = &pArguments)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pTargetProfile != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pTargetProfile);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (char** ppArguments = &pArguments)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppTargetProfile = pTargetProfile)
+				{
+					fixed (char** ppArguments = &pArguments)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pTargetProfile != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pTargetProfile);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				fixed (char** ppArguments = &pArguments)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppSourceName = pSourceName)
+			{
+				fixed (char* ppTargetProfile = pTargetProfile)
+				{
+					fixed (char** ppArguments = &pArguments)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pSourceName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			char* pStr1 = null;
+			int pStrSize1 = 0;
+			if (pTargetProfile != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = (char*)pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = '\0';
+			}
+			fixed (char** ppArguments = &pArguments)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppSourceName = pSourceName)
+				{
+					fixed (char* ppTargetProfile = pTargetProfile)
+					{
+						fixed (char** ppArguments = &pArguments)
+						{
+							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							{
+								fixed (IDxcOperationResult** pppResult = &ppResult)
+								{
+									fixed (char** pppDebugBlobName = &ppDebugBlobName)
+									{
+										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+										{
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											return ret;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pSourceName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				char* pStr1 = null;
+				int pStrSize1 = 0;
+				if (pTargetProfile != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = (char*)pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = '\0';
+				}
+				fixed (char** ppArguments = &pArguments)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize1 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr1);
+									}
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppEntryPoint = pEntryPoint)
+			{
+				fixed (char* ppTargetProfile = pTargetProfile)
+				{
+					fixed (char** ppArguments = &pArguments)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pEntryPoint != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			char* pStr1 = null;
+			int pStrSize1 = 0;
+			if (pTargetProfile != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = (char*)pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = '\0';
+			}
+			fixed (char** ppArguments = &pArguments)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppEntryPoint = pEntryPoint)
+				{
+					fixed (char* ppTargetProfile = pTargetProfile)
+					{
+						fixed (char** ppArguments = &pArguments)
+						{
+							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							{
+								fixed (IDxcOperationResult** pppResult = &ppResult)
+								{
+									fixed (char** pppDebugBlobName = &ppDebugBlobName)
+									{
+										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+										{
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											return ret;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pEntryPoint != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				char* pStr1 = null;
+				int pStrSize1 = 0;
+				if (pTargetProfile != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = (char*)pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = '\0';
+				}
+				fixed (char** ppArguments = &pArguments)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize1 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr1);
+									}
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppSourceName = pSourceName)
+			{
+				fixed (char* ppEntryPoint = pEntryPoint)
+				{
+					fixed (char* ppTargetProfile = pTargetProfile)
+					{
+						fixed (char** ppArguments = &pArguments)
+						{
+							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							{
+								fixed (IDxcOperationResult** pppResult = &ppResult)
+								{
+									fixed (char** pppDebugBlobName = &ppDebugBlobName)
+									{
+										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+										{
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											return ret;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pSourceName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			char* pStr1 = null;
+			int pStrSize1 = 0;
+			if (pEntryPoint != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = (char*)pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = '\0';
+			}
+			char* pStr2 = null;
+			int pStrSize2 = 0;
+			if (pTargetProfile != null)
+			{
+				pStrSize2 = Utils.GetByteCountUTF16(pTargetProfile);
+				if (pStrSize2 >= Utils.MaxStackallocSize)
+				{
+					pStr2 = Utils.Alloc<char>(pStrSize2 + 1);
+				}
+				else
+				{
+					byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+					pStr2 = (char*)pStrStack2;
+				}
+				int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
+				pStr2[pStrOffset2] = '\0';
+			}
+			fixed (char** ppArguments = &pArguments)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize2 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr2);
+								}
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppSourceName = pSourceName)
+				{
+					fixed (char* ppEntryPoint = pEntryPoint)
+					{
+						fixed (char* ppTargetProfile = pTargetProfile)
+						{
+							fixed (char** ppArguments = &pArguments)
+							{
+								fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+								{
+									fixed (IDxcOperationResult** pppResult = &ppResult)
+									{
+										fixed (char** pppDebugBlobName = &ppDebugBlobName)
+										{
+											fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+											{
+												int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+												return ret;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, string pTargetProfile, ref char* pArguments, uint argCount, Define* pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pSourceName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				char* pStr1 = null;
+				int pStrSize1 = 0;
+				if (pEntryPoint != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = (char*)pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = '\0';
+				}
+				char* pStr2 = null;
+				int pStrSize2 = 0;
+				if (pTargetProfile != null)
+				{
+					pStrSize2 = Utils.GetByteCountUTF16(pTargetProfile);
+					if (pStrSize2 >= Utils.MaxStackallocSize)
+					{
+						pStr2 = Utils.Alloc<char>(pStrSize2 + 1);
+					}
+					else
+					{
+						byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+						pStr2 = (char*)pStrStack2;
+					}
+					int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
+					pStr2[pStrOffset2] = '\0';
+				}
+				fixed (char** ppArguments = &pArguments)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pStr2, (char**)ppArguments, argCount, pDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize2 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr2);
+									}
+									if (pStrSize1 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr1);
+									}
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (Define* ppDefines = &pDefines)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, ref char* ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (Define* ppDefines = &pDefines)
+			{
+				fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
 				{
 					fixed (char** pppDebugBlobName = &ppDebugBlobName)
 					{
-						fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+						ppDebugBlob = default;
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (Define* ppDefines = &pDefines)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, DxcDefine*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (DxcDefine*)ppDefines, defineCount, pIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
-							if (pStrSize0 >= Utils.MaxStackallocSize)
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
 							{
-								Utils.Free(pStr0);
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
 							}
-							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ComPtr<IDxcBlob> pSource, char* pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ComPtr<IDxcIncludeHandler> pIncludeHandler, ref ComPtr<IDxcOperationResult> ppResult, ref char* ppDebugBlobName, out ComPtr<IDxcBlob> ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (Define* ppDefines = &pDefines)
+			{
+				fixed (ComPtr<IDxcOperationResult>* pppResult = &ppResult)
+				{
+					fixed (char** pppDebugBlobName = &ppDebugBlobName)
+					{
+						ppDebugBlob = default;
+						int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)pSource.Handle, pSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)pIncludeHandler.Handle, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)ppDebugBlob.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppSourceName = pSourceName)
+			{
+				fixed (Define* ppDefines = &pDefines)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pSourceName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (Define* ppDefines = &pDefines)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppSourceName = pSourceName)
+				{
+					fixed (Define* ppDefines = &pDefines)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pSourceName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				fixed (Define* ppDefines = &pDefines)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppEntryPoint = pEntryPoint)
+			{
+				fixed (Define* ppDefines = &pDefines)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pEntryPoint != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (Define* ppDefines = &pDefines)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppEntryPoint = pEntryPoint)
+				{
+					fixed (Define* ppDefines = &pDefines)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pEntryPoint != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				fixed (Define* ppDefines = &pDefines)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppSourceName = pSourceName)
+			{
+				fixed (char* ppEntryPoint = pEntryPoint)
+				{
+					fixed (Define* ppDefines = &pDefines)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pSourceName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			char* pStr1 = null;
+			int pStrSize1 = 0;
+			if (pEntryPoint != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = (char*)pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = '\0';
+			}
+			fixed (Define* ppDefines = &pDefines)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppSourceName = pSourceName)
+				{
+					fixed (char* ppEntryPoint = pEntryPoint)
+					{
+						fixed (Define* ppDefines = &pDefines)
+						{
+							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							{
+								fixed (IDxcOperationResult** pppResult = &ppResult)
+								{
+									fixed (char** pppDebugBlobName = &ppDebugBlobName)
+									{
+										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+										{
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, (char*)ppEntryPoint, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											return ret;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, string pEntryPoint, char* pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pSourceName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				char* pStr1 = null;
+				int pStrSize1 = 0;
+				if (pEntryPoint != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = (char*)pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = '\0';
+				}
+				fixed (Define* ppDefines = &pDefines)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pStr1, pTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize1 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr1);
+									}
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppTargetProfile = pTargetProfile)
+			{
+				fixed (Define* ppDefines = &pDefines)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pTargetProfile != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pTargetProfile);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (Define* ppDefines = &pDefines)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppTargetProfile = pTargetProfile)
+				{
+					fixed (Define* ppDefines = &pDefines)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pTargetProfile != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pTargetProfile);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pTargetProfile, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				fixed (Define* ppDefines = &pDefines)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pEntryPoint, pStr0, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppSourceName = pSourceName)
+			{
+				fixed (char* ppTargetProfile = pTargetProfile)
+				{
+					fixed (Define* ppDefines = &pDefines)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pSourceName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			char* pStr1 = null;
+			int pStrSize1 = 0;
+			if (pTargetProfile != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = (char*)pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = '\0';
+			}
+			fixed (Define* ppDefines = &pDefines)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, ReadOnlySpan<char> pSourceName, char* pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppSourceName = pSourceName)
+				{
+					fixed (char* ppTargetProfile = pTargetProfile)
+					{
+						fixed (Define* ppDefines = &pDefines)
+						{
+							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							{
+								fixed (IDxcOperationResult** pppResult = &ppResult)
+								{
+									fixed (char** pppDebugBlobName = &ppDebugBlobName)
+									{
+										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+										{
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, (char*)ppSourceName, pEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											return ret;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, string pSourceName, char* pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pSourceName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				char* pStr1 = null;
+				int pStrSize1 = 0;
+				if (pTargetProfile != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = (char*)pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = '\0';
+				}
+				fixed (Define* ppDefines = &pDefines)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pStr0, pEntryPoint, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize1 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr1);
+									}
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppEntryPoint = pEntryPoint)
+			{
+				fixed (char* ppTargetProfile = pTargetProfile)
+				{
+					fixed (Define* ppDefines = &pDefines)
+					{
+						fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+						{
+							fixed (IDxcOperationResult** pppResult = &ppResult)
+							{
+								fixed (char** pppDebugBlobName = &ppDebugBlobName)
+								{
+									fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+									{
+										int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+										return ret;
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pEntryPoint != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			char* pStr1 = null;
+			int pStrSize1 = 0;
+			if (pTargetProfile != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = (char*)pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = '\0';
+			}
+			fixed (Define* ppDefines = &pDefines)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				fixed (char* ppEntryPoint = pEntryPoint)
+				{
+					fixed (char* ppTargetProfile = pTargetProfile)
+					{
+						fixed (Define* ppDefines = &pDefines)
+						{
+							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							{
+								fixed (IDxcOperationResult** pppResult = &ppResult)
+								{
+									fixed (char** pppDebugBlobName = &ppDebugBlobName)
+									{
+										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+										{
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											return ret;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, ref IDxcBlob pSource, char* pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (IDxcBlob* ppSource = &pSource)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (pEntryPoint != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(pEntryPoint);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(pEntryPoint, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				char* pStr1 = null;
+				int pStrSize1 = 0;
+				if (pTargetProfile != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF16(pTargetProfile);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = (char*)pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF16(pTargetProfile, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = '\0';
+				}
+				fixed (Define* ppDefines = &pDefines)
+				{
+					fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+					{
+						fixed (IDxcOperationResult** pppResult = &ppResult)
+						{
+							fixed (char** pppDebugBlobName = &ppDebugBlobName)
+							{
+								fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, (IDxcBlob*)ppSource, pSourceName, pStr0, pStr1, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+									if (pStrSize1 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr1);
+									}
+									if (pStrSize0 >= Utils.MaxStackallocSize)
+									{
+										Utils.Free(pStr0);
+									}
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, ReadOnlySpan<char> pSourceName, ReadOnlySpan<char> pEntryPoint, ReadOnlySpan<char> pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			fixed (char* ppSourceName = pSourceName)
+			{
+				fixed (char* ppEntryPoint = pEntryPoint)
+				{
+					fixed (char* ppTargetProfile = pTargetProfile)
+					{
+						fixed (Define* ppDefines = &pDefines)
+						{
+							fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+							{
+								fixed (IDxcOperationResult** pppResult = &ppResult)
+								{
+									fixed (char** pppDebugBlobName = &ppDebugBlobName)
+									{
+										fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+										{
+											int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, (char*)ppSourceName, (char*)ppEntryPoint, (char*)ppTargetProfile, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+											return ret;
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Compile a single entry point to the target shader model with debug information.<br/>
+		/// </summary>
+		public static int CompileWithDebug(this ComPtr<IDxcCompiler2> comObj, IDxcBlob* pSource, string pSourceName, string pEntryPoint, string pTargetProfile, char** pArguments, uint argCount, ref Define pDefines, uint defineCount, ref IDxcIncludeHandler pIncludeHandler, ref IDxcOperationResult* ppResult, ref char* ppDebugBlobName, ref IDxcBlob* ppDebugBlob) 
+		{
+			IDxcCompiler2* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (pSourceName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(pSourceName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(pSourceName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			char* pStr1 = null;
+			int pStrSize1 = 0;
+			if (pEntryPoint != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF16(pEntryPoint);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<char>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = (char*)pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF16(pEntryPoint, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = '\0';
+			}
+			char* pStr2 = null;
+			int pStrSize2 = 0;
+			if (pTargetProfile != null)
+			{
+				pStrSize2 = Utils.GetByteCountUTF16(pTargetProfile);
+				if (pStrSize2 >= Utils.MaxStackallocSize)
+				{
+					pStr2 = Utils.Alloc<char>(pStrSize2 + 1);
+				}
+				else
+				{
+					byte* pStrStack2 = stackalloc byte[pStrSize2 + 1];
+					pStr2 = (char*)pStrStack2;
+				}
+				int pStrOffset2 = Utils.EncodeStringUTF16(pTargetProfile, pStr2, pStrSize2);
+				pStr2[pStrOffset2] = '\0';
+			}
+			fixed (Define* ppDefines = &pDefines)
+			{
+				fixed (IDxcIncludeHandler* ppIncludeHandler = &pIncludeHandler)
+				{
+					fixed (IDxcOperationResult** pppResult = &ppResult)
+					{
+						fixed (char** pppDebugBlobName = &ppDebugBlobName)
+						{
+							fixed (IDxcBlob** pppDebugBlob = &ppDebugBlob)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<IDxcCompiler2*, IDxcBlob*, char*, char*, char*, char**, uint, Define*, uint, IDxcIncludeHandler*, IDxcOperationResult**, char**, IDxcBlob**, int>)(handle->LpVtbl[6]))(handle, pSource, pStr0, pStr1, pStr2, pArguments, argCount, (Define*)ppDefines, defineCount, (IDxcIncludeHandler*)ppIncludeHandler, (IDxcOperationResult**)pppResult, (char**)pppDebugBlobName, (IDxcBlob**)pppDebugBlob);
+								if (pStrSize2 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr2);
+								}
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr1);
+								}
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
 						}
 					}
 				}

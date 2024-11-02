@@ -18,7 +18,6 @@ namespace Hexa.NET.D3DCommon
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.Typedef, "LPD3DBLOB")]
 	#if NET5_0_OR_GREATER
 	[DebuggerDisplay("{DebuggerDisplay,nq}")]
 	#endif

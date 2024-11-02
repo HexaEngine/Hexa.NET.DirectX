@@ -23,41 +23,44 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddStorageFilterEntries")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddStorageFilterEntries(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter) 
+		public static void GetDevice(this ComPtr<ID3D11RasterizerState1> comObj, ref ID3D11Device* ppDevice) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(handle->LpVtbl[12]))(handle, (D3D11InfoQueueFilter*)ppFilter);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, ID3D11Device**, void>)(handle->LpVtbl[3]))(handle, (ID3D11Device**)pppDevice);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetStorageFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
+		public static void GetDevice(this ComPtr<ID3D11RasterizerState1> comObj, out ComPtr<ID3D11Device> ppDevice) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, pFilter, pFilterByteLength);
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			ppDevice = default;
+			((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, ID3D11Device**, void>)(handle->LpVtbl[3]))(handle, (ID3D11Device**)ppDevice.GetAddressOf());
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D11RasterizerState1> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		{
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetStorageFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
+		public static int GetPrivateData(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, (D3D11InfoQueueFilter*)ppFilter, pFilterByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -65,14 +68,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetStorageFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
+		public static int GetPrivateData(this ComPtr<ID3D11RasterizerState1> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, pFilter, (nuint*)ppFilterByteLength);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
 				return ret;
 			}
 		}
@@ -80,16 +81,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetStorageFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
+		public static int GetPrivateData(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
+				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[13]))(handle, (D3D11InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -98,61 +97,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void ClearStorageFilter(this ComPtr<ID3D11InfoQueue> comObj) 
+		public static int GetPrivateData<T>(this ComPtr<ID3D11RasterizerState1> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, void>)(handle->LpVtbl[14]))(handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "PushEmptyStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int PushEmptyStorageFilter(this ComPtr<ID3D11InfoQueue> comObj) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, int>)(handle->LpVtbl[15]))(handle);
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushCopyOfStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int PushCopyOfStorageFilter(this ComPtr<ID3D11InfoQueue> comObj) 
+		public static int GetPrivateData<T>(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, int>)(handle->LpVtbl[16]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "PushStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int PushStorageFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(handle->LpVtbl[17]))(handle, pFilter);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "PushStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int PushStorageFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(handle->LpVtbl[17]))(handle, (D3D11InfoQueueFilter*)ppFilter);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -160,49 +120,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PopStorageFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void PopStorageFilter(this ComPtr<ID3D11InfoQueue> comObj) 
+		public static int GetPrivateData<T>(this ComPtr<ID3D11RasterizerState1> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, void>)(handle->LpVtbl[18]))(handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetStorageFilterStackSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetStorageFilterStackSize(this ComPtr<ID3D11InfoQueue> comObj) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, uint>)(handle->LpVtbl[19]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRetrievalFilterEntries")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddRetrievalFilterEntries(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(handle->LpVtbl[20]))(handle, pFilter);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRetrievalFilterEntries")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddRetrievalFilterEntries(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(handle->LpVtbl[20]))(handle, (D3D11InfoQueueFilter*)ppFilter);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -210,58 +133,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetRetrievalFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
+		public static int GetPrivateData<T>(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, pFilter, pFilterByteLength);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetRetrievalFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] nuint* pFilterByteLength) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, (D3D11InfoQueueFilter*)ppFilter, pFilterByteLength);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetRetrievalFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (nuint* ppFilterByteLength = &pFilterByteLength)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, pFilter, (nuint*)ppFilterByteLength);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetRetrievalFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter, [NativeName(NativeNameType.Param, "pFilterByteLength")] [NativeName(NativeNameType.Type, "SIZE_T*")] ref nuint pFilterByteLength) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
-			{
-				fixed (nuint* ppFilterByteLength = &pFilterByteLength)
+				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, nuint*, int>)(handle->LpVtbl[21]))(handle, (D3D11InfoQueueFilter*)ppFilter, (nuint*)ppFilterByteLength);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -270,61 +149,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ClearRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void ClearRetrievalFilter(this ComPtr<ID3D11InfoQueue> comObj) 
+		public static int SetPrivateData(this ComPtr<ID3D11RasterizerState1> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, void>)(handle->LpVtbl[22]))(handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "PushEmptyRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int PushEmptyRetrievalFilter(this ComPtr<ID3D11InfoQueue> comObj) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, int>)(handle->LpVtbl[23]))(handle);
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PushCopyOfRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int PushCopyOfRetrievalFilter(this ComPtr<ID3D11InfoQueue> comObj) 
+		public static int SetPrivateData(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, int>)(handle->LpVtbl[24]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "PushRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int PushRetrievalFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] D3D11InfoQueueFilter* pFilter) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(handle->LpVtbl[25]))(handle, pFilter);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "PushRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int PushRetrievalFilter(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "pFilter")] [NativeName(NativeNameType.Type, "D3D11_INFO_QUEUE_FILTER*")] ref D3D11InfoQueueFilter pFilter) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (D3D11InfoQueueFilter* ppFilter = &pFilter)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11InfoQueueFilter*, int>)(handle->LpVtbl[25]))(handle, (D3D11InfoQueueFilter*)ppFilter);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -332,49 +172,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PopRetrievalFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void PopRetrievalFilter(this ComPtr<ID3D11InfoQueue> comObj) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11RasterizerState1> comObj, Guid* guid, IUnknown* pData) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, void>)(handle->LpVtbl[26]))(handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRetrievalFilterStackSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetRetrievalFilterStackSize(this ComPtr<ID3D11InfoQueue> comObj) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, uint>)(handle->LpVtbl[27]))(handle);
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddMessage(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_CATEGORY")] D3D11MessageCategory category, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_ID")] D3D11MessageId id, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDescription) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid guid, IUnknown* pData) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageCategory, D3D11MessageSeverity, D3D11MessageId, byte*, int>)(handle->LpVtbl[28]))(handle, category, severity, id, pDescription);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddMessage(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_CATEGORY")] D3D11MessageCategory category, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_ID")] D3D11MessageId id, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDescription) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (byte* ppDescription = pDescription)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageCategory, D3D11MessageSeverity, D3D11MessageId, byte*, int>)(handle->LpVtbl[28]))(handle, category, severity, id, (byte*)ppDescription);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -382,59 +195,51 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddMessage(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_CATEGORY")] D3D11MessageCategory category, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_ID")] D3D11MessageId id, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDescription) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11RasterizerState1> comObj, Guid* guid, ref IUnknown pData) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pDescription != null)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (IUnknown* ppData = &pData)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pDescription);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11RasterizerState1> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		{
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid guid, ref IUnknown pData) 
+		{
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				fixed (IUnknown* ppData = &pData)
 				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
+					return ret;
 				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageCategory, D3D11MessageSeverity, D3D11MessageId, byte*, int>)(handle->LpVtbl[28]))(handle, category, severity, id, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddApplicationMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddApplicationMessage(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pDescription) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11RasterizerState1> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageSeverity, byte*, int>)(handle->LpVtbl[29]))(handle, severity, pDescription);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddApplicationMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddApplicationMessage(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pDescription) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			fixed (byte* ppDescription = pDescription)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageSeverity, byte*, int>)(handle->LpVtbl[29]))(handle, severity, (byte*)ppDescription);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -442,604 +247,64 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddApplicationMessage")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddApplicationMessage(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "pDescription")] [NativeName(NativeNameType.Type, "LPCSTR")] string pDescription) 
+		public static void GetDesc(this ComPtr<ID3D11RasterizerState1> comObj, RasterizerDesc* pDesc) 
 		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pDescription != null)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, RasterizerDesc*, void>)(handle->LpVtbl[7]))(handle, pDesc);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetDesc(this ComPtr<ID3D11RasterizerState1> comObj, ref RasterizerDesc pDesc) 
+		{
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (RasterizerDesc* ppDesc = &pDesc)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pDescription);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pDescription, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageSeverity, byte*, int>)(handle->LpVtbl[29]))(handle, severity, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBreakOnCategory")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetBreakOnCategory(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_CATEGORY")] D3D11MessageCategory category, [NativeName(NativeNameType.Param, "bEnable")] [NativeName(NativeNameType.Type, "BOOL")] int bEnable) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageCategory, int, int>)(handle->LpVtbl[30]))(handle, category, bEnable);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBreakOnSeverity")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetBreakOnSeverity(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity, [NativeName(NativeNameType.Param, "bEnable")] [NativeName(NativeNameType.Type, "BOOL")] int bEnable) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageSeverity, int, int>)(handle->LpVtbl[31]))(handle, severity, bEnable);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBreakOnID")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetBreakOnID(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_ID")] D3D11MessageId id, [NativeName(NativeNameType.Param, "bEnable")] [NativeName(NativeNameType.Type, "BOOL")] int bEnable) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageId, int, int>)(handle->LpVtbl[32]))(handle, id, bEnable);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBreakOnCategory")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public static int GetBreakOnCategory(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "Category")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_CATEGORY")] D3D11MessageCategory category) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageCategory, int>)(handle->LpVtbl[33]))(handle, category);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBreakOnSeverity")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public static int GetBreakOnSeverity(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "Severity")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_SEVERITY")] D3D11MessageSeverity severity) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageSeverity, int>)(handle->LpVtbl[34]))(handle, severity);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBreakOnID")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public static int GetBreakOnID(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "ID")] [NativeName(NativeNameType.Type, "D3D11_MESSAGE_ID")] D3D11MessageId id) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, D3D11MessageId, int>)(handle->LpVtbl[35]))(handle, id);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetMuteDebugOutput")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void SetMuteDebugOutput(this ComPtr<ID3D11InfoQueue> comObj, [NativeName(NativeNameType.Param, "bMute")] [NativeName(NativeNameType.Type, "BOOL")] int bMute) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, int, void>)(handle->LpVtbl[36]))(handle, bMute);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMuteDebugOutput")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public static int GetMuteDebugOutput(this ComPtr<ID3D11InfoQueue> comObj) 
-		{
-			ID3D11InfoQueue* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11InfoQueue*, int>)(handle->LpVtbl[37]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TYPE_DESC*")] D3D11ShaderTypeDesc* pDesc) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, D3D11ShaderTypeDesc*, int>)(*handle->LpVtbl))(handle, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TYPE_DESC*")] ref D3D11ShaderTypeDesc pDesc) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			fixed (D3D11ShaderTypeDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, D3D11ShaderTypeDesc*, int>)(*handle->LpVtbl))(handle, (D3D11ShaderTypeDesc*)ppDesc);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, RasterizerDesc*, void>)(handle->LpVtbl[7]))(handle, (RasterizerDesc*)ppDesc);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeByIndex")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")]
-		public static ID3D11ShaderReflectionType* GetMemberTypeByIndex(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
+		public static void GetDesc1(this ComPtr<ID3D11RasterizerState1> comObj, RasterizerDesc1* pDesc) 
 		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			ID3D11ShaderReflectionType* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, uint, ID3D11ShaderReflectionType*>)(handle->LpVtbl[1]))(handle, index);
-			return ret;
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, RasterizerDesc1*, void>)(handle->LpVtbl[8]))(handle, pDesc);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")]
-		public static ID3D11ShaderReflectionType* GetMemberTypeByName(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* name) 
+		public static void GetDesc1(this ComPtr<ID3D11RasterizerState1> comObj, ref RasterizerDesc1 pDesc) 
 		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			ID3D11ShaderReflectionType* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, byte*, ID3D11ShaderReflectionType*>)(handle->LpVtbl[2]))(handle, name);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")]
-		public static ID3D11ShaderReflectionType* GetMemberTypeByName(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> name) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			fixed (byte* pname = name)
+			ID3D11RasterizerState1* handle = comObj.Handle;
+			fixed (RasterizerDesc1* ppDesc = &pDesc)
 			{
-				ID3D11ShaderReflectionType* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, byte*, ID3D11ShaderReflectionType*>)(handle->LpVtbl[2]))(handle, (byte*)pname);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11RasterizerState1*, RasterizerDesc1*, void>)(handle->LpVtbl[8]))(handle, (RasterizerDesc1*)ppDesc);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")]
-		public static ID3D11ShaderReflectionType* GetMemberTypeByName(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] string name) 
+		public static int QueryInterface(this ComPtr<ID3DDeviceContextState> comObj, Guid* riid, void** ppvObject) 
 		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			ID3D11ShaderReflectionType* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, byte*, ID3D11ShaderReflectionType*>)(handle->LpVtbl[2]))(handle, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
+			ID3DDeviceContextState* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeName")]
-		[return: NativeName(NativeNameType.Type, "LPCSTR")]
-		public static byte* GetMemberTypeName(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
+		public static int QueryInterface(this ComPtr<ID3DDeviceContextState> comObj, ref Guid riid, void** ppvObject) 
 		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			byte* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, uint, byte*>)(handle->LpVtbl[3]))(handle, index);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMemberTypeName")]
-		[return: NativeName(NativeNameType.Type, "LPCSTR")]
-		public static string GetMemberTypeNameS(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			string ret = Utils.DecodeStringUTF8(((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, uint, byte*>)(handle->LpVtbl[3]))(handle, index));
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "IsEqual")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int IsEqual(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")] ID3D11ShaderReflectionType* pType) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(handle->LpVtbl[4]))(handle, pType);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "IsEqual")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int IsEqual(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")] ref ID3D11ShaderReflectionType pType) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			fixed (ID3D11ShaderReflectionType* ppType = &pType)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(handle->LpVtbl[4]))(handle, (ID3D11ShaderReflectionType*)ppType);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "IsEqual")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int IsEqual(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")] ComPtr<ID3D11ShaderReflectionType> pType) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(handle->LpVtbl[4]))(handle, (ID3D11ShaderReflectionType*)pType.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSubType")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")]
-		public static ID3D11ShaderReflectionType* GetSubType(this ComPtr<ID3D11ShaderReflectionType> comObj) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			ID3D11ShaderReflectionType* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*>)(handle->LpVtbl[5]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBaseClass")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")]
-		public static ID3D11ShaderReflectionType* GetBaseClass(this ComPtr<ID3D11ShaderReflectionType> comObj) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			ID3D11ShaderReflectionType* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*>)(handle->LpVtbl[6]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumInterfaces")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetNumInterfaces(this ComPtr<ID3D11ShaderReflectionType> comObj) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, uint>)(handle->LpVtbl[7]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetInterfaceByIndex")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")]
-		public static ID3D11ShaderReflectionType* GetInterfaceByIndex(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT")] uint uIndex) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			ID3D11ShaderReflectionType* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, uint, ID3D11ShaderReflectionType*>)(handle->LpVtbl[8]))(handle, uIndex);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "IsOfType")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int IsOfType(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")] ID3D11ShaderReflectionType* pType) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(handle->LpVtbl[9]))(handle, pType);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "IsOfType")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int IsOfType(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")] ref ID3D11ShaderReflectionType pType) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			fixed (ID3D11ShaderReflectionType* ppType = &pType)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(handle->LpVtbl[9]))(handle, (ID3D11ShaderReflectionType*)ppType);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "IsOfType")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int IsOfType(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "pType")] [NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")] ComPtr<ID3D11ShaderReflectionType> pType) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(handle->LpVtbl[9]))(handle, (ID3D11ShaderReflectionType*)pType.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ImplementsInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ImplementsInterface(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "pBase")] [NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")] ID3D11ShaderReflectionType* pBase) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(handle->LpVtbl[10]))(handle, pBase);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ImplementsInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ImplementsInterface(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "pBase")] [NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")] ref ID3D11ShaderReflectionType pBase) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			fixed (ID3D11ShaderReflectionType* ppBase = &pBase)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(handle->LpVtbl[10]))(handle, (ID3D11ShaderReflectionType*)ppBase);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ImplementsInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ImplementsInterface(this ComPtr<ID3D11ShaderReflectionType> comObj, [NativeName(NativeNameType.Param, "pBase")] [NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")] ComPtr<ID3D11ShaderReflectionType> pBase) 
-		{
-			ID3D11ShaderReflectionType* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionType*, ID3D11ShaderReflectionType*, int>)(handle->LpVtbl[10]))(handle, (ID3D11ShaderReflectionType*)pBase.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11ShaderReflectionVariable> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_VARIABLE_DESC*")] D3D11ShaderVariableDesc* pDesc) 
-		{
-			ID3D11ShaderReflectionVariable* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionVariable*, D3D11ShaderVariableDesc*, int>)(*handle->LpVtbl))(handle, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11ShaderReflectionVariable> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_VARIABLE_DESC*")] ref D3D11ShaderVariableDesc pDesc) 
-		{
-			ID3D11ShaderReflectionVariable* handle = comObj.Handle;
-			fixed (D3D11ShaderVariableDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionVariable*, D3D11ShaderVariableDesc*, int>)(*handle->LpVtbl))(handle, (D3D11ShaderVariableDesc*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetType")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionType*")]
-		public static ID3D11ShaderReflectionType* GetType(this ComPtr<ID3D11ShaderReflectionVariable> comObj) 
-		{
-			ID3D11ShaderReflectionVariable* handle = comObj.Handle;
-			ID3D11ShaderReflectionType* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionVariable*, ID3D11ShaderReflectionType*>)(handle->LpVtbl[1]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBuffer")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionConstantBuffer*")]
-		public static ID3D11ShaderReflectionConstantBuffer* GetBuffer(this ComPtr<ID3D11ShaderReflectionVariable> comObj) 
-		{
-			ID3D11ShaderReflectionVariable* handle = comObj.Handle;
-			ID3D11ShaderReflectionConstantBuffer* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionVariable*, ID3D11ShaderReflectionConstantBuffer*>)(handle->LpVtbl[2]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetInterfaceSlot")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetInterfaceSlot(this ComPtr<ID3D11ShaderReflectionVariable> comObj, [NativeName(NativeNameType.Param, "uArrayIndex")] [NativeName(NativeNameType.Type, "UINT")] uint uArrayIndex) 
-		{
-			ID3D11ShaderReflectionVariable* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionVariable*, uint, uint>)(handle->LpVtbl[3]))(handle, uArrayIndex);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11ShaderReflectionConstantBuffer> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_BUFFER_DESC*")] D3D11ShaderBufferDesc* pDesc) 
-		{
-			ID3D11ShaderReflectionConstantBuffer* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionConstantBuffer*, D3D11ShaderBufferDesc*, int>)(*handle->LpVtbl))(handle, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11ShaderReflectionConstantBuffer> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_BUFFER_DESC*")] ref D3D11ShaderBufferDesc pDesc) 
-		{
-			ID3D11ShaderReflectionConstantBuffer* handle = comObj.Handle;
-			fixed (D3D11ShaderBufferDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionConstantBuffer*, D3D11ShaderBufferDesc*, int>)(*handle->LpVtbl))(handle, (D3D11ShaderBufferDesc*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVariableByIndex")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionVariable*")]
-		public static ID3D11ShaderReflectionVariable* GetVariableByIndex(this ComPtr<ID3D11ShaderReflectionConstantBuffer> comObj, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
-		{
-			ID3D11ShaderReflectionConstantBuffer* handle = comObj.Handle;
-			ID3D11ShaderReflectionVariable* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionConstantBuffer*, uint, ID3D11ShaderReflectionVariable*>)(handle->LpVtbl[1]))(handle, index);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVariableByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionVariable*")]
-		public static ID3D11ShaderReflectionVariable* GetVariableByName(this ComPtr<ID3D11ShaderReflectionConstantBuffer> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* name) 
-		{
-			ID3D11ShaderReflectionConstantBuffer* handle = comObj.Handle;
-			ID3D11ShaderReflectionVariable* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionConstantBuffer*, byte*, ID3D11ShaderReflectionVariable*>)(handle->LpVtbl[2]))(handle, name);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVariableByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionVariable*")]
-		public static ID3D11ShaderReflectionVariable* GetVariableByName(this ComPtr<ID3D11ShaderReflectionConstantBuffer> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> name) 
-		{
-			ID3D11ShaderReflectionConstantBuffer* handle = comObj.Handle;
-			fixed (byte* pname = name)
-			{
-				ID3D11ShaderReflectionVariable* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionConstantBuffer*, byte*, ID3D11ShaderReflectionVariable*>)(handle->LpVtbl[2]))(handle, (byte*)pname);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVariableByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionVariable*")]
-		public static ID3D11ShaderReflectionVariable* GetVariableByName(this ComPtr<ID3D11ShaderReflectionConstantBuffer> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] string name) 
-		{
-			ID3D11ShaderReflectionConstantBuffer* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			ID3D11ShaderReflectionVariable* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflectionConstantBuffer*, byte*, ID3D11ShaderReflectionVariable*>)(handle->LpVtbl[2]))(handle, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
+			ID3DDeviceContextState* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1047,28 +312,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<ID3DDeviceContextState> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
+			ID3DDeviceContextState* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<ID3DDeviceContextState> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
+			ID3DDeviceContextState* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1076,38 +337,73 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint AddRef(this ComPtr<ID3D11ShaderReflection> comObj) 
+		public static uint AddRef(this ComPtr<ID3DDeviceContextState> comObj) 
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint>)(handle->LpVtbl[1]))(handle);
+			ID3DDeviceContextState* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, uint>)(handle->LpVtbl[1]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint Release(this ComPtr<ID3D11ShaderReflection> comObj) 
+		public static uint Release(this ComPtr<ID3DDeviceContextState> comObj) 
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint>)(handle->LpVtbl[2]))(handle);
+			ID3DDeviceContextState* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, uint>)(handle->LpVtbl[2]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public static void GetDevice(this ComPtr<ID3DDeviceContextState> comObj, ID3D11Device** ppDevice) 
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (void** pppv = &ppv)
+			ID3DDeviceContextState* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, ID3D11Device**, void>)(handle->LpVtbl[3]))(handle, ppDevice);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetDevice(this ComPtr<ID3DDeviceContextState> comObj, ref ID3D11Device* ppDevice) 
+		{
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
+				((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, ID3D11Device**, void>)(handle->LpVtbl[3]))(handle, (ID3D11Device**)pppDevice);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetDevice(this ComPtr<ID3DDeviceContextState> comObj, out ComPtr<ID3D11Device> ppDevice) 
+		{
+			ID3DDeviceContextState* handle = comObj.Handle;
+			ppDevice = default;
+			((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, ID3D11Device**, void>)(handle->LpVtbl[3]))(handle, (ID3D11Device**)ppDevice.GetAddressOf());
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3DDeviceContextState> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		{
+			ID3DDeviceContextState* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3DDeviceContextState> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		{
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -1115,16 +411,27 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public static int GetPrivateData(this ComPtr<ID3DDeviceContextState> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (Guid* piid = &iid)
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
 			{
-				fixed (void** pppv = &ppv)
+				int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3DDeviceContextState> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		{
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (Guid*)piid, (void**)pppv);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -1133,26 +440,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_DESC*")] D3D11ShaderDesc* pDesc) 
+		public static int GetPrivateData<T>(this ComPtr<ID3DDeviceContextState> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, D3D11ShaderDesc*, int>)(handle->LpVtbl[4]))(handle, pDesc);
+			ID3DDeviceContextState* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_DESC*")] ref D3D11ShaderDesc pDesc) 
+		public static int GetPrivateData<T>(this ComPtr<ID3DDeviceContextState> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (D3D11ShaderDesc* ppDesc = &pDesc)
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, D3D11ShaderDesc*, int>)(handle->LpVtbl[4]))(handle, (D3D11ShaderDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1160,38 +463,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetConstantBufferByIndex")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionConstantBuffer*")]
-		public static ID3D11ShaderReflectionConstantBuffer* GetConstantBufferByIndex(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index) 
+		public static int GetPrivateData<T>(this ComPtr<ID3DDeviceContextState> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			ID3D11ShaderReflectionConstantBuffer* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint, ID3D11ShaderReflectionConstantBuffer*>)(handle->LpVtbl[5]))(handle, index);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetConstantBufferByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionConstantBuffer*")]
-		public static ID3D11ShaderReflectionConstantBuffer* GetConstantBufferByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* name) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			ID3D11ShaderReflectionConstantBuffer* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, ID3D11ShaderReflectionConstantBuffer*>)(handle->LpVtbl[6]))(handle, name);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetConstantBufferByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionConstantBuffer*")]
-		public static ID3D11ShaderReflectionConstantBuffer* GetConstantBufferByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> name) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (byte* pname = name)
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
 			{
-				ID3D11ShaderReflectionConstantBuffer* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, ID3D11ShaderReflectionConstantBuffer*>)(handle->LpVtbl[6]))(handle, (byte*)pname);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1199,292 +476,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetConstantBufferByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionConstantBuffer*")]
-		public static ID3D11ShaderReflectionConstantBuffer* GetConstantBufferByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] string name) 
+		public static int GetPrivateData<T>(this ComPtr<ID3DDeviceContextState> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
+				fixed (uint* ppDataSize = &pDataSize)
 				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			ID3D11ShaderReflectionConstantBuffer* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, ID3D11ShaderReflectionConstantBuffer*>)(handle->LpVtbl[6]))(handle, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDesc(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "ResourceIndex")] [NativeName(NativeNameType.Type, "UINT")] uint resourceIndex, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] D3D11ShaderInputBindDesc* pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[7]))(handle, resourceIndex, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDesc(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "ResourceIndex")] [NativeName(NativeNameType.Type, "UINT")] uint resourceIndex, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] ref D3D11ShaderInputBindDesc pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (D3D11ShaderInputBindDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[7]))(handle, resourceIndex, (D3D11ShaderInputBindDesc*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetInputParameterDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetInputParameterDesc(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "ParameterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint parameterIndex, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SIGNATURE_PARAMETER_DESC*")] D3D11SignatureParameterDesc* pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint, D3D11SignatureParameterDesc*, int>)(handle->LpVtbl[8]))(handle, parameterIndex, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetInputParameterDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetInputParameterDesc(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "ParameterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint parameterIndex, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SIGNATURE_PARAMETER_DESC*")] ref D3D11SignatureParameterDesc pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (D3D11SignatureParameterDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint, D3D11SignatureParameterDesc*, int>)(handle->LpVtbl[8]))(handle, parameterIndex, (D3D11SignatureParameterDesc*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutputParameterDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetOutputParameterDesc(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "ParameterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint parameterIndex, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SIGNATURE_PARAMETER_DESC*")] D3D11SignatureParameterDesc* pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint, D3D11SignatureParameterDesc*, int>)(handle->LpVtbl[9]))(handle, parameterIndex, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetOutputParameterDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetOutputParameterDesc(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "ParameterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint parameterIndex, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SIGNATURE_PARAMETER_DESC*")] ref D3D11SignatureParameterDesc pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (D3D11SignatureParameterDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint, D3D11SignatureParameterDesc*, int>)(handle->LpVtbl[9]))(handle, parameterIndex, (D3D11SignatureParameterDesc*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPatchConstantParameterDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPatchConstantParameterDesc(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "ParameterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint parameterIndex, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SIGNATURE_PARAMETER_DESC*")] D3D11SignatureParameterDesc* pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint, D3D11SignatureParameterDesc*, int>)(handle->LpVtbl[10]))(handle, parameterIndex, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPatchConstantParameterDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPatchConstantParameterDesc(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "ParameterIndex")] [NativeName(NativeNameType.Type, "UINT")] uint parameterIndex, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SIGNATURE_PARAMETER_DESC*")] ref D3D11SignatureParameterDesc pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (D3D11SignatureParameterDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint, D3D11SignatureParameterDesc*, int>)(handle->LpVtbl[10]))(handle, parameterIndex, (D3D11SignatureParameterDesc*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVariableByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionVariable*")]
-		public static ID3D11ShaderReflectionVariable* GetVariableByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* name) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			ID3D11ShaderReflectionVariable* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, ID3D11ShaderReflectionVariable*>)(handle->LpVtbl[11]))(handle, name);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVariableByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionVariable*")]
-		public static ID3D11ShaderReflectionVariable* GetVariableByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> name) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (byte* pname = name)
-			{
-				ID3D11ShaderReflectionVariable* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, ID3D11ShaderReflectionVariable*>)(handle->LpVtbl[11]))(handle, (byte*)pname);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVariableByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionVariable*")]
-		public static ID3D11ShaderReflectionVariable* GetVariableByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] string name) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			ID3D11ShaderReflectionVariable* ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, ID3D11ShaderReflectionVariable*>)(handle->LpVtbl[11]))(handle, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] D3D11ShaderInputBindDesc* pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[12]))(handle, name, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] D3D11ShaderInputBindDesc* pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (byte* pname = name)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[12]))(handle, (byte*)pname, pDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] string name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] D3D11ShaderInputBindDesc* pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[12]))(handle, pStr0, pDesc);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] ref D3D11ShaderInputBindDesc pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (D3D11ShaderInputBindDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[12]))(handle, name, (D3D11ShaderInputBindDesc*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] ref D3D11ShaderInputBindDesc pDesc) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (byte* pname = name)
-			{
-				fixed (D3D11ShaderInputBindDesc* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[12]))(handle, (byte*)pname, (D3D11ShaderInputBindDesc*)ppDesc);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -1493,35 +492,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] string name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] ref D3D11ShaderInputBindDesc pDesc) 
+		public static int SetPrivateData(this ComPtr<ID3DDeviceContextState> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
+			ID3DDeviceContextState* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateData(this ComPtr<ID3DDeviceContextState> comObj, ref Guid guid, uint dataSize, void* pData) 
+		{
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (D3D11ShaderInputBindDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[12]))(handle, pStr0, (D3D11ShaderInputBindDesc*)ppDesc);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
 				return ret;
 			}
 		}
@@ -1529,110 +515,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMovInstructionCount")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetMovInstructionCount(this ComPtr<ID3D11ShaderReflection> comObj) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3DDeviceContextState> comObj, Guid* guid, IUnknown* pData) 
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint>)(handle->LpVtbl[13]))(handle);
+			ID3DDeviceContextState* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMovcInstructionCount")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetMovcInstructionCount(this ComPtr<ID3D11ShaderReflection> comObj) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3DDeviceContextState> comObj, ref Guid guid, IUnknown* pData) 
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint>)(handle->LpVtbl[14]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetConversionInstructionCount")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetConversionInstructionCount(this ComPtr<ID3D11ShaderReflection> comObj) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint>)(handle->LpVtbl[15]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBitwiseInstructionCount")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetBitwiseInstructionCount(this ComPtr<ID3D11ShaderReflection> comObj) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint>)(handle->LpVtbl[16]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetGSInputPrimitive")]
-		[return: NativeName(NativeNameType.Type, "D3D_PRIMITIVE")]
-		public static D3DPrimitive GetGSInputPrimitive(this ComPtr<ID3D11ShaderReflection> comObj) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			D3DPrimitive ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, D3DPrimitive>)(handle->LpVtbl[17]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "IsSampleFrequencyShader")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
-		public static int IsSampleFrequencyShader(this ComPtr<ID3D11ShaderReflection> comObj) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, int>)(handle->LpVtbl[18]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNumInterfaceSlots")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetNumInterfaceSlots(this ComPtr<ID3D11ShaderReflection> comObj) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint>)(handle->LpVtbl[19]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMinFeatureLevel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetMinFeatureLevel(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] D3DFeatureLevel* pLevel) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, D3DFeatureLevel*, int>)(handle->LpVtbl[20]))(handle, pLevel);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMinFeatureLevel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetMinFeatureLevel(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pLevel")] [NativeName(NativeNameType.Type, "D3D_FEATURE_LEVEL*")] ref D3DFeatureLevel pLevel) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (D3DFeatureLevel* ppLevel = &pLevel)
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, D3DFeatureLevel*, int>)(handle->LpVtbl[20]))(handle, (D3DFeatureLevel*)ppLevel);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
 				return ret;
 			}
 		}
@@ -1640,58 +538,37 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetThreadGroupSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetThreadGroupSize(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pSizeX")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeX, [NativeName(NativeNameType.Param, "pSizeY")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeY, [NativeName(NativeNameType.Param, "pSizeZ")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeZ) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3DDeviceContextState> comObj, Guid* guid, ref IUnknown pData) 
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint*, uint*, uint*, uint>)(handle->LpVtbl[21]))(handle, pSizeX, pSizeY, pSizeZ);
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (IUnknown* ppData = &pData)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3DDeviceContextState> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		{
+			ID3DDeviceContextState* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetThreadGroupSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetThreadGroupSize(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pSizeX")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeX, [NativeName(NativeNameType.Param, "pSizeY")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeY, [NativeName(NativeNameType.Param, "pSizeZ")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeZ) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3DDeviceContextState> comObj, ref Guid guid, ref IUnknown pData) 
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (uint* ppSizeX = &pSizeX)
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint*, uint*, uint*, uint>)(handle->LpVtbl[21]))(handle, (uint*)ppSizeX, pSizeY, pSizeZ);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetThreadGroupSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetThreadGroupSize(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pSizeX")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeX, [NativeName(NativeNameType.Param, "pSizeY")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeY, [NativeName(NativeNameType.Param, "pSizeZ")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeZ) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (uint* ppSizeY = &pSizeY)
-			{
-				uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint*, uint*, uint*, uint>)(handle->LpVtbl[21]))(handle, pSizeX, (uint*)ppSizeY, pSizeZ);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetThreadGroupSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetThreadGroupSize(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pSizeX")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeX, [NativeName(NativeNameType.Param, "pSizeY")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeY, [NativeName(NativeNameType.Param, "pSizeZ")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeZ) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (uint* ppSizeX = &pSizeX)
-			{
-				fixed (uint* ppSizeY = &pSizeY)
+				fixed (IUnknown* ppData = &pData)
 				{
-					uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint*, uint*, uint*, uint>)(handle->LpVtbl[21]))(handle, (uint*)ppSizeX, (uint*)ppSizeY, pSizeZ);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -1700,14 +577,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetThreadGroupSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetThreadGroupSize(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pSizeX")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeX, [NativeName(NativeNameType.Param, "pSizeY")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeY, [NativeName(NativeNameType.Param, "pSizeZ")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeZ) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3DDeviceContextState> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (uint* ppSizeZ = &pSizeZ)
+			ID3DDeviceContextState* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint*, uint*, uint*, uint>)(handle->LpVtbl[21]))(handle, pSizeX, pSizeY, (uint*)ppSizeZ);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3DDeviceContextState*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1715,95 +590,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetThreadGroupSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetThreadGroupSize(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pSizeX")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeX, [NativeName(NativeNameType.Param, "pSizeY")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeY, [NativeName(NativeNameType.Param, "pSizeZ")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeZ) 
+		public static int QueryInterface(this ComPtr<ID3D11DeviceContext1> comObj, Guid* riid, void** ppvObject) 
 		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (uint* ppSizeX = &pSizeX)
-			{
-				fixed (uint* ppSizeZ = &pSizeZ)
-				{
-					uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint*, uint*, uint*, uint>)(handle->LpVtbl[21]))(handle, (uint*)ppSizeX, pSizeY, (uint*)ppSizeZ);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetThreadGroupSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetThreadGroupSize(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pSizeX")] [NativeName(NativeNameType.Type, "UINT*")] uint* pSizeX, [NativeName(NativeNameType.Param, "pSizeY")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeY, [NativeName(NativeNameType.Param, "pSizeZ")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeZ) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (uint* ppSizeY = &pSizeY)
-			{
-				fixed (uint* ppSizeZ = &pSizeZ)
-				{
-					uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint*, uint*, uint*, uint>)(handle->LpVtbl[21]))(handle, pSizeX, (uint*)ppSizeY, (uint*)ppSizeZ);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetThreadGroupSize")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetThreadGroupSize(this ComPtr<ID3D11ShaderReflection> comObj, [NativeName(NativeNameType.Param, "pSizeX")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeX, [NativeName(NativeNameType.Param, "pSizeY")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeY, [NativeName(NativeNameType.Param, "pSizeZ")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pSizeZ) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			fixed (uint* ppSizeX = &pSizeX)
-			{
-				fixed (uint* ppSizeY = &pSizeY)
-				{
-					fixed (uint* ppSizeZ = &pSizeZ)
-					{
-						uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, uint*, uint*, uint*, uint>)(handle->LpVtbl[21]))(handle, (uint*)ppSizeX, (uint*)ppSizeY, (uint*)ppSizeZ);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRequiresFlags")]
-		[return: NativeName(NativeNameType.Type, "UINT64")]
-		public static ulong GetRequiresFlags(this ComPtr<ID3D11ShaderReflection> comObj) 
-		{
-			ID3D11ShaderReflection* handle = comObj.Handle;
-			ulong ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderReflection*, ulong>)(handle->LpVtbl[22]))(handle);
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11LibraryReflection> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<ID3D11DeviceContext1> comObj, ref Guid riid, void** ppvObject) 
 		{
-			ID3D11LibraryReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11LibraryReflection> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			ID3D11LibraryReflection* handle = comObj.Handle;
+			ID3D11DeviceContext1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
 				return ret;
 			}
 		}
@@ -1811,28 +613,24 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11LibraryReflection> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<ID3D11DeviceContext1> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11LibraryReflection* handle = comObj.Handle;
+			ID3D11DeviceContext1* handle = comObj.Handle;
 			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11LibraryReflection> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<ID3D11DeviceContext1> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11LibraryReflection* handle = comObj.Handle;
+			ID3D11DeviceContext1* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1840,38 +638,73 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint AddRef(this ComPtr<ID3D11LibraryReflection> comObj) 
+		public static uint AddRef(this ComPtr<ID3D11DeviceContext1> comObj) 
 		{
-			ID3D11LibraryReflection* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, uint>)(handle->LpVtbl[1]))(handle);
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint>)(handle->LpVtbl[1]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint Release(this ComPtr<ID3D11LibraryReflection> comObj) 
+		public static uint Release(this ComPtr<ID3D11DeviceContext1> comObj) 
 		{
-			ID3D11LibraryReflection* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, uint>)(handle->LpVtbl[2]))(handle);
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint>)(handle->LpVtbl[2]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11LibraryReflection> comObj, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public static void GetDevice(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Device** ppDevice) 
 		{
-			ID3D11LibraryReflection* handle = comObj.Handle;
-			fixed (void** pppv = &ppv)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Device**, void>)(handle->LpVtbl[3]))(handle, ppDevice);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetDevice(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Device* ppDevice) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Device** pppDevice = &ppDevice)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Device**, void>)(handle->LpVtbl[3]))(handle, (ID3D11Device**)pppDevice);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetDevice(this ComPtr<ID3D11DeviceContext1> comObj, out ComPtr<ID3D11Device> ppDevice) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			ppDevice = default;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Device**, void>)(handle->LpVtbl[3]))(handle, (ID3D11Device**)ppDevice.GetAddressOf());
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D11DeviceContext1> comObj, Guid* guid, uint* pDataSize, void* pData) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D11DeviceContext1> comObj, ref Guid guid, uint* pDataSize, void* pData) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, pData);
 				return ret;
 			}
 		}
@@ -1879,16 +712,27 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11LibraryReflection> comObj, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public static int GetPrivateData(this ComPtr<ID3D11DeviceContext1> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
-			ID3D11LibraryReflection* handle = comObj.Handle;
-			fixed (Guid* piid = &iid)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
 			{
-				fixed (void** pppv = &ppv)
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetPrivateData(this ComPtr<ID3D11DeviceContext1> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				fixed (uint* ppDataSize = &pDataSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (Guid*)piid, (void**)pppv);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
 					return ret;
 				}
 			}
@@ -1897,26 +741,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11LibraryReflection> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_LIBRARY_DESC*")] D3D11LibraryDesc* pDesc) 
+		public static int GetPrivateData<T>(this ComPtr<ID3D11DeviceContext1> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11LibraryReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, D3D11LibraryDesc*, int>)(handle->LpVtbl[4]))(handle, pDesc);
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11LibraryReflection> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_LIBRARY_DESC*")] ref D3D11LibraryDesc pDesc) 
+		public static int GetPrivateData<T>(this ComPtr<ID3D11DeviceContext1> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11LibraryReflection* handle = comObj.Handle;
-			fixed (D3D11LibraryDesc* ppDesc = &pDesc)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, D3D11LibraryDesc*, int>)(handle->LpVtbl[4]))(handle, (D3D11LibraryDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1924,38 +764,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFunctionByIndex")]
-		[return: NativeName(NativeNameType.Type, "ID3D11FunctionReflection*")]
-		public static ID3D11FunctionReflection* GetFunctionByIndex(this ComPtr<ID3D11LibraryReflection> comObj, [NativeName(NativeNameType.Param, "FunctionIndex")] [NativeName(NativeNameType.Type, "INT")] int functionIndex) 
+		public static int GetPrivateData<T>(this ComPtr<ID3D11DeviceContext1> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11LibraryReflection* handle = comObj.Handle;
-			ID3D11FunctionReflection* ret = ((delegate* unmanaged[Stdcall]<ID3D11LibraryReflection*, int, ID3D11FunctionReflection*>)(handle->LpVtbl[5]))(handle, functionIndex);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_FUNCTION_DESC*")] D3D11FunctionDesc* pDesc) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, D3D11FunctionDesc*, int>)(*handle->LpVtbl))(handle, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_FUNCTION_DESC*")] ref D3D11FunctionDesc pDesc) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			fixed (D3D11FunctionDesc* ppDesc = &pDesc)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppDataSize = &pDataSize)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, D3D11FunctionDesc*, int>)(*handle->LpVtbl))(handle, (D3D11FunctionDesc*)ppDesc);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
 				return ret;
 			}
 		}
@@ -1963,250 +777,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetConstantBufferByIndex")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionConstantBuffer*")]
-		public static ID3D11ShaderReflectionConstantBuffer* GetConstantBufferByIndex(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "BufferIndex")] [NativeName(NativeNameType.Type, "UINT")] uint bufferIndex) 
+		public static int GetPrivateData<T>(this ComPtr<ID3D11DeviceContext1> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			ID3D11ShaderReflectionConstantBuffer* ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, uint, ID3D11ShaderReflectionConstantBuffer*>)(handle->LpVtbl[1]))(handle, bufferIndex);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetConstantBufferByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionConstantBuffer*")]
-		public static ID3D11ShaderReflectionConstantBuffer* GetConstantBufferByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* name) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			ID3D11ShaderReflectionConstantBuffer* ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ID3D11ShaderReflectionConstantBuffer*>)(handle->LpVtbl[2]))(handle, name);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetConstantBufferByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionConstantBuffer*")]
-		public static ID3D11ShaderReflectionConstantBuffer* GetConstantBufferByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> name) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			fixed (byte* pname = name)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				ID3D11ShaderReflectionConstantBuffer* ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ID3D11ShaderReflectionConstantBuffer*>)(handle->LpVtbl[2]))(handle, (byte*)pname);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetConstantBufferByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionConstantBuffer*")]
-		public static ID3D11ShaderReflectionConstantBuffer* GetConstantBufferByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] string name) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
+				fixed (uint* ppDataSize = &pDataSize)
 				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			ID3D11ShaderReflectionConstantBuffer* ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ID3D11ShaderReflectionConstantBuffer*>)(handle->LpVtbl[2]))(handle, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDesc(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "ResourceIndex")] [NativeName(NativeNameType.Type, "UINT")] uint resourceIndex, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] D3D11ShaderInputBindDesc* pDesc) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, uint, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[3]))(handle, resourceIndex, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDesc(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "ResourceIndex")] [NativeName(NativeNameType.Type, "UINT")] uint resourceIndex, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] ref D3D11ShaderInputBindDesc pDesc) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			fixed (D3D11ShaderInputBindDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, uint, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[3]))(handle, resourceIndex, (D3D11ShaderInputBindDesc*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVariableByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionVariable*")]
-		public static ID3D11ShaderReflectionVariable* GetVariableByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* name) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			ID3D11ShaderReflectionVariable* ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ID3D11ShaderReflectionVariable*>)(handle->LpVtbl[4]))(handle, name);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVariableByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionVariable*")]
-		public static ID3D11ShaderReflectionVariable* GetVariableByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> name) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			fixed (byte* pname = name)
-			{
-				ID3D11ShaderReflectionVariable* ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ID3D11ShaderReflectionVariable*>)(handle->LpVtbl[4]))(handle, (byte*)pname);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVariableByName")]
-		[return: NativeName(NativeNameType.Type, "ID3D11ShaderReflectionVariable*")]
-		public static ID3D11ShaderReflectionVariable* GetVariableByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] string name) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			ID3D11ShaderReflectionVariable* ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, ID3D11ShaderReflectionVariable*>)(handle->LpVtbl[4]))(handle, pStr0);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] D3D11ShaderInputBindDesc* pDesc) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[5]))(handle, name, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] D3D11ShaderInputBindDesc* pDesc) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			fixed (byte* pname = name)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[5]))(handle, (byte*)pname, pDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] string name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] D3D11ShaderInputBindDesc* pDesc) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[5]))(handle, pStr0, pDesc);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] ref D3D11ShaderInputBindDesc pDesc) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			fixed (D3D11ShaderInputBindDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[5]))(handle, name, (D3D11ShaderInputBindDesc*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] ref D3D11ShaderInputBindDesc pDesc) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			fixed (byte* pname = name)
-			{
-				fixed (D3D11ShaderInputBindDesc* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[5]))(handle, (byte*)pname, (D3D11ShaderInputBindDesc*)ppDesc);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
 					return ret;
 				}
 			}
@@ -2215,186 +793,83 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceBindingDescByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetResourceBindingDescByName(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCSTR")] string name, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_INPUT_BIND_DESC*")] ref D3D11ShaderInputBindDesc pDesc) 
+		public static int SetPrivateData(this ComPtr<ID3D11DeviceContext1> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (name != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateData(this ComPtr<ID3D11DeviceContext1> comObj, ref Guid guid, uint dataSize, void* pData) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(name);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11DeviceContext1> comObj, Guid* guid, IUnknown* pData) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11DeviceContext1> comObj, ref Guid guid, IUnknown* pData) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11DeviceContext1> comObj, Guid* guid, ref IUnknown pData) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (IUnknown* ppData = &pData)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11DeviceContext1> comObj, Guid* guid, ComPtr<IUnknown> pData) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11DeviceContext1> comObj, ref Guid guid, ref IUnknown pData) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
+			{
+				fixed (IUnknown* ppData = &pData)
 				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(name, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (D3D11ShaderInputBindDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, byte*, D3D11ShaderInputBindDesc*, int>)(handle->LpVtbl[5]))(handle, pStr0, (D3D11ShaderInputBindDesc*)ppDesc);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFunctionParameter")]
-		[return: NativeName(NativeNameType.Type, "ID3D11FunctionParameterReflection*")]
-		public static ID3D11FunctionParameterReflection* GetFunctionParameter(this ComPtr<ID3D11FunctionReflection> comObj, [NativeName(NativeNameType.Param, "ParameterIndex")] [NativeName(NativeNameType.Type, "INT")] int parameterIndex) 
-		{
-			ID3D11FunctionReflection* handle = comObj.Handle;
-			ID3D11FunctionParameterReflection* ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionReflection*, int, ID3D11FunctionParameterReflection*>)(handle->LpVtbl[6]))(handle, parameterIndex);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11FunctionParameterReflection> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_PARAMETER_DESC*")] D3D11ParameterDesc* pDesc) 
-		{
-			ID3D11FunctionParameterReflection* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionParameterReflection*, D3D11ParameterDesc*, int>)(*handle->LpVtbl))(handle, pDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDesc(this ComPtr<ID3D11FunctionParameterReflection> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "D3D11_PARAMETER_DESC*")] ref D3D11ParameterDesc pDesc) 
-		{
-			ID3D11FunctionParameterReflection* handle = comObj.Handle;
-			fixed (D3D11ParameterDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11FunctionParameterReflection*, D3D11ParameterDesc*, int>)(*handle->LpVtbl))(handle, (D3D11ParameterDesc*)ppDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint AddRef(this ComPtr<ID3D11ModuleInstance> comObj) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, uint>)(handle->LpVtbl[1]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint Release(this ComPtr<ID3D11ModuleInstance> comObj) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, uint>)(handle->LpVtbl[2]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			fixed (void** pppv = &ppv)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			fixed (Guid* piid = &iid)
-			{
-				fixed (void** pppv = &ppv)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (Guid*)piid, (void**)pppv);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
 					return ret;
 				}
 			}
@@ -2403,38 +878,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BindConstantBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindConstantBuffer(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "uSrcSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uSrcSlot, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "cbDstOffset")] [NativeName(NativeNameType.Type, "UINT")] uint cbDstOffset) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3D11DeviceContext1> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, uint, uint, uint, int>)(handle->LpVtbl[4]))(handle, uSrcSlot, uDstSlot, cbDstOffset);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindConstantBufferByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindConstantBufferByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "cbDstOffset")] [NativeName(NativeNameType.Type, "UINT")] uint cbDstOffset) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[5]))(handle, pName, uDstSlot, cbDstOffset);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindConstantBufferByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindConstantBufferByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "cbDstOffset")] [NativeName(NativeNameType.Type, "UINT")] uint cbDstOffset) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			fixed (byte* ppName = pName)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Guid* pguid = &guid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[5]))(handle, (byte*)ppName, uDstSlot, cbDstOffset);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
 				return ret;
 			}
 		}
@@ -2442,71 +891,268 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BindConstantBufferByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindConstantBufferByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "cbDstOffset")] [NativeName(NativeNameType.Type, "UINT")] uint cbDstOffset) 
+		public static void VSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
 		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pName != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[7]))(handle, startSlot, numBuffers, ppConstantBuffers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[7]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppConstantBuffers);
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[5]))(handle, pStr0, uDstSlot, cbDstOffset);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[7]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[8]))(handle, startSlot, numViews, ppShaderResourceViews);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
 			{
-				Utils.Free(pStr0);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[8]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)pppShaderResourceViews);
 			}
-			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BindResource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindResource(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "uSrcSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uSrcSlot, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
+		public static void PSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, uint, uint, uint, int>)(handle->LpVtbl[6]))(handle, uSrcSlot, uDstSlot, uCount);
-			return ret;
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[8]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BindResourceByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindResourceByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
+		public static void PSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11PixelShader* pPixelShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[7]))(handle, pName, uDstSlot, uCount);
-			return ret;
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[9]))(handle, pPixelShader, ppClassInstances, numClassInstances);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BindResourceByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindResourceByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
+		public static void PSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11PixelShader pPixelShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
 		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			fixed (byte* ppName = pName)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11PixelShader* ppPixelShader = &pPixelShader)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[7]))(handle, (byte*)ppName, uDstSlot, uCount);
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[9]))(handle, (ID3D11PixelShader*)ppPixelShader, ppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11PixelShader* pPixelShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[9]))(handle, pPixelShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11PixelShader* pPixelShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[9]))(handle, pPixelShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11PixelShader pPixelShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11PixelShader* ppPixelShader = &pPixelShader)
+			{
+				fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[9]))(handle, (ID3D11PixelShader*)ppPixelShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11PixelShader pPixelShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11PixelShader* ppPixelShader = &pPixelShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[9]))(handle, (ID3D11PixelShader*)ppPixelShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[10]))(handle, startSlot, numSamplers, ppSamplers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[10]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)pppSamplers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[10]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11VertexShader* pVertexShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[11]))(handle, pVertexShader, ppClassInstances, numClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11VertexShader pVertexShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11VertexShader* ppVertexShader = &pVertexShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[11]))(handle, (ID3D11VertexShader*)ppVertexShader, ppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11VertexShader* pVertexShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[11]))(handle, pVertexShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11VertexShader* pVertexShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[11]))(handle, pVertexShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11VertexShader pVertexShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11VertexShader* ppVertexShader = &pVertexShader)
+			{
+				fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[11]))(handle, (ID3D11VertexShader*)ppVertexShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11VertexShader pVertexShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11VertexShader* ppVertexShader = &pVertexShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[11]))(handle, (ID3D11VertexShader*)ppVertexShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DrawIndexed(this ComPtr<ID3D11DeviceContext1> comObj, uint indexCount, uint startIndexLocation, int baseVertexLocation) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, int, void>)(handle->LpVtbl[12]))(handle, indexCount, startIndexLocation, baseVertexLocation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void Draw(this ComPtr<ID3D11DeviceContext1> comObj, uint vertexCount, uint startVertexLocation) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, void>)(handle->LpVtbl[13]))(handle, vertexCount, startVertexLocation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int Map(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(handle->LpVtbl[14]))(handle, pResource, subresource, mapType, mapFlags, pMappedResource);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int Map(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppResource = &pResource)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(handle->LpVtbl[14]))(handle, (ID3D11Resource*)ppResource, subresource, mapType, mapFlags, pMappedResource);
 				return ret;
 			}
 		}
@@ -2514,71 +1160,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BindResourceByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindResourceByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
+		public static int Map(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pResource, uint subresource, Map mapType, uint mapFlags, MappedSubresource* pMappedResource) 
 		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(pName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[7]))(handle, pStr0, uDstSlot, uCount);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(handle->LpVtbl[14]))(handle, (ID3D11Resource*)pResource.Handle, subresource, mapType, mapFlags, pMappedResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BindSampler")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindSampler(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "uSrcSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uSrcSlot, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
+		public static int Map(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
 		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, uint, uint, uint, int>)(handle->LpVtbl[8]))(handle, uSrcSlot, uDstSlot, uCount);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindSamplerByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindSamplerByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[9]))(handle, pName, uDstSlot, uCount);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindSamplerByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindSamplerByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			fixed (byte* ppName = pName)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (MappedSubresource* ppMappedResource = &pMappedResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[9]))(handle, (byte*)ppName, uDstSlot, uCount);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(handle->LpVtbl[14]))(handle, pResource, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
 				return ret;
 			}
 		}
@@ -2586,288 +1183,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BindSamplerByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindSamplerByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
+		public static int Map(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
 		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pName != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
+				fixed (MappedSubresource* ppMappedResource = &pMappedResource)
 				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[9]))(handle, pStr0, uDstSlot, uCount);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindUnorderedAccessView(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "uSrcSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uSrcSlot, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, uint, uint, uint, int>)(handle->LpVtbl[10]))(handle, uSrcSlot, uDstSlot, uCount);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindUnorderedAccessViewByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindUnorderedAccessViewByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[11]))(handle, pName, uDstSlot, uCount);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindUnorderedAccessViewByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindUnorderedAccessViewByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			fixed (byte* ppName = pName)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[11]))(handle, (byte*)ppName, uDstSlot, uCount);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindUnorderedAccessViewByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindUnorderedAccessViewByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pName, [NativeName(NativeNameType.Param, "uDstSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(pName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[11]))(handle, pStr0, uDstSlot, uCount);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindResourceAsUnorderedAccessView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindResourceAsUnorderedAccessView(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "uSrcSrvSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uSrcSrvSlot, [NativeName(NativeNameType.Param, "uDstUavSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstUavSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, uint, uint, uint, int>)(handle->LpVtbl[12]))(handle, uSrcSrvSlot, uDstUavSlot, uCount);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindResourceAsUnorderedAccessViewByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindResourceAsUnorderedAccessViewByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pSrvName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pSrvName, [NativeName(NativeNameType.Param, "uDstUavSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstUavSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[13]))(handle, pSrvName, uDstUavSlot, uCount);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindResourceAsUnorderedAccessViewByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindResourceAsUnorderedAccessViewByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pSrvName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pSrvName, [NativeName(NativeNameType.Param, "uDstUavSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstUavSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			fixed (byte* ppSrvName = pSrvName)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[13]))(handle, (byte*)ppSrvName, uDstUavSlot, uCount);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "BindResourceAsUnorderedAccessViewByName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int BindResourceAsUnorderedAccessViewByName(this ComPtr<ID3D11ModuleInstance> comObj, [NativeName(NativeNameType.Param, "pSrvName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pSrvName, [NativeName(NativeNameType.Param, "uDstUavSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uDstUavSlot, [NativeName(NativeNameType.Param, "uCount")] [NativeName(NativeNameType.Type, "UINT")] uint uCount) 
-		{
-			ID3D11ModuleInstance* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pSrvName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(pSrvName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pSrvName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ModuleInstance*, byte*, uint, uint, int>)(handle->LpVtbl[13]))(handle, pStr0, uDstUavSlot, uCount);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			ID3D11Module* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			ID3D11Module* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11Module* handle = comObj.Handle;
-			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11Module* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint AddRef(this ComPtr<ID3D11Module> comObj) 
-		{
-			ID3D11Module* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, uint>)(handle->LpVtbl[1]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint Release(this ComPtr<ID3D11Module> comObj) 
-		{
-			ID3D11Module* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, uint>)(handle->LpVtbl[2]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
-		{
-			ID3D11Module* handle = comObj.Handle;
-			fixed (void** pppv = &ppv)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
-		{
-			ID3D11Module* handle = comObj.Handle;
-			fixed (Guid* piid = &iid)
-			{
-				fixed (void** pppv = &ppv)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (Guid*)piid, (void**)pppv);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(handle->LpVtbl[14]))(handle, (ID3D11Resource*)ppResource, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
 					return ret;
 				}
 			}
@@ -2876,26 +1199,548 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ID3D11ModuleInstance** ppModuleInstance) 
+		public static int Map(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pResource, uint subresource, Map mapType, uint mapFlags, ref MappedSubresource pMappedResource) 
 		{
-			ID3D11Module* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, pNamespace, ppModuleInstance);
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (MappedSubresource* ppMappedResource = &pMappedResource)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Map, uint, MappedSubresource*, int>)(handle->LpVtbl[14]))(handle, (ID3D11Resource*)pResource.Handle, subresource, mapType, mapFlags, (MappedSubresource*)ppMappedResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void Unmap(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pResource, uint subresource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, void>)(handle->LpVtbl[15]))(handle, pResource, subresource);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void Unmap(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pResource, uint subresource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppResource = &pResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, void>)(handle->LpVtbl[15]))(handle, (ID3D11Resource*)ppResource, subresource);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void Unmap(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pResource, uint subresource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, void>)(handle->LpVtbl[15]))(handle, (ID3D11Resource*)pResource.Handle, subresource);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[16]))(handle, startSlot, numBuffers, ppConstantBuffers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[16]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppConstantBuffers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[16]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetInputLayout(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11InputLayout* pInputLayout) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11InputLayout*, void>)(handle->LpVtbl[17]))(handle, pInputLayout);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetInputLayout(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11InputLayout pInputLayout) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11InputLayout* ppInputLayout = &pInputLayout)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11InputLayout*, void>)(handle->LpVtbl[17]))(handle, (ID3D11InputLayout*)ppInputLayout);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, uint* pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, ppVertexBuffers, pStrides, pOffsets);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, uint* pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, pStrides, pOffsets);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppVertexBuffers, uint* pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppVertexBuffers.Handle, pStrides, pOffsets);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppStrides = &pStrides)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, ppVertexBuffers, (uint*)ppStrides, pOffsets);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
+			{
+				fixed (uint* ppStrides = &pStrides)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, (uint*)ppStrides, pOffsets);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppStrides = &pStrides)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppVertexBuffers.Handle, (uint*)ppStrides, pOffsets);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppOffsets = &pOffsets)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, ppVertexBuffers, pStrides, (uint*)ppOffsets);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
+			{
+				fixed (uint* ppOffsets = &pOffsets)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, pStrides, (uint*)ppOffsets);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppOffsets = &pOffsets)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppVertexBuffers.Handle, pStrides, (uint*)ppOffsets);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppStrides = &pStrides)
+			{
+				fixed (uint* ppOffsets = &pOffsets)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, ppVertexBuffers, (uint*)ppStrides, (uint*)ppOffsets);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
+			{
+				fixed (uint* ppStrides = &pStrides)
+				{
+					fixed (uint* ppOffsets = &pOffsets)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, (uint*)ppStrides, (uint*)ppOffsets);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppStrides = &pStrides)
+			{
+				fixed (uint* ppOffsets = &pOffsets)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[18]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppVertexBuffers.Handle, (uint*)ppStrides, (uint*)ppOffsets);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Buffer* pIndexBuffer, Format format, uint offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, Format, uint, void>)(handle->LpVtbl[19]))(handle, pIndexBuffer, format, offset);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Buffer pIndexBuffer, Format format, uint offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer* ppIndexBuffer = &pIndexBuffer)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, Format, uint, void>)(handle->LpVtbl[19]))(handle, (ID3D11Buffer*)ppIndexBuffer, format, offset);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Buffer> pIndexBuffer, Format format, uint offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, Format, uint, void>)(handle->LpVtbl[19]))(handle, (ID3D11Buffer*)pIndexBuffer.Handle, format, offset);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DrawIndexedInstanced(this ComPtr<ID3D11DeviceContext1> comObj, uint indexCountPerInstance, uint instanceCount, uint startIndexLocation, int baseVertexLocation, uint startInstanceLocation) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, uint, int, uint, void>)(handle->LpVtbl[20]))(handle, indexCountPerInstance, instanceCount, startIndexLocation, baseVertexLocation, startInstanceLocation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DrawInstanced(this ComPtr<ID3D11DeviceContext1> comObj, uint vertexCountPerInstance, uint instanceCount, uint startVertexLocation, uint startInstanceLocation) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, uint, uint, void>)(handle->LpVtbl[21]))(handle, vertexCountPerInstance, instanceCount, startVertexLocation, startInstanceLocation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[22]))(handle, startSlot, numBuffers, ppConstantBuffers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[22]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppConstantBuffers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[22]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11GeometryShader* pShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[23]))(handle, pShader, ppClassInstances, numClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11GeometryShader pShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11GeometryShader* ppShader = &pShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[23]))(handle, (ID3D11GeometryShader*)ppShader, ppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11GeometryShader* pShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[23]))(handle, pShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11GeometryShader* pShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[23]))(handle, pShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11GeometryShader pShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11GeometryShader* ppShader = &pShader)
+			{
+				fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[23]))(handle, (ID3D11GeometryShader*)ppShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11GeometryShader pShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11GeometryShader* ppShader = &pShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[23]))(handle, (ID3D11GeometryShader*)ppShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IASetPrimitiveTopology(this ComPtr<ID3D11DeviceContext1> comObj, PrimitiveTopology topology) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, PrimitiveTopology, void>)(handle->LpVtbl[24]))(handle, topology);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[25]))(handle, startSlot, numViews, ppShaderResourceViews);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[25]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)pppShaderResourceViews);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[25]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[26]))(handle, startSlot, numSamplers, ppSamplers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[26]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)pppSamplers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[26]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void Begin(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Asynchronous* pAsync) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void>)(handle->LpVtbl[27]))(handle, pAsync);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void Begin(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Asynchronous pAsync) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Asynchronous* ppAsync = &pAsync)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void>)(handle->LpVtbl[27]))(handle, (ID3D11Asynchronous*)ppAsync);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void Begin(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Asynchronous> pAsync) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void>)(handle->LpVtbl[27]))(handle, (ID3D11Asynchronous*)pAsync.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void End(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Asynchronous* pAsync) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void>)(handle->LpVtbl[28]))(handle, pAsync);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void End(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Asynchronous pAsync) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Asynchronous* ppAsync = &pAsync)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void>)(handle->LpVtbl[28]))(handle, (ID3D11Asynchronous*)ppAsync);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void End(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Asynchronous> pAsync) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void>)(handle->LpVtbl[28]))(handle, (ID3D11Asynchronous*)pAsync.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetData(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Asynchronous* pAsync, void* pData, uint dataSize, uint getDataFlags) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void*, uint, uint, int>)(handle->LpVtbl[29]))(handle, pAsync, pData, dataSize, getDataFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ID3D11ModuleInstance** ppModuleInstance) 
+		public static int GetData(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Asynchronous pAsync, void* pData, uint dataSize, uint getDataFlags) 
 		{
-			ID3D11Module* handle = comObj.Handle;
-			fixed (byte* ppNamespace = pNamespace)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Asynchronous* ppAsync = &pAsync)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, (byte*)ppNamespace, ppModuleInstance);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void*, uint, uint, int>)(handle->LpVtbl[29]))(handle, (ID3D11Asynchronous*)ppAsync, pData, dataSize, getDataFlags);
 				return ret;
 			}
 		}
@@ -2903,227 +1748,176 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ID3D11ModuleInstance** ppModuleInstance) 
+		public static int GetData(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Asynchronous> pAsync, void* pData, uint dataSize, uint getDataFlags) 
 		{
-			ID3D11Module* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pNamespace != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(pNamespace);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pNamespace, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, pStr0, ppModuleInstance);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void*, uint, uint, int>)(handle->LpVtbl[29]))(handle, (ID3D11Asynchronous*)pAsync.Handle, pData, dataSize, getDataFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ref ID3D11ModuleInstance* ppModuleInstance) 
+		public static int GetData<T>(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Asynchronous* pAsync, ComPtr<T> pData, uint dataSize, uint getDataFlags) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11Module* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, pNamespace, (ID3D11ModuleInstance**)pppModuleInstance);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] out ComPtr<ID3D11ModuleInstance> ppModuleInstance) 
-		{
-			ID3D11Module* handle = comObj.Handle;
-			ppModuleInstance = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, pNamespace, (ID3D11ModuleInstance**)ppModuleInstance.GetAddressOf());
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void*, uint, uint, int>)(handle->LpVtbl[29]))(handle, pAsync, (void*)pData.Handle, dataSize, getDataFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ref ID3D11ModuleInstance* ppModuleInstance) 
+		public static int GetData<T>(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Asynchronous> pAsync, ComPtr<T> pData, uint dataSize, uint getDataFlags) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D11Module* handle = comObj.Handle;
-			fixed (byte* ppNamespace = pNamespace)
-			{
-				fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, (byte*)ppNamespace, (ID3D11ModuleInstance**)pppModuleInstance);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance(this ComPtr<ID3D11Module> comObj, [NativeName(NativeNameType.Param, "pNamespace")] [NativeName(NativeNameType.Type, "LPCSTR")] string pNamespace, [NativeName(NativeNameType.Param, "ppModuleInstance")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance**")] ref ID3D11ModuleInstance* ppModuleInstance) 
-		{
-			ID3D11Module* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pNamespace != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(pNamespace);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pNamespace, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (ID3D11ModuleInstance** pppModuleInstance = &ppModuleInstance)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Module*, byte*, ID3D11ModuleInstance**, int>)(handle->LpVtbl[4]))(handle, pStr0, (ID3D11ModuleInstance**)pppModuleInstance);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Asynchronous*, void*, uint, uint, int>)(handle->LpVtbl[29]))(handle, (ID3D11Asynchronous*)pAsync.Handle, (void*)pData.Handle, dataSize, getDataFlags);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static void SetPredication(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Predicate* pPredicate, int predicateValue) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Predicate*, int, void>)(handle->LpVtbl[30]))(handle, pPredicate, predicateValue);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SetPredication(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Predicate pPredicate, int predicateValue) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Predicate* ppPredicate = &pPredicate)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Predicate*, int, void>)(handle->LpVtbl[30]))(handle, (ID3D11Predicate*)ppPredicate, predicateValue);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static void GSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
-			return ret;
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[31]))(handle, startSlot, numViews, ppShaderResourceViews);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static void GSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
 			{
-				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[31]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)pppShaderResourceViews);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint AddRef(this ComPtr<ID3D11Linker> comObj) 
+		public static void GSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, uint>)(handle->LpVtbl[1]))(handle);
-			return ret;
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[31]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint Release(this ComPtr<ID3D11Linker> comObj) 
+		public static void GSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, uint>)(handle->LpVtbl[2]))(handle);
-			return ret;
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[32]))(handle, startSlot, numSamplers, ppSamplers);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public static void GSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (void** pppv = &ppv)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[32]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)pppSamplers);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public static void GSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (Guid* piid = &iid)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[32]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numViews, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, void>)(handle->LpVtbl[33]))(handle, numViews, ppRenderTargetViews, pDepthStencilView);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numViews, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
 			{
-				fixed (void** pppv = &ppv)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, void>)(handle->LpVtbl[33]))(handle, numViews, (ID3D11RenderTargetView**)pppRenderTargetViews, pDepthStencilView);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numViews, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, void>)(handle->LpVtbl[33]))(handle, numViews, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, pDepthStencilView);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numViews, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, void>)(handle->LpVtbl[33]))(handle, numViews, ppRenderTargetViews, (ID3D11DepthStencilView*)ppDepthStencilView);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numViews, ID3D11RenderTargetView** ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, void>)(handle->LpVtbl[33]))(handle, numViews, ppRenderTargetViews, (ID3D11DepthStencilView*)pDepthStencilView.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numViews, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
+			{
+				fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, (Guid*)piid, (void**)pppv);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, void>)(handle->LpVtbl[33]))(handle, numViews, (ID3D11RenderTargetView**)pppRenderTargetViews, (ID3D11DepthStencilView*)ppDepthStencilView);
 				}
 			}
 		}
@@ -3131,104 +1925,74 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numViews, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
-			return ret;
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, void>)(handle->LpVtbl[33]))(handle, numViews, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, (ID3D11DepthStencilView*)pDepthStencilView.Handle);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)pppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ComPtr<ID3D11ModuleInstance> pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
-			return ret;
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, pDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppEntryName = pEntryName)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, (ID3D11DepthStencilView*)ppDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryName != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
+				fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
 				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
-			{
-				fixed (byte* ppEntryName = pEntryName)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)pppRenderTargetViews, (ID3D11DepthStencilView*)ppDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
 				}
 			}
 		}
@@ -3236,229 +2000,94 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
 			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pEntryName != null)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)pppUnorderedAccessViews, pUAVInitialCounts);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, pUAVInitialCounts);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
+			{
+				fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
 				{
-					pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)pppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)pppUnorderedAccessViews, pUAVInitialCounts);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, pDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, pUAVInitialCounts);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
+			{
+				fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, (ID3D11DepthStencilView*)ppDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)pppUnorderedAccessViews, pUAVInitialCounts);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, pUAVInitialCounts);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
+			{
+				fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
+				{
+					fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
 					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppTargetName = pTargetName)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pTargetName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(pTargetName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, ppShaderBlob, ppErrorBuffer);
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
-			{
-				fixed (byte* ppTargetName = pTargetName)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
-			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pTargetName != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF8(pTargetName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, ppShaderBlob, ppErrorBuffer);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppEntryName = pEntryName)
-			{
-				fixed (byte* ppTargetName = pTargetName)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			byte* pStr1 = null;
-			int pStrSize1 = 0;
-			if (pTargetName != null)
-			{
-				pStrSize1 = Utils.GetByteCountUTF8(pTargetName);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
-				}
-				else
-				{
-					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-					pStr1 = pStrStack1;
-				}
-				int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
-				pStr1[pStrOffset1] = 0;
-			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, ppShaderBlob, ppErrorBuffer);
-			if (pStrSize1 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr1);
-			}
-			if (pStrSize0 >= Utils.MaxStackallocSize)
-			{
-				Utils.Free(pStr0);
-			}
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
-			{
-				fixed (byte* ppEntryName = pEntryName)
-				{
-					fixed (byte* ppTargetName = pTargetName)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
-						return ret;
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)pppRenderTargetViews, (ID3D11DepthStencilView*)ppDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)pppUnorderedAccessViews, pUAVInitialCounts);
 					}
 				}
 			}
@@ -3467,178 +2096,91 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, uint* pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, pUAVInitialCounts);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pEntryName != null)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
+			{
+				fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 				{
-					pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)pppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, pDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
+			{
+				fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, (ID3D11DepthStencilView*)ppDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, ppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
+			{
+				fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
+				{
+					fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				byte* pStr1 = null;
-				int pStrSize1 = 0;
-				if (pTargetName != null)
-				{
-					pStrSize1 = Utils.GetByteCountUTF8(pTargetName);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
-					}
-					else
-					{
-						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-						pStr1 = pStrStack1;
-					}
-					int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
-					pStr1[pStrOffset1] = 0;
-				}
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, ppShaderBlob, ppErrorBuffer);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr1);
-				}
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
-			{
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ComPtr<ID3D11ModuleInstance> pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppEntryName = pEntryName)
-			{
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryName != null)
-			{
-				pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
-			{
-				fixed (byte* ppEntryName = pEntryName)
-				{
-					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-						return ret;
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)pppRenderTargetViews, (ID3D11DepthStencilView*)ppDepthStencilView, uavStartSlot, numUaVs, ppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
 					}
 				}
 			}
@@ -3647,38 +2189,26 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pEntryName != null)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, ppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
+			{
+				fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 				{
-					pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)pppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
 				}
 			}
 		}
@@ -3686,73 +2216,28 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppTargetName = pTargetName)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 			{
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-					return ret;
-				}
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, (uint*)ppUAVInitialCounts);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pTargetName != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pTargetName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
+				fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
 				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
-			{
-				fixed (byte* ppTargetName = pTargetName)
-				{
-					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
+					fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-						return ret;
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)pppRenderTargetViews, pDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)pppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
 					}
 				}
 			}
@@ -3761,58 +2246,28 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ID3D11DepthStencilView* pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pTargetName != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF8(pTargetName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
-				}
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, pDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, (uint*)ppUAVInitialCounts);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppEntryName = pEntryName)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
 			{
-				fixed (byte* ppTargetName = pTargetName)
+				fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
 				{
-					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
+					fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-						return ret;
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, (ID3D11DepthStencilView*)ppDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)pppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
 					}
 				}
 			}
@@ -3821,78 +2276,30 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ID3D11RenderTargetView** ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryName != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			byte* pStr1 = null;
-			int pStrSize1 = 0;
-			if (pTargetName != null)
-			{
-				pStrSize1 = Utils.GetByteCountUTF8(pTargetName);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
-				}
-				else
-				{
-					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-					pStr1 = pStrStack1;
-				}
-				int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
-				pStr1[pStrOffset1] = 0;
-			}
-			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr1);
-				}
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, ppRenderTargetViews, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, (uint*)ppUAVInitialCounts);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ref ID3D11RenderTargetView* ppRenderTargetViews, ref ID3D11DepthStencilView pDepthStencilView, uint uavStartSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView** pppRenderTargetViews = &ppRenderTargetViews)
 			{
-				fixed (byte* ppEntryName = pEntryName)
+				fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
 				{
-					fixed (byte* ppTargetName = pTargetName)
+					fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
 					{
-						fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
+						fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-							return ret;
+							((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)pppRenderTargetViews, (ID3D11DepthStencilView*)ppDepthStencilView, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)pppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
 						}
 					}
 				}
@@ -3902,59 +2309,80 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public static void OMSetRenderTargetsAndUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint numRtVs, ComPtr<ID3D11RenderTargetView> ppRenderTargetViews, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint uavStartSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
 			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pEntryName != null)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11RenderTargetView**, ID3D11DepthStencilView*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[34]))(handle, numRtVs, (ID3D11RenderTargetView**)ppRenderTargetViews.Handle, (ID3D11DepthStencilView*)pDepthStencilView.Handle, uavStartSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, (uint*)ppUAVInitialCounts);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetBlendState(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11BlendState* pBlendState, float* blendFactor, uint sampleMask) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11BlendState*, float*, uint, void>)(handle->LpVtbl[35]))(handle, pBlendState, blendFactor, sampleMask);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetBlendState(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11BlendState pBlendState, float* blendFactor, uint sampleMask) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11BlendState* ppBlendState = &pBlendState)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11BlendState*, float*, uint, void>)(handle->LpVtbl[35]))(handle, (ID3D11BlendState*)ppBlendState, blendFactor, sampleMask);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetBlendState(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11BlendState> pBlendState, float* blendFactor, uint sampleMask) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11BlendState*, float*, uint, void>)(handle->LpVtbl[35]))(handle, (ID3D11BlendState*)pBlendState.Handle, blendFactor, sampleMask);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetBlendState(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11BlendState* pBlendState, ref float blendFactor, uint sampleMask) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (float* pblendFactor = &blendFactor)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11BlendState*, float*, uint, void>)(handle->LpVtbl[35]))(handle, pBlendState, (float*)pblendFactor, sampleMask);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetBlendState(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11BlendState* pBlendState, ReadOnlySpan<float> blendFactor, uint sampleMask) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (float* pblendFactor = blendFactor)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11BlendState*, float*, uint, void>)(handle->LpVtbl[35]))(handle, pBlendState, (float*)pblendFactor, sampleMask);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetBlendState(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11BlendState pBlendState, ref float blendFactor, uint sampleMask) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11BlendState* ppBlendState = &pBlendState)
+			{
+				fixed (float* pblendFactor = &blendFactor)
 				{
-					pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				byte* pStr1 = null;
-				int pStrSize1 = 0;
-				if (pTargetName != null)
-				{
-					pStrSize1 = Utils.GetByteCountUTF8(pTargetName);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
-					}
-					else
-					{
-						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-						pStr1 = pStrStack1;
-					}
-					int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
-					pStr1[pStrOffset1] = 0;
-				}
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, ppErrorBuffer);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr1);
-					}
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11BlendState*, float*, uint, void>)(handle->LpVtbl[35]))(handle, (ID3D11BlendState*)ppBlendState, (float*)pblendFactor, sampleMask);
 				}
 			}
 		}
@@ -3962,32 +2390,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void OMSetBlendState(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11BlendState pBlendState, ReadOnlySpan<float> blendFactor, uint sampleMask) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11BlendState* ppBlendState = &pBlendState)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
-			{
-				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
+				fixed (float* pblendFactor = blendFactor)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11BlendState*, float*, uint, void>)(handle->LpVtbl[35]))(handle, (ID3D11BlendState*)ppBlendState, (float*)pblendFactor, sampleMask);
 				}
 			}
 		}
@@ -3995,128 +2405,98 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ComPtr<ID3D11ModuleInstance> pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void OMSetBlendState(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11BlendState> pBlendState, ref float blendFactor, uint sampleMask) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (float* pblendFactor = &blendFactor)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11BlendState*, float*, uint, void>)(handle->LpVtbl[35]))(handle, (ID3D11BlendState*)pBlendState.Handle, (float*)pblendFactor, sampleMask);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void OMSetDepthStencilState(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11DepthStencilState* pDepthStencilState, uint stencilRef) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppEntryName = pEntryName)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DepthStencilState*, uint, void>)(handle->LpVtbl[36]))(handle, pDepthStencilState, stencilRef);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void OMSetDepthStencilState(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11DepthStencilState pDepthStencilState, uint stencilRef) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11DepthStencilState* ppDepthStencilState = &pDepthStencilState)
 			{
-				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-					return ret;
-				}
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DepthStencilState*, uint, void>)(handle->LpVtbl[36]))(handle, (ID3D11DepthStencilState*)ppDepthStencilState, stencilRef);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void OMSetDepthStencilState(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11DepthStencilState> pDepthStencilState, uint stencilRef) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryName != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DepthStencilState*, uint, void>)(handle->LpVtbl[36]))(handle, (ID3D11DepthStencilState*)pDepthStencilState.Handle, stencilRef);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SOSetTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numBuffers, ID3D11Buffer** ppSOTargets, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11Buffer**, uint*, void>)(handle->LpVtbl[37]))(handle, numBuffers, ppSOTargets, pOffsets);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SOSetTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numBuffers, ref ID3D11Buffer* ppSOTargets, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppSOTargets = &ppSOTargets)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11Buffer**, uint*, void>)(handle->LpVtbl[37]))(handle, numBuffers, (ID3D11Buffer**)pppSOTargets, pOffsets);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void SOSetTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numBuffers, ComPtr<ID3D11Buffer> ppSOTargets, uint* pOffsets) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11Buffer**, uint*, void>)(handle->LpVtbl[37]))(handle, numBuffers, (ID3D11Buffer**)ppSOTargets.Handle, pOffsets);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SOSetTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numBuffers, ID3D11Buffer** ppSOTargets, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppOffsets = &pOffsets)
 			{
-				fixed (byte* ppEntryName = pEntryName)
-				{
-					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-						return ret;
-					}
-				}
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11Buffer**, uint*, void>)(handle->LpVtbl[37]))(handle, numBuffers, ppSOTargets, (uint*)ppOffsets);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void SOSetTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numBuffers, ref ID3D11Buffer* ppSOTargets, ref uint pOffsets) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppSOTargets = &ppSOTargets)
 			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pEntryName != null)
+				fixed (uint* ppOffsets = &pOffsets)
 				{
-					pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11Buffer**, uint*, void>)(handle->LpVtbl[37]))(handle, numBuffers, (ID3D11Buffer**)pppSOTargets, (uint*)ppOffsets);
 				}
 			}
 		}
@@ -4124,17 +2504,257 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void SOSetTargets(this ComPtr<ID3D11DeviceContext1> comObj, uint numBuffers, ComPtr<ID3D11Buffer> ppSOTargets, ref uint pOffsets) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppTargetName = pTargetName)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppOffsets = &pOffsets)
 			{
-				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, ID3D11Buffer**, uint*, void>)(handle->LpVtbl[37]))(handle, numBuffers, (ID3D11Buffer**)ppSOTargets.Handle, (uint*)ppOffsets);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DrawAuto(this ComPtr<ID3D11DeviceContext1> comObj) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, void>)(handle->LpVtbl[38]))(handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DrawIndexedInstancedIndirect(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Buffer* pBufferForArgs, uint alignedByteOffsetForArgs) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(handle->LpVtbl[39]))(handle, pBufferForArgs, alignedByteOffsetForArgs);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DrawIndexedInstancedIndirect(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Buffer pBufferForArgs, uint alignedByteOffsetForArgs) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer* ppBufferForArgs = &pBufferForArgs)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(handle->LpVtbl[39]))(handle, (ID3D11Buffer*)ppBufferForArgs, alignedByteOffsetForArgs);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DrawIndexedInstancedIndirect(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Buffer> pBufferForArgs, uint alignedByteOffsetForArgs) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(handle->LpVtbl[39]))(handle, (ID3D11Buffer*)pBufferForArgs.Handle, alignedByteOffsetForArgs);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DrawInstancedIndirect(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Buffer* pBufferForArgs, uint alignedByteOffsetForArgs) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(handle->LpVtbl[40]))(handle, pBufferForArgs, alignedByteOffsetForArgs);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DrawInstancedIndirect(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Buffer pBufferForArgs, uint alignedByteOffsetForArgs) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer* ppBufferForArgs = &pBufferForArgs)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(handle->LpVtbl[40]))(handle, (ID3D11Buffer*)ppBufferForArgs, alignedByteOffsetForArgs);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DrawInstancedIndirect(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Buffer> pBufferForArgs, uint alignedByteOffsetForArgs) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(handle->LpVtbl[40]))(handle, (ID3D11Buffer*)pBufferForArgs.Handle, alignedByteOffsetForArgs);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void Dispatch(this ComPtr<ID3D11DeviceContext1> comObj, uint threadGroupCountX, uint threadGroupCountY, uint threadGroupCountZ) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, uint, void>)(handle->LpVtbl[41]))(handle, threadGroupCountX, threadGroupCountY, threadGroupCountZ);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DispatchIndirect(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Buffer* pBufferForArgs, uint alignedByteOffsetForArgs) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(handle->LpVtbl[42]))(handle, pBufferForArgs, alignedByteOffsetForArgs);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DispatchIndirect(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Buffer pBufferForArgs, uint alignedByteOffsetForArgs) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer* ppBufferForArgs = &pBufferForArgs)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(handle->LpVtbl[42]))(handle, (ID3D11Buffer*)ppBufferForArgs, alignedByteOffsetForArgs);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DispatchIndirect(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Buffer> pBufferForArgs, uint alignedByteOffsetForArgs) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, void>)(handle->LpVtbl[42]))(handle, (ID3D11Buffer*)pBufferForArgs.Handle, alignedByteOffsetForArgs);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void RSSetState(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11RasterizerState* pRasterizerState) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RasterizerState*, void>)(handle->LpVtbl[43]))(handle, pRasterizerState);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void RSSetState(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11RasterizerState pRasterizerState) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RasterizerState* ppRasterizerState = &pRasterizerState)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RasterizerState*, void>)(handle->LpVtbl[43]))(handle, (ID3D11RasterizerState*)ppRasterizerState);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void RSSetState(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11RasterizerState> pRasterizerState) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RasterizerState*, void>)(handle->LpVtbl[43]))(handle, (ID3D11RasterizerState*)pRasterizerState.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void RSSetViewports(this ComPtr<ID3D11DeviceContext1> comObj, uint numViewports, Viewport* pViewports) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, Viewport*, void>)(handle->LpVtbl[44]))(handle, numViewports, pViewports);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void RSSetViewports(this ComPtr<ID3D11DeviceContext1> comObj, uint numViewports, ref Viewport pViewports) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Viewport* ppViewports = &pViewports)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, Viewport*, void>)(handle->LpVtbl[44]))(handle, numViewports, (Viewport*)ppViewports);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void RSSetScissorRects(this ComPtr<ID3D11DeviceContext1> comObj, uint numRects, Rect32* pRects) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, Rect32*, void>)(handle->LpVtbl[45]))(handle, numRects, pRects);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void RSSetScissorRects(this ComPtr<ID3D11DeviceContext1> comObj, uint numRects, ref Rect32 pRects) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Rect32* ppRects = &pRects)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, Rect32*, void>)(handle->LpVtbl[45]))(handle, numRects, (Rect32*)ppRects);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, Box* pSrcBox) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, pDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, Box* pSrcBox) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppDstResource = &pDstResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, Box* pSrcBox) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, pSrcBox);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, Box* pSrcBox) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, pSrcBox);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, Box* pSrcBox) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, pSrcBox);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, Box* pSrcBox) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppDstResource = &pDstResource)
+			{
+				fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, pSrcBox);
 				}
 			}
 		}
@@ -4142,56 +2762,35 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, Box* pSrcBox) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pTargetName != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, pSrcBox);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, ref Box pSrcBox) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pTargetName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, pDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (Box*)ppSrcBox);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				fixed (byte* ppTargetName = pTargetName)
+				fixed (Box* ppSrcBox = &pSrcBox)
 				{
-					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-						return ret;
-					}
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (Box*)ppSrcBox);
 				}
 			}
 		}
@@ -4199,38 +2798,26 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ID3D11Resource* pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pTargetName != null)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, pSrcResource, srcSubresource, (Box*)ppSrcBox);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, ref Box pSrcBox) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
+			{
+				fixed (Box* ppSrcBox = &pSrcBox)
 				{
-					pStrSize0 = Utils.GetByteCountUTF8(pTargetName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, (Box*)ppSrcBox);
 				}
 			}
 		}
@@ -4238,238 +2825,28 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppEntryName = pEntryName)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				fixed (byte* ppTargetName = pTargetName)
-				{
-					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-						return ret;
-					}
-				}
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, pDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, (Box*)ppSrcBox);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ref ID3D11Resource pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryName != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
+				fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			byte* pStr1 = null;
-			int pStrSize1 = 0;
-			if (pTargetName != null)
-			{
-				pStrSize1 = Utils.GetByteCountUTF8(pTargetName);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
-				}
-				else
-				{
-					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-					pStr1 = pStrStack1;
-				}
-				int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
-				pStr1[pStrOffset1] = 0;
-			}
-			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr1);
-				}
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					Utils.Free(pStr0);
-				}
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
-			{
-				fixed (byte* ppEntryName = pEntryName)
-				{
-					fixed (byte* ppTargetName = pTargetName)
+					fixed (Box* ppSrcBox = &pSrcBox)
 					{
-						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-							return ret;
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
-			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pEntryName != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				byte* pStr1 = null;
-				int pStrSize1 = 0;
-				if (pTargetName != null)
-				{
-					pStrSize1 = Utils.GetByteCountUTF8(pTargetName);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
-					}
-					else
-					{
-						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-						pStr1 = pStrStack1;
-					}
-					int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
-					pStr1[pStrOffset1] = 0;
-				}
-				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, ppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr1);
-					}
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-			{
-				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
-			{
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-				{
-					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ComPtr<ID3D11ModuleInstance> pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-			{
-				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
-		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppEntryName = pEntryName)
-			{
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-				{
-					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-						return ret;
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, (ID3D11Resource*)ppDstResource, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)ppSrcResource, srcSubresource, (Box*)ppSrcBox);
 					}
 				}
 			}
@@ -4478,38 +2855,77 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void CopySubresourceRegion(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, uint dstX, uint dstY, uint dstZ, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, ref Box pSrcBox) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryName != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Box* ppSrcBox = &pSrcBox)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
-				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, uint, uint, uint, ID3D11Resource*, uint, Box*, void>)(handle->LpVtbl[46]))(handle, (ID3D11Resource*)pDstResource.Handle, dstSubresource, dstX, dstY, dstZ, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, (Box*)ppSrcBox);
 			}
-			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyResource(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, ID3D11Resource* pSrcResource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, ID3D11Resource*, void>)(handle->LpVtbl[47]))(handle, pDstResource, pSrcResource);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyResource(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pDstResource, ID3D11Resource* pSrcResource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, ID3D11Resource*, void>)(handle->LpVtbl[47]))(handle, (ID3D11Resource*)ppDstResource, pSrcResource);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyResource(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pDstResource, ID3D11Resource* pSrcResource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, ID3D11Resource*, void>)(handle->LpVtbl[47]))(handle, (ID3D11Resource*)pDstResource.Handle, pSrcResource);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyResource(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, ref ID3D11Resource pSrcResource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, ID3D11Resource*, void>)(handle->LpVtbl[47]))(handle, pDstResource, (ID3D11Resource*)ppSrcResource);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyResource(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, ComPtr<ID3D11Resource> pSrcResource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, ID3D11Resource*, void>)(handle->LpVtbl[47]))(handle, pDstResource, (ID3D11Resource*)pSrcResource.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyResource(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pDstResource, ref ID3D11Resource pSrcResource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppDstResource = &pDstResource)
+			{
+				fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, ID3D11Resource*, void>)(handle->LpVtbl[47]))(handle, (ID3D11Resource*)ppDstResource, (ID3D11Resource*)ppSrcResource);
 				}
 			}
 		}
@@ -4517,23 +2933,65 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void CopyResource(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pDstResource, ComPtr<ID3D11Resource> pSrcResource) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, ID3D11Resource*, void>)(handle->LpVtbl[47]))(handle, (ID3D11Resource*)pDstResource.Handle, (ID3D11Resource*)pSrcResource.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void UpdateSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(handle->LpVtbl[48]))(handle, pDstResource, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void UpdateSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pDstResource, uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				fixed (byte* ppEntryName = pEntryName)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(handle->LpVtbl[48]))(handle, (ID3D11Resource*)ppDstResource, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void UpdateSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, Box* pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(handle->LpVtbl[48]))(handle, (ID3D11Resource*)pDstResource.Handle, dstSubresource, pDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void UpdateSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Box* ppDstBox = &pDstBox)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(handle->LpVtbl[48]))(handle, pDstResource, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void UpdateSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pDstResource, uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppDstResource = &pDstResource)
+			{
+				fixed (Box* ppDstBox = &pDstBox)
 				{
-					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-					{
-						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-							return ret;
-						}
-					}
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(handle->LpVtbl[48]))(handle, (ID3D11Resource*)ppDstResource, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
 				}
 			}
 		}
@@ -4541,41 +2999,77 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void UpdateSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, ref Box pDstBox, void* pSrcData, uint srcRowPitch, uint srcDepthPitch) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Box* ppDstBox = &pDstBox)
 			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pEntryName != null)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, Box*, void*, uint, uint, void>)(handle->LpVtbl[48]))(handle, (ID3D11Resource*)pDstResource.Handle, dstSubresource, (Box*)ppDstBox, pSrcData, srcRowPitch, srcDepthPitch);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyStructureCount(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Buffer* pDstBuffer, uint dstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, ID3D11UnorderedAccessView*, void>)(handle->LpVtbl[49]))(handle, pDstBuffer, dstAlignedByteOffset, pSrcView);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyStructureCount(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Buffer pDstBuffer, uint dstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer* ppDstBuffer = &pDstBuffer)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, ID3D11UnorderedAccessView*, void>)(handle->LpVtbl[49]))(handle, (ID3D11Buffer*)ppDstBuffer, dstAlignedByteOffset, pSrcView);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyStructureCount(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Buffer> pDstBuffer, uint dstAlignedByteOffset, ID3D11UnorderedAccessView* pSrcView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, ID3D11UnorderedAccessView*, void>)(handle->LpVtbl[49]))(handle, (ID3D11Buffer*)pDstBuffer.Handle, dstAlignedByteOffset, pSrcView);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyStructureCount(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Buffer* pDstBuffer, uint dstAlignedByteOffset, ref ID3D11UnorderedAccessView pSrcView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11UnorderedAccessView* ppSrcView = &pSrcView)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, ID3D11UnorderedAccessView*, void>)(handle->LpVtbl[49]))(handle, pDstBuffer, dstAlignedByteOffset, (ID3D11UnorderedAccessView*)ppSrcView);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyStructureCount(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Buffer* pDstBuffer, uint dstAlignedByteOffset, ComPtr<ID3D11UnorderedAccessView> pSrcView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, ID3D11UnorderedAccessView*, void>)(handle->LpVtbl[49]))(handle, pDstBuffer, dstAlignedByteOffset, (ID3D11UnorderedAccessView*)pSrcView.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyStructureCount(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Buffer pDstBuffer, uint dstAlignedByteOffset, ref ID3D11UnorderedAccessView pSrcView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer* ppDstBuffer = &pDstBuffer)
+			{
+				fixed (ID3D11UnorderedAccessView* ppSrcView = &pSrcView)
 				{
-					pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-				{
-					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-						if (pStrSize0 >= Utils.MaxStackallocSize)
-						{
-							Utils.Free(pStr0);
-						}
-						return ret;
-					}
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, ID3D11UnorderedAccessView*, void>)(handle->LpVtbl[49]))(handle, (ID3D11Buffer*)ppDstBuffer, dstAlignedByteOffset, (ID3D11UnorderedAccessView*)ppSrcView);
 				}
 			}
 		}
@@ -4583,20 +3077,77 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void CopyStructureCount(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Buffer> pDstBuffer, uint dstAlignedByteOffset, ComPtr<ID3D11UnorderedAccessView> pSrcView) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppTargetName = pTargetName)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer*, uint, ID3D11UnorderedAccessView*, void>)(handle->LpVtbl[49]))(handle, (ID3D11Buffer*)pDstBuffer.Handle, dstAlignedByteOffset, (ID3D11UnorderedAccessView*)pSrcView.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearRenderTargetView(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11RenderTargetView* pRenderTargetView, float* colorRgba) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RenderTargetView*, float*, void>)(handle->LpVtbl[50]))(handle, pRenderTargetView, colorRgba);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearRenderTargetView(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11RenderTargetView pRenderTargetView, float* colorRgba) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView* ppRenderTargetView = &pRenderTargetView)
 			{
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RenderTargetView*, float*, void>)(handle->LpVtbl[50]))(handle, (ID3D11RenderTargetView*)ppRenderTargetView, colorRgba);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearRenderTargetView(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11RenderTargetView> pRenderTargetView, float* colorRgba) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RenderTargetView*, float*, void>)(handle->LpVtbl[50]))(handle, (ID3D11RenderTargetView*)pRenderTargetView.Handle, colorRgba);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearRenderTargetView(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11RenderTargetView* pRenderTargetView, ref float colorRgba) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (float* pcolorRgba = &colorRgba)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RenderTargetView*, float*, void>)(handle->LpVtbl[50]))(handle, pRenderTargetView, (float*)pcolorRgba);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearRenderTargetView(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11RenderTargetView* pRenderTargetView, ReadOnlySpan<float> colorRgba) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (float* pcolorRgba = colorRgba)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RenderTargetView*, float*, void>)(handle->LpVtbl[50]))(handle, pRenderTargetView, (float*)pcolorRgba);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearRenderTargetView(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11RenderTargetView pRenderTargetView, ref float colorRgba) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView* ppRenderTargetView = &pRenderTargetView)
+			{
+				fixed (float* pcolorRgba = &colorRgba)
 				{
-					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-						return ret;
-					}
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RenderTargetView*, float*, void>)(handle->LpVtbl[50]))(handle, (ID3D11RenderTargetView*)ppRenderTargetView, (float*)pcolorRgba);
 				}
 			}
 		}
@@ -4604,38 +3155,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void ClearRenderTargetView(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11RenderTargetView pRenderTargetView, ReadOnlySpan<float> colorRgba) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pTargetName != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11RenderTargetView* ppRenderTargetView = &pRenderTargetView)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pTargetName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
+				fixed (float* pcolorRgba = colorRgba)
 				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-			{
-				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RenderTargetView*, float*, void>)(handle->LpVtbl[50]))(handle, (ID3D11RenderTargetView*)ppRenderTargetView, (float*)pcolorRgba);
 				}
 			}
 		}
@@ -4643,23 +3170,80 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void ClearRenderTargetView(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11RenderTargetView> pRenderTargetView, ref float colorRgba) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (float* pcolorRgba = &colorRgba)
 			{
-				fixed (byte* ppTargetName = pTargetName)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11RenderTargetView*, float*, void>)(handle->LpVtbl[50]))(handle, (ID3D11RenderTargetView*)pRenderTargetView.Handle, (float*)pcolorRgba);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewUint(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11UnorderedAccessView* pUnorderedAccessView, uint* values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, uint*, void>)(handle->LpVtbl[51]))(handle, pUnorderedAccessView, values);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewUint(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11UnorderedAccessView pUnorderedAccessView, uint* values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, uint*, void>)(handle->LpVtbl[51]))(handle, (ID3D11UnorderedAccessView*)ppUnorderedAccessView, values);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewUint(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, uint* values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, uint*, void>)(handle->LpVtbl[51]))(handle, (ID3D11UnorderedAccessView*)pUnorderedAccessView.Handle, values);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewUint(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11UnorderedAccessView* pUnorderedAccessView, ref uint values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* pvalues = &values)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, uint*, void>)(handle->LpVtbl[51]))(handle, pUnorderedAccessView, (uint*)pvalues);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewUint(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11UnorderedAccessView* pUnorderedAccessView, ReadOnlySpan<uint> values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* pvalues = values)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, uint*, void>)(handle->LpVtbl[51]))(handle, pUnorderedAccessView, (uint*)pvalues);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewUint(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11UnorderedAccessView pUnorderedAccessView, ref uint values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
+			{
+				fixed (uint* pvalues = &values)
 				{
-					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-					{
-						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-							return ret;
-						}
-					}
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, uint*, void>)(handle->LpVtbl[51]))(handle, (ID3D11UnorderedAccessView*)ppUnorderedAccessView, (uint*)pvalues);
 				}
 			}
 		}
@@ -4667,41 +3251,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void ClearUnorderedAccessViewUint(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11UnorderedAccessView pUnorderedAccessView, ReadOnlySpan<uint> values) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
 			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pTargetName != null)
+				fixed (uint* pvalues = values)
 				{
-					pStrSize0 = Utils.GetByteCountUTF8(pTargetName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pTargetName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-				{
-					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pEntryName, pStr0, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-						if (pStrSize0 >= Utils.MaxStackallocSize)
-						{
-							Utils.Free(pStr0);
-						}
-						return ret;
-					}
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, uint*, void>)(handle->LpVtbl[51]))(handle, (ID3D11UnorderedAccessView*)ppUnorderedAccessView, (uint*)pvalues);
 				}
 			}
 		}
@@ -4709,23 +3266,80 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void ClearUnorderedAccessViewUint(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, ref uint values) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (byte* ppEntryName = pEntryName)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* pvalues = &values)
 			{
-				fixed (byte* ppTargetName = pTargetName)
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, uint*, void>)(handle->LpVtbl[51]))(handle, (ID3D11UnorderedAccessView*)pUnorderedAccessView.Handle, (uint*)pvalues);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewFloat(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11UnorderedAccessView* pUnorderedAccessView, float* values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, float*, void>)(handle->LpVtbl[52]))(handle, pUnorderedAccessView, values);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewFloat(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11UnorderedAccessView pUnorderedAccessView, float* values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, float*, void>)(handle->LpVtbl[52]))(handle, (ID3D11UnorderedAccessView*)ppUnorderedAccessView, values);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewFloat(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, float* values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, float*, void>)(handle->LpVtbl[52]))(handle, (ID3D11UnorderedAccessView*)pUnorderedAccessView.Handle, values);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewFloat(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11UnorderedAccessView* pUnorderedAccessView, ref float values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (float* pvalues = &values)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, float*, void>)(handle->LpVtbl[52]))(handle, pUnorderedAccessView, (float*)pvalues);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewFloat(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11UnorderedAccessView* pUnorderedAccessView, ReadOnlySpan<float> values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (float* pvalues = values)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, float*, void>)(handle->LpVtbl[52]))(handle, pUnorderedAccessView, (float*)pvalues);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearUnorderedAccessViewFloat(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11UnorderedAccessView pUnorderedAccessView, ref float values) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
+			{
+				fixed (float* pvalues = &values)
 				{
-					fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-					{
-						fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-							return ret;
-						}
-					}
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, float*, void>)(handle->LpVtbl[52]))(handle, (ID3D11UnorderedAccessView*)ppUnorderedAccessView, (float*)pvalues);
 				}
 			}
 		}
@@ -4733,59 +3347,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void ClearUnorderedAccessViewFloat(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11UnorderedAccessView pUnorderedAccessView, ReadOnlySpan<float> values) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			byte* pStr0 = null;
-			int pStrSize0 = 0;
-			if (pEntryName != null)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11UnorderedAccessView* ppUnorderedAccessView = &pUnorderedAccessView)
 			{
-				pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-				if (pStrSize0 >= Utils.MaxStackallocSize)
+				fixed (float* pvalues = values)
 				{
-					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-				}
-				else
-				{
-					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-					pStr0 = pStrStack0;
-				}
-				int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-				pStr0[pStrOffset0] = 0;
-			}
-			byte* pStr1 = null;
-			int pStrSize1 = 0;
-			if (pTargetName != null)
-			{
-				pStrSize1 = Utils.GetByteCountUTF8(pTargetName);
-				if (pStrSize1 >= Utils.MaxStackallocSize)
-				{
-					pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
-				}
-				else
-				{
-					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-					pStr1 = pStrStack1;
-				}
-				int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
-				pStr1[pStrOffset1] = 0;
-			}
-			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-			{
-				fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, pEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr1);
-					}
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						Utils.Free(pStr0);
-					}
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, float*, void>)(handle->LpVtbl[52]))(handle, (ID3D11UnorderedAccessView*)ppUnorderedAccessView, (float*)pvalues);
 				}
 			}
 		}
@@ -4793,116 +3362,124 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void ClearUnorderedAccessViewFloat(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11UnorderedAccessView> pUnorderedAccessView, ref float values) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (float* pvalues = &values)
 			{
-				fixed (byte* ppEntryName = pEntryName)
-				{
-					fixed (byte* ppTargetName = pTargetName)
-					{
-						fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-						{
-							fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, (byte*)ppEntryName, (byte*)ppTargetName, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-								return ret;
-							}
-						}
-					}
-				}
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11UnorderedAccessView*, float*, void>)(handle->LpVtbl[52]))(handle, (ID3D11UnorderedAccessView*)pUnorderedAccessView.Handle, (float*)pvalues);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Link(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public static void ClearDepthStencilView(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11DepthStencilView* pDepthStencilView, uint clearFlags, float depth, byte stencil) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DepthStencilView*, uint, float, byte, void>)(handle->LpVtbl[53]))(handle, pDepthStencilView, clearFlags, depth, stencil);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ClearDepthStencilView(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11DepthStencilView pDepthStencilView, uint clearFlags, float depth, byte stencil) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11DepthStencilView* ppDepthStencilView = &pDepthStencilView)
 			{
-				byte* pStr0 = null;
-				int pStrSize0 = 0;
-				if (pEntryName != null)
-				{
-					pStrSize0 = Utils.GetByteCountUTF8(pEntryName);
-					if (pStrSize0 >= Utils.MaxStackallocSize)
-					{
-						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
-					}
-					else
-					{
-						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
-						pStr0 = pStrStack0;
-					}
-					int pStrOffset0 = Utils.EncodeStringUTF8(pEntryName, pStr0, pStrSize0);
-					pStr0[pStrOffset0] = 0;
-				}
-				byte* pStr1 = null;
-				int pStrSize1 = 0;
-				if (pTargetName != null)
-				{
-					pStrSize1 = Utils.GetByteCountUTF8(pTargetName);
-					if (pStrSize1 >= Utils.MaxStackallocSize)
-					{
-						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
-					}
-					else
-					{
-						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
-						pStr1 = pStrStack1;
-					}
-					int pStrOffset1 = Utils.EncodeStringUTF8(pTargetName, pStr1, pStrSize1);
-					pStr1[pStrOffset1] = 0;
-				}
-				fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
-				{
-					fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(handle->LpVtbl[4]))(handle, (ID3D11ModuleInstance*)ppEntry, pStr0, pStr1, uFlags, (ID3D10Blob**)pppShaderBlob, (ID3D10Blob**)pppErrorBuffer);
-						if (pStrSize1 >= Utils.MaxStackallocSize)
-						{
-							Utils.Free(pStr1);
-						}
-						if (pStrSize0 >= Utils.MaxStackallocSize)
-						{
-							Utils.Free(pStr0);
-						}
-						return ret;
-					}
-				}
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DepthStencilView*, uint, float, byte, void>)(handle->LpVtbl[53]))(handle, (ID3D11DepthStencilView*)ppDepthStencilView, clearFlags, depth, stencil);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UseLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UseLibrary(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pLibraryMI")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pLibraryMI) 
+		public static void ClearDepthStencilView(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11DepthStencilView> pDepthStencilView, uint clearFlags, float depth, byte stencil) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, int>)(handle->LpVtbl[5]))(handle, pLibraryMI);
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DepthStencilView*, uint, float, byte, void>)(handle->LpVtbl[53]))(handle, (ID3D11DepthStencilView*)pDepthStencilView.Handle, clearFlags, depth, stencil);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GenerateMips(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11ShaderResourceView* pShaderResourceView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ShaderResourceView*, void>)(handle->LpVtbl[54]))(handle, pShaderResourceView);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GenerateMips(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11ShaderResourceView pShaderResourceView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ShaderResourceView* ppShaderResourceView = &pShaderResourceView)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ShaderResourceView*, void>)(handle->LpVtbl[54]))(handle, (ID3D11ShaderResourceView*)ppShaderResourceView);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GenerateMips(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11ShaderResourceView> pShaderResourceView) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ShaderResourceView*, void>)(handle->LpVtbl[54]))(handle, (ID3D11ShaderResourceView*)pShaderResourceView.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SetResourceMinLOD(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pResource, float minLod) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, float, void>)(handle->LpVtbl[55]))(handle, pResource, minLod);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SetResourceMinLOD(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pResource, float minLod) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppResource = &pResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, float, void>)(handle->LpVtbl[55]))(handle, (ID3D11Resource*)ppResource, minLod);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void SetResourceMinLOD(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pResource, float minLod) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, float, void>)(handle->LpVtbl[55]))(handle, (ID3D11Resource*)pResource.Handle, minLod);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static float GetResourceMinLOD(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pResource) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			float ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, float>)(handle->LpVtbl[56]))(handle, pResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UseLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UseLibrary(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pLibraryMI")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pLibraryMI) 
+		public static float GetResourceMinLOD(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pResource) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			fixed (ID3D11ModuleInstance* ppLibraryMI = &pLibraryMI)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppResource = &pResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, int>)(handle->LpVtbl[5]))(handle, (ID3D11ModuleInstance*)ppLibraryMI);
+				float ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, float>)(handle->LpVtbl[56]))(handle, (ID3D11Resource*)ppResource);
 				return ret;
 			}
 		}
@@ -4910,119 +3487,1542 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UseLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int UseLibrary(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "pLibraryMI")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ComPtr<ID3D11ModuleInstance> pLibraryMI) 
+		public static float GetResourceMinLOD(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pResource) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, int>)(handle->LpVtbl[5]))(handle, (ID3D11ModuleInstance*)pLibraryMI.Handle);
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			float ret = ((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, float>)(handle->LpVtbl[56]))(handle, (ID3D11Resource*)pResource.Handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddClipPlaneFromCBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddClipPlaneFromCBuffer(this ComPtr<ID3D11Linker> comObj, [NativeName(NativeNameType.Param, "uCBufferSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uCBufferSlot, [NativeName(NativeNameType.Param, "uCBufferEntry")] [NativeName(NativeNameType.Type, "UINT")] uint uCBufferEntry) 
+		public static void ResolveSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, uint dstSubresource, ID3D11Resource* pSrcResource, uint srcSubresource, Format format) 
 		{
-			ID3D11Linker* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, uint, uint, int>)(handle->LpVtbl[6]))(handle, uCBufferSlot, uCBufferEntry);
-			return ret;
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(handle->LpVtbl[57]))(handle, pDstResource, dstSubresource, pSrcResource, srcSubresource, format);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11LinkingNode> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static void ResolveSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pDstResource, uint dstSubresource, ID3D11Resource* pSrcResource, uint srcSubresource, Format format) 
 		{
-			ID3D11LinkingNode* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11LinkingNode> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			ID3D11LinkingNode* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)ppDstResource, dstSubresource, pSrcResource, srcSubresource, format);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11LinkingNode> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static void ResolveSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, ID3D11Resource* pSrcResource, uint srcSubresource, Format format) 
 		{
-			ID3D11LinkingNode* handle = comObj.Handle;
-			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
-			return ret;
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)pDstResource.Handle, dstSubresource, pSrcResource, srcSubresource, format);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11LinkingNode> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static void ResolveSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, uint dstSubresource, ref ID3D11Resource pSrcResource, uint srcSubresource, Format format) 
 		{
-			ID3D11LinkingNode* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
 			{
-				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(handle->LpVtbl[57]))(handle, pDstResource, dstSubresource, (ID3D11Resource*)ppSrcResource, srcSubresource, format);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint AddRef(this ComPtr<ID3D11LinkingNode> comObj) 
+		public static void ResolveSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Resource* pDstResource, uint dstSubresource, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, Format format) 
 		{
-			ID3D11LinkingNode* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, uint>)(handle->LpVtbl[1]))(handle);
-			return ret;
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(handle->LpVtbl[57]))(handle, pDstResource, dstSubresource, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, format);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint Release(this ComPtr<ID3D11LinkingNode> comObj) 
+		public static void ResolveSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Resource pDstResource, uint dstSubresource, ref ID3D11Resource pSrcResource, uint srcSubresource, Format format) 
 		{
-			ID3D11LinkingNode* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, uint>)(handle->LpVtbl[2]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11LinkingNode> comObj, [NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
-		{
-			ID3D11LinkingNode* handle = comObj.Handle;
-			fixed (void** pppv = &ppv)
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Resource* ppDstResource = &pDstResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11LinkingNode*, Guid*, void**, int>)(handle->LpVtbl[3]))(handle, iid, (void**)pppv);
-				return ret;
+				fixed (ID3D11Resource* ppSrcResource = &pSrcResource)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)ppDstResource, dstSubresource, (ID3D11Resource*)ppSrcResource, srcSubresource, format);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ResolveSubresource(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11Resource> pDstResource, uint dstSubresource, ComPtr<ID3D11Resource> pSrcResource, uint srcSubresource, Format format) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Resource*, uint, ID3D11Resource*, uint, Format, void>)(handle->LpVtbl[57]))(handle, (ID3D11Resource*)pDstResource.Handle, dstSubresource, (ID3D11Resource*)pSrcResource.Handle, srcSubresource, format);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ExecuteCommandList(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11CommandList* pCommandList, int restoreContextState) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11CommandList*, int, void>)(handle->LpVtbl[58]))(handle, pCommandList, restoreContextState);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ExecuteCommandList(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11CommandList pCommandList, int restoreContextState) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11CommandList* ppCommandList = &pCommandList)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11CommandList*, int, void>)(handle->LpVtbl[58]))(handle, (ID3D11CommandList*)ppCommandList, restoreContextState);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void ExecuteCommandList(this ComPtr<ID3D11DeviceContext1> comObj, ComPtr<ID3D11CommandList> pCommandList, int restoreContextState) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11CommandList*, int, void>)(handle->LpVtbl[58]))(handle, (ID3D11CommandList*)pCommandList.Handle, restoreContextState);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[59]))(handle, startSlot, numViews, ppShaderResourceViews);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[59]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)pppShaderResourceViews);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[59]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11HullShader* pHullShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11HullShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[60]))(handle, pHullShader, ppClassInstances, numClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11HullShader pHullShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11HullShader* ppHullShader = &pHullShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11HullShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[60]))(handle, (ID3D11HullShader*)ppHullShader, ppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11HullShader* pHullShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11HullShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[60]))(handle, pHullShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11HullShader* pHullShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11HullShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[60]))(handle, pHullShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11HullShader pHullShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11HullShader* ppHullShader = &pHullShader)
+			{
+				fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11HullShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[60]))(handle, (ID3D11HullShader*)ppHullShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11HullShader pHullShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11HullShader* ppHullShader = &pHullShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11HullShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[60]))(handle, (ID3D11HullShader*)ppHullShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[61]))(handle, startSlot, numSamplers, ppSamplers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[61]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)pppSamplers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[61]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[62]))(handle, startSlot, numBuffers, ppConstantBuffers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[62]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppConstantBuffers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void HSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[62]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[63]))(handle, startSlot, numViews, ppShaderResourceViews);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[63]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)pppShaderResourceViews);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[63]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11DomainShader* pDomainShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DomainShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[64]))(handle, pDomainShader, ppClassInstances, numClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11DomainShader pDomainShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11DomainShader* ppDomainShader = &pDomainShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DomainShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[64]))(handle, (ID3D11DomainShader*)ppDomainShader, ppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11DomainShader* pDomainShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DomainShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[64]))(handle, pDomainShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11DomainShader* pDomainShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DomainShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[64]))(handle, pDomainShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11DomainShader pDomainShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11DomainShader* ppDomainShader = &pDomainShader)
+			{
+				fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DomainShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[64]))(handle, (ID3D11DomainShader*)ppDomainShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11DomainShader pDomainShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11DomainShader* ppDomainShader = &pDomainShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11DomainShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[64]))(handle, (ID3D11DomainShader*)ppDomainShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[65]))(handle, startSlot, numSamplers, ppSamplers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[65]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)pppSamplers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[65]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[66]))(handle, startSlot, numBuffers, ppConstantBuffers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[66]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppConstantBuffers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[66]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[67]))(handle, startSlot, numViews, ppShaderResourceViews);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[67]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)pppShaderResourceViews);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[67]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[68]))(handle, startSlot, numUaVs, ppUnorderedAccessViews, pUAVInitialCounts);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[68]))(handle, startSlot, numUaVs, (ID3D11UnorderedAccessView**)pppUnorderedAccessViews, pUAVInitialCounts);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, uint* pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[68]))(handle, startSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, pUAVInitialCounts);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numUaVs, ID3D11UnorderedAccessView** ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[68]))(handle, startSlot, numUaVs, ppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numUaVs, ref ID3D11UnorderedAccessView* ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11UnorderedAccessView** pppUnorderedAccessViews = &ppUnorderedAccessViews)
+			{
+				fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[68]))(handle, startSlot, numUaVs, (ID3D11UnorderedAccessView**)pppUnorderedAccessViews, (uint*)ppUAVInitialCounts);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetUnorderedAccessViews(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numUaVs, ComPtr<ID3D11UnorderedAccessView> ppUnorderedAccessViews, ref uint pUAVInitialCounts) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppUAVInitialCounts = &pUAVInitialCounts)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11UnorderedAccessView**, uint*, void>)(handle->LpVtbl[68]))(handle, startSlot, numUaVs, (ID3D11UnorderedAccessView**)ppUnorderedAccessViews.Handle, (uint*)ppUAVInitialCounts);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11ComputeShader* pComputeShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ComputeShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[69]))(handle, pComputeShader, ppClassInstances, numClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11ComputeShader pComputeShader, ID3D11ClassInstance** ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ComputeShader* ppComputeShader = &pComputeShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ComputeShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[69]))(handle, (ID3D11ComputeShader*)ppComputeShader, ppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11ComputeShader* pComputeShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ComputeShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[69]))(handle, pComputeShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11ComputeShader* pComputeShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ComputeShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[69]))(handle, pComputeShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11ComputeShader pComputeShader, ref ID3D11ClassInstance* ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ComputeShader* ppComputeShader = &pComputeShader)
+			{
+				fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ComputeShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[69]))(handle, (ID3D11ComputeShader*)ppComputeShader, (ID3D11ClassInstance**)pppClassInstances, numClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11ComputeShader pComputeShader, ComPtr<ID3D11ClassInstance> ppClassInstances, uint numClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ComputeShader* ppComputeShader = &pComputeShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11ComputeShader*, ID3D11ClassInstance**, uint, void>)(handle->LpVtbl[69]))(handle, (ID3D11ComputeShader*)ppComputeShader, (ID3D11ClassInstance**)ppClassInstances.Handle, numClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[70]))(handle, startSlot, numSamplers, ppSamplers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[70]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)pppSamplers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ComPtr<ID3D11SamplerState> ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[70]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[71]))(handle, startSlot, numBuffers, ppConstantBuffers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[71]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppConstantBuffers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CSSetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[71]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[72]))(handle, startSlot, numBuffers, ppConstantBuffers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[72]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppConstantBuffers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, out ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			ppConstantBuffers = default;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[72]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.GetAddressOf());
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ID3D11ShaderResourceView** ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[73]))(handle, startSlot, numViews, ppShaderResourceViews);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, ref ID3D11ShaderResourceView* ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ShaderResourceView** pppShaderResourceViews = &ppShaderResourceViews)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[73]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)pppShaderResourceViews);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShaderResources(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numViews, out ComPtr<ID3D11ShaderResourceView> ppShaderResourceViews) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			ppShaderResourceViews = default;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11ShaderResourceView**, void>)(handle->LpVtbl[73]))(handle, startSlot, numViews, (ID3D11ShaderResourceView**)ppShaderResourceViews.GetAddressOf());
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11PixelShader** ppPixelShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, ppPixelShader, ppClassInstances, pNumClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11PixelShader* ppPixelShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, (ID3D11PixelShader**)pppPixelShader, ppClassInstances, pNumClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11PixelShader** ppPixelShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, ppPixelShader, (ID3D11ClassInstance**)pppClassInstances, pNumClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11PixelShader** ppPixelShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, ppPixelShader, (ID3D11ClassInstance**)pppClassInstances, pNumClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11PixelShader* ppPixelShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
+			{
+				fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, (ID3D11PixelShader**)pppPixelShader, (ID3D11ClassInstance**)pppClassInstances, pNumClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11PixelShader* ppPixelShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
+			{
+				fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, (ID3D11PixelShader**)pppPixelShader, (ID3D11ClassInstance**)pppClassInstances, pNumClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11PixelShader** ppPixelShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppNumClassInstances = &pNumClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, ppPixelShader, ppClassInstances, (uint*)ppNumClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11PixelShader* ppPixelShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
+			{
+				fixed (uint* ppNumClassInstances = &pNumClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, (ID3D11PixelShader**)pppPixelShader, ppClassInstances, (uint*)ppNumClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11PixelShader** ppPixelShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+			{
+				fixed (uint* ppNumClassInstances = &pNumClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, ppPixelShader, (ID3D11ClassInstance**)pppClassInstances, (uint*)ppNumClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11PixelShader** ppPixelShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
+			{
+				fixed (uint* ppNumClassInstances = &pNumClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, ppPixelShader, (ID3D11ClassInstance**)pppClassInstances, (uint*)ppNumClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11PixelShader* ppPixelShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
+			{
+				fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+				{
+					fixed (uint* ppNumClassInstances = &pNumClassInstances)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, (ID3D11PixelShader**)pppPixelShader, (ID3D11ClassInstance**)pppClassInstances, (uint*)ppNumClassInstances);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11PixelShader* ppPixelShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11PixelShader** pppPixelShader = &ppPixelShader)
+			{
+				fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
+				{
+					fixed (uint* ppNumClassInstances = &pNumClassInstances)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11PixelShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[74]))(handle, (ID3D11PixelShader**)pppPixelShader, (ID3D11ClassInstance**)pppClassInstances, (uint*)ppNumClassInstances);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ID3D11SamplerState** ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[75]))(handle, startSlot, numSamplers, ppSamplers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, ref ID3D11SamplerState* ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11SamplerState** pppSamplers = &ppSamplers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[75]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)pppSamplers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetSamplers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numSamplers, out ComPtr<ID3D11SamplerState> ppSamplers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			ppSamplers = default;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11SamplerState**, void>)(handle->LpVtbl[75]))(handle, startSlot, numSamplers, (ID3D11SamplerState**)ppSamplers.GetAddressOf());
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11VertexShader** ppVertexShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, ppVertexShader, ppClassInstances, pNumClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11VertexShader* ppVertexShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, (ID3D11VertexShader**)pppVertexShader, ppClassInstances, pNumClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11VertexShader** ppVertexShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, ppVertexShader, (ID3D11ClassInstance**)pppClassInstances, pNumClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11VertexShader** ppVertexShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, ppVertexShader, (ID3D11ClassInstance**)pppClassInstances, pNumClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11VertexShader* ppVertexShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
+			{
+				fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, (ID3D11VertexShader**)pppVertexShader, (ID3D11ClassInstance**)pppClassInstances, pNumClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11VertexShader* ppVertexShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
+			{
+				fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, (ID3D11VertexShader**)pppVertexShader, (ID3D11ClassInstance**)pppClassInstances, pNumClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11VertexShader** ppVertexShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppNumClassInstances = &pNumClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, ppVertexShader, ppClassInstances, (uint*)ppNumClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11VertexShader* ppVertexShader, ID3D11ClassInstance** ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
+			{
+				fixed (uint* ppNumClassInstances = &pNumClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, (ID3D11VertexShader**)pppVertexShader, ppClassInstances, (uint*)ppNumClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11VertexShader** ppVertexShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+			{
+				fixed (uint* ppNumClassInstances = &pNumClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, ppVertexShader, (ID3D11ClassInstance**)pppClassInstances, (uint*)ppNumClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11VertexShader** ppVertexShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
+			{
+				fixed (uint* ppNumClassInstances = &pNumClassInstances)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, ppVertexShader, (ID3D11ClassInstance**)pppClassInstances, (uint*)ppNumClassInstances);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11VertexShader* ppVertexShader, ref ID3D11ClassInstance* ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
+			{
+				fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+				{
+					fixed (uint* ppNumClassInstances = &pNumClassInstances)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, (ID3D11VertexShader**)pppVertexShader, (ID3D11ClassInstance**)pppClassInstances, (uint*)ppNumClassInstances);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11VertexShader* ppVertexShader, ref ComPtr<ID3D11ClassInstance> ppClassInstances, ref uint pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11VertexShader** pppVertexShader = &ppVertexShader)
+			{
+				fixed (ComPtr<ID3D11ClassInstance>* pppClassInstances = &ppClassInstances)
+				{
+					fixed (uint* ppNumClassInstances = &pNumClassInstances)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11VertexShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[76]))(handle, (ID3D11VertexShader**)pppVertexShader, (ID3D11ClassInstance**)pppClassInstances, (uint*)ppNumClassInstances);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[77]))(handle, startSlot, numBuffers, ppConstantBuffers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[77]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppConstantBuffers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void PSGetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, out ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			ppConstantBuffers = default;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[77]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.GetAddressOf());
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetInputLayout(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11InputLayout** ppInputLayout) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11InputLayout**, void>)(handle->LpVtbl[78]))(handle, ppInputLayout);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetInputLayout(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11InputLayout* ppInputLayout) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11InputLayout** pppInputLayout = &ppInputLayout)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11InputLayout**, void>)(handle->LpVtbl[78]))(handle, (ID3D11InputLayout**)pppInputLayout);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, uint* pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, ppVertexBuffers, pStrides, pOffsets);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, uint* pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, pStrides, pOffsets);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppVertexBuffers, uint* pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11Buffer>* pppVertexBuffers = &ppVertexBuffers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, pStrides, pOffsets);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppStrides = &pStrides)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, ppVertexBuffers, (uint*)ppStrides, pOffsets);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
+			{
+				fixed (uint* ppStrides = &pStrides)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, (uint*)ppStrides, pOffsets);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppVertexBuffers, ref uint pStrides, uint* pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11Buffer>* pppVertexBuffers = &ppVertexBuffers)
+			{
+				fixed (uint* ppStrides = &pStrides)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, (uint*)ppStrides, pOffsets);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppOffsets = &pOffsets)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, ppVertexBuffers, pStrides, (uint*)ppOffsets);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
+			{
+				fixed (uint* ppOffsets = &pOffsets)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, pStrides, (uint*)ppOffsets);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppVertexBuffers, uint* pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11Buffer>* pppVertexBuffers = &ppVertexBuffers)
+			{
+				fixed (uint* ppOffsets = &pOffsets)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, pStrides, (uint*)ppOffsets);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* ppStrides = &pStrides)
+			{
+				fixed (uint* ppOffsets = &pOffsets)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, ppVertexBuffers, (uint*)ppStrides, (uint*)ppOffsets);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppVertexBuffers = &ppVertexBuffers)
+			{
+				fixed (uint* ppStrides = &pStrides)
+				{
+					fixed (uint* ppOffsets = &pOffsets)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, (uint*)ppStrides, (uint*)ppOffsets);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetVertexBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ComPtr<ID3D11Buffer> ppVertexBuffers, ref uint pStrides, ref uint pOffsets) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11Buffer>* pppVertexBuffers = &ppVertexBuffers)
+			{
+				fixed (uint* ppStrides = &pStrides)
+				{
+					fixed (uint* ppOffsets = &pOffsets)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, uint*, uint*, void>)(handle->LpVtbl[79]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppVertexBuffers, (uint*)ppStrides, (uint*)ppOffsets);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Buffer** pIndexBuffer, Format* format, uint* offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, pIndexBuffer, format, offset);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Buffer* pIndexBuffer, Format* format, uint* offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** ppIndexBuffer = &pIndexBuffer)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, (ID3D11Buffer**)ppIndexBuffer, format, offset);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ref ComPtr<ID3D11Buffer> pIndexBuffer, Format* format, uint* offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11Buffer>* ppIndexBuffer = &pIndexBuffer)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, (ID3D11Buffer**)ppIndexBuffer, format, offset);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Buffer** pIndexBuffer, ref Format format, uint* offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Format* pformat = &format)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, pIndexBuffer, (Format*)pformat, offset);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Buffer* pIndexBuffer, ref Format format, uint* offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** ppIndexBuffer = &pIndexBuffer)
+			{
+				fixed (Format* pformat = &format)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, (ID3D11Buffer**)ppIndexBuffer, (Format*)pformat, offset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ref ComPtr<ID3D11Buffer> pIndexBuffer, ref Format format, uint* offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11Buffer>* ppIndexBuffer = &pIndexBuffer)
+			{
+				fixed (Format* pformat = &format)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, (ID3D11Buffer**)ppIndexBuffer, (Format*)pformat, offset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Buffer** pIndexBuffer, Format* format, ref uint offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (uint* poffset = &offset)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, pIndexBuffer, format, (uint*)poffset);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Buffer* pIndexBuffer, Format* format, ref uint offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** ppIndexBuffer = &pIndexBuffer)
+			{
+				fixed (uint* poffset = &offset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, (ID3D11Buffer**)ppIndexBuffer, format, (uint*)poffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ref ComPtr<ID3D11Buffer> pIndexBuffer, Format* format, ref uint offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11Buffer>* ppIndexBuffer = &pIndexBuffer)
+			{
+				fixed (uint* poffset = &offset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, (ID3D11Buffer**)ppIndexBuffer, format, (uint*)poffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11Buffer** pIndexBuffer, ref Format format, ref uint offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (Format* pformat = &format)
+			{
+				fixed (uint* poffset = &offset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, pIndexBuffer, (Format*)pformat, (uint*)poffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11Buffer* pIndexBuffer, ref Format format, ref uint offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** ppIndexBuffer = &pIndexBuffer)
+			{
+				fixed (Format* pformat = &format)
+				{
+					fixed (uint* poffset = &offset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, (ID3D11Buffer**)ppIndexBuffer, (Format*)pformat, (uint*)poffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void IAGetIndexBuffer(this ComPtr<ID3D11DeviceContext1> comObj, ref ComPtr<ID3D11Buffer> pIndexBuffer, ref Format format, ref uint offset) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ComPtr<ID3D11Buffer>* ppIndexBuffer = &pIndexBuffer)
+			{
+				fixed (Format* pformat = &format)
+				{
+					fixed (uint* poffset = &offset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11Buffer**, Format*, uint*, void>)(handle->LpVtbl[80]))(handle, (ID3D11Buffer**)ppIndexBuffer, (Format*)pformat, (uint*)poffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSGetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ID3D11Buffer** ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[81]))(handle, startSlot, numBuffers, ppConstantBuffers);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSGetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, ref ID3D11Buffer* ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11Buffer** pppConstantBuffers = &ppConstantBuffers)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[81]))(handle, startSlot, numBuffers, (ID3D11Buffer**)pppConstantBuffers);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSGetConstantBuffers(this ComPtr<ID3D11DeviceContext1> comObj, uint startSlot, uint numBuffers, out ComPtr<ID3D11Buffer> ppConstantBuffers) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			ppConstantBuffers = default;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, uint, uint, ID3D11Buffer**, void>)(handle->LpVtbl[81]))(handle, startSlot, numBuffers, (ID3D11Buffer**)ppConstantBuffers.GetAddressOf());
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11GeometryShader** ppGeometryShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[82]))(handle, ppGeometryShader, ppClassInstances, pNumClassInstances);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ref ID3D11GeometryShader* ppGeometryShader, ID3D11ClassInstance** ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11GeometryShader** pppGeometryShader = &ppGeometryShader)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[82]))(handle, (ID3D11GeometryShader**)pppGeometryShader, ppClassInstances, pNumClassInstances);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GSGetShader(this ComPtr<ID3D11DeviceContext1> comObj, ID3D11GeometryShader** ppGeometryShader, ref ID3D11ClassInstance* ppClassInstances, uint* pNumClassInstances) 
+		{
+			ID3D11DeviceContext1* handle = comObj.Handle;
+			fixed (ID3D11ClassInstance** pppClassInstances = &ppClassInstances)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11DeviceContext1*, ID3D11GeometryShader**, ID3D11ClassInstance**, uint*, void>)(handle->LpVtbl[82]))(handle, ppGeometryShader, (ID3D11ClassInstance**)pppClassInstances, pNumClassInstances);
 			}
 		}
 	}

@@ -23,2526 +23,43 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
+		{
+			ID3D12CommandQueue* handle = comObj.Handle;
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+			{
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				{
+					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
+					{
+						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-					{
-						fixed (ID3D12Heap* ppHeap = &pHeap)
-						{
-							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-					{
-						fixed (ID3D12Heap* ppHeap = &pHeap)
-						{
-							fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-							{
-								fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, pRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-					{
-						fixed (ID3D12Heap* ppHeap = &pHeap)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-					{
-						fixed (ID3D12Heap* ppHeap = &pHeap)
-						{
-							fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-							{
-								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, pHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-			{
-				fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-					{
-						fixed (ID3D12Heap* ppHeap = &pHeap)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 								}
 							}
 						}
@@ -2554,20 +71,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] D3D12TileRangeFlags* pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pResource, uint numResourceRegions, TiledResourceCoordinate* pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 				{
 					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 					{
 						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, pRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 						}
 					}
 				}
@@ -2577,450 +92,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-							{
-								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ID3D12Heap* pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, pHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Heap* ppHeap = &pHeap)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-			{
-				fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-				{
-					fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
 					fixed (ID3D12Heap* ppHeap = &pHeap)
 					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+						fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 						{
 							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 							{
 								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 								}
 							}
 						}
@@ -3032,45 +119,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, pResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (ID3D12Heap* ppHeap = &pHeap)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -3081,156 +143,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ref ID3D12Heap pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppResource = &pResource)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-							{
-								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-			{
-				fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-				{
-					fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-					{
-						fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, pResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (ID3D12Heap* ppHeap = &pHeap)
-					{
-						fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-						{
-							fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-							{
-								fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-								{
-									((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-								}
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
-				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
-					{
-						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
-						{
-							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
-							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, pResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
-							}
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ref ID3D12Heap pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
-		{
-			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (ID3D12Resource* ppResource = &pResource)
-			{
-				fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
-				{
-					fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+					fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 					{
 						fixed (ID3D12Heap* ppHeap = &pHeap)
 						{
-							fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+							fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 							{
 								fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 								{
 									fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 									{
-										((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+										((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)ppResource, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)ppHeap, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 									}
 								}
 							}
@@ -3243,22 +173,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UpdateTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pResource, [NativeName(NativeNameType.Param, "NumResourceRegions")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceRegions, [NativeName(NativeNameType.Param, "pResourceRegionStartCoordinates")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pResourceRegionStartCoordinates, [NativeName(NativeNameType.Param, "pResourceRegionSizes")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pResourceRegionSizes, [NativeName(NativeNameType.Param, "pHeap")] [NativeName(NativeNameType.Type, "ID3D12Heap*")] ComPtr<ID3D12Heap> pHeap, [NativeName(NativeNameType.Param, "NumRanges")] [NativeName(NativeNameType.Type, "UINT")] uint numRanges, [NativeName(NativeNameType.Param, "pRangeFlags")] [NativeName(NativeNameType.Type, "const D3D12_TILE_RANGE_FLAGS*")] ref D3D12TileRangeFlags pRangeFlags, [NativeName(NativeNameType.Param, "pHeapRangeStartOffsets")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pHeapRangeStartOffsets, [NativeName(NativeNameType.Param, "pRangeTileCounts")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pRangeTileCounts, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void UpdateTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pResource, uint numResourceRegions, ref TiledResourceCoordinate pResourceRegionStartCoordinates, ref TileRegionSize pResourceRegionSizes, ComPtr<ID3D12Heap> pHeap, uint numRanges, ref TileRangeFlags pRangeFlags, ref uint pHeapRangeStartOffsets, ref uint pRangeTileCounts, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
+			fixed (TiledResourceCoordinate* ppResourceRegionStartCoordinates = &pResourceRegionStartCoordinates)
 			{
-				fixed (D3D12TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
+				fixed (TileRegionSize* ppResourceRegionSizes = &pResourceRegionSizes)
 				{
-					fixed (D3D12TileRangeFlags* ppRangeFlags = &pRangeFlags)
+					fixed (TileRangeFlags* ppRangeFlags = &pRangeFlags)
 					{
 						fixed (uint* ppHeapRangeStartOffsets = &pHeapRangeStartOffsets)
 						{
 							fixed (uint* ppRangeTileCounts = &pRangeTileCounts)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, ID3D12Heap*, uint, D3D12TileRangeFlags*, uint*, uint*, D3D12TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (D3D12TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (D3D12TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (D3D12TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, uint, TiledResourceCoordinate*, TileRegionSize*, ID3D12Heap*, uint, TileRangeFlags*, uint*, uint*, TileMappingFlags, void>)(handle->LpVtbl[8]))(handle, (ID3D12Resource*)pResource.Handle, numResourceRegions, (TiledResourceCoordinate*)ppResourceRegionStartCoordinates, (TileRegionSize*)ppResourceRegionSizes, (ID3D12Heap*)pHeap.Handle, numRanges, (TileRangeFlags*)ppRangeFlags, (uint*)ppHeapRangeStartOffsets, (uint*)ppRangeTileCounts, flags);
 							}
 						}
 					}
@@ -3269,66 +197,56 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -3336,55 +254,47 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -3392,27 +302,23 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
+			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -3420,32 +326,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
 					fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, pRegionSize, flags);
 					}
 				}
 			}
@@ -3454,44 +356,38 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -3499,30 +395,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -3530,18 +422,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 					}
 				}
 			}
@@ -3550,16 +440,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -3567,16 +455,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -3584,32 +470,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 					}
 				}
 			}
@@ -3618,32 +500,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 					}
 				}
 			}
@@ -3652,16 +530,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -3669,20 +545,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
 					fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 					{
-						fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+						fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 						}
 					}
 				}
@@ -3692,16 +566,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] D3D12TileRegionSize* pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, TileRegionSize* pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, pRegionSize, flags);
 				}
 			}
 		}
@@ -3709,30 +581,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+			fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -3740,30 +608,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+			fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -3771,18 +635,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -3791,16 +653,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -3808,16 +668,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -3825,32 +683,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+			fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -3859,32 +713,28 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+			fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+				((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -3893,16 +743,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -3910,20 +758,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
 					fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 					{
-						fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+						fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 						}
 					}
 				}
@@ -3933,16 +779,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, TiledResourceCoordinate* pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, pSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -3950,16 +794,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -3967,18 +809,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -3987,16 +827,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -4004,18 +842,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -4024,20 +860,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+						fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 						}
 					}
 				}
@@ -4047,18 +881,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ID3D12Resource* pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, pSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -4067,18 +899,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -4087,16 +917,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -4104,20 +932,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+						fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, pDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 						}
 					}
 				}
@@ -4127,16 +953,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] D3D12TiledResourceCoordinate* pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, TiledResourceCoordinate* pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 			{
-				fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+				fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+					((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, pDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 				}
 			}
 		}
@@ -4144,20 +968,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
 				fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 				{
-					fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+					fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 					{
-						fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+						fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+							((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 						}
 					}
 				}
@@ -4167,18 +989,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ID3D12Resource* pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Resource* pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, pDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -4187,22 +1007,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ref ID3D12Resource pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Resource pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ref ID3D12Resource pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Resource* ppDstResource = &pDstResource)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 				{
 					fixed (ID3D12Resource* ppSrcResource = &pSrcResource)
 					{
-						fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+						fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 						{
-							fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+							fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 							{
-								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+								((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)ppDstResource, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)ppSrcResource, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 							}
 						}
 					}
@@ -4213,18 +1031,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CopyTileMappings")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pDstResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pDstResource, [NativeName(NativeNameType.Param, "pDstRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pDstRegionStartCoordinate, [NativeName(NativeNameType.Param, "pSrcResource")] [NativeName(NativeNameType.Type, "ID3D12Resource*")] ComPtr<ID3D12Resource> pSrcResource, [NativeName(NativeNameType.Param, "pSrcRegionStartCoordinate")] [NativeName(NativeNameType.Type, "const D3D12_TILED_RESOURCE_COORDINATE*")] ref D3D12TiledResourceCoordinate pSrcRegionStartCoordinate, [NativeName(NativeNameType.Param, "pRegionSize")] [NativeName(NativeNameType.Type, "const D3D12_TILE_REGION_SIZE*")] ref D3D12TileRegionSize pRegionSize, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_TILE_MAPPING_FLAGS")] D3D12TileMappingFlags flags) 
+		public static void CopyTileMappings(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Resource> pDstResource, ref TiledResourceCoordinate pDstRegionStartCoordinate, ComPtr<ID3D12Resource> pSrcResource, ref TiledResourceCoordinate pSrcRegionStartCoordinate, ref TileRegionSize pRegionSize, TileMappingFlags flags) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			fixed (D3D12TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
+			fixed (TiledResourceCoordinate* ppDstRegionStartCoordinate = &pDstRegionStartCoordinate)
 			{
-				fixed (D3D12TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
+				fixed (TiledResourceCoordinate* ppSrcRegionStartCoordinate = &pSrcRegionStartCoordinate)
 				{
-					fixed (D3D12TileRegionSize* ppRegionSize = &pRegionSize)
+					fixed (TileRegionSize* ppRegionSize = &pRegionSize)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, D3D12TiledResourceCoordinate*, ID3D12Resource*, D3D12TiledResourceCoordinate*, D3D12TileRegionSize*, D3D12TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (D3D12TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (D3D12TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (D3D12TileRegionSize*)ppRegionSize, flags);
+						((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Resource*, TiledResourceCoordinate*, ID3D12Resource*, TiledResourceCoordinate*, TileRegionSize*, TileMappingFlags, void>)(handle->LpVtbl[9]))(handle, (ID3D12Resource*)pDstResource.Handle, (TiledResourceCoordinate*)ppDstRegionStartCoordinate, (ID3D12Resource*)pSrcResource.Handle, (TiledResourceCoordinate*)ppSrcRegionStartCoordinate, (TileRegionSize*)ppRegionSize, flags);
 					}
 				}
 			}
@@ -4233,9 +1049,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteCommandLists")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void ExecuteCommandLists(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "NumCommandLists")] [NativeName(NativeNameType.Type, "UINT")] uint numCommandLists, [NativeName(NativeNameType.Param, "ppCommandLists")] [NativeName(NativeNameType.Type, "const ID3D12CommandList**")] ID3D12CommandList** ppCommandLists) 
+		public static void ExecuteCommandLists(this ComPtr<ID3D12CommandQueue> comObj, uint numCommandLists, ID3D12CommandList** ppCommandLists) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, uint, ID3D12CommandList**, void>)(handle->LpVtbl[10]))(handle, numCommandLists, ppCommandLists);
@@ -4244,9 +1058,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteCommandLists")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void ExecuteCommandLists(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "NumCommandLists")] [NativeName(NativeNameType.Type, "UINT")] uint numCommandLists, [NativeName(NativeNameType.Param, "ppCommandLists")] [NativeName(NativeNameType.Type, "const ID3D12CommandList**")] ref ID3D12CommandList* ppCommandLists) 
+		public static void ExecuteCommandLists(this ComPtr<ID3D12CommandQueue> comObj, uint numCommandLists, ref ID3D12CommandList* ppCommandLists) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12CommandList** pppCommandLists = &ppCommandLists)
@@ -4258,9 +1070,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ExecuteCommandLists")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void ExecuteCommandLists(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "NumCommandLists")] [NativeName(NativeNameType.Type, "UINT")] uint numCommandLists, [NativeName(NativeNameType.Param, "ppCommandLists")] [NativeName(NativeNameType.Type, "const ID3D12CommandList**")] ComPtr<ID3D12CommandList> ppCommandLists) 
+		public static void ExecuteCommandLists(this ComPtr<ID3D12CommandQueue> comObj, uint numCommandLists, ComPtr<ID3D12CommandList> ppCommandLists) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, uint, ID3D12CommandList**, void>)(handle->LpVtbl[10]))(handle, numCommandLists, (ID3D12CommandList**)ppCommandLists.Handle);
@@ -4269,9 +1079,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetMarker")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void SetMarker(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "Metadata")] [NativeName(NativeNameType.Type, "UINT")] uint metadata, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData, [NativeName(NativeNameType.Param, "Size")] [NativeName(NativeNameType.Type, "UINT")] uint size) 
+		public static void SetMarker(this ComPtr<ID3D12CommandQueue> comObj, uint metadata, void* pData, uint size) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, uint, void*, uint, void>)(handle->LpVtbl[11]))(handle, metadata, pData, size);
@@ -4280,9 +1088,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "BeginEvent")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void BeginEvent(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "Metadata")] [NativeName(NativeNameType.Type, "UINT")] uint metadata, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData, [NativeName(NativeNameType.Param, "Size")] [NativeName(NativeNameType.Type, "UINT")] uint size) 
+		public static void BeginEvent(this ComPtr<ID3D12CommandQueue> comObj, uint metadata, void* pData, uint size) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, uint, void*, uint, void>)(handle->LpVtbl[12]))(handle, metadata, pData, size);
@@ -4291,8 +1097,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EndEvent")]
-		[return: NativeName(NativeNameType.Type, "void")]
 		public static void EndEvent(this ComPtr<ID3D12CommandQueue> comObj) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
@@ -4302,9 +1106,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Signal")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Signal(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ID3D12Fence* pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public static int Signal(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Fence* pFence, ulong value) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Fence*, ulong, int>)(handle->LpVtbl[14]))(handle, pFence, value);
@@ -4314,9 +1116,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Signal")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Signal(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ref ID3D12Fence pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public static int Signal(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Fence pFence, ulong value) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Fence* ppFence = &pFence)
@@ -4329,9 +1129,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Signal")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Signal(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ComPtr<ID3D12Fence> pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public static int Signal(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Fence> pFence, ulong value) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Fence*, ulong, int>)(handle->LpVtbl[14]))(handle, (ID3D12Fence*)pFence.Handle, value);
@@ -4341,9 +1139,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Wait")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Wait(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ID3D12Fence* pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public static int Wait(this ComPtr<ID3D12CommandQueue> comObj, ID3D12Fence* pFence, ulong value) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Fence*, ulong, int>)(handle->LpVtbl[15]))(handle, pFence, value);
@@ -4353,9 +1149,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Wait")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Wait(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ref ID3D12Fence pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public static int Wait(this ComPtr<ID3D12CommandQueue> comObj, ref ID3D12Fence pFence, ulong value) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ID3D12Fence* ppFence = &pFence)
@@ -4368,9 +1162,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Wait")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int Wait(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ComPtr<ID3D12Fence> pFence, [NativeName(NativeNameType.Param, "Value")] [NativeName(NativeNameType.Type, "UINT64")] ulong value) 
+		public static int Wait(this ComPtr<ID3D12CommandQueue> comObj, ComPtr<ID3D12Fence> pFence, ulong value) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ID3D12Fence*, ulong, int>)(handle->LpVtbl[15]))(handle, (ID3D12Fence*)pFence.Handle, value);
@@ -4380,9 +1172,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetTimestampFrequency")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetTimestampFrequency(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pFrequency")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pFrequency) 
+		public static int GetTimestampFrequency(this ComPtr<ID3D12CommandQueue> comObj, ulong* pFrequency) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ulong*, int>)(handle->LpVtbl[16]))(handle, pFrequency);
@@ -4392,9 +1182,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetTimestampFrequency")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetTimestampFrequency(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pFrequency")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pFrequency) 
+		public static int GetTimestampFrequency(this ComPtr<ID3D12CommandQueue> comObj, ref ulong pFrequency) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ulong* ppFrequency = &pFrequency)
@@ -4407,9 +1195,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetClockCalibration")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetClockCalibration(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pGpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pGpuTimestamp, [NativeName(NativeNameType.Param, "pCpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pCpuTimestamp) 
+		public static int GetClockCalibration(this ComPtr<ID3D12CommandQueue> comObj, ulong* pGpuTimestamp, ulong* pCpuTimestamp) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, ulong*, ulong*, int>)(handle->LpVtbl[17]))(handle, pGpuTimestamp, pCpuTimestamp);
@@ -4419,9 +1205,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetClockCalibration")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetClockCalibration(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pGpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pGpuTimestamp, [NativeName(NativeNameType.Param, "pCpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pCpuTimestamp) 
+		public static int GetClockCalibration(this ComPtr<ID3D12CommandQueue> comObj, ref ulong pGpuTimestamp, ulong* pCpuTimestamp) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ulong* ppGpuTimestamp = &pGpuTimestamp)
@@ -4434,9 +1218,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetClockCalibration")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetClockCalibration(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pGpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pGpuTimestamp, [NativeName(NativeNameType.Param, "pCpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pCpuTimestamp) 
+		public static int GetClockCalibration(this ComPtr<ID3D12CommandQueue> comObj, ulong* pGpuTimestamp, ref ulong pCpuTimestamp) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ulong* ppCpuTimestamp = &pCpuTimestamp)
@@ -4449,9 +1231,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetClockCalibration")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetClockCalibration(this ComPtr<ID3D12CommandQueue> comObj, [NativeName(NativeNameType.Param, "pGpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pGpuTimestamp, [NativeName(NativeNameType.Param, "pCpuTimestamp")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pCpuTimestamp) 
+		public static int GetClockCalibration(this ComPtr<ID3D12CommandQueue> comObj, ref ulong pGpuTimestamp, ref ulong pCpuTimestamp) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
 			fixed (ulong* ppGpuTimestamp = &pGpuTimestamp)
@@ -4467,21 +1247,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDesc")]
-		[return: NativeName(NativeNameType.Type, "D3D12_COMMAND_QUEUE_DESC")]
-		public static D3D12CommandQueueDesc GetDesc(this ComPtr<ID3D12CommandQueue> comObj) 
+		public static CommandQueueDesc GetDesc(this ComPtr<ID3D12CommandQueue> comObj) 
 		{
 			ID3D12CommandQueue* handle = comObj.Handle;
-			D3D12CommandQueueDesc ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, D3D12CommandQueueDesc>)(handle->LpVtbl[18]))(handle);
+			CommandQueueDesc ret = ((delegate* unmanaged[Stdcall]<ID3D12CommandQueue*, CommandQueueDesc>)(handle->LpVtbl[18]))(handle);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<ID3D12Device> comObj, Guid* riid, void** ppvObject) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
@@ -4491,9 +1267,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public static int QueryInterface(this ComPtr<ID3D12Device> comObj, ref Guid riid, void** ppvObject) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4506,9 +1280,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<ID3D12Device> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			ppvObject = default;
@@ -4519,9 +1291,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int QueryInterface<T>(this ComPtr<ID3D12Device> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
@@ -4535,8 +1305,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint AddRef(this ComPtr<ID3D12Device> comObj) 
 		{
 			ID3D12Device* handle = comObj.Handle;
@@ -4547,8 +1315,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public static uint Release(this ComPtr<ID3D12Device> comObj) 
 		{
 			ID3D12Device* handle = comObj.Handle;
@@ -4559,9 +1325,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<ID3D12Device> comObj, Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, guid, pDataSize, pData);
@@ -4571,9 +1335,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<ID3D12Device> comObj, ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
@@ -4586,9 +1348,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<ID3D12Device> comObj, Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -4601,9 +1361,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static int GetPrivateData(this ComPtr<ID3D12Device> comObj, ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
@@ -4619,9 +1377,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12Device> comObj, Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, Guid*, uint*, void*, int>)(handle->LpVtbl[3]))(handle, guid, pDataSize, (void*)pData.Handle);
@@ -4631,9 +1387,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12Device> comObj, ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
@@ -4646,9 +1400,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12Device> comObj, Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (uint* ppDataSize = &pDataSize)
@@ -4661,9 +1413,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static int GetPrivateData<T>(this ComPtr<ID3D12Device> comObj, ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
@@ -4679,9 +1429,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<ID3D12Device> comObj, Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, Guid*, uint, void*, int>)(handle->LpVtbl[4]))(handle, guid, dataSize, pData);
@@ -4691,9 +1439,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int SetPrivateData(this ComPtr<ID3D12Device> comObj, ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
@@ -4706,9 +1452,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, Guid* guid, IUnknown* pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, guid, pData);
@@ -4718,9 +1462,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, ref Guid guid, IUnknown* pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
@@ -4733,9 +1475,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, Guid* guid, ref IUnknown pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (IUnknown* ppData = &pData)
@@ -4748,9 +1488,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, Guid*, IUnknown*, int>)(handle->LpVtbl[5]))(handle, guid, (IUnknown*)pData.Handle);
@@ -4760,9 +1498,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
@@ -4778,9 +1514,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public static int SetPrivateDataInterface(this ComPtr<ID3D12Device> comObj, ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* pguid = &guid)
@@ -4793,9 +1527,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetName(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name) 
+		public static int SetName(this ComPtr<ID3D12Device> comObj, char* name) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, char*, int>)(handle->LpVtbl[6]))(handle, name);
@@ -4805,9 +1537,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetName(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name) 
+		public static int SetName(this ComPtr<ID3D12Device> comObj, ReadOnlySpan<char> name) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (char* pname = name)
@@ -4820,9 +1550,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetName(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name) 
+		public static int SetName(this ComPtr<ID3D12Device> comObj, string name) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			char* pStr0 = null;
@@ -4853,8 +1581,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetNodeCount")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
 		public static uint GetNodeCount(this ComPtr<ID3D12Device> comObj) 
 		{
 			ID3D12Device* handle = comObj.Handle;
@@ -4865,26 +1591,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandQueue(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMMAND_QUEUE_DESC*")] D3D12CommandQueueDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppCommandQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandQueue) 
+		public static int CreateCommandQueue(this ComPtr<ID3D12Device> comObj, CommandQueueDesc* pDesc, Guid* riid, void** ppCommandQueue) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, pDesc, riid, ppCommandQueue);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, pDesc, riid, ppCommandQueue);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandQueue(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMMAND_QUEUE_DESC*")] ref D3D12CommandQueueDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppCommandQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandQueue) 
+		public static int CreateCommandQueue(this ComPtr<ID3D12Device> comObj, ref CommandQueueDesc pDesc, Guid* riid, void** ppCommandQueue) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CommandQueueDesc* ppDesc = &pDesc)
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, (D3D12CommandQueueDesc*)ppDesc, riid, ppCommandQueue);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, (CommandQueueDesc*)ppDesc, riid, ppCommandQueue);
 				return ret;
 			}
 		}
@@ -4892,14 +1614,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandQueue(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMMAND_QUEUE_DESC*")] D3D12CommandQueueDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandQueue) 
+		public static int CreateCommandQueue(this ComPtr<ID3D12Device> comObj, CommandQueueDesc* pDesc, ref Guid riid, void** ppCommandQueue) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, pDesc, (Guid*)priid, ppCommandQueue);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, pDesc, (Guid*)priid, ppCommandQueue);
 				return ret;
 			}
 		}
@@ -4907,16 +1627,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandQueue(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMMAND_QUEUE_DESC*")] ref D3D12CommandQueueDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandQueue) 
+		public static int CreateCommandQueue(this ComPtr<ID3D12Device> comObj, ref CommandQueueDesc pDesc, ref Guid riid, void** ppCommandQueue) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CommandQueueDesc* ppDesc = &pDesc)
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, (D3D12CommandQueueDesc*)ppDesc, (Guid*)priid, ppCommandQueue);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, (CommandQueueDesc*)ppDesc, (Guid*)priid, ppCommandQueue);
 					return ret;
 				}
 			}
@@ -4925,28 +1643,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandQueue<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMMAND_QUEUE_DESC*")] D3D12CommandQueueDesc* pDesc, [NativeName(NativeNameType.Param, "ppCommandQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue<T>(this ComPtr<ID3D12Device> comObj, CommandQueueDesc* pDesc, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			ppCommandQueue = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandQueue.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandQueue.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandQueue<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMMAND_QUEUE_DESC*")] ref D3D12CommandQueueDesc pDesc, [NativeName(NativeNameType.Param, "ppCommandQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue<T>(this ComPtr<ID3D12Device> comObj, ref CommandQueueDesc pDesc, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CommandQueueDesc* ppDesc = &pDesc)
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
 			{
 				ppCommandQueue = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, (D3D12CommandQueueDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandQueue.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, (CommandQueueDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandQueue.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4954,15 +1668,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandQueue<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMMAND_QUEUE_DESC*")] D3D12CommandQueueDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue<T>(this ComPtr<ID3D12Device> comObj, CommandQueueDesc* pDesc, ref Guid riid, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppCommandQueue = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, pDesc, (Guid*)priid, (void**)ppCommandQueue.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, pDesc, (Guid*)priid, (void**)ppCommandQueue.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4970,17 +1682,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandQueue<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMMAND_QUEUE_DESC*")] ref D3D12CommandQueueDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue<T>(this ComPtr<ID3D12Device> comObj, ref CommandQueueDesc pDesc, ref Guid riid, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
-			fixed (D3D12CommandQueueDesc* ppDesc = &pDesc)
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppCommandQueue = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, (D3D12CommandQueueDesc*)ppDesc, (Guid*)priid, (void**)ppCommandQueue.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandQueueDesc*, Guid*, void**, int>)(handle->LpVtbl[8]))(handle, (CommandQueueDesc*)ppDesc, (Guid*)priid, (void**)ppCommandQueue.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4989,26 +1699,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandAllocator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandAllocator(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppCommandAllocator")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandAllocator) 
+		public static int CreateCommandAllocator(this ComPtr<ID3D12Device> comObj, CommandListType type, Guid* riid, void** ppCommandAllocator) 
 		{
 			ID3D12Device* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandListType, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, type, riid, ppCommandAllocator);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandListType, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, type, riid, ppCommandAllocator);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandAllocator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandAllocator(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandAllocator")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandAllocator) 
+		public static int CreateCommandAllocator(this ComPtr<ID3D12Device> comObj, CommandListType type, ref Guid riid, void** ppCommandAllocator) 
 		{
 			ID3D12Device* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandListType, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, type, (Guid*)priid, ppCommandAllocator);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandListType, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, type, (Guid*)priid, ppCommandAllocator);
 				return ret;
 			}
 		}
@@ -5016,14 +1722,3329 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandAllocator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandAllocator<T>(this ComPtr<ID3D12Device> comObj, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "ppCommandAllocator")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandAllocator) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandAllocator<T>(this ComPtr<ID3D12Device> comObj, CommandListType type, out ComPtr<T> ppCommandAllocator) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12Device* handle = comObj.Handle;
 			ppCommandAllocator = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, D3D12CommandListType, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, type, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandAllocator.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandListType, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, type, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandAllocator.GetAddressOf());
 			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandAllocator<T>(this ComPtr<ID3D12Device> comObj, CommandListType type, ref Guid riid, out ComPtr<T> ppCommandAllocator) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppCommandAllocator = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, CommandListType, Guid*, void**, int>)(handle->LpVtbl[9]))(handle, type, (Guid*)priid, (void**)ppCommandAllocator.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateGraphicsPipelineState(this ComPtr<ID3D12Device> comObj, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pDesc, riid, ppPipelineState);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateGraphicsPipelineState(this ComPtr<ID3D12Device> comObj, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateGraphicsPipelineState(this ComPtr<ID3D12Device> comObj, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pDesc, (Guid*)priid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateGraphicsPipelineState(this ComPtr<ID3D12Device> comObj, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateGraphicsPipelineState<T>(this ComPtr<ID3D12Device> comObj, GraphicsPipelineStateDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppPipelineState = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateGraphicsPipelineState<T>(this ComPtr<ID3D12Device> comObj, ref GraphicsPipelineStateDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				ppPipelineState = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateGraphicsPipelineState<T>(this ComPtr<ID3D12Device> comObj, GraphicsPipelineStateDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppPipelineState = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateGraphicsPipelineState<T>(this ComPtr<ID3D12Device> comObj, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppPipelineState = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[10]))(handle, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateComputePipelineState(this ComPtr<ID3D12Device> comObj, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, pDesc, riid, ppPipelineState);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateComputePipelineState(this ComPtr<ID3D12Device> comObj, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateComputePipelineState(this ComPtr<ID3D12Device> comObj, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, pDesc, (Guid*)priid, ppPipelineState);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateComputePipelineState(this ComPtr<ID3D12Device> comObj, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateComputePipelineState<T>(this ComPtr<ID3D12Device> comObj, ComputePipelineStateDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppPipelineState = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateComputePipelineState<T>(this ComPtr<ID3D12Device> comObj, ref ComputePipelineStateDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				ppPipelineState = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, (ComputePipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateComputePipelineState<T>(this ComPtr<ID3D12Device> comObj, ComputePipelineStateDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppPipelineState = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateComputePipelineState<T>(this ComPtr<ID3D12Device> comObj, ref ComputePipelineStateDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppPipelineState = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ComputePipelineStateDesc*, Guid*, void**, int>)(handle->LpVtbl[11]))(handle, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ID3D12CommandAllocator* pCommandAllocator, ID3D12PipelineState* pInitialState, Guid* riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, pInitialState, riid, ppCommandList);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ref ID3D12CommandAllocator pCommandAllocator, ID3D12PipelineState* pInitialState, Guid* riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12CommandAllocator* ppCommandAllocator = &pCommandAllocator)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)ppCommandAllocator, pInitialState, riid, ppCommandList);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ComPtr<ID3D12CommandAllocator> pCommandAllocator, ID3D12PipelineState* pInitialState, Guid* riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, pInitialState, riid, ppCommandList);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ID3D12CommandAllocator* pCommandAllocator, ref ID3D12PipelineState pInitialState, Guid* riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12PipelineState* ppInitialState = &pInitialState)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)ppInitialState, riid, ppCommandList);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ID3D12CommandAllocator* pCommandAllocator, ComPtr<ID3D12PipelineState> pInitialState, Guid* riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)pInitialState.Handle, riid, ppCommandList);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ref ID3D12CommandAllocator pCommandAllocator, ref ID3D12PipelineState pInitialState, Guid* riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12CommandAllocator* ppCommandAllocator = &pCommandAllocator)
+			{
+				fixed (ID3D12PipelineState* ppInitialState = &pInitialState)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)ppCommandAllocator, (ID3D12PipelineState*)ppInitialState, riid, ppCommandList);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ComPtr<ID3D12CommandAllocator> pCommandAllocator, ComPtr<ID3D12PipelineState> pInitialState, Guid* riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, (ID3D12PipelineState*)pInitialState.Handle, riid, ppCommandList);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ID3D12CommandAllocator* pCommandAllocator, ID3D12PipelineState* pInitialState, ref Guid riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, pInitialState, (Guid*)priid, ppCommandList);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ref ID3D12CommandAllocator pCommandAllocator, ID3D12PipelineState* pInitialState, ref Guid riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12CommandAllocator* ppCommandAllocator = &pCommandAllocator)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)ppCommandAllocator, pInitialState, (Guid*)priid, ppCommandList);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ComPtr<ID3D12CommandAllocator> pCommandAllocator, ID3D12PipelineState* pInitialState, ref Guid riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, pInitialState, (Guid*)priid, ppCommandList);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ID3D12CommandAllocator* pCommandAllocator, ref ID3D12PipelineState pInitialState, ref Guid riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12PipelineState* ppInitialState = &pInitialState)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)ppInitialState, (Guid*)priid, ppCommandList);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ID3D12CommandAllocator* pCommandAllocator, ComPtr<ID3D12PipelineState> pInitialState, ref Guid riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)priid, ppCommandList);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ref ID3D12CommandAllocator pCommandAllocator, ref ID3D12PipelineState pInitialState, ref Guid riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12CommandAllocator* ppCommandAllocator = &pCommandAllocator)
+			{
+				fixed (ID3D12PipelineState* ppInitialState = &pInitialState)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)ppCommandAllocator, (ID3D12PipelineState*)ppInitialState, (Guid*)priid, ppCommandList);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ComPtr<ID3D12CommandAllocator> pCommandAllocator, ComPtr<ID3D12PipelineState> pInitialState, ref Guid riid, void** ppCommandList) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)priid, ppCommandList);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ID3D12CommandAllocator* pCommandAllocator, ID3D12PipelineState* pInitialState, out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppCommandList = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, pInitialState, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandList.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ComPtr<ID3D12CommandAllocator> pCommandAllocator, ID3D12PipelineState* pInitialState, out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppCommandList = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, pInitialState, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandList.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ID3D12CommandAllocator* pCommandAllocator, ComPtr<ID3D12PipelineState> pInitialState, out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppCommandList = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandList.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ComPtr<ID3D12CommandAllocator> pCommandAllocator, ComPtr<ID3D12PipelineState> pInitialState, out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppCommandList = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandList.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ID3D12CommandAllocator* pCommandAllocator, ID3D12PipelineState* pInitialState, ref Guid riid, out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppCommandList = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, pInitialState, (Guid*)priid, (void**)ppCommandList.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ComPtr<ID3D12CommandAllocator> pCommandAllocator, ID3D12PipelineState* pInitialState, ref Guid riid, out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppCommandList = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, pInitialState, (Guid*)priid, (void**)ppCommandList.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ID3D12CommandAllocator* pCommandAllocator, ComPtr<ID3D12PipelineState> pInitialState, ref Guid riid, out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppCommandList = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, pCommandAllocator, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)priid, (void**)ppCommandList.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandList<T>(this ComPtr<ID3D12Device> comObj, uint nodeMask, CommandListType type, ComPtr<ID3D12CommandAllocator> pCommandAllocator, ComPtr<ID3D12PipelineState> pInitialState, ref Guid riid, out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppCommandList = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CommandListType, ID3D12CommandAllocator*, ID3D12PipelineState*, Guid*, void**, int>)(handle->LpVtbl[12]))(handle, nodeMask, type, (ID3D12CommandAllocator*)pCommandAllocator.Handle, (ID3D12PipelineState*)pInitialState.Handle, (Guid*)priid, (void**)ppCommandList.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckFeatureSupport(this ComPtr<ID3D12Device> comObj, Feature feature, void* pFeatureSupportData, uint featureSupportDataSize) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, Feature, void*, uint, int>)(handle->LpVtbl[13]))(handle, feature, pFeatureSupportData, featureSupportDataSize);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckFeatureSupport<T>(this ComPtr<ID3D12Device> comObj, Feature feature, ComPtr<T> pFeatureSupportData, uint featureSupportDataSize) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, Feature, void*, uint, int>)(handle->LpVtbl[13]))(handle, feature, (void*)pFeatureSupportData.Handle, featureSupportDataSize);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDescriptorHeap(this ComPtr<ID3D12Device> comObj, DescriptorHeapDesc* pDescriptorHeapDesc, Guid* riid, void** ppvHeap) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, pDescriptorHeapDesc, riid, ppvHeap);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDescriptorHeap(this ComPtr<ID3D12Device> comObj, ref DescriptorHeapDesc pDescriptorHeapDesc, Guid* riid, void** ppvHeap) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (DescriptorHeapDesc* ppDescriptorHeapDesc = &pDescriptorHeapDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, (DescriptorHeapDesc*)ppDescriptorHeapDesc, riid, ppvHeap);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDescriptorHeap(this ComPtr<ID3D12Device> comObj, DescriptorHeapDesc* pDescriptorHeapDesc, ref Guid riid, void** ppvHeap) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, pDescriptorHeapDesc, (Guid*)priid, ppvHeap);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDescriptorHeap(this ComPtr<ID3D12Device> comObj, ref DescriptorHeapDesc pDescriptorHeapDesc, ref Guid riid, void** ppvHeap) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (DescriptorHeapDesc* ppDescriptorHeapDesc = &pDescriptorHeapDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, (DescriptorHeapDesc*)ppDescriptorHeapDesc, (Guid*)priid, ppvHeap);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDescriptorHeap<T>(this ComPtr<ID3D12Device> comObj, DescriptorHeapDesc* pDescriptorHeapDesc, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppvHeap = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, pDescriptorHeapDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDescriptorHeap<T>(this ComPtr<ID3D12Device> comObj, ref DescriptorHeapDesc pDescriptorHeapDesc, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (DescriptorHeapDesc* ppDescriptorHeapDesc = &pDescriptorHeapDesc)
+			{
+				ppvHeap = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, (DescriptorHeapDesc*)ppDescriptorHeapDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDescriptorHeap<T>(this ComPtr<ID3D12Device> comObj, DescriptorHeapDesc* pDescriptorHeapDesc, ref Guid riid, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvHeap = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, pDescriptorHeapDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateDescriptorHeap<T>(this ComPtr<ID3D12Device> comObj, ref DescriptorHeapDesc pDescriptorHeapDesc, ref Guid riid, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (DescriptorHeapDesc* ppDescriptorHeapDesc = &pDescriptorHeapDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppvHeap = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, DescriptorHeapDesc*, Guid*, void**, int>)(handle->LpVtbl[14]))(handle, (DescriptorHeapDesc*)ppDescriptorHeapDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint GetDescriptorHandleIncrementSize(this ComPtr<ID3D12Device> comObj, DescriptorHeapType descriptorHeapType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, DescriptorHeapType, uint>)(handle->LpVtbl[15]))(handle, descriptorHeapType);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateRootSignature(this ComPtr<ID3D12Device> comObj, uint nodeMask, void* pBlobWithRootSignature, nuint blobLengthInBytes, Guid* riid, void** ppvRootSignature) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[16]))(handle, nodeMask, pBlobWithRootSignature, blobLengthInBytes, riid, ppvRootSignature);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateRootSignature(this ComPtr<ID3D12Device> comObj, uint nodeMask, void* pBlobWithRootSignature, nuint blobLengthInBytes, ref Guid riid, void** ppvRootSignature) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[16]))(handle, nodeMask, pBlobWithRootSignature, blobLengthInBytes, (Guid*)priid, ppvRootSignature);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateRootSignature<T>(this ComPtr<ID3D12Device> comObj, uint nodeMask, void* pBlobWithRootSignature, nuint blobLengthInBytes, out ComPtr<T> ppvRootSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppvRootSignature = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[16]))(handle, nodeMask, pBlobWithRootSignature, blobLengthInBytes, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvRootSignature.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateRootSignature<T>(this ComPtr<ID3D12Device> comObj, uint nodeMask, void* pBlobWithRootSignature, nuint blobLengthInBytes, ref Guid riid, out ComPtr<T> ppvRootSignature) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvRootSignature = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[16]))(handle, nodeMask, pBlobWithRootSignature, blobLengthInBytes, (Guid*)priid, (void**)ppvRootSignature.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateConstantBufferView(this ComPtr<ID3D12Device> comObj, ConstantBufferViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ConstantBufferViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[17]))(handle, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateConstantBufferView(this ComPtr<ID3D12Device> comObj, ref ConstantBufferViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ConstantBufferViewDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ConstantBufferViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[17]))(handle, (ConstantBufferViewDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, ShaderResourceViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ShaderResourceViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, pResource, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pResource, ShaderResourceViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppResource = &pResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ShaderResourceViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, (ID3D12Resource*)ppResource, pDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pResource, ShaderResourceViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ShaderResourceViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, (ID3D12Resource*)pResource.Handle, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, ref ShaderResourceViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ShaderResourceViewDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ShaderResourceViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, pResource, (ShaderResourceViewDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pResource, ref ShaderResourceViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppResource = &pResource)
+			{
+				fixed (ShaderResourceViewDesc* ppDesc = &pDesc)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ShaderResourceViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, (ID3D12Resource*)ppResource, (ShaderResourceViewDesc*)ppDesc, destDescriptor);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateShaderResourceView(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pResource, ref ShaderResourceViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ShaderResourceViewDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ShaderResourceViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[18]))(handle, (ID3D12Resource*)pResource.Handle, (ShaderResourceViewDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, ID3D12Resource* pCounterResource, UnorderedAccessViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, pCounterResource, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pResource, ID3D12Resource* pCounterResource, UnorderedAccessViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppResource = &pResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)ppResource, pCounterResource, pDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pResource, ID3D12Resource* pCounterResource, UnorderedAccessViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)pResource.Handle, pCounterResource, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, ref ID3D12Resource pCounterResource, UnorderedAccessViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppCounterResource = &pCounterResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, (ID3D12Resource*)ppCounterResource, pDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, ComPtr<ID3D12Resource> pCounterResource, UnorderedAccessViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, (ID3D12Resource*)pCounterResource.Handle, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pResource, ref ID3D12Resource pCounterResource, UnorderedAccessViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppResource = &pResource)
+			{
+				fixed (ID3D12Resource* ppCounterResource = &pCounterResource)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)ppResource, (ID3D12Resource*)ppCounterResource, pDesc, destDescriptor);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pResource, ComPtr<ID3D12Resource> pCounterResource, UnorderedAccessViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)pResource.Handle, (ID3D12Resource*)pCounterResource.Handle, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, ID3D12Resource* pCounterResource, ref UnorderedAccessViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (UnorderedAccessViewDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, pCounterResource, (UnorderedAccessViewDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pResource, ID3D12Resource* pCounterResource, ref UnorderedAccessViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppResource = &pResource)
+			{
+				fixed (UnorderedAccessViewDesc* ppDesc = &pDesc)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)ppResource, pCounterResource, (UnorderedAccessViewDesc*)ppDesc, destDescriptor);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pResource, ID3D12Resource* pCounterResource, ref UnorderedAccessViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (UnorderedAccessViewDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)pResource.Handle, pCounterResource, (UnorderedAccessViewDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, ref ID3D12Resource pCounterResource, ref UnorderedAccessViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppCounterResource = &pCounterResource)
+			{
+				fixed (UnorderedAccessViewDesc* ppDesc = &pDesc)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, (ID3D12Resource*)ppCounterResource, (UnorderedAccessViewDesc*)ppDesc, destDescriptor);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, ComPtr<ID3D12Resource> pCounterResource, ref UnorderedAccessViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (UnorderedAccessViewDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, pResource, (ID3D12Resource*)pCounterResource.Handle, (UnorderedAccessViewDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pResource, ref ID3D12Resource pCounterResource, ref UnorderedAccessViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppResource = &pResource)
+			{
+				fixed (ID3D12Resource* ppCounterResource = &pCounterResource)
+				{
+					fixed (UnorderedAccessViewDesc* ppDesc = &pDesc)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)ppResource, (ID3D12Resource*)ppCounterResource, (UnorderedAccessViewDesc*)ppDesc, destDescriptor);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateUnorderedAccessView(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pResource, ComPtr<ID3D12Resource> pCounterResource, ref UnorderedAccessViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (UnorderedAccessViewDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, ID3D12Resource*, UnorderedAccessViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[19]))(handle, (ID3D12Resource*)pResource.Handle, (ID3D12Resource*)pCounterResource.Handle, (UnorderedAccessViewDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, RenderTargetViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, RenderTargetViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, pResource, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pResource, RenderTargetViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppResource = &pResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, RenderTargetViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, (ID3D12Resource*)ppResource, pDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pResource, RenderTargetViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, RenderTargetViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, (ID3D12Resource*)pResource.Handle, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, ref RenderTargetViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (RenderTargetViewDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, RenderTargetViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, pResource, (RenderTargetViewDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pResource, ref RenderTargetViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppResource = &pResource)
+			{
+				fixed (RenderTargetViewDesc* ppDesc = &pDesc)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, RenderTargetViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, (ID3D12Resource*)ppResource, (RenderTargetViewDesc*)ppDesc, destDescriptor);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateRenderTargetView(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pResource, ref RenderTargetViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (RenderTargetViewDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, RenderTargetViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[20]))(handle, (ID3D12Resource*)pResource.Handle, (RenderTargetViewDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, DepthStencilViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, DepthStencilViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, pResource, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pResource, DepthStencilViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppResource = &pResource)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, DepthStencilViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, (ID3D12Resource*)ppResource, pDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pResource, DepthStencilViewDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, DepthStencilViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, (ID3D12Resource*)pResource.Handle, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, ID3D12Resource* pResource, ref DepthStencilViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (DepthStencilViewDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, DepthStencilViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, pResource, (DepthStencilViewDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, ref ID3D12Resource pResource, ref DepthStencilViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppResource = &pResource)
+			{
+				fixed (DepthStencilViewDesc* ppDesc = &pDesc)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, DepthStencilViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, (ID3D12Resource*)ppResource, (DepthStencilViewDesc*)ppDesc, destDescriptor);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateDepthStencilView(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Resource> pResource, ref DepthStencilViewDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (DepthStencilViewDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Resource*, DepthStencilViewDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[21]))(handle, (ID3D12Resource*)pResource.Handle, (DepthStencilViewDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateSampler(this ComPtr<ID3D12Device> comObj, SamplerDesc* pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, SamplerDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[22]))(handle, pDesc, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateSampler(this ComPtr<ID3D12Device> comObj, ref SamplerDesc pDesc, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (SamplerDesc* ppDesc = &pDesc)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, SamplerDesc*, CpuDescriptorHandle, void>)(handle->LpVtbl[22]))(handle, (SamplerDesc*)ppDesc, destDescriptor);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, CpuDescriptorHandle* pDestDescriptorRangeStarts, uint* pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, CpuDescriptorHandle* pSrcDescriptorRangeStarts, uint* pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, ref CpuDescriptorHandle pDestDescriptorRangeStarts, uint* pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, CpuDescriptorHandle* pSrcDescriptorRangeStarts, uint* pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (CpuDescriptorHandle*)ppDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, CpuDescriptorHandle* pDestDescriptorRangeStarts, ref uint pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, CpuDescriptorHandle* pSrcDescriptorRangeStarts, uint* pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, ref CpuDescriptorHandle pDestDescriptorRangeStarts, ref uint pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, CpuDescriptorHandle* pSrcDescriptorRangeStarts, uint* pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
+			{
+				fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (CpuDescriptorHandle*)ppDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, CpuDescriptorHandle* pDestDescriptorRangeStarts, uint* pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, ref CpuDescriptorHandle pSrcDescriptorRangeStarts, uint* pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, (CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, ref CpuDescriptorHandle pDestDescriptorRangeStarts, uint* pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, ref CpuDescriptorHandle pSrcDescriptorRangeStarts, uint* pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
+			{
+				fixed (CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (CpuDescriptorHandle*)ppDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, (CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, CpuDescriptorHandle* pDestDescriptorRangeStarts, ref uint pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, ref CpuDescriptorHandle pSrcDescriptorRangeStarts, uint* pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
+			{
+				fixed (CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, (CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, ref CpuDescriptorHandle pDestDescriptorRangeStarts, ref uint pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, ref CpuDescriptorHandle pSrcDescriptorRangeStarts, uint* pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
+			{
+				fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
+				{
+					fixed (CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (CpuDescriptorHandle*)ppDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, (CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, pSrcDescriptorRangeSizes, descriptorHeapsType);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, CpuDescriptorHandle* pDestDescriptorRangeStarts, uint* pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, CpuDescriptorHandle* pSrcDescriptorRangeStarts, ref uint pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, ref CpuDescriptorHandle pDestDescriptorRangeStarts, uint* pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, CpuDescriptorHandle* pSrcDescriptorRangeStarts, ref uint pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
+			{
+				fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (CpuDescriptorHandle*)ppDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, CpuDescriptorHandle* pDestDescriptorRangeStarts, ref uint pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, CpuDescriptorHandle* pSrcDescriptorRangeStarts, ref uint pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
+			{
+				fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, ref CpuDescriptorHandle pDestDescriptorRangeStarts, ref uint pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, CpuDescriptorHandle* pSrcDescriptorRangeStarts, ref uint pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
+			{
+				fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
+				{
+					fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (CpuDescriptorHandle*)ppDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, pSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, CpuDescriptorHandle* pDestDescriptorRangeStarts, uint* pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, ref CpuDescriptorHandle pSrcDescriptorRangeStarts, ref uint pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
+			{
+				fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, (CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, ref CpuDescriptorHandle pDestDescriptorRangeStarts, uint* pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, ref CpuDescriptorHandle pSrcDescriptorRangeStarts, ref uint pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
+			{
+				fixed (CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
+				{
+					fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (CpuDescriptorHandle*)ppDestDescriptorRangeStarts, pDestDescriptorRangeSizes, numSrcDescriptorRanges, (CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, CpuDescriptorHandle* pDestDescriptorRangeStarts, ref uint pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, ref CpuDescriptorHandle pSrcDescriptorRangeStarts, ref uint pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
+			{
+				fixed (CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
+				{
+					fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, pDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, (CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptors(this ComPtr<ID3D12Device> comObj, uint numDestDescriptorRanges, ref CpuDescriptorHandle pDestDescriptorRangeStarts, ref uint pDestDescriptorRangeSizes, uint numSrcDescriptorRanges, ref CpuDescriptorHandle pSrcDescriptorRangeStarts, ref uint pSrcDescriptorRangeSizes, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (CpuDescriptorHandle* ppDestDescriptorRangeStarts = &pDestDescriptorRangeStarts)
+			{
+				fixed (uint* ppDestDescriptorRangeSizes = &pDestDescriptorRangeSizes)
+				{
+					fixed (CpuDescriptorHandle* ppSrcDescriptorRangeStarts = &pSrcDescriptorRangeStarts)
+					{
+						fixed (uint* ppSrcDescriptorRangeSizes = &pSrcDescriptorRangeSizes)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle*, uint*, uint, CpuDescriptorHandle*, uint*, DescriptorHeapType, void>)(handle->LpVtbl[23]))(handle, numDestDescriptorRanges, (CpuDescriptorHandle*)ppDestDescriptorRangeStarts, (uint*)ppDestDescriptorRangeSizes, numSrcDescriptorRanges, (CpuDescriptorHandle*)ppSrcDescriptorRangeStarts, (uint*)ppSrcDescriptorRangeSizes, descriptorHeapsType);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CopyDescriptorsSimple(this ComPtr<ID3D12Device> comObj, uint numDescriptors, CpuDescriptorHandle destDescriptorRangeStart, CpuDescriptorHandle srcDescriptorRangeStart, DescriptorHeapType descriptorHeapsType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, CpuDescriptorHandle, CpuDescriptorHandle, DescriptorHeapType, void>)(handle->LpVtbl[24]))(handle, numDescriptors, destDescriptorRangeStart, srcDescriptorRangeStart, descriptorHeapsType);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static ResourceAllocationInfo GetResourceAllocationInfo(this ComPtr<ID3D12Device> comObj, uint visibleMask, uint numResourceDescs, ResourceDesc* pResourceDescs) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, uint, ResourceDesc*, ResourceAllocationInfo>)(handle->LpVtbl[25]))(handle, visibleMask, numResourceDescs, pResourceDescs);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static ResourceAllocationInfo GetResourceAllocationInfo(this ComPtr<ID3D12Device> comObj, uint visibleMask, uint numResourceDescs, ref ResourceDesc pResourceDescs) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppResourceDescs = &pResourceDescs)
+			{
+				ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, uint, ResourceDesc*, ResourceAllocationInfo>)(handle->LpVtbl[25]))(handle, visibleMask, numResourceDescs, (ResourceDesc*)ppResourceDescs);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HeapProperties GetCustomHeapProperties(this ComPtr<ID3D12Device> comObj, uint nodeMask, HeapType heapType) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			HeapProperties ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, uint, HeapType, HeapProperties>)(handle->LpVtbl[26]))(handle, nodeMask, heapType);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, riidResource, ppvResource);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, riidResource, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, riidResource, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, riidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, riidResource, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, riidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, riidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, riidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priidResource = &riidResource)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppvResource = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						ppvResource = default;
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priidResource = &riidResource)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						ppvResource = default;
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						ppvResource = default;
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						ppvResource = default;
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, pHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource<T>(this ComPtr<ID3D12Device> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							ppvResource = default;
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapProperties*, HeapFlags, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[27]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateHeap(this ComPtr<ID3D12Device> comObj, HeapDesc* pDesc, Guid* riid, void** ppvHeap) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, pDesc, riid, ppvHeap);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateHeap(this ComPtr<ID3D12Device> comObj, ref HeapDesc pDesc, Guid* riid, void** ppvHeap) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, (HeapDesc*)ppDesc, riid, ppvHeap);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateHeap(this ComPtr<ID3D12Device> comObj, HeapDesc* pDesc, ref Guid riid, void** ppvHeap) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, pDesc, (Guid*)priid, ppvHeap);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateHeap(this ComPtr<ID3D12Device> comObj, ref HeapDesc pDesc, ref Guid riid, void** ppvHeap) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, (HeapDesc*)ppDesc, (Guid*)priid, ppvHeap);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateHeap<T>(this ComPtr<ID3D12Device> comObj, HeapDesc* pDesc, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppvHeap = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateHeap<T>(this ComPtr<ID3D12Device> comObj, ref HeapDesc pDesc, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapDesc* ppDesc = &pDesc)
+			{
+				ppvHeap = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, (HeapDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateHeap<T>(this ComPtr<ID3D12Device> comObj, HeapDesc* pDesc, ref Guid riid, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvHeap = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, pDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateHeap<T>(this ComPtr<ID3D12Device> comObj, ref HeapDesc pDesc, ref Guid riid, out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (HeapDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppvHeap = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, HeapDesc*, Guid*, void**, int>)(handle->LpVtbl[28]))(handle, (HeapDesc*)ppDesc, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, riid, ppvResource);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, riid, ppvResource);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, riid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				fixed (ResourceDesc* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (Guid* priid = &riid)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppvResource = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppvResource = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						ppvResource = default;
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, pHeap, heapOffset, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource<T>(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						ppvResource = default;
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12Heap*, ulong, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[29]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, pOptimizedClearValue, riid, ppvResource);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			ppvResource = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, ResourceDesc* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, ResourceDesc* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateReservedResource<T>(this ComPtr<ID3D12Device> comObj, ref ResourceDesc pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ResourceDesc* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priid = &riid)
+					{
+						ppvResource = default;
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ResourceDesc*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[30]))(handle, (ResourceDesc*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, SecurityAttributes* pAttributes, uint access, char* name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, name, pHandle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, SecurityAttributes* pAttributes, uint access, char* name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12DeviceChild* ppObject = &pObject)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, pAttributes, access, name, pHandle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12DeviceChild> pObject, SecurityAttributes* pAttributes, uint access, char* name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)pObject.Handle, pAttributes, access, name, pHandle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, ref SecurityAttributes pAttributes, uint access, char* name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (SecurityAttributes* ppAttributes = &pAttributes)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, (SecurityAttributes*)ppAttributes, access, name, pHandle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, ref SecurityAttributes pAttributes, uint access, char* name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12DeviceChild* ppObject = &pObject)
+			{
+				fixed (SecurityAttributes* ppAttributes = &pAttributes)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, (SecurityAttributes*)ppAttributes, access, name, pHandle);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12DeviceChild> pObject, ref SecurityAttributes pAttributes, uint access, char* name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (SecurityAttributes* ppAttributes = &pAttributes)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)pObject.Handle, (SecurityAttributes*)ppAttributes, access, name, pHandle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, SecurityAttributes* pAttributes, uint access, ReadOnlySpan<char> name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (char* pname = name)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, (char*)pname, pHandle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, SecurityAttributes* pAttributes, uint access, string name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (name != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(name);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, pStr0, pHandle);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, SecurityAttributes* pAttributes, uint access, ReadOnlySpan<char> name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12DeviceChild* ppObject = &pObject)
+			{
+				fixed (char* pname = name)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, pAttributes, access, (char*)pname, pHandle);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, SecurityAttributes* pAttributes, uint access, string name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12DeviceChild* ppObject = &pObject)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (name != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(name);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, pAttributes, access, pStr0, pHandle);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, ref SecurityAttributes pAttributes, uint access, ReadOnlySpan<char> name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (SecurityAttributes* ppAttributes = &pAttributes)
+			{
+				fixed (char* pname = name)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, (SecurityAttributes*)ppAttributes, access, (char*)pname, pHandle);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, ref SecurityAttributes pAttributes, uint access, string name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (SecurityAttributes* ppAttributes = &pAttributes)
+			{
+				char* pStr0 = null;
+				int pStrSize0 = 0;
+				if (name != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF16(name);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = (char*)pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = '\0';
+				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, (SecurityAttributes*)ppAttributes, access, pStr0, pHandle);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, ref SecurityAttributes pAttributes, uint access, ReadOnlySpan<char> name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12DeviceChild* ppObject = &pObject)
+			{
+				fixed (SecurityAttributes* ppAttributes = &pAttributes)
+				{
+					fixed (char* pname = name)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, (SecurityAttributes*)ppAttributes, access, (char*)pname, pHandle);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, ref SecurityAttributes pAttributes, uint access, string name, nint* pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12DeviceChild* ppObject = &pObject)
+			{
+				fixed (SecurityAttributes* ppAttributes = &pAttributes)
+				{
+					char* pStr0 = null;
+					int pStrSize0 = 0;
+					if (name != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF16(name);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = (char*)pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = '\0';
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, (SecurityAttributes*)ppAttributes, access, pStr0, pHandle);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, SecurityAttributes* pAttributes, uint access, char* name, ref nint pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (nint* ppHandle = &pHandle)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, name, (nint*)ppHandle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, SecurityAttributes* pAttributes, uint access, char* name, ref nint pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12DeviceChild* ppObject = &pObject)
+			{
+				fixed (nint* ppHandle = &pHandle)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, pAttributes, access, name, (nint*)ppHandle);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12DeviceChild> pObject, SecurityAttributes* pAttributes, uint access, char* name, ref nint pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (nint* ppHandle = &pHandle)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)pObject.Handle, pAttributes, access, name, (nint*)ppHandle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, ref SecurityAttributes pAttributes, uint access, char* name, ref nint pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (SecurityAttributes* ppAttributes = &pAttributes)
+			{
+				fixed (nint* ppHandle = &pHandle)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, (SecurityAttributes*)ppAttributes, access, name, (nint*)ppHandle);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ref ID3D12DeviceChild pObject, ref SecurityAttributes pAttributes, uint access, char* name, ref nint pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (ID3D12DeviceChild* ppObject = &pObject)
+			{
+				fixed (SecurityAttributes* ppAttributes = &pAttributes)
+				{
+					fixed (nint* ppHandle = &pHandle)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)ppObject, (SecurityAttributes*)ppAttributes, access, name, (nint*)ppHandle);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ComPtr<ID3D12DeviceChild> pObject, ref SecurityAttributes pAttributes, uint access, char* name, ref nint pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (SecurityAttributes* ppAttributes = &pAttributes)
+			{
+				fixed (nint* ppHandle = &pHandle)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, (ID3D12DeviceChild*)pObject.Handle, (SecurityAttributes*)ppAttributes, access, name, (nint*)ppHandle);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, SecurityAttributes* pAttributes, uint access, ReadOnlySpan<char> name, ref nint pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			fixed (char* pname = name)
+			{
+				fixed (nint* ppHandle = &pHandle)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, (char*)pname, (nint*)ppHandle);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateSharedHandle(this ComPtr<ID3D12Device> comObj, ID3D12DeviceChild* pObject, SecurityAttributes* pAttributes, uint access, string name, ref nint pHandle) 
+		{
+			ID3D12Device* handle = comObj.Handle;
+			char* pStr0 = null;
+			int pStrSize0 = 0;
+			if (name != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF16(name);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<char>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = (char*)pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF16(name, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = '\0';
+			}
+			fixed (nint* ppHandle = &pHandle)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device*, ID3D12DeviceChild*, SecurityAttributes*, uint, char*, nint*, int>)(handle->LpVtbl[31]))(handle, pObject, pAttributes, access, pStr0, (nint*)ppHandle);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
 		}
 	}
 }

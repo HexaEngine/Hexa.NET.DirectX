@@ -21,7 +21,6 @@ namespace Hexa.NET.DXGI
 	/// To be documented.
 	/// </summary>
 	[Guid("2633066b-4514-4c7a-8fd8-12ea98059d18")]
-	[NativeName(NativeNameType.StructOrClass, "IDXGIDecodeSwapChain")]
 	public partial struct IDXGIDecodeSwapChain : IComObject, IComObject<IDXGIDecodeSwapChain>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -36,9 +35,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -48,9 +45,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -63,9 +58,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -76,9 +69,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -92,8 +83,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -104,8 +93,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -116,9 +103,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "PresentBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int PresentBuffer([NativeName(NativeNameType.Param, "BufferToPresent")] [NativeName(NativeNameType.Type, "UINT")] uint bufferToPresent, [NativeName(NativeNameType.Param, "SyncInterval")] [NativeName(NativeNameType.Type, "UINT")] uint syncInterval, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "UINT")] uint flags) 
+		public readonly unsafe int PresentBuffer(uint bufferToPresent, uint syncInterval, uint flags) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint, uint, uint, int>)(LpVtbl[3]))(ptr, bufferToPresent, syncInterval, flags);
@@ -128,9 +113,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetSourceRect")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetSourceRect([NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] Rect32* pRect) 
+		public readonly unsafe int SetSourceRect(Rect32* pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[4]))(ptr, pRect);
@@ -140,9 +123,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetSourceRect")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetSourceRect([NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] ref Rect32 pRect) 
+		public readonly unsafe int SetSourceRect(ref Rect32 pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRect = &pRect)
@@ -155,9 +136,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetTargetRect")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetTargetRect([NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] Rect32* pRect) 
+		public readonly unsafe int SetTargetRect(Rect32* pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[5]))(ptr, pRect);
@@ -167,9 +146,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetTargetRect")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetTargetRect([NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] ref Rect32 pRect) 
+		public readonly unsafe int SetTargetRect(ref Rect32 pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRect = &pRect)
@@ -182,9 +159,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetDestSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetDestSize([NativeName(NativeNameType.Param, "Width")] [NativeName(NativeNameType.Type, "UINT")] uint width, [NativeName(NativeNameType.Param, "Height")] [NativeName(NativeNameType.Type, "UINT")] uint height) 
+		public readonly unsafe int SetDestSize(uint width, uint height) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint, uint, int>)(LpVtbl[6]))(ptr, width, height);
@@ -194,9 +169,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSourceRect")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSourceRect([NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
+		public readonly unsafe int GetSourceRect(Rect32* pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[7]))(ptr, pRect);
@@ -206,9 +179,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSourceRect")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSourceRect([NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
+		public readonly unsafe int GetSourceRect(ref Rect32 pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRect = &pRect)
@@ -221,9 +192,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetTargetRect")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetTargetRect([NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
+		public readonly unsafe int GetTargetRect(Rect32* pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, Rect32*, int>)(LpVtbl[8]))(ptr, pRect);
@@ -233,9 +202,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetTargetRect")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetTargetRect([NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
+		public readonly unsafe int GetTargetRect(ref Rect32 pRect) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Rect32* ppRect = &pRect)
@@ -248,9 +215,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDestSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDestSize([NativeName(NativeNameType.Param, "pWidth")] [NativeName(NativeNameType.Type, "UINT*")] uint* pWidth, [NativeName(NativeNameType.Param, "pHeight")] [NativeName(NativeNameType.Type, "UINT*")] uint* pHeight) 
+		public readonly unsafe int GetDestSize(uint* pWidth, uint* pHeight) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, uint*, uint*, int>)(LpVtbl[9]))(ptr, pWidth, pHeight);
@@ -260,9 +225,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDestSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDestSize([NativeName(NativeNameType.Param, "pWidth")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pWidth, [NativeName(NativeNameType.Param, "pHeight")] [NativeName(NativeNameType.Type, "UINT*")] uint* pHeight) 
+		public readonly unsafe int GetDestSize(ref uint pWidth, uint* pHeight) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppWidth = &pWidth)
@@ -275,9 +238,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDestSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDestSize([NativeName(NativeNameType.Param, "pWidth")] [NativeName(NativeNameType.Type, "UINT*")] uint* pWidth, [NativeName(NativeNameType.Param, "pHeight")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pHeight) 
+		public readonly unsafe int GetDestSize(uint* pWidth, ref uint pHeight) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppHeight = &pHeight)
@@ -290,9 +251,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDestSize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDestSize([NativeName(NativeNameType.Param, "pWidth")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pWidth, [NativeName(NativeNameType.Param, "pHeight")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pHeight) 
+		public readonly unsafe int GetDestSize(ref uint pWidth, ref uint pHeight) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppWidth = &pWidth)
@@ -308,24 +267,20 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetColorSpace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetColorSpace([NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS")] DXGIMULTIPLANEOVERLAYYCbCrFLAGS colorSpace) 
+		public readonly unsafe int SetColorSpace(MULTIPLANEOVERLAYYCbCrFLAGS colorSpace) 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, DXGIMULTIPLANEOVERLAYYCbCrFLAGS, int>)(LpVtbl[10]))(ptr, colorSpace);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, MULTIPLANEOVERLAYYCbCrFLAGS, int>)(LpVtbl[10]))(ptr, colorSpace);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetColorSpace")]
-		[return: NativeName(NativeNameType.Type, "DXGI_MULTIPLANE_OVERLAY_YCbCr_FLAGS")]
-		public readonly unsafe DXGIMULTIPLANEOVERLAYYCbCrFLAGS GetColorSpace() 
+		public readonly unsafe MULTIPLANEOVERLAYYCbCrFLAGS GetColorSpace() 
 		{
 			IDXGIDecodeSwapChain* ptr = (IDXGIDecodeSwapChain*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			DXGIMULTIPLANEOVERLAYYCbCrFLAGS ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, DXGIMULTIPLANEOVERLAYYCbCrFLAGS>)(LpVtbl[11]))(ptr);
+			MULTIPLANEOVERLAYYCbCrFLAGS ret = ((delegate* unmanaged[Stdcall]<IDXGIDecodeSwapChain*, MULTIPLANEOVERLAYYCbCrFLAGS>)(LpVtbl[11]))(ptr);
 			return ret;
 		}
 

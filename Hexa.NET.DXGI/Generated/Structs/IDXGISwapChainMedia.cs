@@ -21,7 +21,6 @@ namespace Hexa.NET.DXGI
 	/// To be documented.
 	/// </summary>
 	[Guid("dd95b90b-f05f-4f6a-bd65-25bfb264bd84")]
-	[NativeName(NativeNameType.StructOrClass, "IDXGISwapChainMedia")]
 	public partial struct IDXGISwapChainMedia : IComObject, IComObject<IDXGISwapChainMedia>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -36,9 +35,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -48,9 +45,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -63,9 +58,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -76,9 +69,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -92,8 +83,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -104,8 +93,6 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -116,26 +103,22 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatisticsMedia")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFrameStatisticsMedia([NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS_MEDIA*")] DxgiFrameStatisticsMedia* pStats) 
+		public readonly unsafe int GetFrameStatisticsMedia(FrameStatisticsMedia* pStats) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, DxgiFrameStatisticsMedia*, int>)(LpVtbl[3]))(ptr, pStats);
+			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, FrameStatisticsMedia*, int>)(LpVtbl[3]))(ptr, pStats);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFrameStatisticsMedia")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFrameStatisticsMedia([NativeName(NativeNameType.Param, "pStats")] [NativeName(NativeNameType.Type, "DXGI_FRAME_STATISTICS_MEDIA*")] ref DxgiFrameStatisticsMedia pStats) 
+		public readonly unsafe int GetFrameStatisticsMedia(ref FrameStatisticsMedia pStats) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxgiFrameStatisticsMedia* ppStats = &pStats)
+			fixed (FrameStatisticsMedia* ppStats = &pStats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, DxgiFrameStatisticsMedia*, int>)(LpVtbl[3]))(ptr, (DxgiFrameStatisticsMedia*)ppStats);
+				int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, FrameStatisticsMedia*, int>)(LpVtbl[3]))(ptr, (FrameStatisticsMedia*)ppStats);
 				return ret;
 			}
 		}
@@ -143,9 +126,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPresentDuration")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPresentDuration([NativeName(NativeNameType.Param, "Duration")] [NativeName(NativeNameType.Type, "UINT")] uint duration) 
+		public readonly unsafe int SetPresentDuration(uint duration) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, int>)(LpVtbl[4]))(ptr, duration);
@@ -155,9 +136,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckPresentDurationSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckPresentDurationSupport([NativeName(NativeNameType.Param, "DesiredPresentDuration")] [NativeName(NativeNameType.Type, "UINT")] uint desiredPresentDuration, [NativeName(NativeNameType.Param, "pClosestSmallerPresentDuration")] [NativeName(NativeNameType.Type, "UINT*")] uint* pClosestSmallerPresentDuration, [NativeName(NativeNameType.Param, "pClosestLargerPresentDuration")] [NativeName(NativeNameType.Type, "UINT*")] uint* pClosestLargerPresentDuration) 
+		public readonly unsafe int CheckPresentDurationSupport(uint desiredPresentDuration, uint* pClosestSmallerPresentDuration, uint* pClosestLargerPresentDuration) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDXGISwapChainMedia*, uint, uint*, uint*, int>)(LpVtbl[5]))(ptr, desiredPresentDuration, pClosestSmallerPresentDuration, pClosestLargerPresentDuration);
@@ -167,9 +146,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckPresentDurationSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckPresentDurationSupport([NativeName(NativeNameType.Param, "DesiredPresentDuration")] [NativeName(NativeNameType.Type, "UINT")] uint desiredPresentDuration, [NativeName(NativeNameType.Param, "pClosestSmallerPresentDuration")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pClosestSmallerPresentDuration, [NativeName(NativeNameType.Param, "pClosestLargerPresentDuration")] [NativeName(NativeNameType.Type, "UINT*")] uint* pClosestLargerPresentDuration) 
+		public readonly unsafe int CheckPresentDurationSupport(uint desiredPresentDuration, ref uint pClosestSmallerPresentDuration, uint* pClosestLargerPresentDuration) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppClosestSmallerPresentDuration = &pClosestSmallerPresentDuration)
@@ -182,9 +159,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckPresentDurationSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckPresentDurationSupport([NativeName(NativeNameType.Param, "DesiredPresentDuration")] [NativeName(NativeNameType.Type, "UINT")] uint desiredPresentDuration, [NativeName(NativeNameType.Param, "pClosestSmallerPresentDuration")] [NativeName(NativeNameType.Type, "UINT*")] uint* pClosestSmallerPresentDuration, [NativeName(NativeNameType.Param, "pClosestLargerPresentDuration")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pClosestLargerPresentDuration) 
+		public readonly unsafe int CheckPresentDurationSupport(uint desiredPresentDuration, uint* pClosestSmallerPresentDuration, ref uint pClosestLargerPresentDuration) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppClosestLargerPresentDuration = &pClosestLargerPresentDuration)
@@ -197,9 +172,7 @@ namespace Hexa.NET.DXGI
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckPresentDurationSupport")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CheckPresentDurationSupport([NativeName(NativeNameType.Param, "DesiredPresentDuration")] [NativeName(NativeNameType.Type, "UINT")] uint desiredPresentDuration, [NativeName(NativeNameType.Param, "pClosestSmallerPresentDuration")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pClosestSmallerPresentDuration, [NativeName(NativeNameType.Param, "pClosestLargerPresentDuration")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pClosestLargerPresentDuration) 
+		public readonly unsafe int CheckPresentDurationSupport(uint desiredPresentDuration, ref uint pClosestSmallerPresentDuration, ref uint pClosestLargerPresentDuration) 
 		{
 			IDXGISwapChainMedia* ptr = (IDXGISwapChainMedia*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppClosestSmallerPresentDuration = &pClosestSmallerPresentDuration)

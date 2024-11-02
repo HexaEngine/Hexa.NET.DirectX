@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("f1df64b6-57fd-49cd-8807-c0eb88b45c8f")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12SwapChainAssistant")]
 	public partial struct ID3D12SwapChainAssistant : IComObject, IComObject<ID3D12SwapChainAssistant>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,8 +104,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetLUID")]
-		[return: NativeName(NativeNameType.Type, "LUID")]
 		public readonly unsafe Luid GetLUID() 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -129,9 +114,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSwapChainObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSwapChainObject([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "void**")] void** ppv) 
+		public readonly unsafe int GetSwapChainObject(Guid* riid, void** ppv) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, int>)(LpVtbl[4]))(ptr, riid, ppv);
@@ -141,9 +124,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSwapChainObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSwapChainObject([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "void**")] void** ppv) 
+		public readonly unsafe int GetSwapChainObject(ref Guid riid, void** ppv) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -156,9 +137,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSwapChainObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSwapChainObject<T>([NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppv) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetSwapChainObject<T>(out ComPtr<T> ppv) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppv = default;
@@ -169,9 +148,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSwapChainObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSwapChainObject<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppv) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetSwapChainObject<T>(ref Guid riid, out ComPtr<T> ppv) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -185,9 +162,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppvQueue) 
+		public readonly unsafe int GetCurrentResourceAndCommandQueue(Guid* riidResource, void** ppvResource, Guid* riidQueue, void** ppvQueue) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12SwapChainAssistant*, Guid*, void**, Guid*, void**, int>)(LpVtbl[5]))(ptr, riidResource, ppvResource, riidQueue, ppvQueue);
@@ -197,9 +172,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppvQueue) 
+		public readonly unsafe int GetCurrentResourceAndCommandQueue(ref Guid riidResource, void** ppvResource, Guid* riidQueue, void** ppvQueue) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -212,9 +185,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>([NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref ComPtr<T> ppvResource, Guid* riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvResource = &ppvResource)
@@ -227,9 +198,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, ref ComPtr<T> ppvResource, Guid* riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -245,9 +214,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppvQueue) 
+		public readonly unsafe int GetCurrentResourceAndCommandQueue(Guid* riidResource, void** ppvResource, ref Guid riidQueue, void** ppvQueue) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidQueue = &riidQueue)
@@ -260,9 +227,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppvQueue) 
+		public readonly unsafe int GetCurrentResourceAndCommandQueue(ref Guid riidResource, void** ppvResource, ref Guid riidQueue, void** ppvQueue) 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -278,9 +243,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>([NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref ComPtr<T> ppvResource, ref Guid riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvResource = &ppvResource)
@@ -296,9 +259,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, ref ComPtr<T> ppvResource, ref Guid riidQueue, void** ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -317,9 +278,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(Guid* riidResource, void** ppvResource, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvQueue = default;
@@ -330,9 +289,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, void** ppvResource, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -346,9 +303,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>([NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvResource, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>(ref ComPtr<T> ppvResource, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvResource = &ppvResource)
@@ -362,9 +317,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvResource, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>(ref Guid riidResource, ref ComPtr<T> ppvResource, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -381,9 +334,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(Guid* riidResource, void** ppvResource, ref Guid riidQueue, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidQueue = &riidQueue)
@@ -397,9 +348,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T>(ref Guid riidResource, void** ppvResource, ref Guid riidQueue, out ComPtr<T> ppvQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -416,9 +365,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>([NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>(ref ComPtr<T> ppvResource, ref Guid riidQueue, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<T>* pppvResource = &ppvResource)
@@ -435,9 +382,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetCurrentResourceAndCommandQueue")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>([NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] ref ComPtr<T> ppvResource, [NativeName(NativeNameType.Param, "riidQueue")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidQueue, [NativeName(NativeNameType.Param, "ppvQueue")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
+		public readonly unsafe int GetCurrentResourceAndCommandQueue<T, T1>(ref Guid riidResource, ref ComPtr<T> ppvResource, ref Guid riidQueue, out ComPtr<T1> ppvQueue) where T : unmanaged, IComObject, IComObject<T> where T1 : unmanaged, IComObject, IComObject<T1>
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priidResource = &riidResource)
@@ -457,8 +402,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "InsertImplicitSync")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		public readonly unsafe int InsertImplicitSync() 
 		{
 			ID3D12SwapChainAssistant* ptr = (ID3D12SwapChainAssistant*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));

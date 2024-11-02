@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("3febd6dd-4973-4787-8194-e45f9e28923e")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12DebugDevice")]
 	public partial struct ID3D12DebugDevice : IComObject, IComObject<ID3D12DebugDevice>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,36 +104,30 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetFeatureMask")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetFeatureMask([NativeName(NativeNameType.Param, "Mask")] [NativeName(NativeNameType.Type, "D3D12_DEBUG_FEATURE")] D3D12DebugFeature mask) 
+		public readonly unsafe int SetFeatureMask(DebugFeature mask) 
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, D3D12DebugFeature, int>)(LpVtbl[3]))(ptr, mask);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, DebugFeature, int>)(LpVtbl[3]))(ptr, mask);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFeatureMask")]
-		[return: NativeName(NativeNameType.Type, "D3D12_DEBUG_FEATURE")]
-		public readonly unsafe D3D12DebugFeature GetFeatureMask() 
+		public readonly unsafe DebugFeature GetFeatureMask() 
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			D3D12DebugFeature ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, D3D12DebugFeature>)(LpVtbl[4]))(ptr);
+			DebugFeature ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, DebugFeature>)(LpVtbl[4]))(ptr);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ReportLiveDeviceObjects")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ReportLiveDeviceObjects([NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_RLDO_FLAGS")] D3D12RldoFlags flags) 
+		public readonly unsafe int ReportLiveDeviceObjects(RldoFlags flags) 
 		{
 			ID3D12DebugDevice* ptr = (ID3D12DebugDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, D3D12RldoFlags, int>)(LpVtbl[5]))(ptr, flags);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DebugDevice*, RldoFlags, int>)(LpVtbl[5]))(ptr, flags);
 			return ret;
 		}
 

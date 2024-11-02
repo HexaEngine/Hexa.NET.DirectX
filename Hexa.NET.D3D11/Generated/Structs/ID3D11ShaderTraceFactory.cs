@@ -21,7 +21,6 @@ namespace Hexa.NET.D3D11
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "ID3D11ShaderTraceFactory")]
 	public partial struct ID3D11ShaderTraceFactory : IComObject, IComObject<ID3D11ShaderTraceFactory>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -34,9 +33,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -46,9 +43,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -61,9 +56,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -74,9 +67,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -90,8 +81,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -102,8 +91,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -114,26 +101,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] D3D11ShaderTraceDesc* pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] ID3D11ShaderTrace** ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(IUnknown* pShader, ShaderTraceDesc* pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, pTraceDesc, ppShaderTrace);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, pTraceDesc, ppShaderTrace);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] D3D11ShaderTraceDesc* pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] ID3D11ShaderTrace** ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(ref IUnknown pShader, ShaderTraceDesc* pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppShader = &pShader)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppShader, pTraceDesc, ppShaderTrace);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppShader, pTraceDesc, ppShaderTrace);
 				return ret;
 			}
 		}
@@ -141,26 +124,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] D3D11ShaderTraceDesc* pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] ID3D11ShaderTrace** ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(ComPtr<IUnknown> pShader, ShaderTraceDesc* pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pShader.Handle, pTraceDesc, ppShaderTrace);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pShader.Handle, pTraceDesc, ppShaderTrace);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] ref D3D11ShaderTraceDesc pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] ID3D11ShaderTrace** ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(IUnknown* pShader, ref ShaderTraceDesc pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
+			fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, (D3D11ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, (ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
 				return ret;
 			}
 		}
@@ -168,16 +147,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] ref D3D11ShaderTraceDesc pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] ID3D11ShaderTrace** ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(ref IUnknown pShader, ref ShaderTraceDesc pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppShader = &pShader)
 			{
-				fixed (D3D11ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
+				fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppShader, (D3D11ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppShader, (ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
 					return ret;
 				}
 			}
@@ -186,14 +163,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] ref D3D11ShaderTraceDesc pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] ID3D11ShaderTrace** ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(ComPtr<IUnknown> pShader, ref ShaderTraceDesc pTraceDesc, ID3D11ShaderTrace** ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
+			fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pShader.Handle, (D3D11ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pShader.Handle, (ShaderTraceDesc*)ppTraceDesc, ppShaderTrace);
 				return ret;
 			}
 		}
@@ -201,14 +176,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] D3D11ShaderTraceDesc* pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] ref ID3D11ShaderTrace* ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(IUnknown* pShader, ShaderTraceDesc* pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ShaderTrace** pppShaderTrace = &ppShaderTrace)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, pTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, pTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
 				return ret;
 			}
 		}
@@ -216,29 +189,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] D3D11ShaderTraceDesc* pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(IUnknown* pShader, ShaderTraceDesc* pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppShaderTrace = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, pTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, pTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] D3D11ShaderTraceDesc* pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] ref ID3D11ShaderTrace* ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(ref IUnknown pShader, ShaderTraceDesc* pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppShader = &pShader)
 			{
 				fixed (ID3D11ShaderTrace** pppShaderTrace = &ppShaderTrace)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppShader, pTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppShader, pTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
 					return ret;
 				}
 			}
@@ -247,29 +216,25 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] D3D11ShaderTraceDesc* pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(ComPtr<IUnknown> pShader, ShaderTraceDesc* pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppShaderTrace = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pShader.Handle, pTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pShader.Handle, pTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] ref D3D11ShaderTraceDesc pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] ref ID3D11ShaderTrace* ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(IUnknown* pShader, ref ShaderTraceDesc pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
+			fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 			{
 				fixed (ID3D11ShaderTrace** pppShaderTrace = &ppShaderTrace)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, (D3D11ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
 					return ret;
 				}
 			}
@@ -278,15 +243,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] ref D3D11ShaderTraceDesc pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(IUnknown* pShader, ref ShaderTraceDesc pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
+			fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 			{
 				ppShaderTrace = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, (D3D11ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, pShader, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
 				return ret;
 			}
 		}
@@ -294,18 +257,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] ref D3D11ShaderTraceDesc pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] ref ID3D11ShaderTrace* ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(ref IUnknown pShader, ref ShaderTraceDesc pTraceDesc, ref ID3D11ShaderTrace* ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppShader = &pShader)
 			{
-				fixed (D3D11ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
+				fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 				{
 					fixed (ID3D11ShaderTrace** pppShaderTrace = &ppShaderTrace)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppShader, (D3D11ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)ppShader, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)pppShaderTrace);
 						return ret;
 					}
 				}
@@ -315,15 +276,13 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateShaderTrace")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateShaderTrace([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pShader, [NativeName(NativeNameType.Param, "pTraceDesc")] [NativeName(NativeNameType.Type, "D3D11_SHADER_TRACE_DESC*")] ref D3D11ShaderTraceDesc pTraceDesc, [NativeName(NativeNameType.Param, "ppShaderTrace")] [NativeName(NativeNameType.Type, "ID3D11ShaderTrace**")] out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
+		public readonly unsafe int CreateShaderTrace(ComPtr<IUnknown> pShader, ref ShaderTraceDesc pTraceDesc, out ComPtr<ID3D11ShaderTrace> ppShaderTrace) 
 		{
 			ID3D11ShaderTraceFactory* ptr = (ID3D11ShaderTraceFactory*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D11ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
+			fixed (ShaderTraceDesc* ppTraceDesc = &pTraceDesc)
 			{
 				ppShaderTrace = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, D3D11ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pShader.Handle, (D3D11ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11ShaderTraceFactory*, IUnknown*, ShaderTraceDesc*, ID3D11ShaderTrace**, int>)(LpVtbl[3]))(ptr, (IUnknown*)pShader.Handle, (ShaderTraceDesc*)ppTraceDesc, (ID3D11ShaderTrace**)ppShaderTrace.GetAddressOf());
 				return ret;
 			}
 		}

@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("80eabf42-2568-4e5e-bd82-c37f86961dc3")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12PipelineLibrary1")]
 	public partial struct ID3D12PipelineLibrary1 : IComObject, IComObject<ID3D12PipelineLibrary1>, IComObject<ID3D12PipelineLibrary>, IComObject<ID3D12DeviceChild>, IComObject<ID3D12Object>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, pData);
@@ -129,9 +114,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid guid, uint* pDataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -144,9 +127,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(Guid* guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -159,9 +140,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public readonly unsafe int GetPrivateData(ref Guid guid, ref uint pDataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -177,9 +156,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint*, void*, int>)(LpVtbl[3]))(ptr, guid, pDataSize, (void*)pData.Handle);
@@ -189,9 +166,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid guid, uint* pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -204,9 +179,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(Guid* guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppDataSize = &pDataSize)
@@ -219,9 +192,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPrivateData<T>([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetPrivateData<T>(ref Guid guid, ref uint pDataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -237,9 +208,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(Guid* guid, uint dataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, uint, void*, int>)(LpVtbl[4]))(ptr, guid, dataSize, pData);
@@ -249,9 +218,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateData([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public readonly unsafe int SetPrivateData(ref Guid guid, uint dataSize, void* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -264,9 +231,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, IUnknown* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, pData);
@@ -276,9 +241,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, IUnknown* pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -291,9 +254,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ref IUnknown pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppData = &pData)
@@ -306,9 +267,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(Guid* guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, IUnknown*, int>)(LpVtbl[5]))(ptr, guid, (IUnknown*)pData.Handle);
@@ -318,9 +277,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ref IUnknown pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -336,9 +293,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetPrivateDataInterface([NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
+		public readonly unsafe int SetPrivateDataInterface(ref Guid guid, ComPtr<IUnknown> pData) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* pguid = &guid)
@@ -351,9 +306,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* name) 
+		public readonly unsafe int SetName(char* name) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, int>)(LpVtbl[6]))(ptr, name);
@@ -363,9 +316,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> name) 
+		public readonly unsafe int SetName(ReadOnlySpan<char> name) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* pname = name)
@@ -378,9 +329,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetName([NativeName(NativeNameType.Param, "Name")] [NativeName(NativeNameType.Type, "LPCWSTR")] string name) 
+		public readonly unsafe int SetName(string name) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -411,9 +360,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppvDevice) 
+		public readonly unsafe int GetDevice(Guid* riid, void** ppvDevice) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, Guid*, void**, int>)(LpVtbl[7]))(ptr, riid, ppvDevice);
@@ -423,9 +370,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] void** ppvDevice) 
+		public readonly unsafe int GetDevice(ref Guid riid, void** ppvDevice) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -438,9 +383,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice<T>([NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetDevice<T>(out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvDevice = default;
@@ -451,9 +394,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDevice")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDevice<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvDevice")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int GetDevice<T>(ref Guid riid, out ComPtr<T> ppvDevice) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -467,9 +408,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "StorePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int StorePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pPipeline")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pPipeline) 
+		public readonly unsafe int StorePipeline(char* pName, ID3D12PipelineState* pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(LpVtbl[8]))(ptr, pName, pPipeline);
@@ -479,9 +418,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "StorePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int StorePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pPipeline")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pPipeline) 
+		public readonly unsafe int StorePipeline(ReadOnlySpan<char> pName, ID3D12PipelineState* pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
@@ -494,9 +431,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "StorePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int StorePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pPipeline")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ID3D12PipelineState* pPipeline) 
+		public readonly unsafe int StorePipeline(string pName, ID3D12PipelineState* pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -527,9 +462,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "StorePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int StorePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pPipeline")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ref ID3D12PipelineState pPipeline) 
+		public readonly unsafe int StorePipeline(char* pName, ref ID3D12PipelineState pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12PipelineState* ppPipeline = &pPipeline)
@@ -542,9 +475,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "StorePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int StorePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pPipeline")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ComPtr<ID3D12PipelineState> pPipeline) 
+		public readonly unsafe int StorePipeline(char* pName, ComPtr<ID3D12PipelineState> pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ID3D12PipelineState*, int>)(LpVtbl[8]))(ptr, pName, (ID3D12PipelineState*)pPipeline.Handle);
@@ -554,9 +485,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "StorePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int StorePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pPipeline")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ref ID3D12PipelineState pPipeline) 
+		public readonly unsafe int StorePipeline(ReadOnlySpan<char> pName, ref ID3D12PipelineState pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
@@ -572,9 +501,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "StorePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int StorePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pPipeline")] [NativeName(NativeNameType.Type, "ID3D12PipelineState*")] ref ID3D12PipelineState pPipeline) 
+		public readonly unsafe int StorePipeline(string pName, ref ID3D12PipelineState pPipeline) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -608,26 +535,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(char* pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, riid, ppPipelineState);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, riid, ppPipelineState);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(ReadOnlySpan<char> pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -635,9 +558,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(string pName, GraphicsPipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -657,7 +578,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, pDesc, riid, ppPipelineState);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, pDesc, riid, ppPipelineState);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -668,14 +589,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(char* pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (D3D12GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -683,16 +602,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(ReadOnlySpan<char> pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
+				fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, (D3D12GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -701,9 +618,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(string pName, ref GraphicsPipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -723,9 +638,9 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, (D3D12GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, (GraphicsPipelineStateDesc*)ppDesc, riid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -737,14 +652,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(char* pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -752,16 +665,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(ReadOnlySpan<char> pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -770,9 +681,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(string pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -794,7 +703,7 @@ namespace Hexa.NET.D3D12
 			}
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -806,16 +715,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(char* pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (D3D12GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -824,18 +731,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(ReadOnlySpan<char> pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
+				fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, (D3D12GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, (char*)ppName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 						return ret;
 					}
 				}
@@ -845,9 +750,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadGraphicsPipeline(string pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -867,11 +770,11 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, (D3D12GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pStr0, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -884,28 +787,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadGraphicsPipeline<T>(char* pName, GraphicsPipelineStateDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppPipelineState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadGraphicsPipeline<T>(char* pName, ref GraphicsPipelineStateDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (D3D12GraphicsPipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -913,15 +812,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] D3D12GraphicsPipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadGraphicsPipeline<T>(char* pName, GraphicsPipelineStateDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -929,17 +826,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadGraphicsPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadGraphicsPipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_GRAPHICS_PIPELINE_STATE_DESC*")] ref D3D12GraphicsPipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadGraphicsPipeline<T>(char* pName, ref GraphicsPipelineStateDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12GraphicsPipelineStateDesc* ppDesc = &pDesc)
+			fixed (GraphicsPipelineStateDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppPipelineState = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (D3D12GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, GraphicsPipelineStateDesc*, Guid*, void**, int>)(LpVtbl[9]))(ptr, pName, (GraphicsPipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 					return ret;
 				}
 			}
@@ -948,26 +843,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(char* pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, riid, ppPipelineState);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, riid, ppPipelineState);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(ReadOnlySpan<char> pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -975,9 +866,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(string pName, ComputePipelineStateDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -997,7 +886,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, pDesc, riid, ppPipelineState);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, pDesc, riid, ppPipelineState);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1008,14 +897,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(char* pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (D3D12ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -1023,16 +910,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(ReadOnlySpan<char> pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
+				fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, (D3D12ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -1041,9 +926,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(string pName, ref ComputePipelineStateDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1063,9 +946,9 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, (D3D12ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, (ComputePipelineStateDesc*)ppDesc, riid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1077,14 +960,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(char* pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -1092,16 +973,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(ReadOnlySpan<char> pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -1110,9 +989,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(string pName, ComputePipelineStateDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1134,7 +1011,7 @@ namespace Hexa.NET.D3D12
 			}
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1146,16 +1023,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(char* pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (D3D12ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -1164,18 +1039,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(ReadOnlySpan<char> pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
+				fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, (D3D12ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, (char*)ppName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 						return ret;
 					}
 				}
@@ -1185,9 +1058,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadComputePipeline(string pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1207,11 +1078,11 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, (D3D12ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pStr0, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1224,28 +1095,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadComputePipeline<T>(char* pName, ComputePipelineStateDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppPipelineState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadComputePipeline<T>(char* pName, ref ComputePipelineStateDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (D3D12ComputePipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1253,15 +1120,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] D3D12ComputePipelineStateDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadComputePipeline<T>(char* pName, ComputePipelineStateDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1269,17 +1134,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadComputePipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadComputePipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_COMPUTE_PIPELINE_STATE_DESC*")] ref D3D12ComputePipelineStateDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadComputePipeline<T>(char* pName, ref ComputePipelineStateDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12ComputePipelineStateDesc* ppDesc = &pDesc)
+			fixed (ComputePipelineStateDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppPipelineState = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (D3D12ComputePipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, ComputePipelineStateDesc*, Guid*, void**, int>)(LpVtbl[10]))(ptr, pName, (ComputePipelineStateDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1288,8 +1151,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSerializedSize")]
-		[return: NativeName(NativeNameType.Type, "SIZE_T")]
 		public readonly unsafe nuint GetSerializedSize() 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -1300,9 +1161,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Serialize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Serialize([NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData, [NativeName(NativeNameType.Param, "DataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint dataSizeInBytes) 
+		public readonly unsafe int Serialize(void* pData, nuint dataSizeInBytes) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, void*, nuint, int>)(LpVtbl[12]))(ptr, pData, dataSizeInBytes);
@@ -1312,9 +1171,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Serialize")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Serialize<T>([NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData, [NativeName(NativeNameType.Param, "DataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint dataSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int Serialize<T>(ComPtr<T> pData, nuint dataSizeInBytes) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, void*, nuint, int>)(LpVtbl[12]))(ptr, (void*)pData.Handle, dataSizeInBytes);
@@ -1324,26 +1181,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(char* pName, PipelineStateStreamDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, riid, ppPipelineState);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, riid, ppPipelineState);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(ReadOnlySpan<char> pName, PipelineStateStreamDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, pDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -1351,9 +1204,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(string pName, PipelineStateStreamDesc* pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1373,7 +1224,7 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, pDesc, riid, ppPipelineState);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, pDesc, riid, ppPipelineState);
 			if (pStrSize0 >= Utils.MaxStackallocSize)
 			{
 				Utils.Free(pStr0);
@@ -1384,14 +1235,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(char* pName, ref PipelineStateStreamDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
+			fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (D3D12PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -1399,16 +1248,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(ReadOnlySpan<char> pName, ref PipelineStateStreamDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
+				fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, (D3D12PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, (PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -1417,9 +1264,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(string pName, ref PipelineStateStreamDesc pDesc, Guid* riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1439,9 +1284,9 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
+			fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, (D3D12PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, (PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1453,14 +1298,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(char* pName, PipelineStateStreamDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)priid, ppPipelineState);
 				return ret;
 			}
 		}
@@ -1468,16 +1311,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(ReadOnlySpan<char> pName, PipelineStateStreamDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, pDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -1486,9 +1327,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(string pName, PipelineStateStreamDesc* pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1510,7 +1349,7 @@ namespace Hexa.NET.D3D12
 			}
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, pDesc, (Guid*)priid, ppPipelineState);
 				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
 					Utils.Free(pStr0);
@@ -1522,16 +1361,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(char* pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
+			fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (D3D12PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					return ret;
 				}
 			}
@@ -1540,18 +1377,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] ReadOnlySpan<char> pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(ReadOnlySpan<char> pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppName = pName)
 			{
-				fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
+				fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, (D3D12PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, (char*)ppName, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 						return ret;
 					}
 				}
@@ -1561,9 +1396,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] string pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
+		public readonly unsafe int LoadPipeline(string pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, void** ppPipelineState) 
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;
@@ -1583,11 +1416,11 @@ namespace Hexa.NET.D3D12
 				int pStrOffset0 = Utils.EncodeStringUTF16(pName, pStr0, pStrSize0);
 				pStr0[pStrOffset0] = '\0';
 			}
-			fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
+			fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, (D3D12PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pStr0, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
 					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
 						Utils.Free(pStr0);
@@ -1600,28 +1433,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadPipeline<T>(char* pName, PipelineStateStreamDesc* pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppPipelineState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadPipeline<T>(char* pName, ref PipelineStateStreamDesc pDesc, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
+			fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (D3D12PipelineStateStreamDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1629,15 +1458,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadPipeline<T>(char* pName, PipelineStateStreamDesc* pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
 			{
 				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1645,17 +1472,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "LoadPipeline")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int LoadPipeline<T>([NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "LPCWSTR")] char* pName, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int LoadPipeline<T>(char* pName, ref PipelineStateStreamDesc pDesc, ref Guid riid, out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12PipelineLibrary1* ptr = (ID3D12PipelineLibrary1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
+			fixed (PipelineStateStreamDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppPipelineState = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (D3D12PipelineStateStreamDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12PipelineLibrary1*, char*, PipelineStateStreamDesc*, Guid*, void**, int>)(LpVtbl[13]))(ptr, pName, (PipelineStateStreamDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
 					return ret;
 				}
 			}

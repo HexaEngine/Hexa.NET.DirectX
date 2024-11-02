@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// To be documented.
 	/// </summary>
 	[Guid("1911c771-1587-413e-a7e0-fb26c3de0268")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D11TracingDevice")]
 	public partial struct ID3D11TracingDevice : IComObject, IComObject<ID3D11TracingDevice>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11TracingDevice* ptr = (ID3D11TracingDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11TracingDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11TracingDevice* ptr = (ID3D11TracingDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11TracingDevice* ptr = (ID3D11TracingDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11TracingDevice* ptr = (ID3D11TracingDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D11TracingDevice* ptr = (ID3D11TracingDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D11TracingDevice* ptr = (ID3D11TracingDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetShaderTrackingOptionsByType")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetShaderTrackingOptionsByType([NativeName(NativeNameType.Param, "ResourceTypeFlags")] [NativeName(NativeNameType.Type, "UINT")] uint resourceTypeFlags, [NativeName(NativeNameType.Param, "Options")] [NativeName(NativeNameType.Type, "UINT")] uint options) 
+		public readonly unsafe int SetShaderTrackingOptionsByType(uint resourceTypeFlags, uint options) 
 		{
 			ID3D11TracingDevice* ptr = (ID3D11TracingDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11TracingDevice*, uint, uint, int>)(LpVtbl[3]))(ptr, resourceTypeFlags, options);
@@ -129,9 +114,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetShaderTrackingOptions")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetShaderTrackingOptions([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] IUnknown* pShader, [NativeName(NativeNameType.Param, "Options")] [NativeName(NativeNameType.Type, "UINT")] uint options) 
+		public readonly unsafe int SetShaderTrackingOptions(IUnknown* pShader, uint options) 
 		{
 			ID3D11TracingDevice* ptr = (ID3D11TracingDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11TracingDevice*, IUnknown*, uint, int>)(LpVtbl[4]))(ptr, pShader, options);
@@ -141,9 +124,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetShaderTrackingOptions")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetShaderTrackingOptions([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] ref IUnknown pShader, [NativeName(NativeNameType.Param, "Options")] [NativeName(NativeNameType.Type, "UINT")] uint options) 
+		public readonly unsafe int SetShaderTrackingOptions(ref IUnknown pShader, uint options) 
 		{
 			ID3D11TracingDevice* ptr = (ID3D11TracingDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IUnknown* ppShader = &pShader)
@@ -156,9 +137,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetShaderTrackingOptions")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetShaderTrackingOptions([NativeName(NativeNameType.Param, "pShader")] [NativeName(NativeNameType.Type, "IUnknown*")] ComPtr<IUnknown> pShader, [NativeName(NativeNameType.Param, "Options")] [NativeName(NativeNameType.Type, "UINT")] uint options) 
+		public readonly unsafe int SetShaderTrackingOptions(ComPtr<IUnknown> pShader, uint options) 
 		{
 			ID3D11TracingDevice* ptr = (ID3D11TracingDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11TracingDevice*, IUnknown*, uint, int>)(LpVtbl[4]))(ptr, (IUnknown*)pShader.Handle, options);

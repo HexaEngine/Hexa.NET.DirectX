@@ -23,534 +23,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetResidencyPriority")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetResidencyPriority(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ID3D12Pageable** ppObjects, [NativeName(NativeNameType.Param, "pPriorities")] [NativeName(NativeNameType.Type, "const D3D12_RESIDENCY_PRIORITY*")] ref D3D12ResidencyPriority pPriorities) 
+		public static int CreateProtectedResourceSession1<T>(this ComPtr<ID3D12Device10> comObj, ref ProtectedResourceSessionDesc1 pDesc, ref Guid riid, out ComPtr<T> ppSession) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResidencyPriority* ppPriorities = &pPriorities)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, ID3D12Pageable**, D3D12ResidencyPriority*, int>)(handle->LpVtbl[46]))(handle, numObjects, ppObjects, (D3D12ResidencyPriority*)ppPriorities);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetResidencyPriority")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetResidencyPriority(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ref ID3D12Pageable* ppObjects, [NativeName(NativeNameType.Param, "pPriorities")] [NativeName(NativeNameType.Type, "const D3D12_RESIDENCY_PRIORITY*")] ref D3D12ResidencyPriority pPriorities) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12Pageable** pppObjects = &ppObjects)
-			{
-				fixed (D3D12ResidencyPriority* ppPriorities = &pPriorities)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, ID3D12Pageable**, D3D12ResidencyPriority*, int>)(handle->LpVtbl[46]))(handle, numObjects, (ID3D12Pageable**)pppObjects, (D3D12ResidencyPriority*)ppPriorities);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePipelineState(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(handle->LpVtbl[47]))(handle, pDesc, riid, ppPipelineState);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePipelineState(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(handle->LpVtbl[47]))(handle, (D3D12PipelineStateStreamDesc*)ppDesc, riid, ppPipelineState);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePipelineState(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(handle->LpVtbl[47]))(handle, pDesc, (Guid*)priid, ppPipelineState);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePipelineState(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] void** ppPipelineState) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(handle->LpVtbl[47]))(handle, (D3D12PipelineStateStreamDesc*)ppDesc, (Guid*)priid, ppPipelineState);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePipelineState<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppPipelineState = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(handle->LpVtbl[47]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePipelineState<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
-			{
-				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(handle->LpVtbl[47]))(handle, (D3D12PipelineStateStreamDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppPipelineState.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePipelineState<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] D3D12PipelineStateStreamDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppPipelineState = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(handle->LpVtbl[47]))(handle, pDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreatePipelineState")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreatePipelineState<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PIPELINE_STATE_STREAM_DESC*")] ref D3D12PipelineStateStreamDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppPipelineState")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppPipelineState) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12PipelineStateStreamDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppPipelineState = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12PipelineStateStreamDesc*, Guid*, void**, int>)(handle->LpVtbl[47]))(handle, (D3D12PipelineStateStreamDesc*)ppDesc, (Guid*)priid, (void**)ppPipelineState.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenExistingHeapFromAddress")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenExistingHeapFromAddress(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddress")] [NativeName(NativeNameType.Type, "const void*")] void* pAddress, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, void*, Guid*, void**, int>)(handle->LpVtbl[48]))(handle, pAddress, riid, ppvHeap);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenExistingHeapFromAddress")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenExistingHeapFromAddress(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddress")] [NativeName(NativeNameType.Type, "const void*")] void* pAddress, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, void*, Guid*, void**, int>)(handle->LpVtbl[48]))(handle, pAddress, (Guid*)priid, ppvHeap);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenExistingHeapFromAddress")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenExistingHeapFromAddress<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddress")] [NativeName(NativeNameType.Type, "const void*")] void* pAddress, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppvHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, void*, Guid*, void**, int>)(handle->LpVtbl[48]))(handle, pAddress, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenExistingHeapFromAddress")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenExistingHeapFromAddress<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddress")] [NativeName(NativeNameType.Type, "const void*")] void* pAddress, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, void*, Guid*, void**, int>)(handle->LpVtbl[48]))(handle, pAddress, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenExistingHeapFromFileMapping")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenExistingHeapFromFileMapping(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "hFileMapping")] [NativeName(NativeNameType.Type, "HANDLE")] nint hFileMapping, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, nint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, hFileMapping, riid, ppvHeap);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenExistingHeapFromFileMapping")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenExistingHeapFromFileMapping(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "hFileMapping")] [NativeName(NativeNameType.Type, "HANDLE")] nint hFileMapping, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, nint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, hFileMapping, (Guid*)priid, ppvHeap);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenExistingHeapFromFileMapping")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenExistingHeapFromFileMapping<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "hFileMapping")] [NativeName(NativeNameType.Type, "HANDLE")] nint hFileMapping, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppvHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, nint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, hFileMapping, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "OpenExistingHeapFromFileMapping")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int OpenExistingHeapFromFileMapping<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "hFileMapping")] [NativeName(NativeNameType.Type, "HANDLE")] nint hFileMapping, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, nint, Guid*, void**, int>)(handle->LpVtbl[49]))(handle, hFileMapping, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnqueueMakeResident")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnqueueMakeResident(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_RESIDENCY_FLAGS")] D3D12ResidencyFlags flags, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ID3D12Pageable** ppObjects, [NativeName(NativeNameType.Param, "pFenceToSignal")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ID3D12Fence* pFenceToSignal, [NativeName(NativeNameType.Param, "FenceValueToSignal")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValueToSignal) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResidencyFlags, uint, ID3D12Pageable**, ID3D12Fence*, ulong, int>)(handle->LpVtbl[50]))(handle, flags, numObjects, ppObjects, pFenceToSignal, fenceValueToSignal);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnqueueMakeResident")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnqueueMakeResident(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_RESIDENCY_FLAGS")] D3D12ResidencyFlags flags, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ref ID3D12Pageable* ppObjects, [NativeName(NativeNameType.Param, "pFenceToSignal")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ID3D12Fence* pFenceToSignal, [NativeName(NativeNameType.Param, "FenceValueToSignal")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValueToSignal) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12Pageable** pppObjects = &ppObjects)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResidencyFlags, uint, ID3D12Pageable**, ID3D12Fence*, ulong, int>)(handle->LpVtbl[50]))(handle, flags, numObjects, (ID3D12Pageable**)pppObjects, pFenceToSignal, fenceValueToSignal);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnqueueMakeResident")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnqueueMakeResident(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_RESIDENCY_FLAGS")] D3D12ResidencyFlags flags, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ID3D12Pageable** ppObjects, [NativeName(NativeNameType.Param, "pFenceToSignal")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ref ID3D12Fence pFenceToSignal, [NativeName(NativeNameType.Param, "FenceValueToSignal")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValueToSignal) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12Fence* ppFenceToSignal = &pFenceToSignal)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResidencyFlags, uint, ID3D12Pageable**, ID3D12Fence*, ulong, int>)(handle->LpVtbl[50]))(handle, flags, numObjects, ppObjects, (ID3D12Fence*)ppFenceToSignal, fenceValueToSignal);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnqueueMakeResident")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnqueueMakeResident(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_RESIDENCY_FLAGS")] D3D12ResidencyFlags flags, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ID3D12Pageable** ppObjects, [NativeName(NativeNameType.Param, "pFenceToSignal")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ComPtr<ID3D12Fence> pFenceToSignal, [NativeName(NativeNameType.Param, "FenceValueToSignal")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValueToSignal) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResidencyFlags, uint, ID3D12Pageable**, ID3D12Fence*, ulong, int>)(handle->LpVtbl[50]))(handle, flags, numObjects, ppObjects, (ID3D12Fence*)pFenceToSignal.Handle, fenceValueToSignal);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnqueueMakeResident")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnqueueMakeResident(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_RESIDENCY_FLAGS")] D3D12ResidencyFlags flags, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ref ID3D12Pageable* ppObjects, [NativeName(NativeNameType.Param, "pFenceToSignal")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ref ID3D12Fence pFenceToSignal, [NativeName(NativeNameType.Param, "FenceValueToSignal")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValueToSignal) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12Pageable** pppObjects = &ppObjects)
-			{
-				fixed (ID3D12Fence* ppFenceToSignal = &pFenceToSignal)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResidencyFlags, uint, ID3D12Pageable**, ID3D12Fence*, ulong, int>)(handle->LpVtbl[50]))(handle, flags, numObjects, (ID3D12Pageable**)pppObjects, (ID3D12Fence*)ppFenceToSignal, fenceValueToSignal);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnqueueMakeResident")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnqueueMakeResident(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "Flags")] [NativeName(NativeNameType.Type, "D3D12_RESIDENCY_FLAGS")] D3D12ResidencyFlags flags, [NativeName(NativeNameType.Param, "NumObjects")] [NativeName(NativeNameType.Type, "UINT")] uint numObjects, [NativeName(NativeNameType.Param, "ppObjects")] [NativeName(NativeNameType.Type, "const ID3D12Pageable**")] ref ID3D12Pageable* ppObjects, [NativeName(NativeNameType.Param, "pFenceToSignal")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ComPtr<ID3D12Fence> pFenceToSignal, [NativeName(NativeNameType.Param, "FenceValueToSignal")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValueToSignal) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12Pageable** pppObjects = &ppObjects)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResidencyFlags, uint, ID3D12Pageable**, ID3D12Fence*, ulong, int>)(handle->LpVtbl[50]))(handle, flags, numObjects, (ID3D12Pageable**)pppObjects, (ID3D12Fence*)pFenceToSignal.Handle, fenceValueToSignal);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "flags")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_FLAGS")] D3D12CommandListFlags flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, D3D12CommandListType, D3D12CommandListFlags, Guid*, void**, int>)(handle->LpVtbl[51]))(handle, nodeMask, type, flags, riid, ppCommandList);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "flags")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_FLAGS")] D3D12CommandListFlags flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] void** ppCommandList) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, D3D12CommandListType, D3D12CommandListFlags, Guid*, void**, int>)(handle->LpVtbl[51]))(handle, nodeMask, type, flags, (Guid*)priid, ppCommandList);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "flags")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_FLAGS")] D3D12CommandListFlags flags, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppCommandList = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, D3D12CommandListType, D3D12CommandListFlags, Guid*, void**, int>)(handle->LpVtbl[51]))(handle, nodeMask, type, flags, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandList.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommandList1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommandList1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "nodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "type")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_TYPE")] D3D12CommandListType type, [NativeName(NativeNameType.Param, "flags")] [NativeName(NativeNameType.Type, "D3D12_COMMAND_LIST_FLAGS")] D3D12CommandListFlags flags, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppCommandList")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppCommandList) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppCommandList = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, D3D12CommandListType, D3D12CommandListFlags, Guid*, void**, int>)(handle->LpVtbl[51]))(handle, nodeMask, type, flags, (Guid*)priid, (void**)ppCommandList.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC*")] D3D12ProtectedResourceSessionDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] void** ppSession) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[52]))(handle, pDesc, riid, ppSession);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC*")] ref D3D12ProtectedResourceSessionDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] void** ppSession) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ProtectedResourceSessionDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[52]))(handle, (D3D12ProtectedResourceSessionDesc*)ppDesc, riid, ppSession);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC*")] D3D12ProtectedResourceSessionDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] void** ppSession) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[52]))(handle, pDesc, (Guid*)priid, ppSession);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC*")] ref D3D12ProtectedResourceSessionDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] void** ppSession) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ProtectedResourceSessionDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[52]))(handle, (D3D12ProtectedResourceSessionDesc*)ppDesc, (Guid*)priid, ppSession);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC*")] D3D12ProtectedResourceSessionDesc* pDesc, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSession) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppSession = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[52]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppSession.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC*")] ref D3D12ProtectedResourceSessionDesc pDesc, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSession) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ProtectedResourceSessionDesc* ppDesc = &pDesc)
-			{
-				ppSession = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[52]))(handle, (D3D12ProtectedResourceSessionDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppSession.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC*")] D3D12ProtectedResourceSessionDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSession) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppSession = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[52]))(handle, pDesc, (Guid*)priid, (void**)ppSession.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC*")] ref D3D12ProtectedResourceSessionDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSession) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ProtectedResourceSessionDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ProtectedResourceSessionDesc1* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppSession = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[52]))(handle, (D3D12ProtectedResourceSessionDesc*)ppDesc, (Guid*)priid, (void**)ppSession.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ProtectedResourceSessionDesc1*, Guid*, void**, int>)(handle->LpVtbl[67]))(handle, (ProtectedResourceSessionDesc1*)ppDesc, (Guid*)priid, (void**)ppSession.GetAddressOf());
 					return ret;
 				}
 			}
@@ -559,26 +40,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static ResourceAllocationInfo GetResourceAllocationInfo2(this ComPtr<ID3D12Device10> comObj, uint visibleMask, uint numResourceDescs, ResourceDesc1* pResourceDescs, ResourceAllocationInfo1* pResourceAllocationInfo1) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+			ID3D12Device10* handle = comObj.Handle;
+			ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, uint, uint, ResourceDesc1*, ResourceAllocationInfo1*, ResourceAllocationInfo>)(handle->LpVtbl[68]))(handle, visibleMask, numResourceDescs, pResourceDescs, pResourceAllocationInfo1);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static ResourceAllocationInfo GetResourceAllocationInfo2(this ComPtr<ID3D12Device10> comObj, uint visibleMask, uint numResourceDescs, ref ResourceDesc1 pResourceDescs, ResourceAllocationInfo1* pResourceAllocationInfo1) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDescs = &pResourceDescs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+				ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, uint, uint, ResourceDesc1*, ResourceAllocationInfo1*, ResourceAllocationInfo>)(handle->LpVtbl[68]))(handle, visibleMask, numResourceDescs, (ResourceDesc1*)ppResourceDescs, pResourceAllocationInfo1);
 				return ret;
 			}
 		}
@@ -586,14 +63,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static ResourceAllocationInfo GetResourceAllocationInfo2(this ComPtr<ID3D12Device10> comObj, uint visibleMask, uint numResourceDescs, ResourceDesc1* pResourceDescs, ref ResourceAllocationInfo1 pResourceAllocationInfo1) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceAllocationInfo1* ppResourceAllocationInfo1 = &pResourceAllocationInfo1)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+				ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, uint, uint, ResourceDesc1*, ResourceAllocationInfo1*, ResourceAllocationInfo>)(handle->LpVtbl[68]))(handle, visibleMask, numResourceDescs, pResourceDescs, (ResourceAllocationInfo1*)ppResourceAllocationInfo1);
 				return ret;
 			}
 		}
@@ -601,16 +76,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static ResourceAllocationInfo GetResourceAllocationInfo2(this ComPtr<ID3D12Device10> comObj, uint visibleMask, uint numResourceDescs, ref ResourceDesc1 pResourceDescs, ref ResourceAllocationInfo1 pResourceAllocationInfo1) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDescs = &pResourceDescs)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceAllocationInfo1* ppResourceAllocationInfo1 = &pResourceAllocationInfo1)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+					ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, uint, uint, ResourceDesc1*, ResourceAllocationInfo1*, ResourceAllocationInfo>)(handle->LpVtbl[68]))(handle, visibleMask, numResourceDescs, (ResourceDesc1*)ppResourceDescs, (ResourceAllocationInfo1*)ppResourceAllocationInfo1);
 					return ret;
 				}
 			}
@@ -619,14 +92,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -634,16 +115,27 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -652,16 +144,27 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -670,18 +173,32 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -691,14 +208,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -706,28 +221,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+			ID3D12Device10* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -736,14 +247,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -751,16 +260,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -769,14 +276,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -784,18 +289,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
 					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -805,16 +308,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -823,16 +324,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -841,14 +340,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -856,18 +353,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -877,16 +372,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -895,18 +388,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -916,16 +407,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -934,20 +423,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
 							return ret;
 						}
 					}
@@ -958,18 +445,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -979,14 +464,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (Guid* priidResource = &riidResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -994,16 +477,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -1012,16 +493,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -1030,18 +509,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -1051,16 +528,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -1069,18 +544,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -1090,18 +563,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -1111,20 +582,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						fixed (Guid* priidResource = &riidResource)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
 							return ret;
 						}
 					}
@@ -1135,16 +604,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -1153,14 +620,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (Guid* priidResource = &riidResource)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -1168,18 +633,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -1189,16 +652,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -1207,18 +668,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -1228,16 +687,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -1246,20 +703,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
 					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 					{
 						fixed (Guid* priidResource = &riidResource)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
 							return ret;
 						}
 					}
@@ -1270,18 +725,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -1291,18 +744,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -1312,16 +763,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -1330,20 +779,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 					{
 						fixed (Guid* priidResource = &riidResource)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
 							return ret;
 						}
 					}
@@ -1354,18 +801,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -1375,20 +820,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 					{
 						fixed (Guid* priidResource = &riidResource)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
 							return ret;
 						}
 					}
@@ -1399,18 +842,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -1420,22 +861,20 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 						{
 							fixed (Guid* priidResource = &riidResource)
 							{
-								int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priidResource, ppvResource);
 								return ret;
 							}
 						}
@@ -1447,20 +886,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource2(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						fixed (Guid* priidResource = &riidResource)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, ppvResource);
 							return ret;
 						}
 					}
@@ -1471,28 +908,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			ppvResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1500,15 +933,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1516,17 +947,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1535,15 +964,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1551,17 +978,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1570,17 +995,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1589,19 +1012,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -1611,28 +1032,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			ppvResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1640,15 +1057,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1656,17 +1071,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1675,15 +1088,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1691,17 +1102,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1710,17 +1119,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1729,19 +1136,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -1751,15 +1156,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (Guid* priidResource = &riidResource)
 			{
 				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1767,17 +1170,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1786,17 +1187,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1805,19 +1204,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
 						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -1827,17 +1224,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1846,19 +1241,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
 						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -1868,19 +1261,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
 						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -1890,21 +1281,19 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						fixed (Guid* priidResource = &riidResource)
 						{
 							ppvResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -1915,15 +1304,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (Guid* priidResource = &riidResource)
 			{
 				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -1931,17 +1318,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1950,17 +1335,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -1969,19 +1352,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
 						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -1991,17 +1372,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (Guid* priidResource = &riidResource)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2010,19 +1389,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
 						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -2032,19 +1409,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
 						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -2054,21 +1429,19 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource2<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, ResourceStates initialResourceState, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, ref Guid riidResource, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						fixed (Guid* priidResource = &riidResource)
 						{
 							ppvResource = default;
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[53]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, ResourceStates, ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialResourceState, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priidResource, (void**)ppvResource.GetAddressOf());
 							return ret;
 						}
 					}
@@ -2079,26 +1452,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, pDesc, pProtectedSession, riid, ppvHeap);
+			ID3D12Device10* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, riid, ppvResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, (D3D12HeapDesc*)ppDesc, pProtectedSession, riid, ppvHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, riid, ppvResource);
 				return ret;
 			}
 		}
@@ -2106,43 +1475,37 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedSession, riid, ppvHeap);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, pDesc, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riid, ppvHeap);
+			ID3D12Device10* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, riid, ppvResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, pOptimizedClearValue, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, (D3D12HeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedSession, riid, ppvHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, pOptimizedClearValue, riid, ppvResource);
 					return ret;
 				}
 			}
@@ -2151,14 +1514,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, Guid* riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, (D3D12HeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riid, ppvHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc1*)ppDesc, initialState, pOptimizedClearValue, riid, ppvResource);
 				return ret;
 			}
 		}
@@ -2166,14 +1527,105 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, Guid* riid, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc1*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, riid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, pDesc, pProtectedSession, (Guid*)priid, ppvHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
 				return ret;
 			}
 		}
@@ -2181,16 +1633,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, (D3D12HeapDesc*)ppDesc, pProtectedSession, (Guid*)priid, ppvHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
 					return ret;
 				}
 			}
@@ -2199,32 +1649,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, pDesc, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priid, ppvHeap);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, pDesc, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, ppvHeap);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
 				return ret;
 			}
 		}
@@ -2232,18 +1662,32 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				fixed (Guid* priid = &riid)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, (D3D12HeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priid, ppvHeap);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
 						return ret;
 					}
 				}
@@ -2253,16 +1697,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] void** ppvHeap) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, (D3D12HeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, ppvHeap);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc1*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, ppvResource);
 					return ret;
 				}
 			}
@@ -2271,91 +1713,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppvHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, pDesc, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
-			{
-				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, (D3D12HeapDesc*)ppDesc, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppvHeap = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, pDesc, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
-			{
-				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, (D3D12HeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvHeap.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, pDesc, pProtectedSession, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					ppvHeap = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, (D3D12HeapDesc*)ppDesc, pProtectedSession, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
 					return ret;
 				}
 			}
@@ -2364,296 +1729,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] D3D12HeapDesc* pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
 			{
-				ppvHeap = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, pDesc, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateHeap1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateHeap1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_DESC*")] ref D3D12HeapDesc pDesc, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvHeap")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvHeap) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppvHeap = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapDesc*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[54]))(handle, (D3D12HeapDesc*)ppDesc, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, (void**)ppvHeap.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, pProtectedSession, riid, ppvResource);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, pProtectedSession, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, riid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riid, ppvResource);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riid, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, pProtectedSession, (Guid*)priid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, pProtectedSession, (Guid*)priid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priid, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)ppHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
 						return ret;
 					}
 				}
@@ -2663,16 +1748,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priid, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
 					return ret;
 				}
 			}
@@ -2681,33 +1764,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priid, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
 						return ret;
 					}
 				}
@@ -2717,77 +1783,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ref ID3D12Heap pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12Heap* ppHeap = &pHeap)
 			{
-				fixed (Guid* priid = &riid)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
-				{
-					fixed (Guid* priid = &riid)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priid, ppvResource);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						fixed (Guid* priid = &riid)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, (Guid*)priid, ppvResource);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)ppHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
 							return ret;
 						}
 					}
@@ -2798,18 +1805,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreatePlacedResource1(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc1*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, ppvResource);
 						return ret;
 					}
 				}
@@ -2819,28 +1824,35 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			ppvResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			ppvResource = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2848,15 +1860,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc1*)ppDesc, initialState, pOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2864,17 +1874,43 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2883,62 +1919,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppvResource = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc1*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2947,15 +1936,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
 				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, pProtectedSession, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
 				return ret;
 			}
 		}
@@ -2963,17 +1950,29 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, pProtectedSession, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -2982,17 +1981,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ClearValue* pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
 					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc1*)ppDesc, initialState, pOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3001,19 +1998,51 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (Guid* priid = &riid)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ResourceDesc1* pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Guid* priid = &riid)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, pDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ID3D12Heap* pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priid = &riid)
 					{
 						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, pHeap, heapOffset, (ResourceDesc1*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -3023,73 +2052,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreatePlacedResource1<T>(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Heap> pHeap, ulong heapOffset, ref ResourceDesc1 pDesc, ResourceStates initialState, ref ClearValue pOptimizedClearValue, ref Guid riid, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				ppvResource = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					ppvResource = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, pDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, (void**)ppvResource.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateReservedResource1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateReservedResource1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pDesc, [NativeName(NativeNameType.Param, "InitialState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (Guid* priid = &riid)
 					{
 						ppvResource = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ResourceDesc*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[55]))(handle, (D3D12ResourceDesc*)ppDesc, initialState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, (Guid*)priid, (void**)ppvResource.GetAddressOf());
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Heap*, ulong, ResourceDesc1*, ResourceStates, ClearValue*, Guid*, void**, int>)(handle->LpVtbl[70]))(handle, (ID3D12Heap*)pHeap.Handle, heapOffset, (ResourceDesc1*)ppDesc, initialState, (ClearValue*)ppOptimizedClearValue, (Guid*)priid, (void**)ppvResource.GetAddressOf());
 						return ret;
 					}
 				}
@@ -3099,59 +2072,65 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceAllocationInfo1")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO")]
-		public static D3D12ResourceAllocationInfo GetResourceAllocationInfo1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "visibleMask")] [NativeName(NativeNameType.Type, "UINT")] uint visibleMask, [NativeName(NativeNameType.Param, "numResourceDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceDescs, [NativeName(NativeNameType.Param, "pResourceDescs")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDescs, [NativeName(NativeNameType.Param, "pResourceAllocationInfo1")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO1*")] D3D12ResourceAllocationInfo1* pResourceAllocationInfo1) 
+		public static void CreateSamplerFeedbackUnorderedAccessView(this ComPtr<ID3D12Device10> comObj, ID3D12Resource* pTargetedResource, ID3D12Resource* pFeedbackResource, CpuDescriptorHandle destDescriptor) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			D3D12ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, uint, D3D12ResourceDesc*, D3D12ResourceAllocationInfo1*, D3D12ResourceAllocationInfo>)(handle->LpVtbl[56]))(handle, visibleMask, numResourceDescs, pResourceDescs, pResourceAllocationInfo1);
-			return ret;
+			ID3D12Device10* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Resource*, ID3D12Resource*, CpuDescriptorHandle, void>)(handle->LpVtbl[71]))(handle, pTargetedResource, pFeedbackResource, destDescriptor);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceAllocationInfo1")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO")]
-		public static D3D12ResourceAllocationInfo GetResourceAllocationInfo1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "visibleMask")] [NativeName(NativeNameType.Type, "UINT")] uint visibleMask, [NativeName(NativeNameType.Param, "numResourceDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceDescs, [NativeName(NativeNameType.Param, "pResourceDescs")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDescs, [NativeName(NativeNameType.Param, "pResourceAllocationInfo1")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO1*")] D3D12ResourceAllocationInfo1* pResourceAllocationInfo1) 
+		public static void CreateSamplerFeedbackUnorderedAccessView(this ComPtr<ID3D12Device10> comObj, ref ID3D12Resource pTargetedResource, ID3D12Resource* pFeedbackResource, CpuDescriptorHandle destDescriptor) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDescs = &pResourceDescs)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTargetedResource = &pTargetedResource)
 			{
-				D3D12ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, uint, D3D12ResourceDesc*, D3D12ResourceAllocationInfo1*, D3D12ResourceAllocationInfo>)(handle->LpVtbl[56]))(handle, visibleMask, numResourceDescs, (D3D12ResourceDesc*)ppResourceDescs, pResourceAllocationInfo1);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Resource*, ID3D12Resource*, CpuDescriptorHandle, void>)(handle->LpVtbl[71]))(handle, (ID3D12Resource*)ppTargetedResource, pFeedbackResource, destDescriptor);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceAllocationInfo1")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO")]
-		public static D3D12ResourceAllocationInfo GetResourceAllocationInfo1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "visibleMask")] [NativeName(NativeNameType.Type, "UINT")] uint visibleMask, [NativeName(NativeNameType.Param, "numResourceDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceDescs, [NativeName(NativeNameType.Param, "pResourceDescs")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] D3D12ResourceDesc* pResourceDescs, [NativeName(NativeNameType.Param, "pResourceAllocationInfo1")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO1*")] ref D3D12ResourceAllocationInfo1 pResourceAllocationInfo1) 
+		public static void CreateSamplerFeedbackUnorderedAccessView(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Resource> pTargetedResource, ID3D12Resource* pFeedbackResource, CpuDescriptorHandle destDescriptor) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceAllocationInfo1* ppResourceAllocationInfo1 = &pResourceAllocationInfo1)
+			ID3D12Device10* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Resource*, ID3D12Resource*, CpuDescriptorHandle, void>)(handle->LpVtbl[71]))(handle, (ID3D12Resource*)pTargetedResource.Handle, pFeedbackResource, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateSamplerFeedbackUnorderedAccessView(this ComPtr<ID3D12Device10> comObj, ID3D12Resource* pTargetedResource, ref ID3D12Resource pFeedbackResource, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppFeedbackResource = &pFeedbackResource)
 			{
-				D3D12ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, uint, D3D12ResourceDesc*, D3D12ResourceAllocationInfo1*, D3D12ResourceAllocationInfo>)(handle->LpVtbl[56]))(handle, visibleMask, numResourceDescs, pResourceDescs, (D3D12ResourceAllocationInfo1*)ppResourceAllocationInfo1);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Resource*, ID3D12Resource*, CpuDescriptorHandle, void>)(handle->LpVtbl[71]))(handle, pTargetedResource, (ID3D12Resource*)ppFeedbackResource, destDescriptor);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceAllocationInfo1")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO")]
-		public static D3D12ResourceAllocationInfo GetResourceAllocationInfo1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "visibleMask")] [NativeName(NativeNameType.Type, "UINT")] uint visibleMask, [NativeName(NativeNameType.Param, "numResourceDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceDescs, [NativeName(NativeNameType.Param, "pResourceDescs")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC*")] ref D3D12ResourceDesc pResourceDescs, [NativeName(NativeNameType.Param, "pResourceAllocationInfo1")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO1*")] ref D3D12ResourceAllocationInfo1 pResourceAllocationInfo1) 
+		public static void CreateSamplerFeedbackUnorderedAccessView(this ComPtr<ID3D12Device10> comObj, ID3D12Resource* pTargetedResource, ComPtr<ID3D12Resource> pFeedbackResource, CpuDescriptorHandle destDescriptor) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc* ppResourceDescs = &pResourceDescs)
+			ID3D12Device10* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Resource*, ID3D12Resource*, CpuDescriptorHandle, void>)(handle->LpVtbl[71]))(handle, pTargetedResource, (ID3D12Resource*)pFeedbackResource.Handle, destDescriptor);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void CreateSamplerFeedbackUnorderedAccessView(this ComPtr<ID3D12Device10> comObj, ref ID3D12Resource pTargetedResource, ref ID3D12Resource pFeedbackResource, CpuDescriptorHandle destDescriptor) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12Resource* ppTargetedResource = &pTargetedResource)
 			{
-				fixed (D3D12ResourceAllocationInfo1* ppResourceAllocationInfo1 = &pResourceAllocationInfo1)
+				fixed (ID3D12Resource* ppFeedbackResource = &pFeedbackResource)
 				{
-					D3D12ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, uint, D3D12ResourceDesc*, D3D12ResourceAllocationInfo1*, D3D12ResourceAllocationInfo>)(handle->LpVtbl[56]))(handle, visibleMask, numResourceDescs, (D3D12ResourceDesc*)ppResourceDescs, (D3D12ResourceAllocationInfo1*)ppResourceAllocationInfo1);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Resource*, ID3D12Resource*, CpuDescriptorHandle, void>)(handle->LpVtbl[71]))(handle, (ID3D12Resource*)ppTargetedResource, (ID3D12Resource*)ppFeedbackResource, destDescriptor);
 				}
 			}
 		}
@@ -3159,71 +2138,56 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateLifetimeTracker")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateLifetimeTracker(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pOwner")] [NativeName(NativeNameType.Type, "ID3D12LifetimeOwner*")] ID3D12LifetimeOwner* pOwner, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvTracker")] [NativeName(NativeNameType.Type, "void**")] void** ppvTracker) 
+		public static void CreateSamplerFeedbackUnorderedAccessView(this ComPtr<ID3D12Device10> comObj, ComPtr<ID3D12Resource> pTargetedResource, ComPtr<ID3D12Resource> pFeedbackResource, CpuDescriptorHandle destDescriptor) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, ID3D12LifetimeOwner*, Guid*, void**, int>)(handle->LpVtbl[57]))(handle, pOwner, riid, ppvTracker);
-			return ret;
+			ID3D12Device10* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device10*, ID3D12Resource*, ID3D12Resource*, CpuDescriptorHandle, void>)(handle->LpVtbl[71]))(handle, (ID3D12Resource*)pTargetedResource.Handle, (ID3D12Resource*)pFeedbackResource.Handle, destDescriptor);
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateLifetimeTracker")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateLifetimeTracker(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pOwner")] [NativeName(NativeNameType.Type, "ID3D12LifetimeOwner*")] ref ID3D12LifetimeOwner pOwner, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvTracker")] [NativeName(NativeNameType.Type, "void**")] void** ppvTracker) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12LifetimeOwner* ppOwner = &pOwner)
+			ID3D12Device10* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, ID3D12LifetimeOwner*, Guid*, void**, int>)(handle->LpVtbl[57]))(handle, (ID3D12LifetimeOwner*)ppOwner, riid, ppvTracker);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateLifetimeTracker")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateLifetimeTracker(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pOwner")] [NativeName(NativeNameType.Type, "ID3D12LifetimeOwner*")] ComPtr<ID3D12LifetimeOwner> pOwner, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvTracker")] [NativeName(NativeNameType.Type, "void**")] void** ppvTracker) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, ID3D12LifetimeOwner*, Guid*, void**, int>)(handle->LpVtbl[57]))(handle, (ID3D12LifetimeOwner*)pOwner.Handle, riid, ppvTracker);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateLifetimeTracker")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateLifetimeTracker(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pOwner")] [NativeName(NativeNameType.Type, "ID3D12LifetimeOwner*")] ID3D12LifetimeOwner* pOwner, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvTracker")] [NativeName(NativeNameType.Type, "void**")] void** ppvTracker) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, ID3D12LifetimeOwner*, Guid*, void**, int>)(handle->LpVtbl[57]))(handle, pOwner, (Guid*)priid, ppvTracker);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateLifetimeTracker")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateLifetimeTracker(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pOwner")] [NativeName(NativeNameType.Type, "ID3D12LifetimeOwner*")] ref ID3D12LifetimeOwner pOwner, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvTracker")] [NativeName(NativeNameType.Type, "void**")] void** ppvTracker) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12LifetimeOwner* ppOwner = &pOwner)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (Guid* priid = &riid)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, ID3D12LifetimeOwner*, Guid*, void**, int>)(handle->LpVtbl[57]))(handle, (ID3D12LifetimeOwner*)ppOwner, (Guid*)priid, ppvTracker);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -3231,143 +2195,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateLifetimeTracker")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateLifetimeTracker(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pOwner")] [NativeName(NativeNameType.Type, "ID3D12LifetimeOwner*")] ComPtr<ID3D12LifetimeOwner> pOwner, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvTracker")] [NativeName(NativeNameType.Type, "void**")] void** ppvTracker) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (uint* ppNumRows = &pNumRows)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, ID3D12LifetimeOwner*, Guid*, void**, int>)(handle->LpVtbl[57]))(handle, (ID3D12LifetimeOwner*)pOwner.Handle, (Guid*)priid, ppvTracker);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateLifetimeTracker")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateLifetimeTracker<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pOwner")] [NativeName(NativeNameType.Type, "ID3D12LifetimeOwner*")] ID3D12LifetimeOwner* pOwner, [NativeName(NativeNameType.Param, "ppvTracker")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvTracker) where T : unmanaged, IComObject, IComObject<T>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppvTracker = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, ID3D12LifetimeOwner*, Guid*, void**, int>)(handle->LpVtbl[57]))(handle, pOwner, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvTracker.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateLifetimeTracker")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateLifetimeTracker<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pOwner")] [NativeName(NativeNameType.Type, "ID3D12LifetimeOwner*")] ComPtr<ID3D12LifetimeOwner> pOwner, [NativeName(NativeNameType.Param, "ppvTracker")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvTracker) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppvTracker = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, ID3D12LifetimeOwner*, Guid*, void**, int>)(handle->LpVtbl[57]))(handle, (ID3D12LifetimeOwner*)pOwner.Handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvTracker.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateLifetimeTracker")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateLifetimeTracker<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pOwner")] [NativeName(NativeNameType.Type, "ID3D12LifetimeOwner*")] ID3D12LifetimeOwner* pOwner, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvTracker")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvTracker) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
 			{
-				ppvTracker = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, ID3D12LifetimeOwner*, Guid*, void**, int>)(handle->LpVtbl[57]))(handle, pOwner, (Guid*)priid, (void**)ppvTracker.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateLifetimeTracker")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateLifetimeTracker<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pOwner")] [NativeName(NativeNameType.Type, "ID3D12LifetimeOwner*")] ComPtr<ID3D12LifetimeOwner> pOwner, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvTracker")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvTracker) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvTracker = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, ID3D12LifetimeOwner*, Guid*, void**, int>)(handle->LpVtbl[57]))(handle, (ID3D12LifetimeOwner*)pOwner.Handle, (Guid*)priid, (void**)ppvTracker.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "RemoveDevice")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void RemoveDevice(this ComPtr<ID3D12Device9> comObj) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device9*, void>)(handle->LpVtbl[58]))(handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommands")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommands(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pNumMetaCommands")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumMetaCommands, [NativeName(NativeNameType.Param, "pDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_DESC*")] D3D12MetaCommandDesc* pDescs) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint*, D3D12MetaCommandDesc*, int>)(handle->LpVtbl[59]))(handle, pNumMetaCommands, pDescs);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommands")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommands(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pNumMetaCommands")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumMetaCommands, [NativeName(NativeNameType.Param, "pDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_DESC*")] D3D12MetaCommandDesc* pDescs) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (uint* ppNumMetaCommands = &pNumMetaCommands)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint*, D3D12MetaCommandDesc*, int>)(handle->LpVtbl[59]))(handle, (uint*)ppNumMetaCommands, pDescs);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommands")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommands(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pNumMetaCommands")] [NativeName(NativeNameType.Type, "UINT*")] uint* pNumMetaCommands, [NativeName(NativeNameType.Param, "pDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_DESC*")] ref D3D12MetaCommandDesc pDescs) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12MetaCommandDesc* ppDescs = &pDescs)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint*, D3D12MetaCommandDesc*, int>)(handle->LpVtbl[59]))(handle, pNumMetaCommands, (D3D12MetaCommandDesc*)ppDescs);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommands")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommands(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pNumMetaCommands")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pNumMetaCommands, [NativeName(NativeNameType.Param, "pDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_DESC*")] ref D3D12MetaCommandDesc pDescs) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (uint* ppNumMetaCommands = &pNumMetaCommands)
-			{
-				fixed (D3D12MetaCommandDesc* ppDescs = &pDescs)
+				fixed (uint* ppNumRows = &pNumRows)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint*, D3D12MetaCommandDesc*, int>)(handle->LpVtbl[59]))(handle, (uint*)ppNumMetaCommands, (D3D12MetaCommandDesc*)ppDescs);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -3375,59 +2222,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] D3D12MetaCommandParameterDesc* pParameterDescs) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, commandId, stage, pTotalStructureSizeInBytes, pParameterCount, pParameterDescs);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] D3D12MetaCommandParameterDesc* pParameterDescs) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, (Guid*)pcommandId, stage, pTotalStructureSizeInBytes, pParameterCount, pParameterDescs);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] D3D12MetaCommandParameterDesc* pParameterDescs) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (uint* ppTotalStructureSizeInBytes = &pTotalStructureSizeInBytes)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, commandId, stage, (uint*)ppTotalStructureSizeInBytes, pParameterCount, pParameterDescs);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] D3D12MetaCommandParameterDesc* pParameterDescs) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
-			{
-				fixed (uint* ppTotalStructureSizeInBytes = &pTotalStructureSizeInBytes)
+				fixed (uint* ppNumRows = &pNumRows)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, (Guid*)pcommandId, stage, (uint*)ppTotalStructureSizeInBytes, pParameterCount, pParameterDescs);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -3435,70 +2237,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] D3D12MetaCommandParameterDesc* pParameterDescs) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (uint* ppParameterCount = &pParameterCount)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, commandId, stage, pTotalStructureSizeInBytes, (uint*)ppParameterCount, pParameterDescs);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] D3D12MetaCommandParameterDesc* pParameterDescs) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
-			{
-				fixed (uint* ppParameterCount = &pParameterCount)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, (Guid*)pcommandId, stage, pTotalStructureSizeInBytes, (uint*)ppParameterCount, pParameterDescs);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] D3D12MetaCommandParameterDesc* pParameterDescs) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (uint* ppTotalStructureSizeInBytes = &pTotalStructureSizeInBytes)
-			{
-				fixed (uint* ppParameterCount = &pParameterCount)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, commandId, stage, (uint*)ppTotalStructureSizeInBytes, (uint*)ppParameterCount, pParameterDescs);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] D3D12MetaCommandParameterDesc* pParameterDescs) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
-			{
-				fixed (uint* ppTotalStructureSizeInBytes = &pTotalStructureSizeInBytes)
-				{
-					fixed (uint* ppParameterCount = &pParameterCount)
+					fixed (uint* ppNumRows = &pNumRows)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, (Guid*)pcommandId, stage, (uint*)ppTotalStructureSizeInBytes, (uint*)ppParameterCount, pParameterDescs);
-						return ret;
+						((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, pTotalBytes);
 					}
 				}
 			}
@@ -3507,32 +2255,26 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] ref D3D12MetaCommandParameterDesc pParameterDescs) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12MetaCommandParameterDesc* ppParameterDescs = &pParameterDescs)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, commandId, stage, pTotalStructureSizeInBytes, pParameterCount, (D3D12MetaCommandParameterDesc*)ppParameterDescs);
-				return ret;
+				((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 			}
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] ref D3D12MetaCommandParameterDesc pParameterDescs) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (D3D12MetaCommandParameterDesc* ppParameterDescs = &pParameterDescs)
+				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, (Guid*)pcommandId, stage, pTotalStructureSizeInBytes, pParameterCount, (D3D12MetaCommandParameterDesc*)ppParameterDescs);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -3540,17 +2282,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] ref D3D12MetaCommandParameterDesc pParameterDescs) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (uint* ppTotalStructureSizeInBytes = &pTotalStructureSizeInBytes)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
-				fixed (D3D12MetaCommandParameterDesc* ppParameterDescs = &pParameterDescs)
+				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, commandId, stage, (uint*)ppTotalStructureSizeInBytes, pParameterCount, (D3D12MetaCommandParameterDesc*)ppParameterDescs);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -3558,19 +2297,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] ref D3D12MetaCommandParameterDesc pParameterDescs) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (uint* ppTotalStructureSizeInBytes = &pTotalStructureSizeInBytes)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
-					fixed (D3D12MetaCommandParameterDesc* ppParameterDescs = &pParameterDescs)
+					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, (Guid*)pcommandId, stage, (uint*)ppTotalStructureSizeInBytes, pParameterCount, (D3D12MetaCommandParameterDesc*)ppParameterDescs);
-						return ret;
+						((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 					}
 				}
 			}
@@ -3579,17 +2315,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] ref D3D12MetaCommandParameterDesc pParameterDescs) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (uint* ppParameterCount = &pParameterCount)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (uint* ppNumRows = &pNumRows)
 			{
-				fixed (D3D12MetaCommandParameterDesc* ppParameterDescs = &pParameterDescs)
+				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, commandId, stage, pTotalStructureSizeInBytes, (uint*)ppParameterCount, (D3D12MetaCommandParameterDesc*)ppParameterDescs);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 				}
 			}
 		}
@@ -3597,19 +2330,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] uint* pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] ref D3D12MetaCommandParameterDesc pParameterDescs) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (uint* ppParameterCount = &pParameterCount)
+				fixed (uint* ppNumRows = &pNumRows)
 				{
-					fixed (D3D12MetaCommandParameterDesc* ppParameterDescs = &pParameterDescs)
+					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, (Guid*)pcommandId, stage, pTotalStructureSizeInBytes, (uint*)ppParameterCount, (D3D12MetaCommandParameterDesc*)ppParameterDescs);
-						return ret;
+						((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 					}
 				}
 			}
@@ -3618,19 +2348,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] ref D3D12MetaCommandParameterDesc pParameterDescs) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (uint* ppTotalStructureSizeInBytes = &pTotalStructureSizeInBytes)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 			{
-				fixed (uint* ppParameterCount = &pParameterCount)
+				fixed (uint* ppNumRows = &pNumRows)
 				{
-					fixed (D3D12MetaCommandParameterDesc* ppParameterDescs = &pParameterDescs)
+					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, commandId, stage, (uint*)ppTotalStructureSizeInBytes, (uint*)ppParameterCount, (D3D12MetaCommandParameterDesc*)ppParameterDescs);
-						return ret;
+						((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 					}
 				}
 			}
@@ -3639,21 +2366,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "EnumerateMetaCommandParameters")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int EnumerateMetaCommandParameters(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "Stage")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_STAGE")] D3D12MetaCommandParameterStage stage, [NativeName(NativeNameType.Param, "pTotalStructureSizeInBytes")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pTotalStructureSizeInBytes, [NativeName(NativeNameType.Param, "pParameterCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pParameterCount, [NativeName(NativeNameType.Param, "pParameterDescs")] [NativeName(NativeNameType.Type, "D3D12_META_COMMAND_PARAMETER_DESC*")] ref D3D12MetaCommandParameterDesc pParameterDescs) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ulong* pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
 			{
-				fixed (uint* ppTotalStructureSizeInBytes = &pTotalStructureSizeInBytes)
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
 				{
-					fixed (uint* ppParameterCount = &pParameterCount)
+					fixed (uint* ppNumRows = &pNumRows)
 					{
-						fixed (D3D12MetaCommandParameterDesc* ppParameterDescs = &pParameterDescs)
+						fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, D3D12MetaCommandParameterStage, uint*, uint*, D3D12MetaCommandParameterDesc*, int>)(handle->LpVtbl[60]))(handle, (Guid*)pcommandId, stage, (uint*)ppTotalStructureSizeInBytes, (uint*)ppParameterCount, (D3D12MetaCommandParameterDesc*)ppParameterDescs);
-							return ret;
+							((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, pTotalBytes);
 						}
 					}
 				}
@@ -3663,26 +2387,310 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateMetaCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateMetaCommand(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pCreationParametersData")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParametersData, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppMetaCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppMetaCommand) 
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[61]))(handle, commandId, nodeMask, pCreationParametersData, creationParametersDataSizeInBytes, riid, ppMetaCommand);
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ulong* ppTotalBytes = &pTotalBytes)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
+			{
+				fixed (ulong* ppTotalBytes = &pTotalBytes)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			{
+				fixed (ulong* ppTotalBytes = &pTotalBytes)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
+			{
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				{
+					fixed (ulong* ppTotalBytes = &pTotalBytes)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (uint* ppNumRows = &pNumRows)
+			{
+				fixed (ulong* ppTotalBytes = &pTotalBytes)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
+			{
+				fixed (uint* ppNumRows = &pNumRows)
+				{
+					fixed (ulong* ppTotalBytes = &pTotalBytes)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			{
+				fixed (uint* ppNumRows = &pNumRows)
+				{
+					fixed (ulong* ppTotalBytes = &pTotalBytes)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ulong* pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
+			{
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				{
+					fixed (uint* ppNumRows = &pNumRows)
+					{
+						fixed (ulong* ppTotalBytes = &pTotalBytes)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, pRowSizeInBytes, (ulong*)ppTotalBytes);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
+			{
+				fixed (ulong* ppTotalBytes = &pTotalBytes)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
+			{
+				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
+				{
+					fixed (ulong* ppTotalBytes = &pTotalBytes)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			{
+				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
+				{
+					fixed (ulong* ppTotalBytes = &pTotalBytes)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, uint* pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
+			{
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				{
+					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
+					{
+						fixed (ulong* ppTotalBytes = &pTotalBytes)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, pNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (uint* ppNumRows = &pNumRows)
+			{
+				fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
+				{
+					fixed (ulong* ppTotalBytes = &pTotalBytes)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, PlacedSubresourceFootprint* pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
+			{
+				fixed (uint* ppNumRows = &pNumRows)
+				{
+					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
+					{
+						fixed (ulong* ppTotalBytes = &pTotalBytes)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, pLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ResourceDesc1* pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+			{
+				fixed (uint* ppNumRows = &pNumRows)
+				{
+					fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
+					{
+						fixed (ulong* ppTotalBytes = &pTotalBytes)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, pResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void GetCopyableFootprints1(this ComPtr<ID3D12Device10> comObj, ref ResourceDesc1 pResourceDesc, uint firstSubresource, uint numSubresources, ulong baseOffset, ref PlacedSubresourceFootprint pLayouts, ref uint pNumRows, ref ulong pRowSizeInBytes, ref ulong pTotalBytes) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppResourceDesc = &pResourceDesc)
+			{
+				fixed (PlacedSubresourceFootprint* ppLayouts = &pLayouts)
+				{
+					fixed (uint* ppNumRows = &pNumRows)
+					{
+						fixed (ulong* ppRowSizeInBytes = &pRowSizeInBytes)
+						{
+							fixed (ulong* ppTotalBytes = &pTotalBytes)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D12Device10*, ResourceDesc1*, uint, uint, ulong, PlacedSubresourceFootprint*, uint*, ulong*, ulong*, void>)(handle->LpVtbl[72]))(handle, (ResourceDesc1*)ppResourceDesc, firstSubresource, numSubresources, baseOffset, (PlacedSubresourceFootprint*)ppLayouts, (uint*)ppNumRows, (ulong*)ppRowSizeInBytes, (ulong*)ppTotalBytes);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateShaderCacheSession(this ComPtr<ID3D12Device10> comObj, ShaderCacheSessionDesc* pDesc, Guid* riid, void** ppvSession) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ShaderCacheSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[73]))(handle, pDesc, riid, ppvSession);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateMetaCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateMetaCommand(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pCreationParametersData")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParametersData, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppMetaCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppMetaCommand) 
+		public static int CreateShaderCacheSession(this ComPtr<ID3D12Device10> comObj, ref ShaderCacheSessionDesc pDesc, Guid* riid, void** ppvSession) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ShaderCacheSessionDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[61]))(handle, (Guid*)pcommandId, nodeMask, pCreationParametersData, creationParametersDataSizeInBytes, riid, ppMetaCommand);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ShaderCacheSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[73]))(handle, (ShaderCacheSessionDesc*)ppDesc, riid, ppvSession);
 				return ret;
 			}
 		}
@@ -3690,14 +2698,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateMetaCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateMetaCommand(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pCreationParametersData")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParametersData, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppMetaCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppMetaCommand) 
+		public static int CreateShaderCacheSession(this ComPtr<ID3D12Device10> comObj, ShaderCacheSessionDesc* pDesc, ref Guid riid, void** ppvSession) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[61]))(handle, commandId, nodeMask, pCreationParametersData, creationParametersDataSizeInBytes, (Guid*)priid, ppMetaCommand);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ShaderCacheSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[73]))(handle, pDesc, (Guid*)priid, ppvSession);
 				return ret;
 			}
 		}
@@ -3705,16 +2711,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateMetaCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateMetaCommand(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pCreationParametersData")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParametersData, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppMetaCommand")] [NativeName(NativeNameType.Type, "void**")] void** ppMetaCommand) 
+		public static int CreateShaderCacheSession(this ComPtr<ID3D12Device10> comObj, ref ShaderCacheSessionDesc pDesc, ref Guid riid, void** ppvSession) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ShaderCacheSessionDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[61]))(handle, (Guid*)pcommandId, nodeMask, pCreationParametersData, creationParametersDataSizeInBytes, (Guid*)priid, ppMetaCommand);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ShaderCacheSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[73]))(handle, (ShaderCacheSessionDesc*)ppDesc, (Guid*)priid, ppvSession);
 					return ret;
 				}
 			}
@@ -3723,28 +2727,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateMetaCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateMetaCommand<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pCreationParametersData")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParametersData, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "ppMetaCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppMetaCommand) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateShaderCacheSession<T>(this ComPtr<ID3D12Device10> comObj, ShaderCacheSessionDesc* pDesc, out ComPtr<T> ppvSession) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppMetaCommand = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[61]))(handle, commandId, nodeMask, pCreationParametersData, creationParametersDataSizeInBytes, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppMetaCommand.GetAddressOf());
+			ID3D12Device10* handle = comObj.Handle;
+			ppvSession = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ShaderCacheSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[73]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvSession.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateMetaCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateMetaCommand<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pCreationParametersData")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParametersData, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "ppMetaCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppMetaCommand) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateShaderCacheSession<T>(this ComPtr<ID3D12Device10> comObj, ref ShaderCacheSessionDesc pDesc, out ComPtr<T> ppvSession) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ShaderCacheSessionDesc* ppDesc = &pDesc)
 			{
-				ppMetaCommand = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[61]))(handle, (Guid*)pcommandId, nodeMask, pCreationParametersData, creationParametersDataSizeInBytes, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppMetaCommand.GetAddressOf());
+				ppvSession = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ShaderCacheSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[73]))(handle, (ShaderCacheSessionDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvSession.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3752,15 +2752,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateMetaCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateMetaCommand<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* commandId, [NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pCreationParametersData")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParametersData, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppMetaCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppMetaCommand) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateShaderCacheSession<T>(this ComPtr<ID3D12Device10> comObj, ShaderCacheSessionDesc* pDesc, ref Guid riid, out ComPtr<T> ppvSession) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				ppMetaCommand = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[61]))(handle, commandId, nodeMask, pCreationParametersData, creationParametersDataSizeInBytes, (Guid*)priid, (void**)ppMetaCommand.GetAddressOf());
+				ppvSession = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ShaderCacheSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[73]))(handle, pDesc, (Guid*)priid, (void**)ppvSession.GetAddressOf());
 				return ret;
 			}
 		}
@@ -3768,17 +2766,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateMetaCommand")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateMetaCommand<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "CommandId")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid commandId, [NativeName(NativeNameType.Param, "NodeMask")] [NativeName(NativeNameType.Type, "UINT")] uint nodeMask, [NativeName(NativeNameType.Param, "pCreationParametersData")] [NativeName(NativeNameType.Type, "const void*")] void* pCreationParametersData, [NativeName(NativeNameType.Param, "CreationParametersDataSizeInBytes")] [NativeName(NativeNameType.Type, "SIZE_T")] nuint creationParametersDataSizeInBytes, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppMetaCommand")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppMetaCommand) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateShaderCacheSession<T>(this ComPtr<ID3D12Device10> comObj, ref ShaderCacheSessionDesc pDesc, ref Guid riid, out ComPtr<T> ppvSession) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* pcommandId = &commandId)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ShaderCacheSessionDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					ppMetaCommand = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, Guid*, uint, void*, nuint, Guid*, void**, int>)(handle->LpVtbl[61]))(handle, (Guid*)pcommandId, nodeMask, pCreationParametersData, creationParametersDataSizeInBytes, (Guid*)priid, (void**)ppMetaCommand.GetAddressOf());
+					ppvSession = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ShaderCacheSessionDesc*, Guid*, void**, int>)(handle->LpVtbl[73]))(handle, (ShaderCacheSessionDesc*)ppDesc, (Guid*)priid, (void**)ppvSession.GetAddressOf());
 					return ret;
 				}
 			}
@@ -3787,26 +2783,32 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppStateObject) 
+		public static int ShaderCacheControl(this ComPtr<ID3D12Device10> comObj, ShaderCacheKindFlags kinds, ShaderCacheControlFlags control) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, Guid*, void**, int>)(handle->LpVtbl[62]))(handle, pDesc, riid, ppStateObject);
+			ID3D12Device10* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, ShaderCacheKindFlags, ShaderCacheControlFlags, int>)(handle->LpVtbl[74]))(handle, kinds, control);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppStateObject) 
+		public static int CreateCommandQueue1(this ComPtr<ID3D12Device10> comObj, CommandQueueDesc* pDesc, Guid* creatorId, Guid* riid, void** ppCommandQueue) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, pDesc, creatorId, riid, ppCommandQueue);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandQueue1(this ComPtr<ID3D12Device10> comObj, ref CommandQueueDesc pDesc, Guid* creatorId, Guid* riid, void** ppCommandQueue) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, Guid*, void**, int>)(handle->LpVtbl[62]))(handle, (D3D12StateObjectDesc*)ppDesc, riid, ppStateObject);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, (CommandQueueDesc*)ppDesc, creatorId, riid, ppCommandQueue);
 				return ret;
 			}
 		}
@@ -3814,14 +2816,41 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppStateObject) 
+		public static int CreateCommandQueue1(this ComPtr<ID3D12Device10> comObj, CommandQueueDesc* pDesc, ref Guid creatorId, Guid* riid, void** ppCommandQueue) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (Guid* pcreatorId = &creatorId)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, pDesc, (Guid*)pcreatorId, riid, ppCommandQueue);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandQueue1(this ComPtr<ID3D12Device10> comObj, ref CommandQueueDesc pDesc, ref Guid creatorId, Guid* riid, void** ppCommandQueue) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
+			{
+				fixed (Guid* pcreatorId = &creatorId)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, (CommandQueueDesc*)ppDesc, (Guid*)pcreatorId, riid, ppCommandQueue);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommandQueue1(this ComPtr<ID3D12Device10> comObj, CommandQueueDesc* pDesc, Guid* creatorId, ref Guid riid, void** ppCommandQueue) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, Guid*, void**, int>)(handle->LpVtbl[62]))(handle, pDesc, (Guid*)priid, ppStateObject);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, pDesc, creatorId, (Guid*)priid, ppCommandQueue);
 				return ret;
 			}
 		}
@@ -3829,16 +2858,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppStateObject) 
+		public static int CreateCommandQueue1(this ComPtr<ID3D12Device10> comObj, ref CommandQueueDesc pDesc, Guid* creatorId, ref Guid riid, void** ppCommandQueue) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, Guid*, void**, int>)(handle->LpVtbl[62]))(handle, (D3D12StateObjectDesc*)ppDesc, (Guid*)priid, ppStateObject);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, (CommandQueueDesc*)ppDesc, creatorId, (Guid*)priid, ppCommandQueue);
 					return ret;
 				}
 			}
@@ -3847,62 +2874,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pDesc, [NativeName(NativeNameType.Param, "ppStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppStateObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue1(this ComPtr<ID3D12Device10> comObj, CommandQueueDesc* pDesc, ref Guid creatorId, ref Guid riid, void** ppCommandQueue) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppStateObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, Guid*, void**, int>)(handle->LpVtbl[62]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppStateObject.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pDesc, [NativeName(NativeNameType.Param, "ppStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppStateObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppDesc = &pDesc)
-			{
-				ppStateObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, Guid*, void**, int>)(handle->LpVtbl[62]))(handle, (D3D12StateObjectDesc*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppStateObject.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppStateObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppStateObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, Guid*, void**, int>)(handle->LpVtbl[62]))(handle, pDesc, (Guid*)priid, (void**)ppStateObject.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppStateObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (Guid* pcreatorId = &creatorId)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					ppStateObject = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, Guid*, void**, int>)(handle->LpVtbl[62]))(handle, (D3D12StateObjectDesc*)ppDesc, (Guid*)priid, (void**)ppStateObject.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, pDesc, (Guid*)pcreatorId, (Guid*)priid, ppCommandQueue);
 					return ret;
 				}
 			}
@@ -3911,239 +2890,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRaytracingAccelerationStructurePrebuildInfo")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetRaytracingAccelerationStructurePrebuildInfo(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS*")] D3D12BuildRaytracingAccelerationStructureInputs* pDesc, [NativeName(NativeNameType.Param, "pInfo")] [NativeName(NativeNameType.Type, "D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO*")] D3D12RaytracingAccelerationStructurePrebuildInfo* pInfo) 
+		public static int CreateCommandQueue1(this ComPtr<ID3D12Device10> comObj, ref CommandQueueDesc pDesc, ref Guid creatorId, ref Guid riid, void** ppCommandQueue) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12BuildRaytracingAccelerationStructureInputs*, D3D12RaytracingAccelerationStructurePrebuildInfo*, void>)(handle->LpVtbl[63]))(handle, pDesc, pInfo);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRaytracingAccelerationStructurePrebuildInfo")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetRaytracingAccelerationStructurePrebuildInfo(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS*")] ref D3D12BuildRaytracingAccelerationStructureInputs pDesc, [NativeName(NativeNameType.Param, "pInfo")] [NativeName(NativeNameType.Type, "D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO*")] D3D12RaytracingAccelerationStructurePrebuildInfo* pInfo) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12BuildRaytracingAccelerationStructureInputs* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12BuildRaytracingAccelerationStructureInputs*, D3D12RaytracingAccelerationStructurePrebuildInfo*, void>)(handle->LpVtbl[63]))(handle, (D3D12BuildRaytracingAccelerationStructureInputs*)ppDesc, pInfo);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRaytracingAccelerationStructurePrebuildInfo")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetRaytracingAccelerationStructurePrebuildInfo(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS*")] D3D12BuildRaytracingAccelerationStructureInputs* pDesc, [NativeName(NativeNameType.Param, "pInfo")] [NativeName(NativeNameType.Type, "D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO*")] ref D3D12RaytracingAccelerationStructurePrebuildInfo pInfo) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12RaytracingAccelerationStructurePrebuildInfo* ppInfo = &pInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12BuildRaytracingAccelerationStructureInputs*, D3D12RaytracingAccelerationStructurePrebuildInfo*, void>)(handle->LpVtbl[63]))(handle, pDesc, (D3D12RaytracingAccelerationStructurePrebuildInfo*)ppInfo);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetRaytracingAccelerationStructurePrebuildInfo")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void GetRaytracingAccelerationStructurePrebuildInfo(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_BUILD_RAYTRACING_ACCELERATION_STRUCTURE_INPUTS*")] ref D3D12BuildRaytracingAccelerationStructureInputs pDesc, [NativeName(NativeNameType.Param, "pInfo")] [NativeName(NativeNameType.Type, "D3D12_RAYTRACING_ACCELERATION_STRUCTURE_PREBUILD_INFO*")] ref D3D12RaytracingAccelerationStructurePrebuildInfo pInfo) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12BuildRaytracingAccelerationStructureInputs* ppDesc = &pDesc)
-			{
-				fixed (D3D12RaytracingAccelerationStructurePrebuildInfo* ppInfo = &pInfo)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12BuildRaytracingAccelerationStructureInputs*, D3D12RaytracingAccelerationStructurePrebuildInfo*, void>)(handle->LpVtbl[63]))(handle, (D3D12BuildRaytracingAccelerationStructureInputs*)ppDesc, (D3D12RaytracingAccelerationStructurePrebuildInfo*)ppInfo);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckDriverMatchingIdentifier")]
-		[return: NativeName(NativeNameType.Type, "D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS")]
-		public static D3D12DriverMatchingIdentifierStatus CheckDriverMatchingIdentifier(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "SerializedDataType")] [NativeName(NativeNameType.Type, "D3D12_SERIALIZED_DATA_TYPE")] D3D12SerializedDataType serializedDataType, [NativeName(NativeNameType.Param, "pIdentifierToCheck")] [NativeName(NativeNameType.Type, "const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER*")] D3D12SerializedDataDriverMatchingIdentifier* pIdentifierToCheck) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			D3D12DriverMatchingIdentifierStatus ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12SerializedDataType, D3D12SerializedDataDriverMatchingIdentifier*, D3D12DriverMatchingIdentifierStatus>)(handle->LpVtbl[64]))(handle, serializedDataType, pIdentifierToCheck);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckDriverMatchingIdentifier")]
-		[return: NativeName(NativeNameType.Type, "D3D12_DRIVER_MATCHING_IDENTIFIER_STATUS")]
-		public static D3D12DriverMatchingIdentifierStatus CheckDriverMatchingIdentifier(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "SerializedDataType")] [NativeName(NativeNameType.Type, "D3D12_SERIALIZED_DATA_TYPE")] D3D12SerializedDataType serializedDataType, [NativeName(NativeNameType.Param, "pIdentifierToCheck")] [NativeName(NativeNameType.Type, "const D3D12_SERIALIZED_DATA_DRIVER_MATCHING_IDENTIFIER*")] ref D3D12SerializedDataDriverMatchingIdentifier pIdentifierToCheck) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12SerializedDataDriverMatchingIdentifier* ppIdentifierToCheck = &pIdentifierToCheck)
-			{
-				D3D12DriverMatchingIdentifierStatus ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12SerializedDataType, D3D12SerializedDataDriverMatchingIdentifier*, D3D12DriverMatchingIdentifierStatus>)(handle->LpVtbl[64]))(handle, serializedDataType, (D3D12SerializedDataDriverMatchingIdentifier*)ppIdentifierToCheck);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBackgroundProcessingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetBackgroundProcessingMode(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "Mode")] [NativeName(NativeNameType.Type, "D3D12_BACKGROUND_PROCESSING_MODE")] D3D12BackgroundProcessingMode mode, [NativeName(NativeNameType.Param, "MeasurementsAction")] [NativeName(NativeNameType.Type, "D3D12_MEASUREMENTS_ACTION")] D3D12MeasurementsAction measurementsAction, [NativeName(NativeNameType.Param, "hEventToSignalUponCompletion")] [NativeName(NativeNameType.Type, "HANDLE")] nint hEventToSignalUponCompletion, [NativeName(NativeNameType.Param, "pbFurtherMeasurementsDesired")] [NativeName(NativeNameType.Type, "BOOL*")] int* pbFurtherMeasurementsDesired) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12BackgroundProcessingMode, D3D12MeasurementsAction, nint, int*, int>)(handle->LpVtbl[65]))(handle, mode, measurementsAction, hEventToSignalUponCompletion, pbFurtherMeasurementsDesired);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetBackgroundProcessingMode")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetBackgroundProcessingMode(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "Mode")] [NativeName(NativeNameType.Type, "D3D12_BACKGROUND_PROCESSING_MODE")] D3D12BackgroundProcessingMode mode, [NativeName(NativeNameType.Param, "MeasurementsAction")] [NativeName(NativeNameType.Type, "D3D12_MEASUREMENTS_ACTION")] D3D12MeasurementsAction measurementsAction, [NativeName(NativeNameType.Param, "hEventToSignalUponCompletion")] [NativeName(NativeNameType.Type, "HANDLE")] nint hEventToSignalUponCompletion, [NativeName(NativeNameType.Param, "pbFurtherMeasurementsDesired")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pbFurtherMeasurementsDesired) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (int* ppbFurtherMeasurementsDesired = &pbFurtherMeasurementsDesired)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12BackgroundProcessingMode, D3D12MeasurementsAction, nint, int*, int>)(handle->LpVtbl[65]))(handle, mode, measurementsAction, hEventToSignalUponCompletion, (int*)ppbFurtherMeasurementsDesired);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ID3D12StateObject* pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppNewStateObject) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, pAddition, pStateObjectToGrowFrom, riid, ppNewStateObject);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ID3D12StateObject* pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppNewStateObject) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppAddition = &pAddition)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, (D3D12StateObjectDesc*)ppAddition, pStateObjectToGrowFrom, riid, ppNewStateObject);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ref ID3D12StateObject pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppNewStateObject) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12StateObject* ppStateObjectToGrowFrom = &pStateObjectToGrowFrom)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, pAddition, (ID3D12StateObject*)ppStateObjectToGrowFrom, riid, ppNewStateObject);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ref ID3D12StateObject pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppNewStateObject) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppAddition = &pAddition)
-			{
-				fixed (ID3D12StateObject* ppStateObjectToGrowFrom = &pStateObjectToGrowFrom)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, (D3D12StateObjectDesc*)ppAddition, (ID3D12StateObject*)ppStateObjectToGrowFrom, riid, ppNewStateObject);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ID3D12StateObject* pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppNewStateObject) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, pAddition, pStateObjectToGrowFrom, (Guid*)priid, ppNewStateObject);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ID3D12StateObject* pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppNewStateObject) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppAddition = &pAddition)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, (D3D12StateObjectDesc*)ppAddition, pStateObjectToGrowFrom, (Guid*)priid, ppNewStateObject);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ref ID3D12StateObject pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppNewStateObject) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12StateObject* ppStateObjectToGrowFrom = &pStateObjectToGrowFrom)
-			{
-				fixed (Guid* priid = &riid)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, pAddition, (ID3D12StateObject*)ppStateObjectToGrowFrom, (Guid*)priid, ppNewStateObject);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ref ID3D12StateObject pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] void** ppNewStateObject) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppAddition = &pAddition)
-			{
-				fixed (ID3D12StateObject* ppStateObjectToGrowFrom = &pStateObjectToGrowFrom)
+				fixed (Guid* pcreatorId = &creatorId)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, (D3D12StateObjectDesc*)ppAddition, (ID3D12StateObject*)ppStateObjectToGrowFrom, (Guid*)priid, ppNewStateObject);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, (CommandQueueDesc*)ppDesc, (Guid*)pcreatorId, (Guid*)priid, ppCommandQueue);
 						return ret;
 					}
 				}
@@ -4153,28 +2909,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ID3D12StateObject* pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppNewStateObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue1<T>(this ComPtr<ID3D12Device10> comObj, CommandQueueDesc* pDesc, Guid* creatorId, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppNewStateObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, pAddition, pStateObjectToGrowFrom, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppNewStateObject.GetAddressOf());
+			ID3D12Device10* handle = comObj.Handle;
+			ppCommandQueue = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, pDesc, creatorId, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandQueue.GetAddressOf());
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ID3D12StateObject* pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppNewStateObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue1<T>(this ComPtr<ID3D12Device10> comObj, ref CommandQueueDesc pDesc, Guid* creatorId, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppAddition = &pAddition)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
 			{
-				ppNewStateObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, (D3D12StateObjectDesc*)ppAddition, pStateObjectToGrowFrom, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppNewStateObject.GetAddressOf());
+				ppCommandQueue = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, (CommandQueueDesc*)ppDesc, creatorId, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandQueue.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4182,15 +2934,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ref ID3D12StateObject pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppNewStateObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue1<T>(this ComPtr<ID3D12Device10> comObj, CommandQueueDesc* pDesc, ref Guid creatorId, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12StateObject* ppStateObjectToGrowFrom = &pStateObjectToGrowFrom)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (Guid* pcreatorId = &creatorId)
 			{
-				ppNewStateObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, pAddition, (ID3D12StateObject*)ppStateObjectToGrowFrom, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppNewStateObject.GetAddressOf());
+				ppCommandQueue = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, pDesc, (Guid*)pcreatorId, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandQueue.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4198,17 +2948,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ref ID3D12StateObject pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppNewStateObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue1<T>(this ComPtr<ID3D12Device10> comObj, ref CommandQueueDesc pDesc, ref Guid creatorId, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppAddition = &pAddition)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
 			{
-				fixed (ID3D12StateObject* ppStateObjectToGrowFrom = &pStateObjectToGrowFrom)
+				fixed (Guid* pcreatorId = &creatorId)
 				{
-					ppNewStateObject = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, (D3D12StateObjectDesc*)ppAddition, (ID3D12StateObject*)ppStateObjectToGrowFrom, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppNewStateObject.GetAddressOf());
+					ppCommandQueue = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, (CommandQueueDesc*)ppDesc, (Guid*)pcreatorId, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppCommandQueue.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4217,15 +2965,13 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ID3D12StateObject* pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppNewStateObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue1<T>(this ComPtr<ID3D12Device10> comObj, CommandQueueDesc* pDesc, Guid* creatorId, ref Guid riid, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (Guid* priid = &riid)
 			{
-				ppNewStateObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, pAddition, pStateObjectToGrowFrom, (Guid*)priid, (void**)ppNewStateObject.GetAddressOf());
+				ppCommandQueue = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, pDesc, creatorId, (Guid*)priid, (void**)ppCommandQueue.GetAddressOf());
 				return ret;
 			}
 		}
@@ -4233,17 +2979,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ID3D12StateObject* pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppNewStateObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue1<T>(this ComPtr<ID3D12Device10> comObj, ref CommandQueueDesc pDesc, Guid* creatorId, ref Guid riid, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppAddition = &pAddition)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					ppNewStateObject = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, (D3D12StateObjectDesc*)ppAddition, pStateObjectToGrowFrom, (Guid*)priid, (void**)ppNewStateObject.GetAddressOf());
+					ppCommandQueue = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, (CommandQueueDesc*)ppDesc, creatorId, (Guid*)priid, (void**)ppCommandQueue.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4252,17 +2996,15 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] D3D12StateObjectDesc* pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ref ID3D12StateObject pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppNewStateObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue1<T>(this ComPtr<ID3D12Device10> comObj, CommandQueueDesc* pDesc, ref Guid creatorId, ref Guid riid, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (ID3D12StateObject* ppStateObjectToGrowFrom = &pStateObjectToGrowFrom)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (Guid* pcreatorId = &creatorId)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					ppNewStateObject = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, pAddition, (ID3D12StateObject*)ppStateObjectToGrowFrom, (Guid*)priid, (void**)ppNewStateObject.GetAddressOf());
+					ppCommandQueue = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, pDesc, (Guid*)pcreatorId, (Guid*)priid, (void**)ppCommandQueue.GetAddressOf());
 					return ret;
 				}
 			}
@@ -4271,19 +3013,17 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddToStateObject")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int AddToStateObject<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pAddition")] [NativeName(NativeNameType.Type, "const D3D12_STATE_OBJECT_DESC*")] ref D3D12StateObjectDesc pAddition, [NativeName(NativeNameType.Param, "pStateObjectToGrowFrom")] [NativeName(NativeNameType.Type, "ID3D12StateObject*")] ref ID3D12StateObject pStateObjectToGrowFrom, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppNewStateObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppNewStateObject) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommandQueue1<T>(this ComPtr<ID3D12Device10> comObj, ref CommandQueueDesc pDesc, ref Guid creatorId, ref Guid riid, out ComPtr<T> ppCommandQueue) where T : unmanaged, IComObject, IComObject<T>
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12StateObjectDesc* ppAddition = &pAddition)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (CommandQueueDesc* ppDesc = &pDesc)
 			{
-				fixed (ID3D12StateObject* ppStateObjectToGrowFrom = &pStateObjectToGrowFrom)
+				fixed (Guid* pcreatorId = &creatorId)
 				{
 					fixed (Guid* priid = &riid)
 					{
-						ppNewStateObject = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12StateObjectDesc*, ID3D12StateObject*, Guid*, void**, int>)(handle->LpVtbl[66]))(handle, (D3D12StateObjectDesc*)ppAddition, (ID3D12StateObject*)ppStateObjectToGrowFrom, (Guid*)priid, (void**)ppNewStateObject.GetAddressOf());
+						ppCommandQueue = default;
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, CommandQueueDesc*, Guid*, Guid*, void**, int>)(handle->LpVtbl[75]))(handle, (CommandQueueDesc*)ppDesc, (Guid*)pcreatorId, (Guid*)priid, (void**)ppCommandQueue.GetAddressOf());
 						return ret;
 					}
 				}
@@ -4293,26 +3033,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC1*")] D3D12ProtectedResourceSessionDesc1* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] void** ppSession) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc1*, Guid*, void**, int>)(handle->LpVtbl[67]))(handle, pDesc, riid, ppSession);
+			ID3D12Device10* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC1*")] ref D3D12ProtectedResourceSessionDesc1 pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] void** ppSession) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ProtectedResourceSessionDesc1* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc1*, Guid*, void**, int>)(handle->LpVtbl[67]))(handle, (D3D12ProtectedResourceSessionDesc1*)ppDesc, riid, ppSession);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -4320,14 +3056,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC1*")] D3D12ProtectedResourceSessionDesc1* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] void** ppSession) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc1*, Guid*, void**, int>)(handle->LpVtbl[67]))(handle, pDesc, (Guid*)priid, ppSession);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -4335,16 +3069,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession1(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC1*")] ref D3D12ProtectedResourceSessionDesc1 pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] void** ppSession) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ProtectedResourceSessionDesc1* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (Guid* priid = &riid)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc1*, Guid*, void**, int>)(handle->LpVtbl[67]))(handle, (D3D12ProtectedResourceSessionDesc1*)ppDesc, (Guid*)priid, ppSession);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4353,28 +3085,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC1*")] D3D12ProtectedResourceSessionDesc1* pDesc, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSession) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			ppSession = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc1*, Guid*, void**, int>)(handle->LpVtbl[67]))(handle, pDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppSession.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC1*")] ref D3D12ProtectedResourceSessionDesc1 pDesc, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSession) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ProtectedResourceSessionDesc1* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				ppSession = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc1*, Guid*, void**, int>)(handle->LpVtbl[67]))(handle, (D3D12ProtectedResourceSessionDesc1*)ppDesc, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppSession.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -4382,33 +3098,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC1*")] D3D12ProtectedResourceSessionDesc1* pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSession) where T : unmanaged, IComObject, IComObject<T>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				ppSession = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc1*, Guid*, void**, int>)(handle->LpVtbl[67]))(handle, pDesc, (Guid*)priid, (void**)ppSession.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateProtectedResourceSession1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateProtectedResourceSession1<T>(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_PROTECTED_RESOURCE_SESSION_DESC1*")] ref D3D12ProtectedResourceSessionDesc1 pDesc, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppSession")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppSession) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ProtectedResourceSessionDesc1* ppDesc = &pDesc)
-			{
-				fixed (Guid* priid = &riid)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					ppSession = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12ProtectedResourceSessionDesc1*, Guid*, void**, int>)(handle->LpVtbl[67]))(handle, (D3D12ProtectedResourceSessionDesc1*)ppDesc, (Guid*)priid, (void**)ppSession.GetAddressOf());
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4417,58 +3114,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceAllocationInfo2")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO")]
-		public static D3D12ResourceAllocationInfo GetResourceAllocationInfo2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "visibleMask")] [NativeName(NativeNameType.Type, "UINT")] uint visibleMask, [NativeName(NativeNameType.Param, "numResourceDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceDescs, [NativeName(NativeNameType.Param, "pResourceDescs")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pResourceDescs, [NativeName(NativeNameType.Param, "pResourceAllocationInfo1")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO1*")] D3D12ResourceAllocationInfo1* pResourceAllocationInfo1) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			D3D12ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, uint, D3D12ResourceDesc1*, D3D12ResourceAllocationInfo1*, D3D12ResourceAllocationInfo>)(handle->LpVtbl[68]))(handle, visibleMask, numResourceDescs, pResourceDescs, pResourceAllocationInfo1);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceAllocationInfo2")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO")]
-		public static D3D12ResourceAllocationInfo GetResourceAllocationInfo2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "visibleMask")] [NativeName(NativeNameType.Type, "UINT")] uint visibleMask, [NativeName(NativeNameType.Param, "numResourceDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceDescs, [NativeName(NativeNameType.Param, "pResourceDescs")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pResourceDescs, [NativeName(NativeNameType.Param, "pResourceAllocationInfo1")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO1*")] D3D12ResourceAllocationInfo1* pResourceAllocationInfo1) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc1* ppResourceDescs = &pResourceDescs)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				D3D12ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, uint, D3D12ResourceDesc1*, D3D12ResourceAllocationInfo1*, D3D12ResourceAllocationInfo>)(handle->LpVtbl[68]))(handle, visibleMask, numResourceDescs, (D3D12ResourceDesc1*)ppResourceDescs, pResourceAllocationInfo1);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceAllocationInfo2")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO")]
-		public static D3D12ResourceAllocationInfo GetResourceAllocationInfo2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "visibleMask")] [NativeName(NativeNameType.Type, "UINT")] uint visibleMask, [NativeName(NativeNameType.Param, "numResourceDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceDescs, [NativeName(NativeNameType.Param, "pResourceDescs")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pResourceDescs, [NativeName(NativeNameType.Param, "pResourceAllocationInfo1")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO1*")] ref D3D12ResourceAllocationInfo1 pResourceAllocationInfo1) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceAllocationInfo1* ppResourceAllocationInfo1 = &pResourceAllocationInfo1)
-			{
-				D3D12ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, uint, D3D12ResourceDesc1*, D3D12ResourceAllocationInfo1*, D3D12ResourceAllocationInfo>)(handle->LpVtbl[68]))(handle, visibleMask, numResourceDescs, pResourceDescs, (D3D12ResourceAllocationInfo1*)ppResourceAllocationInfo1);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetResourceAllocationInfo2")]
-		[return: NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO")]
-		public static D3D12ResourceAllocationInfo GetResourceAllocationInfo2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "visibleMask")] [NativeName(NativeNameType.Type, "UINT")] uint visibleMask, [NativeName(NativeNameType.Param, "numResourceDescs")] [NativeName(NativeNameType.Type, "UINT")] uint numResourceDescs, [NativeName(NativeNameType.Param, "pResourceDescs")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pResourceDescs, [NativeName(NativeNameType.Param, "pResourceAllocationInfo1")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_ALLOCATION_INFO1*")] ref D3D12ResourceAllocationInfo1 pResourceAllocationInfo1) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc1* ppResourceDescs = &pResourceDescs)
-			{
-				fixed (D3D12ResourceAllocationInfo1* ppResourceAllocationInfo1 = &pResourceAllocationInfo1)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					D3D12ResourceAllocationInfo ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, uint, uint, D3D12ResourceDesc1*, D3D12ResourceAllocationInfo1*, D3D12ResourceAllocationInfo>)(handle->LpVtbl[68]))(handle, visibleMask, numResourceDescs, (D3D12ResourceDesc1*)ppResourceDescs, (D3D12ResourceAllocationInfo1*)ppResourceAllocationInfo1);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4477,129 +3130,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
-			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
-		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
-			{
-				fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
-				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, riidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -4609,14 +3149,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
+			ID3D12Device10* handle = comObj.Handle;
 			fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -4624,28 +3162,24 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+			ID3D12Device10* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4654,14 +3188,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -4669,16 +3201,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4687,14 +3217,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -4702,18 +3230,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
 					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -4723,16 +3249,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4741,16 +3265,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
 				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4759,14 +3281,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -4774,18 +3294,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -4795,16 +3313,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4813,18 +3329,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
 					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -4834,16 +3348,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4852,20 +3364,18 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ref ID3D12ProtectedResourceSession pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
 						fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, riidResource, ppvResource);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 							return ret;
 						}
 					}
@@ -4876,18 +3386,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, riidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -4897,14 +3405,12 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (Guid* priidResource = &riidResource)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (Format* ppCastableFormats = &pCastableFormats)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
 				return ret;
 			}
 		}
@@ -4912,16 +3418,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (Guid* priidResource = &riidResource)
+				fixed (Format* ppCastableFormats = &pCastableFormats)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4930,16 +3434,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (Guid* priidResource = &riidResource)
+				fixed (Format* ppCastableFormats = &pCastableFormats)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4948,18 +3450,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] D3D12ClearValue* pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
-					fixed (Guid* priidResource = &riidResource)
+					fixed (Format* ppCastableFormats = &pCastableFormats)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, pOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -4969,16 +3469,14 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 			{
-				fixed (Guid* priidResource = &riidResource)
+				fixed (Format* ppCastableFormats = &pCastableFormats)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
 					return ret;
 				}
 			}
@@ -4987,18 +3485,16 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] ref D3D12HeapProperties pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] D3D12ResourceDesc1* pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12HeapProperties* ppHeapProperties = &pHeapProperties)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
 				{
-					fixed (Guid* priidResource = &riidResource)
+					fixed (Format* ppCastableFormats = &pCastableFormats)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, (D3D12HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
 						return ret;
 					}
 				}
@@ -5008,20 +3504,1532 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCommittedResource2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCommittedResource2(this ComPtr<ID3D12Device9> comObj, [NativeName(NativeNameType.Param, "pHeapProperties")] [NativeName(NativeNameType.Type, "const D3D12_HEAP_PROPERTIES*")] D3D12HeapProperties* pHeapProperties, [NativeName(NativeNameType.Param, "HeapFlags")] [NativeName(NativeNameType.Type, "D3D12_HEAP_FLAGS")] D3D12HeapFlags heapFlags, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D12_RESOURCE_DESC1*")] ref D3D12ResourceDesc1 pDesc, [NativeName(NativeNameType.Param, "InitialResourceState")] [NativeName(NativeNameType.Type, "D3D12_RESOURCE_STATES")] D3D12ResourceStates initialResourceState, [NativeName(NativeNameType.Param, "pOptimizedClearValue")] [NativeName(NativeNameType.Type, "const D3D12_CLEAR_VALUE*")] ref D3D12ClearValue pOptimizedClearValue, [NativeName(NativeNameType.Param, "pProtectedSession")] [NativeName(NativeNameType.Type, "ID3D12ProtectedResourceSession*")] ID3D12ProtectedResourceSession* pProtectedSession, [NativeName(NativeNameType.Param, "riidResource")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riidResource, [NativeName(NativeNameType.Param, "ppvResource")] [NativeName(NativeNameType.Type, "void**")] void** ppvResource) 
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
 		{
-			ID3D12Device9* handle = comObj.Handle;
-			fixed (D3D12ResourceDesc1* ppDesc = &pDesc)
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
 			{
-				fixed (D3D12ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (Format* ppCastableFormats = &pCastableFormats)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+			{
+				fixed (Format* ppCastableFormats = &pCastableFormats)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (Format* ppCastableFormats = &pCastableFormats)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (Format* ppCastableFormats = &pCastableFormats)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (Format* ppCastableFormats = &pCastableFormats)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+					{
+						fixed (Format* ppCastableFormats = &pCastableFormats)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Format* ppCastableFormats = &pCastableFormats)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+					{
+						fixed (Format* ppCastableFormats = &pCastableFormats)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+					{
+						fixed (Format* ppCastableFormats = &pCastableFormats)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+						{
+							fixed (Format* ppCastableFormats = &pCastableFormats)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, Guid* riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (Format* ppCastableFormats = &pCastableFormats)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, riidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (Guid* priidResource = &riidResource)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
 				{
 					fixed (Guid* priidResource = &riidResource)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device9*, D3D12HeapProperties*, D3D12HeapFlags, D3D12ResourceDesc1*, D3D12ResourceStates, D3D12ClearValue*, ID3D12ProtectedResourceSession*, Guid*, void**, int>)(handle->LpVtbl[69]))(handle, pHeapProperties, heapFlags, (D3D12ResourceDesc1*)ppDesc, initialResourceState, (D3D12ClearValue*)ppOptimizedClearValue, pProtectedSession, (Guid*)priidResource, ppvResource);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
 						return ret;
 					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (Guid* priidResource = &riidResource)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+						{
+							fixed (Guid* priidResource = &riidResource)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (Format* ppCastableFormats = &pCastableFormats)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (Format* ppCastableFormats = &pCastableFormats)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (Format* ppCastableFormats = &pCastableFormats)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Format* ppCastableFormats = &pCastableFormats)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (Format* ppCastableFormats = &pCastableFormats)
+						{
+							fixed (Guid* priidResource = &riidResource)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+			{
+				fixed (Format* ppCastableFormats = &pCastableFormats)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (Format* ppCastableFormats = &pCastableFormats)
+			{
+				fixed (Guid* priidResource = &riidResource)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (Format* ppCastableFormats = &pCastableFormats)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (Format* ppCastableFormats = &pCastableFormats)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+					{
+						fixed (Format* ppCastableFormats = &pCastableFormats)
+						{
+							fixed (Guid* priidResource = &riidResource)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				fixed (Format* ppCastableFormats = &pCastableFormats)
+				{
+					fixed (Guid* priidResource = &riidResource)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+					{
+						fixed (Format* ppCastableFormats = &pCastableFormats)
+						{
+							fixed (Guid* priidResource = &riidResource)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+					{
+						fixed (Format* ppCastableFormats = &pCastableFormats)
+						{
+							fixed (Guid* priidResource = &riidResource)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					fixed (Format* ppCastableFormats = &pCastableFormats)
+					{
+						fixed (Guid* priidResource = &riidResource)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ref ID3D12ProtectedResourceSession pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (ID3D12ProtectedResourceSession* ppProtectedSession = &pProtectedSession)
+						{
+							fixed (Format* ppCastableFormats = &pCastableFormats)
+							{
+								fixed (Guid* priidResource = &riidResource)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)ppProtectedSession, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, ref Format pCastableFormats, ref Guid riidResource, void** ppvResource) 
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						fixed (Format* ppCastableFormats = &pCastableFormats)
+						{
+							fixed (Guid* priidResource = &riidResource)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, (Format*)ppCastableFormats, (Guid*)priidResource, ppvResource);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			ppvResource = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ID3D12ProtectedResourceSession* pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+					{
+						ppvResource = default;
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, pProtectedSession, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			ppvResource = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ClearValue* pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ResourceDesc1* ppDesc = &pDesc)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, pOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+			{
+				ppvResource = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, ref HeapProperties pHeapProperties, HeapFlags heapFlags, ResourceDesc1* pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (HeapProperties* ppHeapProperties = &pHeapProperties)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, (HeapProperties*)ppHeapProperties, heapFlags, pDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCommittedResource3<T>(this ComPtr<ID3D12Device10> comObj, HeapProperties* pHeapProperties, HeapFlags heapFlags, ref ResourceDesc1 pDesc, BarrierLayout initialLayout, ref ClearValue pOptimizedClearValue, ComPtr<ID3D12ProtectedResourceSession> pProtectedSession, uint numCastableFormats, Format* pCastableFormats, out ComPtr<T> ppvResource) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D12Device10* handle = comObj.Handle;
+			fixed (ResourceDesc1* ppDesc = &pDesc)
+			{
+				fixed (ClearValue* ppOptimizedClearValue = &pOptimizedClearValue)
+				{
+					ppvResource = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D12Device10*, HeapProperties*, HeapFlags, ResourceDesc1*, BarrierLayout, ClearValue*, ID3D12ProtectedResourceSession*, uint, Format*, Guid*, void**, int>)(handle->LpVtbl[76]))(handle, pHeapProperties, heapFlags, (ResourceDesc1*)ppDesc, initialLayout, (ClearValue*)ppOptimizedClearValue, (ID3D12ProtectedResourceSession*)pProtectedSession.Handle, numCastableFormats, pCastableFormats, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvResource.GetAddressOf());
+					return ret;
 				}
 			}
 		}

@@ -56,10 +56,8 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateInstanceNative([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		internal static int CreateInstanceNative(Guid* rclsid, Guid* riid, void** ppv)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<Guid*, Guid*, void**, int>)funcTable[0])(rclsid, riid, ppv);
@@ -107,9 +105,7 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance(Guid* rclsid, Guid* riid, void** ppv)
 		{
 			int ret = CreateInstanceNative(rclsid, riid, ppv);
 			return ret;
@@ -154,9 +150,7 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance(ref Guid rclsid, Guid* riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -204,9 +198,7 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance(Guid* rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -254,9 +246,7 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance(ref Guid rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -307,9 +297,7 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance(Guid* rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (void** pppv = &ppv)
 			{
@@ -357,9 +345,7 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance(ref Guid rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -410,9 +396,7 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance(Guid* rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -463,9 +447,7 @@ namespace Hexa.NET.DXC
 		/// </remarks<br/>
 		/// ><br/>
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance([NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance(ref Guid rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -483,10 +465,8 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
 		[MethodImpl(MethodImplOptions.AggressiveInlining)]
-		internal static int CreateInstance2Native([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		internal static int CreateInstance2Native(IMalloc* pMalloc, Guid* rclsid, Guid* riid, void** ppv)
 		{
 			#if NET5_0_OR_GREATER
 			return ((delegate* unmanaged[Cdecl]<IMalloc*, Guid*, Guid*, void**, int>)funcTable[1])(pMalloc, rclsid, riid, ppv);
@@ -498,9 +478,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(IMalloc* pMalloc, Guid* rclsid, Guid* riid, void** ppv)
 		{
 			int ret = CreateInstance2Native(pMalloc, rclsid, riid, ppv);
 			return ret;
@@ -509,9 +487,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ref IMalloc pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, Guid* riid, void** ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -523,20 +499,16 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ComPtr<IMalloc> pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, Guid* riid, void** ppv)
 		{
-			int ret = CreateInstance2Native((IMalloc*)pMalloc.GetAddressOf(), rclsid, riid, ppv);
+			int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, riid, ppv);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, Guid* riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -548,9 +520,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ref IMalloc pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, Guid* riid, void** ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -565,13 +535,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ComPtr<IMalloc> pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, Guid* riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
-				int ret = CreateInstance2Native((IMalloc*)pMalloc.GetAddressOf(), (Guid*)prclsid, riid, ppv);
+				int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, riid, ppv);
 				return ret;
 			}
 		}
@@ -579,9 +547,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(IMalloc* pMalloc, Guid* rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -593,9 +559,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ref IMalloc pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -610,13 +574,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ComPtr<IMalloc> pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
-				int ret = CreateInstance2Native((IMalloc*)pMalloc.GetAddressOf(), rclsid, (Guid*)priid, ppv);
+				int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, (Guid*)priid, ppv);
 				return ret;
 			}
 		}
@@ -624,9 +586,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -641,9 +601,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ref IMalloc pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -661,15 +619,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ComPtr<IMalloc> pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] void** ppv)
+		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, ref Guid riid, void** ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
 				fixed (Guid* priid = &riid)
 				{
-					int ret = CreateInstance2Native((IMalloc*)pMalloc.GetAddressOf(), (Guid*)prclsid, (Guid*)priid, ppv);
+					int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, (Guid*)priid, ppv);
 					return ret;
 				}
 			}
@@ -678,9 +634,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(IMalloc* pMalloc, Guid* rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (void** pppv = &ppv)
 			{
@@ -692,9 +646,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ref IMalloc pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -709,13 +661,11 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ComPtr<IMalloc> pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (void** pppv = &ppv)
 			{
-				int ret = CreateInstance2Native((IMalloc*)pMalloc.GetAddressOf(), rclsid, riid, (void**)pppv);
+				int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, riid, (void**)pppv);
 				return ret;
 			}
 		}
@@ -723,9 +673,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -740,9 +688,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ref IMalloc pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -760,15 +706,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ComPtr<IMalloc> pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, Guid* riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = CreateInstance2Native((IMalloc*)pMalloc.GetAddressOf(), (Guid*)prclsid, riid, (void**)pppv);
+					int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, riid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -777,9 +721,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(IMalloc* pMalloc, Guid* rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
@@ -794,9 +736,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ref IMalloc pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(ref IMalloc pMalloc, Guid* rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -814,15 +754,13 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ComPtr<IMalloc> pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, Guid* rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* priid = &riid)
 			{
 				fixed (void** pppv = &ppv)
 				{
-					int ret = CreateInstance2Native((IMalloc*)pMalloc.GetAddressOf(), rclsid, (Guid*)priid, (void**)pppv);
+					int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, rclsid, (Guid*)priid, (void**)pppv);
 					return ret;
 				}
 			}
@@ -831,9 +769,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] IMalloc* pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(IMalloc* pMalloc, ref Guid rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -851,9 +787,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ref IMalloc pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(ref IMalloc pMalloc, ref Guid rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (IMalloc* ppMalloc = &pMalloc)
 			{
@@ -874,9 +808,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DxcCreateInstance2")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateInstance2([NativeName(NativeNameType.Param, "pMalloc")] [NativeName(NativeNameType.Type, "IMalloc*")] ComPtr<IMalloc> pMalloc, [NativeName(NativeNameType.Param, "rclsid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid rclsid, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv)
+		public static int CreateInstance2(ComPtr<IMalloc> pMalloc, ref Guid rclsid, ref Guid riid, ref void* ppv)
 		{
 			fixed (Guid* prclsid = &rclsid)
 			{
@@ -884,7 +816,7 @@ namespace Hexa.NET.DXC
 				{
 					fixed (void** pppv = &ppv)
 					{
-						int ret = CreateInstance2Native((IMalloc*)pMalloc.GetAddressOf(), (Guid*)prclsid, (Guid*)priid, (void**)pppv);
+						int ret = CreateInstance2Native((IMalloc*)pMalloc.Handle, (Guid*)prclsid, (Guid*)priid, (void**)pppv);
 						return ret;
 					}
 				}

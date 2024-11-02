@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("bc66d368-7373-4943-8757-fc87dc79e476")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12VirtualizationGuestDevice")]
 	public partial struct ID3D12VirtualizationGuestDevice : IComObject, IComObject<ID3D12VirtualizationGuestDevice>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ShareWithHost")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ShareWithHost([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
+		public readonly unsafe int ShareWithHost(ID3D12DeviceChild* pObject, nint* pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, int>)(LpVtbl[3]))(ptr, pObject, pHandle);
@@ -129,9 +114,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ShareWithHost")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ShareWithHost([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
+		public readonly unsafe int ShareWithHost(ref ID3D12DeviceChild pObject, nint* pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12DeviceChild* ppObject = &pObject)
@@ -144,9 +127,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ShareWithHost")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ShareWithHost([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ComPtr<ID3D12DeviceChild> pObject, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] nint* pHandle) 
+		public readonly unsafe int ShareWithHost(ComPtr<ID3D12DeviceChild> pObject, nint* pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12DeviceChild*, nint*, int>)(LpVtbl[3]))(ptr, (ID3D12DeviceChild*)pObject.Handle, pHandle);
@@ -156,9 +137,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ShareWithHost")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ShareWithHost([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ID3D12DeviceChild* pObject, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
+		public readonly unsafe int ShareWithHost(ID3D12DeviceChild* pObject, ref nint pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nint* ppHandle = &pHandle)
@@ -171,9 +150,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ShareWithHost")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ShareWithHost([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ref ID3D12DeviceChild pObject, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
+		public readonly unsafe int ShareWithHost(ref ID3D12DeviceChild pObject, ref nint pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12DeviceChild* ppObject = &pObject)
@@ -189,9 +166,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "ShareWithHost")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int ShareWithHost([NativeName(NativeNameType.Param, "pObject")] [NativeName(NativeNameType.Type, "ID3D12DeviceChild*")] ComPtr<ID3D12DeviceChild> pObject, [NativeName(NativeNameType.Param, "pHandle")] [NativeName(NativeNameType.Type, "HANDLE*")] ref nint pHandle) 
+		public readonly unsafe int ShareWithHost(ComPtr<ID3D12DeviceChild> pObject, ref nint pHandle) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (nint* ppHandle = &pHandle)
@@ -204,9 +179,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateFenceFd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateFenceFd([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ID3D12Fence* pFence, [NativeName(NativeNameType.Param, "FenceValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValue, [NativeName(NativeNameType.Param, "pFenceFd")] [NativeName(NativeNameType.Type, "int*")] int* pFenceFd) 
+		public readonly unsafe int CreateFenceFd(ID3D12Fence* pFence, ulong fenceValue, int* pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, int>)(LpVtbl[4]))(ptr, pFence, fenceValue, pFenceFd);
@@ -216,9 +189,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateFenceFd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateFenceFd([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ref ID3D12Fence pFence, [NativeName(NativeNameType.Param, "FenceValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValue, [NativeName(NativeNameType.Param, "pFenceFd")] [NativeName(NativeNameType.Type, "int*")] int* pFenceFd) 
+		public readonly unsafe int CreateFenceFd(ref ID3D12Fence pFence, ulong fenceValue, int* pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Fence* ppFence = &pFence)
@@ -231,9 +202,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateFenceFd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateFenceFd([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ComPtr<ID3D12Fence> pFence, [NativeName(NativeNameType.Param, "FenceValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValue, [NativeName(NativeNameType.Param, "pFenceFd")] [NativeName(NativeNameType.Type, "int*")] int* pFenceFd) 
+		public readonly unsafe int CreateFenceFd(ComPtr<ID3D12Fence> pFence, ulong fenceValue, int* pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12VirtualizationGuestDevice*, ID3D12Fence*, ulong, int*, int>)(LpVtbl[4]))(ptr, (ID3D12Fence*)pFence.Handle, fenceValue, pFenceFd);
@@ -243,9 +212,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateFenceFd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateFenceFd([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ID3D12Fence* pFence, [NativeName(NativeNameType.Param, "FenceValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValue, [NativeName(NativeNameType.Param, "pFenceFd")] [NativeName(NativeNameType.Type, "int*")] ref int pFenceFd) 
+		public readonly unsafe int CreateFenceFd(ID3D12Fence* pFence, ulong fenceValue, ref int pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppFenceFd = &pFenceFd)
@@ -258,9 +225,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateFenceFd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateFenceFd([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ref ID3D12Fence pFence, [NativeName(NativeNameType.Param, "FenceValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValue, [NativeName(NativeNameType.Param, "pFenceFd")] [NativeName(NativeNameType.Type, "int*")] ref int pFenceFd) 
+		public readonly unsafe int CreateFenceFd(ref ID3D12Fence pFence, ulong fenceValue, ref int pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D12Fence* ppFence = &pFence)
@@ -276,9 +241,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateFenceFd")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CreateFenceFd([NativeName(NativeNameType.Param, "pFence")] [NativeName(NativeNameType.Type, "ID3D12Fence*")] ComPtr<ID3D12Fence> pFence, [NativeName(NativeNameType.Param, "FenceValue")] [NativeName(NativeNameType.Type, "UINT64")] ulong fenceValue, [NativeName(NativeNameType.Param, "pFenceFd")] [NativeName(NativeNameType.Type, "int*")] ref int pFenceFd) 
+		public readonly unsafe int CreateFenceFd(ComPtr<ID3D12Fence> pFence, ulong fenceValue, ref int pFenceFd) 
 		{
 			ID3D12VirtualizationGuestDevice* ptr = (ID3D12VirtualizationGuestDevice*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (int* ppFenceFd = &pFenceFd)

@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcPdbUtils")]
 	public partial struct IDxcPdbUtils : IComObject, IComObject<IDxcPdbUtils>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,9 +99,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Load")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Load([NativeName(NativeNameType.Param, "pPdbOrDxil")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pPdbOrDxil) 
+		public readonly unsafe int Load(IDxcBlob* pPdbOrDxil) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, IDxcBlob*, int>)(LpVtbl[3]))(ptr, pPdbOrDxil);
@@ -124,9 +109,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Load")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Load([NativeName(NativeNameType.Param, "pPdbOrDxil")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pPdbOrDxil) 
+		public readonly unsafe int Load(ref IDxcBlob pPdbOrDxil) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppPdbOrDxil = &pPdbOrDxil)
@@ -139,9 +122,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Load")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Load([NativeName(NativeNameType.Param, "pPdbOrDxil")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pPdbOrDxil) 
+		public readonly unsafe int Load(ComPtr<IDxcBlob> pPdbOrDxil) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, IDxcBlob*, int>)(LpVtbl[3]))(ptr, (IDxcBlob*)pPdbOrDxil.Handle);
@@ -151,9 +132,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSourceCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSourceCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pCount) 
+		public readonly unsafe int GetSourceCount(uint* pCount) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, uint*, int>)(LpVtbl[4]))(ptr, pCount);
@@ -163,9 +142,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSourceCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSourceCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pCount) 
+		public readonly unsafe int GetSourceCount(ref uint pCount) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCount = &pCount)
@@ -178,9 +155,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSource([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppResult) 
+		public readonly unsafe int GetSource(uint uIndex, IDxcBlobEncoding** ppResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, uint, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, uIndex, ppResult);
@@ -190,9 +165,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSource([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* ppResult) 
+		public readonly unsafe int GetSource(uint uIndex, ref IDxcBlobEncoding* ppResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** pppResult = &ppResult)
@@ -205,9 +178,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSource")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSource([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> ppResult) 
+		public readonly unsafe int GetSource(uint uIndex, out ComPtr<IDxcBlobEncoding> ppResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
@@ -218,9 +189,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSourceName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSourceName([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] void** pResult) 
+		public readonly unsafe int GetSourceName(uint uIndex, void** pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, uint, void**, int>)(LpVtbl[6]))(ptr, uIndex, pResult);
@@ -230,9 +199,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetSourceName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetSourceName([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pResult) 
+		public readonly unsafe int GetSourceName(uint uIndex, ref void* pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** ppResult = &pResult)
@@ -245,9 +212,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFlagCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFlagCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pCount) 
+		public readonly unsafe int GetFlagCount(uint* pCount) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, uint*, int>)(LpVtbl[7]))(ptr, pCount);
@@ -257,9 +222,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFlagCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFlagCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pCount) 
+		public readonly unsafe int GetFlagCount(ref uint pCount) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCount = &pCount)
@@ -272,9 +235,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFlag")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFlag([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] void** pResult) 
+		public readonly unsafe int GetFlag(uint uIndex, void** pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, uint, void**, int>)(LpVtbl[8]))(ptr, uIndex, pResult);
@@ -284,9 +245,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFlag")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFlag([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pResult) 
+		public readonly unsafe int GetFlag(uint uIndex, ref void* pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** ppResult = &pResult)
@@ -299,9 +258,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetArgCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetArgCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pCount) 
+		public readonly unsafe int GetArgCount(uint* pCount) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, uint*, int>)(LpVtbl[9]))(ptr, pCount);
@@ -311,9 +268,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetArgCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetArgCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pCount) 
+		public readonly unsafe int GetArgCount(ref uint pCount) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCount = &pCount)
@@ -326,9 +281,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetArg")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetArg([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] void** pResult) 
+		public readonly unsafe int GetArg(uint uIndex, void** pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, uint, void**, int>)(LpVtbl[10]))(ptr, uIndex, pResult);
@@ -338,9 +291,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetArg")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetArg([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pResult) 
+		public readonly unsafe int GetArg(uint uIndex, ref void* pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** ppResult = &pResult)
@@ -353,9 +304,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetArgPairCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetArgPairCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pCount) 
+		public readonly unsafe int GetArgPairCount(uint* pCount) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, uint*, int>)(LpVtbl[11]))(ptr, pCount);
@@ -365,9 +314,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetArgPairCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetArgPairCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pCount) 
+		public readonly unsafe int GetArgPairCount(ref uint pCount) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCount = &pCount)
@@ -380,9 +327,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetArgPair")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetArgPair([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "BSTR*")] void** pName, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "BSTR*")] void** pValue) 
+		public readonly unsafe int GetArgPair(uint uIndex, void** pName, void** pValue) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, uint, void**, void**, int>)(LpVtbl[12]))(ptr, uIndex, pName, pValue);
@@ -392,9 +337,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetArgPair")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetArgPair([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pName, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "BSTR*")] void** pValue) 
+		public readonly unsafe int GetArgPair(uint uIndex, ref void* pName, void** pValue) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** ppName = &pName)
@@ -407,9 +350,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetArgPair")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetArgPair([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "BSTR*")] void** pName, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pValue) 
+		public readonly unsafe int GetArgPair(uint uIndex, void** pName, ref void* pValue) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** ppValue = &pValue)
@@ -422,9 +363,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetArgPair")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetArgPair([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pName")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pName, [NativeName(NativeNameType.Param, "pValue")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pValue) 
+		public readonly unsafe int GetArgPair(uint uIndex, ref void* pName, ref void* pValue) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** ppName = &pName)
@@ -440,9 +379,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDefineCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDefineCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pCount) 
+		public readonly unsafe int GetDefineCount(uint* pCount) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, uint*, int>)(LpVtbl[13]))(ptr, pCount);
@@ -452,9 +389,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDefineCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDefineCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pCount) 
+		public readonly unsafe int GetDefineCount(ref uint pCount) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCount = &pCount)
@@ -467,9 +402,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDefine")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDefine([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] void** pResult) 
+		public readonly unsafe int GetDefine(uint uIndex, void** pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, uint, void**, int>)(LpVtbl[14]))(ptr, uIndex, pResult);
@@ -479,9 +412,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDefine")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetDefine([NativeName(NativeNameType.Param, "uIndex")] [NativeName(NativeNameType.Type, "UINT32")] uint uIndex, [NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pResult) 
+		public readonly unsafe int GetDefine(uint uIndex, ref void* pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** ppResult = &pResult)
@@ -494,9 +425,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetTargetProfile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetTargetProfile([NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] void** pResult) 
+		public readonly unsafe int GetTargetProfile(void** pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, void**, int>)(LpVtbl[15]))(ptr, pResult);
@@ -506,9 +435,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetTargetProfile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetTargetProfile([NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pResult) 
+		public readonly unsafe int GetTargetProfile(ref void* pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** ppResult = &pResult)
@@ -521,9 +448,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetEntryPoint")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetEntryPoint([NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] void** pResult) 
+		public readonly unsafe int GetEntryPoint(void** pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, void**, int>)(LpVtbl[16]))(ptr, pResult);
@@ -533,9 +458,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetEntryPoint")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetEntryPoint([NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pResult) 
+		public readonly unsafe int GetEntryPoint(ref void* pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** ppResult = &pResult)
@@ -548,9 +471,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMainFileName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetMainFileName([NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] void** pResult) 
+		public readonly unsafe int GetMainFileName(void** pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, void**, int>)(LpVtbl[17]))(ptr, pResult);
@@ -560,9 +481,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetMainFileName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetMainFileName([NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pResult) 
+		public readonly unsafe int GetMainFileName(ref void* pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** ppResult = &pResult)
@@ -575,9 +494,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetHash")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetHash([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** ppResult) 
+		public readonly unsafe int GetHash(IDxcBlob** ppResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, IDxcBlob**, int>)(LpVtbl[18]))(ptr, ppResult);
@@ -587,9 +504,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetHash")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetHash([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppResult) 
+		public readonly unsafe int GetHash(ref IDxcBlob* ppResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** pppResult = &ppResult)
@@ -602,9 +517,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetHash")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetHash([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppResult) 
+		public readonly unsafe int GetHash(out ComPtr<IDxcBlob> ppResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
@@ -615,9 +528,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetName([NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] void** pResult) 
+		public readonly unsafe int GetName(void** pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, void**, int>)(LpVtbl[19]))(ptr, pResult);
@@ -627,9 +538,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetName")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetName([NativeName(NativeNameType.Param, "pResult")] [NativeName(NativeNameType.Type, "BSTR*")] ref void* pResult) 
+		public readonly unsafe int GetName(ref void* pResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** ppResult = &pResult)
@@ -642,8 +551,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "IsFullPDB")]
-		[return: NativeName(NativeNameType.Type, "BOOL")]
 		public readonly unsafe int IsFullPDB() 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -654,9 +561,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullPDB")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFullPDB([NativeName(NativeNameType.Param, "ppFullPDB")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** ppFullPDB) 
+		public readonly unsafe int GetFullPDB(IDxcBlob** ppFullPDB) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, IDxcBlob**, int>)(LpVtbl[21]))(ptr, ppFullPDB);
@@ -666,9 +571,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullPDB")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFullPDB([NativeName(NativeNameType.Param, "ppFullPDB")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* ppFullPDB) 
+		public readonly unsafe int GetFullPDB(ref IDxcBlob* ppFullPDB) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** pppFullPDB = &ppFullPDB)
@@ -681,9 +584,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetFullPDB")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetFullPDB([NativeName(NativeNameType.Param, "ppFullPDB")] [NativeName(NativeNameType.Type, "IDxcBlob**")] out ComPtr<IDxcBlob> ppFullPDB) 
+		public readonly unsafe int GetFullPDB(out ComPtr<IDxcBlob> ppFullPDB) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppFullPDB = default;
@@ -694,9 +595,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVersionInfo")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVersionInfo([NativeName(NativeNameType.Param, "ppVersionInfo")] [NativeName(NativeNameType.Type, "IDxcVersionInfo**")] IDxcVersionInfo** ppVersionInfo) 
+		public readonly unsafe int GetVersionInfo(IDxcVersionInfo** ppVersionInfo) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, IDxcVersionInfo**, int>)(LpVtbl[22]))(ptr, ppVersionInfo);
@@ -706,9 +605,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVersionInfo")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVersionInfo([NativeName(NativeNameType.Param, "ppVersionInfo")] [NativeName(NativeNameType.Type, "IDxcVersionInfo**")] ref IDxcVersionInfo* ppVersionInfo) 
+		public readonly unsafe int GetVersionInfo(ref IDxcVersionInfo* ppVersionInfo) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcVersionInfo** pppVersionInfo = &ppVersionInfo)
@@ -721,9 +618,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVersionInfo")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetVersionInfo([NativeName(NativeNameType.Param, "ppVersionInfo")] [NativeName(NativeNameType.Type, "IDxcVersionInfo**")] out ComPtr<IDxcVersionInfo> ppVersionInfo) 
+		public readonly unsafe int GetVersionInfo(out ComPtr<IDxcVersionInfo> ppVersionInfo) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppVersionInfo = default;
@@ -734,9 +629,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetCompiler")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetCompiler([NativeName(NativeNameType.Param, "pCompiler")] [NativeName(NativeNameType.Type, "IDxcCompiler3*")] IDxcCompiler3* pCompiler) 
+		public readonly unsafe int SetCompiler(IDxcCompiler3* pCompiler) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, IDxcCompiler3*, int>)(LpVtbl[23]))(ptr, pCompiler);
@@ -746,9 +639,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetCompiler")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetCompiler([NativeName(NativeNameType.Param, "pCompiler")] [NativeName(NativeNameType.Type, "IDxcCompiler3*")] ref IDxcCompiler3 pCompiler) 
+		public readonly unsafe int SetCompiler(ref IDxcCompiler3 pCompiler) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcCompiler3* ppCompiler = &pCompiler)
@@ -761,9 +652,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetCompiler")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int SetCompiler([NativeName(NativeNameType.Param, "pCompiler")] [NativeName(NativeNameType.Type, "IDxcCompiler3*")] ComPtr<IDxcCompiler3> pCompiler) 
+		public readonly unsafe int SetCompiler(ComPtr<IDxcCompiler3> pCompiler) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, IDxcCompiler3*, int>)(LpVtbl[23]))(ptr, (IDxcCompiler3*)pCompiler.Handle);
@@ -773,9 +662,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileForFullPDB")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CompileForFullPDB([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcResult**")] IDxcResult** ppResult) 
+		public readonly unsafe int CompileForFullPDB(IDxcResult** ppResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, IDxcResult**, int>)(LpVtbl[24]))(ptr, ppResult);
@@ -785,9 +672,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileForFullPDB")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CompileForFullPDB([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcResult**")] ref IDxcResult* ppResult) 
+		public readonly unsafe int CompileForFullPDB(ref IDxcResult* ppResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcResult** pppResult = &ppResult)
@@ -800,9 +685,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CompileForFullPDB")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int CompileForFullPDB([NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcResult**")] out ComPtr<IDxcResult> ppResult) 
+		public readonly unsafe int CompileForFullPDB(out ComPtr<IDxcResult> ppResult) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
@@ -813,26 +696,22 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OverrideArgs")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int OverrideArgs([NativeName(NativeNameType.Param, "pArgPairs")] [NativeName(NativeNameType.Type, "DxcArgPair*")] DxcArgPair* pArgPairs, [NativeName(NativeNameType.Param, "uNumArgPairs")] [NativeName(NativeNameType.Type, "UINT32")] uint uNumArgPairs) 
+		public readonly unsafe int OverrideArgs(ArgPair* pArgPairs, uint uNumArgPairs) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, DxcArgPair*, uint, int>)(LpVtbl[25]))(ptr, pArgPairs, uNumArgPairs);
+			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, ArgPair*, uint, int>)(LpVtbl[25]))(ptr, pArgPairs, uNumArgPairs);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OverrideArgs")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int OverrideArgs([NativeName(NativeNameType.Param, "pArgPairs")] [NativeName(NativeNameType.Type, "DxcArgPair*")] ref DxcArgPair pArgPairs, [NativeName(NativeNameType.Param, "uNumArgPairs")] [NativeName(NativeNameType.Type, "UINT32")] uint uNumArgPairs) 
+		public readonly unsafe int OverrideArgs(ref ArgPair pArgPairs, uint uNumArgPairs) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (DxcArgPair* ppArgPairs = &pArgPairs)
+			fixed (ArgPair* ppArgPairs = &pArgPairs)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, DxcArgPair*, uint, int>)(LpVtbl[25]))(ptr, (DxcArgPair*)ppArgPairs, uNumArgPairs);
+				int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, ArgPair*, uint, int>)(LpVtbl[25]))(ptr, (ArgPair*)ppArgPairs, uNumArgPairs);
 				return ret;
 			}
 		}
@@ -840,9 +719,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OverrideRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int OverrideRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const WCHAR*")] char* pRootSignature) 
+		public readonly unsafe int OverrideRootSignature(char* pRootSignature) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcPdbUtils*, char*, int>)(LpVtbl[26]))(ptr, pRootSignature);
@@ -852,9 +729,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OverrideRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int OverrideRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const WCHAR*")] ref char pRootSignature) 
+		public readonly unsafe int OverrideRootSignature(ref char pRootSignature) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppRootSignature = &pRootSignature)
@@ -867,9 +742,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OverrideRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int OverrideRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const WCHAR*")] ReadOnlySpan<char> pRootSignature) 
+		public readonly unsafe int OverrideRootSignature(ReadOnlySpan<char> pRootSignature) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char* ppRootSignature = pRootSignature)
@@ -882,9 +755,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "OverrideRootSignature")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int OverrideRootSignature([NativeName(NativeNameType.Param, "pRootSignature")] [NativeName(NativeNameType.Type, "const WCHAR*")] string pRootSignature) 
+		public readonly unsafe int OverrideRootSignature(string pRootSignature) 
 		{
 			IDxcPdbUtils* ptr = (IDxcPdbUtils*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			char* pStr0 = null;

@@ -20,7 +20,6 @@ namespace Hexa.NET.D3DCommon
 	/// To be documented.
 	/// </summary>
 	[Guid("8ba5fb08-5195-40e2-ac58-0d989c3a0102")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D10Blob")]
 	public partial struct ID3D10Blob : IComObject, IComObject<ID3D10Blob>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -35,9 +34,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D10Blob* ptr = (ID3D10Blob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D10Blob*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -47,9 +44,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D10Blob* ptr = (ID3D10Blob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -62,9 +57,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D10Blob* ptr = (ID3D10Blob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -75,9 +68,7 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D10Blob* ptr = (ID3D10Blob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -91,8 +82,6 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D10Blob* ptr = (ID3D10Blob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -103,8 +92,6 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D10Blob* ptr = (ID3D10Blob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -115,8 +102,6 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBufferPointer")]
-		[return: NativeName(NativeNameType.Type, "LPVOID")]
 		public readonly unsafe void* GetBufferPointer() 
 		{
 			ID3D10Blob* ptr = (ID3D10Blob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -127,8 +112,6 @@ namespace Hexa.NET.D3DCommon
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetBufferSize")]
-		[return: NativeName(NativeNameType.Type, "SIZE_T")]
 		public readonly unsafe nuint GetBufferSize() 
 		{
 			ID3D10Blob* ptr = (ID3D10Blob*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));

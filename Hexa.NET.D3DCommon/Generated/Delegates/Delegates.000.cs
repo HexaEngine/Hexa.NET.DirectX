@@ -20,7 +20,6 @@ namespace Hexa.NET.D3DCommon
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.Delegate, "PFN_DESTRUCTION_CALLBACK")]
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void PfnDestructionCallback([NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData);
 
@@ -28,7 +27,6 @@ namespace Hexa.NET.D3DCommon
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.Delegate, "PFN_DESTRUCTION_CALLBACK")]
 	[UnmanagedFunctionPointer(CallingConvention.Cdecl)]
 	public unsafe delegate void PfnDestructionCallback([NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] nint pData);
 

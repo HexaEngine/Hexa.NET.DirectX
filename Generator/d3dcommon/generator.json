@@ -3,7 +3,9 @@
   "ApiName": "D3DCommon",
   "LibName": "",
   "GenerateSizeOfStructs": false,
-  "GenerateMetadata": true,
+  "GenerateMetadata": false,
+  "FunctionNamingConvention": "Unknown",
+  "ExtensionNamingConvention": "Unknown",
   "BoolType": 1,
   "TypeMappings": {
     "DXGI_USAGE": "uint",

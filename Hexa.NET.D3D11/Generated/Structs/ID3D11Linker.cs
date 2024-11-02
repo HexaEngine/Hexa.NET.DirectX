@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D11
 	/// {59A6CD0E-E10D-4C1F-88C0-63ABA1DAF30E}<br/>
 	/// </summary>
 	[Guid("59a6cd0e-e10d-4c1f-88c0-63aba1daf30e")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D11Linker")]
 	public partial struct ID3D11Linker : IComObject, IComObject<ID3D11Linker>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,9 +104,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public readonly unsafe int QueryInterface(Guid* iid, ref void* ppv) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (void** pppv = &ppv)
@@ -132,9 +117,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "iid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid iid, [NativeName(NativeNameType.Param, "ppv")] [NativeName(NativeNameType.Type, "LPVOID*")] ref void* ppv) 
+		public readonly unsafe int QueryInterface(ref Guid iid, ref void* ppv) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* piid = &iid)
@@ -150,9 +133,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, pEntry, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
@@ -162,9 +143,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -177,9 +156,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ComPtr<ID3D11ModuleInstance> pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, byte*, byte*, uint, ID3D10Blob**, ID3D10Blob**, int>)(LpVtbl[4]))(ptr, (ID3D11ModuleInstance*)pEntry.Handle, pEntryName, pTargetName, uFlags, ppShaderBlob, ppErrorBuffer);
@@ -189,9 +166,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -204,9 +179,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -237,9 +210,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -255,9 +226,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -291,9 +260,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppTargetName = pTargetName)
@@ -306,9 +273,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -339,9 +304,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -357,9 +320,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -393,9 +354,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -411,9 +370,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -465,9 +422,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -486,9 +441,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -543,9 +496,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
@@ -558,9 +509,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -576,9 +525,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ComPtr<ID3D11ModuleInstance> pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
@@ -591,9 +538,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -609,9 +554,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -645,9 +588,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -666,9 +607,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -705,9 +644,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppTargetName = pTargetName)
@@ -723,9 +660,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -759,9 +694,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -780,9 +713,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -819,9 +750,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -840,9 +769,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -897,9 +824,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -921,9 +846,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ID3D10Blob** ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -981,9 +904,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
@@ -996,9 +917,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1014,9 +933,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ComPtr<ID3D11ModuleInstance> pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppErrorBuffer = &ppErrorBuffer)
@@ -1029,9 +946,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -1047,9 +962,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1083,9 +996,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1104,9 +1015,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1143,9 +1052,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppTargetName = pTargetName)
@@ -1161,9 +1068,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1197,9 +1102,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1218,9 +1121,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1257,9 +1158,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -1278,9 +1177,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1335,9 +1232,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1359,9 +1254,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ID3D10Blob** ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ID3D10Blob** ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1419,9 +1312,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
@@ -1437,9 +1328,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1458,9 +1347,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ComPtr<ID3D11ModuleInstance> pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ComPtr<ID3D11ModuleInstance> pEntry, byte* pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D10Blob** pppShaderBlob = &ppShaderBlob)
@@ -1476,9 +1363,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -1497,9 +1382,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1536,9 +1419,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1560,9 +1441,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, byte* pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1602,9 +1481,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppTargetName = pTargetName)
@@ -1623,9 +1500,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1662,9 +1537,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1686,9 +1559,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] byte* pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, byte* pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1728,9 +1599,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (byte* ppEntryName = pEntryName)
@@ -1752,9 +1621,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ID3D11ModuleInstance* pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			byte* pStr0 = null;
@@ -1812,9 +1679,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] ReadOnlySpan<byte> pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, ReadOnlySpan<byte> pEntryName, ReadOnlySpan<byte> pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1839,9 +1704,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Link")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int Link([NativeName(NativeNameType.Param, "pEntry")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pEntry, [NativeName(NativeNameType.Param, "pEntryName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pEntryName, [NativeName(NativeNameType.Param, "pTargetName")] [NativeName(NativeNameType.Type, "LPCSTR")] string pTargetName, [NativeName(NativeNameType.Param, "uFlags")] [NativeName(NativeNameType.Type, "UINT")] uint uFlags, [NativeName(NativeNameType.Param, "ppShaderBlob")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppShaderBlob, [NativeName(NativeNameType.Param, "ppErrorBuffer")] [NativeName(NativeNameType.Type, "ID3DBlob**")] ref ID3D10Blob* ppErrorBuffer) 
+		public readonly unsafe int Link(ref ID3D11ModuleInstance pEntry, string pEntryName, string pTargetName, uint uFlags, ref ID3D10Blob* ppShaderBlob, ref ID3D10Blob* ppErrorBuffer) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppEntry = &pEntry)
@@ -1902,9 +1765,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UseLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int UseLibrary([NativeName(NativeNameType.Param, "pLibraryMI")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ID3D11ModuleInstance* pLibraryMI) 
+		public readonly unsafe int UseLibrary(ID3D11ModuleInstance* pLibraryMI) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, int>)(LpVtbl[5]))(ptr, pLibraryMI);
@@ -1914,9 +1775,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UseLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int UseLibrary([NativeName(NativeNameType.Param, "pLibraryMI")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ref ID3D11ModuleInstance pLibraryMI) 
+		public readonly unsafe int UseLibrary(ref ID3D11ModuleInstance pLibraryMI) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ID3D11ModuleInstance* ppLibraryMI = &pLibraryMI)
@@ -1929,9 +1788,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "UseLibrary")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int UseLibrary([NativeName(NativeNameType.Param, "pLibraryMI")] [NativeName(NativeNameType.Type, "ID3D11ModuleInstance*")] ComPtr<ID3D11ModuleInstance> pLibraryMI) 
+		public readonly unsafe int UseLibrary(ComPtr<ID3D11ModuleInstance> pLibraryMI) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, ID3D11ModuleInstance*, int>)(LpVtbl[5]))(ptr, (ID3D11ModuleInstance*)pLibraryMI.Handle);
@@ -1941,9 +1798,7 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddClipPlaneFromCBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int AddClipPlaneFromCBuffer([NativeName(NativeNameType.Param, "uCBufferSlot")] [NativeName(NativeNameType.Type, "UINT")] uint uCBufferSlot, [NativeName(NativeNameType.Param, "uCBufferEntry")] [NativeName(NativeNameType.Type, "UINT")] uint uCBufferEntry) 
+		public readonly unsafe int AddClipPlaneFromCBuffer(uint uCBufferSlot, uint uCBufferEntry) 
 		{
 			ID3D11Linker* ptr = (ID3D11Linker*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Linker*, uint, uint, int>)(LpVtbl[6]))(ptr, uCBufferSlot, uCBufferEntry);

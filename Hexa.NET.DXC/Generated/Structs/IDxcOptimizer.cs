@@ -19,7 +19,6 @@ namespace Hexa.NET.DXC
 	/// <summary>
 	/// To be documented.
 	/// </summary>
-	[NativeName(NativeNameType.StructOrClass, "IDxcOptimizer")]
 	public partial struct IDxcOptimizer : IComObject, IComObject<IDxcOptimizer>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -32,9 +31,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -44,9 +41,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -59,9 +54,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -72,9 +65,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -88,8 +79,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -100,8 +89,6 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -112,9 +99,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAvailablePassCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAvailablePassCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] uint* pCount) 
+		public readonly unsafe int GetAvailablePassCount(uint* pCount) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint*, int>)(LpVtbl[3]))(ptr, pCount);
@@ -124,9 +109,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAvailablePassCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAvailablePassCount([NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT32*")] ref uint pCount) 
+		public readonly unsafe int GetAvailablePassCount(ref uint pCount) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (uint* ppCount = &pCount)
@@ -139,9 +122,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAvailablePass")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAvailablePass([NativeName(NativeNameType.Param, "index")] [NativeName(NativeNameType.Type, "UINT32")] uint index, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOptimizerPass**")] IDxcOptimizerPass** ppResult) 
+		public readonly unsafe int GetAvailablePass(uint index, IDxcOptimizerPass** ppResult) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, uint, IDxcOptimizerPass**, int>)(LpVtbl[4]))(ptr, index, ppResult);
@@ -151,9 +132,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAvailablePass")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAvailablePass([NativeName(NativeNameType.Param, "index")] [NativeName(NativeNameType.Type, "UINT32")] uint index, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOptimizerPass**")] ref IDxcOptimizerPass* ppResult) 
+		public readonly unsafe int GetAvailablePass(uint index, ref IDxcOptimizerPass* ppResult) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcOptimizerPass** pppResult = &ppResult)
@@ -166,9 +145,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAvailablePass")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAvailablePass([NativeName(NativeNameType.Param, "index")] [NativeName(NativeNameType.Type, "UINT32")] uint index, [NativeName(NativeNameType.Param, "ppResult")] [NativeName(NativeNameType.Type, "IDxcOptimizerPass**")] out ComPtr<IDxcOptimizerPass> ppResult) 
+		public readonly unsafe int GetAvailablePass(uint index, out ComPtr<IDxcOptimizerPass> ppResult) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppResult = default;
@@ -179,9 +156,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, pBlob, ppOptions, optionCount, pOutputModule, ppOutputText);
@@ -191,9 +166,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -206,9 +179,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<IDxcOptimizer*, IDxcBlob*, char**, uint, IDxcBlob**, IDxcBlobEncoding**, int>)(LpVtbl[5]))(ptr, (IDxcBlob*)pBlob.Handle, ppOptions, optionCount, pOutputModule, ppOutputText);
@@ -218,9 +189,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -233,9 +202,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -251,9 +218,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -266,9 +231,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** ppOutputModule = &pOutputModule)
@@ -281,9 +244,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref ComPtr<IDxcBlob> pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
@@ -296,9 +257,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -314,9 +273,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref ComPtr<IDxcBlob> pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
@@ -329,9 +286,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -347,9 +302,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref ComPtr<IDxcBlob> pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -365,9 +318,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -386,9 +337,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref ComPtr<IDxcBlob> pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] IDxcBlobEncoding** ppOutputText) 
+		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, IDxcBlobEncoding** ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -404,9 +353,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlobEncoding** pppOutputText = &ppOutputText)
@@ -419,9 +366,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputText = default;
@@ -432,9 +377,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -450,9 +393,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppOutputText = default;
@@ -463,9 +404,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -481,9 +420,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -497,9 +434,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -518,9 +453,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] IDxcBlob** pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, IDxcBlob** pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -534,9 +467,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob** ppOutputModule = &pOutputModule)
@@ -552,9 +483,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref ComPtr<IDxcBlob> pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
@@ -568,9 +497,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, char** ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -589,9 +516,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] char** ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref ComPtr<IDxcBlob> pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, char** ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (ComPtr<IDxcBlob>* ppOutputModule = &pOutputModule)
@@ -605,9 +530,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -626,9 +549,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] IDxcBlob* pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref ComPtr<IDxcBlob> pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe int RunOptimizer(IDxcBlob* pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)
@@ -645,9 +566,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ref IDxcBlob pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref IDxcBlob* pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] ref IDxcBlobEncoding* ppOutputText) 
+		public readonly unsafe int RunOptimizer(ref IDxcBlob pBlob, ref char* ppOptions, uint optionCount, ref IDxcBlob* pOutputModule, ref IDxcBlobEncoding* ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (IDxcBlob* ppBlob = &pBlob)
@@ -669,9 +588,7 @@ namespace Hexa.NET.DXC
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "RunOptimizer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int RunOptimizer([NativeName(NativeNameType.Param, "pBlob")] [NativeName(NativeNameType.Type, "IDxcBlob*")] ComPtr<IDxcBlob> pBlob, [NativeName(NativeNameType.Param, "ppOptions")] [NativeName(NativeNameType.Type, "LPCWSTR*")] ref char* ppOptions, [NativeName(NativeNameType.Param, "optionCount")] [NativeName(NativeNameType.Type, "UINT32")] uint optionCount, [NativeName(NativeNameType.Param, "pOutputModule")] [NativeName(NativeNameType.Type, "IDxcBlob**")] ref ComPtr<IDxcBlob> pOutputModule, [NativeName(NativeNameType.Param, "ppOutputText")] [NativeName(NativeNameType.Type, "IDxcBlobEncoding**")] out ComPtr<IDxcBlobEncoding> ppOutputText) 
+		public readonly unsafe int RunOptimizer(ComPtr<IDxcBlob> pBlob, ref char* ppOptions, uint optionCount, ref ComPtr<IDxcBlob> pOutputModule, out ComPtr<IDxcBlobEncoding> ppOutputText) 
 		{
 			IDxcOptimizer* ptr = (IDxcOptimizer*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (char** pppOptions = &ppOptions)

@@ -23,3213 +23,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ref ID3D11Texture2D pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
 			{
-				fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+				fixed (uint* ppActiveCounters = &pActiveCounters)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)ppSrcSurface, pDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ref ID3D11CryptoSession pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ref ID3D11Texture2D pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
-			{
-				fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
-				{
-					fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+					fixed (byte* pszName = szName)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)ppCryptoSession, (ID3D11Texture2D*)ppSrcSurface, pDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ref ID3D11Texture2D pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
-			{
-				fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)ppDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ref ID3D11CryptoSession pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ref ID3D11Texture2D pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
-			{
-				fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
-				{
-					fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)ppCryptoSession, pSrcSurface, (ID3D11Texture2D*)ppDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ref ID3D11Texture2D pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ref ID3D11Texture2D pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
-			{
-				fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
-				{
-					fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)ppSrcSurface, (ID3D11Texture2D*)ppDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ref ID3D11CryptoSession pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ref ID3D11Texture2D pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ref ID3D11Texture2D pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
-			{
-				fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
-				{
-					fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
-					{
-						fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+						fixed (uint* ppNameLength = &pNameLength)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)ppCryptoSession, (ID3D11Texture2D*)ppSrcSurface, (ID3D11Texture2D*)ppDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] void* piV) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] D3D11EncryptedBlockInfo* pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] D3D11EncryptedBlockInfo* pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] D3D11EncryptedBlockInfo* pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] D3D11EncryptedBlockInfo* pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] D3D11EncryptedBlockInfo* pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] D3D11EncryptedBlockInfo* pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] D3D11EncryptedBlockInfo* pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] D3D11EncryptedBlockInfo* pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, pDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, pDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ID3D11Texture2D* pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecryptionBlt")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pSrcSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pSrcSurface, [NativeName(NativeNameType.Param, "pDstSurface")] [NativeName(NativeNameType.Type, "ID3D11Texture2D*")] ComPtr<ID3D11Texture2D> pDstSurface, [NativeName(NativeNameType.Param, "pEncryptedBlockInfo")] [NativeName(NativeNameType.Type, "D3D11_ENCRYPTED_BLOCK_INFO*")] ref D3D11EncryptedBlockInfo pEncryptedBlockInfo, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey, [NativeName(NativeNameType.Param, "IVSize")] [NativeName(NativeNameType.Type, "UINT")] uint ivSize, [NativeName(NativeNameType.Param, "pIV")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, D3D11EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, (D3D11EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "StartSessionKeyRefresh")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void StartSessionKeyRefresh(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "RandomNumberSize")] [NativeName(NativeNameType.Type, "UINT")] uint randomNumberSize, [NativeName(NativeNameType.Param, "pRandomNumber")] [NativeName(NativeNameType.Type, "void*")] void* pRandomNumber) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, void>)(handle->LpVtbl[57]))(handle, pCryptoSession, randomNumberSize, pRandomNumber);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "StartSessionKeyRefresh")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void StartSessionKeyRefresh(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ref ID3D11CryptoSession pCryptoSession, [NativeName(NativeNameType.Param, "RandomNumberSize")] [NativeName(NativeNameType.Type, "UINT")] uint randomNumberSize, [NativeName(NativeNameType.Param, "pRandomNumber")] [NativeName(NativeNameType.Type, "void*")] void* pRandomNumber) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, void>)(handle->LpVtbl[57]))(handle, (ID3D11CryptoSession*)ppCryptoSession, randomNumberSize, pRandomNumber);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "StartSessionKeyRefresh")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void StartSessionKeyRefresh(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "RandomNumberSize")] [NativeName(NativeNameType.Type, "UINT")] uint randomNumberSize, [NativeName(NativeNameType.Param, "pRandomNumber")] [NativeName(NativeNameType.Type, "void*")] void* pRandomNumber) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, void>)(handle->LpVtbl[57]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, randomNumberSize, pRandomNumber);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "StartSessionKeyRefresh")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void StartSessionKeyRefresh<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "RandomNumberSize")] [NativeName(NativeNameType.Type, "UINT")] uint randomNumberSize, [NativeName(NativeNameType.Param, "pRandomNumber")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pRandomNumber) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, void>)(handle->LpVtbl[57]))(handle, pCryptoSession, randomNumberSize, (void*)pRandomNumber.Handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "StartSessionKeyRefresh")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void StartSessionKeyRefresh<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "RandomNumberSize")] [NativeName(NativeNameType.Type, "UINT")] uint randomNumberSize, [NativeName(NativeNameType.Param, "pRandomNumber")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pRandomNumber) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, void>)(handle->LpVtbl[57]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, randomNumberSize, (void*)pRandomNumber.Handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FinishSessionKeyRefresh")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FinishSessionKeyRefresh(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, void>)(handle->LpVtbl[58]))(handle, pCryptoSession);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FinishSessionKeyRefresh")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FinishSessionKeyRefresh(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ref ID3D11CryptoSession pCryptoSession) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, void>)(handle->LpVtbl[58]))(handle, (ID3D11CryptoSession*)ppCryptoSession);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "FinishSessionKeyRefresh")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void FinishSessionKeyRefresh(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, void>)(handle->LpVtbl[58]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetEncryptionBltKey")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetEncryptionBltKey(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "KeySize")] [NativeName(NativeNameType.Type, "UINT")] uint keySize, [NativeName(NativeNameType.Param, "pReadbackKey")] [NativeName(NativeNameType.Type, "void*")] void* pReadbackKey) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, pCryptoSession, keySize, pReadbackKey);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetEncryptionBltKey")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetEncryptionBltKey(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ref ID3D11CryptoSession pCryptoSession, [NativeName(NativeNameType.Param, "KeySize")] [NativeName(NativeNameType.Type, "UINT")] uint keySize, [NativeName(NativeNameType.Param, "pReadbackKey")] [NativeName(NativeNameType.Type, "void*")] void* pReadbackKey) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)ppCryptoSession, keySize, pReadbackKey);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetEncryptionBltKey")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetEncryptionBltKey(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "KeySize")] [NativeName(NativeNameType.Type, "UINT")] uint keySize, [NativeName(NativeNameType.Param, "pReadbackKey")] [NativeName(NativeNameType.Type, "void*")] void* pReadbackKey) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, keySize, pReadbackKey);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetEncryptionBltKey")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetEncryptionBltKey<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "KeySize")] [NativeName(NativeNameType.Type, "UINT")] uint keySize, [NativeName(NativeNameType.Param, "pReadbackKey")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pReadbackKey) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, pCryptoSession, keySize, (void*)pReadbackKey.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetEncryptionBltKey")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetEncryptionBltKey<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "KeySize")] [NativeName(NativeNameType.Type, "UINT")] uint keySize, [NativeName(NativeNameType.Param, "pReadbackKey")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pReadbackKey) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, keySize, (void*)pReadbackKey.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "NegotiateAuthenticatedChannelKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ID3D11AuthenticatedChannel* pChannel, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, pChannel, dataSize, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "NegotiateAuthenticatedChannelKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ref ID3D11AuthenticatedChannel pChannel, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "NegotiateAuthenticatedChannelKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ComPtr<ID3D11AuthenticatedChannel> pChannel, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, dataSize, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "NegotiateAuthenticatedChannelKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int NegotiateAuthenticatedChannelKeyExchange<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ID3D11AuthenticatedChannel* pChannel, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, pChannel, dataSize, (void*)pData.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "NegotiateAuthenticatedChannelKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int NegotiateAuthenticatedChannelKeyExchange<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ComPtr<ID3D11AuthenticatedChannel> pChannel, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, dataSize, (void*)pData.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ID3D11AuthenticatedChannel* pChannel, [NativeName(NativeNameType.Param, "InputSize")] [NativeName(NativeNameType.Type, "UINT")] uint inputSize, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "const void*")] void* pInput, [NativeName(NativeNameType.Param, "OutputSize")] [NativeName(NativeNameType.Type, "UINT")] uint outputSize, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "void*")] void* pOutput) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, pChannel, inputSize, pInput, outputSize, pOutput);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ref ID3D11AuthenticatedChannel pChannel, [NativeName(NativeNameType.Param, "InputSize")] [NativeName(NativeNameType.Type, "UINT")] uint inputSize, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "const void*")] void* pInput, [NativeName(NativeNameType.Param, "OutputSize")] [NativeName(NativeNameType.Type, "UINT")] uint outputSize, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "void*")] void* pOutput) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, outputSize, pOutput);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ComPtr<ID3D11AuthenticatedChannel> pChannel, [NativeName(NativeNameType.Param, "InputSize")] [NativeName(NativeNameType.Type, "UINT")] uint inputSize, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "const void*")] void* pInput, [NativeName(NativeNameType.Param, "OutputSize")] [NativeName(NativeNameType.Type, "UINT")] uint outputSize, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "void*")] void* pOutput) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, outputSize, pOutput);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryAuthenticatedChannel<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ID3D11AuthenticatedChannel* pChannel, [NativeName(NativeNameType.Param, "InputSize")] [NativeName(NativeNameType.Type, "UINT")] uint inputSize, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "const void*")] void* pInput, [NativeName(NativeNameType.Param, "OutputSize")] [NativeName(NativeNameType.Type, "UINT")] uint outputSize, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pOutput) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, pChannel, inputSize, pInput, outputSize, (void*)pOutput.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryAuthenticatedChannel<T>(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ComPtr<ID3D11AuthenticatedChannel> pChannel, [NativeName(NativeNameType.Param, "InputSize")] [NativeName(NativeNameType.Type, "UINT")] uint inputSize, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "const void*")] void* pInput, [NativeName(NativeNameType.Param, "OutputSize")] [NativeName(NativeNameType.Type, "UINT")] uint outputSize, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pOutput) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, outputSize, (void*)pOutput.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ConfigureAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ID3D11AuthenticatedChannel* pChannel, [NativeName(NativeNameType.Param, "InputSize")] [NativeName(NativeNameType.Type, "UINT")] uint inputSize, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "const void*")] void* pInput, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CONFIGURE_OUTPUT*")] D3D11AuthenticatedConfigureOutput* pOutput) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, D3D11AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, pChannel, inputSize, pInput, pOutput);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ConfigureAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ref ID3D11AuthenticatedChannel pChannel, [NativeName(NativeNameType.Param, "InputSize")] [NativeName(NativeNameType.Type, "UINT")] uint inputSize, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "const void*")] void* pInput, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CONFIGURE_OUTPUT*")] D3D11AuthenticatedConfigureOutput* pOutput) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, D3D11AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, pOutput);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ConfigureAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ComPtr<ID3D11AuthenticatedChannel> pChannel, [NativeName(NativeNameType.Param, "InputSize")] [NativeName(NativeNameType.Type, "UINT")] uint inputSize, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "const void*")] void* pInput, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CONFIGURE_OUTPUT*")] D3D11AuthenticatedConfigureOutput* pOutput) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, D3D11AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, pOutput);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ConfigureAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ID3D11AuthenticatedChannel* pChannel, [NativeName(NativeNameType.Param, "InputSize")] [NativeName(NativeNameType.Type, "UINT")] uint inputSize, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "const void*")] void* pInput, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CONFIGURE_OUTPUT*")] ref D3D11AuthenticatedConfigureOutput pOutput) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11AuthenticatedConfigureOutput* ppOutput = &pOutput)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, D3D11AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, pChannel, inputSize, pInput, (D3D11AuthenticatedConfigureOutput*)ppOutput);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ConfigureAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ref ID3D11AuthenticatedChannel pChannel, [NativeName(NativeNameType.Param, "InputSize")] [NativeName(NativeNameType.Type, "UINT")] uint inputSize, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "const void*")] void* pInput, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CONFIGURE_OUTPUT*")] ref D3D11AuthenticatedConfigureOutput pOutput) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
-			{
-				fixed (D3D11AuthenticatedConfigureOutput* ppOutput = &pOutput)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, D3D11AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, (D3D11AuthenticatedConfigureOutput*)ppOutput);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ConfigureAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel*")] ComPtr<ID3D11AuthenticatedChannel> pChannel, [NativeName(NativeNameType.Param, "InputSize")] [NativeName(NativeNameType.Type, "UINT")] uint inputSize, [NativeName(NativeNameType.Param, "pInput")] [NativeName(NativeNameType.Type, "const void*")] void* pInput, [NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CONFIGURE_OUTPUT*")] ref D3D11AuthenticatedConfigureOutput pOutput) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11AuthenticatedConfigureOutput* ppOutput = &pOutput)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11AuthenticatedChannel*, uint, void*, D3D11AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, (D3D11AuthenticatedConfigureOutput*)ppOutput);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Rotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION")] D3D11VideoProcessorRotation rotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int, D3D11VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, pVideoProcessor, streamIndex, enable, rotation);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Rotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION")] D3D11VideoProcessorRotation rotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int, D3D11VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, rotation);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Rotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION")] D3D11VideoProcessorRotation rotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int, D3D11VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, rotation);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] D3D11VideoProcessorRotation* pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, pEnable, pRotation);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] D3D11VideoProcessorRotation* pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pRotation);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] D3D11VideoProcessorRotation* pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pRotation);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] D3D11VideoProcessorRotation* pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pRotation);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] D3D11VideoProcessorRotation* pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnable = &pEnable)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pRotation);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] D3D11VideoProcessorRotation* pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pRotation);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] ref D3D11VideoProcessorRotation pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorRotation* ppRotation = &pRotation)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, pEnable, (D3D11VideoProcessorRotation*)ppRotation);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] ref D3D11VideoProcessorRotation pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorRotation* ppRotation = &pRotation)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (D3D11VideoProcessorRotation*)ppRotation);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] ref D3D11VideoProcessorRotation pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorRotation* ppRotation = &pRotation)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (D3D11VideoProcessorRotation*)ppRotation);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] ref D3D11VideoProcessorRotation pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				fixed (D3D11VideoProcessorRotation* ppRotation = &pRotation)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (D3D11VideoProcessorRotation*)ppRotation);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] ref D3D11VideoProcessorRotation pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnable = &pEnable)
-				{
-					fixed (D3D11VideoProcessorRotation* ppRotation = &pRotation)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (D3D11VideoProcessorRotation*)ppRotation);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamRotation")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pRotation")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ROTATION*")] ref D3D11VideoProcessorRotation pRotation) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				fixed (D3D11VideoProcessorRotation* ppRotation = &pRotation)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, D3D11VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (D3D11VideoProcessorRotation*)ppRotation);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC1*")] D3D11VideoDecoderBufferDesc1* pBufferDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, pDecoder, numBuffers, pBufferDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC1*")] D3D11VideoDecoderBufferDesc1* pBufferDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)ppDecoder, numBuffers, pBufferDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC1*")] D3D11VideoDecoderBufferDesc1* pBufferDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, numBuffers, pBufferDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC1*")] ref D3D11VideoDecoderBufferDesc1 pBufferDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderBufferDesc1* ppBufferDesc = &pBufferDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, pDecoder, numBuffers, (D3D11VideoDecoderBufferDesc1*)ppBufferDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC1*")] ref D3D11VideoDecoderBufferDesc1 pBufferDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (D3D11VideoDecoderBufferDesc1* ppBufferDesc = &pBufferDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)ppDecoder, numBuffers, (D3D11VideoDecoderBufferDesc1*)ppBufferDesc);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC1*")] ref D3D11VideoDecoderBufferDesc1 pBufferDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderBufferDesc1* ppBufferDesc = &pBufferDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc1*, int>)(handle->LpVtbl[65]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, numBuffers, (D3D11VideoDecoderBufferDesc1*)ppBufferDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDataForNewHardwareKey")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "PrivateInputSize")] [NativeName(NativeNameType.Type, "UINT")] uint privateInputSize, [NativeName(NativeNameType.Param, "pPrivatInputData")] [NativeName(NativeNameType.Type, "const void*")] void* pPrivatInputData, [NativeName(NativeNameType.Param, "pPrivateOutputData")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pPrivateOutputData) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, pCryptoSession, privateInputSize, pPrivatInputData, pPrivateOutputData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDataForNewHardwareKey")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ref ID3D11CryptoSession pCryptoSession, [NativeName(NativeNameType.Param, "PrivateInputSize")] [NativeName(NativeNameType.Type, "UINT")] uint privateInputSize, [NativeName(NativeNameType.Param, "pPrivatInputData")] [NativeName(NativeNameType.Type, "const void*")] void* pPrivatInputData, [NativeName(NativeNameType.Param, "pPrivateOutputData")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pPrivateOutputData) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)ppCryptoSession, privateInputSize, pPrivatInputData, pPrivateOutputData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDataForNewHardwareKey")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "PrivateInputSize")] [NativeName(NativeNameType.Type, "UINT")] uint privateInputSize, [NativeName(NativeNameType.Param, "pPrivatInputData")] [NativeName(NativeNameType.Type, "const void*")] void* pPrivatInputData, [NativeName(NativeNameType.Param, "pPrivateOutputData")] [NativeName(NativeNameType.Type, "UINT64*")] ulong* pPrivateOutputData) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, privateInputSize, pPrivatInputData, pPrivateOutputData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDataForNewHardwareKey")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "PrivateInputSize")] [NativeName(NativeNameType.Type, "UINT")] uint privateInputSize, [NativeName(NativeNameType.Param, "pPrivatInputData")] [NativeName(NativeNameType.Type, "const void*")] void* pPrivatInputData, [NativeName(NativeNameType.Param, "pPrivateOutputData")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pPrivateOutputData) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ulong* ppPrivateOutputData = &pPrivateOutputData)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, pCryptoSession, privateInputSize, pPrivatInputData, (ulong*)ppPrivateOutputData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDataForNewHardwareKey")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ref ID3D11CryptoSession pCryptoSession, [NativeName(NativeNameType.Param, "PrivateInputSize")] [NativeName(NativeNameType.Type, "UINT")] uint privateInputSize, [NativeName(NativeNameType.Param, "pPrivatInputData")] [NativeName(NativeNameType.Type, "const void*")] void* pPrivatInputData, [NativeName(NativeNameType.Param, "pPrivateOutputData")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pPrivateOutputData) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
-			{
-				fixed (ulong* ppPrivateOutputData = &pPrivateOutputData)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)ppCryptoSession, privateInputSize, pPrivatInputData, (ulong*)ppPrivateOutputData);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDataForNewHardwareKey")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDataForNewHardwareKey(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "PrivateInputSize")] [NativeName(NativeNameType.Type, "UINT")] uint privateInputSize, [NativeName(NativeNameType.Param, "pPrivatInputData")] [NativeName(NativeNameType.Type, "const void*")] void* pPrivatInputData, [NativeName(NativeNameType.Param, "pPrivateOutputData")] [NativeName(NativeNameType.Type, "UINT64*")] ref ulong pPrivateOutputData) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ulong* ppPrivateOutputData = &pPrivateOutputData)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, uint, void*, ulong*, int>)(handle->LpVtbl[66]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, privateInputSize, pPrivatInputData, (ulong*)ppPrivateOutputData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoSessionStatus")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pStatus")] [NativeName(NativeNameType.Type, "D3D11_CRYPTO_SESSION_STATUS*")] D3D11CryptoSessionStatus* pStatus) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, D3D11CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, pCryptoSession, pStatus);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoSessionStatus")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ref ID3D11CryptoSession pCryptoSession, [NativeName(NativeNameType.Param, "pStatus")] [NativeName(NativeNameType.Type, "D3D11_CRYPTO_SESSION_STATUS*")] D3D11CryptoSessionStatus* pStatus) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, D3D11CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)ppCryptoSession, pStatus);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoSessionStatus")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pStatus")] [NativeName(NativeNameType.Type, "D3D11_CRYPTO_SESSION_STATUS*")] D3D11CryptoSessionStatus* pStatus) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, D3D11CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pStatus);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoSessionStatus")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ID3D11CryptoSession* pCryptoSession, [NativeName(NativeNameType.Param, "pStatus")] [NativeName(NativeNameType.Type, "D3D11_CRYPTO_SESSION_STATUS*")] ref D3D11CryptoSessionStatus pStatus) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11CryptoSessionStatus* ppStatus = &pStatus)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, D3D11CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, pCryptoSession, (D3D11CryptoSessionStatus*)ppStatus);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoSessionStatus")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ref ID3D11CryptoSession pCryptoSession, [NativeName(NativeNameType.Param, "pStatus")] [NativeName(NativeNameType.Type, "D3D11_CRYPTO_SESSION_STATUS*")] ref D3D11CryptoSessionStatus pStatus) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
-			{
-				fixed (D3D11CryptoSessionStatus* ppStatus = &pStatus)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, D3D11CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)ppCryptoSession, (D3D11CryptoSessionStatus*)ppStatus);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoSessionStatus")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoSessionStatus(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession*")] ComPtr<ID3D11CryptoSession> pCryptoSession, [NativeName(NativeNameType.Param, "pStatus")] [NativeName(NativeNameType.Type, "D3D11_CRYPTO_SESSION_STATUS*")] ref D3D11CryptoSessionStatus pStatus) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11CryptoSessionStatus* ppStatus = &pStatus)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11CryptoSession*, D3D11CryptoSessionStatus*, int>)(handle->LpVtbl[67]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (D3D11CryptoSessionStatus*)ppStatus);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderEnableDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "ReferenceFrameCount")] [NativeName(NativeNameType.Type, "UINT")] uint referenceFrameCount) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, DxgiColorSpaceType, D3D11VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, pDecoder, inputColorSpace, pOutputDesc, referenceFrameCount);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderEnableDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "ReferenceFrameCount")] [NativeName(NativeNameType.Type, "UINT")] uint referenceFrameCount) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, DxgiColorSpaceType, D3D11VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)ppDecoder, inputColorSpace, pOutputDesc, referenceFrameCount);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderEnableDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc, [NativeName(NativeNameType.Param, "ReferenceFrameCount")] [NativeName(NativeNameType.Type, "UINT")] uint referenceFrameCount) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, DxgiColorSpaceType, D3D11VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, inputColorSpace, pOutputDesc, referenceFrameCount);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderEnableDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "ReferenceFrameCount")] [NativeName(NativeNameType.Type, "UINT")] uint referenceFrameCount) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, DxgiColorSpaceType, D3D11VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, pDecoder, inputColorSpace, (D3D11VideoSampleDesc*)ppOutputDesc, referenceFrameCount);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderEnableDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "ReferenceFrameCount")] [NativeName(NativeNameType.Type, "UINT")] uint referenceFrameCount) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, DxgiColorSpaceType, D3D11VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)ppDecoder, inputColorSpace, (D3D11VideoSampleDesc*)ppOutputDesc, referenceFrameCount);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderEnableDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderEnableDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "InputColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType inputColorSpace, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc, [NativeName(NativeNameType.Param, "ReferenceFrameCount")] [NativeName(NativeNameType.Type, "UINT")] uint referenceFrameCount) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, DxgiColorSpaceType, D3D11VideoSampleDesc*, uint, int>)(handle->LpVtbl[68]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, inputColorSpace, (D3D11VideoSampleDesc*)ppOutputDesc, referenceFrameCount);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderUpdateDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, D3D11VideoSampleDesc*, int>)(handle->LpVtbl[69]))(handle, pDecoder, pOutputDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderUpdateDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, D3D11VideoSampleDesc*, int>)(handle->LpVtbl[69]))(handle, (ID3D11VideoDecoder*)ppDecoder, pOutputDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderUpdateDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] D3D11VideoSampleDesc* pOutputDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, D3D11VideoSampleDesc*, int>)(handle->LpVtbl[69]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, pOutputDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderUpdateDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, D3D11VideoSampleDesc*, int>)(handle->LpVtbl[69]))(handle, pDecoder, (D3D11VideoSampleDesc*)ppOutputDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderUpdateDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, D3D11VideoSampleDesc*, int>)(handle->LpVtbl[69]))(handle, (ID3D11VideoDecoder*)ppDecoder, (D3D11VideoSampleDesc*)ppOutputDesc);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderUpdateDownsampling")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderUpdateDownsampling(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "pOutputDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_SAMPLE_DESC*")] ref D3D11VideoSampleDesc pOutputDesc) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoSampleDesc* ppOutputDesc = &pOutputDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoDecoder*, D3D11VideoSampleDesc*, int>)(handle->LpVtbl[69]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, (D3D11VideoSampleDesc*)ppOutputDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, DxgiColorSpaceType, void>)(handle->LpVtbl[70]))(handle, pVideoProcessor, colorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, DxgiColorSpaceType, void>)(handle->LpVtbl[70]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, colorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, DxgiColorSpaceType, void>)(handle->LpVtbl[70]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, colorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputShaderUsage")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputShaderUsage(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "ShaderUsage")] [NativeName(NativeNameType.Type, "BOOL")] int shaderUsage) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, int, void>)(handle->LpVtbl[71]))(handle, pVideoProcessor, shaderUsage);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputShaderUsage")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputShaderUsage(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "ShaderUsage")] [NativeName(NativeNameType.Type, "BOOL")] int shaderUsage) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, int, void>)(handle->LpVtbl[71]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, shaderUsage);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputShaderUsage")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputShaderUsage(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "ShaderUsage")] [NativeName(NativeNameType.Type, "BOOL")] int shaderUsage) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, int, void>)(handle->LpVtbl[71]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, shaderUsage);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] DxgiColorSpaceType* pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, DxgiColorSpaceType*, void>)(handle->LpVtbl[72]))(handle, pVideoProcessor, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] DxgiColorSpaceType* pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, DxgiColorSpaceType*, void>)(handle->LpVtbl[72]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] DxgiColorSpaceType* pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, DxgiColorSpaceType*, void>)(handle->LpVtbl[72]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] ref DxgiColorSpaceType pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (DxgiColorSpaceType* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, DxgiColorSpaceType*, void>)(handle->LpVtbl[72]))(handle, pVideoProcessor, (DxgiColorSpaceType*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] ref DxgiColorSpaceType pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (DxgiColorSpaceType* ppColorSpace = &pColorSpace)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, DxgiColorSpaceType*, void>)(handle->LpVtbl[72]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (DxgiColorSpaceType*)ppColorSpace);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] ref DxgiColorSpaceType pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (DxgiColorSpaceType* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, DxgiColorSpaceType*, void>)(handle->LpVtbl[72]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (DxgiColorSpaceType*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputShaderUsage")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputShaderUsage(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pShaderUsage")] [NativeName(NativeNameType.Type, "BOOL*")] int* pShaderUsage) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[73]))(handle, pVideoProcessor, pShaderUsage);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputShaderUsage")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputShaderUsage(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pShaderUsage")] [NativeName(NativeNameType.Type, "BOOL*")] int* pShaderUsage) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[73]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pShaderUsage);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputShaderUsage")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputShaderUsage(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pShaderUsage")] [NativeName(NativeNameType.Type, "BOOL*")] int* pShaderUsage) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[73]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pShaderUsage);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputShaderUsage")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputShaderUsage(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pShaderUsage")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pShaderUsage) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppShaderUsage = &pShaderUsage)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[73]))(handle, pVideoProcessor, (int*)ppShaderUsage);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputShaderUsage")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputShaderUsage(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pShaderUsage")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pShaderUsage) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppShaderUsage = &pShaderUsage)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[73]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (int*)ppShaderUsage);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputShaderUsage")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputShaderUsage(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pShaderUsage")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pShaderUsage) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppShaderUsage = &pShaderUsage)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[73]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (int*)ppShaderUsage);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, DxgiColorSpaceType, void>)(handle->LpVtbl[74]))(handle, pVideoProcessor, streamIndex, colorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, DxgiColorSpaceType, void>)(handle->LpVtbl[74]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, colorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "ColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE")] DxgiColorSpaceType colorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, DxgiColorSpaceType, void>)(handle->LpVtbl[74]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, colorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "FlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL")] int flipHorizontal, [NativeName(NativeNameType.Param, "FlipVertical")] [NativeName(NativeNameType.Type, "BOOL")] int flipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int, int, int, void>)(handle->LpVtbl[75]))(handle, pVideoProcessor, streamIndex, enable, flipHorizontal, flipVertical);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "FlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL")] int flipHorizontal, [NativeName(NativeNameType.Param, "FlipVertical")] [NativeName(NativeNameType.Type, "BOOL")] int flipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int, int, int, void>)(handle->LpVtbl[75]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, flipHorizontal, flipVertical);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "FlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL")] int flipHorizontal, [NativeName(NativeNameType.Param, "FlipVertical")] [NativeName(NativeNameType.Type, "BOOL")] int flipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int, int, int, void>)(handle->LpVtbl[75]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, flipHorizontal, flipVertical);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] DxgiColorSpaceType* pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, DxgiColorSpaceType*, void>)(handle->LpVtbl[76]))(handle, pVideoProcessor, streamIndex, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] DxgiColorSpaceType* pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, DxgiColorSpaceType*, void>)(handle->LpVtbl[76]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] DxgiColorSpaceType* pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, DxgiColorSpaceType*, void>)(handle->LpVtbl[76]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] ref DxgiColorSpaceType pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (DxgiColorSpaceType* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, DxgiColorSpaceType*, void>)(handle->LpVtbl[76]))(handle, pVideoProcessor, streamIndex, (DxgiColorSpaceType*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] ref DxgiColorSpaceType pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (DxgiColorSpaceType* ppColorSpace = &pColorSpace)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, DxgiColorSpaceType*, void>)(handle->LpVtbl[76]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (DxgiColorSpaceType*)ppColorSpace);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace1")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace1(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "DXGI_COLOR_SPACE_TYPE*")] ref DxgiColorSpaceType pColorSpace) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (DxgiColorSpaceType* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, DxgiColorSpaceType*, void>)(handle->LpVtbl[76]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (DxgiColorSpaceType*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, pVideoProcessor, streamIndex, pEnable, pFlipHorizontal, pFlipVertical);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFlipHorizontal, pFlipVertical);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFlipHorizontal, pFlipVertical);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFlipHorizontal, pFlipVertical);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnable = &pEnable)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFlipHorizontal, pFlipVertical);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFlipHorizontal, pFlipVertical);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, pVideoProcessor, streamIndex, pEnable, (int*)ppFlipHorizontal, pFlipVertical);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (int*)ppFlipHorizontal, pFlipVertical);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (int*)ppFlipHorizontal, pFlipVertical);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (int*)ppFlipHorizontal, pFlipVertical);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnable = &pEnable)
-				{
-					fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (int*)ppFlipHorizontal, pFlipVertical);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (int*)ppFlipHorizontal, pFlipVertical);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppFlipVertical = &pFlipVertical)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, pVideoProcessor, streamIndex, pEnable, pFlipHorizontal, (int*)ppFlipVertical);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppFlipVertical = &pFlipVertical)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFlipHorizontal, (int*)ppFlipVertical);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppFlipVertical = &pFlipVertical)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFlipHorizontal, (int*)ppFlipVertical);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				fixed (int* ppFlipVertical = &pFlipVertical)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFlipHorizontal, (int*)ppFlipVertical);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnable = &pEnable)
-				{
-					fixed (int* ppFlipVertical = &pFlipVertical)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFlipHorizontal, (int*)ppFlipVertical);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] int* pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				fixed (int* ppFlipVertical = &pFlipVertical)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFlipHorizontal, (int*)ppFlipVertical);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-			{
-				fixed (int* ppFlipVertical = &pFlipVertical)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, pVideoProcessor, streamIndex, pEnable, (int*)ppFlipHorizontal, (int*)ppFlipVertical);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-				{
-					fixed (int* ppFlipVertical = &pFlipVertical)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (int*)ppFlipHorizontal, (int*)ppFlipVertical);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-			{
-				fixed (int* ppFlipVertical = &pFlipVertical)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (int*)ppFlipHorizontal, (int*)ppFlipVertical);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-				{
-					fixed (int* ppFlipVertical = &pFlipVertical)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (int*)ppFlipHorizontal, (int*)ppFlipVertical);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnable = &pEnable)
-				{
-					fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-					{
-						fixed (int* ppFlipVertical = &pFlipVertical)
-						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (int*)ppFlipHorizontal, (int*)ppFlipVertical);
-						}
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamMirror")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamMirror(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnable")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnable, [NativeName(NativeNameType.Param, "pFlipHorizontal")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipHorizontal, [NativeName(NativeNameType.Param, "pFlipVertical")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pFlipVertical) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (int* ppEnable = &pEnable)
-			{
-				fixed (int* ppFlipHorizontal = &pFlipHorizontal)
-				{
-					fixed (int* ppFlipVertical = &pFlipVertical)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, int*, int*, int*, void>)(handle->LpVtbl[77]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (int*)ppFlipHorizontal, (int*)ppFlipVertical);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] D3D11VideoProcessorStreamBehaviorHint* pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] uint* pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, pVideoProcessor, outputWidth, outputHeight, outputFormat, streamCount, pStreams, pBehaviorHints);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] D3D11VideoProcessorStreamBehaviorHint* pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] uint* pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, outputWidth, outputHeight, outputFormat, streamCount, pStreams, pBehaviorHints);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] D3D11VideoProcessorStreamBehaviorHint* pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] uint* pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, outputWidth, outputHeight, outputFormat, streamCount, pStreams, pBehaviorHints);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] ref D3D11VideoProcessorStreamBehaviorHint pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] uint* pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorStreamBehaviorHint* ppStreams = &pStreams)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, pVideoProcessor, outputWidth, outputHeight, outputFormat, streamCount, (D3D11VideoProcessorStreamBehaviorHint*)ppStreams, pBehaviorHints);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] ref D3D11VideoProcessorStreamBehaviorHint pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] uint* pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorStreamBehaviorHint* ppStreams = &pStreams)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, outputWidth, outputHeight, outputFormat, streamCount, (D3D11VideoProcessorStreamBehaviorHint*)ppStreams, pBehaviorHints);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] ref D3D11VideoProcessorStreamBehaviorHint pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] uint* pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorStreamBehaviorHint* ppStreams = &pStreams)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, outputWidth, outputHeight, outputFormat, streamCount, (D3D11VideoProcessorStreamBehaviorHint*)ppStreams, pBehaviorHints);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] D3D11VideoProcessorStreamBehaviorHint* pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (uint* ppBehaviorHints = &pBehaviorHints)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, pVideoProcessor, outputWidth, outputHeight, outputFormat, streamCount, pStreams, (uint*)ppBehaviorHints);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] D3D11VideoProcessorStreamBehaviorHint* pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (uint* ppBehaviorHints = &pBehaviorHints)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, outputWidth, outputHeight, outputFormat, streamCount, pStreams, (uint*)ppBehaviorHints);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] D3D11VideoProcessorStreamBehaviorHint* pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (uint* ppBehaviorHints = &pBehaviorHints)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, outputWidth, outputHeight, outputFormat, streamCount, pStreams, (uint*)ppBehaviorHints);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] ref D3D11VideoProcessorStreamBehaviorHint pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorStreamBehaviorHint* ppStreams = &pStreams)
-			{
-				fixed (uint* ppBehaviorHints = &pBehaviorHints)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, pVideoProcessor, outputWidth, outputHeight, outputFormat, streamCount, (D3D11VideoProcessorStreamBehaviorHint*)ppStreams, (uint*)ppBehaviorHints);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] ref D3D11VideoProcessorStreamBehaviorHint pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorStreamBehaviorHint* ppStreams = &pStreams)
-				{
-					fixed (uint* ppBehaviorHints = &pBehaviorHints)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, outputWidth, outputHeight, outputFormat, streamCount, (D3D11VideoProcessorStreamBehaviorHint*)ppStreams, (uint*)ppBehaviorHints);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetBehaviorHints")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int VideoProcessorGetBehaviorHints(this ComPtr<ID3D11VideoContext1> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "OutputWidth")] [NativeName(NativeNameType.Type, "UINT")] uint outputWidth, [NativeName(NativeNameType.Param, "OutputHeight")] [NativeName(NativeNameType.Type, "UINT")] uint outputHeight, [NativeName(NativeNameType.Param, "OutputFormat")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat outputFormat, [NativeName(NativeNameType.Param, "StreamCount")] [NativeName(NativeNameType.Type, "UINT")] uint streamCount, [NativeName(NativeNameType.Param, "pStreams")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_STREAM_BEHAVIOR_HINT*")] ref D3D11VideoProcessorStreamBehaviorHint pStreams, [NativeName(NativeNameType.Param, "pBehaviorHints")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pBehaviorHints) 
-		{
-			ID3D11VideoContext1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorStreamBehaviorHint* ppStreams = &pStreams)
-			{
-				fixed (uint* ppBehaviorHints = &pBehaviorHints)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext1*, ID3D11VideoProcessor*, uint, uint, DxgiFormat, uint, D3D11VideoProcessorStreamBehaviorHint*, uint*, int>)(handle->LpVtbl[78]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, outputWidth, outputHeight, outputFormat, streamCount, (D3D11VideoProcessorStreamBehaviorHint*)ppStreams, (uint*)ppBehaviorHints);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppvObject = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int QueryInterface<T>(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* priid = &riid)
-			{
-				ppvObject = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint AddRef(this ComPtr<ID3D11VideoDevice1> comObj) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, uint>)(handle->LpVtbl[1]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
-		public static uint Release(this ComPtr<ID3D11VideoDevice1> comObj) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, uint>)(handle->LpVtbl[2]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ID3D11VideoDecoder** ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, pConfig, ppDecoder);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ID3D11VideoDecoder** ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (D3D11VideoDecoderDesc*)ppVideoDesc, pConfig, ppDecoder);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ID3D11VideoDecoder** ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, ppDecoder);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ID3D11VideoDecoder** ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
-			{
-				fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (D3D11VideoDecoderDesc*)ppVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, ppDecoder);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ref ID3D11VideoDecoder* ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] out ComPtr<ID3D11VideoDecoder> ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppDecoder = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ref ID3D11VideoDecoder* ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
-			{
-				fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (D3D11VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] out ComPtr<ID3D11VideoDecoder> ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
-			{
-				ppDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (D3D11VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ref ID3D11VideoDecoder* ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
-			{
-				fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] out ComPtr<ID3D11VideoDecoder> ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
-			{
-				ppDecoder = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] ref ID3D11VideoDecoder* ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
-			{
-				fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
-				{
-					fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (D3D11VideoDecoderDesc*)ppVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoder")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pVideoDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pVideoDesc, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig, [NativeName(NativeNameType.Param, "ppDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder**")] out ComPtr<ID3D11VideoDecoder> ppDecoder) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
-			{
-				fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
-				{
-					ppDecoder = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, D3D11VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (D3D11VideoDecoderDesc*)ppVideoDesc, (D3D11VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] ID3D11VideoProcessor** ppVideoProcessor) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, pEnum, rateConversionIndex, ppVideoProcessor);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] ID3D11VideoProcessor** ppVideoProcessor) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, (ID3D11VideoProcessorEnumerator*)ppEnum, rateConversionIndex, ppVideoProcessor);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] ID3D11VideoProcessor** ppVideoProcessor) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, rateConversionIndex, ppVideoProcessor);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] ref ID3D11VideoProcessor* ppVideoProcessor) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor** pppVideoProcessor = &ppVideoProcessor)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, pEnum, rateConversionIndex, (ID3D11VideoProcessor**)pppVideoProcessor);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVideoProcessor = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, pEnum, rateConversionIndex, (ID3D11VideoProcessor**)ppVideoProcessor.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] ref ID3D11VideoProcessor* ppVideoProcessor) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-			{
-				fixed (ID3D11VideoProcessor** pppVideoProcessor = &ppVideoProcessor)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, (ID3D11VideoProcessorEnumerator*)ppEnum, rateConversionIndex, (ID3D11VideoProcessor**)pppVideoProcessor);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessor")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "RateConversionIndex")] [NativeName(NativeNameType.Type, "UINT")] uint rateConversionIndex, [NativeName(NativeNameType.Param, "ppVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor**")] out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVideoProcessor = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, rateConversionIndex, (ID3D11VideoProcessor**)ppVideoProcessor.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateAuthenticatedChannel(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "ChannelType")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CHANNEL_TYPE")] D3D11AuthenticatedChannelType channelType, [NativeName(NativeNameType.Param, "ppAuthenticatedChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel**")] ID3D11AuthenticatedChannel** ppAuthenticatedChannel) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(handle->LpVtbl[5]))(handle, channelType, ppAuthenticatedChannel);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateAuthenticatedChannel(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "ChannelType")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CHANNEL_TYPE")] D3D11AuthenticatedChannelType channelType, [NativeName(NativeNameType.Param, "ppAuthenticatedChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel**")] ref ID3D11AuthenticatedChannel* ppAuthenticatedChannel) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11AuthenticatedChannel** pppAuthenticatedChannel = &ppAuthenticatedChannel)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(handle->LpVtbl[5]))(handle, channelType, (ID3D11AuthenticatedChannel**)pppAuthenticatedChannel);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateAuthenticatedChannel")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateAuthenticatedChannel(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "ChannelType")] [NativeName(NativeNameType.Type, "D3D11_AUTHENTICATED_CHANNEL_TYPE")] D3D11AuthenticatedChannelType channelType, [NativeName(NativeNameType.Param, "ppAuthenticatedChannel")] [NativeName(NativeNameType.Type, "ID3D11AuthenticatedChannel**")] out ComPtr<ID3D11AuthenticatedChannel> ppAuthenticatedChannel) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppAuthenticatedChannel = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(handle->LpVtbl[5]))(handle, channelType, (ID3D11AuthenticatedChannel**)ppAuthenticatedChannel.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, pKeyExchangeType, ppCryptoSession);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, ppCryptoSession);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, ppCryptoSession);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, ppCryptoSession);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ID3D11CryptoSession** ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-				{
-					fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppCryptoSession = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				ppCryptoSession = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				ppCryptoSession = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-				{
-					fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-				{
-					ppCryptoSession = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-			{
-				fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-			{
-				ppCryptoSession = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-				{
-					fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-				{
-					ppCryptoSession = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-				{
-					fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-				{
-					ppCryptoSession = default;
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] ref ID3D11CryptoSession* ppCryptoSession) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-				{
-					fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-					{
-						fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
-						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -3240,704 +45,104 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateCryptoSession")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pKeyExchangeType, [NativeName(NativeNameType.Param, "ppCryptoSession")] [NativeName(NativeNameType.Type, "ID3D11CryptoSession**")] out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
 			{
-				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
+				fixed (uint* ppActiveCounters = &pActiveCounters)
 				{
-					fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
 					{
-						ppCryptoSession = default;
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, pResource, pDesc, ppVDOVView);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, (ID3D11Resource*)ppResource, pDesc, ppVDOVView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, (ID3D11Resource*)pResource.Handle, pDesc, ppVDOVView);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, pResource, (D3D11VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, (ID3D11Resource*)ppResource, (D3D11VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ID3D11VideoDecoderOutputView** ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, (ID3D11Resource*)pResource.Handle, (D3D11VideoDecoderOutputViewDesc*)ppDesc, ppVDOVView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ref ID3D11VideoDecoderOutputView* ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, pResource, pDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVDOVView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, pResource, pDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ref ID3D11VideoDecoderOutputView* ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, (ID3D11Resource*)ppResource, pDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] D3D11VideoDecoderOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVDOVView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, (ID3D11Resource*)pResource.Handle, pDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ref ID3D11VideoDecoderOutputView* ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
-			{
-				fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, pResource, (D3D11VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
-			{
-				ppVDOVView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, pResource, (D3D11VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] ref ID3D11VideoDecoderOutputView* ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
-				{
-					fixed (ID3D11VideoDecoderOutputView** pppVDOVView = &ppVDOVView)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, (ID3D11Resource*)ppResource, (D3D11VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)pppVDOVView);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoDecoderOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoDecoderOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_OUTPUT_VIEW_DESC*")] ref D3D11VideoDecoderOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVDOVView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView**")] out ComPtr<ID3D11VideoDecoderOutputView> ppVDOVView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderOutputViewDesc* ppDesc = &pDesc)
-			{
-				ppVDOVView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, D3D11VideoDecoderOutputViewDesc*, ID3D11VideoDecoderOutputView**, int>)(handle->LpVtbl[7]))(handle, (ID3D11Resource*)pResource.Handle, (D3D11VideoDecoderOutputViewDesc*)ppDesc, (ID3D11VideoDecoderOutputView**)ppVDOVView.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, pEnum, pDesc, ppVPIView);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)ppResource, pEnum, pDesc, ppVPIView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, ppVPIView);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPIView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPIView);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPIView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPIView);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)ppResource, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)pResource.Handle, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-			{
-				fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-				{
-					fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ID3D11VideoProcessorInputView** ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorInputViewDesc*)ppDesc, ppVPIView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)ppResource, pEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-			{
-				fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-				{
-					fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] D3D11VideoProcessorInputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVPIView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-			{
-				fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-			{
-				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-				{
-					fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)ppResource, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-			{
-				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)pResource.Handle, pEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-			{
-				fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-				{
-					fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-			{
-				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] ref ID3D11VideoProcessorInputView* ppVPIView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-				{
-					fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
-					{
-						fixed (ID3D11VideoProcessorInputView** pppVPIView = &ppVPIView)
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)pppVPIView);
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszName = szName)
+						{
+							fixed (uint* ppNameLength = &pNameLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szName != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szName);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, pUnitsLength, szDescription, pDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
 							return ret;
 						}
 					}
@@ -3948,15 +153,12 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorInputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorInputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_INPUT_VIEW_DESC*")] ref D3D11VideoProcessorInputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPIView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorInputView**")] out ComPtr<ID3D11VideoProcessorInputView> ppVPIView) 
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorInputViewDesc* ppDesc = &pDesc)
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (byte* pszUnits = szUnits)
 			{
-				ppVPIView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorInputViewDesc*, ID3D11VideoProcessorInputView**, int>)(handle->LpVtbl[8]))(handle, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorInputViewDesc*)ppDesc, (ID3D11VideoProcessorInputView**)ppVPIView.GetAddressOf());
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 				return ret;
 			}
 		}
@@ -3964,82 +166,45 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, pEnum, pDesc, ppVPOView);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
+			ID3D11Device1* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szUnits != null)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)ppResource, pEnum, pDesc, ppVPOView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, ppVPOView);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPOView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPOView);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
+				pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, ppVPOView);
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 					return ret;
 				}
 			}
@@ -4048,111 +213,100 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, ppVPOView);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)ppResource, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)pResource.Handle, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-			{
-				fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-				{
-					fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -4162,267 +316,217 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ID3D11VideoProcessorOutputView** ppVPOView) 
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorOutputViewDesc*)ppDesc, ppVPOView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
+				fixed (CounterType* ppType = &pType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)ppResource, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)pResource.Handle, pEnum, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-			{
-				fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-				{
-					fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, pDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] D3D11VideoProcessorOutputViewDesc* pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppVPOView = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, pDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
-			{
-				fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
-			{
-				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
-				{
-					fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)ppResource, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ID3D11VideoProcessorEnumerator* pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
-			{
-				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)pResource.Handle, pEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-			{
-				fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
-				{
-					fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
-					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
-						return ret;
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ID3D11Resource* pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
-			{
-				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, pResource, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ref ID3D11Resource pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ref ID3D11VideoProcessorEnumerator pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] ref ID3D11VideoProcessorOutputView* ppVPOView) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11Resource* ppResource = &pResource)
-			{
-				fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
-				{
-					fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
-					{
-						fixed (ID3D11VideoProcessorOutputView** pppVPOView = &ppVPOView)
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
 						{
-							int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)ppResource, (ID3D11VideoProcessorEnumerator*)ppEnum, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)pppVPOView);
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 							return ret;
 						}
 					}
@@ -4433,453 +537,37 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorOutputView")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorOutputView(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pResource")] [NativeName(NativeNameType.Type, "ID3D11Resource*")] ComPtr<ID3D11Resource> pResource, [NativeName(NativeNameType.Param, "pEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator*")] ComPtr<ID3D11VideoProcessorEnumerator> pEnum, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_OUTPUT_VIEW_DESC*")] ref D3D11VideoProcessorOutputViewDesc pDesc, [NativeName(NativeNameType.Param, "ppVPOView")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorOutputView**")] out ComPtr<ID3D11VideoProcessorOutputView> ppVPOView) 
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputViewDesc* ppDesc = &pDesc)
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				ppVPOView = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, ID3D11Resource*, ID3D11VideoProcessorEnumerator*, D3D11VideoProcessorOutputViewDesc*, ID3D11VideoProcessorOutputView**, int>)(handle->LpVtbl[9]))(handle, (ID3D11Resource*)pResource.Handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, (D3D11VideoProcessorOutputViewDesc*)ppDesc, (ID3D11VideoProcessorOutputView**)ppVPOView.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorEnumerator(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] D3D11VideoProcessorContentDesc* pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] ID3D11VideoProcessorEnumerator** ppEnum) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(handle->LpVtbl[10]))(handle, pDesc, ppEnum);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorEnumerator(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] ref D3D11VideoProcessorContentDesc pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] ID3D11VideoProcessorEnumerator** ppEnum) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorContentDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(handle->LpVtbl[10]))(handle, (D3D11VideoProcessorContentDesc*)ppDesc, ppEnum);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorEnumerator(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] D3D11VideoProcessorContentDesc* pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] ref ID3D11VideoProcessorEnumerator* ppEnum) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessorEnumerator** pppEnum = &ppEnum)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(handle->LpVtbl[10]))(handle, pDesc, (ID3D11VideoProcessorEnumerator**)pppEnum);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorEnumerator(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] D3D11VideoProcessorContentDesc* pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] out ComPtr<ID3D11VideoProcessorEnumerator> ppEnum) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			ppEnum = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(handle->LpVtbl[10]))(handle, pDesc, (ID3D11VideoProcessorEnumerator**)ppEnum.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorEnumerator(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] ref D3D11VideoProcessorContentDesc pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] ref ID3D11VideoProcessorEnumerator* ppEnum) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorContentDesc* ppDesc = &pDesc)
-			{
-				fixed (ID3D11VideoProcessorEnumerator** pppEnum = &ppEnum)
+				fixed (CounterType* ppType = &pType)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(handle->LpVtbl[10]))(handle, (D3D11VideoProcessorContentDesc*)ppDesc, (ID3D11VideoProcessorEnumerator**)pppEnum);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CreateVideoProcessorEnumerator")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CreateVideoProcessorEnumerator(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_CONTENT_DESC*")] ref D3D11VideoProcessorContentDesc pDesc, [NativeName(NativeNameType.Param, "ppEnum")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessorEnumerator**")] out ComPtr<ID3D11VideoProcessorEnumerator> ppEnum) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorContentDesc* ppDesc = &pDesc)
-			{
-				ppEnum = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoProcessorContentDesc*, ID3D11VideoProcessorEnumerator**, int>)(handle->LpVtbl[10]))(handle, (D3D11VideoProcessorContentDesc*)ppDesc, (ID3D11VideoProcessorEnumerator**)ppEnum.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderProfileCount")]
-		[return: NativeName(NativeNameType.Type, "UINT")]
-		public static uint GetVideoDecoderProfileCount(this ComPtr<ID3D11VideoDevice1> comObj) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, uint>)(handle->LpVtbl[11]))(handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderProfile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetVideoDecoderProfile(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "GUID*")] Guid* pDecoderProfile) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, uint, Guid*, int>)(handle->LpVtbl[12]))(handle, index, pDecoderProfile);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderProfile")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetVideoDecoderProfile(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "GUID*")] ref Guid pDecoderProfile) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, uint, Guid*, int>)(handle->LpVtbl[12]))(handle, index, (Guid*)ppDecoderProfile);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderFormat")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckVideoDecoderFormat(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, DxgiFormat, int*, int>)(handle->LpVtbl[13]))(handle, pDecoderProfile, format, pSupported);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderFormat")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckVideoDecoderFormat(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] int* pSupported) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, DxgiFormat, int*, int>)(handle->LpVtbl[13]))(handle, (Guid*)ppDecoderProfile, format, pSupported);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderFormat")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckVideoDecoderFormat(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (int* ppSupported = &pSupported)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, DxgiFormat, int*, int>)(handle->LpVtbl[13]))(handle, pDecoderProfile, format, (int*)ppSupported);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckVideoDecoderFormat")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckVideoDecoderFormat(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "DXGI_FORMAT")] DxgiFormat format, [NativeName(NativeNameType.Param, "pSupported")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pSupported) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				fixed (int* ppSupported = &pSupported)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, DxgiFormat, int*, int>)(handle->LpVtbl[13]))(handle, (Guid*)ppDecoderProfile, format, (int*)ppSupported);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfigCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetVideoDecoderConfigCount(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pCount) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, uint*, int>)(handle->LpVtbl[14]))(handle, pDesc, pCount);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfigCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetVideoDecoderConfigCount(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT*")] uint* pCount) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, uint*, int>)(handle->LpVtbl[14]))(handle, (D3D11VideoDecoderDesc*)ppDesc, pCount);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfigCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetVideoDecoderConfigCount(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pCount) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (uint* ppCount = &pCount)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, uint*, int>)(handle->LpVtbl[14]))(handle, pDesc, (uint*)ppCount);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfigCount")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetVideoDecoderConfigCount(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "pCount")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pCount) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderDesc* ppDesc = &pDesc)
-			{
-				fixed (uint* ppCount = &pCount)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, uint*, int>)(handle->LpVtbl[14]))(handle, (D3D11VideoDecoderDesc*)ppDesc, (uint*)ppCount);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfig")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetVideoDecoderConfig(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, uint, D3D11VideoDecoderConfig*, int>)(handle->LpVtbl[15]))(handle, pDesc, index, pConfig);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfig")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetVideoDecoderConfig(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_CONFIG*")] D3D11VideoDecoderConfig* pConfig) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderDesc* ppDesc = &pDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, uint, D3D11VideoDecoderConfig*, int>)(handle->LpVtbl[15]))(handle, (D3D11VideoDecoderDesc*)ppDesc, index, pConfig);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfig")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetVideoDecoderConfig(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] D3D11VideoDecoderDesc* pDesc, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, uint, D3D11VideoDecoderConfig*, int>)(handle->LpVtbl[15]))(handle, pDesc, index, (D3D11VideoDecoderConfig*)ppConfig);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetVideoDecoderConfig")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetVideoDecoderConfig(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_DESC*")] ref D3D11VideoDecoderDesc pDesc, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pConfig")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_CONFIG*")] ref D3D11VideoDecoderConfig pConfig) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderDesc* ppDesc = &pDesc)
-			{
-				fixed (D3D11VideoDecoderConfig* ppConfig = &pConfig)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, D3D11VideoDecoderDesc*, uint, D3D11VideoDecoderConfig*, int>)(handle->LpVtbl[15]))(handle, (D3D11VideoDecoderDesc*)ppDesc, index, (D3D11VideoDecoderConfig*)ppConfig);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetContentProtectionCaps(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] D3D11VideoContentProtectionCaps* pCaps) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(handle->LpVtbl[16]))(handle, pCryptoType, pDecoderProfile, pCaps);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetContentProtectionCaps(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] D3D11VideoContentProtectionCaps* pCaps) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(handle->LpVtbl[16]))(handle, (Guid*)ppCryptoType, pDecoderProfile, pCaps);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetContentProtectionCaps(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] D3D11VideoContentProtectionCaps* pCaps) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(handle->LpVtbl[16]))(handle, pCryptoType, (Guid*)ppDecoderProfile, pCaps);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetContentProtectionCaps(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] D3D11VideoContentProtectionCaps* pCaps) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(handle->LpVtbl[16]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pCaps);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetContentProtectionCaps(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] ref D3D11VideoContentProtectionCaps pCaps) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (D3D11VideoContentProtectionCaps* ppCaps = &pCaps)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(handle->LpVtbl[16]))(handle, pCryptoType, pDecoderProfile, (D3D11VideoContentProtectionCaps*)ppCaps);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetContentProtectionCaps(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] ref D3D11VideoContentProtectionCaps pCaps) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (D3D11VideoContentProtectionCaps* ppCaps = &pCaps)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(handle->LpVtbl[16]))(handle, (Guid*)ppCryptoType, pDecoderProfile, (D3D11VideoContentProtectionCaps*)ppCaps);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetContentProtectionCaps(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] ref D3D11VideoContentProtectionCaps pCaps) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				fixed (D3D11VideoContentProtectionCaps* ppCaps = &pCaps)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(handle->LpVtbl[16]))(handle, pCryptoType, (Guid*)ppDecoderProfile, (D3D11VideoContentProtectionCaps*)ppCaps);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetContentProtectionCaps")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetContentProtectionCaps(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "pCaps")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_CONTENT_PROTECTION_CAPS*")] ref D3D11VideoContentProtectionCaps pCaps) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-				{
-					fixed (D3D11VideoContentProtectionCaps* ppCaps = &pCaps)
+					fixed (uint* ppActiveCounters = &pActiveCounters)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, D3D11VideoContentProtectionCaps*, int>)(handle->LpVtbl[16]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (D3D11VideoContentProtectionCaps*)ppCaps);
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szUnits != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
 						return ret;
 					}
 				}
@@ -4889,129 +577,84 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoKeyExchange(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] Guid* pKeyExchangeType) 
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, uint, Guid*, int>)(handle->LpVtbl[17]))(handle, pCryptoType, pDecoderProfile, index, pKeyExchangeType);
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (byte* pszName = szName)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			byte* pStr1 = null;
+			int pStrSize1 = 0;
+			if (szUnits != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = 0;
+			}
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+			if (pStrSize1 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr1);
+			}
+			if (pStrSize0 >= Utils.MaxStackallocSize)
+			{
+				Utils.Free(pStr0);
+			}
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoKeyExchange(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] Guid* pKeyExchangeType) 
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, uint, Guid*, int>)(handle->LpVtbl[17]))(handle, (Guid*)ppCryptoType, pDecoderProfile, index, pKeyExchangeType);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoKeyExchange(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] Guid* pKeyExchangeType) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, uint, Guid*, int>)(handle->LpVtbl[17]))(handle, pCryptoType, (Guid*)ppDecoderProfile, index, pKeyExchangeType);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoKeyExchange(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] Guid* pKeyExchangeType) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
+				fixed (byte* pszName = szName)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, uint, Guid*, int>)(handle->LpVtbl[17]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, index, pKeyExchangeType);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoKeyExchange(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] ref Guid pKeyExchangeType) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, uint, Guid*, int>)(handle->LpVtbl[17]))(handle, pCryptoType, pDecoderProfile, index, (Guid*)ppKeyExchangeType);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoKeyExchange(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] ref Guid pKeyExchangeType) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, uint, Guid*, int>)(handle->LpVtbl[17]))(handle, (Guid*)ppCryptoType, pDecoderProfile, index, (Guid*)ppKeyExchangeType);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoKeyExchange(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] ref Guid pKeyExchangeType) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-			{
-				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, uint, Guid*, int>)(handle->LpVtbl[17]))(handle, pCryptoType, (Guid*)ppDecoderProfile, index, (Guid*)ppKeyExchangeType);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "CheckCryptoKeyExchange")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int CheckCryptoKeyExchange(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "pCryptoType")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pCryptoType, [NativeName(NativeNameType.Param, "pDecoderProfile")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pDecoderProfile, [NativeName(NativeNameType.Param, "Index")] [NativeName(NativeNameType.Type, "UINT")] uint index, [NativeName(NativeNameType.Param, "pKeyExchangeType")] [NativeName(NativeNameType.Type, "GUID*")] ref Guid pKeyExchangeType) 
-		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			fixed (Guid* ppCryptoType = &pCryptoType)
-			{
-				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
-				{
-					fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
+					fixed (byte* pszUnits = szUnits)
 					{
-						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, Guid*, uint, Guid*, int>)(handle->LpVtbl[17]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, index, (Guid*)ppKeyExchangeType);
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
 						return ret;
 					}
 				}
@@ -5021,13 +664,4368 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<ID3D11VideoDevice1> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
 		{
-			ID3D11VideoDevice1* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice1*, Guid*, uint, void*, int>)(handle->LpVtbl[18]))(handle, guid, dataSize, pData);
-			return ret;
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr1);
+				}
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr1);
+				}
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr1);
+				}
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszName = szName)
+						{
+							fixed (byte* pszUnits = szUnits)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szName != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szName);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szUnits != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szUnits != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szUnits != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szUnits != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (byte* pszUnits = szUnits)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							byte* pStr0 = null;
+							int pStrSize0 = 0;
+							if (szUnits != null)
+							{
+								pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+								}
+								else
+								{
+									byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+									pStr0 = pStrStack0;
+								}
+								int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+								pStr0[pStrOffset0] = 0;
+							}
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, pStr0, pUnitsLength, szDescription, pDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (byte* pszName = szName)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr1);
+				}
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (byte* pszUnits = szUnits)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szUnits != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (byte* pszUnits = szUnits)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szUnits != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (byte* pszUnits = szUnits)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szUnits != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszName = szName)
+						{
+							fixed (uint* ppNameLength = &pNameLength)
+							{
+								fixed (byte* pszUnits = szUnits)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, (byte*)pszUnits, pUnitsLength, szDescription, pDescriptionLength);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, string szUnits, uint* pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szName != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szName);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							byte* pStr1 = null;
+							int pStrSize1 = 0;
+							if (szUnits != null)
+							{
+								pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+								if (pStrSize1 >= Utils.MaxStackallocSize)
+								{
+									pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+								}
+								else
+								{
+									byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+									pStr1 = pStrStack1;
+								}
+								int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+								pStr1[pStrOffset1] = 0;
+							}
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, pStr1, pUnitsLength, szDescription, pDescriptionLength);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppUnitsLength = &pUnitsLength)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (byte* pszName = szName)
+			{
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			fixed (uint* ppUnitsLength = &pUnitsLength)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszName = szName)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szName != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szName);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (byte* pszName = szName)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszName = szName)
+						{
+							fixed (uint* ppNameLength = &pNameLength)
+							{
+								fixed (uint* ppUnitsLength = &pUnitsLength)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, ref uint pNameLength, byte* szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szName != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szName);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppNameLength = &pNameLength)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, (uint*)ppNameLength, szUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								if (pStrSize0 >= Utils.MaxStackallocSize)
+								{
+									Utils.Free(pStr0);
+								}
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (byte* pszUnits = szUnits)
+			{
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szUnits != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			fixed (uint* ppUnitsLength = &pUnitsLength)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, byte* szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szUnits != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, szName, pNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (byte* pszName = szName)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			byte* pStr0 = null;
+			int pStrSize0 = 0;
+			if (szName != null)
+			{
+				pStrSize0 = Utils.GetByteCountUTF8(szName);
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+				}
+				else
+				{
+					byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+					pStr0 = pStrStack0;
+				}
+				int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+				pStr0[pStrOffset0] = 0;
+			}
+			byte* pStr1 = null;
+			int pStrSize1 = 0;
+			if (szUnits != null)
+			{
+				pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+				}
+				else
+				{
+					byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+					pStr1 = pStrStack1;
+				}
+				int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+				pStr1[pStrOffset1] = 0;
+			}
+			fixed (uint* ppUnitsLength = &pUnitsLength)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+				if (pStrSize1 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr1);
+				}
+				if (pStrSize0 >= Utils.MaxStackallocSize)
+				{
+					Utils.Free(pStr0);
+				}
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (byte* pszName = szName)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szName != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szName);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				byte* pStr1 = null;
+				int pStrSize1 = 0;
+				if (szUnits != null)
+				{
+					pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+					}
+					else
+					{
+						byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+						pStr1 = pStrStack1;
+					}
+					int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+					pStr1[pStrOffset1] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize1 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr1);
+					}
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					fixed (byte* pszName = szName)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppActiveCounters = &pActiveCounters)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szName != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szName);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					byte* pStr1 = null;
+					int pStrSize1 = 0;
+					if (szUnits != null)
+					{
+						pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+						}
+						else
+						{
+							byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+							pStr1 = pStrStack1;
+						}
+						int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+						pStr1[pStrOffset1] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize1 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr1);
+						}
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, ReadOnlySpan<byte> szName, uint* pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						fixed (byte* pszName = szName)
+						{
+							fixed (byte* pszUnits = szUnits)
+							{
+								fixed (uint* ppUnitsLength = &pUnitsLength)
+								{
+									int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, (byte*)pszName, pNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+									return ret;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, ref uint pActiveCounters, string szName, uint* pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppActiveCounters = &pActiveCounters)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szName != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szName);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szName, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						byte* pStr1 = null;
+						int pStrSize1 = 0;
+						if (szUnits != null)
+						{
+							pStrSize1 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								pStr1 = Utils.Alloc<byte>(pStrSize1 + 1);
+							}
+							else
+							{
+								byte* pStrStack1 = stackalloc byte[pStrSize1 + 1];
+								pStr1 = pStrStack1;
+							}
+							int pStrOffset1 = Utils.EncodeStringUTF8(szUnits, pStr1, pStrSize1);
+							pStr1[pStrOffset1] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, (uint*)ppActiveCounters, pStr0, pNameLength, pStr1, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							if (pStrSize1 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr1);
+							}
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				fixed (byte* pszUnits = szUnits)
+				{
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppNameLength = &pNameLength)
+			{
+				byte* pStr0 = null;
+				int pStrSize0 = 0;
+				if (szUnits != null)
+				{
+					pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+					}
+					else
+					{
+						byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+						pStr0 = pStrStack0;
+					}
+					int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+					pStr0[pStrOffset0] = 0;
+				}
+				fixed (uint* ppUnitsLength = &pUnitsLength)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+					if (pStrSize0 >= Utils.MaxStackallocSize)
+					{
+						Utils.Free(pStr0);
+					}
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, CounterType* pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, pType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterType* ppType = &pType)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					byte* pStr0 = null;
+					int pStrSize0 = 0;
+					if (szUnits != null)
+					{
+						pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+						}
+						else
+						{
+							byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+							pStr0 = pStrStack0;
+						}
+						int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+						pStr0[pStrOffset0] = 0;
+					}
+					fixed (uint* ppUnitsLength = &pUnitsLength)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+						if (pStrSize0 >= Utils.MaxStackallocSize)
+						{
+							Utils.Free(pStr0);
+						}
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						fixed (byte* pszUnits = szUnits)
+						{
+							fixed (uint* ppUnitsLength = &pUnitsLength)
+							{
+								int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+								return ret;
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, ref CounterDesc pDesc, ref CounterType pType, uint* pActiveCounters, byte* szName, ref uint pNameLength, string szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (CounterDesc* ppDesc = &pDesc)
+			{
+				fixed (CounterType* ppType = &pType)
+				{
+					fixed (uint* ppNameLength = &pNameLength)
+					{
+						byte* pStr0 = null;
+						int pStrSize0 = 0;
+						if (szUnits != null)
+						{
+							pStrSize0 = Utils.GetByteCountUTF8(szUnits);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								pStr0 = Utils.Alloc<byte>(pStrSize0 + 1);
+							}
+							else
+							{
+								byte* pStrStack0 = stackalloc byte[pStrSize0 + 1];
+								pStr0 = pStrStack0;
+							}
+							int pStrOffset0 = Utils.EncodeStringUTF8(szUnits, pStr0, pStrSize0);
+							pStr0[pStrOffset0] = 0;
+						}
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, (CounterDesc*)ppDesc, (CounterType*)ppType, pActiveCounters, szName, (uint*)ppNameLength, pStr0, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							if (pStrSize0 >= Utils.MaxStackallocSize)
+							{
+								Utils.Free(pStr0);
+							}
+							return ret;
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CheckCounter(this ComPtr<ID3D11Device1> comObj, CounterDesc* pDesc, CounterType* pType, ref uint pActiveCounters, byte* szName, ref uint pNameLength, ReadOnlySpan<byte> szUnits, ref uint pUnitsLength, byte* szDescription, uint* pDescriptionLength) 
+		{
+			ID3D11Device1* handle = comObj.Handle;
+			fixed (uint* ppActiveCounters = &pActiveCounters)
+			{
+				fixed (uint* ppNameLength = &pNameLength)
+				{
+					fixed (byte* pszUnits = szUnits)
+					{
+						fixed (uint* ppUnitsLength = &pUnitsLength)
+						{
+							int ret = ((delegate* unmanaged[Stdcall]<ID3D11Device1*, CounterDesc*, CounterType*, uint*, byte*, uint*, byte*, uint*, byte*, uint*, int>)(handle->LpVtbl[32]))(handle, pDesc, pType, (uint*)ppActiveCounters, szName, (uint*)ppNameLength, (byte*)pszUnits, (uint*)ppUnitsLength, szDescription, pDescriptionLength);
+							return ret;
+						}
+					}
+				}
+			}
 		}
 	}
 }

@@ -23,32 +23,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppDataSize = &pDataSize)
+			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* pguid = &guid)
-			{
-				fixed (uint* ppDataSize = &pDataSize)
+				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, pData);
-					return ret;
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 				}
 			}
 		}
@@ -56,1320 +38,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, pDataSize, (void*)pData.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* pguid = &guid)
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, pDataSize, (void*)pData.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppDataSize = &pDataSize)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, guid, (uint*)ppDataSize, (void*)pData.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetPrivateData<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pDataSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pDataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* pguid = &guid)
-			{
-				fixed (uint* ppDataSize = &pDataSize)
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, uint*, void*, int>)(handle->LpVtbl[4]))(handle, (Guid*)pguid, (uint*)ppDataSize, (void*)pData.Handle);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, guid, dataSize, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateData")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateData(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* pguid = &guid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, uint, void*, int>)(handle->LpVtbl[5]))(handle, (Guid*)pguid, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] IUnknown* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* pguid = &guid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (IUnknown* ppData = &pData)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)ppData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] Guid* guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, guid, (IUnknown*)pData.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ref IUnknown pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* pguid = &guid)
-			{
-				fixed (IUnknown* ppData = &pData)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)ppData);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SetPrivateDataInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SetPrivateDataInterface(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "guid")] [NativeName(NativeNameType.Type, "const GUID&")] ref Guid guid, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "const IUnknown*")] ComPtr<IUnknown> pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* pguid = &guid)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, Guid*, IUnknown*, int>)(handle->LpVtbl[6]))(handle, (Guid*)pguid, (IUnknown*)pData.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDecoderBuffer(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type, [NativeName(NativeNameType.Param, "pBufferSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pBufferSize, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "void**")] void** ppBuffer) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, uint*, void**, int>)(handle->LpVtbl[7]))(handle, pDecoder, type, pBufferSize, ppBuffer);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDecoderBuffer(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type, [NativeName(NativeNameType.Param, "pBufferSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pBufferSize, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "void**")] void** ppBuffer) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, uint*, void**, int>)(handle->LpVtbl[7]))(handle, (ID3D11VideoDecoder*)ppDecoder, type, pBufferSize, ppBuffer);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDecoderBuffer(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type, [NativeName(NativeNameType.Param, "pBufferSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pBufferSize, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "void**")] void** ppBuffer) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, uint*, void**, int>)(handle->LpVtbl[7]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, type, pBufferSize, ppBuffer);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDecoderBuffer(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type, [NativeName(NativeNameType.Param, "pBufferSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pBufferSize, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "void**")] void** ppBuffer) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppBufferSize = &pBufferSize)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, uint*, void**, int>)(handle->LpVtbl[7]))(handle, pDecoder, type, (uint*)ppBufferSize, ppBuffer);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDecoderBuffer(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type, [NativeName(NativeNameType.Param, "pBufferSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pBufferSize, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "void**")] void** ppBuffer) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (uint* ppBufferSize = &pBufferSize)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, uint*, void**, int>)(handle->LpVtbl[7]))(handle, (ID3D11VideoDecoder*)ppDecoder, type, (uint*)ppBufferSize, ppBuffer);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDecoderBuffer(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type, [NativeName(NativeNameType.Param, "pBufferSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pBufferSize, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "void**")] void** ppBuffer) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppBufferSize = &pBufferSize)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, uint*, void**, int>)(handle->LpVtbl[7]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, type, (uint*)ppBufferSize, ppBuffer);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDecoderBuffer<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type, [NativeName(NativeNameType.Param, "pBufferSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pBufferSize, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppBuffer) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			ppBuffer = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, uint*, void**, int>)(handle->LpVtbl[7]))(handle, pDecoder, type, pBufferSize, (void**)ppBuffer.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDecoderBuffer<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type, [NativeName(NativeNameType.Param, "pBufferSize")] [NativeName(NativeNameType.Type, "UINT*")] uint* pBufferSize, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppBuffer) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			ppBuffer = default;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, uint*, void**, int>)(handle->LpVtbl[7]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, type, pBufferSize, (void**)ppBuffer.GetAddressOf());
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDecoderBuffer<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type, [NativeName(NativeNameType.Param, "pBufferSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pBufferSize, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppBuffer) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppBufferSize = &pBufferSize)
-			{
-				ppBuffer = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, uint*, void**, int>)(handle->LpVtbl[7]))(handle, pDecoder, type, (uint*)ppBufferSize, (void**)ppBuffer.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "GetDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int GetDecoderBuffer<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type, [NativeName(NativeNameType.Param, "pBufferSize")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pBufferSize, [NativeName(NativeNameType.Param, "ppBuffer")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppBuffer) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppBufferSize = &pBufferSize)
-			{
-				ppBuffer = default;
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, uint*, void**, int>)(handle->LpVtbl[7]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, type, (uint*)ppBufferSize, (void**)ppBuffer.GetAddressOf());
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ReleaseDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ReleaseDecoderBuffer(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, int>)(handle->LpVtbl[8]))(handle, pDecoder, type);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ReleaseDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ReleaseDecoderBuffer(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, int>)(handle->LpVtbl[8]))(handle, (ID3D11VideoDecoder*)ppDecoder, type);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "ReleaseDecoderBuffer")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int ReleaseDecoderBuffer(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "Type")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_DECODER_BUFFER_TYPE")] D3D11VideoDecoderBufferType type) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderBufferType, int>)(handle->LpVtbl[8]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, type);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderBeginFrame")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderBeginFrame(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView*")] ID3D11VideoDecoderOutputView* pView, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, ID3D11VideoDecoderOutputView*, uint, void*, int>)(handle->LpVtbl[9]))(handle, pDecoder, pView, contentKeySize, pContentKey);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderBeginFrame")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderBeginFrame(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView*")] ID3D11VideoDecoderOutputView* pView, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, ID3D11VideoDecoderOutputView*, uint, void*, int>)(handle->LpVtbl[9]))(handle, (ID3D11VideoDecoder*)ppDecoder, pView, contentKeySize, pContentKey);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderBeginFrame")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderBeginFrame(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView*")] ID3D11VideoDecoderOutputView* pView, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, ID3D11VideoDecoderOutputView*, uint, void*, int>)(handle->LpVtbl[9]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, pView, contentKeySize, pContentKey);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderBeginFrame")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderBeginFrame(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView*")] ref ID3D11VideoDecoderOutputView pView, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoderOutputView* ppView = &pView)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, ID3D11VideoDecoderOutputView*, uint, void*, int>)(handle->LpVtbl[9]))(handle, pDecoder, (ID3D11VideoDecoderOutputView*)ppView, contentKeySize, pContentKey);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderBeginFrame")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderBeginFrame(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView*")] ComPtr<ID3D11VideoDecoderOutputView> pView, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, ID3D11VideoDecoderOutputView*, uint, void*, int>)(handle->LpVtbl[9]))(handle, pDecoder, (ID3D11VideoDecoderOutputView*)pView.Handle, contentKeySize, pContentKey);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderBeginFrame")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderBeginFrame(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView*")] ref ID3D11VideoDecoderOutputView pView, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (ID3D11VideoDecoderOutputView* ppView = &pView)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, ID3D11VideoDecoderOutputView*, uint, void*, int>)(handle->LpVtbl[9]))(handle, (ID3D11VideoDecoder*)ppDecoder, (ID3D11VideoDecoderOutputView*)ppView, contentKeySize, pContentKey);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderBeginFrame")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderBeginFrame(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "pView")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoderOutputView*")] ComPtr<ID3D11VideoDecoderOutputView> pView, [NativeName(NativeNameType.Param, "ContentKeySize")] [NativeName(NativeNameType.Type, "UINT")] uint contentKeySize, [NativeName(NativeNameType.Param, "pContentKey")] [NativeName(NativeNameType.Type, "const void*")] void* pContentKey) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, ID3D11VideoDecoderOutputView*, uint, void*, int>)(handle->LpVtbl[9]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, (ID3D11VideoDecoderOutputView*)pView.Handle, contentKeySize, pContentKey);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderEndFrame")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderEndFrame(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, int>)(handle->LpVtbl[10]))(handle, pDecoder);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderEndFrame")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderEndFrame(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, int>)(handle->LpVtbl[10]))(handle, (ID3D11VideoDecoder*)ppDecoder);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderEndFrame")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int DecoderEndFrame(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, int>)(handle->LpVtbl[10]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC*")] D3D11VideoDecoderBufferDesc* pBufferDesc) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc*, int>)(handle->LpVtbl[11]))(handle, pDecoder, numBuffers, pBufferDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC*")] D3D11VideoDecoderBufferDesc* pBufferDesc) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc*, int>)(handle->LpVtbl[11]))(handle, (ID3D11VideoDecoder*)ppDecoder, numBuffers, pBufferDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC*")] D3D11VideoDecoderBufferDesc* pBufferDesc) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc*, int>)(handle->LpVtbl[11]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, numBuffers, pBufferDesc);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC*")] ref D3D11VideoDecoderBufferDesc pBufferDesc) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderBufferDesc* ppBufferDesc = &pBufferDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc*, int>)(handle->LpVtbl[11]))(handle, pDecoder, numBuffers, (D3D11VideoDecoderBufferDesc*)ppBufferDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC*")] ref D3D11VideoDecoderBufferDesc pBufferDesc) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (D3D11VideoDecoderBufferDesc* ppBufferDesc = &pBufferDesc)
-				{
-					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc*, int>)(handle->LpVtbl[11]))(handle, (ID3D11VideoDecoder*)ppDecoder, numBuffers, (D3D11VideoDecoderBufferDesc*)ppBufferDesc);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "SubmitDecoderBuffers")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public static int SubmitDecoderBuffers(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "NumBuffers")] [NativeName(NativeNameType.Type, "UINT")] uint numBuffers, [NativeName(NativeNameType.Param, "pBufferDesc")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_BUFFER_DESC*")] ref D3D11VideoDecoderBufferDesc pBufferDesc) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderBufferDesc* ppBufferDesc = &pBufferDesc)
-			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, uint, D3D11VideoDecoderBufferDesc*, int>)(handle->LpVtbl[11]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, numBuffers, (D3D11VideoDecoderBufferDesc*)ppBufferDesc);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult DecoderExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "pExtensionData")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_EXTENSION*")] D3D11VideoDecoderExtension* pExtensionData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderExtension*, HResult>)(handle->LpVtbl[12]))(handle, pDecoder, pExtensionData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult DecoderExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "pExtensionData")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_EXTENSION*")] D3D11VideoDecoderExtension* pExtensionData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderExtension*, HResult>)(handle->LpVtbl[12]))(handle, (ID3D11VideoDecoder*)ppDecoder, pExtensionData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult DecoderExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "pExtensionData")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_EXTENSION*")] D3D11VideoDecoderExtension* pExtensionData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderExtension*, HResult>)(handle->LpVtbl[12]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, pExtensionData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult DecoderExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ID3D11VideoDecoder* pDecoder, [NativeName(NativeNameType.Param, "pExtensionData")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_EXTENSION*")] ref D3D11VideoDecoderExtension pExtensionData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderExtension* ppExtensionData = &pExtensionData)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderExtension*, HResult>)(handle->LpVtbl[12]))(handle, pDecoder, (D3D11VideoDecoderExtension*)ppExtensionData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult DecoderExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ref ID3D11VideoDecoder pDecoder, [NativeName(NativeNameType.Param, "pExtensionData")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_EXTENSION*")] ref D3D11VideoDecoderExtension pExtensionData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoDecoder* ppDecoder = &pDecoder)
-			{
-				fixed (D3D11VideoDecoderExtension* ppExtensionData = &pExtensionData)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderExtension*, HResult>)(handle->LpVtbl[12]))(handle, (ID3D11VideoDecoder*)ppDecoder, (D3D11VideoDecoderExtension*)ppExtensionData);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "DecoderExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult DecoderExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pDecoder")] [NativeName(NativeNameType.Type, "ID3D11VideoDecoder*")] ComPtr<ID3D11VideoDecoder> pDecoder, [NativeName(NativeNameType.Param, "pExtensionData")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_DECODER_EXTENSION*")] ref D3D11VideoDecoderExtension pExtensionData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoDecoderExtension* ppExtensionData = &pExtensionData)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoDecoder*, D3D11VideoDecoderExtension*, HResult>)(handle->LpVtbl[12]))(handle, (ID3D11VideoDecoder*)pDecoder.Handle, (D3D11VideoDecoderExtension*)ppExtensionData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, Rect32*, void>)(handle->LpVtbl[13]))(handle, pVideoProcessor, enable, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, Rect32*, void>)(handle->LpVtbl[13]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, enable, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, Rect32*, void>)(handle->LpVtbl[13]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, enable, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, Rect32*, void>)(handle->LpVtbl[13]))(handle, pVideoProcessor, enable, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (Rect32* ppRect = &pRect)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, Rect32*, void>)(handle->LpVtbl[13]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, enable, (Rect32*)ppRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, Rect32*, void>)(handle->LpVtbl[13]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, enable, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "YCbCr")] [NativeName(NativeNameType.Type, "BOOL")] int yCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_COLOR*")] D3D11VideoColor* pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, D3D11VideoColor*, void>)(handle->LpVtbl[14]))(handle, pVideoProcessor, yCbCr, pColor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "YCbCr")] [NativeName(NativeNameType.Type, "BOOL")] int yCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_COLOR*")] D3D11VideoColor* pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, D3D11VideoColor*, void>)(handle->LpVtbl[14]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, yCbCr, pColor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "YCbCr")] [NativeName(NativeNameType.Type, "BOOL")] int yCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_COLOR*")] D3D11VideoColor* pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, D3D11VideoColor*, void>)(handle->LpVtbl[14]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, yCbCr, pColor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "YCbCr")] [NativeName(NativeNameType.Type, "BOOL")] int yCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_COLOR*")] ref D3D11VideoColor pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoColor* ppColor = &pColor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, D3D11VideoColor*, void>)(handle->LpVtbl[14]))(handle, pVideoProcessor, yCbCr, (D3D11VideoColor*)ppColor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "YCbCr")] [NativeName(NativeNameType.Type, "BOOL")] int yCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_COLOR*")] ref D3D11VideoColor pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoColor* ppColor = &pColor)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, D3D11VideoColor*, void>)(handle->LpVtbl[14]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, yCbCr, (D3D11VideoColor*)ppColor);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "YCbCr")] [NativeName(NativeNameType.Type, "BOOL")] int yCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_COLOR*")] ref D3D11VideoColor pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoColor* ppColor = &pColor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, D3D11VideoColor*, void>)(handle->LpVtbl[14]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, yCbCr, (D3D11VideoColor*)ppColor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[15]))(handle, pVideoProcessor, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[15]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[15]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[15]))(handle, pVideoProcessor, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[15]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[15]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "AlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE")] D3D11VideoProcessorAlphaFillMode alphaFillMode, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode, uint, void>)(handle->LpVtbl[16]))(handle, pVideoProcessor, alphaFillMode, streamIndex);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "AlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE")] D3D11VideoProcessorAlphaFillMode alphaFillMode, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode, uint, void>)(handle->LpVtbl[16]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, alphaFillMode, streamIndex);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "AlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE")] D3D11VideoProcessorAlphaFillMode alphaFillMode, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode, uint, void>)(handle->LpVtbl[16]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, alphaFillMode, streamIndex);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Size")] [NativeName(NativeNameType.Type, "SIZE")] nint size) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, nint, void>)(handle->LpVtbl[17]))(handle, pVideoProcessor, enable, size);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Size")] [NativeName(NativeNameType.Type, "SIZE")] nint size) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, nint, void>)(handle->LpVtbl[17]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, enable, size);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Size")] [NativeName(NativeNameType.Type, "SIZE")] nint size) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, nint, void>)(handle->LpVtbl[17]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, enable, size);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputStereoMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputStereoMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, void>)(handle->LpVtbl[18]))(handle, pVideoProcessor, enable);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputStereoMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputStereoMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, void>)(handle->LpVtbl[18]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, enable);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputStereoMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetOutputStereoMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int, void>)(handle->LpVtbl[18]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, enable);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[19]))(handle, pVideoProcessor, pExtensionGuid, dataSize, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[19]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pExtensionGuid, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[19]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pExtensionGuid, dataSize, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[19]))(handle, pVideoProcessor, (Guid*)ppExtensionGuid, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[19]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (Guid*)ppExtensionGuid, dataSize, pData);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[19]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (Guid*)ppExtensionGuid, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetOutputExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[19]))(handle, pVideoProcessor, pExtensionGuid, dataSize, (void*)pData.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetOutputExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[19]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pExtensionGuid, dataSize, (void*)pData.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetOutputExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[19]))(handle, pVideoProcessor, (Guid*)ppExtensionGuid, dataSize, (void*)pData.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetOutputExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[19]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (Guid*)ppExtensionGuid, dataSize, (void*)pData.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, pVideoProcessor, enabled, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, enabled, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, enabled, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* penabled = &enabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, pVideoProcessor, (int*)penabled, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* penabled = &enabled)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (int*)penabled, pRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* penabled = &enabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (int*)penabled, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, pVideoProcessor, enabled, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (Rect32* ppRect = &pRect)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, enabled, (Rect32*)ppRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, enabled, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* penabled = &enabled)
-			{
-				fixed (Rect32* ppRect = &pRect)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, pVideoProcessor, (int*)penabled, (Rect32*)ppRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* penabled = &enabled)
-				{
-					fixed (Rect32* ppRect = &pRect)
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (int*)penabled, (Rect32*)ppRect);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -1378,16 +56,14 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputTargetRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputTargetRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "Enabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int enabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* penabled = &enabled)
+			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
 			{
-				fixed (Rect32* ppRect = &pRect)
+				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, Rect32*, void>)(handle->LpVtbl[20]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (int*)penabled, (Rect32*)ppRect);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 				}
 			}
 		}
@@ -1395,161 +71,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] int* pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] D3D11VideoColor* pColor) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, pVideoProcessor, pYCbCr, pColor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] int* pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] D3D11VideoColor* pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			fixed (int* ppEnable = &pEnable)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pYCbCr, pColor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] int* pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] D3D11VideoColor* pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pYCbCr, pColor);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] D3D11VideoColor* pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppYCbCr = &pYCbCr)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, pVideoProcessor, (int*)ppYCbCr, pColor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] D3D11VideoColor* pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppYCbCr = &pYCbCr)
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (int*)ppYCbCr, pColor);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] D3D11VideoColor* pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppYCbCr = &pYCbCr)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (int*)ppYCbCr, pColor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] int* pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] ref D3D11VideoColor pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoColor* ppColor = &pColor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, pVideoProcessor, pYCbCr, (D3D11VideoColor*)ppColor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] int* pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] ref D3D11VideoColor pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoColor* ppColor = &pColor)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pYCbCr, (D3D11VideoColor*)ppColor);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] int* pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] ref D3D11VideoColor pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoColor* ppColor = &pColor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pYCbCr, (D3D11VideoColor*)ppColor);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] ref D3D11VideoColor pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppYCbCr = &pYCbCr)
-			{
-				fixed (D3D11VideoColor* ppColor = &pColor)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, pVideoProcessor, (int*)ppYCbCr, (D3D11VideoColor*)ppColor);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] ref D3D11VideoColor pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppYCbCr = &pYCbCr)
-				{
-					fixed (D3D11VideoColor* ppColor = &pColor)
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (int*)ppYCbCr, (D3D11VideoColor*)ppColor);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -1558,2157 +89,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputBackgroundColor")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputBackgroundColor(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pYCbCr")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pYCbCr, [NativeName(NativeNameType.Param, "pColor")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_COLOR*")] ref D3D11VideoColor pColor) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppYCbCr = &pYCbCr)
-			{
-				fixed (D3D11VideoColor* ppColor = &pColor)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, D3D11VideoColor*, void>)(handle->LpVtbl[21]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (int*)ppYCbCr, (D3D11VideoColor*)ppColor);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[22]))(handle, pVideoProcessor, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[22]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[22]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[22]))(handle, pVideoProcessor, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
+				fixed (int* ppEnable = &pEnable)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[22]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[22]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] D3D11VideoProcessorAlphaFillMode* pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, pVideoProcessor, pAlphaFillMode, pStreamIndex);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] D3D11VideoProcessorAlphaFillMode* pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pAlphaFillMode, pStreamIndex);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] D3D11VideoProcessorAlphaFillMode* pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pAlphaFillMode, pStreamIndex);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] ref D3D11VideoProcessorAlphaFillMode pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorAlphaFillMode* ppAlphaFillMode = &pAlphaFillMode)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, pVideoProcessor, (D3D11VideoProcessorAlphaFillMode*)ppAlphaFillMode, pStreamIndex);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] ref D3D11VideoProcessorAlphaFillMode pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorAlphaFillMode* ppAlphaFillMode = &pAlphaFillMode)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (D3D11VideoProcessorAlphaFillMode*)ppAlphaFillMode, pStreamIndex);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] ref D3D11VideoProcessorAlphaFillMode pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] uint* pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorAlphaFillMode* ppAlphaFillMode = &pAlphaFillMode)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (D3D11VideoProcessorAlphaFillMode*)ppAlphaFillMode, pStreamIndex);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] D3D11VideoProcessorAlphaFillMode* pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppStreamIndex = &pStreamIndex)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, pVideoProcessor, pAlphaFillMode, (uint*)ppStreamIndex);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] D3D11VideoProcessorAlphaFillMode* pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (uint* ppStreamIndex = &pStreamIndex)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pAlphaFillMode, (uint*)ppStreamIndex);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] D3D11VideoProcessorAlphaFillMode* pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppStreamIndex = &pStreamIndex)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pAlphaFillMode, (uint*)ppStreamIndex);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] ref D3D11VideoProcessorAlphaFillMode pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorAlphaFillMode* ppAlphaFillMode = &pAlphaFillMode)
-			{
-				fixed (uint* ppStreamIndex = &pStreamIndex)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, pVideoProcessor, (D3D11VideoProcessorAlphaFillMode*)ppAlphaFillMode, (uint*)ppStreamIndex);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] ref D3D11VideoProcessorAlphaFillMode pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorAlphaFillMode* ppAlphaFillMode = &pAlphaFillMode)
-				{
-					fixed (uint* ppStreamIndex = &pStreamIndex)
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (D3D11VideoProcessorAlphaFillMode*)ppAlphaFillMode, (uint*)ppStreamIndex);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputAlphaFillMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputAlphaFillMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pAlphaFillMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_ALPHA_FILL_MODE*")] ref D3D11VideoProcessorAlphaFillMode pAlphaFillMode, [NativeName(NativeNameType.Param, "pStreamIndex")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pStreamIndex) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorAlphaFillMode* ppAlphaFillMode = &pAlphaFillMode)
-			{
-				fixed (uint* ppStreamIndex = &pStreamIndex)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, D3D11VideoProcessorAlphaFillMode*, uint*, void>)(handle->LpVtbl[23]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (D3D11VideoProcessorAlphaFillMode*)ppAlphaFillMode, (uint*)ppStreamIndex);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] nint* pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, pVideoProcessor, pEnabled, pSize);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] nint* pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pEnabled, pSize);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] nint* pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pEnabled, pSize);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] nint* pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, pVideoProcessor, (int*)ppEnabled, pSize);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] nint* pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (int*)ppEnabled, pSize);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] nint* pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (int*)ppEnabled, pSize);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] ref nint pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (nint* ppSize = &pSize)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, pVideoProcessor, pEnabled, (nint*)ppSize);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] ref nint pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (nint* ppSize = &pSize)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pEnabled, (nint*)ppSize);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] ref nint pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (nint* ppSize = &pSize)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pEnabled, (nint*)ppSize);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] ref nint pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (nint* ppSize = &pSize)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, pVideoProcessor, (int*)ppEnabled, (nint*)ppSize);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] ref nint pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					fixed (nint* ppSize = &pSize)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (int*)ppEnabled, (nint*)ppSize);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputConstriction")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputConstriction(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSize")] [NativeName(NativeNameType.Type, "SIZE*")] ref nint pSize) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (nint* ppSize = &pSize)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, nint*, void>)(handle->LpVtbl[24]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (int*)ppEnabled, (nint*)ppSize);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputStereoMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputStereoMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[25]))(handle, pVideoProcessor, pEnabled);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputStereoMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputStereoMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[25]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pEnabled);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputStereoMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputStereoMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[25]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pEnabled);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputStereoMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputStereoMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[25]))(handle, pVideoProcessor, (int*)ppEnabled);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputStereoMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputStereoMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[25]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (int*)ppEnabled);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputStereoMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetOutputStereoMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, int*, void>)(handle->LpVtbl[25]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (int*)ppEnabled);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorGetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[26]))(handle, pVideoProcessor, pExtensionGuid, dataSize, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorGetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[26]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pExtensionGuid, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorGetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[26]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pExtensionGuid, dataSize, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorGetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[26]))(handle, pVideoProcessor, (Guid*)ppExtensionGuid, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorGetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[26]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (Guid*)ppExtensionGuid, dataSize, pData);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorGetOutputExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[26]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (Guid*)ppExtensionGuid, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorGetOutputExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[26]))(handle, pVideoProcessor, pExtensionGuid, dataSize, (void*)pData.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorGetOutputExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[26]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pExtensionGuid, dataSize, (void*)pData.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorGetOutputExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[26]))(handle, pVideoProcessor, (Guid*)ppExtensionGuid, dataSize, (void*)pData.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetOutputExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorGetOutputExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, Guid*, uint, void*, HResult>)(handle->LpVtbl[26]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (Guid*)ppExtensionGuid, dataSize, (void*)pData.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamFrameFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamFrameFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "FrameFormat")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_FRAME_FORMAT")] D3D11VideoFrameFormat frameFormat) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoFrameFormat, void>)(handle->LpVtbl[27]))(handle, pVideoProcessor, streamIndex, frameFormat);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamFrameFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamFrameFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "FrameFormat")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_FRAME_FORMAT")] D3D11VideoFrameFormat frameFormat) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoFrameFormat, void>)(handle->LpVtbl[27]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, frameFormat);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamFrameFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamFrameFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "FrameFormat")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_FRAME_FORMAT")] D3D11VideoFrameFormat frameFormat) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoFrameFormat, void>)(handle->LpVtbl[27]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, frameFormat);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[28]))(handle, pVideoProcessor, streamIndex, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[28]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[28]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[28]))(handle, pVideoProcessor, streamIndex, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[28]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "const D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[28]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "OutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE")] D3D11VideoProcessorOutputRate outputRate, [NativeName(NativeNameType.Param, "RepeatFrame")] [NativeName(NativeNameType.Type, "BOOL")] int repeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate, int, DxgiRational*, void>)(handle->LpVtbl[29]))(handle, pVideoProcessor, streamIndex, outputRate, repeatFrame, pCustomRate);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "OutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE")] D3D11VideoProcessorOutputRate outputRate, [NativeName(NativeNameType.Param, "RepeatFrame")] [NativeName(NativeNameType.Type, "BOOL")] int repeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate, int, DxgiRational*, void>)(handle->LpVtbl[29]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, outputRate, repeatFrame, pCustomRate);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "OutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE")] D3D11VideoProcessorOutputRate outputRate, [NativeName(NativeNameType.Param, "RepeatFrame")] [NativeName(NativeNameType.Type, "BOOL")] int repeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate, int, DxgiRational*, void>)(handle->LpVtbl[29]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, outputRate, repeatFrame, pCustomRate);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "OutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE")] D3D11VideoProcessorOutputRate outputRate, [NativeName(NativeNameType.Param, "RepeatFrame")] [NativeName(NativeNameType.Type, "BOOL")] int repeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppCustomRate = &pCustomRate)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate, int, DxgiRational*, void>)(handle->LpVtbl[29]))(handle, pVideoProcessor, streamIndex, outputRate, repeatFrame, (DxgiRational*)ppCustomRate);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "OutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE")] D3D11VideoProcessorOutputRate outputRate, [NativeName(NativeNameType.Param, "RepeatFrame")] [NativeName(NativeNameType.Type, "BOOL")] int repeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (DxgiRational* ppCustomRate = &pCustomRate)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate, int, DxgiRational*, void>)(handle->LpVtbl[29]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, outputRate, repeatFrame, (DxgiRational*)ppCustomRate);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "OutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE")] D3D11VideoProcessorOutputRate outputRate, [NativeName(NativeNameType.Param, "RepeatFrame")] [NativeName(NativeNameType.Type, "BOOL")] int repeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppCustomRate = &pCustomRate)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate, int, DxgiRational*, void>)(handle->LpVtbl[29]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, outputRate, repeatFrame, (DxgiRational*)ppCustomRate);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[30]))(handle, pVideoProcessor, streamIndex, enable, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[30]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[30]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[30]))(handle, pVideoProcessor, streamIndex, enable, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (Rect32* ppRect = &pRect)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[30]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, (Rect32*)ppRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[30]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[31]))(handle, pVideoProcessor, streamIndex, enable, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[31]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[31]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[31]))(handle, pVideoProcessor, streamIndex, enable, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (Rect32* ppRect = &pRect)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[31]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, (Rect32*)ppRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "const RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, Rect32*, void>)(handle->LpVtbl[31]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Alpha")] [NativeName(NativeNameType.Type, "FLOAT")] float alpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, float, void>)(handle->LpVtbl[32]))(handle, pVideoProcessor, streamIndex, enable, alpha);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Alpha")] [NativeName(NativeNameType.Type, "FLOAT")] float alpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, float, void>)(handle->LpVtbl[32]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, alpha);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Alpha")] [NativeName(NativeNameType.Type, "FLOAT")] float alpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, float, void>)(handle->LpVtbl[32]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, alpha);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[33]))(handle, pVideoProcessor, streamIndex, count, pEntries);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[33]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, count, pEntries);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "const UINT*")] uint* pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[33]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, count, pEntries);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppEntries = &pEntries)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[33]))(handle, pVideoProcessor, streamIndex, count, (uint*)ppEntries);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (uint* ppEntries = &pEntries)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[33]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, count, (uint*)ppEntries);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "const UINT*")] ref uint pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppEntries = &pEntries)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[33]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, count, (uint*)ppEntries);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, pVideoProcessor, streamIndex, enable, pSourceAspectRatio, pDestinationAspectRatio);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, pSourceAspectRatio, pDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, pSourceAspectRatio, pDestinationAspectRatio);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, pVideoProcessor, streamIndex, enable, (DxgiRational*)ppSourceAspectRatio, pDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, (DxgiRational*)ppSourceAspectRatio, pDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, (DxgiRational*)ppSourceAspectRatio, pDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, pVideoProcessor, streamIndex, enable, pSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, pSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, pSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-			{
-				fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, pVideoProcessor, streamIndex, enable, (DxgiRational*)ppSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-				{
-					fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, (DxgiRational*)ppSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "const DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-			{
-				fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[34]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, (DxgiRational*)ppSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Lower")] [NativeName(NativeNameType.Type, "FLOAT")] float lower, [NativeName(NativeNameType.Param, "Upper")] [NativeName(NativeNameType.Type, "FLOAT")] float upper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, float, float, void>)(handle->LpVtbl[35]))(handle, pVideoProcessor, streamIndex, enable, lower, upper);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Lower")] [NativeName(NativeNameType.Type, "FLOAT")] float lower, [NativeName(NativeNameType.Param, "Upper")] [NativeName(NativeNameType.Type, "FLOAT")] float upper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, float, float, void>)(handle->LpVtbl[35]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, lower, upper);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Lower")] [NativeName(NativeNameType.Type, "FLOAT")] float lower, [NativeName(NativeNameType.Param, "Upper")] [NativeName(NativeNameType.Type, "FLOAT")] float upper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, float, float, void>)(handle->LpVtbl[35]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, lower, upper);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamStereoFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_STEREO_FORMAT")] D3D11VideoProcessorStereoFormat format, [NativeName(NativeNameType.Param, "LeftViewFrame0")] [NativeName(NativeNameType.Type, "BOOL")] int leftViewFrame0, [NativeName(NativeNameType.Param, "BaseViewFrame0")] [NativeName(NativeNameType.Type, "BOOL")] int baseViewFrame0, [NativeName(NativeNameType.Param, "FlipMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE")] D3D11VideoProcessorStereoFlipMode flipMode, [NativeName(NativeNameType.Param, "MonoOffset")] [NativeName(NativeNameType.Type, "int")] int monoOffset) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, D3D11VideoProcessorStereoFormat, int, int, D3D11VideoProcessorStereoFlipMode, int, void>)(handle->LpVtbl[36]))(handle, pVideoProcessor, streamIndex, enable, format, leftViewFrame0, baseViewFrame0, flipMode, monoOffset);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamStereoFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_STEREO_FORMAT")] D3D11VideoProcessorStereoFormat format, [NativeName(NativeNameType.Param, "LeftViewFrame0")] [NativeName(NativeNameType.Type, "BOOL")] int leftViewFrame0, [NativeName(NativeNameType.Param, "BaseViewFrame0")] [NativeName(NativeNameType.Type, "BOOL")] int baseViewFrame0, [NativeName(NativeNameType.Param, "FlipMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE")] D3D11VideoProcessorStereoFlipMode flipMode, [NativeName(NativeNameType.Param, "MonoOffset")] [NativeName(NativeNameType.Type, "int")] int monoOffset) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, D3D11VideoProcessorStereoFormat, int, int, D3D11VideoProcessorStereoFlipMode, int, void>)(handle->LpVtbl[36]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, format, leftViewFrame0, baseViewFrame0, flipMode, monoOffset);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamStereoFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Format")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_STEREO_FORMAT")] D3D11VideoProcessorStereoFormat format, [NativeName(NativeNameType.Param, "LeftViewFrame0")] [NativeName(NativeNameType.Type, "BOOL")] int leftViewFrame0, [NativeName(NativeNameType.Param, "BaseViewFrame0")] [NativeName(NativeNameType.Type, "BOOL")] int baseViewFrame0, [NativeName(NativeNameType.Param, "FlipMode")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_STEREO_FLIP_MODE")] D3D11VideoProcessorStereoFlipMode flipMode, [NativeName(NativeNameType.Param, "MonoOffset")] [NativeName(NativeNameType.Type, "int")] int monoOffset) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, D3D11VideoProcessorStereoFormat, int, int, D3D11VideoProcessorStereoFlipMode, int, void>)(handle->LpVtbl[36]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, format, leftViewFrame0, baseViewFrame0, flipMode, monoOffset);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamAutoProcessingMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, void>)(handle->LpVtbl[37]))(handle, pVideoProcessor, streamIndex, enable);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamAutoProcessingMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, void>)(handle->LpVtbl[37]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamAutoProcessingMode")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, void>)(handle->LpVtbl[37]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Filter")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_FILTER")] D3D11VideoProcessorFilter filter, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Level")] [NativeName(NativeNameType.Type, "int")] int level) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorFilter, int, int, void>)(handle->LpVtbl[38]))(handle, pVideoProcessor, streamIndex, filter, enable, level);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Filter")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_FILTER")] D3D11VideoProcessorFilter filter, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Level")] [NativeName(NativeNameType.Type, "int")] int level) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorFilter, int, int, void>)(handle->LpVtbl[38]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, enable, level);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamFilter")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorSetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Filter")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_FILTER")] D3D11VideoProcessorFilter filter, [NativeName(NativeNameType.Param, "Enable")] [NativeName(NativeNameType.Type, "BOOL")] int enable, [NativeName(NativeNameType.Param, "Level")] [NativeName(NativeNameType.Type, "int")] int level) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorFilter, int, int, void>)(handle->LpVtbl[38]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, enable, level);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[39]))(handle, pVideoProcessor, streamIndex, pExtensionGuid, dataSize, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[39]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pExtensionGuid, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[39]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pExtensionGuid, dataSize, pData);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[39]))(handle, pVideoProcessor, streamIndex, (Guid*)ppExtensionGuid, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-				{
-					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[39]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Guid*)ppExtensionGuid, dataSize, pData);
-					return ret;
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] void* pData) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[39]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Guid*)ppExtensionGuid, dataSize, pData);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetStreamExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[39]))(handle, pVideoProcessor, streamIndex, pExtensionGuid, dataSize, (void*)pData.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetStreamExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] Guid* pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[39]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pExtensionGuid, dataSize, (void*)pData.Handle);
-			return ret;
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetStreamExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[39]))(handle, pVideoProcessor, streamIndex, (Guid*)ppExtensionGuid, dataSize, (void*)pData.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorSetStreamExtension")]
-		[return: NativeName(NativeNameType.Type, "APP_DEPRECATED_HRESULT")]
-		public static HResult VideoProcessorSetStreamExtension<T>(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pExtensionGuid")] [NativeName(NativeNameType.Type, "const GUID*")] ref Guid pExtensionGuid, [NativeName(NativeNameType.Param, "DataSize")] [NativeName(NativeNameType.Type, "UINT")] uint dataSize, [NativeName(NativeNameType.Param, "pData")] [NativeName(NativeNameType.Type, "void*")] ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
-			{
-				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[39]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Guid*)ppExtensionGuid, dataSize, (void*)pData.Handle);
-				return ret;
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamFrameFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamFrameFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pFrameFormat")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_FRAME_FORMAT*")] D3D11VideoFrameFormat* pFrameFormat) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoFrameFormat*, void>)(handle->LpVtbl[40]))(handle, pVideoProcessor, streamIndex, pFrameFormat);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamFrameFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamFrameFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pFrameFormat")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_FRAME_FORMAT*")] D3D11VideoFrameFormat* pFrameFormat) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoFrameFormat*, void>)(handle->LpVtbl[40]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pFrameFormat);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamFrameFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamFrameFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pFrameFormat")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_FRAME_FORMAT*")] D3D11VideoFrameFormat* pFrameFormat) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoFrameFormat*, void>)(handle->LpVtbl[40]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pFrameFormat);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamFrameFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamFrameFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pFrameFormat")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_FRAME_FORMAT*")] ref D3D11VideoFrameFormat pFrameFormat) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoFrameFormat* ppFrameFormat = &pFrameFormat)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoFrameFormat*, void>)(handle->LpVtbl[40]))(handle, pVideoProcessor, streamIndex, (D3D11VideoFrameFormat*)ppFrameFormat);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamFrameFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamFrameFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pFrameFormat")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_FRAME_FORMAT*")] ref D3D11VideoFrameFormat pFrameFormat) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoFrameFormat* ppFrameFormat = &pFrameFormat)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoFrameFormat*, void>)(handle->LpVtbl[40]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (D3D11VideoFrameFormat*)ppFrameFormat);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamFrameFormat")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamFrameFormat(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pFrameFormat")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_FRAME_FORMAT*")] ref D3D11VideoFrameFormat pFrameFormat) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoFrameFormat* ppFrameFormat = &pFrameFormat)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoFrameFormat*, void>)(handle->LpVtbl[40]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (D3D11VideoFrameFormat*)ppFrameFormat);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[41]))(handle, pVideoProcessor, streamIndex, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[41]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] D3D11VideoProcessorColorSpace* pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[41]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pColorSpace);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[41]))(handle, pVideoProcessor, streamIndex, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[41]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamColorSpace")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamColorSpace(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pColorSpace")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_COLOR_SPACE*")] ref D3D11VideoProcessorColorSpace pColorSpace) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorColorSpace* ppColorSpace = &pColorSpace)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorColorSpace*, void>)(handle->LpVtbl[41]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (D3D11VideoProcessorColorSpace*)ppColorSpace);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, pVideoProcessor, streamIndex, pOutputRate, pRepeatFrame, pCustomRate);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pOutputRate, pRepeatFrame, pCustomRate);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pOutputRate, pRepeatFrame, pCustomRate);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, pVideoProcessor, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, pRepeatFrame, pCustomRate);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, pRepeatFrame, pCustomRate);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, pRepeatFrame, pCustomRate);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppRepeatFrame = &pRepeatFrame)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, pVideoProcessor, streamIndex, pOutputRate, (int*)ppRepeatFrame, pCustomRate);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppRepeatFrame = &pRepeatFrame)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pOutputRate, (int*)ppRepeatFrame, pCustomRate);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppRepeatFrame = &pRepeatFrame)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pOutputRate, (int*)ppRepeatFrame, pCustomRate);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
-			{
-				fixed (int* ppRepeatFrame = &pRepeatFrame)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, pVideoProcessor, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, (int*)ppRepeatFrame, pCustomRate);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
-				{
-					fixed (int* ppRepeatFrame = &pRepeatFrame)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, (int*)ppRepeatFrame, pCustomRate);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
-			{
-				fixed (int* ppRepeatFrame = &pRepeatFrame)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, (int*)ppRepeatFrame, pCustomRate);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppCustomRate = &pCustomRate)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, pVideoProcessor, streamIndex, pOutputRate, pRepeatFrame, (DxgiRational*)ppCustomRate);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (DxgiRational* ppCustomRate = &pCustomRate)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pOutputRate, pRepeatFrame, (DxgiRational*)ppCustomRate);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppCustomRate = &pCustomRate)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pOutputRate, pRepeatFrame, (DxgiRational*)ppCustomRate);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
-			{
-				fixed (DxgiRational* ppCustomRate = &pCustomRate)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, pVideoProcessor, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, pRepeatFrame, (DxgiRational*)ppCustomRate);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
-				{
-					fixed (DxgiRational* ppCustomRate = &pCustomRate)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, pRepeatFrame, (DxgiRational*)ppCustomRate);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] int* pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
-			{
-				fixed (DxgiRational* ppCustomRate = &pCustomRate)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, pRepeatFrame, (DxgiRational*)ppCustomRate);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppRepeatFrame = &pRepeatFrame)
-			{
-				fixed (DxgiRational* ppCustomRate = &pCustomRate)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, pVideoProcessor, streamIndex, pOutputRate, (int*)ppRepeatFrame, (DxgiRational*)ppCustomRate);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppRepeatFrame = &pRepeatFrame)
-				{
-					fixed (DxgiRational* ppCustomRate = &pCustomRate)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pOutputRate, (int*)ppRepeatFrame, (DxgiRational*)ppCustomRate);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] D3D11VideoProcessorOutputRate* pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppRepeatFrame = &pRepeatFrame)
-			{
-				fixed (DxgiRational* ppCustomRate = &pCustomRate)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pOutputRate, (int*)ppRepeatFrame, (DxgiRational*)ppCustomRate);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
-			{
-				fixed (int* ppRepeatFrame = &pRepeatFrame)
-				{
-					fixed (DxgiRational* ppCustomRate = &pCustomRate)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, pVideoProcessor, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, (int*)ppRepeatFrame, (DxgiRational*)ppCustomRate);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
-				{
-					fixed (int* ppRepeatFrame = &pRepeatFrame)
-					{
-						fixed (DxgiRational* ppCustomRate = &pCustomRate)
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, (int*)ppRepeatFrame, (DxgiRational*)ppCustomRate);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -3718,18 +110,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamOutputRate")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamOutputRate(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pOutputRate")] [NativeName(NativeNameType.Type, "D3D11_VIDEO_PROCESSOR_OUTPUT_RATE*")] ref D3D11VideoProcessorOutputRate pOutputRate, [NativeName(NativeNameType.Param, "pRepeatFrame")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pRepeatFrame, [NativeName(NativeNameType.Param, "pCustomRate")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pCustomRate) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (D3D11VideoProcessorOutputRate* ppOutputRate = &pOutputRate)
+			fixed (int* ppEnable = &pEnable)
 			{
-				fixed (int* ppRepeatFrame = &pRepeatFrame)
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
-					fixed (DxgiRational* ppCustomRate = &pCustomRate)
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, D3D11VideoProcessorOutputRate*, int*, DxgiRational*, void>)(handle->LpVtbl[42]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (D3D11VideoProcessorOutputRate*)ppOutputRate, (int*)ppRepeatFrame, (DxgiRational*)ppCustomRate);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -3738,161 +128,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, pVideoProcessor, streamIndex, pEnabled, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, pRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, pVideoProcessor, streamIndex, pEnabled, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (Rect32* ppRect = &pRect)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, (Rect32*)ppRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (Rect32* ppRect = &pRect)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, (Rect32*)ppRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					fixed (Rect32* ppRect = &pRect)
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, (Rect32*)ppRect);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -3901,831 +146,18 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamSourceRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamSourceRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (Rect32* ppRect = &pRect)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[43]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, (Rect32*)ppRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, pVideoProcessor, streamIndex, pEnabled, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, pRect);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, pRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] Rect32* pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, pRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, pVideoProcessor, streamIndex, pEnabled, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (Rect32* ppRect = &pRect)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, (Rect32*)ppRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (Rect32* ppRect = &pRect)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, (Rect32*)ppRect);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (Rect32* ppRect = &pRect)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, (Rect32*)ppRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					fixed (Rect32* ppRect = &pRect)
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, (Rect32*)ppRect);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamDestRect")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamDestRect(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pRect")] [NativeName(NativeNameType.Type, "RECT*")] ref Rect32 pRect) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (Rect32* ppRect = &pRect)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, Rect32*, void>)(handle->LpVtbl[44]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, (Rect32*)ppRect);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, pVideoProcessor, streamIndex, pEnabled, pAlpha);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, pAlpha);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, pAlpha);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, pAlpha);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, pAlpha);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, pAlpha);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (float* ppAlpha = &pAlpha)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, pVideoProcessor, streamIndex, pEnabled, (float*)ppAlpha);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (float* ppAlpha = &pAlpha)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, (float*)ppAlpha);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (float* ppAlpha = &pAlpha)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, (float*)ppAlpha);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (float* ppAlpha = &pAlpha)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, (float*)ppAlpha);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					fixed (float* ppAlpha = &pAlpha)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, (float*)ppAlpha);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamAlpha")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamAlpha(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pAlpha")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pAlpha) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (float* ppAlpha = &pAlpha)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, void>)(handle->LpVtbl[45]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, (float*)ppAlpha);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "UINT*")] uint* pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[46]))(handle, pVideoProcessor, streamIndex, count, pEntries);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "UINT*")] uint* pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[46]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, count, pEntries);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "UINT*")] uint* pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[46]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, count, pEntries);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppEntries = &pEntries)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[46]))(handle, pVideoProcessor, streamIndex, count, (uint*)ppEntries);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (uint* ppEntries = &pEntries)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[46]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, count, (uint*)ppEntries);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPalette")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPalette(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "Count")] [NativeName(NativeNameType.Type, "UINT")] uint count, [NativeName(NativeNameType.Param, "pEntries")] [NativeName(NativeNameType.Type, "UINT*")] ref uint pEntries) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (uint* ppEntries = &pEntries)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, uint, uint*, void>)(handle->LpVtbl[46]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, count, (uint*)ppEntries);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, pVideoProcessor, streamIndex, pEnabled, pSourceAspectRatio, pDestinationAspectRatio);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, pSourceAspectRatio, pDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, pSourceAspectRatio, pDestinationAspectRatio);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, pSourceAspectRatio, pDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, pSourceAspectRatio, pDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, pSourceAspectRatio, pDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, pVideoProcessor, streamIndex, pEnabled, (DxgiRational*)ppSourceAspectRatio, pDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, (DxgiRational*)ppSourceAspectRatio, pDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, (DxgiRational*)ppSourceAspectRatio, pDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, (DxgiRational*)ppSourceAspectRatio, pDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, (DxgiRational*)ppSourceAspectRatio, pDestinationAspectRatio);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, (DxgiRational*)ppSourceAspectRatio, pDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, pVideoProcessor, streamIndex, pEnabled, pSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, pSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, pSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, pSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, pSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] DxgiRational* pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, pSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-			{
-				fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, pVideoProcessor, streamIndex, pEnabled, (DxgiRational*)ppSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-				{
-					fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, (DxgiRational*)ppSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-			{
-				fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, (DxgiRational*)ppSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-				{
-					fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
-					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, (DxgiRational*)ppSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
-					}
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
-					{
-						fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 						{
-							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, (DxgiRational*)ppSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 						}
 					}
 				}
@@ -4735,18 +167,16 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamPixelAspectRatio")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamPixelAspectRatio(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pSourceAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pSourceAspectRatio, [NativeName(NativeNameType.Param, "pDestinationAspectRatio")] [NativeName(NativeNameType.Type, "DXGI_RATIONAL*")] ref DxgiRational pDestinationAspectRatio) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 			{
-				fixed (DxgiRational* ppSourceAspectRatio = &pSourceAspectRatio)
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
 				{
-					fixed (DxgiRational* ppDestinationAspectRatio = &pDestinationAspectRatio)
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, DxgiRational*, DxgiRational*, void>)(handle->LpVtbl[47]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, (DxgiRational*)ppSourceAspectRatio, (DxgiRational*)ppDestinationAspectRatio);
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
 					}
 				}
 			}
@@ -4755,161 +185,19 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, pVideoProcessor, streamIndex, pEnabled, pLower, pUpper);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			fixed (int* ppEnable = &pEnable)
 			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, pLower, pUpper);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, pLower, pUpper);
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, pLower, pUpper);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, pLower, pUpper);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, pLower, pUpper);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (float* ppLower = &pLower)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, pVideoProcessor, streamIndex, pEnabled, (float*)ppLower, pUpper);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (float* ppLower = &pLower)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, (float*)ppLower, pUpper);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (float* ppLower = &pLower)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, (float*)ppLower, pUpper);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (float* ppLower = &pLower)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, (float*)ppLower, pUpper);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					fixed (float* ppLower = &pLower)
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, (float*)ppLower, pUpper);
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						}
 					}
 				}
 			}
@@ -4918,97 +206,22 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (float* ppLower = &pLower)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, (float*)ppLower, pUpper);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (float* ppUpper = &pUpper)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, pVideoProcessor, streamIndex, pEnabled, pLower, (float*)ppUpper);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pUpper) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
 			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
 			{
-				fixed (float* ppUpper = &pUpper)
+				fixed (int* ppEnable = &pEnable)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled, pLower, (float*)ppUpper);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] int* pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (float* ppUpper = &pUpper)
-			{
-				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled, pLower, (float*)ppUpper);
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ID3D11VideoProcessor* pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (int* ppEnabled = &pEnabled)
-			{
-				fixed (float* ppUpper = &pUpper)
-				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled, pLower, (float*)ppUpper);
-				}
-			}
-		}
-
-		/// <summary>
-		/// To be documented.
-		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ref ID3D11VideoProcessor pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pUpper) 
-		{
-			ID3D11VideoContext* handle = comObj.Handle;
-			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
-			{
-				fixed (int* ppEnabled = &pEnabled)
-				{
-					fixed (float* ppUpper = &pUpper)
+					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
 					{
-						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled, pLower, (float*)ppUpper);
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							}
+						}
 					}
 				}
 			}
@@ -5017,16 +230,4792 @@ namespace Hexa.NET.D3D11
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "VideoProcessorGetStreamLumaKey")]
-		[return: NativeName(NativeNameType.Type, "void")]
-		public static void VideoProcessorGetStreamLumaKey(this ComPtr<ID3D11VideoContext> comObj, [NativeName(NativeNameType.Param, "pVideoProcessor")] [NativeName(NativeNameType.Type, "ID3D11VideoProcessor*")] ComPtr<ID3D11VideoProcessor> pVideoProcessor, [NativeName(NativeNameType.Param, "StreamIndex")] [NativeName(NativeNameType.Type, "UINT")] uint streamIndex, [NativeName(NativeNameType.Param, "pEnabled")] [NativeName(NativeNameType.Type, "BOOL*")] ref int pEnabled, [NativeName(NativeNameType.Param, "pLower")] [NativeName(NativeNameType.Type, "FLOAT*")] float* pLower, [NativeName(NativeNameType.Param, "pUpper")] [NativeName(NativeNameType.Type, "FLOAT*")] ref float pUpper) 
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+					{
+						fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+						{
+							fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+							{
+								fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+								{
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, int* monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, monoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* pmonoOffset = &monoOffset)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* pmonoOffset = &monoOffset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* pmonoOffset = &monoOffset)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* pmonoOffset = &monoOffset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* pmonoOffset = &monoOffset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* pmonoOffset = &monoOffset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* pmonoOffset = &monoOffset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			{
+				fixed (int* pmonoOffset = &monoOffset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			{
+				fixed (int* pmonoOffset = &monoOffset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+					{
+						fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+			{
+				fixed (int* pmonoOffset = &monoOffset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+			{
+				fixed (int* pmonoOffset = &monoOffset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+					{
+						fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+						{
+							fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+							{
+								fixed (int* pmonoOffset = &monoOffset)
+								{
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, VideoProcessorStereoFlipMode* pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, pFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+			{
+				fixed (int* pmonoOffset = &monoOffset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+			{
+				fixed (int* pmonoOffset = &monoOffset)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			{
+				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			{
+				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+					{
+						fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+						{
+							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+							{
+								fixed (int* pmonoOffset = &monoOffset)
+								{
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, int* pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, pBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+			{
+				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+			{
+				fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+				{
+					fixed (int* pmonoOffset = &monoOffset)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+							{
+								fixed (int* pmonoOffset = &monoOffset)
+								{
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, int* pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, pLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+			{
+				fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+				{
+					fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+					{
+						fixed (int* pmonoOffset = &monoOffset)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+							{
+								fixed (int* pmonoOffset = &monoOffset)
+								{
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorStereoFormat* pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+							{
+								fixed (int* pmonoOffset = &monoOffset)
+								{
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+			{
+				fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+				{
+					fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+					{
+						fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+						{
+							fixed (int* pmonoOffset = &monoOffset)
+							{
+								((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+							{
+								fixed (int* pmonoOffset = &monoOffset)
+								{
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+					{
+						fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+						{
+							fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+							{
+								fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+								{
+									fixed (int* pmonoOffset = &monoOffset)
+									{
+										((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamStereoFormat(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorStereoFormat pFormat, ref int pLeftViewFrame0, ref int pBaseViewFrame0, ref VideoProcessorStereoFlipMode pFlipMode, ref int monoOffset) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorStereoFormat* ppFormat = &pFormat)
+				{
+					fixed (int* ppLeftViewFrame0 = &pLeftViewFrame0)
+					{
+						fixed (int* ppBaseViewFrame0 = &pBaseViewFrame0)
+						{
+							fixed (VideoProcessorStereoFlipMode* ppFlipMode = &pFlipMode)
+							{
+								fixed (int* pmonoOffset = &monoOffset)
+								{
+									((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorStereoFormat*, int*, int*, VideoProcessorStereoFlipMode*, int*, void>)(handle->LpVtbl[49]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorStereoFormat*)ppFormat, (int*)ppLeftViewFrame0, (int*)ppBaseViewFrame0, (VideoProcessorStereoFlipMode*)ppFlipMode, (int*)pmonoOffset);
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnabled) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, pVideoProcessor, streamIndex, pEnabled);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnabled) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnabled);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnabled) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnabled);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnabled) 
 		{
 			ID3D11VideoContext* handle = comObj.Handle;
 			fixed (int* ppEnabled = &pEnabled)
 			{
-				fixed (float* ppUpper = &pUpper)
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, pVideoProcessor, streamIndex, (int*)ppEnabled);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnabled) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnabled = &pEnabled)
 				{
-					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, float*, float*, void>)(handle->LpVtbl[48]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled, pLower, (float*)ppUpper);
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnabled);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamAutoProcessingMode(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnabled) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnabled = &pEnabled)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, void>)(handle->LpVtbl[50]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnabled);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, int* pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, pEnabled, pLevel);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, int* pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, pEnabled, pLevel);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, int* pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, pEnabled, pLevel);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, int* pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnabled = &pEnabled)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, (int*)ppEnabled, pLevel);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, int* pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnabled = &pEnabled)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, (int*)ppEnabled, pLevel);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, int* pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnabled = &pEnabled)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, (int*)ppEnabled, pLevel);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, ref int pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLevel = &pLevel)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, pEnabled, (int*)ppLevel);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, ref int pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppLevel = &pLevel)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, pEnabled, (int*)ppLevel);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, int* pEnabled, ref int pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppLevel = &pLevel)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, pEnabled, (int*)ppLevel);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, ref int pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnabled = &pEnabled)
+			{
+				fixed (int* ppLevel = &pLevel)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, pVideoProcessor, streamIndex, filter, (int*)ppEnabled, (int*)ppLevel);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, ref int pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnabled = &pEnabled)
+				{
+					fixed (int* ppLevel = &pLevel)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, filter, (int*)ppEnabled, (int*)ppLevel);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamFilter(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, VideoProcessorFilter filter, ref int pEnabled, ref int pLevel) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnabled = &pEnabled)
+			{
+				fixed (int* ppLevel = &pLevel)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, VideoProcessorFilter, int*, int*, void>)(handle->LpVtbl[51]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, filter, (int*)ppEnabled, (int*)ppLevel);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult VideoProcessorGetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Guid* pExtensionGuid, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[52]))(handle, pVideoProcessor, streamIndex, pExtensionGuid, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult VideoProcessorGetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, Guid* pExtensionGuid, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[52]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pExtensionGuid, dataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult VideoProcessorGetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Guid* pExtensionGuid, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[52]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pExtensionGuid, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult VideoProcessorGetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Guid pExtensionGuid, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[52]))(handle, pVideoProcessor, streamIndex, (Guid*)ppExtensionGuid, dataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult VideoProcessorGetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref Guid pExtensionGuid, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (Guid* ppExtensionGuid = &pExtensionGuid)
+				{
+					HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[52]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (Guid*)ppExtensionGuid, dataSize, pData);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult VideoProcessorGetStreamExtension(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Guid pExtensionGuid, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[52]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Guid*)ppExtensionGuid, dataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult VideoProcessorGetStreamExtension<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, Guid* pExtensionGuid, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[52]))(handle, pVideoProcessor, streamIndex, pExtensionGuid, dataSize, (void*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult VideoProcessorGetStreamExtension<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, Guid* pExtensionGuid, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[52]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pExtensionGuid, dataSize, (void*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult VideoProcessorGetStreamExtension<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref Guid pExtensionGuid, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[52]))(handle, pVideoProcessor, streamIndex, (Guid*)ppExtensionGuid, dataSize, (void*)pData.Handle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static HResult VideoProcessorGetStreamExtension<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref Guid pExtensionGuid, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (Guid* ppExtensionGuid = &pExtensionGuid)
+			{
+				HResult ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, Guid*, uint, void*, HResult>)(handle->LpVtbl[52]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (Guid*)ppExtensionGuid, dataSize, (void*)pData.Handle);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, pView, outputFrame, streamCount, pStreams);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pView, outputFrame, streamCount, pStreams);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pView, outputFrame, streamCount, pStreams);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessorOutputView* ppView = &pView)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, pStreams);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, pStreams);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (ID3D11VideoProcessorOutputView* ppView = &pView)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, pStreams);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, VideoProcessorStream* pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, pStreams);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStream* ppStreams = &pStreams)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, pView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorStream* ppStreams = &pStreams)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, pView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ID3D11VideoProcessorOutputView* pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStream* ppStreams = &pStreams)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, pView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessorOutputView* ppView = &pView)
+			{
+				fixed (VideoProcessorStream* ppStreams = &pStreams)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStream* ppStreams = &pStreams)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, pVideoProcessor, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, ref ID3D11VideoProcessorOutputView pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (ID3D11VideoProcessorOutputView* ppView = &pView)
+				{
+					fixed (VideoProcessorStream* ppStreams = &pStreams)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, (ID3D11VideoProcessorOutputView*)ppView, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int VideoProcessorBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, ComPtr<ID3D11VideoProcessorOutputView> pView, uint outputFrame, uint streamCount, ref VideoProcessorStream pStreams) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorStream* ppStreams = &pStreams)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, ID3D11VideoProcessorOutputView*, uint, uint, VideoProcessorStream*, int>)(handle->LpVtbl[53]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, (ID3D11VideoProcessorOutputView*)pView.Handle, outputFrame, streamCount, (VideoProcessorStream*)ppStreams);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int NegotiateCryptoSessionKeyExchange(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[54]))(handle, pCryptoSession, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int NegotiateCryptoSessionKeyExchange(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[54]))(handle, (ID3D11CryptoSession*)ppCryptoSession, dataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int NegotiateCryptoSessionKeyExchange(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[54]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int NegotiateCryptoSessionKeyExchange<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[54]))(handle, pCryptoSession, dataSize, (void*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int NegotiateCryptoSessionKeyExchange<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[54]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, dataSize, (void*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, pCryptoSession, pSrcSurface, pDstSurface, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)ppCryptoSession, pSrcSurface, pDstSurface, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, pDstSurface, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ref ID3D11Texture2D pSrcSurface, ID3D11Texture2D* pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, pCryptoSession, (ID3D11Texture2D*)ppSrcSurface, pDstSurface, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ref ID3D11Texture2D pSrcSurface, ID3D11Texture2D* pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)ppCryptoSession, (ID3D11Texture2D*)ppSrcSurface, pDstSurface, ivSize, piV);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ref ID3D11Texture2D pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)ppDstSurface, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ID3D11Texture2D* pSrcSurface, ref ID3D11Texture2D pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)ppCryptoSession, pSrcSurface, (ID3D11Texture2D*)ppDstSurface, ivSize, piV);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ref ID3D11Texture2D pSrcSurface, ref ID3D11Texture2D pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+			{
+				fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, pCryptoSession, (ID3D11Texture2D*)ppSrcSurface, (ID3D11Texture2D*)ppDstSurface, ivSize, piV);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ref ID3D11Texture2D pSrcSurface, ref ID3D11Texture2D pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+				{
+					fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)ppCryptoSession, (ID3D11Texture2D*)ppSrcSurface, (ID3D11Texture2D*)ppDstSurface, ivSize, piV);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, pCryptoSession, pSrcSurface, pDstSurface, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, pDstSurface, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void EncryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, uint, void*, void>)(handle->LpVtbl[55]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)ppCryptoSession, pSrcSurface, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ref ID3D11Texture2D pSrcSurface, ID3D11Texture2D* pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)ppSrcSurface, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ref ID3D11Texture2D pSrcSurface, ID3D11Texture2D* pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)ppCryptoSession, (ID3D11Texture2D*)ppSrcSurface, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ref ID3D11Texture2D pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)ppDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ID3D11Texture2D* pSrcSurface, ref ID3D11Texture2D pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)ppCryptoSession, pSrcSurface, (ID3D11Texture2D*)ppDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ref ID3D11Texture2D pSrcSurface, ref ID3D11Texture2D pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+			{
+				fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)ppSrcSurface, (ID3D11Texture2D*)ppDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ref ID3D11Texture2D pSrcSurface, ref ID3D11Texture2D pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+				{
+					fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)ppCryptoSession, (ID3D11Texture2D*)ppSrcSurface, (ID3D11Texture2D*)ppDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, pDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)ppCryptoSession, pSrcSurface, pDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, pDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ref ID3D11Texture2D pSrcSurface, ID3D11Texture2D* pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+			{
+				fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)ppSrcSurface, pDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ref ID3D11Texture2D pSrcSurface, ID3D11Texture2D* pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+				{
+					fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)ppCryptoSession, (ID3D11Texture2D*)ppSrcSurface, pDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ref ID3D11Texture2D pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+			{
+				fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)ppDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ID3D11Texture2D* pSrcSurface, ref ID3D11Texture2D pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+				{
+					fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)ppCryptoSession, pSrcSurface, (ID3D11Texture2D*)ppDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ref ID3D11Texture2D pSrcSurface, ref ID3D11Texture2D pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+			{
+				fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+				{
+					fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)ppSrcSurface, (ID3D11Texture2D*)ppDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, ref ID3D11Texture2D pSrcSurface, ref ID3D11Texture2D pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				fixed (ID3D11Texture2D* ppSrcSurface = &pSrcSurface)
+				{
+					fixed (ID3D11Texture2D* ppDstSurface = &pDstSurface)
+					{
+						fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+						{
+							((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)ppCryptoSession, (ID3D11Texture2D*)ppSrcSurface, (ID3D11Texture2D*)ppDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+						}
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, void* piV) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, piV);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, EncryptedBlockInfo* pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, pEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, pDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ID3D11Texture2D* pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, pDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ID3D11Texture2D* pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, pDstSurface, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ID3D11Texture2D* pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, pSrcSurface, (ID3D11Texture2D*)pDstSurface.Handle, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, pCryptoSession, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void DecryptionBlt<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, ComPtr<ID3D11Texture2D> pSrcSurface, ComPtr<ID3D11Texture2D> pDstSurface, ref EncryptedBlockInfo pEncryptedBlockInfo, uint contentKeySize, void* pContentKey, uint ivSize, ComPtr<T> piV) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (EncryptedBlockInfo* ppEncryptedBlockInfo = &pEncryptedBlockInfo)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, ID3D11Texture2D*, ID3D11Texture2D*, EncryptedBlockInfo*, uint, void*, uint, void*, void>)(handle->LpVtbl[56]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, (ID3D11Texture2D*)pSrcSurface.Handle, (ID3D11Texture2D*)pDstSurface.Handle, (EncryptedBlockInfo*)ppEncryptedBlockInfo, contentKeySize, pContentKey, ivSize, (void*)piV.Handle);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void StartSessionKeyRefresh(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, uint randomNumberSize, void* pRandomNumber) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, void>)(handle->LpVtbl[57]))(handle, pCryptoSession, randomNumberSize, pRandomNumber);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void StartSessionKeyRefresh(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, uint randomNumberSize, void* pRandomNumber) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, void>)(handle->LpVtbl[57]))(handle, (ID3D11CryptoSession*)ppCryptoSession, randomNumberSize, pRandomNumber);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void StartSessionKeyRefresh(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint randomNumberSize, void* pRandomNumber) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, void>)(handle->LpVtbl[57]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, randomNumberSize, pRandomNumber);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void StartSessionKeyRefresh<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, uint randomNumberSize, ComPtr<T> pRandomNumber) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, void>)(handle->LpVtbl[57]))(handle, pCryptoSession, randomNumberSize, (void*)pRandomNumber.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void StartSessionKeyRefresh<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint randomNumberSize, ComPtr<T> pRandomNumber) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, void>)(handle->LpVtbl[57]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, randomNumberSize, (void*)pRandomNumber.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void FinishSessionKeyRefresh(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, void>)(handle->LpVtbl[58]))(handle, pCryptoSession);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void FinishSessionKeyRefresh(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, void>)(handle->LpVtbl[58]))(handle, (ID3D11CryptoSession*)ppCryptoSession);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void FinishSessionKeyRefresh(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, void>)(handle->LpVtbl[58]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetEncryptionBltKey(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, uint keySize, void* pReadbackKey) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, pCryptoSession, keySize, pReadbackKey);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetEncryptionBltKey(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11CryptoSession pCryptoSession, uint keySize, void* pReadbackKey) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession* ppCryptoSession = &pCryptoSession)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)ppCryptoSession, keySize, pReadbackKey);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetEncryptionBltKey(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint keySize, void* pReadbackKey) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, keySize, pReadbackKey);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetEncryptionBltKey<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11CryptoSession* pCryptoSession, uint keySize, ComPtr<T> pReadbackKey) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, pCryptoSession, keySize, (void*)pReadbackKey.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int GetEncryptionBltKey<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11CryptoSession> pCryptoSession, uint keySize, ComPtr<T> pReadbackKey) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11CryptoSession*, uint, void*, int>)(handle->LpVtbl[59]))(handle, (ID3D11CryptoSession*)pCryptoSession.Handle, keySize, (void*)pReadbackKey.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext> comObj, ID3D11AuthenticatedChannel* pChannel, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, pChannel, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11AuthenticatedChannel pChannel, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, dataSize, pData);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int NegotiateAuthenticatedChannelKeyExchange(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint dataSize, void* pData) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, dataSize, pData);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int NegotiateAuthenticatedChannelKeyExchange<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11AuthenticatedChannel* pChannel, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, pChannel, dataSize, (void*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int NegotiateAuthenticatedChannelKeyExchange<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint dataSize, ComPtr<T> pData) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, int>)(handle->LpVtbl[60]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, dataSize, (void*)pData.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, uint outputSize, void* pOutput) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, pChannel, inputSize, pInput, outputSize, pOutput);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11AuthenticatedChannel pChannel, uint inputSize, void* pInput, uint outputSize, void* pOutput) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, outputSize, pOutput);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryAuthenticatedChannel(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, uint outputSize, void* pOutput) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, outputSize, pOutput);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryAuthenticatedChannel<T>(this ComPtr<ID3D11VideoContext> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, uint outputSize, ComPtr<T> pOutput) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, pChannel, inputSize, pInput, outputSize, (void*)pOutput.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryAuthenticatedChannel<T>(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, uint outputSize, ComPtr<T> pOutput) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, uint, void*, int>)(handle->LpVtbl[61]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, outputSize, (void*)pOutput.Handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, AuthenticatedConfigureOutput* pOutput) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, pChannel, inputSize, pInput, pOutput);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11AuthenticatedChannel pChannel, uint inputSize, void* pInput, AuthenticatedConfigureOutput* pOutput) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, pOutput);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, AuthenticatedConfigureOutput* pOutput) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, pOutput);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext> comObj, ID3D11AuthenticatedChannel* pChannel, uint inputSize, void* pInput, ref AuthenticatedConfigureOutput pOutput) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (AuthenticatedConfigureOutput* ppOutput = &pOutput)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, pChannel, inputSize, pInput, (AuthenticatedConfigureOutput*)ppOutput);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11AuthenticatedChannel pChannel, uint inputSize, void* pInput, ref AuthenticatedConfigureOutput pOutput) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11AuthenticatedChannel* ppChannel = &pChannel)
+			{
+				fixed (AuthenticatedConfigureOutput* ppOutput = &pOutput)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)ppChannel, inputSize, pInput, (AuthenticatedConfigureOutput*)ppOutput);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int ConfigureAuthenticatedChannel(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11AuthenticatedChannel> pChannel, uint inputSize, void* pInput, ref AuthenticatedConfigureOutput pOutput) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (AuthenticatedConfigureOutput* ppOutput = &pOutput)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11AuthenticatedChannel*, uint, void*, AuthenticatedConfigureOutput*, int>)(handle->LpVtbl[62]))(handle, (ID3D11AuthenticatedChannel*)pChannel.Handle, inputSize, pInput, (AuthenticatedConfigureOutput*)ppOutput);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int enable, VideoProcessorRotation rotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, pVideoProcessor, streamIndex, enable, rotation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int enable, VideoProcessorRotation rotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, enable, rotation);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorSetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int enable, VideoProcessorRotation rotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int, VideoProcessorRotation, void>)(handle->LpVtbl[63]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, enable, rotation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorRotation* pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, pEnable, pRotation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorRotation* pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, pRotation);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, VideoProcessorRotation* pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, pRotation);
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorRotation* pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, pRotation);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorRotation* pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, pRotation);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, VideoProcessorRotation* pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, pRotation);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorRotation pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorRotation* ppRotation = &pRotation)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, pEnable, (VideoProcessorRotation*)ppRotation);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorRotation pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (VideoProcessorRotation* ppRotation = &pRotation)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, pEnable, (VideoProcessorRotation*)ppRotation);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, int* pEnable, ref VideoProcessorRotation pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (VideoProcessorRotation* ppRotation = &pRotation)
+			{
+				((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, pEnable, (VideoProcessorRotation*)ppRotation);
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ID3D11VideoProcessor* pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorRotation pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorRotation* ppRotation = &pRotation)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, pVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorRotation*)ppRotation);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ref ID3D11VideoProcessor pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorRotation pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor* ppVideoProcessor = &pVideoProcessor)
+			{
+				fixed (int* ppEnable = &pEnable)
+				{
+					fixed (VideoProcessorRotation* ppRotation = &pRotation)
+					{
+						((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)ppVideoProcessor, streamIndex, (int*)ppEnable, (VideoProcessorRotation*)ppRotation);
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static void VideoProcessorGetStreamRotation(this ComPtr<ID3D11VideoContext> comObj, ComPtr<ID3D11VideoProcessor> pVideoProcessor, uint streamIndex, ref int pEnable, ref VideoProcessorRotation pRotation) 
+		{
+			ID3D11VideoContext* handle = comObj.Handle;
+			fixed (int* ppEnable = &pEnable)
+			{
+				fixed (VideoProcessorRotation* ppRotation = &pRotation)
+				{
+					((delegate* unmanaged[Stdcall]<ID3D11VideoContext*, ID3D11VideoProcessor*, uint, int*, VideoProcessorRotation*, void>)(handle->LpVtbl[64]))(handle, (ID3D11VideoProcessor*)pVideoProcessor.Handle, streamIndex, (int*)ppEnable, (VideoProcessorRotation*)ppRotation);
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<ID3D11VideoDevice> comObj, Guid* riid, void** ppvObject) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, riid, ppvObject);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface(this ComPtr<ID3D11VideoDevice> comObj, ref Guid riid, void** ppvObject) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, ppvObject);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<ID3D11VideoDevice> comObj, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			ppvObject = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)(ComUtils.GuidPtrOf<T>()), (void**)ppvObject.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int QueryInterface<T>(this ComPtr<ID3D11VideoDevice> comObj, ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* priid = &riid)
+			{
+				ppvObject = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, void**, int>)(*handle->LpVtbl))(handle, (Guid*)priid, (void**)ppvObject.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint AddRef(this ComPtr<ID3D11VideoDevice> comObj) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, uint>)(handle->LpVtbl[1]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static uint Release(this ComPtr<ID3D11VideoDevice> comObj) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			uint ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, uint>)(handle->LpVtbl[2]))(handle);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, ID3D11VideoDecoder** ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, pConfig, ppDecoder);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, ID3D11VideoDecoder** ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (VideoDecoderDesc*)ppVideoDesc, pConfig, ppDecoder);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, ID3D11VideoDecoder** ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (VideoDecoderConfig* ppConfig = &pConfig)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, (VideoDecoderConfig*)ppConfig, ppDecoder);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, ID3D11VideoDecoder** ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			{
+				fixed (VideoDecoderConfig* ppConfig = &pConfig)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, ppDecoder);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, ref ID3D11VideoDecoder* ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, VideoDecoderDesc* pVideoDesc, VideoDecoderConfig* pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			ppDecoder = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, ref ID3D11VideoDecoder* ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			{
+				fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)pppDecoder);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, ref VideoDecoderDesc pVideoDesc, VideoDecoderConfig* pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			{
+				ppDecoder = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (VideoDecoderDesc*)ppVideoDesc, pConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, ref ID3D11VideoDecoder* ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (VideoDecoderConfig* ppConfig = &pConfig)
+			{
+				fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, VideoDecoderDesc* pVideoDesc, ref VideoDecoderConfig pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (VideoDecoderConfig* ppConfig = &pConfig)
+			{
+				ppDecoder = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, pVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, ref ID3D11VideoDecoder* ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			{
+				fixed (VideoDecoderConfig* ppConfig = &pConfig)
+				{
+					fixed (ID3D11VideoDecoder** pppDecoder = &ppDecoder)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)pppDecoder);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoDecoder(this ComPtr<ID3D11VideoDevice> comObj, ref VideoDecoderDesc pVideoDesc, ref VideoDecoderConfig pConfig, out ComPtr<ID3D11VideoDecoder> ppDecoder) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (VideoDecoderDesc* ppVideoDesc = &pVideoDesc)
+			{
+				fixed (VideoDecoderConfig* ppConfig = &pConfig)
+				{
+					ppDecoder = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, VideoDecoderDesc*, VideoDecoderConfig*, ID3D11VideoDecoder**, int>)(handle->LpVtbl[3]))(handle, (VideoDecoderDesc*)ppVideoDesc, (VideoDecoderConfig*)ppConfig, (ID3D11VideoDecoder**)ppDecoder.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice> comObj, ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, pEnum, rateConversionIndex, ppVideoProcessor);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice> comObj, ref ID3D11VideoProcessorEnumerator pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, (ID3D11VideoProcessorEnumerator*)ppEnum, rateConversionIndex, ppVideoProcessor);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice> comObj, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, uint rateConversionIndex, ID3D11VideoProcessor** ppVideoProcessor) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, rateConversionIndex, ppVideoProcessor);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice> comObj, ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, ref ID3D11VideoProcessor* ppVideoProcessor) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessor** pppVideoProcessor = &ppVideoProcessor)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, pEnum, rateConversionIndex, (ID3D11VideoProcessor**)pppVideoProcessor);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice> comObj, ID3D11VideoProcessorEnumerator* pEnum, uint rateConversionIndex, out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			ppVideoProcessor = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, pEnum, rateConversionIndex, (ID3D11VideoProcessor**)ppVideoProcessor.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice> comObj, ref ID3D11VideoProcessorEnumerator pEnum, uint rateConversionIndex, ref ID3D11VideoProcessor* ppVideoProcessor) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (ID3D11VideoProcessorEnumerator* ppEnum = &pEnum)
+			{
+				fixed (ID3D11VideoProcessor** pppVideoProcessor = &ppVideoProcessor)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, (ID3D11VideoProcessorEnumerator*)ppEnum, rateConversionIndex, (ID3D11VideoProcessor**)pppVideoProcessor);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateVideoProcessor(this ComPtr<ID3D11VideoDevice> comObj, ComPtr<ID3D11VideoProcessorEnumerator> pEnum, uint rateConversionIndex, out ComPtr<ID3D11VideoProcessor> ppVideoProcessor) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			ppVideoProcessor = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, ID3D11VideoProcessorEnumerator*, uint, ID3D11VideoProcessor**, int>)(handle->LpVtbl[4]))(handle, (ID3D11VideoProcessorEnumerator*)pEnum.Handle, rateConversionIndex, (ID3D11VideoProcessor**)ppVideoProcessor.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateAuthenticatedChannel(this ComPtr<ID3D11VideoDevice> comObj, AuthenticatedChannelType channelType, ID3D11AuthenticatedChannel** ppAuthenticatedChannel) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(handle->LpVtbl[5]))(handle, channelType, ppAuthenticatedChannel);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateAuthenticatedChannel(this ComPtr<ID3D11VideoDevice> comObj, AuthenticatedChannelType channelType, ref ID3D11AuthenticatedChannel* ppAuthenticatedChannel) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (ID3D11AuthenticatedChannel** pppAuthenticatedChannel = &ppAuthenticatedChannel)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(handle->LpVtbl[5]))(handle, channelType, (ID3D11AuthenticatedChannel**)pppAuthenticatedChannel);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateAuthenticatedChannel(this ComPtr<ID3D11VideoDevice> comObj, AuthenticatedChannelType channelType, out ComPtr<ID3D11AuthenticatedChannel> ppAuthenticatedChannel) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			ppAuthenticatedChannel = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, AuthenticatedChannelType, ID3D11AuthenticatedChannel**, int>)(handle->LpVtbl[5]))(handle, channelType, (ID3D11AuthenticatedChannel**)ppAuthenticatedChannel.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, pKeyExchangeType, ppCryptoSession);
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppCryptoType = &pCryptoType)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, ppCryptoSession);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, ppCryptoSession);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppCryptoType = &pCryptoType)
+			{
+				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, ppCryptoSession);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppCryptoType = &pCryptoType)
+			{
+				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, Guid* pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
+			{
+				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, ref Guid pCryptoType, ref Guid pDecoderProfile, ref Guid pKeyExchangeType, ID3D11CryptoSession** ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppCryptoType = &pCryptoType)
+			{
+				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
+				{
+					fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, (Guid*)ppKeyExchangeType, ppCryptoSession);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
+			{
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, Guid* pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			ppCryptoSession = default;
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+			return ret;
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppCryptoType = &pCryptoType)
+			{
+				fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, ref Guid pCryptoType, Guid* pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppCryptoType = &pCryptoType)
+			{
+				ppCryptoSession = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
+			{
+				fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, Guid* pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppDecoderProfile = &pDecoderProfile)
+			{
+				ppCryptoSession = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppCryptoType = &pCryptoType)
+			{
+				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
+				{
+					fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, ref Guid pCryptoType, ref Guid pDecoderProfile, Guid* pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppCryptoType = &pCryptoType)
+			{
+				fixed (Guid* ppDecoderProfile = &pDecoderProfile)
+				{
+					ppCryptoSession = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, (Guid*)ppDecoderProfile, pKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
+			{
+				fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
+				{
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+					return ret;
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, Guid* pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
+			{
+				ppCryptoSession = default;
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, pCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+				return ret;
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, ref ID3D11CryptoSession* ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppCryptoType = &pCryptoType)
+			{
+				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
+				{
+					fixed (ID3D11CryptoSession** pppCryptoSession = &ppCryptoSession)
+					{
+						int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)pppCryptoSession);
+						return ret;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// To be documented.
+		/// </summary>
+		public static int CreateCryptoSession(this ComPtr<ID3D11VideoDevice> comObj, ref Guid pCryptoType, Guid* pDecoderProfile, ref Guid pKeyExchangeType, out ComPtr<ID3D11CryptoSession> ppCryptoSession) 
+		{
+			ID3D11VideoDevice* handle = comObj.Handle;
+			fixed (Guid* ppCryptoType = &pCryptoType)
+			{
+				fixed (Guid* ppKeyExchangeType = &pKeyExchangeType)
+				{
+					ppCryptoSession = default;
+					int ret = ((delegate* unmanaged[Stdcall]<ID3D11VideoDevice*, Guid*, Guid*, Guid*, ID3D11CryptoSession**, int>)(handle->LpVtbl[6]))(handle, (Guid*)ppCryptoType, pDecoderProfile, (Guid*)ppKeyExchangeType, (ID3D11CryptoSession**)ppCryptoSession.GetAddressOf());
+					return ret;
 				}
 			}
 		}

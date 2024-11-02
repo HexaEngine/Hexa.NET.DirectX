@@ -22,7 +22,6 @@ namespace Hexa.NET.D3D12
 	/// To be documented.
 	/// </summary>
 	[Guid("9727a022-cf1d-4dda-9eba-effa653fc506")]
-	[NativeName(NativeNameType.StructOrClass, "ID3D12DeviceRemovedExtendedData1")]
 	public partial struct ID3D12DeviceRemovedExtendedData1 : IComObject, IComObject<ID3D12DeviceRemovedExtendedData1>, IComObject<ID3D12DeviceRemovedExtendedData>, IComObject<IUnknown>
 	{
 		public unsafe void** LpVtbl;
@@ -37,9 +36,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] Guid* riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(Guid* riid, void** ppvObject) 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, Guid*, void**, int>)(*LpVtbl))(ptr, riid, ppvObject);
@@ -49,9 +46,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] void** ppvObject) 
+		public readonly unsafe int QueryInterface(ref Guid riid, void** ppvObject) 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -64,9 +59,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			ppvObject = default;
@@ -77,9 +70,7 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "QueryInterface")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int QueryInterface<T>([NativeName(NativeNameType.Param, "riid")] [NativeName(NativeNameType.Type, "const IID&")] ref Guid riid, [NativeName(NativeNameType.Param, "ppvObject")] [NativeName(NativeNameType.Type, "void**")] out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
+		public readonly unsafe int QueryInterface<T>(ref Guid riid, out ComPtr<T> ppvObject) where T : unmanaged, IComObject, IComObject<T>
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
 			fixed (Guid* priid = &riid)
@@ -93,8 +84,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "AddRef")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint AddRef() 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -105,8 +94,6 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "Release")]
-		[return: NativeName(NativeNameType.Type, "ULONG")]
 		public readonly unsafe uint Release() 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
@@ -117,26 +104,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAutoBreadcrumbsOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAutoBreadcrumbsOutput([NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT*")] D3D12DredAutoBreadcrumbsOutput* pOutput) 
+		public readonly unsafe int GetAutoBreadcrumbsOutput(DredAutoBreadcrumbsOutput* pOutput) 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, D3D12DredAutoBreadcrumbsOutput*, int>)(LpVtbl[3]))(ptr, pOutput);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, DredAutoBreadcrumbsOutput*, int>)(LpVtbl[3]))(ptr, pOutput);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAutoBreadcrumbsOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAutoBreadcrumbsOutput([NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT*")] ref D3D12DredAutoBreadcrumbsOutput pOutput) 
+		public readonly unsafe int GetAutoBreadcrumbsOutput(ref DredAutoBreadcrumbsOutput pOutput) 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12DredAutoBreadcrumbsOutput* ppOutput = &pOutput)
+			fixed (DredAutoBreadcrumbsOutput* ppOutput = &pOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, D3D12DredAutoBreadcrumbsOutput*, int>)(LpVtbl[3]))(ptr, (D3D12DredAutoBreadcrumbsOutput*)ppOutput);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, DredAutoBreadcrumbsOutput*, int>)(LpVtbl[3]))(ptr, (DredAutoBreadcrumbsOutput*)ppOutput);
 				return ret;
 			}
 		}
@@ -144,26 +127,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPageFaultAllocationOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPageFaultAllocationOutput([NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D12_DRED_PAGE_FAULT_OUTPUT*")] D3D12DredPageFaultOutput* pOutput) 
+		public readonly unsafe int GetPageFaultAllocationOutput(DredPageFaultOutput* pOutput) 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, D3D12DredPageFaultOutput*, int>)(LpVtbl[4]))(ptr, pOutput);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, DredPageFaultOutput*, int>)(LpVtbl[4]))(ptr, pOutput);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPageFaultAllocationOutput")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPageFaultAllocationOutput([NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D12_DRED_PAGE_FAULT_OUTPUT*")] ref D3D12DredPageFaultOutput pOutput) 
+		public readonly unsafe int GetPageFaultAllocationOutput(ref DredPageFaultOutput pOutput) 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12DredPageFaultOutput* ppOutput = &pOutput)
+			fixed (DredPageFaultOutput* ppOutput = &pOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, D3D12DredPageFaultOutput*, int>)(LpVtbl[4]))(ptr, (D3D12DredPageFaultOutput*)ppOutput);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, DredPageFaultOutput*, int>)(LpVtbl[4]))(ptr, (DredPageFaultOutput*)ppOutput);
 				return ret;
 			}
 		}
@@ -171,26 +150,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAutoBreadcrumbsOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAutoBreadcrumbsOutput1([NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1*")] D3D12DredAutoBreadcrumbsOutput1* pOutput) 
+		public readonly unsafe int GetAutoBreadcrumbsOutput1(DredAutoBreadcrumbsOutput1* pOutput) 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, D3D12DredAutoBreadcrumbsOutput1*, int>)(LpVtbl[5]))(ptr, pOutput);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, DredAutoBreadcrumbsOutput1*, int>)(LpVtbl[5]))(ptr, pOutput);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetAutoBreadcrumbsOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetAutoBreadcrumbsOutput1([NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D12_DRED_AUTO_BREADCRUMBS_OUTPUT1*")] ref D3D12DredAutoBreadcrumbsOutput1 pOutput) 
+		public readonly unsafe int GetAutoBreadcrumbsOutput1(ref DredAutoBreadcrumbsOutput1 pOutput) 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12DredAutoBreadcrumbsOutput1* ppOutput = &pOutput)
+			fixed (DredAutoBreadcrumbsOutput1* ppOutput = &pOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, D3D12DredAutoBreadcrumbsOutput1*, int>)(LpVtbl[5]))(ptr, (D3D12DredAutoBreadcrumbsOutput1*)ppOutput);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, DredAutoBreadcrumbsOutput1*, int>)(LpVtbl[5]))(ptr, (DredAutoBreadcrumbsOutput1*)ppOutput);
 				return ret;
 			}
 		}
@@ -198,26 +173,22 @@ namespace Hexa.NET.D3D12
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPageFaultAllocationOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPageFaultAllocationOutput1([NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D12_DRED_PAGE_FAULT_OUTPUT1*")] D3D12DredPageFaultOutput1* pOutput) 
+		public readonly unsafe int GetPageFaultAllocationOutput1(DredPageFaultOutput1* pOutput) 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, D3D12DredPageFaultOutput1*, int>)(LpVtbl[6]))(ptr, pOutput);
+			int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, DredPageFaultOutput1*, int>)(LpVtbl[6]))(ptr, pOutput);
 			return ret;
 		}
 
 		/// <summary>
 		/// To be documented.
 		/// </summary>
-		[NativeName(NativeNameType.Func, "GetPageFaultAllocationOutput1")]
-		[return: NativeName(NativeNameType.Type, "HRESULT")]
-		public readonly unsafe int GetPageFaultAllocationOutput1([NativeName(NativeNameType.Param, "pOutput")] [NativeName(NativeNameType.Type, "D3D12_DRED_PAGE_FAULT_OUTPUT1*")] ref D3D12DredPageFaultOutput1 pOutput) 
+		public readonly unsafe int GetPageFaultAllocationOutput1(ref DredPageFaultOutput1 pOutput) 
 		{
 			ID3D12DeviceRemovedExtendedData1* ptr = (ID3D12DeviceRemovedExtendedData1*)Unsafe.AsPointer(ref Unsafe.AsRef(in this));
-			fixed (D3D12DredPageFaultOutput1* ppOutput = &pOutput)
+			fixed (DredPageFaultOutput1* ppOutput = &pOutput)
 			{
-				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, D3D12DredPageFaultOutput1*, int>)(LpVtbl[6]))(ptr, (D3D12DredPageFaultOutput1*)ppOutput);
+				int ret = ((delegate* unmanaged[Stdcall]<ID3D12DeviceRemovedExtendedData1*, DredPageFaultOutput1*, int>)(LpVtbl[6]))(ptr, (DredPageFaultOutput1*)ppOutput);
 				return ret;
 			}
 		}
